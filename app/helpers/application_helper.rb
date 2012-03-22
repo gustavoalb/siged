@@ -126,9 +126,9 @@ end
 
 def com_regencia(objeto)
   if objeto==true
-    return "fazendo jus à regência de classe."
+    return " fazendo jus à regência de classe."
   else
-    return "não fazendo jus à regência de classe."
+    return " não fazendo jus à regência de classe."
   end
 end
 
