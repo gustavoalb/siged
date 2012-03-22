@@ -11,7 +11,7 @@ set :deploy_to, "/var/www/siged"
 set :scm, :git
 set :repository, "administrador@192.168.1.13:siged.git"
 set :branch, "master"
-set :deploy_via, :remote_cache
+set :deploy_via, :export
  
 set :user, 'deploy'
 set :password, '@#siged$%'
