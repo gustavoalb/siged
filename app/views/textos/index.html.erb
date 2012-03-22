@@ -1,4 +1,4 @@
-<article class="module width_3_quarter">
+<article class="module width_full">
 		<header><h3 class="tabs_involved">Listando textos</h3>
 		<ul class="tabs">
             <%= form_for @search,:url=>administracao_textos_url do |f| %>
@@ -27,7 +27,7 @@
     <td><%= texto.nome %></td>
     <td><%= texto.tipo %></td>
     <td><%= detalhes(texto.categoria) %></td>
-    <td><%= texto.texto %></td>
+    <td><%= "#{texto.texto}"[0..40] %></td>
     <td><%= link_to 'Detalhes', administracao_texto_path(texto) %></td>
     <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_administracao_texto_path(texto) %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), administracao_texto_path(texto), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>

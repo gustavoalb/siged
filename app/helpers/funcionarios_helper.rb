@@ -10,11 +10,11 @@ module FuncionariosHelper
 
   def municipio(func)
     if func.municipio and func.distrito
-      return raw("#{func.municipio.nome}/#{func.distrito.nome }")
+      return raw("/#{func.municipio.nome}/#{func.distrito.nome }")
     elsif func.municipio and func.distrito.nil?
-      return raw("#{func.municipio.nome}")
+      return raw("/#{func.municipio.nome}")
     else
-      return raw("<b><font color=red>NADA CADASTRADO</font></b>")
+      return ""
     end
   end
 

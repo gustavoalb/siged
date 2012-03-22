@@ -49,20 +49,21 @@
 <table class="tablesorter" cellspacing="0">
 <tr>
 
-    <td><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Funcionário à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
-    <%if can? :manage,Pessoa%><td><%= link_to  image_tag("/images/icn_edit.png",:title=>"Edição Rápida"),pessoa_edicao_rapida_path(pessoa,:funcionario_id=>funcionario.id),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:600px;width:800px"%></td><%end%>
-    <%if can? :manage,Formacao%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_edit.png',:title=>"Formações"), pessoa_formacoes_path(pessoa) %></td><%end%>
-    <%if can? :qualificar_funcionario,Pessoa%><td><%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%></td><%end%>
-     <%if !funcionario.lotacoes.atual.none?%>
-     <%if funcionario.lotacoes.atual.last.tipo_lotacao=="REGULAR" or funcionario.lotacoes.atual.last.tipo_lotacao=="SUMARIA" or funcionario.lotacoes.atual.last.tipo_lotacao=="PROLABORE"%>
-     <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(pessoa,funcionario,funcionario.lotacoes.atual.last.id,funcionario.lotacoes.atual.last.escola),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+    <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Funcionário à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+    <%if can? :manage,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_edit.png",:title=>"Edição Rápida"),pessoa_edicao_rapida_path(pessoa,:funcionario_id=>funcionario.id),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:600px;width:800px"%></td><%end -%>
+    <%if can? :manage,Formacao -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_edit.png',:title=>"Formações"), pessoa_formacoes_path(pessoa) %></td><%end -%>
+    <%if can? :qualificar_funcionario,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%></td><%end -%>
+     <%if !funcionario.lotacoes.atual.none? -%>
+     <%if funcionario.lotacoes.atual.last.tipo_lotacao=="REGULAR" or funcionario.lotacoes.atual.last.tipo_lotacao=="SUMARIA" or funcionario.lotacoes.atual.last.tipo_lotacao=="PROLABORE" -%>
+     <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(pessoa,funcionario,funcionario.lotacoes.atual.last.id,funcionario.lotacoes.atual.last.escola),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
 
-            <% end %>
-            <% else %>
-            <%if can? :manage,Lotacao %>
-            <td><%= link_to  image_tag('/images/icn_categories.png',:title=>"Lotação Funcional"),  pessoa_funcionario_lotacoes_path(pessoa,funcionario)%></td>
-            <% end %>
-            <% end %>
+            <% end -%>
+            <% else -%>
+            <%if can? :manage,Lotacao -%>
+            <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_categories.png',:title=>"Lotação Funcional"),  pessoa_funcionario_lotacoes_path(pessoa,funcionario)%></td>
+            <% end -%>
+            <% end -%>
+
 </tr>
 	<tr>
 		<th>Matrícula:</th>
