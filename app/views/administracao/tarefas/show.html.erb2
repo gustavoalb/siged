@@ -1,0 +1,96 @@
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function btnAcquire_onclick() {
+  frmSample.WebTwain1.AcquireImage();
+}
+
+function WebTwain1_OnPostTransfer() {
+  frmSample.WebTwain1.CloseSource();
+}
+
+var CurrentPath = CurrentPathName.substring(0, CurrentPathName.lastIndexOf("/") + 1);
+strActionPage = CurrentPath + "court_images/save_scanned_image?court_id="+court_id;
+frmScan.DynamicWebTwain1.HTTPPort = 3000;
+frmScan.DynamicWebTwain1.HTTPUploadThroughPost("aspire76", 0, strActionPage, "imageData.pdf");
+
+//-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE=javascript FOR=WebTwain1 EVENT=OnPostTransfer>
+<!--
+ WebTwain1_OnPostTransfer();
+//-->
+</SCRIPT>
+
+
+<object classid = "clsid:5220cb21-c88d-11cf-b347-00aa00a28331" VIEWASTEXT>
+  <param name="LPKPath" value="/developer.lpk" />
+</object>
+
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+<FORM id = frmSample>
+
+  <object classid="clsid:E7DA7F8D-27AB-4EE9-8FC0-3FEC9ECFE758"  width="204" height="219" id="WebTwain1" CodeBase = "/DynamicWebTWAIN.cab#version=4,2">      
+    <param name="_cx" value="640">
+      <param name="_cy" value="480">
+      <param name="JpgQuality" value="80">
+      <param name="Manufacturer" value="DynamSoft Corporation">
+      <param name="ProductFamily" value="Dynamic Web TWAIN">
+      <param name="ProductName" value="Dynamic Web TWAIN">
+      <param name="VersionInfo" value="Dynamic Web TWAIN 4.2">
+      <param name="TransferMode" value="0">
+      <param name="BorderStyle" value="0">
+      <param name="FTPUserName" value>
+      <param name="FTPPassword" value>
+      <param name="FTPPort" value="21">
+      <param name="HTTPUserName" value>
+      <param name="HTTPPassword" value>
+      <param name="HTTPPort" value="80">
+      <param name="ProxyServer" value>
+      <param name="IfDisableSourceAfterAcquire" value="0">
+      <param name="IfShowUI" value="-1">
+      <param name="IfModalUI" value="-1">
+      <param name="IfTiffMultiPage" value="0">
+      <param name="IfThrowException" value="0">
+      <param name="MaxImagesInBuffer" value="1">
+      <param name="TIFFCompressionType" value="0">
+      <param name="TIFFCompressionType" value="-1">
+    </object>
+    <br>
+&nbsp; 
+  <input id = btnAcquire type="button" value="Acquire" LANGUAGE=javascript onclick="return btnAcquire_onclick()">
+  <p>&nbsp;</p>
+
+</FORM>
+
+   
+
+<p>
+  <b>Tipo:</b>
+  <%= @administracao_tarefa.tipo %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @administracao_tarefa.data %>
+</p>
+
+<p>
+  <b>Executado:</b>
+  <%= @administracao_tarefa.executado %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_administracao_tarefa_path(@administracao_tarefa),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', administracao_tarefas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

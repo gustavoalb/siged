@@ -1,0 +1,29 @@
+<%content_for :links do%>
+		<%=link_to "Orgãos",orgaos_path%><div class="breadcrumb_divider"></div><%=link_to "Departamentos",orgao_departamentos_path%><div class="breadcrumb_divider"></div><a class="current">Tarefas do Dep.</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Tarefas do Departamento </h3></header>
+<div class="module_content">
+
+<table align=center>
+<tr>
+<td align=center><%=link_to image_tag("../images/icn_big_ponto.png",:title=>"Gerar ponto"),orgao_departamento_pontos_funcionarios_path(@orgao,@departamento)%></td>
+<td align=center><%=link_to image_tag("../images/icn_big_ponto.png",:title=>"Gerar ponto")%></td>
+</tr>
+<tr>
+<td align=center>Pontos do departamento</td>
+<td align=center>Gerar ponto</td>
+</tr>
+
+</table>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_orgao_departamento_path(@orgao,@departamento),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', orgao_departamentos_path(@orgao),:type=>"submit" %>
+				</div>
+			</footer>
+</article>

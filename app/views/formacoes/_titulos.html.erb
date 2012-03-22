@@ -1,0 +1,63 @@
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label_tag :status %><br /><br />
+   	<%= select :formacao,:status,Formacao::STATUS,:prompt=>true%>
+
+   </fieldset>
+
+   <%if @nivel.ordem <=11 %>
+   <%if !@nivel.titulos.none?%>
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label_tag :titulação %><br /><br />
+   	<%= select :formacao,:titulo_id,@titulos,:prompt=>true,:style=>"width:92%;" %>
+
+   </fieldset>
+   <%end%>
+   <% if !@nivel.subtipos.none? %>
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label_tag :tipo_de_formação %><br /><br />
+   	<%= select :formacao,:subtipo_id,@subtipos,:prompt=>true,:style=>"width:92%;" %>
+
+   </fieldset>
+   <%end%>
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label_tag :curso %><br /><br />
+   	<%= text_field :formacao,:curso,:style=>"width:92%;" %>
+
+   </fieldset>
+
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label_tag :carga_horaria %><br /><br />
+   	<%= text_field :formacao,:carga_horaria,:style=>"width:40%;" %>
+
+   </fieldset>
+
+   <%if @nivel.ordem==5%>
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label_tag :numero_de_registro %><br /><br />
+   	<%= text_field :formacao,:numero_registro,:style=>"width:40%;" %>
+
+   </fieldset>
+   <%end%>
+
+   <%if @nivel.ordem<7%>
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label_tag :título_do_trabalho %><br /><br />
+   	<%= text_field :formacao,:titulo_dissertacao,:style=>"width:92%;" %>
+
+   </fieldset>
+
+   <fieldset style="width:48%; float:left; margin-right: 1%;">
+   	<%= label :formacao,:nome_do_orientador %><br /><br />
+   	<%= text_field :formacao,:nome_orientador,:style=>"width:92%;" %>
+
+   </fieldset>
+   <%end%>
+
+   <%end%>
+
+<!--<fieldset style="width:48%; float:left; margin-right: 1%;">
+	<%= label_tag :habilitação %><br /><br />
+	<%= text_field :formacao,:habilitacao,:style=>"width:92%;" %>
+
+</fieldset>-->
+

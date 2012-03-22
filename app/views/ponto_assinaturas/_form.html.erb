@@ -1,0 +1,81 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@ponto_assinatura) do |f| %>
+  <% if @ponto_assinatura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ponto_assinatura.errors.count, "erro impede","erros impedem") %> este ponto_assinatura de ser cadastrado:</h2>
+
+      <ul>
+      <% @ponto_assinatura.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ip_assinatura %><br />
+        <%= f.text_field :ip_assinatura,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ponto_diario_id %><br />
+        <%= f.text_field :ponto_diario_id,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :data_assinatura %><br />
+        <%= f.calendar_date_select :data_assinatura,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :assinado %><br />
+
+    <%= f.check_box :assinado,:style=>"width:40%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :valido %><br />
+
+    <%= f.check_box :valido,:style=>"width:40%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :evento_id %><br />
+        <%= f.text_field :evento_id,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :tipo %><br />
+        <%= f.text_field :tipo,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :dia %><br />
+        <%= f.text_field :dia,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :mes %><br />
+        <%= f.text_field :mes,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ano %><br />
+        <%= f.text_field :ano,:style=>"width:92%;" %>
+
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ip_assinatura: MyString
+  data_assinatura: 2012-01-06 15:31:55
+  user_id: 1
+  pessoa_id: 1
+  funcionario_id: 1
+  ponto_id: 1
+  assinado: false
+  valido: false
+  evento_id: 1
+
+two:
+  ip_assinatura: MyString
+  data_assinatura: 2012-01-06 15:31:55
+  user_id: 1
+  pessoa_id: 1
+  funcionario_id: 1
+  ponto_id: 1
+  assinado: false
+  valido: false
+  evento_id: 1

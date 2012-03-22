@@ -1,0 +1,52 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando folha_eventos</h3>
+		<ul class="tabs">
+   			<%= form_for @search do |f| %>
+   			<li><%= f.text_field :busca,:size=>12 %></li>
+    		<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Codigo</th>
+    <th>Nome</th>
+    <th>Incide previdencia</th>
+    <th>Incide imposto renda</th>
+    <th>Formula</th>
+    <th>Tipo</th>
+    <th>Código contabil</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @folha_eventos.each do |folha_evento| %>
+  <tr>
+    <td><%= folha_evento.codigo %></td>
+    <td><%= folha_evento.nome %></td>
+    <td><%= folha_evento.incide_previdencia %></td>
+    <td><%= folha_evento.incide_imposto_renda %></td>
+    <td><%= folha_evento.formula %></td>
+    <td><%= folha_evento.tipo %></td>
+    <td><%= folha_evento.codigo_contabil %></td>
+    <td><%= link_to 'Detalhes', folha_evento %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_folha_evento_path(folha_evento) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), folha_evento, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Evento', new_folha_evento_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

@@ -1,0 +1,57 @@
+<article class="module width_full">
+		<header><h3 class="tabs_involved">Listando configuracao_pontos</h3>
+
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Ponto</th>
+    <th>Hora entrada manha</th>
+    <th>Tipo entrada manha</th>
+    <th>Hora saida manha</th>
+    <th>Tipo saida manha</th>
+    <th>Hora entrada tarde</th>
+    <th>Tipo entrada tarde</th>
+    <th>Hora saida tarde</th>
+    <th>Tipo saida tarde</th>
+    <th>Permitir hora extra</th>
+    <th>Permitir banco de horas</th>
+    <th>Entidade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @configuracao_pontos.each do |configuracao_ponto| %>
+  <tr>
+    <td><%= configuracao_ponto.ponto_id %></td>
+    <td><%= configuracao_ponto.hora_entrada_manha %></td>
+    <td><%= configuracao_ponto.tipo_entrada_manha %></td>
+    <td><%= configuracao_ponto.hora_saida_manha %></td>
+    <td><%= configuracao_ponto.tipo_saida_manha %></td>
+    <td><%= configuracao_ponto.hora_entrada_tarde %></td>
+    <td><%= configuracao_ponto.tipo_entrada_tarde %></td>
+    <td><%= configuracao_ponto.hora_saida_tarde %></td>
+    <td><%= configuracao_ponto.tipo_saida_tarde %></td>
+    <td><%= configuracao_ponto.permitir_hora_extra %></td>
+    <td><%= configuracao_ponto.permitir_banco_de_horas %></td>
+    <td><%= configuracao_ponto.entidade_id %></td>
+    <td><%= link_to 'Detalhes', configuracao_ponto %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_configuracao_ponto_path(configuracao_ponto) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), configuracao_ponto, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Configuracao ponto', new_configuracao_ponto_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+	</head>
+	<body>
+	<table border=0 id="background-image" align="center" style="width=100%; background: url('<%=Rails.root.join('public','images','carta/logo_grande.png').to_s%>') 0px 470px no-repeat;" >
+
+
+		<tr>
+			<td width=33.3%></td>
+			<td  width=33.3%><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:width=>"60",:height=>"80",:style=>"align='center'"%></td>
+			<td align=right width=33.3%><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"140", :height=>"100"%></td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=center style="font-size:14">
+				GOVERNO DO ESTADO DO AMAPÁ<br/>
+				SECRETARIA DE ESTADO DA EDUCAÇÃO<br/>
+				COORDENADORIA DE ADMINISTRAÇÃO<br/>
+				NÚCLEO DE PESSOAL<br/>
+                UNIDADE DE CADASTRO<br/>
+			</td>
+		</tr>
+
+
+
+
+		<tr>
+			<td colspan=3 align=left style="font-size:14">
+				<br/><br/>
+				<br/><br/>
+                <br/>
+                <br/>
+                <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao: <%=@departamento.nome%>/<%=@departamento.orgao.sigla%>
+
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan=3 align=justify><br/><br/>
+<br/> 
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Com cordiais cumprimentos, qualificamos o servidor (a) <%=negritar(@pessoa)%>, ocupando os seguintes cargos:</p>
+<ul>
+<%@pessoa.funcionarios.each do |funcionario|%>
+<%@lotacao = funcionario.lotacoes.last%>
+<%if @lotacoes.size>0 %>
+
+<li><p><%t = Liquid::Template.parse(funcionario.categoria.textos.find_by_nome("lotado").texto) -%> <%=raw(t.render('cargo'=>cargo_disciplina(funcionario),'municipio'=>municipio(funcionario),'matricula'=>funcionario.matricula,'data_nomeacao'=>funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(funcionario.entidade),'orgao'=>detalhes(funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(funcionario.nivel),'categoria'=>detalhes(funcionario.categoria)))%></p></li>
+
+
+<%else%>
+
+<li><p><%t = Liquid::Template.parse(funcionario.categoria.textos.find_by_nome("nao lotado").texto) -%> <%=raw(t.render('cargo'=>cargo_disciplina(funcionario),'matricula'=>funcionario.matricula,'data_nomeacao'=>funcionario.data_nomeacao.to_s_br,'municipio'=>municipio(funcionario),'entidade'=>detalhes(funcionario.entidade),'orgao'=>detalhes(funcionario.orgao),'jornada'=>jornada(funcionario.nivel),'categoria'=>detalhes(funcionario.categoria)))%></p>
+</li>
+	
+	<%end%>
+<%end%>
+
+</ul>
+<br/><br/><br/><br/><center>Cordialmente,</center><br/><br/><br/><br/>
+    </td>
+    </tr>
+
+   <tr>
+				<td colspan=3><p><br/><br/><br/><br/><br/>____________________________________<br/>
+				José Freitas de Souza<br/>
+				Chefe da UCADA<br/>
+				Decreto nº 0098/2011-GEA</td>
+		</tr></p>
+<br />
+<br />
+
+
+
+
+</table>
+	
+
+
+
+
+	
+   </body>
+
+</html>

@@ -1,0 +1,52 @@
+<%content_for :links do%>
+		<%=link_to "Folhas",folha_folhas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes Folha</h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Competencia:</b>
+  <%= @folha_folha.competencia.nome %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @folha_folha.ano %>
+</p>
+
+<p>
+  <b>Mes:</b>
+  <%= @folha_folha.mes %>
+</p>
+
+<p>
+  <b>Padrao:</b>
+  <%= @folha_folha.padrao %>
+</p>
+
+<p>
+  <b>Esfera:</b>
+  <%= @folha_folha.esfera_id %>
+</p>
+
+<p>
+  <b>Entidade:</b>
+  <%= @folha_folha.entidade_id %>
+</p>
+
+<p>
+  <b>Ativa:</b>
+  <%= @folha_folha.ativa %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_folha_folha_path(@folha_folha),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', folha_folhas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

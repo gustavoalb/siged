@@ -1,0 +1,39 @@
+<%content_for :links do%>
+		<%=link_to "Matrizes",matrizes_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Codigo:</b>
+  <%= @matriz.codigo %>
+</p>
+
+<p>
+  <b>Nivel:</b>
+  <%= @matriz.nivel %>
+</p>
+
+<p>
+  <b>Modalidade:</b>
+  <%= @matriz.modalidade %>
+</p>
+
+<p>
+  <b>Dias letivos anuais:</b>
+  <%= @matriz.dias_letivos_anuais %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_matriz_path(@matriz),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', matrizes_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

@@ -1,0 +1,63 @@
+<%=stylesheet_link_tag 'listas'%>
+    <%if alert%>
+      <h4 class='alert_warning'><%=raw(alert)%></h4>
+    <%end%>
+<div id="pessoas">
+<article class="module width_full">
+    <div class="tab_container">
+
+
+<%if @pessoas%>
+<%content_for :links do%>
+
+
+<%end%>
+
+<header><h3 class="tabs_involved">Pessoas incluídas na Lista</h3>
+<%if @pessoas.size>0%>
+<div style="background: url('/images/lixeira.png') no-repeat; background-color: rgb(255, 255, 255);" class="" id="lixeira"></div>
+<%end%>
+		</header>
+
+<ul class="gallery">
+
+<% @pessoas.each do |pessoa| %>
+   <%@lista = Lista.da_pessoa(pessoa.id,@tipo_lista.id).last%>
+    <div id="draggable_demo_<%=pessoa.id%>" class="draggable_<%=pessoa.id%>"><li><a href="#"><em2><%=pessoa.nome%></em2><em><p><b>Motivo:</b><br/><%=@lista.motivo[0,20]%>...</p><p><b>Data: <%=@lista.created_at.to_date.to_s_br%></b></p></em><%=image_tag "/images/noimage.png"%>
+     </a></li>
+      <%= draggable_element "draggable_demo_#{pessoa.id}", :revert => true %>
+    </div>
+
+
+
+
+<%= drop_receiving_element("lixeira",
+  :update => "pessoas",
+  :method => :delete,
+  :remote=>true,
+  :url =>  { :controller => "tipo_listas", :action => "remover_pessoa",:id=>@tipo_lista.id,:pessoa_id=>pessoa.id},
+  :accept=>"draggable_#{pessoa.id}",
+  :confirm => "Tem certeza que deseja remover a pessoa da lista?") %>
+
+<%end%>
+
+</ul>
+
+
+</div>
+
+<div class='clear'>
+</div>
+<br/>
+        <footer>
+				<div class="submit_link">
+				<%=link_to "Incluir de um arquivo",tipo_lista_adicionar_de_arquivo_path(@tipo_lista)%>
+				<%=will_paginate @pessoas%>
+
+				</div>
+			</footer>
+</article>
+
+<%end%>
+
+</div>

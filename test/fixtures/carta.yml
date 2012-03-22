@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  funcionario_id: 1
+  lotacao_id: 1
+  impressa: false
+  carta_file_name: MyString
+  carta_content_type: MyString
+  carta_file_size: 1
+  carta_updated_at: 1
+
+two:
+  funcionario_id: 1
+  lotacao_id: 1
+  impressa: false
+  carta_file_name: MyString
+  carta_content_type: MyString
+  carta_file_size: 1
+  carta_updated_at: 1

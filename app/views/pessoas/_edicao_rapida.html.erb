@@ -1,0 +1,97 @@
+<script type="text/javascript">
+
+Event.observe(window, 'load', function() {
+
+  new MaskedInput('#date', '99/99/9999');
+  new MaskedInput("#pessoa_telefone_residencial", '(99) 9999-9999');
+  new MaskedInput('#pessoa_telefone_celular', '(99) 9999-9999');
+  new MaskedInput('#pessoa_cpf', '999.999.999-99');
+  new MaskedInput('#ssn', '999-99-9999');
+  new MaskedInput('#product', 'a*-999-a999');
+
+  new MaskedInput('#eyescript', '~9.99 ~9.99 999', {
+    completed: function(){
+      alert("You typed the following: " + this.getValue());
+    }
+  });
+
+  MaskedInput.definitions['~']='[+-]';
+
+  new MaskedInput('#eyescript2', '~9.99 ~9.99 999', {
+    completed: function(){
+      alert("You typed the following: " + this.getValue());
+    }
+  });
+});
+</script>
+
+<%= form_for(@pessoa) do |f| %>
+
+<%=hidden_field_tag :edicao_rapida,:value=>true%>
+
+<fieldset style="width:97%; float:left; margin-right: 1%;">
+  <table>
+    <tr>
+      <th  align=left>ENDEREÇO</th>
+      <th  align=left>NÚMERO</th>
+    </tr>
+    <tr>
+      <td><%= f.text_field :endereco,:style=>"width:92%;" %></td>
+
+      <td><%= f.text_field :numero,:style=>"width:20%;" %></td>
+    </tr>
+  </table>
+
+</fieldset>
+
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+  <%= f.label :telefone_residencial %><br />
+  <%= f.text_field :telefone_residencial,:style=>"width:92%;" %>
+
+</fieldset>
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+  <%= f.label :telefone_celular %><br />
+  <%= f.text_field :telefone_celular,:style=>"width:92%;" %>
+</fieldset>
+
+<%@pessoa.funcionarios.each do |funcionario|%>
+
+<fieldset style="width:97.5%; float:left; margin-right: 1%; background: #FFFFFF; border: 0px solid #FFFFFF;">
+<h4>Funcionario com cadastro <%=funcionario.matricula%><br/></h4>
+
+<%=fields_for(funcionario) do |f2|%>
+
+<%if funcionario.cargo and funcionario.cargo.tipo and funcionario.cargo.tipo.nome=='Magistério/Docência'%>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+  <%= f2.label :disciplina_de_contratação %><br />
+  <%= f2.select :disciplina_contratacao_id,@descs,:prompt=>true,:style=>"width:92%;" %>
+</fieldset>
+<%end%>
+
+<%if funcionario.categoria and funcionario.categoria.nome=='Estado Novo'%>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+  <%= f2.label :municipio_de_opção %><br />
+  <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>
+</fieldset>
+<%end -%>
+
+<%end%>
+</fieldset>
+
+<%end%>
+
+
+
+<div class='submit_link'>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <%=f.submit%>
+</div>
+
+<%end%>

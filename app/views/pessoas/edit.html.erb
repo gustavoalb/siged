@@ -1,0 +1,6 @@
+<%content_for :links do%>
+		<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><a class="current">Editando Pessoa</a>
+
+<%end%>
+<%= render 'form',:legenda=>"Editando #{@pessoa.nome.titleize}" %>
+

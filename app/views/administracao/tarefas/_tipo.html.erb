@@ -1,0 +1,9 @@
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= label :administracao_tarefa,:valor %><br />
+        <%if @objetos and @objetos.size>0 %>
+        <%= select :administracao_tarefa,:valor,@objetos,:prompt=>true,:style=>"width:92%;" %>
+        <%else%>
+         <%= text_field :administracao_tarefa,:valor,:style=>"width:92%;" %>
+        <%end%>
+
+  </fieldset>

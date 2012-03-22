@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+	<%= wicked_pdf_stylesheet_link_tag "greytable" -%>
+	</head>
+	<body>
+
+	<table border=0 style="width:100%; height:100%;">
+
+
+		<tr>
+
+			<td align='right' width=39.5%><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:style=>"align='center'"%></td>
+			<td align='right' class='td1'><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=center>
+				GOVERNO DO ESTADO DO AMAPÁ<br/>
+				SECRETARIA DE ESTADO DA EDUCAÇÃO<br/><br/>
+				AGENDA TELEFÔNICA<br/>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<br/>
+
+<center>
+<table id="table2"  cellspacing="0">
+<thead class='thead2' >
+  <tr >
+    <th class='th2' >Setor</th>
+    <th class='th2'>Sigla</th>
+    <th class='th2'>Telefone</th>
+    <th class='th2'>Responsável</th>
+    <%if current_user.role?("gabinete")  or current_user.role?('admin')%>
+    <th class='th2'>Telefones</th>
+    <%end%>
+  </tr>
+</thead>
+<tbody class='tbody2'>
+<% @departamentos.each do |departamento| %>
+  <tr  class='<%= cycle("odd", "even", :name => "row_class") -%>'>
+    <td class='td2' ><%= departamento.nome %></td>
+    <td  class='td2' align='center'><%= departamento.sigla %></td>
+    <td  class='td2' width="11%" align='center'><%= departamento.telefone %></td>
+    <td   class='td2' align='center'><%= detalhes(departamento.pessoa_responsavel) %></td>
+    <%if current_user.role?("gabinete") or current_user.role?('admin')%>
+    <td  class='td2' width=auto><%=telefones(departamento.pessoa_responsavel)%></td>
+    <%end%>
+ </tr>
+<% end %>
+</tbody>
+</table>
+</center>
+
+</body>
+</html>

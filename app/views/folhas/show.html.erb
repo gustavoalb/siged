@@ -1,0 +1,40 @@
+<article class="module width_full">
+<header><h3>Detalhes da folha <%=@folha.nome%> </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Codigo:</b>
+  <%= @folha.codigo %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @folha.nome %>
+</p>
+
+<p>
+  <b>Esfera:</b>
+  <%= @folha.quadro.esfera.nome %>
+</p>
+
+<p>
+  <b>Poder:</b>
+  <%= @folha.quadro.poder.nome %>
+</p>
+
+<p>
+  <b>Quadro:</b>
+  <%= @folha.quadro.nome %>
+</p>
+
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_quadro_folha_path(@quadro,@folha),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', quadro_folhas_path(@quadro),:type=>"submit" %>
+				</div>
+			</footer>
+</article>

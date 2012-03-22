@@ -1,0 +1,53 @@
+<%content_for :links do%>
+		<%=link_to "Folhas",folha_folhas_path%><div class="breadcrumb_divider"></div><a class="current">Financeiro</a>
+<%end%>
+<article class="module width_full">
+		<header><h3 class="tabs_involved">Listando Financeiros Funcionais</h3>
+
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Funcionário</th>
+    <th>Nome</th>
+    <th>Evento</th>
+    <th>Sequencia</th>
+    <th>Valor</th>
+    <th>Prazo</th>
+    <th>Parametro</th>
+    <th>Quantidade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @folha_financeiros.each do |folha_financeiro| %>
+  <tr>
+    <td><%= folha_financeiro.funcionario.matricula %></td>
+    <td><%= folha_financeiro.funcionario.nome %></td>
+    <td><%= folha_financeiro.evento.codigo %></td>
+    <td><%= folha_financeiro.sequencia %></td>
+    <td><%= folha_financeiro.valor.reais_contabeis %></td>
+    <td><%= folha_financeiro.prazo %></td>
+    <td><%= folha_financeiro.parametro %></td>
+    <td><%= folha_financeiro.quantidade %></td>
+    <td><%= link_to 'Detalhes', folha_folha_financeiro_path(@folha,folha_financeiro) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_folha_folha_financeiro_path(@folha,folha_financeiro) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), folha_folha_financeiro_path(@folha,folha_financeiro), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to  image_tag("/images/boletim.png",:title=>"Imprimir Financeiros"), folha_folha_imprimir_financeiros_path(@folha) %>&nbsp;&nbsp;&nbsp;
+				  <%= link_to 'Cadastrar Financeiro', new_folha_folha_financeiro_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', folha_folhas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

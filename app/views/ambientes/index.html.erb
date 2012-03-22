@@ -1,0 +1,52 @@
+<%content_for :links do%>
+		<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Ambientes</a>
+
+<%end%>
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando ambientes</h3>
+		<ul class="tabs">
+   			<%= form_for @search do |f| %>
+   			<li><%= f.text_field :busca,:size=>12 %></li>
+    		<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Tipo ambiente</th>
+    <th>Ativo</th>
+    <th>Ano Letivo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @ambientes.each do |ambiente| %>
+  <tr>
+    <td><%= ambiente.nome %></td>
+    <td><%= ambiente.tipo_ambiente.nome %></td>
+    <td><%= ambiente.ativo %></td>
+    <td><%= ambiente.ano_letivo %></td>
+    <td><%= link_to 'Detalhes', escola_ambiente_path(@escola,ambiente)%></td>
+    <td><%=config_ambiente_tipo(@escola,ambiente)%></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_escola_ambiente_path(@escola,ambiente) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), escola_ambiente_path(@escola,ambiente), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Ambiente', new_escola_ambiente_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

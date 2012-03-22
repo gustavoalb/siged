@@ -1,0 +1,65 @@
+<article class="module width_full">
+<header><h3>Cadastrar Financeiro da <%=detalhes(@folha.fonte_recurso)%> Ano: <%=@folha.ano%> - Mês: <%=@folha.mes%> - <%=detalhes(@folha.competencia)%></h3><div id="nome_funcionario"></div><div id="nome_evento"></div></header>
+<div class="module_content">
+
+
+<%= form_for @folha_financeiro,:url=>folha_folha_financeiros_url do |f| %>
+  <% if @folha_financeiro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@folha_financeiro.errors.count, "erro impede","erros impedem") %> este registro financeiro de ser cadastrado:</h2>
+
+      <ul>
+      <% @folha_financeiro.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+  <fieldset style="width:100%; float:left; margin-right: 1%;">
+    <table>
+    <thead>
+    <tr>
+    <th>Alt.</th>
+    <th>Matrícula</th>
+    <th>Evento</th>
+    <th>Seq.</th>
+    <th>Prazo</th>
+    <th>Param</th>
+    <th>QTD</th>
+    <th>Valor</th>
+    <th>Observação</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%=f.select :codigo_alt,[["I"],["A"],["R"]],:style=>"width:70%;" %></td>
+        <td><div id="matricula"><%= text_field_with_auto_complete :folha_financeiro, :funcionario_id,:select=>'id',:style=>"width:70%;",:update=>'folha_financeiro_sequencia',:url=>folha_financeiros_url %></div></td>
+        <td><div id="evento"><%= text_field_with_auto_complete :folha_financeiro, :evento_id,:style=>"width:70%;" %></div></td>
+        <td><%= f.text_field :sequencia,:style=>"width:70%;" %></td>
+        <td><%= f.text_field :prazo,:style=>"width:70%;" %></td>
+        <td><%= f.text_field :parametro,:style=>"width:70%;" %></td>
+        <td><%= f.text_field :quantidade,:style=>"width:70%;" %></td>
+        <td><%= f.text_field :valor,:style=>"width:70%;" %></td>
+      </tr>
+    </tbody>
+   </table>
+  </fieldset>
+        <%= f.hidden_field :ano,:value=>@folha.ano -%>
+        <%= f.hidden_field :mes,:value=>@folha.mes -%>
+        <%= f.hidden_field :folha_id,:value=>@folha.id -%>
+
+  </fieldset>
+
+
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

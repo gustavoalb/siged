@@ -1,0 +1,40 @@
+
+<%= form_for @turma,:url=>escola_ambiente_salvar_turma_url(@escola,@ambiente),:remote=>true do |f| %>
+  <% if @turma.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@turma.errors.count, "erro impede","erros impedem") %> este ambiente de ser cadastrado:</h2>
+
+      <ul>
+      <% @turma.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=f.hidden_field :escola_id,:value=>@escola.id%>
+
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :serie_id %><br />
+        <%= f.select :serie_id,@series,:style=>"width:92%;",:prompt=>"Selecione a Série da Turma"%>
+  </fieldset>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label "Turno" %><br />
+        <%= f.select :turno,Turma::TURNO,:style=>"width:92%;" %>
+  </fieldset>
+
+<%=observe_field :turma_serie_id, :url => "/ambientes/matrizes",
+      :frequency => 0.25,
+      :with => "'serie='+value+'&escola_id='+#{@escola.id}"%>
+  <div id="matriz"></div>
+
+
+<div class="clear"></div>
+</div>
+
+				<div class="submit_link">
+					<%=f.submit "Salvar Turma",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+
+<% end %>

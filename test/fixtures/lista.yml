@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  funcionario_id: 1
+  data_inclusao: 1
+  tipo_lista_id: 1
+  motivo: MyText
+  ativo: false
+
+two:
+  funcionario_id: 1
+  data_inclusao: 1
+  tipo_lista_id: 1
+  motivo: MyText
+  ativo: false

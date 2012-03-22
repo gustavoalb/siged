@@ -1,0 +1,30 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @municipio.nome %>
+</p>
+
+<p>
+  <b>Cep:</b>
+  <%= @municipio.cep %>
+</p>
+
+<p>
+  <b>Sigla:</b>
+  <%= @municipio.sigla %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_municipio_path(@municipio),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', municipios_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

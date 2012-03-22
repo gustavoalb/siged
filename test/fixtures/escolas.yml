@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  nome_da_escola: MyString
+  tipologia: MyString
+  municipio: MyString
+  rede: MyString
+  zona: MyString
+  endereco: MyString
+  cidade_id: 1
+  telefone: MyString
+  fax: MyString
+  email: MyString
+  latitude: 1
+  longitude: 1
+  nae_id: 1
+
+two:
+  codigo: MyString
+  nome_da_escola: MyString
+  tipologia: MyString
+  municipio: MyString
+  rede: MyString
+  zona: MyString
+  endereco: MyString
+  cidade_id: 1
+  telefone: MyString
+  fax: MyString
+  email: MyString
+  latitude: 1
+  longitude: 1
+  nae_id: 1

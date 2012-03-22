@@ -1,0 +1,44 @@
+<%content_for :links do%>
+		<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><%=link_to "Ambientes",escola_ambientes_path%><div class="breadcrumb_divider"></div><a class="current">Configurando Ambientes  </a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Configurar Ambiente</h3></header>
+<div class="module_content">
+<h3>Turmas Cadastradas no Ambiente</h3>
+<div id="turma">
+<table class="tablesorter" cellspacing="0">
+<thead>
+<tr>
+<th>Turno</th>
+<th>Tipo do Ambiente</th>
+<th>Matriz do ambiente</th>
+<th>Ações</th>
+</tr>
+</thead>
+<tbody>
+<%@ambientes_fisicos.each do |t|%>
+<tr>
+<td><%=t.turno%></td>
+<td><%=t.tipo_ambiente%></td>
+<td><%=t.matriz.codigo%></td>
+<td><%=link_to "Remover Sala", escola_ambiente_excluir_turma_path(@escola,@ambiente,:turma_id=>t.id),:confirm=>"Tem certeza que deseja remover a sala",:remote=>true%></td>
+</tr>
+<%end%>
+</tbody>
+</table>
+</div>
+<br/>
+
+
+<div class="clear"></div>
+
+</div>
+
+<footer>
+<div class=submit_link>
+<%=config_ambiente(@escola,@ambiente)%>
+</div>
+</footer>
+
+</article>

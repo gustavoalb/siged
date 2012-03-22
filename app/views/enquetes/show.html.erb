@@ -1,0 +1,45 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Ocasião:</b>
+  <%= resposta(@enquete.tipo) %>
+</p>
+
+<p>
+  <b>Sujeito:</b>
+  <%= resposta(@enquete.sujeito) %>
+</p>
+
+<p>
+  <b>Expectivas em relação à Nova Gestão:</b>
+  <%= resposta(@enquete.opiniao_um) %>
+</p>
+
+<p>
+  <b>Justificativa:</b>
+  <%= resposta(@enquete.comentario_um) %>
+</p>
+
+<p>
+  <b>Expectativas em relação à Escola:</b>
+  <%= resposta(@enquete.opiniao_dois) %>
+</p>
+
+<p>
+  <b>Justificativa:</b>
+  <%= resposta(@enquete.comentario_dois) %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_enquete_path(@enquete),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', enquetes_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

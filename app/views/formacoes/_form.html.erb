@@ -1,0 +1,92 @@
+<script type="text/javascript">
+
+    Event.observe(window, 'load', function() {
+
+        new MaskedInput('#formacao_data_obtencao_titulo', '99/9999');
+        new MaskedInput('#formacao_ano_de_inicio', '9999');
+        new MaskedInput('#formacao_ano_de_termino', '9999');
+        new MaskedInput("#pessoa_telefone_residencial", '(99) 9999-9999');
+new MaskedInput('#pessoa_telefone_celular', '(99) 9999-9999');
+new MaskedInput('#pessoa_cpf', '999.999.999-99');
+new MaskedInput('#ssn', '999-99-9999');
+new MaskedInput('#product', 'a*-999-a999');
+
+new MaskedInput('#eyescript', '~9.99 ~9.99 999', {
+completed: function(){
+alert("You typed the following: " + this.getValue());
+}
+});
+
+MaskedInput.definitions['~']='[+-]';
+
+new MaskedInput('#eyescript2', '~9.99 ~9.99 999', {
+completed: function(){
+alert("You typed the following: " + this.getValue());
+}
+});
+    });
+    </script>
+
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+
+<%= form_for @formacao,:url=>pessoa_formacoes_url do |f| %>
+  <% if @formacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@formacao.errors.count, "error") %> prohibited this formacao from being saved:</h2>
+
+      <ul>
+      <% @formacao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :pessoa_id,:value=>@pessoa.id%>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nivel %><br />
+        <%= f.select :nivel_id,@niveis_f,:prompt=>true,:style=>"width:92%;" %>
+
+  </fieldset>
+
+
+
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :instituição %><br /><br />
+        <%= f.text_field :instituicao,:style=>"width:92%;" %>
+
+  </fieldset>
+
+    <%=observe_field :formacao_nivel_id, :url => "/formacoes/titulos",
+    :frequency => 0.25,
+    :update => :tit,
+    :with => 'niv'%>
+
+    <div id=tit>
+    </div>
+
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ano_de_início %><br /><br />
+        <%= f.text_field :ano_de_inicio,:style=>"width:40%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ano_de_término %><br /><br />
+        <%= f.text_field :ano_de_termino,:style=>"width:40%;" %>
+
+  </fieldset>
+  
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

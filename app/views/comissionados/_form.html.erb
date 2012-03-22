@@ -1,0 +1,61 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@comissionado) do |f| %>
+  <% if @comissionado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comissionado.errors.count, "erro impede","erros impedem") %> este comissionado de ser cadastrado:</h2>
+
+      <ul>
+      <% @comissionado.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :tipo %><br />
+        <%= f.select :tipo,Comissionado::TIPO,:prompt=>true,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :data %><br />
+        <%= f.calendar_date_select :data,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+
+  </fieldset>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :decreto %><br />
+        <%= f.text_field :decreto,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :data_publicacao %><br />
+        <%= f.calendar_date_select :data_publicacao,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :orgao_id %><br />
+        <%= f.select :orgao_id,@orgaos,:include_blank=>true,:style=>"width:92%;"  %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :descricao_comissao %><br />
+        <%= f.text_field :descricao_comissao,:style=>"width:92%;" %>
+
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

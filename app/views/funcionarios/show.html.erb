@@ -1,0 +1,103 @@
+<%content_for :links do%>
+		<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Detalhes de Funcionários</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de <%=@pessoa.nome.titleize%>  <% if can? :qualificar,Funcionario %>-<%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(@pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%><%end%>  </h3></header>
+
+<div class="module_content">
+
+
+<p>
+  <b>Matrícula:</b>
+  <%= @funcionario.matricula %>
+</p>
+
+<p>
+  <b>Cargo:</b>
+  <%= cargo_disciplina(@funcionario) %>
+</p>
+
+<p>
+  <b>Orgão:</b>
+  <%= detalhes(@funcionario.orgao)%>
+</p>
+
+<p>
+  <b>Nível:</b>
+  <%= cod(@funcionario.nivel) %>
+</p>
+
+<p>
+  <b>Quadro:</b>
+  <%= detalhes(@funcionario.entidade)%>
+</p>
+
+<p>
+  <b>Categoria Funcional:</b>
+  <%= detalhes(@funcionario.categoria) %>
+</p>
+
+<p>
+  <b>Jornada:</b>
+  <%= detalhes_str("#{@funcionario.nivel.jornada} Horas semanais") %>
+</p>
+
+<p>
+  <b>Data da Nomeação:</b>
+  <%= detalhes_str(@funcionario.data_nomeacao.to_s_br) %>
+</p>
+
+<p>
+  <b>Decreto de nomeacao:</b>
+  <%= detalhes_str(@funcionario.decreto_nomeacao) %>
+</p>
+
+<p>
+  <b>Termo de posse:</b>
+  <%= detalhes_str(@funcionario.termo_posse) %>
+</p>
+
+<p>
+  <b>Situação jurídica:</b>
+  <%= detalhes(@funcionario.sjuridica) %>
+</p>
+<%if current_user.role?("ucolom")==false%>
+<p>
+  <b>Folha:</b>
+  <%= detalhes(@funcionario.fonte_recurso) %>
+</p>
+
+<%if @funcionario.categoria.nome=='Estado Novo' or @funcionario.categoria.nome=='Contrato Administrativo'%>
+<p>
+  <b>Município de Opção:</b>
+  <%= municipio(@funcionario) %>
+</p>
+<%end%>
+<%end%>
+
+
+
+
+ <div id='com'>
+       <%if @funcionario.comissionados.size>0 -%>
+             <%=render :partial=>"mostrar_comissionados"%>
+       <%end%>
+
+       <% if can? :manage,Comissionado %>
+        <div class="submit_link">
+            <%=link_to "Cadastrar Comissionado","/funcionarios/comissionados/#{@funcionario.id}",:rel=>"facebox",:rev=>"height:100px;width:600px"%>
+            </div><br/><%end%>
+  </div>
+
+
+
+</div>
+<footer>
+				<div class="submit_link">
+          <%if can? :update,Funcionario%>
+				  <%= link_to 'Editar', edit_pessoa_funcionario_path(@pessoa,@funcionario),:class=>"alt_btn",:type=>"submit"%> ou <%end%>
+				  <%= link_to 'Voltar', pessoa_funcionarios_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

@@ -1,0 +1,1 @@
+["ConfiguracaoPonto","Escola","EspecificarLotacao","FatorLotacao","FinanceiroFixo","Foto","Ponto","PontoAssinatura","ReferenciaNivel","Tipo"]

@@ -1,0 +1,59 @@
+<%content_for :links do%>
+		<%=link_to "Situação jurídica",situacoes_juridicas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @situacoes_juridica.nome %>
+</p>
+
+<p>
+  <b>Sigla:</b>
+  <%= @situacoes_juridica.sigla %>
+</p>
+
+<p>
+  <b>Evento previdencia:</b>
+  <%= @situacoes_juridica.evento_previdencia_id %>
+</p>
+
+<p>
+  <b>Evento vencimento:</b>
+  <%= @situacoes_juridica.evento_vencimento_id %>
+</p>
+
+<p>
+  <b>Evento tributacao:</b>
+  <%= @situacoes_juridica.evento_tributacao_id %>
+</p>
+
+<p>
+  <b>Exercicio anual:</b>
+  <%= @situacoes_juridica.exercicio_anual %>
+</p>
+
+<p>
+  <b>Exercicio mensal:</b>
+  <%= @situacoes_juridica.exercicio_mensal %>
+</p>
+
+<p>
+  <b>Exercicio folha:</b>
+  <%= @situacoes_juridica.exercicio_folha %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_situacoes_juridica_path(@situacoes_juridica),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', situacoes_juridicas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

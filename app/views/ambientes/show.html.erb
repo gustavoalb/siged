@@ -1,0 +1,34 @@
+<%content_for :links do%>
+		<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><%=link_to "Ambientes",escola_ambientes_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @ambiente.nome %>
+</p>
+
+<p>
+  <b>Tipo ambiente:</b>
+  <%= @ambiente.tipo_ambiente_id %>
+</p>
+
+<p>
+  <b>Ativo:</b>
+  <%= @ambiente.ativo %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_escola_ambiente_path(@escola,@ambiente),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', escola_ambientes_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

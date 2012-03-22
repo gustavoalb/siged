@@ -1,0 +1,39 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando Entidades</h3>
+		<ul class="tabs">
+
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Esfera</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @entidades.each do |entidade| %>
+  <tr>
+    <td><%= entidade.nome %></td>
+    <td><%= entidade.esfera_id %></td>
+    <td><%= link_to 'Detalhes', entidade %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_entidade_path(entidade) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), entidade, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Entidade', new_entidade_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

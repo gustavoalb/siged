@@ -1,0 +1,29 @@
+
+<%= form_for @lista,:url=>pessoa_salvar_lista_url(@pessoa) do |f| %>
+  
+ <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label "Tipo de Lista" %><br />
+        <%= f.select :tipo_lista_id,@tipos_lista,:style=>"width:92%;",:prompt=>"Selecione o Tipo de Lista"%>
+  </fieldset>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label "Data da inclusão" %><br />
+        <%= f.date_select :data_inclusao,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+  </fieldset>
+
+  <fieldset style="width:98%; float:left; margin-right: 1%;">
+    <%= f.label "Motivo da inclusão na Lista" %><br />
+        <%= f.text_area :motivo,:cols => 300, :rows => 10,:style=>"width:92%;" %>
+  </fieldset>
+
+  
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Adicionar",:class=>"alt_btn" %>
+				</div>
+			</footer>
+<% end %>
+
+

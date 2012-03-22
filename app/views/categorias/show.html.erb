@@ -1,0 +1,25 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @categoria.nome %>
+</p>
+
+<p>
+  <b>Lei:</b>
+  <%= @categoria.lei %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_categoria_path(@categoria),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', categorias_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

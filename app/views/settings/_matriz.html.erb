@@ -1,0 +1,11 @@
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<label><%=@titulo%></label><br />
+<p>
+
+<%= select :setting, :objeto_id,@objeto,:style=>"width:92%;",:prompt=>"Selecione a Matriz"  %>
+
+</p>
+</fieldset>
+<span id="indicator1" style="display: none">
+  <img src="/images/02-redo.png" alt="Trabalhando..." />
+</span>

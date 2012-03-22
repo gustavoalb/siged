@@ -1,0 +1,47 @@
+<%content_for :links do%>
+<%=link_to "Usuário",usuarios_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+
+<%end%>
+<article class="module width_3_quarter">
+<header><h3>Editando Usuário <%=@user.name%></h3></header>
+
+<div class="module_content">
+
+
+<p>
+<b>Nome:</b>
+<%= @user.name %>
+</p>
+
+<p>
+<b>Email:</b>
+<%= @user.email %>
+</p>
+
+<p>
+<b>Usuário:</b>
+<%= @user.username %>
+</p>
+
+
+<b>Papéis:</b>
+<%= roles(@user) %>
+</p>
+
+<b>Orgão:</b>
+<%= detalhes(@user.orgao) %>
+</p>
+
+<b>Departamento:</b>
+<%= detalhes(@user.departamento) %>
+</p>
+
+<div class="clear"></div>
+</div>
+<footer>
+<div class=submit_link>
+<%= link_to 'Editar', edit_usuario_path(@user) %> ou
+<%= link_to 'Voltar', usuarios_path %>
+</div>
+</footer>
+</article>

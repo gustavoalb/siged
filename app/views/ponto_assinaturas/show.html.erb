@@ -1,0 +1,65 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Ip assinatura:</b>
+  <%= @ponto_assinatura.ip_assinatura %>
+</p>
+
+<p>
+  <b>Ponto diario:</b>
+  <%= @ponto_assinatura.ponto_diario_id %>
+</p>
+
+<p>
+  <b>Data assinatura:</b>
+  <%= @ponto_assinatura.data_assinatura %>
+</p>
+
+<p>
+  <b>Assinado:</b>
+  <%= @ponto_assinatura.assinado %>
+</p>
+
+<p>
+  <b>Valido:</b>
+  <%= @ponto_assinatura.valido %>
+</p>
+
+<p>
+  <b>Evento:</b>
+  <%= @ponto_assinatura.evento_id %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @ponto_assinatura.tipo %>
+</p>
+
+<p>
+  <b>Dia:</b>
+  <%= @ponto_assinatura.dia %>
+</p>
+
+<p>
+  <b>Mes:</b>
+  <%= @ponto_assinatura.mes %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @ponto_assinatura.ano %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_ponto_assinatura_path(@ponto_assinatura),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', ponto_assinaturas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

@@ -1,0 +1,54 @@
+<%content_for :links do%>
+		<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Configurações</a>
+
+<%end%>
+
+<article class="module width_full">
+		<header><h3 class="tabs_involved">Listando configurações</h3>
+		<ul class="tabs">
+
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Objeto</th>
+    <th>Tipo</th>
+    <th>Data</th>
+    <th>Ativo</th>
+    <th>Temporalidade</th>
+    <th>Tipo temporalidade</th>
+    <th>Finalizado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @settings.each do |setting| %>
+  <tr>
+    <td><%= setting.objeto_id %></td>
+    <td><%= setting.tipo_config %></td>
+    <td><%= setting.data.to_s_br %></td>
+    <td><%= sim_nao(setting.ativo) %></td>
+    <td><%= setting.temporalidade %></td>
+    <td><%= setting.tipo_temporalidade %></td>
+    <td><%= sim_nao(setting.finalizado) %></td>
+    <td><%= link_to 'Detalhes', escola_ano_letivo_setting_path(@escola,@ano_letivo,setting) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_escola_ano_letivo_setting_path(@escola,@ano_letivo,setting) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), escola_ano_letivo_setting_path(@escola,@ano_letivo,setting), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Nova Configuração', new_escola_ano_letivo_setting_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', escolas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

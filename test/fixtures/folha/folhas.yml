@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  competencia: 1
+  ano: 1
+  mes: 1
+  padrao: false
+  esfera_id: 1
+  entidade_id: 1
+  ativa: false
+
+two:
+  competencia: 1
+  ano: 1
+  mes: 1
+  padrao: false
+  esfera_id: 1
+  entidade_id: 1
+  ativa: false

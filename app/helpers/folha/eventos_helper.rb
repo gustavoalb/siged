@@ -1,0 +1,2 @@
+module Folha::EventosHelper
+end

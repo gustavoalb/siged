@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  nivel: MyString
+  modalidade: MyString
+  dias_letivos_anuais: 1
+
+two:
+  codigo: MyString
+  nivel: MyString
+  modalidade: MyString
+  dias_letivos_anuais: 1

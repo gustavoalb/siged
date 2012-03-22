@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Pessoa</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Pessoa</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/app/models/pessoa_rb.html">
+                app/models/pessoa.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                ActiveRecord::Base
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">ScopedSearch::Model</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">SEXO</td>
+          <td>=</td>
+          <td class="context-item-value">[[&quot;Masculino&quot;,&quot;Masculino&quot;],[&quot;Feminino&quot;,&quot;Feminino&quot;]]</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">NATURALIDADES</td>
+          <td>=</td>
+          <td class="context-item-value">[ ['ACRIANO','Acre'], ['ALAGOANO','Alagoas'], ['AMAPAENSE','Amapa'], ['AMAZONENSE','Amazonas'], ['BAIANO','Bahia'], ['CEARENSE','Ceara'], ['ESPÍRITO-SANTENSE','Espirito Santo'], ['GOIANO','Goias'], ['MARANHENSE','Maranhao'], ['MATO-GROSSENSE','Mato Grosso'], ['MATO-GROSSENSE-DO-SUL','Mato Grosso do Sul'], ['MINEIRO','Minas Gerais'], ['PARAENSE','Para'], ['PARAIBANO','Paraiba'], ['PARANAENSE','Prana'], ['PERNAMBUCANO','Pernambuco'], ['PIAUIENSE','Piaui'], ['FLUMINENSE','Rio de Janeiro'], ['POTIGUAR','Rio Grande do Norte'], ['GAÚCHO','Rio Grande do Sul'], ['RONDONIANO','Rondonia'], ['RORAIMENSE','Roraima'], ['CATARINENSE','Santa Catarina'], ['PAULISTA','Sao Paulo'], ['SERGIPANO','Sergipe'], ['TOCANTINENSE','Tocantins']</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">NACION</td>
+          <td>=</td>
+          <td class="context-item-value">[ ['Brasileiro (a)'], ['Estrangeiro (a)']</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ESTCIV</td>
+          <td>=</td>
+          <td class="context-item-value">[ ['Solteiro (a)'], ['Casado (a)'], ['Divorciado (a)'], ['União Estável','Uniao Estavel']</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

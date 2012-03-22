@@ -1,0 +1,47 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@arquivo_documento) do |f| %>
+  <% if @arquivo_documento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@arquivo_documento.errors.count, "erro impede","erros impedem") %> este arquivo_documento de ser cadastrado:</h2>
+
+      <ul>
+      <% @arquivo_documento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :tipo %><br />
+        <%= f.text_field :tipo,:style=>"width:92%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :dono_id %><br />
+        <%= f.text_field :dono_id,:style=>"width:92%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :data %><br />
+        <%= f.calendar_date_select :data,:style=>"width:92%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :user_id %><br />
+        <%= f.text_field :user_id,:style=>"width:92%;" %>
+    
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

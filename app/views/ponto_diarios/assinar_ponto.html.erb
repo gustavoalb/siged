@@ -1,0 +1,44 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+<%=detalhes_ponto%>
+<TABLE class="tablesorter" cellspacing="0">
+<thead>
+	<TR VALIGN=TOP>
+		<th>
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">ENTRADA</FONT></P>
+		</th>
+		<th>
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">SAÍDA</FONT></P>
+		</th>
+		<th>
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">ENTRADA</FONT></P>
+		</th>
+		<th>
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">SAÍDA</FONT></P>
+		</th>
+	</TR>
+</thead>
+<tbody>
+	  <TR VALIGN=TOP>
+				<td>
+			<P CLASS='western' ALIGN=CENTER><%=d_assinaturas("ENTRADA_MANHA",@ponto_diario)%><BR>
+			</P>
+		</TD>
+		<td>
+			<P CLASS='western' ALIGN=CENTER><%=d_assinaturas("SAIDA_MANHA",@ponto_diario)%><BR>
+			</P>
+		</TD>
+		<td>
+			<P CLASS='western' ALIGN=CENTER><%=d_assinaturas("ENTRADA_TARDE",@ponto_diario)%><BR>
+			</P>
+		</TD>
+		<td>
+			<P CLASS='western' ALIGN=CENTER><%=d_assinaturas("SAIDA_TARDE",@ponto_diario)%><BR>
+			</P>
+		</TD>
+
+	</TR>
+	</tbody>
+
+</TABLE>

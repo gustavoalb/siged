@@ -1,0 +1,39 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando <%= plural_table_name %></h3>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+<% for attribute in attributes -%>
+    <th><%= attribute.human_name %></th>
+<% end -%>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+  <tr>
+<% for attribute in attributes -%>
+    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+    <td><%%= link_to 'Detalhes', <%= singular_table_name %> %></td>
+    <td><%%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
+    <td><%%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), <%= singular_table_name %>, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<%% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%%= link_to 'Cadastrar <%= human_name %>', new_<%= singular_table_name %>_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

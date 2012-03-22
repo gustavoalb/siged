@@ -1,0 +1,11 @@
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= label_tag :destino %><br /><br />
+<%=select :comissionado,:tipo_destino_id,@destinos,:prompt=>true %>
+</fieldset>
+
+<%=observe_field "comissionado_tipo_destino_id", :url => "/comissionados/destino",
+:frequency => 0.25,
+:update=>:destino,
+:with => 'tp_destino'%>
+
+<div id='destino'></div>

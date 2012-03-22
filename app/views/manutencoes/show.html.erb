@@ -1,0 +1,30 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Tempo:</b>
+  <%= @manutencao.tempo %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @manutencao.tipo %>
+</p>
+
+<p>
+  <b>Em manutencao:</b>
+  <%= @manutencao.em_manutencao %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_manutencao_path(@manutencao),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', manutencoes_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

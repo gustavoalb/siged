@@ -1,0 +1,49 @@
+<article class="module width_full">
+  <header><h3>Editando texto <%=@texto.nome%> (<%=@texto.tipo%>,<%=detalhes(@texto.categoria)%>)  </h3></header>
+  <div class="module_content">
+
+
+    <%= form_for @texto,:url=>administracao_texto_url do |f| %>
+    <% if @texto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@texto.errors.count, "erro impede","erros impedem") %> este texto de ser cadastrado:</h2>
+
+      <ul>
+        <% @texto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :tipo %><br /><br />
+      <%= f.select :tipo,[['Lotação','LOTACAO'],['Qualificação','QUALIFICACAO']],:style=>"width:92%;",:prompt=>true %>
+
+    </fieldset>
+
+      <fieldset style="width:48%; float:left; margin-right: 1%;">
+        <%= f.label :categoria %><br /><br />
+        <%= f.select :categoria_id,@categorias,:style=>"width:92%;" %>
+      </fieldset>
+
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :nome %><br /><br />
+      <%= f.text_field :nome,:style=>"width:92%;" %>
+
+    </fieldset>
+
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :texto %><br />
+      <%= f.text_area :texto,:style=>"width:92%;" %>
+
+    </fieldset>
+    <div class="clear"></div>
+  </div>
+  <footer>
+    <div class="submit_link">
+     <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+   </div>
+ </footer>
+ <% end %>
+</article>

@@ -1,0 +1,54 @@
+<%=javascript_include_tag "MilkChart.yc.js"%>
+<article class="module width_full">
+  <header><h3 class="tabs_involved">1ª Reunião com o novo Secretário de Estado da Educação</h3>
+</header>
+
+<div class="tab_container">
+  <div id="tab1" class="tab_content">
+    <table class="tablesorter" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Ocasião</th>
+            <th>Sujeito</th>
+            <th>Conceito - Nova Gestão</th>
+            <th>Justificativa</th>
+            <th>Conceito - Escola</th>
+            <th>Justificativa</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @enquetes.each do |enquete| %>
+        <tr>
+            <td><%= resposta(enquete.tipo) %></td>
+            <td><%= resposta(enquete.sujeito) %></td>
+            <td><%= resposta(enquete.opiniao_um) %></td>
+            <td><%= enquete.comentario_um %></td>
+            <td><%= resposta(enquete.opiniao_dois) %></td>
+            <td><%= enquete.comentario_dois %></td>
+            <td><%= link_to 'Detalhes', enquete %></td>
+            <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_enquete_path(enquete) %></td>
+            <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), enquete, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
+</div>
+<footer>
+    <div class='submit_link'>
+  <%= link_to 'Cadastrar Enquete', new_enquete_path,:class=>"alt_btn",:type=>"submit"%> ,
+  <%= link_to 'Voltar', :back,:type=>"submit" %>,
+  <%=link_to 'Resultado Inicial','/enquetes/all/estatisticas_antes'%> ou
+  <%=link_to 'Resultado Final','/enquetes/all/estatisticas_depois'%>
+
+</div>
+
+<div class='submit_link'>
+        <%=will_paginate @enquetes%>
+    </div>
+</footer>
+</article>
+

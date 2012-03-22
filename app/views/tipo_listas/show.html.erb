@@ -1,0 +1,38 @@
+<%content_for :links do%>
+    <%=link_to "Listas",tipo_listas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @tipo_lista.nome %>
+</p>
+
+<p>
+  <b>Peso:</b>
+  <%= @tipo_lista.peso %>
+</p>
+
+<p>
+  <b>Ativo:</b>
+  <%= sim_nao(@tipo_lista.ativo) %>
+</p>
+
+<p>
+  <b>Tipo objeto:</b>
+  <%= @tipo_lista.tipo_objeto %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_tipo_lista_path(@tipo_lista),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', tipo_listas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

@@ -1,0 +1,6 @@
+<%content_for :links do%>
+		<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Cadastrando Funcionários</a>
+
+<%end%>
+<%= render 'form',:legenda=>' Cadastro de Funcionarios ' %>
+

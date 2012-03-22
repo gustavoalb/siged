@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  sigla: MyString
+  evento_previdencia_id: 1
+  evento_vencimento_id: 1
+  evento_tributacao_id: 1
+  exercicio_anual: 1
+  exercicio_mensal: 1
+  exercicio_folha: MyString
+
+two:
+  nome: MyString
+  sigla: MyString
+  evento_previdencia_id: 1
+  evento_vencimento_id: 1
+  evento_tributacao_id: 1
+  exercicio_anual: 1
+  exercicio_mensal: 1
+  exercicio_folha: MyString

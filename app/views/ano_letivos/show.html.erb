@@ -1,0 +1,35 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Escola:</b>
+  <%= @ano_letivo.escola_id %>
+</p>
+
+<p>
+  <b>Inicio:</b>
+  <%= @ano_letivo.inicio %>
+</p>
+
+<p>
+  <b>Termino:</b>
+  <%= @ano_letivo.termino %>
+</p>
+
+<p>
+  <b>Informacoes:</b>
+  <%= @ano_letivo.informacoes %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_ano_letivo_path(@ano_letivo),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', ano_letivos_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

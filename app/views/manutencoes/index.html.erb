@@ -1,0 +1,43 @@
+<%content_for :links do%>
+        <a class="current">Manutenção</a>
+<%end%>
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando manutencoes</h3>
+		<ul class="tabs">
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Tempo</th>
+    <th>Tipo</th>
+    <th>Em manutencao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @manutencoes.each do |manutencao| %>
+  <tr>
+    <td><%= manutencao.tempo %></td>
+    <td><%= manutencao.tipo %></td>
+    <td><%= manutencao.em_manutencao %></td>
+    <td><%= link_to 'Detalhes', manutencao %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_manutencao_path(manutencao) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), manutencao, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Manutencao', new_manutencao_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

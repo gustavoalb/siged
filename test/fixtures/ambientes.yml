@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  tipo_ambiente_id: 1
+  ativo: false
+
+two:
+  nome: MyString
+  tipo_ambiente_id: 1
+  ativo: false

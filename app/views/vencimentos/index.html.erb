@@ -1,0 +1,44 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando vencimentos</h3>
+		<ul class="tabs">
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nivel</th>
+    <th>Ano</th>
+    <th>Mes</th>
+    <th>Valor</th>
+    <th>Atual</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @vencimentos.each do |vencimento| %>
+  <tr>
+    <td><%= cod(vencimento.referencia_nivel) %></td>
+    <td><%= vencimento.ano %></td>
+    <td><%= vencimento.mes %></td>
+    <td><%= vencimento.valor.reais_contabeis %></td>
+    <td><%= sim_nao(vencimento.atual) %></td>
+    <td><%= link_to 'Detalhes', referencia_nivel_vencimento_path(@nivel,vencimento) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_referencia_nivel_vencimento_path(@nivel,vencimento) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), referencia_nivel_vencimento_path(@nivel,vencimento), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Vencimento', new_referencia_nivel_vencimento_path(@nivel),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

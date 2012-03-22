@@ -1,0 +1,195 @@
+<%content_for :links do%>
+		<%=link_to "Pessoa",pessoas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes da pessoa</a>
+
+<%end%>
+<article class="module width_3_quarter">
+<header><h3>Detalhes de <%=@pessoa.nome.titleize%> </h3></header>
+<div class="module_content">
+
+<b>Nome:</b>
+  <%= @pessoa.nome %>
+</p>
+
+<p>
+  <b>Sexo:</b>
+  <%= @pessoa.sexo %>
+</p>
+
+<p>
+  <b>Telefone residencial:</b>
+  <%= @pessoa.telefone_residencial %>
+</p>
+
+<p>
+  <b>Telefone celular:</b>
+  <%= @pessoa.telefone_celular %>
+</p>
+
+<%if can? :manage,Pessoa%>
+<p>
+  <b>Endereço:</b>
+  <%= @pessoa.endereco %>
+</p>
+
+<p>
+  <b>Número:</b>
+  <%= @pessoa.numero %>
+</p>
+
+<p>
+  <b>Complemento:</b>
+  <%= @pessoa.complemento %>
+</p>
+
+<p>
+  <b>Bairro:</b>
+  <%= @pessoa.bairro %>
+</p>
+
+<%if current_user.role?("ucolom")==false%>
+<p>
+  <b>Nascimento:</b>
+  <%= @pessoa.nascimento.to_s_br %>
+</p>
+
+<p>
+  <b>Naturalidade:</b>
+  <%= @pessoa.naturalidade %>
+</p>
+
+<p>
+  <b>Nacionalidade:</b>
+  <%= @pessoa.nacionalidade %>
+</p>
+
+<p>
+  <b>CPF:</b>
+  <%= Cpf.new("#{@pessoa.cpf}").numero %>
+</p>
+
+<p>
+  <b>RG:</b>
+  <%= @pessoa.rg %>
+</p>
+
+<p>
+  <b>PIS/PASEP:</b>
+  <%= @pessoa.pis_pasep %>
+</p>
+
+<p>
+  <b>Cidade:</b>
+  <%= @pessoa.cidade_id %>
+</p>
+
+<p>
+  <b>UF:</b>
+  <%= @pessoa.uf %>
+</p>
+
+<p>
+  <b>Ano de chegada:</b>
+  <%= @pessoa.ano_de_chegada %>
+</p>
+
+<p>
+  <b>Estado civil:</b>
+  <%= @pessoa.estado_civil %>
+</p>
+
+<p>
+  <b>Título eleitor:</b>
+  <%= @pessoa.titulo_eleitor %>
+</p>
+
+<p>
+  <b>Zona eleitoral:</b>
+  <%= @pessoa.zona_eleitoral %>
+</p>
+
+<p>
+  <b>Seção:</b>
+  <%= @pessoa.secao %>
+</p>
+<%end%>
+
+
+<%if can? :manage,Pessoa and !@pessoa.formacoes.none?%>
+<article class="module width_full">
+<div class="module_content">
+    <h3>Formações:</h3>
+    <div class="tab_container">
+    <div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0" border=0>
+  <tr align=center>
+    <th>Curso</th>
+    <th>Status</th>
+  </tr>
+<tbody>
+<% @pessoa.formacoes.each do |formacao| %>
+  <tr>
+    <td align=left><%= link_to "#{nome_curso(formacao)}" ,pessoa_formacao_path(@pessoa,formacao) %></td>
+    <td align=center><%= formacao.status%></td>
+  </tr>
+<% end %>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</article>
+<% end %>
+
+
+
+<!--
+<%if @pessoa.listas.size>0%>
+<article class="module width_full">
+<div class="module_content">
+		<h3>Listas na qual o funcionário está incluso</h3>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0" border=0>
+  <tr align=center>
+    <th>Tipo</th>
+    <th>Data da inclusão</th>
+    <th>Peso da lista</th>
+    <th>Ativo?</th>
+  </tr>
+<tbody>
+<% @listas.each do |lista| %>
+  <tr align=left>
+    <td><%= detalhes(lista.tipo_lista) %></td>
+    <td><%= lista.data_inclusao.to_s_br %></td>
+    <td><%= lista.tipo_lista.peso %></td>
+    <td><%= sim_nao(lista.ativo)%></td>
+  </tr>
+<% end %>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</article>
+<% end %>
+
+<%end%>-->
+
+
+</div>
+<div class="clear"></div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_pessoa_path(@pessoa),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', pessoas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+
+<article class="module width_quarter">
+<%= foto(@pessoa) %>
+</div>

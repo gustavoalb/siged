@@ -1,0 +1,7 @@
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20111021121251_create_gaveta.rb
+[1m[34m   identical[0m    app/models/gaveta.rb
+[1m[37m      invoke[0m    test_unit
+[1m[34m   identical[0m      test/unit/gaveta_test.rb
+[1m[31m    conflict[0m      test/fixtures/gaveta.yml
+    Overwrite /home/siged/producao/siged/test/fixtures/gaveta.yml? (enter "h" for help) [Ynaqdh] 

@@ -1,0 +1,35 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Tipo:</b>
+  <%= @arquivo_documento.tipo %>
+</p>
+
+<p>
+  <b>Dono:</b>
+  <%= @arquivo_documento.dono_id %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @arquivo_documento.data %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @arquivo_documento.user_id %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_arquivo_documento_path(@arquivo_documento),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', arquivo_documentos_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

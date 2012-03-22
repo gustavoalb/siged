@@ -1,0 +1,74 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@situacoes_juridica) do |f| %>
+  <% if @situacoes_juridica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@situacoes_juridica.errors.count, "erro impede","erros impedem") %> este situacoes_juridica de ser cadastrado:</h2>
+
+      <ul>
+      <% @situacoes_juridica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nome %><br />
+        <%= f.text_field :nome,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :sigla %><br />
+        <%= f.text_field :sigla,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :jornada %><br />
+        <%= f.text_field :jornada,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :evento_previdencia_id %><br />
+        <%= f.text_field :evento_previdencia_id,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :evento_vencimento_id %><br />
+        <%= f.select :evento_vencimento_id,@eventos_vencimentos,:style=>"width:92%;",:prompt=>"Selecione o Evento de Vencimento"%>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :evento_tributacao_id %><br />
+        <%= f.text_field :evento_tributacao_id,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :exercicio_anual %><br />
+        <%= f.text_field :exercicio_anual,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :exercicio_mensal %><br />
+        <%= f.text_field :exercicio_mensal,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :exercicio_folha %><br />
+        <%= f.text_field :exercicio_folha,:style=>"width:92%;" %>
+
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

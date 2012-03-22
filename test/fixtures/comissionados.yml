@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  funcionario_id: 1
+  tipo: MyString
+  data: 2011-11-28
+  motivo: MyText
+  decreto: MyString
+  data_publicacao: 2011-11-28
+  orgao_id: 1
+  descricao_comissao: MyString
+
+two:
+  funcionario_id: 1
+  tipo: MyString
+  data: 2011-11-28
+  motivo: MyText
+  decreto: MyString
+  data_publicacao: 2011-11-28
+  orgao_id: 1
+  descricao_comissao: MyString

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  : 
+  fator: 1
+  serie_id: 1
+
+two:
+  : 
+  fator: 1
+  serie_id: 1

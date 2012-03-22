@@ -1,0 +1,6 @@
+<ul>
+ <%@funcionarios.each do |@f|%>
+    <%=link_to raw("<li>#{@f.matricula}</li>"),folha_financeiro_validar_matricula_path(@f.matricula),:remote=>true%>
+ <%end%>
+
+</ul>

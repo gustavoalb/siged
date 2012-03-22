@@ -1,0 +1,141 @@
+<%n=0%>
+<%= wicked_pdf_stylesheet_link_tag "layout" -%>
+
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		</head>
+	<body>
+
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20% HEIGHT=85 STYLE="border-top: 0px solid black; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><BR>
+			</P>
+		</TD>
+		<TD COLSPAN=3 WIDTH=50% STYLE="border-top: 0px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:size=>"74x77"%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20% STYLE="border: 0px solid #000000; border-bottom: 0px solid #000000; padding: 0.1cm">
+			<P CLASS="western"><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:size=>"121x76"%><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=5 WIDTH=100% VALIGN=TOP STYLE="border-top: none; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: 0px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">GOVERNO
+			DO ESTADO DO AMAPÁ<br>
+			SECRETARIA
+			DE ESTADO DA EDUCAÇÃO<br>
+			COORDENADORIA
+			DE ADMINISTRAÇÃO
+		</TD>
+	</TR>
+
+	<TR>
+		<TD COLSPAN=5 WIDTH=100% VALIGN=TOP STYLE="; border-top: none; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: 0px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">Pessoas inclusas na lista de <%=@tipo_lista.nome%></FONT></P>
+		</TD>
+	</TR>
+	<br/>
+	<br/>
+
+	</table>
+
+
+ 
+	<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=36>
+	<COL WIDTH=182>
+	<COL WIDTH=92>
+	<COL WIDTH=80>
+	<COL WIDTH=108>
+	<COL WIDTH=55>
+	<COL WIDTH=99>
+	<COL WIDTH=88>
+	<COL WIDTH=156>
+	<thead>
+	<TR VALIGN=TOP>
+		<TH WIDTH=36 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>Nº</FONT></P>
+		</TH>
+		<TH WIDTH=182 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>NOME</FONT></P>
+		</TH>
+		<TH WIDTH=92 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>CPF</FONT></P>
+		</TH>
+		<TH WIDTH=80 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>MATRÍCULA</FONT></P>
+		</TH>
+		<TH WIDTH=108 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>CARGO</FONT></P>
+		</TH>
+		<TH WIDTH=55 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>NIVEL</FONT></P>
+		</TH>
+		<TH WIDTH=99 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>QUADRO</FONT></P>
+		</TH>
+		<TH WIDTH=88 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>CONTATO</FONT></P>
+		</TH>
+		<TH WIDTH=156 bgcolor=LightGray STYLE="border: 1px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>ULTIMA LOCALIZAÇÃO</FONT></P>
+		</TH>
+	</TR>
+	</thead>
+	<tbody>
+	 <%@tipo_lista.pessoas.each do |p|%>
+	 <%p.funcionarios.each do |f|%>
+  <%n+=1%>
+	<TR VALIGN=MIDDLE>
+		<TD WIDTH=36 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western"><%=n%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=182 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=p.nome%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=92 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=Cpf.new(p.cpf)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=80 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=f.matricula%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=108 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=cargo_disciplina(f)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=55 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=cod(f.nivel)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=99 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=detalhes(f.entidade)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=88 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=telefones(p)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=156 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><%=l(f)%><BR>
+			</P>
+		</TD>
+	</TR>
+	<%end%>
+	<%end%>
+	</tbody>
+</TABLE>
+</body>
+</html>

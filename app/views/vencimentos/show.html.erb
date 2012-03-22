@@ -1,0 +1,39 @@
+<article class="module width_full">
+<header><h3>Detalhes de <%=@vencimento%> </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nivel:</b>
+  <%= cod(@vencimento.referencia_nivel) %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @vencimento.ano %>
+</p>
+
+<p>
+  <b>Mes:</b>
+  <%= @vencimento.mes %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= @vencimento.valor.reais_contabeis %>
+</p>
+
+<p>
+  <b>Atual:</b>
+  <%= sim_nao(@vencimento.atual) %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_referencia_nivel_vencimento_path(@nivel,@vencimento),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', referencia_nivel_vencimentos_path(@nivel),:type=>"submit" %>
+				</div>
+			</footer>
+</article>

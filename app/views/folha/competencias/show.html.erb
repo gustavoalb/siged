@@ -1,0 +1,30 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @folha_competencia.nome %>
+</p>
+
+<p>
+  <b>Motivo:</b>
+  <%= @folha_competencia.motivo %>
+</p>
+
+<p>
+  <b>Padrao:</b>
+  <%= @folha_competencia.padrao %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_folha_competencia_path(@folha_competencia),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', folha_competencias_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

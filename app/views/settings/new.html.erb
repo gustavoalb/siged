@@ -1,0 +1,6 @@
+<%content_for :links do%>
+		<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><%=link_to "Configurações",escola_ano_letivo_settings_path(@escola,@ano_letivo)%><div class="breadcrumb_divider"></div><a class="current">Configurando Escola</a>
+<%end%>
+
+<%= render 'form',:legenda=>' Cadastro de configuração ' %>
+

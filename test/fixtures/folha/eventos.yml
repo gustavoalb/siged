@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  nome: MyString
+  incide_previdencia: false
+  incide_imposto_renda: false
+  formula: MyString
+  tipo: MyString
+  condigo_contabil: MyString
+
+two:
+  codigo: MyString
+  nome: MyString
+  incide_previdencia: false
+  incide_imposto_renda: false
+  formula: MyString
+  tipo: MyString
+  condigo_contabil: MyString

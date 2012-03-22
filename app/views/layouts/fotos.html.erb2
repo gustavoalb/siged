@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebcamApp</title>
+    <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'webcam' %>
+  <%= csrf_meta_tag %>
+<script type="text/javascript">
+
+  function upload_complete(msg) {
+    if (msg == 'ok') {
+      $('#new_foto').show();
+      $('#photo_description').focus();
+    } else {
+      alert('Ocorreu um erro!');
+      webcam.reset();
+    }
+  }
+  
+  webcam.set_swf_url('/webcam.swf');
+  webcam.set_api_url('<%= upload_fotos_path() %>');
+  webcam.set_quality(90);
+  webcam.set_shutter_sound(true, '/shutter.mp3');
+  webcam.set_hook('onComplete', 'upload_complete');
+  $('webcam').innerHTML = webcam.get_html(687, 480);
+</script>
+
+</head>
+<body>
+dddd
+<%= yield %>
+
+</body>
+</html>

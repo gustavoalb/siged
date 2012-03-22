@@ -1,0 +1,34 @@
+<article class="module width_full">
+<header><h3></h3></header>
+<div class="module_content">
+
+
+<%= form_for (:manutencao,@manutencao,:url=>manutencoes_path,:method=>:post) do |f| %>
+
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :tempo %><br />
+        <%= f.select :tempo,[['01'],['02'],['05'],['10']],:style=>"width:20%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%=f.radio_button(:tipo, "m")%>Minutos
+    <%=f.radio_button(:tipo,"h")%> Hora
+
+    <br/><br/>
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :em_manutenção%><br />
+
+    <%= f.check_box :em_manutencao,:style=>"width:40%;" %>
+
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %>
+				</div>
+			</footer>
+<% end %>
+</article>

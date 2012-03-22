@@ -1,0 +1,28 @@
+<%content_for :links do%>
+		<%=link_to "Série",series_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes </a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @serie.nome %>
+</p>
+
+<p>
+  <b>Codigo:</b>
+  <%= @serie.codigo %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_serie_path(@serie),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', series_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

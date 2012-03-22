@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  funcionario_id: 1
+  escola_id: 1
+  turma_id: 1
+  disciplina_id: 1
+  hora_semanal: 1
+
+two:
+  funcionario_id: 1
+  escola_id: 1
+  turma_id: 1
+  disciplina_id: 1
+  hora_semanal: 1

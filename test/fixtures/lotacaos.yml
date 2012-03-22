@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  funcionario_id: 1
+  escola_id: 1
+  carga_horaria_disponivel: 1
+  data_lotacao: 2011-06-20
+  regencia_de_classe: false
+
+two:
+  funcionario_id: 1
+  escola_id: 1
+  carga_horaria_disponivel: 1
+  data_lotacao: 2011-06-20
+  regencia_de_classe: false

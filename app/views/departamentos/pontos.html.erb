@@ -1,0 +1,41 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando pontos</h3>
+
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Funcionario</th>
+    <th>Matrícula</th>
+    <th>Cod. da Lotacao</th>
+    <th>Mês</th>
+    <th>Ano</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @pontos.each do |ponto| %>
+  <tr>
+    <td><%= detalhes(ponto.funcionario.pessoa) %></td>
+    <td><%=ponto.funcionario.matricula%></td>
+    <td><%= ponto.lotacao.codigo_barra %></td>
+    <td><%= ponto.data.strftime("%b") %></td>
+    <td><%= ponto.data.year %></td>
+    <td><%= link_to 'Imprimir Ponto', pessoa_funcionario_lotacao_ponto_ponto_path(@pessoa,@funcionario,@lotacao,ponto,:format=>:pdf) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao,ponto), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Ponto', new_pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

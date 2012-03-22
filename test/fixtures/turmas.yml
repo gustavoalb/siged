@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ambiente_id: 1
+  matriz_id: 1
+  serie_id: 1
+  turno: MyString
+
+two:
+  ambiente_id: 1
+  matriz_id: 1
+  serie_id: 1
+  turno: MyString

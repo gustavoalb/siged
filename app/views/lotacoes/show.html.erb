@@ -1,0 +1,44 @@
+<%content_for :links do%>
+		<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><%=link_to "Lotações",pessoa_funcionario_lotacoes_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Lotações</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Funcionario:</b>
+  <%= @lotacao.funcionario_id %>
+</p>
+
+<p>
+  <b>Escola:</b>
+  <%= @lotacao.escola_id %>
+</p>
+
+<p>
+  <b>Carga horaria disponivel:</b>
+  <%= @lotacao.carga_horaria_disponivel %>
+</p>
+
+<p>
+  <b>Data lotacao:</b>
+  <%= @lotacao.data_lotacao %>
+</p>
+
+<p>
+  <b>Regencia de classe:</b>
+  <%= @lotacao.regencia_de_classe %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_lotacao_path(@lotacao),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', lotacaos_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

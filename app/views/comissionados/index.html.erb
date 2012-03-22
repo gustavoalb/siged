@@ -1,0 +1,56 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando comissionados</h3>
+		<ul class="tabs">
+   			<%= form_for @search do |f| %>
+   			<li><%= f.text_field :busca,:size=>12 %></li>
+    		<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Funcionario</th>
+    <th>Tipo</th>
+    <th>Data</th>
+    <th>Motivo</th>
+    <th>Decreto</th>
+    <th>Data publicacao</th>
+    <th>Orgao</th>
+    <th>Descricao comissao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @comissionados.each do |comissionado| %>
+  <tr>
+    <td><%= comissionado.funcionario_id %></td>
+    <td><%= comissionado.tipo %></td>
+    <td><%= comissionado.data %></td>
+    <td><%= comissionado.motivo %></td>
+    <td><%= comissionado.decreto %></td>
+    <td><%= comissionado.data_publicacao %></td>
+    <td><%= comissionado.orgao_id %></td>
+    <td><%= comissionado.descricao_comissao %></td>
+    <td><%= link_to 'Detalhes', comissionado %></td>
+    <td><%= link_to 'Detalhes', comissionados_exonerar_comissionado_path(@funcionario) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_comissionado_path(comissionado) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), comissionado, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Comissionado', new_comissionado_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

@@ -1,0 +1,53 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  sexo: MyString
+  endereco: MyString
+  numero: MyString
+  complemento: MyString
+  bairro: MyString
+  telefone_residencial: MyString
+  telefone_celular: MyString
+  nascimento: 2011-06-19
+  naturalidade: MyString
+  nacionalidade: MyString
+  cpf: MyString
+  rg: MyString
+  pis_pasep: MyString
+  cidade: MyString
+  uf: MyString
+  dep_ir: 1
+  dep_sf: 1
+  ano_de_chegada: 1
+  estado_civil: MyString
+  escolaridade: MyString
+  titulo_eleitor: MyString
+  zona_eleitoral: MyString
+  secao: MyString
+
+two:
+  nome: MyString
+  sexo: MyString
+  endereco: MyString
+  numero: MyString
+  complemento: MyString
+  bairro: MyString
+  telefone_residencial: MyString
+  telefone_celular: MyString
+  nascimento: 2011-06-19
+  naturalidade: MyString
+  nacionalidade: MyString
+  cpf: MyString
+  rg: MyString
+  pis_pasep: MyString
+  cidade: MyString
+  uf: MyString
+  dep_ir: 1
+  dep_sf: 1
+  ano_de_chegada: 1
+  estado_civil: MyString
+  escolaridade: MyString
+  titulo_eleitor: MyString
+  zona_eleitoral: MyString
+  secao: MyString

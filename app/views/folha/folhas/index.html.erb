@@ -1,0 +1,48 @@
+<%content_for :links do%>
+		<a class="current">Folhas</a>
+
+<%end%>
+<article class="module width_full">
+		<header><h3 class="tabs_involved">Listando Folhas</h3>
+		<ul class="tabs">
+
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Competencia</th>
+    <th>Padrao</th>
+    <th>Recursos</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @folha_folhas.each do |folha_folha| %>
+  <tr>
+    <td><%= folha_folha.competencia.nome %></td>
+    <td><%= folha_folha.fonte_recurso.nome %></td>
+    <td><%= link_to 'Detalhes', folha_folha %></td>
+    <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_folha_folha_path(folha_folha) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), folha_folha, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+    <td><%= link_to  image_tag("/images/icn_folha.png",:title=>"Financeiros"), folha_folha_financeiros_path(folha_folha) %></td>
+    <td><%= link_to  image_tag("/images/boletim.png",:title=>"Imprimir Financeiros"), folha_folha_imprimir_financeiros_path(folha_folha) %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Folha', new_folha_folha_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

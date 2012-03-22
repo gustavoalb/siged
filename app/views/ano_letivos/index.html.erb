@@ -1,0 +1,36 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando ano_letivos</h3>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Inicio</th>
+    <th>Termino</th>
+    <th>Configurações</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @ano_letivos.each do |ano_letivo| %>
+  <tr>
+    <td><%= ano_letivo.inicio.to_s_br %></td>
+    <td><%= ano_letivo.termino.to_s_br %></td>
+    <td><%= link_to "Configurações",escola_ano_letivo_settings_path(@escola,ano_letivo)%></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Ano letivo', new_escola_ano_letivo_path(@escola),:class=>"alt_btn",:type=>"submit",:rel=>'facebox',:rev=>'height:300px;width:500px'%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+<div id="ano_letivo"></div>

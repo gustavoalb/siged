@@ -1,0 +1,6 @@
+<%content_for :links do%>
+	<%=link_to "Escola",escolas_path%><div class="breadcrumb_divider"></div><%=link_to "Ambientes",escola_ambientes_path%><div class="breadcrumb_divider"></div><a class="current">Editando Ambientes</a>
+    
+<%end%>
+<%= render 'form',:legenda=>'Edição de Ambientes ' %>
+

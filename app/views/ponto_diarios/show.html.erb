@@ -1,0 +1,60 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Ip assinatura:</b>
+  <%= @ponto_diario.ip_assinatura %>
+</p>
+
+<p>
+  <b>Data assinatura:</b>
+  <%= @ponto_diario.data_assinatura %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @ponto_diario.user_id %>
+</p>
+
+<p>
+  <b>Pessoa:</b>
+  <%= @ponto_diario.pessoa_id %>
+</p>
+
+<p>
+  <b>Funcionario:</b>
+  <%= @ponto_diario.funcionario_id %>
+</p>
+
+<p>
+  <b>Ponto:</b>
+  <%= @ponto_diario.ponto_id %>
+</p>
+
+<p>
+  <b>Assinado:</b>
+  <%= @ponto_diario.assinado %>
+</p>
+
+<p>
+  <b>Valido:</b>
+  <%= @ponto_diario.valido %>
+</p>
+
+<p>
+  <b>Evento:</b>
+  <%= @ponto_diario.evento_id %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_ponto_diario_path(@ponto_diario),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', ponto_diarios_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

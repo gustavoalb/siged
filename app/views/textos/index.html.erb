@@ -1,0 +1,50 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando textos</h3>
+		<ul class="tabs">
+            <%= form_for @search,:url=>administracao_textos_url do |f| %>
+        <li><%= f.select :busca,[['Lotação','LOTACAO'],['Categoria','CATEGORIA']],:prompt=>true %></li>
+        <li><%= image_submit_tag "icn_busca.png" %></li>
+      <% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Tipo</th>
+    <th>Categoria</th>
+    <th>Texto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @textos.each do |texto| %>
+  <tr>
+    <td><%= texto.nome %></td>
+    <td><%= texto.tipo %></td>
+    <td><%= detalhes(texto.categoria) %></td>
+    <td><%= texto.texto %></td>
+    <td><%= link_to 'Detalhes', administracao_texto_path(texto) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_administracao_texto_path(texto) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), administracao_texto_path(texto), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Texto', new_administracao_texto_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+        <div class="submit_link">
+          <%=will_paginate @textos%>
+        </div>
+			</footer>
+</article>
+

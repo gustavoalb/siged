@@ -1,0 +1,2 @@
+module Arquivo::DocumentosHelper
+end

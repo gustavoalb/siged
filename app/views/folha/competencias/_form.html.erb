@@ -1,0 +1,45 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@folha_competencia) do |f| %>
+  <% if @folha_competencia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@folha_competencia.errors.count, "erro impede","erros impedem") %> este folha_competencia de ser cadastrado:</h2>
+
+      <ul>
+      <% @folha_competencia.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nome %><br />
+        <%= f.text_field :nome,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :motivo %><br />
+        <%= f.text_field :motivo,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :padrao %><br />
+
+    <%= f.check_box :padrao,:style=>"width:40%;" %>
+
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

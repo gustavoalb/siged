@@ -1,0 +1,36 @@
+<%content_for :links do%>
+		<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><a class="current">Funcionários</a>
+<%end%>
+<article class="module width_3_quarter">
+		<header><h4 class="tabs_involved">Funcionários de <%=detalhes(@entidade)%></h3>
+		<ul class="tabs">
+
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Matricula</th>
+    <th>CPF</th>
+    <th>Id</th>
+  </tr>
+</thead>
+<tbody>
+<% @funcionarios.each do |funcionario| %>
+  <tr>
+    <td><%= detalhes(funcionario.pessoa) %></td>
+    <td><%= funcionario.matricula %></td>
+    <td><%= Cpf.new(funcionario.pessoa.cpf).numero %>
+    <td><%= funcionario.id %></td>
+    <%end%>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+			</footer>
+</article>

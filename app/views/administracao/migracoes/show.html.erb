@@ -1,0 +1,50 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Entidade:</b>
+  <%= @administracao_migracao.entidade_id %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @administracao_migracao.tipo %>
+</p>
+
+<p>
+  <b>Numero registros:</b>
+  <%= @administracao_migracao.numero_registros %>
+</p>
+
+<p>
+  <b>Contador:</b>
+  <%= @administracao_migracao.contador %>
+</p>
+
+<p>
+  <b>Origem:</b>
+  <%= @administracao_migracao.origem %>
+</p>
+
+<p>
+  <b>Motivo:</b>
+  <%= @administracao_migracao.motivo %>
+</p>
+
+<p>
+  <b>Arquivo:</b>
+  <%= @administracao_migracao.arquivo %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_administracao_migracao_path(@administracao_migracao),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', administracao_migracoes_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

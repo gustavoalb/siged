@@ -1,0 +1,40 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando ponto_diarios</h3>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Funcionario</th>
+    <th>Ponto</th>
+    <th>Assinado</th>
+    <th>Valido</th>
+    <th>Evento</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @ponto_diarios.each do |ponto_diario| %>
+  <tr>
+    <td><%= ponto_diario.funcionario_id %></td>
+    <td><%= ponto_diario.ponto_id %></td>
+    <td><%= ponto_diario.assinado %></td>
+    <td><%= ponto_diario.valido %></td>
+    <td><%= ponto_diario.evento_id %></td>
+    <td><%= link_to 'Detalhes', pessoa_funcionario_ponto_diario_path(@pessoa,@funcionario,ponto_diario) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Assinar"), pessoa_funcionario_ponto_diario_assinar_ponto_path(@pessoa,@funcionario,ponto_diario) %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

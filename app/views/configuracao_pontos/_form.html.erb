@@ -1,0 +1,102 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@configuracao_ponto) do |f| %>
+  <% if @configuracao_ponto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@configuracao_ponto.errors.count, "erro impede","erros impedem") %> este configuracao_ponto de ser cadastrado:</h2>
+
+      <ul>
+      <% @configuracao_ponto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_entrada_manha %><br/><br/>
+        <%= f.time_select :hora_entrada_manha,:style=>"width:100%;" %>
+  </fieldset>
+
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :tipo_entrada_manha %><br/><br/>
+        <%= f.select :tipo_entrada_manha,ConfiguracaoPonto::TIPO,:style=>"width:92%;" %>
+  </fieldset>
+    <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_limite_entrada_manha %><br/><br/>
+        <%= f.time_select :hora_limite_entrada_manha,:style=>"width:100%;" %>
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_saida_manha %><br/><br/>
+        <%= f.time_select :hora_saida_manha,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :tipo_saida_manha %><br/><br/>
+        <%= f.select :tipo_saida_manha,ConfiguracaoPonto::TIPO,:style=>"width:92%;" %>
+
+  </fieldset>
+
+      <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_limite_saida_manha %><br/><br/>
+        <%= f.time_select :hora_limite_saida_manha,:style=>"width:100%;" %>
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_entrada_tarde %><br/><br/>
+        <%= f.time_select :hora_entrada_tarde,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :tipo_entrada_tarde %><br/><br/>
+        <%= f.select :tipo_entrada_tarde,ConfiguracaoPonto::TIPO,:style=>"width:92%;" %>
+
+  </fieldset>
+      <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_limite_entrada_tarde %><br/><br/>
+        <%= f.time_select :hora_limite_entrada_tarde,:style=>"width:100%;" %>
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_saida_tarde %><br/><br/>
+        <%= f.time_select :hora_saida_tarde,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :tipo_saida_tarde %><br/><br/>
+        <%= f.select :tipo_saida_tarde,ConfiguracaoPonto::TIPO,:style=>"width:92%;" %>
+
+  </fieldset>
+      <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :hora_limite_saida_tarde %><br/><br/>
+        <%= f.time_select :hora_limite_saida_tarde,:style=>"width:100%;" %>
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :permitir_hora_extra %><br/><br/>
+
+    <%= f.check_box :permitir_hora_extra,:style=>"width:40%;" %>
+
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :permitir_banco_de_horas %><br/>
+
+    <%= f.check_box :permitir_banco_de_horas,:style=>"width:40%;" %>
+
+  </fieldset>
+  <fieldset style="width:32%; float:left; margin-right: 1%;">
+    <%= f.label :entidade_id %><br/>
+        <%= f.select :entidade_id,:style=>"width:92%;" %>
+
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

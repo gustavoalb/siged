@@ -1,0 +1,64 @@
+<article class="module width_full">
+<header><h3><%=legenda %></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@tipo_lista) do |f| %>
+  <% if @tipo_lista.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tipo_lista.errors.count, "erro impede","erros impedem") %> este tipo_listum de ser cadastrado:</h2>
+
+      <ul>
+      <% @tipo_lista.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nome %><br />
+        <%= f.text_field :nome,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :peso %><br />
+        <%= f.select :peso,[['0'],['3'],['5'],['7'],['10']],:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:97%; float:left; margin-right: 1%;">
+    <%= f.label :ativo %>
+      <%= f.check_box :ativo,:style=>"width:10;" %>
+  </fieldset>
+
+  <fieldset style="width:97%; float:left; margin-right: 1%;">
+    <%= f.label :tipo_objeto %><br />
+        <%= f.select :tipo_objeto,[["Pessoa"],["Funcionário"]],:style=>"width:5%;" %>
+  </fieldset>
+
+<fieldset style="width:97%; float:left; margin-right: 1%;">
+<label> Natureza da Lista </label> <br/><br/>
+  <% for natureza in Natureza.find(:all) %>
+    <div>
+      <%= check_box_tag "tipo_listum[natureza_ids][]", natureza.id, @tipo_listum.naturezas.include?(natureza) %>
+      <%= natureza.nome %>
+    </div>
+  <% end %>
+</fieldset>
+
+<%=observe_field :tipo_listum_natureza_ids_, :url => "/funcionarios/distrito",
+      :frequency => 0.25,
+      :update => :dist,
+      :with => 'municipio',
+      :function => "alert('Element changed')"%>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

@@ -1,0 +1,61 @@
+<%content_for :links do%>
+<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><a class="current">Funcionários</a>
+<%end%>
+<article class="module width_full">
+  <header><h4 class="tabs_involved">Funcionários de <%=@pessoa.nome.titleize%></h3>
+    <ul class="tabs">
+
+    </ul>
+  </header>
+  <div class="tab_container">
+    <div id="tab1" class="tab_content">
+      <table class="tablesorter" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Matricula</th>
+            <th>Cargo</th>
+            <th>Quadro</th>
+            <th>Categoria</th>
+            <th>Status</th>
+            <th colspan=6>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @funcionarios.each do |funcionario| %>
+          <tr>
+            <td><%= funcionario.matricula %></td>
+            <td><%=cargo_disciplina(funcionario)%> </td>
+            <td><%= detalhes(funcionario.entidade) %></td>
+            <td><%= detalhes(funcionario.categoria) %></td>
+
+            <td><%= status_lotacao(funcionario.status_lotacao) %></td>
+            <td><%= link_to 'Detalhes', pessoa_funcionario_path(@pessoa,funcionario)%></td>
+            <!--<td><%= link_to 'Assinar Ponto', pessoa_funcionario_ponto_diarios_path(@pessoa,funcionario)%></td>-->
+            <%if can? :update,Funcionario-%>
+            <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_funcionario_path(@pessoa,funcionario) %></td>  
+            <% end -%>
+            <%if can? :destroy,Funcionario-%>
+            <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa_funcionario_path(@pessoa,funcionario), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+            <%end-%>
+            <%if can? :manage,Folha::Financeiro%>
+            <td><%= link_to  image_tag("/images/boletim.png",:title=>"Imprimir Boletim Pessoal"), pessoa_boletim_pessoal_path(@pessoa)%></td>
+            <%end%>
+            <%if can? :manage,Lotacao %>
+            <td><%= link_to  image_tag('/images/icn_categories.png',:title=>"Lotação Funcional"),  pessoa_funcionario_lotacoes_path(@pessoa,funcionario)%></td>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer>
+    <div class="submit_link">
+      <%if can? :manage,Funcionario %><%= link_to 'Cadastrar Funcionario', new_pessoa_funcionario_path,:class=>"alt_btn",:type=>"submit"%> ou<%end%>
+      <%= link_to 'Voltar', :back,:type=>"submit" %>
+    </div>
+    <div class="submit_link">
+      <%= will_paginate @funcionarios %>
+    </div>
+  </footer>
+</article>

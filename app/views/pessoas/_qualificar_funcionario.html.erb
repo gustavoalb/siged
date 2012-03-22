@@ -1,0 +1,18 @@
+<article class="module width_full">
+		<header><h3 class="tabs_involved">Qualificar Funcionário</h3>
+		</header>
+    <div class="tab_container">
+
+<h3>Selecione o Departamento de Destino do documento</h3>
+<%= form_tag do %>
+<%= select_tag :departamento, options_for_select(@departamentos),:include_blank=>true %><br/>
+<% end %>
+<div id='qualificar'>
+</div>
+<%=observe_field "departamento", :url => "/pessoas/departamento/",
+      :update => 'qualificar',
+      :frequency => 0.25,
+      :with => "'departamento='+value+'&pessoa_id='+#{@pessoa.id}"%>
+
+</div>
+</article>

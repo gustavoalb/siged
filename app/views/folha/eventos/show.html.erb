@@ -1,0 +1,49 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Codigo:</b>
+  <%= @folha_evento.codigo %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @folha_evento.nome %>
+</p>
+
+<p>
+  <b>Incide previdencia:</b>
+  <%= @folha_evento.incide_previdencia %>
+</p>
+
+<p>
+  <b>Incide imposto renda:</b>
+  <%= @folha_evento.incide_imposto_renda %>
+</p>
+
+<p>
+  <b>Formula:</b>
+  <%= @folha_evento.formula %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @folha_evento.tipo %>
+</p>
+
+<p>
+  <b>Código contabil:</b>
+  <%= @folha_evento.codigo_contabil %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_folha_evento_path(@folha_evento),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', folha_eventos_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  motivo: MyString
+  padrao: false
+
+two:
+  nome: MyString
+  motivo: MyString
+  padrao: false

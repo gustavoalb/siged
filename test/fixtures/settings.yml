@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  objeto_id: 1
+  tipo_config: MyString
+  data: 2011-10-18 17:27:11
+  ativo: false
+  temporaridade: 1
+  tipo_temporaridade: MyString
+  finalizado: false
+
+two:
+  objeto_id: 1
+  tipo_config: MyString
+  data: 2011-10-18 17:27:11
+  ativo: false
+  temporaridade: 1
+  tipo_temporaridade: MyString
+  finalizado: false

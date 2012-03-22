@@ -1,0 +1,40 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando administracao_tarefas</h3>
+		<ul class="tabs">
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Tipo</th>
+    <th>Data</th>
+    <th>Executado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @administracao_tarefas.each do |administracao_tarefa| %>
+  <tr>
+    <td><%= administracao_tarefa.tipo %></td>
+    <td><%= administracao_tarefa.data %></td>
+    <td><%= administracao_tarefa.executado %></td>
+    <td><%= link_to 'Detalhes', administracao_tarefa %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_administracao_tarefa_path(administracao_tarefa) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), administracao_tarefa, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Tarefa', new_administracao_tarefa_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

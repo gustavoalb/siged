@@ -1,0 +1,10 @@
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= label_tag :tipo %><br /><br />
+<%= select :comissionado,:tipo,Comissionado::TIPOE,:prompt=>true,:style=>"width:92%;" %>
+
+</fieldset>
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= label_tag :escola %><br /><br />
+<%= text_field_with_auto_complete :escola, :nome_da_escola,:indicator=>'indicator1',:after_update_element=>"javascript.alert('teste')",:style=>"width:92%;",:required=>true  %>
+</fieldset>

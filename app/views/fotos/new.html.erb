@@ -1,0 +1,35 @@
+<%= javascript_include_tag 'webcam' %>
+<article class="module width_3_quarter">
+<div class="tab_container">
+<div id='fotos'>
+<div id="webcam"></div>
+<script type="text/javascript">
+   
+
+
+
+    webcam.set_swf_url('/webcam.swf');
+    webcam.set_api_url("<%=upload_pessoa_fotos_path($pessoa)%>");
+    webcam.set_quality(90);
+    webcam.set_shutter_sound(true, '/shutter.mp3');
+    webcam.set_hook('onLoad', 'onload_complete');
+    webcam.set_hook('onComplete', 'upload_complete');
+    $('webcam').innerHTML = webcam.get_html(643, 480);
+     function onload_complete(msg) {
+        // fetch the CSRF meta tag data
+        var csrf_param = $('meta[name=csrf-param]').attr('content');
+        var csrf_token = $('meta[name=csrf-token]').attr('content');
+
+        // reset the api URL appending the auth token parameter
+        webcam.set_api_url("<%=upload_pessoa_fotos_path($pessoa)%>" + '?' + csrf_param + "=" + encodeURI(csrf_token));
+    }
+</script>
+<%if @fotos.size>0%>
+<input type="button" value="Atualizar Fotografia" onclick="webcam.snap();"/>
+<%else%>
+<input type="button" value="Salvar Fotografia" onclick="webcam.snap();"/>
+<%end%>
+</div>
+
+</div>
+</article>

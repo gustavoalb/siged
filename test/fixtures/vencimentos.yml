@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nivel_id: 1
+  ano: 1
+  mes: 1
+  valor: 1.5
+  atual: false
+
+two:
+  nivel_id: 1
+  ano: 1
+  mes: 1
+  valor: 1.5
+  atual: false

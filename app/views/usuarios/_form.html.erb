@@ -1,0 +1,85 @@
+<%= form_for(@user) do |f| %>
+
+<% if @user.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@user.errors.count, "erro impede","erros impedem") %>  este usuário de ser cadastrado:</h2>
+
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<fieldset style="width:98%; float:left; margin-right: 1%;"><%= f.label :nome %><br />
+<%= text_field :usuario, :name,:style=>"width:92%;" %></fieldset>
+
+<fieldset style="width:98%; float:left; margin-right: 1%;"><%= f.label :usuario %><br />
+<%= text_field :usuario,:username,:style=>"width:92%;" %></fieldset>
+
+<fieldset style="width:98%; float:left; margin-right: 1%;"><%= f.label :email %><br />
+<%= text_field :usuario,:email,:style=>"width:92%;" %></fieldset>
+
+
+<fieldset style="width:98%; float:left; margin-right: 1%;">
+<table><tr>
+<td><%= f.label :senha %></td><td><%= password_field :usuario,:password,:style=>"width:92%;" %></td>
+</tr>
+<tr><td><%= f.label :confirmar_senha %></td>
+<td><%= password_field :usuario, :password_confirmation,:style=>"width:92%;" %></td></tr>
+</table>
+</fieldset>
+
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= f.label :orgão %><br />
+<%= select :usuario, :orgao_id,@orgaos,:style=>"width:92%;",:prompt=>true %>
+</fieldset>
+
+<%=observe_field "usuario_orgao_id", :url => "/usuarios/departamentos",
+:frequency => 0.25,
+:with => 'org'%>
+
+
+
+<div id="departamentos">
+<%if !@user.new_record?%>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= label :usuario,:departamentos %><br />
+<%= select :usuario,:departamento_id,@departamentos,:style=>"width:91%;",:prompt=>true %>
+<%end%>
+</fieldset>
+</div>
+
+
+
+<fieldset style="width:98%; float:left; margin-right: 1%;">
+<label>Papéis Disponíveis</label><br/><br/>
+<% for role in Role.find(:all) %>
+
+<%= check_box_tag "usuario[role_ids][]", role.id, @user.roles.include?(role) %>
+<%= role.name %>
+<% end %>
+</fieldset>
+
+<fieldset style="width:98%; float:left; margin-right: 1%;">
+<label>Entidade do usuário</label><br/><br/>
+<%select :usuario,:entidade_id,%>
+</fieldset>
+
+<fieldset style="width:98%; float:left; margin-right: 1%;">
+<label>Entidades para leitura</label><br/><br/>
+<% for entidade in Entidade.find(:all) %>
+<div>
+<%= check_box_tag "usuario[entidade_ids][]", entidade.id, @user.entidades.include?(entidade) %>
+<%= entidade.nome %>
+</div>
+<% end %>
+</fieldset>
+
+<div class="submit_link">
+<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+</div>
+
+<% end %>

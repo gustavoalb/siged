@@ -1,0 +1,5 @@
+<%= check_box :lotacao,:complementar %>
+<%=observe_field :lotacao_complementar, :url => "/lotacoes/complementar/",
+    :frequency => 0.25,
+    :update => :reg,
+    :with => 'complemento'%>

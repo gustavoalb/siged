@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  competencia_id: 1
+  mes: 1
+  ano: 1
+  evento_id: 1
+  valor: 1.5
+  funcionario_id: 1
+  prazo: 1
+  parametro: 1
+  tipo_parametro_id: 1
+
+two:
+  competencia_id: 1
+  mes: 1
+  ano: 1
+  evento_id: 1
+  valor: 1.5
+  funcionario_id: 1
+  prazo: 1
+  parametro: 1
+  tipo_parametro_id: 1

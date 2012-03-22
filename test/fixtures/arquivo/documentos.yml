@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo: MyString
+  dono_id: 1
+  data: 2012-01-24 18:06:43
+  user_id: 1
+
+two:
+  tipo: MyString
+  dono_id: 1
+  data: 2012-01-24 18:06:43
+  user_id: 1

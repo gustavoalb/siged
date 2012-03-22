@@ -1,0 +1,35 @@
+<article class="module width_full">
+<%= form_tag(comissionado_exonerar_comissionado_path(@comissionado)) do - %>
+  <% if @comissionado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comissionado.errors.count, "erro impede","erros impedem") %> este comissionado de ser cadastrado:</h2>
+
+      <ul>
+      <% @comissionado.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <%= hidden_field :comissionado,:funcionario_id,:value=>@funcionario.id,:style=>"width:92%;" %>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= label_tag :decreto_de_exoneracao %><br /><br />
+        <%= text_field :comissionado,:decreto_exoneracao,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= label :data_da_exoneracao %><br />
+        <%= date_select :comissionado,:data_exoneracao,:start_year=>1970,:prompt=>true,:order=>[:day,:month,:year],:style=>"width:30%;" %>
+    <br /><br />
+  </fieldset>
+
+  <%=hidden_field :comissionado,:ativo,:value=>false%>
+
+
+	<%=submit_tag "Salvar",:class=>"alt_btn" %>
+
+
+<% end %>
+</article>

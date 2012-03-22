@@ -1,0 +1,37 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando categorias</h3>
+		<ul class="tabs">
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @categorias.each do |categoria| %>
+  <tr>
+    <td><%= categoria.nome %></td>
+    <td><%= link_to 'Detalhes', categoria %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_categoria_path(categoria) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), categoria, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Categoria', new_categoria_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

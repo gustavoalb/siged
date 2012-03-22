@@ -1,0 +1,43 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pessoa_id: 1
+  matricula: MyString
+  cargo_nome: MyString
+  cargo_id: 1
+  funcao: MyString
+  orgao: MyString
+  nivel_id: 1
+  jornada: MyString
+  classe: MyString
+  decreto_nomeacao: MyString
+  termo_posse: MyString
+  afastamento: MyString
+  funcao_gratificada: MyString
+  municipio_opcao: MyString
+  situacao_juridica: MyString
+  quinquenio: MyString
+  banco: MyString
+  agencia: MyString
+  conta: MyString
+
+two:
+  pessoa_id: 1
+  matricula: MyString
+  cargo_nome: MyString
+  cargo_id: 1
+  funcao: MyString
+  orgao: MyString
+  nivel_id: 1
+  jornada: MyString
+  classe: MyString
+  decreto_nomeacao: MyString
+  termo_posse: MyString
+  afastamento: MyString
+  funcao_gratificada: MyString
+  municipio_opcao: MyString
+  situacao_juridica: MyString
+  quinquenio: MyString
+  banco: MyString
+  agencia: MyString
+  conta: MyString

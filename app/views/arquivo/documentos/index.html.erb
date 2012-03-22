@@ -1,0 +1,47 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando arquivo_documentos</h3>
+		<ul class="tabs">
+   			<%= form_for @search do |f| %>
+   			<li><%= f.text_field :busca,:size=>12 %></li>
+    		<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Tipo</th>
+    <th>Dono</th>
+    <th>Data</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @arquivo_documentos.each do |arquivo_documento| %>
+  <tr>
+    <td><%= arquivo_documento.tipo %></td>
+    <td><%= arquivo_documento.dono_id %></td>
+    <td><%= arquivo_documento.data %></td>
+    <td><%= arquivo_documento.user_id %></td>
+    <td><%= link_to 'Detalhes', arquivo_documento %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_arquivo_documento_path(arquivo_documento) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), arquivo_documento, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Documento', new_arquivo_documento_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

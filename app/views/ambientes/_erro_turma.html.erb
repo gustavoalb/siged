@@ -1,0 +1,11 @@
+<% if @turma.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@turma.errors.count, "erro impede","erros impedem") %> este ambiente de ser cadastrado:</h2>
+
+      <ul>
+      <% @turma.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>

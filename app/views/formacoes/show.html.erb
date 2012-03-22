@@ -1,0 +1,81 @@
+<article class="module width_full">
+<header><h3>Detalhes do <%=@formacao.nivel.nome%> </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nível:</b>
+  <%= detalhes(@formacao.nivel).titleize %>
+</p>
+
+<p>
+  <b>Ano de início:</b>
+  <%= @formacao.ano_de_inicio %>
+</p>
+
+<p>
+  <b>Ano de término:</b>
+  <%= @formacao.ano_de_termino %>
+</p>
+
+<p>
+  <b>Instituição:</b>
+  <%= @formacao.instituicao %>
+</p>
+
+<%if @formacao.nivel.ordem <=11 %>
+
+<%if !@formacao.titulo.nil?%>
+<p>
+  <b>Título:</b>
+  <%= titulo_formacao(@formacao) %>
+</p>
+<%end%>
+
+<%if @formacao.subtipo and @formacao.subtipo.nome!='Normal'%>
+<p>
+  <b>Tipo de formação</b>
+  <%= detalhes(@formacao.subtipo).titleize %>
+</p>
+<%end%>
+
+<p>
+  <b>Curso:</b>
+  <%= @formacao.curso %>
+</p>
+
+<p>
+  <b>Carga Horária:</b>
+  <%= @formacao.carga_horaria %>
+</p>
+
+<%if @formacao.nivel.ordem==5%>
+<p>
+  <b>Número de Registro:</b>
+  <%= @formacao.numero_registro %>
+</p>
+<%end%>
+
+<%if @formacao.nivel.ordem<7%>
+<p>
+  <b>Título do trabalho:</b>
+  <%= @formacao.titulo_dissertacao %>
+</p>
+
+<p>
+  <b>Nome do Orientador:</b>
+  <%= @formacao.nome_orientador %>
+</p>
+<%end%>
+
+<%end%>
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_formacao_path(@formacao),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', formacoes_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+  

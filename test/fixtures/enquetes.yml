@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo: MyString
+  sujeito: MyString
+  opiniao_um: MyString
+  comentario_um: MyString
+  opiniao_dois: MyString
+  comentario_dois: MyString
+
+two:
+  tipo: MyString
+  sujeito: MyString
+  opiniao_um: MyString
+  comentario_um: MyString
+  opiniao_dois: MyString
+  comentario_dois: MyString

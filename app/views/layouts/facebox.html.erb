@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>SIGED 2.0::SECRETARIA DE ESTADO DA EDUCAÇÃO</title>
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+  <%= stylesheet_link_tag "facebox.css","ie.css","layout.css","pdf.css","tabs.css","verticalaccordion.css" %>
+  <%= javascript_include_tag :defaults %>
+
+  
+  <%= calendar_date_select_includes "silver", :locale => "pt" %>
+  <%= csrf_meta_tag %>
+
+</head>
+
+
+<body>
+
+    <%=yield%>
+    <div class="clear"></div>
+&nbsp;
+ <div class="clear"></div>
+
+</body>
+
+</html>
+

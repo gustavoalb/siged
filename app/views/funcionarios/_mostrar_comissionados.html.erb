@@ -1,0 +1,74 @@
+<article class="module width_full">
+<div class="module_content">
+		<h3>Listando Cargos Comissionados</h3>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0" border=0>
+  <tr align=center>
+    <th>Tipo</th>
+    <th>Data</th>
+    <th>Motivo</th>
+    <th>Decreto</th>
+    <th>Data da publicação</th>
+    <th>Orgão</th>
+    <th>Descrição</th>
+    <th>Ativo<th>
+    <th colspan=2>Ações</th>
+  </tr>
+<tbody>
+<% @comissionados.each do |comissionado| %>
+  <tr align=center>
+    <td><%= comissionado.tipo %></td>
+    <td><%= comissionado.data.to_s_br %></td>
+    <td><%= comissionado.motivo %></td>
+    <td><%= comissionado.decreto %></td>
+    <td><%= comissionado.data_publicacao.to_s_br %></td>
+    <td><%= detalhes(comissionado.orgao)%></td>
+    <td><%= comissionado.descricao_comissao %></td>
+    <td><%= sim_nao(comissionado.ativo)%></td>
+    <td><%= link_to  image_tag("/images/63-runner.png",:title=>"Exonerar"), comissionado_exonerar_comissionado_path(comissionado.id),:rel=>"facebox" %></td>
+     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), comissionado, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</article>
+
+<article class="module width_full">
+<div class="module_content">
+		<h3>Listando Exonerações do Funcionário</h3>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0" border=0>
+  <tr align=center>
+    <th>Tipo</th>
+    <th>Data</th>
+    <th>Motivo</th>
+    <th>Decreto</th>
+    <th>Data da publicação</th>
+    <th>Orgão</th>
+    <th>Descrição</th>
+  </tr>
+<tbody>
+<% @exoneracoes.each do |comissionado| %>
+  <tr align=center>
+    <td><%= comissionado.tipo %></td>
+    <td><%= comissionado.data.to_s_br %></td>
+    <td><%= comissionado.motivo %></td>
+    <td><%= comissionado.decreto %></td>
+    <td><%= comissionado.data_publicacao.to_s_br %></td>
+    <td><%= detalhes(comissionado.orgao)%></td>
+    <td><%= comissionado.descricao_comissao %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</article>

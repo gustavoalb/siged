@@ -1,0 +1,54 @@
+<%content_for :links do%>
+		<%=link_to "Escolas",escola_ano_letivo_settings_path%><div class="breadcrumb_divider"></div><%=link_to "Configurações",escola_ano_letivo_settings_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Objeto:</b>
+  <%= @setting.objeto_id %>
+</p>
+
+<p>
+  <b>Tipo config:</b>
+  <%= @setting.tipo_config %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @setting.data.to_s_br %>
+</p>
+
+<p>
+  <b>Ativo:</b>
+  <%= sim_nao(@setting.ativo) %>
+</p>
+
+<p>
+  <b>Temporalidade:</b>
+  <%= @setting.temporalidade %>
+</p>
+
+<p>
+  <b>Tipo temporalidade:</b>
+  <%= @setting.tipo_temporalidade %>
+</p>
+
+<p>
+  <b>Finalizado:</b>
+  <%= sim_nao(@setting.finalizado) %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_escola_ano_letivo_setting_path(@escola,@ano_letivo,@setting),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', escola_ano_letivo_settings_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

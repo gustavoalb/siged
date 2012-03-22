@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  peso: 1
+  ativo: false
+  tipo_objeto: MyString
+
+two:
+  nome: MyString
+  peso: 1
+  ativo: false
+  tipo_objeto: MyString

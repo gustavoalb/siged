@@ -1,0 +1,12 @@
+<article class="module width_full">
+    <div class="tab_container">
+
+   <%= form_for :tipo_lista, @tipo_lista, :url => tipo_lista_salvar_arquivo_path, :html => { :multipart => true } do |form| %>
+  <label>Arquivo</label><br/>
+  <%= form.file_field :arquivo %><br/>
+  <label>Motivo da Inclusão:</label><br/>
+  <%=text_area :lista,:motivo,:placeholder=>"Digite o Motivo da inclusão nas Listas"%><br/>
+  <%=form.submit "Incluir"%>
+<% end %>
+    </div>
+</article>

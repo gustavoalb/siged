@@ -1,0 +1,50 @@
+<article class="module width_full">
+    <div class="tab_container">
+
+
+<%if @pessoas%>
+<%content_for :links do%>
+    <%=link_to "Listas",tipo_lista_path%><div class="breadcrumb_divider"></div><a class="current">Listando <%=@tipo_lista.nome%></a>
+
+<%end%>
+
+<header><h3 class="tabs_involved">Pessoas incluídas na Lista</h3>
+<%if @pessoas.size>0%>
+<div style="background: url('/images/lixeira.png') no-repeat; background-color: rgb(255, 255, 255);" class="" id="lixeira"></div> 
+<%end%>
+		</header>
+
+<ul class="gallery">
+
+<% @pessoas.each do |pessoa| %>
+    <div id="draggable_demo_<%=pessoa.id%>" class="draggable_<%=pessoa.id%>"><li><a href="#"><em2><%=pessoa.nome%></em2><em><%=pessoa.nome%></em><%=image_tag "/images/noimage.png"%>
+     </a></li>
+      <%= draggable_element "draggable_demo_#{pessoa.id}", :revert => true %>
+    </div>
+
+
+
+
+<%= drop_receiving_element("lixeira",
+  :update => "pessoas", 
+  :method => :delete,
+  :url =>  { :controller => "tipo_lista", :action => "remover_pessoa",:id=>@tipo_lista.id,:pessoa_id=>pessoa.id},
+  :accept=>"draggable_#{pessoa.id}",
+  :confirm => "Tem certeza que deseja remover a pessoa da lista?") %>
+ 
+<%end%>
+
+</ul>
+
+
+</div>
+
+<div class='clear'>
+</div>
+</div>
+
+
+</article>
+
+<%end%>
+

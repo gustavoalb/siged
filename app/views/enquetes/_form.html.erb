@@ -1,0 +1,80 @@
+<article class="module width_full">
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content">
+
+
+    <%= form_for(@enquete) do |f| %>
+    <% if @enquete.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enquete.errors.count, "erro impede","erros impedem") %> este enquete de ser cadastrado:</h2>
+
+      <ul>
+        <% @enquete.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <fieldset style="width:97.3%; height:80%; float:left; margin-right: 1%;">
+      <table>
+        <tr>
+          <th align=left>OCASIÃO</th>
+          <th></th>
+          <th align=left>SUJEITO</th>
+        </tr>
+        <tr>
+          <td align=center><%= f.radio_button :tipo,'ANTES' %> Antes da Reunião
+            <%= f.radio_button :tipo,'DEPOIS' %> Depois da Reunião</td>
+            <td width=40%></td>
+            <td align=center><%= f.select :sujeito,Enquete::SUJEITO,:prompt=>true %></td>
+          </tr>
+        </table>
+
+      </fieldset>
+
+      <fieldset style="width:97.3%; float:left; margin-right: 1%;">
+        <table>
+          <tr>
+            <th align=left>CONCEITO DA NOVA GESTÃO</th>
+            <th></th>
+            <th align=left>JUSTIFICATIVA</th>
+          </tr>
+          <tr>
+            <td align=center><%= f.radio_button :opiniao_um,'OTIMAS' %> Ótimas
+              <%= f.radio_button :opiniao_um,'BOAS' %> Boas
+              <%= f.radio_button :opiniao_um,'PESSIMAS' %> Péssimas
+              <%= f.radio_button :opiniao_um,'OPINIAO' %> Sem opinião formada</td>
+              <td width=27%></td>
+              <td align=left><%= f.text_area :comentario_um,:size=>'30x2' %></td>
+            </tr>
+          </table>
+
+        </fieldset>
+             <fieldset style="width:97.3%; float:left; margin-right: 1%;">
+        <table>
+          <tr>
+            <th align=left>CONCEITO DA ESCOLA</th>
+            <th></th>
+            <th align=left>JUSTIFICATIVA</th>
+          </tr>
+          <tr>
+            <td align=center><%= f.radio_button :opiniao_dois,'OTIMAS' %> Ótimas
+              <%= f.radio_button :opiniao_dois,'BOAS' %> Boas
+              <%= f.radio_button :opiniao_dois,'PESSIMAS' %> Péssimas
+              <%= f.radio_button :opiniao_dois,'OPINIAO' %> Sem opinião formada</td>
+              <td width=27%></td>
+              <td align=left><%= f.text_area :comentario_dois,:size=>'30x2' %></td>
+            </tr>
+          </table>
+
+        </fieldset>
+        <div class="clear"></div>
+      </div>
+      <footer>
+        <div class="submit_link">
+         <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+       </div>
+     </footer>
+     <% end %>
+   </article>

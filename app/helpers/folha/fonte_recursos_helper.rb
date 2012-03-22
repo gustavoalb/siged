@@ -1,0 +1,2 @@
+module Folha::FonteRecursosHelper
+end

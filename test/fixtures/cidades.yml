@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  estado_id: 1
+  cep: MyString
+
+two:
+  nome: MyString
+  estado_id: 1
+  cep: MyString

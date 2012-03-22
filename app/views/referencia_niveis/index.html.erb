@@ -1,0 +1,54 @@
+<%content_for :links do%>
+		<a class="current">Referência/Níveis</a>
+
+<%end%>
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Referência/Nível</h3>
+		<ul class="tabs">
+   			<%= form_for @search do |f| %>
+   			<li><%= f.text_field :busca,:size=>12 %></li>
+    		<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Codigo</th>
+    <th>Nº de funcionários</th>
+    <th>Vencimento</th>
+    <th>Jornada</th>
+    <th colspan=5></th>
+  </tr>
+</thead>
+<tbody>
+<% @referencia_niveis.each do |referencia_nivel| %>
+  <tr>
+    <td><%= referencia_nivel.nome.upcase %></td>
+    <td><%= referencia_nivel.codigo %></td>
+    <td align='right'><%= referencia_nivel.funcionarios.size %></td>
+    <td><%= referencia_nivel.vencimento.valor.reais_contabeis %></td>
+    <td><%= jornada(referencia_nivel) %></td>
+    <td><%= link_to 'Detalhes', referencia_nivel %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_referencia_nivel_path(referencia_nivel) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), referencia_nivel, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+    <%if can? :read,Vencimento%><td><%= link_to  image_tag("/images/icn_folha.png",:title=>"Novo vencimento"), new_referencia_nivel_vencimento_path(referencia_nivel)%></td><%end%>
+    <!--<td><%= link_to  image_tag("/images/cofre.png",:title=>"Vencimentos do Nível"), referencia_nivel_vencimentos_path(referencia_nivel)%></td>-->
+
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+          <%=will_paginate @niveis%>
+				  <%= link_to 'Cadastrar Referencia nivel', new_referencia_nivel_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

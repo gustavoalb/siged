@@ -1,0 +1,189 @@
+ <script type="text/javascript">
+
+    Event.observe(window, 'load', function() {
+
+        new MaskedInput('#date', '99/99/9999');
+        new MaskedInput("#pessoa_telefone_residencial", '(99) 9999-9999');
+new MaskedInput('#pessoa_telefone_celular', '(99) 9999-9999');
+new MaskedInput('#pessoa_cpf', '999.999.999-99');
+new MaskedInput('#ssn', '999-99-9999');
+new MaskedInput('#product', 'a*-999-a999');
+
+new MaskedInput('#eyescript', '~9.99 ~9.99 999', {
+completed: function(){
+alert("You typed the following: " + this.getValue());
+}
+});
+
+MaskedInput.definitions['~']='[+-]';
+
+new MaskedInput('#eyescript2', '~9.99 ~9.99 999', {
+completed: function(){
+alert("You typed the following: " + this.getValue());
+}
+});
+    });
+    </script>
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@pessoa) do |f| %>
+  <% if @pessoa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pessoa.errors.count, "erro","erros") %> impedem esta pessoa de ser cadastrada:</h2>
+
+      <ul>
+      <% @pessoa.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+<%if current_user.role?("ucolom")==true%>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :telefone_residencial %><br />
+        <%= f.text_field :telefone_residencial,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :telefone_celular %><br />
+        <%= f.text_field :telefone_celular,:style=>"width:92%;" %>
+  </fieldset>
+<%else%>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nome %><br />
+        <%= f.text_field :nome,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :sexo %><br />
+        <%= f.select :sexo,Pessoa::SEXO,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:97%; float:left; margin-right: 1%;">
+    <table>
+    <tr>
+    <th  align=left>ENDEREÇO</th>
+      <th  align=left>NÚMERO</th>
+      </tr>
+      <tr>
+      <td><%= f.text_field :endereco,:style=>"width:92%;" %></td>
+
+        <td><%= f.text_field :numero,:style=>"width:20%;" %></td>
+        </tr>
+        </table>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :complemento %><br />
+        <%= f.text_field :complemento,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :bairro %><br />
+    <%= f.text_field :bairro,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :telefone_residencial %><br />
+        <%= f.text_field :telefone_residencial,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :telefone_celular %><br />
+        <%= f.text_field :telefone_celular,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nascimento %><br />
+        <%= f.calendar_date_select :nascimento,:year_range => 91.years.ago..0.years.ago,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :naturalidade %><br />
+        <%= f.select :naturalidade,Pessoa::NATURALIDADES,:prompt=>true,:style=>"width:92%;" %>
+<br /><br />
+  </fieldset>
+  <%=observe_field :pessoa_naturalidade, :url => "/pessoas/naturalidade",
+      :frequency => 0.25,
+      :update => :cidade,
+      :with => 'estado'%>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nacionalidade %><br />
+        <%= f.select :nacionalidade,Pessoa::NACION,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :cpf %><br />
+        <%= f.text_field :cpf,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :rg %><br />
+        <%= f.text_field :rg,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :pis_pasep %><br />
+        <%= f.text_field :pis_pasep,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+  <div id="cidade">
+
+    <%= f.label :cidade %><br />
+        <%= f.text_field :cidade_id,:disabled=>true,:value=>placeholder(@pessoa.cidade),:style=>"width:92%;" %>
+  </div>
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :uf %><br />
+        <%= f.text_field :uf,:style=>"width:92%;" %>
+
+  </fieldset>
+
+<!--
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ano_de_chegada %><br />
+        <%= f.text_field :ano_de_chegada,:style=>"width:92%;" %>
+
+  </fieldset>
+-->
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :estado_civil %><br />
+        <%= f.select :estado_civil,Pessoa::ESTCIV,:prompt=>"Indique o estado cívil",:style=>"width:92%;" %>
+  <br/>
+  </fieldset>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :título_de_eleitor %><br />
+        <%= f.text_field :titulo_eleitor,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :zona_eleitoral %><br />
+        <%= f.text_field :zona_eleitoral,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :seção %><br />
+        <%= f.text_field :secao,:style=>"width:92%;" %>
+
+  </fieldset>
+<% end %>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

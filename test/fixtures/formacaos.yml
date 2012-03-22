@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pessoa_id: 1
+  nivel: MyString
+  ano_de_inicio: 2011-06-27
+  ano_de_termino: 2011-06-27
+  curso: MyString
+  titulacao: MyString
+  habilitacao: MyString
+
+two:
+  pessoa_id: 1
+  nivel: MyString
+  ano_de_inicio: 2011-06-27
+  ano_de_termino: 2011-06-27
+  curso: MyString
+  titulacao: MyString
+  habilitacao: MyString

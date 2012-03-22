@@ -1,0 +1,107 @@
+<article class="module width_full">
+  <header><h3>Estatísticas - Depois da Reunião de 09/03/2012</h3></header>
+  <div class="module_content">
+    
+    <h4>Quais as expectativas para este novo período da gestão da educação?</h4>
+
+    <table class='tablesorter'>
+      <thead>
+      <tr><th width='16.6%'>SUJEITO</th><th width='16.6%'>ÓTIMO</th><th width='16.6%'>BOM</th><th width='16.6%'>RUIM</th><th width='16.6%'>INDEFINIDO</th><th width='16.6%'>REGISTROS</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Diretor</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_um=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_um=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_um=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_um=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_um=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_um=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_um=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_um=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR')%></td></tr>
+      
+
+      <tr><td>Diretor Adjunto</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_um=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO')%></td></tr>
+      
+      <tr><td>Representante do Diretor</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_um=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_um=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_um=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_um=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_um=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_um=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_um=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_um=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE')%></td>
+      </tr>
+
+      <tr><td>Secretário Escolar</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_um=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_um=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_um=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_um=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_um=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_um=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_um=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_um=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO')%></td>
+      </tr>
+      <tr><td>Totais</td>
+      <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_um=>'OTIMAS')%>%</td>
+       <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_um=>'BOAS')%>%</td>
+        <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_um=>'PESSIMAS')%>%</td>
+         <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_um=>'OPINIAO')%>%</td>
+          <td align=center><b><%=Enquete.get_stat(:quantidade,:ocasiao=>'DEPOIS')%></b></td>
+          </tbody>   
+    </table>
+
+<br/><br/><br/><br/><br/>
+<h4>E as expectativas para a sua escola?</h4>
+
+        <table class='tablesorter'>
+      <thead>
+      <tr><th width='16.6%'>SUJEITO</th><th width='16.6%'>ÓTIMO</th><th width='16.6%'>BOM</th><th width='16.6%'>RUIM</th><th width='16.6%'>INDEFINIDO</th><th width='16.6%'>REGISTROS</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Diretor</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_dois=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_dois=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_dois=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_dois=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_dois=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_dois=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR',:conceito_dois=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR',:conceito_dois=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR')%></td></tr>
+      
+
+      <tr><td>Diretor Adjunto</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'DIRETOR ADJUNTO',:conceito_dois=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'DIRETOR ADJUNTO')%></td></tr>
+      
+      <tr><td>Representante do Diretor</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_dois=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_dois=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_dois=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_dois=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_dois=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_dois=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE',:conceito_dois=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'REPRESENTANTE',:conceito_dois=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'REPRESENTANTE')%></td>
+      </tr>
+
+
+      <tr><td>Secretário Escolar</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_dois=>"OTIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_dois=>"OTIMAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_dois=>"BOAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_dois=>"BOAS")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_dois=>"PESSIMAS")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_dois=>"PESSIMAS")%>%</td>
+        <td ALIGN=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO',:conceito_dois=>"OPINIAO")%> / <%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:sujeito=>'SECRETARIO',:conceito_dois=>"OPINIAO")%>%</td>
+        <td align=center><%=Enquete.get_stat(:quantidade,:ocasiao=>"DEPOIS",:sujeito=>'SECRETARIO')%></td>
+      </tr>
+      <tr><td>Totais</td>
+      <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_dois=>'OTIMAS')%>%</td>
+       <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_dois=>'BOAS')%>%</td>
+        <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_dois=>'PESSIMAS')%>%</td>
+         <td align=center><%=Enquete.get_stat(:porcentagem_antes,:ocasiao=>'DEPOIS',:conceito_dois=>'OPINIAO')%>%</td>
+          <td align=center><b><%=Enquete.get_stat(:quantidade,:ocasiao=>'DEPOIS')%></b></td>
+          </tbody>   
+    </table>
+
+
+  </div>
+  <footer>
+    <div class="submit_link">
+      <%= link_to 'Voltar', enquetes_path,:type=>"submit" %>
+    </div>
+  </footer>
+</article>
+

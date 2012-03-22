@@ -1,0 +1,45 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando administracao_migracoes</h3>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Entidade</th>
+    <th>Tipo</th>
+    <th>Numero registros</th>
+    <th>Contador</th>
+    <th>Origem</th>
+    <th>Motivo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @administracao_migracoes.each do |administracao_migracao| %>
+  <tr>
+    <td><%= administracao_migracao.entidade_id %></td>
+    <td><%= administracao_migracao.tipo %></td>
+    <td><%= administracao_migracao.numero_registros %></td>
+    <td><%= administracao_migracao.contador %></td>
+    <td><%= administracao_migracao.origem %></td>
+    <td><%= administracao_migracao.motivo %></td>
+    <td><%= link_to 'Detalhes', administracao_migracao %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_administracao_migracao_path(administracao_migracao) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), administracao_migracao, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Nova Migracao', new_administracao_migracao_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

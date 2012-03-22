@@ -1,0 +1,88 @@
+<%content_for :links do%>
+<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes da <%=@escola.nome_da_escola.titleize%> </h3></header>
+<div class="module_content">
+<%= necessidade_professor_e(@escola,'qualquer') %>
+<p>
+  <b>Código:</b>
+  <%= @escola.codigo %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @escola.nome_da_escola %>
+</p>
+
+<p>
+  <b>Diretor:</b>
+  <%= detalhes(@escola.diretor) %>
+</p>
+
+<%if !@escola.secretario.nil?%>
+<p>
+  <b>Secretário:</b>
+  <%= detalhes(@escola.secretario) %>
+</p>
+<%end%>
+
+<%if !@escola.diretor_adjunto.nil?%>
+<p>
+  <b>Diretor Adjunto:</b>
+  <%= detalhes(@escola.diretor_adjunto) %>
+</p>
+<%end%>
+
+<p>
+  <b>Tipologia:</b>
+  <%= @escola.tipologia %>
+</p>
+
+
+<p>
+  <b>Rede:</b>
+  <%= detalhes(@escola.esfera) %>
+</p>
+
+<p>
+  <b>Zona:</b>
+  <%= @escola.zona %>
+</p>
+
+<p>
+  <b>Endereço:</b>
+  <%= @escola.endereco %>
+</p>
+
+<p>
+  <b>Cidade:</b>
+  <%= @escola.municipio.nome %>
+</p>
+
+<p>
+  <b>Telefone:</b>
+  <%= @escola.telefone %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%= @escola.fax %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @escola.email %>
+</p>
+
+
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_escola_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', escolas_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

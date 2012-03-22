@@ -1,0 +1,39 @@
+
+<%= form_for @ambiente_fisico,:url=>escola_ambiente_salvar_ambiente_fisico_url(@escola,@ambiente),:remote=>true do |f| %>
+  <% if @ambiente_fisico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@turma.errors.count, "erro impede","erros impedem") %> este ambiente de ser cadastrado:</h2>
+
+      <ul>
+      <% @turma.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=f.hidden_field :escola_id,:value=>@escola.id%>
+
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label "Turno" %><br /><br />
+        <%= f.select :turno,Turma::TURNO,:style=>"width:92%;" %>
+  </fieldset>
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+    <label> Matriz do Ambiente</label><br /><br />
+        <%=f.select :matriz_id, @matrizes,:style=>"width:92%;",:prompt=>true %>
+</fieldset>
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+    <label>Tipo do Ambiente</label><br /><br />
+        <%=f.select :tipo_ambiente,AmbienteFisico::TIPO,:style=>"width:92%;",:prompt=>true %>
+</fieldset>
+
+<div class="clear"></div>
+</div>
+
+				<div class="submit_link">
+					<%=f.submit "Salvar Ambiente",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+
+<% end %>

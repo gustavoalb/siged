@@ -1,0 +1,56 @@
+<%content_for :links do%>
+<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Boletins",pessoa_boletins_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Gerar boletim</a>
+<%end%>
+<article class="module width_full">
+<header><h3>Gerar Boletim Pessoal</h3></header>
+<div class="module_content">
+
+
+<%= form_for @boletim,:url=>pessoa_salvar_boletim_url do |f| %>
+  <% if @boletim.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boletim.errors.count, "error") %> prohibited this formacao from being saved:</h2>
+
+      <ul>
+      <% @boletim.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=f.hidden_field :pessoa_id,:value=>@pessoa.id%>
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :mes %><br />
+        <%= select_month(Date.today, :use_month_numbers => true,:field_name => 'mes') %> 
+  </fieldset>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ano %><br />
+        <%= select_year(Date.today, :start_year => Date.today.year, :end_year => 1900,:field_name => 'ano')
+ %> 
+  </fieldset>
+  
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :tipo %><br />
+        <%= f.select :tipo,options_for_select([['Inclusão','I'],['Alteração','A'],['Exclusão','E']]),:prompt=>true
+ %> 
+  </fieldset>
+  
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :folha %><br />
+        <%= f.select :folha,options_for_select([['Estado'],['Federal'],['FUNDEB']]),:prompt=>true
+ %> 
+  </fieldset>
+
+<br />
+  <div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%= f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>
+

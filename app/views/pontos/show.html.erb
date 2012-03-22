@@ -1,0 +1,315 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0 border=0>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<tr>
+
+			<td align='right' width=56.2%><%=image_tag "../images/carta/logo.jpg",:style=>"align='center'"%></td>
+			<td align='right' width=43.8%><%=image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
+		</tr>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP STYLE="border: 0px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>GOVERNO DO ESTADO
+			DO AMAPÁ<BR>
+			SECRETARIA DE
+			ESTADO DA EDUCAÇÃO<BR>
+			<%=destino(@lotacao).upcase%></B></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% VALIGN=TOP STYLE="border: 0px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>PONTO DIÁRIO</B></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=25% bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>ÓRGÃO</B></FONT></P>
+		</TD>
+		<TD WIDTH=26% bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>CADASTRO/SIAPE</B></FONT></P>
+		</TD>
+		<TD WIDTH=24% bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>COD.
+			LOTAÇÃO</B></FONT></P>
+		</TD>
+		<TD WIDTH=25% bgcolor=LightGray STYLE="; border: 1px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>PERÍODO</B></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=25% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=destino_ponto(@lotacao)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=25% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=@funcionario.matricula%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=25% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=@lotacao.codigo_barra%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=25% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><%=@ponto.data.strftime("%B").upcase%>/<%=@ponto.data.year%><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=51% bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>NOME</B></FONT></P>
+		</TD>
+		<TD WIDTH=49% bgcolor=LightGray STYLE="; border: 1px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>CARGO/FUNÇÃO</B></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=@funcionario.pessoa.nome%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><%=@funcionario.cargo%><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=51% bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>MANHÃ</B></FONT></P>
+		</TD>
+		<TD WIDTH=49% bgcolor=LightGray STYLE="; border: 1px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>TARDE</B></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=18>
+	<COL WIDTH=52>
+	<COL WIDTH=154>
+	<COL WIDTH=34>
+	<COL WIDTH=22>
+	<COL WIDTH=53>
+	<COL WIDTH=173>
+	<COL WIDTH=35>
+	<COL WIDTH=27>
+	<TR VALIGN=TOP>
+		<TD WIDTH=1% HEIGHT=9 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">DIA</FONT></P>
+		</TD>
+		<TD WIDTH=1% bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">ENTRADA</FONT></P>
+		</TD>
+		<TD WIDTH=174 bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">ASSINATURA</FONT></P>
+		</TD>
+		<TD WIDTH=1% bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">SAÍDA</FONT></P>
+		</TD>
+		<TD WIDTH=3% bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">RUB</FONT></P>
+		</TD>
+		<TD WIDTH=1% bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">ENTRADA</FONT></P>
+		</TD>
+		<TD WIDTH=173 bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">ASSINATURA</FONT></P>
+		</TD>
+		<TD WIDTH=1% bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">SAÍDA</FONT></P>
+		</TD>
+		<TD WIDTH=3% bgcolor=LightGray STYLE="; border: 1px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">RUB</FONT></P>
+		</TD>
+	</TR>
+	<%@range_dias.each do |data|%>
+	  <%=colorir_data(data)%>
+		<TD WIDTH=18 STYLE='; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER><%=data.day%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=52 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER>7:30<BR>
+			</P>
+		</TD>
+		<TD WIDTH=154 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER><%=datas_especiais(data)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER>12:00<BR>
+			</P>
+		</TD>
+		<TD WIDTH=22 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER><BR>
+			</P>
+		</TD>
+		<TD WIDTH=53 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER>14:30<BR>
+			</P>
+		</TD>
+		<TD WIDTH=173 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER><%=datas_especiais(data)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=35 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm'>
+			<P CLASS='western' ALIGN=CENTER>18:00<BR>
+			</P>
+		</TD>
+		<TD WIDTH=27 STYLE='border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm'>
+			<P CLASS='western' ALIGN=CENTER><BR>
+			</P>
+		</TD>
+	</TR>
+	<%end%>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=18>
+	<COL WIDTH=114>
+	<COL WIDTH=77>
+	<COL WIDTH=79>
+	<COL WIDTH=117>
+	<COL WIDTH=188>
+	<TR VALIGN=TOP>
+		<TD ROWSPAN=6 WIDTH=2% STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">A<br>P<br>U<br>R<br>A<br>Ç<br>Ã<br>O</FONT>
+		</TD>
+		<TD WIDTH=114 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>EVENTO</B></FONT></P>
+		</TD>
+		<TD COLSPAN=2 WIDTH=164 bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>Nº
+			DIAS</B></FONT></P>
+		</TD>
+		<TD WIDTH=117 bgcolor=LightGray STYLE="; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>EVENTO</B></FONT></P>
+		</TD>
+		<TD ROWSPAN=2 WIDTH=29% STYLE="; border: 1px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">APUREI
+			EM ___/___/___</FONT></P>
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">______________________</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=114 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">FÉRIAS</FONT></P>
+		</TD>
+		<TD WIDTH=77 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><BR>
+			</P>
+		</TD>
+		<TD WIDTH=79 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western"><BR>
+			</P>
+		</TD>
+		<TD WIDTH=117 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">ATRASOS NA ENTRADA</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=114 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">LICENÇA
+			MÉDICA</FONT></P>
+		</TD>
+		<TD WIDTH=77 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><BR>
+			</P>
+		</TD>
+		<TD WIDTH=79 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western"><BR>
+			</P>
+		</TD>
+		<TD WIDTH=117 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">SAÍDAS
+			ANTECIPADAS</FONT></P>
+		</TD>
+		<TD ROWSPAN=2 WIDTH=60 STYLE="; border-top: none; border-bottom: 0px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">TRANSCREVI
+			EM ___/___/___</FONT></P>
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">______________________</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=114 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">FALTAS</FONT></P>
+		</TD>
+		<TD WIDTH=77 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><BR>
+			</P>
+		</TD>
+		<TD WIDTH=79 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western"><BR>
+			</P>
+		</TD>
+		<TD WIDTH=117 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">FALTA
+			¹/² EXPEDIENTES</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=114 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">OUTROS
+			AFAST.</FONT></P>
+		</TD>
+		<TD WIDTH=77 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><BR>
+			</P>
+		</TD>
+		<TD WIDTH=79 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western"><BR>
+			</P>
+		</TD>
+		<TD WIDTH=117 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"></FONT></P>
+		</TD>
+		<TD WIDTH=188 STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% HEIGHT=1% VALIGN=CENTER STYLE="border: 0px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><%=image_tag "../images/pontos/codigos/#{@ponto.codigo_barras}.png",:NAME=>"figura4",:ALIGN=>'CENTER', :WIDTH=>209, :HEIGHT=>35, :BORDER=>0%><BR><%=@ponto.codigo_barras%>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P CLASS="western" ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Imprimir Ponto', pessoa_funcionario_lotacao_ponto_ponto_path(@pessoa,@funcionario,@lotacao,@ponto,:format=>:pdf),:class=>"alt_btn"%> ou
+				  <%= link_to 'Editar', edit_pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao,@ponto),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', pessoa_funcionario_lotacao_pontos_url(@pessoa,@funcionario,@lotacao),:type=>"submit" %>
+				</div>
+			</footer>
+</article>

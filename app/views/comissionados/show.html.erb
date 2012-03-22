@@ -1,0 +1,55 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Funcionario:</b>
+  <%= @comissionado.funcionario_id %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @comissionado.tipo %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @comissionado.data %>
+</p>
+
+<p>
+  <b>Motivo:</b>
+  <%= @comissionado.motivo %>
+</p>
+
+<p>
+  <b>Decreto:</b>
+  <%= @comissionado.decreto %>
+</p>
+
+<p>
+  <b>Data publicacao:</b>
+  <%= @comissionado.data_publicacao %>
+</p>
+
+<p>
+  <b>Orgao:</b>
+  <%= @comissionado.orgao_id %>
+</p>
+
+<p>
+  <b>Descricao comissao:</b>
+  <%= @comissionado.descricao_comissao %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_comissionado_path(@comissionado),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', comissionados_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

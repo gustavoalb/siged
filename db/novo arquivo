@@ -1,0 +1,6 @@
+irb(main):003:0> a.each do |f|
+irb(main):004:1* pessoa=Pessoa.find_by_cpf(f.cpf)
+irb(main):005:1> f.pessoa=pessoa
+irb(main):006:1> f.save
+irb(main):007:1> end
+

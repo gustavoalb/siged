@@ -1,0 +1,17 @@
+<hr/><br/>
+<h4>Lotação Encontrada nesta Escola</h4><br/>
+<table>
+<tr>
+<td>Nome:</td><td><%=@funcionario.pessoa.nome%></td>
+</tr>
+<tr>
+<td><b>Data da Lotação</b></td> <td><%=@lotacao.data_lotacao.to_s_br%></td>
+</tr>
+<tr>
+<td><b>Processo:</b> </td><td><%=@lotacao.processos.last.processo%></td>
+</tr>
+<tr>
+<td><b>Status do Processo: </b></td><td><%=status_lotacao(@lotacao.processos.last.status.last.status)%></td>
+</tr>
+</table>
+

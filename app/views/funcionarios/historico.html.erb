@@ -1,0 +1,33 @@
+<article class="module width_full">
+<header><h3>&nbsp;Histórico Funcional</h3></header>
+ <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="7" width="500">
+<thead>
+  <tr>
+    <th>Natureza do Processo</th>
+    <th>Código</th>
+    <th>&nbsp;</th>
+    <th>Data de Abertura</th>
+    <th>Status</th> 
+
+  </tr>
+  </thead>
+  <tbody>
+    <%@historico.each do |p|%>
+    <tr>
+      <td><%=p.natureza%></td>
+      <td><%=p.processo%></td>
+      <td></td>
+      <td><%=p.created_at.to_date.to_s_br%></td>
+      <td><%=status(p)%></td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+</article>
+

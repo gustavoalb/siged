@@ -1,0 +1,11 @@
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= label :administracao_tarefa,:atributo %><br />
+        <%= select :administracao_tarefa,:atributo,@atributos,:prompt=>true,:style=>"width:92%;" %>
+
+  </fieldset>
+  <%=observe_field :administracao_tarefa_atributo, :url => "/administracao/tarefas/verificar_atributo",
+      :frequency => 0.25,
+      :update => :arquivo,
+      :with => 'attrib'%>
+
+      <!--<div id='arquivo'></div>-->

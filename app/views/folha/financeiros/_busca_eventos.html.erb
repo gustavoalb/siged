@@ -1,0 +1,6 @@
+<ul>
+ <%@eventos.each do |e|%>
+    <%=link_to raw("<li>#{e.codigo}</li>"),folha_financeiro_validar_evento_path(e.id),:remote=>true%></li>
+ <%end%>
+
+</ul>

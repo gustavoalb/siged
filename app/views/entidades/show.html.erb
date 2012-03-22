@@ -1,0 +1,25 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Nome:</b>
+  <%= @entidade.nome %>
+</p>
+
+<p>
+  <b>Esfera:</b>
+  <%= detalhes(@entidade.esfera) %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_entidade_path(@entidade),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', entidades_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

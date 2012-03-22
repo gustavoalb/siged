@@ -1,0 +1,68 @@
+<%content_for :links do%>
+		<%=link_to "Folhas",folha_folhas_path%><div class="breadcrumb_divider"></div><%=link_to "Financeiro",folha_folha_financeiros_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+
+<%end%>
+<article class="module width_full">
+<header><h3>Detalhes Financeiros </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Evento:</b>
+  <%= @folha_financeiro.evento_id %>
+</p>
+
+<p>
+  <b>Sequencia:</b>
+  <%= @folha_financeiro.sequencia %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @folha_financeiro.ano %>
+</p>
+
+<p>
+  <b>Mes:</b>
+  <%= @folha_financeiro.mes %>
+</p>
+
+<p>
+  <b>Funcionario:</b>
+  <%= @folha_financeiro.funcionario_id %>
+</p>
+
+<p>
+  <b>Prazo:</b>
+  <%= @folha_financeiro.prazo %>
+</p>
+
+<p>
+  <b>Parametro:</b>
+  <%= @folha_financeiro.parametro %>
+</p>
+
+<p>
+  <b>Tipo parametro:</b>
+  <%= @folha_financeiro.tipo_parametro_id %>
+</p>
+
+<p>
+  <b>Quantidade:</b>
+  <%= @folha_financeiro.quantidade %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%= @folha_financeiro.valor %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_folha_financeiro_path(@folha_financeiro),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', folha_financeiros_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>

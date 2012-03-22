@@ -1,0 +1,38 @@
+<%= form_for @ano_letivo,:url=> escola_ano_letivos_url(@escola) do |f| %>
+  <% if @ano_letivo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ano_letivo.errors.count, "erro impede","erros impedem") %> este ano_letivo de ser cadastrado:</h2>
+
+      <ul>
+      <% @ano_letivo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :escola_id,:value=>@escola.id%>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :inicio %><br /><br />
+        <%= f.date_select :inicio,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :termino %><br /><br />
+        <%= f.date_select :termino,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+    
+  </fieldset>
+  <fieldset style="width:98%; float:left; margin-right: 1%;">
+    <%= f.label :informacoes %><br />
+    
+    <%= f.text_area :informacoes,:style=>"width:94%"%>
+    
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> 
+				</div>
+			</footer>
+<% end %>

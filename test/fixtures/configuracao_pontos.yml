@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ponto_id: 1
+  hora_entrada_manha: 2012-01-08 12:11:57
+  tipo_entrada_manha: MyString
+  hora_saida_manha: 2012-01-08 12:11:57
+  tipo_saida_manha: MyString
+  hora_entrada_tarde: 2012-01-08 12:11:57
+  tipo_entrada_tarde: MyString
+  hora_saida_tarde: 2012-01-08 12:11:57
+  tipo_saida_tarde: MyString
+  permitir_hora_extra: false
+  permitir_banco_de_horas: false
+  entidade_id: 1
+
+two:
+  ponto_id: 1
+  hora_entrada_manha: 2012-01-08 12:11:57
+  tipo_entrada_manha: MyString
+  hora_saida_manha: 2012-01-08 12:11:57
+  tipo_saida_manha: MyString
+  hora_entrada_tarde: 2012-01-08 12:11:57
+  tipo_entrada_tarde: MyString
+  hora_saida_tarde: 2012-01-08 12:11:57
+  tipo_saida_tarde: MyString
+  permitir_hora_extra: false
+  permitir_banco_de_horas: false
+  entidade_id: 1

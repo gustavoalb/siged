@@ -1,0 +1,22 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<% for attribute in attributes -%>
+<p>
+  <b><%= attribute.human_name %>:</b>
+  <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+</p>
+
+<% end -%>
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%%= link_to 'Editar', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%%= link_to 'Voltar', <%= index_helper %>_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

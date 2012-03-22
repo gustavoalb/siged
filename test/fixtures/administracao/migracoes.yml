@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  entidade_id: 1
+  tipo: MyString
+  numero_registros: 1
+  contador: 1
+  origem: MyString
+  motivo: MyString
+  arquivo: MyString
+
+two:
+  entidade_id: 1
+  tipo: MyString
+  numero_registros: 1
+  contador: 1
+  origem: MyString
+  motivo: MyString
+  arquivo: MyString

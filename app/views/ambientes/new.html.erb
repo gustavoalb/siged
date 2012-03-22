@@ -1,0 +1,6 @@
+<%content_for :links do%>
+		<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><%=link_to "Ambientes",escola_ambientes_path%><div class="breadcrumb_divider"></div><a class="current">Novo Ambiente</a>
+
+<%end%>
+<%= render 'form',:legenda=>' Cadastro de Ambientes ' %>
+

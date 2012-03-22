@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  escola_id: 1
+  inicio: 2012-01-31
+  termino: 2012-01-31
+  informacoes: MyText
+
+two:
+  escola_id: 1
+  inicio: 2012-01-31
+  termino: 2012-01-31
+  informacoes: MyText

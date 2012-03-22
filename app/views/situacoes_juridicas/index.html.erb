@@ -1,0 +1,49 @@
+<%content_for :links do%>
+		<a class="current">Situações Jurídicas</a>
+
+<%end%>
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Situações Jurídicas</h3>
+		<ul class="tabs">
+   			<%= form_for @search do |f| %>
+   			<li><%= f.text_field :busca,:size=>12 %></li>
+    		<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Sigla</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @situacoes_juridicas.each do |situacoes_juridica| %>
+  <tr>
+    <td><%= situacoes_juridica.nome %></td>
+    <td><%= situacoes_juridica.sigla %></td>
+    <td><%= link_to "Detalhes", situacoes_juridica.sigla %></td>
+    <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_situacoes_juridica_path(situacoes_juridica) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), situacoes_juridica, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Situação jurídica', new_situacoes_juridica_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+         <div class="submit_link">
+        <%= will_paginate @escolas %>
+        </div>
+			</footer>
+</article>

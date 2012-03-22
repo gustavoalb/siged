@@ -1,0 +1,47 @@
+<%content_for :links do%>
+		<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><a class="current">Formações</a>
+<%end%>
+<article class="module width_3_quarter">
+		<header><h4 class="tabs_involved">Formações de <%=@pessoa.nome.titleize %></h3>
+		<ul class="tabs">
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nível</th>
+    <th>Curso</th>
+    <th>Status</th>    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @formacoes.each do |formacao| %>
+  <tr>
+    <td><%= detalhes(formacao.nivel).titleize %></td>
+    <td><%= formacao.curso %></td>
+    <td><%= formacao.status %></td>
+    <td><%= link_to 'Detalhes', pessoa_formacao_path(@pessoa,formacao) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_formacao_path(@pessoa,formacao) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa_formacao_path(@pessoa,formacao), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Formacao', new_pessoa_formacao_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+         <div class="submit_link">
+        <%= will_paginate @formacoes %>
+        </div>
+			</footer>
+</article>
+

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  nome: MyString
+  sigla: MyString
+  responsavel_id: 1
+  telefone: MyString
+  endereco: MyString
+  numero: MyString
+  complemento: MyString
+  grupo: MyString
+
+two:
+  codigo: MyString
+  nome: MyString
+  sigla: MyString
+  responsavel_id: 1
+  telefone: MyString
+  endereco: MyString
+  numero: MyString
+  complemento: MyString
+  grupo: MyString

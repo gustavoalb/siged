@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  matrize_id: 1
+  disciplina_id: 1
+  serie_id: 1
+  classe: MyString
+  area: MyString
+  horas_semanal: 1
+
+two:
+  matrize_id: 1
+  disciplina_id: 1
+  serie_id: 1
+  classe: MyString
+  area: MyString
+  horas_semanal: 1

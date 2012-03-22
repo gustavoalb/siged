@@ -1,0 +1,9 @@
+<b>Tipo</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%=select :lotacao,:tipo_destino_id,@tipos_destino,:prompt=>"Selecione o tipo de destino"%>
+
+<div id="sec"></div>
+
+<%=observe_field :lotacao_tipo_destino_id, :url => "/lotacoes/secretarias/",
+      :frequency => 0.25,
+      :update => :sec,
+      :with => "'tipo_destino='+value+'&orgao_id='+#{@orgao.id}"%>

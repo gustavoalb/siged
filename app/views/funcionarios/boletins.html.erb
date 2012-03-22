@@ -1,0 +1,47 @@
+<%content_for :links do%>
+	<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Boletins Funcionais</a>
+<%end%>
+
+
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando Boletins Funcionais</h3>
+		<ul class="tabs">
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0" >
+<thead>
+  <tr>
+    <th>Mês</th>
+    <th>Ano</th>
+    <th>Tipo</th>
+    <th>Folha</th>
+    <th colspan=4>Ações</th>
+   </tr>
+</thead>
+<tbody>
+<% @boletins.each do |boletim| %>
+  <tr>
+    <td><%= boletim.mes %></td>
+    <td><%= boletim.ano %></td>
+    <td><%= boletim.tipo %></td>
+    <td><%= boletim.folha %></td>
+    <td><%= link_to "Exibir boletim",pessoa_funcionario_exibir_boletim_path(:boletim_id=>boletim.id)%>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Salvar boletim', pessoa_funcionario_gerar_boletim_path(@pessoa.id),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+         <div class="submit_link">
+        </div>
+			</footer>
+</article>
+<div class="spacer"></div>
+

@@ -1,0 +1,10 @@
+<b>Orgão</b>:&nbsp;
+<%= select :lotacao,:orgao_id, options_for_select(@orgaos_esfera),:prompt=>"Selecione o orgão"%>
+
+<div id="tip"></div>
+
+<%=observe_field :lotacao_orgao_id, :url => "/lotacoes/tipo_destino/",
+      :frequency => 0.25,
+      :update => :tip,
+      :with => 'orgao'%>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+	</head>
+	<body>
+	<table id="background-image" align="center"  style="background: url('<%=Rails.root.join('public','images','carta/logo_grande.png').to_s%>'); 0px 590px no-repeat;">
+
+
+		<tr>
+			<td width="200"></td>
+			<td align=center><%=wicked_pdf_image_tag "../images/carta/logo.jpg"%></td>
+			<td align=right width="200"><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=center>
+				<br/>GOVERNO DO ESTADO DO AMAPÁ<r/>
+				SECRETARIA DE ESTADO DA EDUCAÇÃO<br/>
+				COORDENADORIA DE ADMINISTRAÇÃO<br/>
+				NÚCLEO DE PESSOAL
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=center>
+				<br/><b>CARTA DE APRESENTAÇÃO @processo.natureza</b>
+							<%=@lotacao.codigo_barra%>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=left>
+				<br/>Processo de Lotação nº @lotacao.processo.codigo	Data: @lotacao.processo.data
+				<br/><br/>Sr. (a) @lotacao.escola.diretor
+				<br/>Diretor (a) da @lotacao.escola.nome_da_escola
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=justify><br/>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apresentamos a Vossa Senhoria o (a) Servidor (a) <%=@funcionario.pessoa.nome%>, cadastro <%=@funcionario.matricula%>, pertencente ao <%=@funcionario.situacao_juridica%>, ocupante do cargo de <%=@funcionario.cargo_nome%>, classe <%=@funcionario.classe%>, nível <%=@funcionario.nivel_id%>, que a partir da presente data, passará a exercer suas atividades profissionais nesta Unidade Escolar, com carga horária semanal de <%=@funcionario.jornada%> horas/aula, com disponibilidade de regencia inicial até @funcionario.regsd, @lotacao.regencia fazendo jus à regência de classe.</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A presente lotação está subordinada ao cumprimento dos direitos e deveres em conformidade com a Lei nº 9.394/, Art. 12 e 13, e Lei nº 0066/93, art. 133 e 134. Devendo ingressar na supracitada escola, no prazo de 03 (três) dias úteis, após a emissão, sob pena de receber faltas (não justificáveis), exceto para os municípios de Macapá e Santana, cuja apresentação deverá ser imediata.</p>
+				<br/><center>Cordialmente,</center><br/><br/><br/><br/>
+
+				<center>____________________________________<br/>
+				Patrícia Rodrigues Nascimento<br/>
+				Gerente do Núcleo de Pessoal<br/>
+				Decreto nº 2028/2011-GEA</center><br/>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=center><%=wicked_pdf_image_tag "../images/carta/hr.png"%></td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=center>
+				<br/><b>Confirmação de Apresentação</b>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan=2 align=left>
+				<br/>@lotacao.escola.nome_da_escola<br/>
+				Confirmação de Apresentação de nº @lotacao.codigo
+			</td>
+			<td align=center><%=wicked_pdf_image_tag "../images/carta/codigos/#{@funcionario.pessoa.cpf}.png"%></td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=justify>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Através deste, confirmo a Vossa Senhoria que o (a) Servidor (a) <%=@funcionario.pessoa.nome%>, pertencente ao <%=@funcionario.situacao_juridica%>, ocupante do cargo de <%=@funcionario.cargo_nome%> classe <%=@funcionario.classe%>, nível <%=@funcionario.nivel_id%>, com carga horária semanal de <%=@funcionario.jornada%> horas/aula, apresentou-se ____/____/______ nesta Unidade Escolar,  @lotacao.regencia fazendo jus à regência de classe.</p><br/><br/><br/>
+
+				<center>
+					_____________________________________<br/>
+					@lotacao.escola.diretor<br/>
+					@lotacao.escola.nome_da_escola
+				</center>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan=3 align=left><br/>
+				<b>Protocolar a entrega deste documento</b><br/>
+				<ul>
+					<li>Nas Coordenadorias da SEED, direto ao titular das modalidades de ensino e/ou programas educacionais;</li>
+					<li>Na competência de controle de pessoal e/ou folha de pagamento da Coordenadoria de Administração; após o visto certificado pelo(s) titulares (es) em acima citado(s).</li>
+				</ul>
+				<center><b>RIGOROSAMENTE DENTRO DO PRAZO DE VALIDADE, SOB PENA DO NÃO PROCESSAMENTO DE VENCIMENTO SALARIAL</b></center>
+			</td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>
+

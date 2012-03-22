@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ambiente_id: 1
+  matriz_id: 1
+  serie_id: 1
+  turno: MyString
+  escola_id: 1
+  entidade_id: 1
+
+two:
+  ambiente_id: 1
+  matriz_id: 1
+  serie_id: 1
+  turno: MyString
+  escola_id: 1
+  entidade_id: 1

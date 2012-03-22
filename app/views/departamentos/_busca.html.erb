@@ -1,0 +1,8 @@
+<ul>
+ <%@pessoas.each do |p|%>
+    <li><%=p.nome%></li>
+    <%=hidden_field :departamento,:responsavel_id,:value => p.id%>
+ <%end%>
+</ul>
+
+

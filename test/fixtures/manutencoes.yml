@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tempo: 1
+  tipo: MyString
+  em_manutencao: false
+
+two:
+  tempo: 1
+  tipo: MyString
+  em_manutencao: false

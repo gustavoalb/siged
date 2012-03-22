@@ -1,0 +1,2 @@
+module Folha::CompetenciasHelper
+end

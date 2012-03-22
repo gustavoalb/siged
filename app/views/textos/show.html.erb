@@ -1,0 +1,37 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Tipo:</b>
+  <%= @texto.tipo.titleize %>
+</p>
+
+<%if !@texto.categoria.nil?%>
+<p>
+  <b>Categoria:</b>
+  <%= detalhes(@texto.categoria) %>
+</p>
+<%end%>
+<p>
+  <b>Nome:</b>
+  <%= @texto.nome %>
+</p>
+
+<p>
+  <b>Texto:</b>
+  <%= @texto.texto %>
+  
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_administracao_texto_path(@texto),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', administracao_textos_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

@@ -1,0 +1,44 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@municipio) do |f| %>
+  <% if @municipio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@municipio.errors.count, "erro impede","erros impedem") %> este municipio de ser cadastrado:</h2>
+
+      <ul>
+      <% @municipio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :nome %><br />
+        <%= f.text_field :nome,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :cep %><br />
+        <%= f.text_field :cep,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :sigla %><br />
+        <%= f.text_field :sigla,:style=>"width:92%;" %>
+
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

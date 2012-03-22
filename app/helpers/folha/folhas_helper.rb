@@ -1,0 +1,2 @@
+module Folha::FolhasHelper
+end

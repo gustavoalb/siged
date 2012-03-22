@@ -1,0 +1,160 @@
+<HTML>
+<meta charset="utf-8" />
+<BODY LANG="pt-BR" DIR="LTR">
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0 BORDER=0>
+	<COL WIDTH=30*>
+	<COL WIDTH=167*>
+	<COL WIDTH=30*>
+	<TR>
+		<TD WIDTH=12% HEIGHT=55 VALIGN=CENTER  STYLE="border-top: 0px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><%=image_tag("/images/logo_amapa.jpg", :name=>"figura1", :align=>'center', :width=>'180', :height=>'90', :border=>'0')%><BR>
+		</TD>
+		<TD WIDTH=65% STYLE="; border-top: 0px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=3><B>SECRETARIA DE ESTADO DA EDUCAÇÃO<BR>COODENADORIA DE ADMINISTRAÇÃO<br>NÚCLEO DE PESSOAL<BR>UNIDADE DE PAGAMENTO</FONT></P>
+		</TD>
+		<TD ROWSPAN=2 WIDTH=1% STYLE="border-top: 0px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<TABLE WIDTH=105 CELLPADDING=4 CELLSPACING=0 BORDER=0>
+				<COL WIDTH=16>
+				<COL WIDTH=71>
+				<TR VALIGN=TOP>
+			</TABLE>
+		</TD>
+		<TD ROWSPAN=2 WIDTH=11% BORDER=0 STYLE="border: 0px solid #000000; padding: 0.1cm">
+			<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0 BORDER=0>
+				<COL WIDTH=66*>
+				<COL WIDTH=190*>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=12% HEIGHT=10px VALIGN=TOP STYLE="border-top: none; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western">
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=18*>
+	<COL WIDTH=7*>
+	<COL WIDTH=9*>
+	<COL WIDTH=22*>
+	<COL WIDTH=7*>
+	<COL WIDTH=129*>
+	<COL WIDTH=28*>
+	<COL WIDTH=11*>
+	<COL WIDTH=12*>
+	<COL WIDTH=13*>
+	<TR>
+		<TD COLSPAN=11 WIDTH=100% VALIGN=TOP STYLE="border: 0px solid #000000; border-left: 0px solid #000000; border-bottom: 1px solid #000000; padding: 0.1cm">
+			<P ALIGN=CENTER>BOLETIM DE CADASTRAMENTO FINANCEIRO <br/><%=@folha.fonte_recurso.nome.upcase%><br/><%=@folha.ano%> - <%=@folha.mes%><br/><%=@folha.competencia.nome.upcase	%></B></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=7% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">CADASTRO</FONT></P>
+		</TD>
+		<TD WIDTH=3% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">CODALT</FONT></P>
+		</TD>
+		<TD WIDTH=9% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">RUBRICAS</FONT></P>
+		</TD>
+		<TD WIDTH=3% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">SEQ</FONT></P>
+		</TD>
+		<TD WIDTH=7% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">CPF</FONT></P>
+		</TD>
+		<TD WIDTH=50% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">NOME DO
+			SERVIDOR</FONT></P>
+		</TD>
+		<TD WIDTH=11% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">VALOR
+			PROV/DESC</FONT></P>
+		</TD>
+		<TD WIDTH=4% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">PRAZO</FONT></P>
+		</TD>
+		<TD WIDTH=5% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">PARAM</FONT></P>
+		</TD>
+		<TD WIDTH=5% STYLE="; border-top: 0px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">QUANT HORAS</FONT></P>
+		</TD>
+	</TR>
+	<%@financeiros.each do |fin|%>
+	<TR VALIGN=TOP>
+		<TD WIDTH=7% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=fin.funcionario.matricula%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=3% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=fin.codigo_alt%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=9% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=fin.evento.codigo%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=3% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=fin.sequencia%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=7% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=Cpf.new(fin.funcionario.pessoa.cpf).numero%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=fin.funcionario.pessoa.nome%><%=obs(fin.observacao)%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=11% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=RIGHT><%=fin.valor.reais_contabeis%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=4% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=fin.prazo%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><%=fin.parametro%><BR>
+			</P>
+		</TD>
+		<TD WIDTH=5% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P ALIGN=CENTER><%=fin.quantidade%><BR>
+			</P>
+		</TD>
+	</TR>
+	 <%end%>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=62*>
+	<COL WIDTH=66*>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=24% STYLE="border-top: 1px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">DATA DO
+			PREENCHIMENTO</FONT></P>
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">____/____/____</FONT></P>
+		</TD>
+		<TD WIDTH=26% STYLE="; border-top: 1px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">RESPONSÁVEL</FONT></P>
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">___________________________</FONT></P>
+		</TD>
+		<TD WIDTH=25% STYLE="; border-top: 1px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">DATA DO
+			PREENCHIMENTO</FONT></P>
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">____/____/____</FONT></P>
+		</TD>
+		<TD WIDTH=25% STYLE="; border-top: 1px solid #000000; padding: 0.1cm">
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">RESPONSÁVEL</FONT></P>
+			<P ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt">_________________________</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm"><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  entidade_id: 1
+  funcionario_id: 1
+  lotacao_id: 1
+  data: 2012-01-06
+
+two:
+  entidade_id: 1
+  funcionario_id: 1
+  lotacao_id: 1
+  data: 2012-01-06

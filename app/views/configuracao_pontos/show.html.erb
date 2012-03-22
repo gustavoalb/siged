@@ -1,0 +1,75 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Ponto:</b>
+  <%= @configuracao_ponto.ponto_id %>
+</p>
+
+<p>
+  <b>Hora entrada manha:</b>
+  <%= @configuracao_ponto.hora_entrada_manha %>
+</p>
+
+<p>
+  <b>Tipo entrada manha:</b>
+  <%= @configuracao_ponto.tipo_entrada_manha %>
+</p>
+
+<p>
+  <b>Hora saida manha:</b>
+  <%= @configuracao_ponto.hora_saida_manha %>
+</p>
+
+<p>
+  <b>Tipo saida manha:</b>
+  <%= @configuracao_ponto.tipo_saida_manha %>
+</p>
+
+<p>
+  <b>Hora entrada tarde:</b>
+  <%= @configuracao_ponto.hora_entrada_tarde %>
+</p>
+
+<p>
+  <b>Tipo entrada tarde:</b>
+  <%= @configuracao_ponto.tipo_entrada_tarde %>
+</p>
+
+<p>
+  <b>Hora saida tarde:</b>
+  <%= @configuracao_ponto.hora_saida_tarde %>
+</p>
+
+<p>
+  <b>Tipo saida tarde:</b>
+  <%= @configuracao_ponto.tipo_saida_tarde %>
+</p>
+
+<p>
+  <b>Permitir hora extra:</b>
+  <%= @configuracao_ponto.permitir_hora_extra %>
+</p>
+
+<p>
+  <b>Permitir banco de horas:</b>
+  <%= @configuracao_ponto.permitir_banco_de_horas %>
+</p>
+
+<p>
+  <b>Entidade:</b>
+  <%= @configuracao_ponto.entidade_id %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_configuracao_ponto_path(@configuracao_ponto),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', configuracao_pontos_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

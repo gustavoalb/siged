@@ -1,0 +1,48 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando municipios</h3>
+		<ul class="tabs">
+   			<%= form_for @search do |f| %>
+   			<li><%= f.text_field :busca,:size=>12 %></li>
+    		<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Cep</th>
+    <th>Sigla</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @municipios.each do |municipio| %>
+  <tr>
+    <td><%= municipio.nome %></td>
+    <td><%= municipio.cep %></td>
+    <td><%= municipio.sigla %></td>
+    <td><%= link_to 'Detalhes', municipio %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_municipio_path(municipio) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), municipio, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Municipio', new_municipio_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+         <div class="submit_link">
+        <%= will_paginate @escolas %>
+        </div>
+			</footer>
+</article>
+
