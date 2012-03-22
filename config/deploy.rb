@@ -1,5 +1,6 @@
 set :application, "siged"
- 
+default_run_options[:pty] = true
+set :use_sudo,    false
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
@@ -12,7 +13,8 @@ set :repository, "administrador@192.168.1.13:siged.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
  
-set :user, 'admin'
+set :user, 'deploy'
+set :password, '@#siged$%'
 set :ssh_options, { :forward_agent => true }
  
 role :app, "192.168.1.13"

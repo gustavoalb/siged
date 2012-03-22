@@ -14,7 +14,7 @@ gem 'ruport-util'
 gem 'table_for_collection'
 #gem 'tabulatr','~> 0.3.0',:git=>"git://github.com/provideal/tabulatr.git"
 gem 'acts_as_reportable'
-gem "paperclip",:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
+gem "paperclip"#,:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
 gem 'pg'
 gem 'brazilian-rails'
 gem 'brI18n'
