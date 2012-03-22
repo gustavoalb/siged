@@ -331,8 +331,13 @@ def update
   @lotacao = Lotacao.find(params[:id])
 respond_to do |format|
   if @lotacao.update_attributes(params[:lotacao])
+    if params[:lotacao][:ambiente_id].nil?
     format.html { redirect_to(pessoa_funcionario_lotaco_url(@funcionario), :notice => 'Processo de lotação criado com sucesso.') }
     format.xml  { head :ok }
+  elsif !params[:lotacao][:ambiente_id].nil?
+    format.html { redirect_to(pessoas_url, :notice => 'Processo de lotação criado com sucesso.') }
+    format.xml  { head :ok }
+  end
   else
     format.html { render :action => "edit" }
     format.xml  { render :xml => @lotacao.errors, :status => :unprocessable_entity }

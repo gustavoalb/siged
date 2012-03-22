@@ -12,6 +12,7 @@ set :scm, :git
 set :repository, "administrador@192.168.1.13:siged.git"
 set :branch, "master"
 set :deploy_via, :export
+set :git_shallow_clone, 1
  
 set :user, 'deploy'
 set :password, '@#siged$%'
