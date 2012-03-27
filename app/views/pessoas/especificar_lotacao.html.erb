@@ -1,0 +1,14 @@
+<%@funcionario.lotacoes.atual.each do |lotacao|%>
+<%= form_for lotacao do |f| %>
+
+<%=f.hidden_field :quick,:value=>true%>
+
+<fieldset>
+    <%= label :especificar_lotacao,"Especificação" %><br /><br />
+    <%= f.select :ambiente_id,lotacao.escola.ambientes.salas_ambiente.all.collect{|a|[a.nome,a.id]},:style=>"width:92%;",:prompt=>"Selecione a Sala Ambiente" %>
+</fieldset>
+<div class='submit_link'>
+<%=f.submit "Salvar",:class=>"alt_btn" %>
+</div>
+<%end%>
+<%end%>

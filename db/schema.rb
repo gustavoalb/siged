@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326150931) do
+ActiveRecord::Schema.define(:version => 20120327162227) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -659,6 +659,7 @@ ActiveRecord::Schema.define(:version => 20120326150931) do
     t.boolean  "complementar",                           :default => false
     t.integer  "ambiente_id"
     t.date     "data_confirmacao"
+    t.boolean  "quick",                                  :default => false
   end
 
   add_index "lotacaos", ["departamento_id"], :name => "index_lotacaos_on_departamento_id"
