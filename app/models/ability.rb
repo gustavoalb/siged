@@ -99,9 +99,9 @@ elsif user.role? :ucolom
  cannot :create,Departamento
  cannot :destroy,Departamento
  can :read,Funcionario
- can :read,Pessoa
- can :especificar_lotacao,Pessoa
- can :update,Pessoa
+ can :manage,Pessoa
+ cannot :edit,Pessoa
+ cannot :destroy,Pessoa
  can :carta,Funcionario
 
 elsif user.role? :sead
