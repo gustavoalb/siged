@@ -231,6 +231,18 @@ def email(obj)
 end
 
 def telefones(obj)
+   if obj and !obj.telefone_residencial.blank? and !obj.telefone_celular.blank?
+    return "#{obj.telefone_residencial} / #{obj.telefone_celular}"
+  elsif obj and obj.telefone_residencial.blank? and !obj.telefone_celular.blank?
+    return "#{obj.telefone_celular}"
+  elsif obj and !obj.telefone_residencial.blank? and obj.telefone_celular.blank?
+    return "#{obj.telefone_residencial}"
+  end
+else
+ return raw("<font color=red><b>Nada Cadastrado</b></font>")
+end
+
+def telefones_agenda(obj)
   if obj
    if obj.pessoa and !obj.pessoa.telefone_residencial.blank? and !obj.pessoa.telefone_celular.blank?
     return "#{obj.pessoa.telefone_residencial} / #{obj.pessoa.telefone_celular}"
