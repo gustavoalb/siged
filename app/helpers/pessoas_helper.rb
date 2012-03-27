@@ -19,6 +19,8 @@ module PessoasHelper
      texto+= "#{func.lotacao_recad}"
     elsif func.lotacoes.atual.none? and func.lotacao_recad.blank?
      texto+= "<b><font color=red>NÃO LOTADO</font></b>"
+   elsif !func.lotacoes.atual.none? and !func.lotacao_recad.blank? and !func.lotacoes.atual[0].ambiente_id.nil?
+    texto+= "#{destino(func.lotacoes.atual[0])}/#{func.lotacoes.atual[0].ambiente.nome}"
     else
       texto+= "#{destino(func.lotacoes.atual[0])}"
     end

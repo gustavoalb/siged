@@ -30,7 +30,7 @@
 <% @ambientes.each do |ambiente| %>
   <tr>
     <td><%= ambiente.nome %></td>
-    <td><%= ambiente.tipo_ambiente.nome %></td>
+    <td><%= detalhes(ambiente.tipo_ambiente) %></td>
     <td><%= ambiente.ativo %></td>
     <td><%= ambiente.ano_letivo %></td>
     <td><%= link_to 'Detalhes', escola_ambiente_path(@escola,ambiente)%></td>

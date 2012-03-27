@@ -5,6 +5,7 @@ class Ambiente < ActiveRecord::Base
 	belongs_to :entidade
 	belongs_to :ano_letivo,:class_name=>"Setting",:foreign_key => "setting_id",:conditions=>["settings.tipo_config=?","ANOLETIVO"]
 	has_many :turmas
+	has_many :lotacoes
 
 	scope :busca, lambda { |q| where("nome like ? or nome like ?" ,"%#{q}%","%#{q}%") }
 
