@@ -100,6 +100,7 @@ elsif user.role? :ucolom
  cannot :destroy,Departamento
  can :read,Funcionario
  can :read,Pessoa
+ can :especificar_lotacao,Pessoa
  can :update,Pessoa
  can :carta,Funcionario
 
