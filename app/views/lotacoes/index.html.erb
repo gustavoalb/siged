@@ -190,8 +190,12 @@
     <td><%= sim_nao(lotacao_aberta.regencia_de_classe) %></td>
     <td><%=lotacao_aberta.usuario%></td>
     <td><%=status_lotacao(lotacao_aberta.status.last.status)%></td>
+    <%if lotacao_aberta.tipo_lotacao=="REGULAR" and lotacao_aberta.ambiente_id.nil?%>
+      <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(@pessoa,@funcionario,lotacao_aberta.id,@escola),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+      <%elsif lotacao_aberta.tipo_lotacao=='REGULAR' and !lotacao_aberta.ambiente_id.nil?%>
     <td><%= link_to  image_tag('/images/pdf.png',:title=>"Carta de Apresentação"), "/pessoas/#{@pessoa.id}/funcionarios/#{@funcionario.id}/carta.pdf?lotacao=#{lotacao_aberta.id}" %></td>
     <td><%= link_to  image_tag('/images/positivo.png',:title=>"Confirmação de Lotação"), pessoa_funcionario_lotacao_confirmar_lotacao_path(@pessoa,@funcionario,lotacao_aberta.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+    <%end%>
     <td><%= link_to  image_tag('/images/icn_deletar.png',:title=>"Cancelar Lotação"), pessoa_funcionario_lotacao_cancelar_lotacao_path(lotacao_aberta.funcionario.pessoa_id,lotacao_aberta.funcionario_id,lotacao_aberta.id,:convalidar=>false),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
     </tr>
     <%end%>
@@ -214,7 +218,8 @@
     <th>Destino</th>
     <th>Data da lotação</th>
     <th>Regência de classe</th>
-    <th>Responsável</th>
+    <th>Usuário</th>
+    <th>Confirmada em</th>
     <th>Status</th>
     <th colspan='2'>Ações</th>
 
@@ -232,10 +237,11 @@
       <td><%= l.data_lotacao.to_date.to_s_br %></td>
       <td><%= sim_nao(l.regencia_de_classe) %></td>
       <td><%= l.usuario %></td>
+      <td><%= l.data_confirmacao %></td>
       <td><%=status_lotacao(l.status.last.status)%></td>
       <%if l.status.last.status=="LOTADO"%>
       <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(@pessoa,@funcionario,l.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
-      <%if l.tipo_lotacao=="REGULAR" and l.tipo_lotacao!="SUMARIA" or l.tipo_lotacao!="PROLABORE"%>
+      <%if l.tipo_lotacao=="REGULAR" or l.tipo_lotacao=="SUMARIA" or l.tipo_lotacao=="PROLABORE"%>
       <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(@pessoa,@funcionario,l.id,@escola),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
       <%end%>
       <%end%>

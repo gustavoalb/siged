@@ -161,7 +161,7 @@ Siged20::Application.routes.draw do
       get :excluir_ambiente_fisico
     end
   end
-
+  get 'pessoas/especificar_lotacao'
   resources :pessoas do
   get "gerar_relatorio"
   resources :fotos,:only => [:index, :show, :novo, :create,:new] do
@@ -219,6 +219,7 @@ end
   match 'funcionarios/folha'
   match 'pessoas/naturalidade'
   match 'lotacoes/prolabore'
+  
   match 'lotacoes/especial',:controller=>"lotacoes",:action=>"lotacao_especial"
   match 'lotacoes/destino'
   match 'lotacoes/tipo_destino'

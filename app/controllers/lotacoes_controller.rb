@@ -131,76 +131,76 @@ end
 
 def auto_complete_for_escola_nome_da_escola
   @escolas = Escola.find(:all,
-  :conditions => [ 'LOWER(nome_da_escola) iLIKE ?',
-    '%' + params[:escola][:nome_da_escola].downcase + '%' ])
-    render :partial => "busca_escolas"
+    :conditions => [ 'LOWER(nome_da_escola) iLIKE ?',
+      '%' + params[:escola][:nome_da_escola].downcase + '%' ])
+  render :partial => "busca_escolas"
 
-  end
+end
 
-  def auto_complete_for_departamento_nome
-    @departamentos = Departamento.find(:all,
+def auto_complete_for_departamento_nome
+  @departamentos = Departamento.find(:all,
     :conditions => [ 'LOWER(nome) iLIKE ?',
       '%' + params[:departamento][:nome].downcase + '%' ])
-      render :partial => "busca_departamentos"
+  render :partial => "busca_departamentos"
 
-    end
+end
 
-    def disciplinas_especificacao
-      @funcionario = Funcionario.find(params[:funcionario_id])
-      @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
-      @escola_lotacao = @lotacao.escola
-      @turma = Turma.find params[:turma]
-      @serie = @turma.serie
-      @disciplinas = @serie.disciplinas.fun_habilitacao(@funcionario.ids_disciplinas).collect{|d|[d.nome,d.id]}
-      render :partial=>"disciplinas"
-    end
+def disciplinas_especificacao
+  @funcionario = Funcionario.find(params[:funcionario_id])
+  @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
+  @escola_lotacao = @lotacao.escola
+  @turma = Turma.find params[:turma]
+  @serie = @turma.serie
+  @disciplinas = @serie.disciplinas.fun_habilitacao(@funcionario.ids_disciplinas).collect{|d|[d.nome,d.id]}
+  render :partial=>"disciplinas"
+end
 
-    def tipo_especificacao
-      @funcionario = Funcionario.find(params[:funcionario_id])
-      @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
-      @escola_lotacao = @lotacao.escola
-      @tipo = params[:tipo]
-      render :partial=>"tipo_especificacao"
-    end
+def tipo_especificacao
+  @funcionario = Funcionario.find(params[:funcionario_id])
+  @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
+  @escola_lotacao = @lotacao.escola
+  @tipo = params[:tipo]
+  render :partial=>"tipo_especificacao"
+end
 
 
-    def salvar_confirmacao
-      @funcionario = Funcionario.find(params[:funcionario_id])
-      codi=params[:codigo]
-      @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
-      cpf = @lotacao.codigo_a(codi)
-      if @lotacao.codigo_a(codi)
-        @lotacao.confirma_lotacao
-        redirect_to pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :notice => 'Confirmação de Lotação Efetuada.'
-      else
-       redirect_to  pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :alert => 'Confirmação de Lotação não executada, código incorreto.'
-     end
-
-   end
-
-   def salvar_especificacao
-    @funcionario = Funcionario.find(params[:funcionario_id])
-    @pessoa = @funcionario.pessoa
-    @lotacao = Lotacao.find(params[:lotacao_id])
-    @tipo=params[:especificar_lotacao][:tipo]
-    if @tipo!="SALA AMBIENTE"
-      @turma = Turma.find(params[:especificar_lotacao][:turma_id])
-      @serie = @turma.serie
-      @disciplina = @serie.disciplinas.find(params[:especificar_lotacao][:disciplina_id])
-      @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
-      @especificar = @disciplina.fator_de_lotacoes.new(params[:especificar_lotacao])
-    end
-    @escola = @lotacao.escola
-    respond_to do |format|
-      if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo)
-       format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.") }
-     end
-   end
-
+def salvar_confirmacao
+  @funcionario = Funcionario.find(params[:funcionario_id])
+  codi=params[:codigo]
+  @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
+  cpf = @lotacao.codigo_a(codi)
+  if @lotacao.codigo_a(codi)
+    @lotacao.confirma_lotacao
+    redirect_to pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :notice => 'Confirmação de Lotação Efetuada.'
+  else
+   redirect_to  pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :alert => 'Confirmação de Lotação não executada, código incorreto.'
  end
 
+end
 
- def salvar_cancelamento
+def salvar_especificacao
+  @funcionario = Funcionario.find(params[:funcionario_id])
+  @pessoa = @funcionario.pessoa
+  @lotacao = Lotacao.find(params[:lotacao_id])
+  @tipo=params[:especificar_lotacao][:tipo]
+  if @tipo!="SALA AMBIENTE"
+    @turma = Turma.find(params[:especificar_lotacao][:turma_id])
+    @serie = @turma.serie
+    @disciplina = @serie.disciplinas.find(params[:especificar_lotacao][:disciplina_id])
+    @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
+    @especificar = @disciplina.fator_de_lotacoes.new(params[:especificar_lotacao])
+  end
+  @escola = @lotacao.escola
+  respond_to do |format|
+    if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo)
+     format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.") }
+   end
+ end
+
+end
+
+
+def salvar_cancelamento
 
   @funcionario = Funcionario.find(params[:funcionario_id])
   motivo=params[:motivo]
@@ -311,38 +311,38 @@ respond_to do |format|
   if @lotacao.save
     format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.
       Destino: #{dest(@lotacao)}") }
-      format.xml  { render :xml => @lotacao, :status => :created, :location => @lotacao }
-    else
-      html="<ul>"
-      @lotacao.errors.each do |atributo,msg|
-        html+="<li>#{msg}</li>"
-      end
-      html+="</ul>"
-
-      format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :alert => "Lotação não Efetuada, Motivos: #{html}") }
-      format.xml  { render :xml => @lotacao.errors, :status => :unprocessable_entity }
+    format.xml  { render :xml => @lotacao, :status => :created, :location => @lotacao }
+  else
+    html="<ul>"
+    @lotacao.errors.each do |atributo,msg|
+      html+="<li>#{msg}</li>"
     end
+    html+="</ul>"
+
+    format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :alert => "Lotação não Efetuada, Motivos: #{html}") }
+    format.xml  { render :xml => @lotacao.errors, :status => :unprocessable_entity }
   end
+end
 end
 
 # PUT /lotacaos/1
 # PUT /lotacaos/1.xml
 def update
   @lotacao = Lotacao.find(params[:id])
-respond_to do |format|
-  if @lotacao.update_attributes(params[:lotacao])
-    if params[:lotacao][:ambiente_id].nil?
-    format.html { redirect_to(pessoa_funcionario_lotacao_url(@funcionario), :notice => 'Processo de lotação criado com sucesso.') }
-    format.xml  { head :ok }
-  elsif !params[:lotacao][:ambiente_id].nil?
-    format.html { redirect_to(pessoas_url, :notice => 'Processo de lotação criado com sucesso.') }
-    format.xml  { head :ok }
+  respond_to do |format|
+    if @lotacao.update_attributes(params[:lotacao])
+      if @lotacao.quick==true
+        format.html { redirect_to(pessoas_url, :notice => 'Lotação Especificada com sucesso.') }
+        format.xml  { head :ok }
+      elsif @lotacao.quick.nil?
+        format.html { redirect_to(pessoa_funcionario_lotacao_url(@funcionario), :notice => 'Processo de lotação atualizado com sucesso.') }
+        format.xml  { head :ok }
+      end
+    else
+      format.html { render :action => "edit" }
+      format.xml  { render :xml => @lotacao.errors, :status => :unprocessable_entity }
+    end
   end
-  else
-    format.html { render :action => "edit" }
-    format.xml  { render :xml => @lotacao.errors, :status => :unprocessable_entity }
-  end
-end
 end
 
 
@@ -378,13 +378,13 @@ def fator_lotacao_fisico
   @lotacao = Lotacao.find(params[:lotacao_id])
   @lotacao.escola
   if @funcionario.regencia_semanal_nominal_sobra>0
-     @motivo="Regência Semanal Compatível"
-     render :partial=>"fator_lotacao"
-   else
-     @motivo="Regência Semanal Incompatível"
-     render :partial=>"nao_pode_especificar"
-   end
+   @motivo="Regência Semanal Compatível"
+   render :partial=>"fator_lotacao"
+ else
+   @motivo="Regência Semanal Incompatível"
+   render :partial=>"nao_pode_especificar"
  end
+end
 
 
 

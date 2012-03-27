@@ -56,31 +56,25 @@ Event.observe(window, 'load', function() {
   <%= f.text_field :telefone_celular,:style=>"width:92%;" %>
 </fieldset>
 
-<%@pessoa.funcionarios.each do |funcionario|%>
 
-<fieldset style="width:97.5%; float:left; margin-right: 1%; background: #FFFFFF; border: 0px solid #FFFFFF;">
-<h4>Funcionario com cadastro <%=funcionario.matricula%><br/></h4>
 
-<%=fields_for(funcionario) do |f2|%>
 
-<%if funcionario.cargo and funcionario.cargo.tipo and funcionario.cargo.tipo.nome=='Magistério/Docência'%>
+
+<%=f.fields_for :funcionarios do |f2|%>
+
 <fieldset style="width:48%; float:left; margin-right: 1%;">
   <%= f2.label :disciplina_de_contratação %><br />
   <%= f2.select :disciplina_contratacao_id,@descs,:prompt=>true,:style=>"width:92%;" %>
 </fieldset>
-<%end%>
 
-<%if funcionario.categoria and funcionario.categoria.nome=='Estado Novo'%>
 <fieldset style="width:48%; float:left; margin-right: 1%;">
   <%= f2.label :municipio_de_opção %><br />
   <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>
 </fieldset>
-<%end -%>
 
 <%end%>
-</fieldset>
 
-<%end%>
+
 
 
 

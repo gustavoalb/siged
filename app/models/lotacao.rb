@@ -55,6 +55,7 @@ class Lotacao < ActiveRecord::Base
    proc.data_finalizado = Time.now
    if proc.save!
     self.finalizada = true
+    self.data_confirmacao = Time.now
     self.save
     status = proc.status.new
     status.status = 'LOTADO'

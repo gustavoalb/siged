@@ -24,6 +24,12 @@ def departamento
  render :partial=>"qualificar"
 end
 
+def especificar_lotacao
+ @pessoa = Pessoa.find(params[:pessoa_id])
+ @funcionario = Funcionario.find(params[:funcionario_id])
+ render :layout=>'facebox'
+end
+
 
 def qualificar_funcionario
   @departamentos = Departamento.order(:nome).collect{|p|[p.nome,p.id]}
