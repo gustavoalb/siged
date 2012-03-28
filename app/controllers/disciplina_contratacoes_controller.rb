@@ -62,7 +62,7 @@ class DisciplinaContratacoesController < ApplicationController
     @disciplina_contratacao = DisciplinaContratacao.find(params[:id])
 
     respond_to do |format|
-      if @disciplina_contratacao.update_attributes(params[:descricao_cargo])
+      if @disciplina_contratacao.update_attributes(params[:disciplina_contratacao])
         format.html { redirect_to(@disciplina_contratacao, :notice => 'Descricao cargo atualizado com sucesso.') }
         format.xml  { head :ok }
       else
