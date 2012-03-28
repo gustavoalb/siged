@@ -1,9 +1,60 @@
+<script>
+function Impressao( preVisualizar )
+{
+	var CorpoMensagem = document.body.innerHTML;
+	document.body.innerHTML = ImprimirConteudo.innerHTML;
+	if( preVisualizar )
+	{
+		PreVisualizar();
+	}
+	else
+	{
+		window.print();
+	}
+	document.body.innerHTML = CorpoMensagem;
+}
+
+function PreVisualizar()
+{
+	try
+	{
+		 //Utilizando o componente WebBrowser1 registrado no MS Windows Server 2000/2003 ou XP/Vista
+		 var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH=0 HEIGHT=0 CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+		 document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+		 WebBrowser1.ExecWB( 7, 1 );
+		 WebBrowser1.outerHTML = "";
+	}
+	catch(e)
+	{
+		alert("Para visualizar a impressão você precisa habilitar o uso de controles ActiveX na página.");
+		return;
+	}
+}
+</script>
+
+<script type="text/javascript">
+function printDiv(id, pg) {
+	var oPrint, oJan;
+	oPrint = window.document.getElementById(id).innerHTML;
+	oJan = window.open(pg);
+	oJan.document.write(oPrint);
+	oJan.window.print();
+       oJan.document.close();
+       oJan.focus();
+}
+</script>
+
 <%content_for :links do%>
     <a class="current">Listas</a>
-
+    
 <%end%>
 <article class="module width_full">
+
+<h3><a href="javascript:Impressao( false );"><a href="#" onclick="printDiv('ImprimirConteudo','janela')">Imprimir</a></h3>
+
 <%n=0%>
+<div id="ImprimirConteudo">
+
 
 <TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
 	<COL WIDTH=51*>
@@ -59,39 +110,41 @@
 	<COL WIDTH=88>
 	<COL WIDTH=156>
 	<TR VALIGN=TOP>
-		<TD WIDTH=36 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		<THEAD>
+		<TH WIDTH=36 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>Nº</FONT></P>
-		</TD>
-		<TD WIDTH=182 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		</TH>
+		<TH WIDTH=182 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>NOME</FONT></P>
-		</TD>
-		<TD WIDTH=92 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		</TH>
+		<TH WIDTH=92 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>CPF</FONT></P>
-		</TD>
-		<TD WIDTH=80 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		</TH>
+		<TH WIDTH=80 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>MATRÍCULA</FONT></P>
-		</TD>
-		<TD WIDTH=108 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		</TH>
+		<TH WIDTH=108 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>CARGO</FONT></P>
-		</TD>
-		<TD WIDTH=55 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		</TH>
+		<TH WIDTH=55 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>NIVEL</FONT></P>
-		</TD>
-		<TD WIDTH=99 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		</TH>
+		<TH WIDTH=99 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>QUADRO</FONT></P>
-		</TD>
-		<TD WIDTH=88 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		</TH>
+		<TH WIDTH=88 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>CONTATO</FONT></P>
-		</TD>
-		<TD WIDTH=156 bgcolor=LightGray STYLE="border: 1px solid #000000; padding: 0.1cm">
+		</TH>
+		<TH WIDTH=156 bgcolor=LightGray STYLE="border: 1px solid #000000; padding: 0.1cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2>ULTIMA LOCALIZAÇÃO</FONT></P>
-		</TD>
+		</TH>
 	</TR>
+</THEAD>
 
 	 <%@tipo_lista.pessoas.each do |p|%>
 	 <%p.funcionarios.each do |f|%>
   <%n+=1%>
-	<TR VALIGN=MIDDLE>
+	<TR VALIGN=MIDDLE style="page-break-inside: auto;">
 		<TD WIDTH=36 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><%=n%><BR>
 			</P>
@@ -132,7 +185,7 @@
 	<%end%>
 	<%end%>
 </TABLE>
-
+</div>	
 <footer>
 </footer>
 </article>
