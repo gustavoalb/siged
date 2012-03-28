@@ -334,8 +334,8 @@ def update
       if @lotacao.quick==true
         format.html { redirect_to(pessoas_url, :notice => 'Lotação Especificada com sucesso.') }
         format.xml  { head :ok }
-      elsif @lotacao.quick.nil?
-        format.html { redirect_to(pessoa_funcionario_lotacao_url(@funcionario), :notice => 'Processo de lotação atualizado com sucesso.') }
+      else
+        format.html { redirect_to(:back, :notice => 'Processo de lotação atualizado com sucesso.') }
         format.xml  { head :ok }
       end
     else
