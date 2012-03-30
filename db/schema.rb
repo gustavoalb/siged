@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327182620) do
+ActiveRecord::Schema.define(:version => 20120330195444) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -298,6 +298,7 @@ ActiveRecord::Schema.define(:version => 20120327182620) do
     t.string   "codigo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tipo"
   end
 
   add_index "distritos", ["municipio_id"], :name => "index_distritos_on_municipio_id"
