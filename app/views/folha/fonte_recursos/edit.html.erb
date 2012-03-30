@@ -1,2 +1,5 @@
-<%= render 'form',:legenda=>'Edição de Folha_fonte_recursos ' %>
+<%content_for :links do%>
+<%=link_to "Fonte de Recurso",folha_fonte_recursos_path%><div class="breadcrumb_divider"></div><a class="current">Editando Fonte de Recurso</a>
+<%end%>
+<%= render 'form',:legenda=>'Edição de Folha, Fonte de Recursos ' %>
 
