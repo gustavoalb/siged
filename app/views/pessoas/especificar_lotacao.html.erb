@@ -5,7 +5,7 @@
 
 <fieldset>
     <%= label :especificar_lotacao,"Especificação" %><br /><br />
-    <%= f.select :ambiente_id,lotacao.escola.ambientes.salas_ambiente.all.collect{|a|[a.nome,a.id]},:style=>"width:92%;",:prompt=>"Selecione a Sala Ambiente" %>
+    <%= f.select :ambiente_id,lotacao.escola.ambientes.all.collect{|a|[a.nome,a.id]},:style=>"width:92%;",:prompt=>"Selecione a Sala Ambiente" %>
 </fieldset>
 <div class='submit_link'>
 <%=f.submit "Salvar",:class=>"alt_btn" %>
