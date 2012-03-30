@@ -11,9 +11,9 @@ class Lotacao < ActiveRecord::Base
   belongs_to :entidade
 
   has_many :processos
-  #has_many :pontos
+  has_many :pontos
 
-  has_one :ponto_atual,:through=>:funcionario,:source=>'pontos_do_mes'
+  #has_one :ponto_atual,:through=>:funcionario,:source=>'pontos_do_mes'
   has_many :todos_processos,:class_name=>"Processo"
   has_many :status,:class_name=>"Status",:through=>:processos,:source=>"status"
   belongs_to :departamento
