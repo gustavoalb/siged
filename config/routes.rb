@@ -14,71 +14,71 @@ Siged20::Application.routes.draw do
 
   namespace :folha do resources :fonte_recursos end
 
-  namespace :arquivo do resources :documentos end
+    namespace :arquivo do resources :documentos end
 
-  namespace :administracao do 
-    resources :migracoes
-    resources :textos 
-  end
+      namespace :administracao do 
+        resources :migracoes
+        resources :textos 
+      end
 
-  resources :categorias
+      resources :categorias
 
-  resources :configuracao_pontos
+      resources :configuracao_pontos
 
-  resources :entidades
-  get "administracao/tarefas/funcionarios"
-  namespace :administracao do resources :tarefas end
+      resources :entidades
+      get "administracao/tarefas/funcionarios"
+      namespace :administracao do resources :tarefas end
 
-  get "administracao/index"
-
-
-  get "administracao/atualizar_informacao"
-
-  namespace :folha do resources :competencias end
-  namespace :folha do
-        resources :financeiros do
-           get "validar_matricula"
-           get "validar_evento"
-        end
-   end
-  resources :vencimentos
+        get "administracao/index"
 
 
-  namespace :folha do
-      resources :folhas do
+        get "administracao/atualizar_informacao"
+
+        namespace :folha do resources :competencias end
+          namespace :folha do
+            resources :financeiros do
+             get "validar_matricula"
+             get "validar_evento"
+           end
+         end
+         resources :vencimentos
+
+
+         namespace :folha do
+          resources :folhas do
            get "imprimir_financeiros"
            resources :financeiros do
 
            end
 
       #fim do resource folhas
-      end
+    end
 
   #fim do namespace folha
-  end
+end
 
-  resources :manutencoes do
-    post "em_manutencao"
-  end
+resources :manutencoes do
+  post "em_manutencao"
+end
 
-  resources :series
+resources :series
 
-  resources :comissionados do
+resources :comissionados do
   get "exonerar_comissionado"
   post "salvar_exoneracao"
-  end
+end
 
-  namespace :folha do resources :eventos end
+namespace :folha do resources :eventos end
 
 
   resources :categoria
 
   resources :tipo_listas do
-  get :adicionar_de_arquivo
-  get :detalhes_pessoa
-  post :salvar_arquivo
-  get :listar
-  get :relatorio
+    get :adicionar_de_arquivo
+    get :detalhes_pessoa
+    post :salvar_arquivo
+    get :listar
+    get :relatorio
   end
 
   resources :ambientes
@@ -116,7 +116,7 @@ Siged20::Application.routes.draw do
 
 
   resources :referencia_niveis do
-  resources :vencimentos
+    resources :vencimentos
   end
 
   resources :situacoes_juridicas
@@ -125,12 +125,13 @@ Siged20::Application.routes.draw do
 
   resources :orgaos
   resources :orgaos do
-  get 'agenda'
+    get 'agenda'
     resources :departamentos do
       get 'tarefas'
       get 'pontos_funcionarios'
       get 'pontos'
       get 'pontos_do_mes'
+      post 'gerar_pontos'
     end
   end
 
@@ -149,69 +150,69 @@ Siged20::Application.routes.draw do
    resources :ano_letivos do
 
     resources :settings
-   end
-    resources :ambientes do
-      get :configurar_ambiente
-      get :configurar_ambiente_fisico
-      get :incluir_turma
-      post :salvar_turma
-      get :excluir_turma
-      get :incluir_ambiente_fisico
-      post :salvar_ambiente_fisico
-      get :excluir_ambiente_fisico
-    end
   end
-  get 'pessoas/especificar_lotacao'
-  resources :pessoas do
+  resources :ambientes do
+    get :configurar_ambiente
+    get :configurar_ambiente_fisico
+    get :incluir_turma
+    post :salvar_turma
+    get :excluir_turma
+    get :incluir_ambiente_fisico
+    post :salvar_ambiente_fisico
+    get :excluir_ambiente_fisico
+  end
+end
+get 'pessoas/especificar_lotacao'
+resources :pessoas do
   get "gerar_relatorio"
   resources :fotos,:only => [:index, :show, :novo, :create,:new] do
    post 'upload',:on=>:collection
-   end
-  get "gerar_boletim"
-  get "qualificar"
-  get "edicao_rapida"
-  post "salvar_boletim"
-  get "boletins"
-  get "boletim_pessoal"
-  get "exibir_boletim"
-  get "qualificar_funcionario"
-  get "departamento"
-  get "adicionar_a_lista"
-  post "salvar_lista"
-	resources :formacoes
-	resources :funcionarios do
+ end
+ get "gerar_boletim"
+ get "qualificar"
+ get "edicao_rapida"
+ post "salvar_boletim"
+ get "boletins"
+ get "boletim_pessoal"
+ get "exibir_boletim"
+ get "qualificar_funcionario"
+ get "departamento"
+ get "adicionar_a_lista"
+ post "salvar_lista"
+ resources :formacoes
+ resources :funcionarios do
    get "boletim_funcional"
-	  resources :ponto_diarios do
+   resources :ponto_diarios do
 
-	      resources :ponto_assinaturas
-	        get :assinar_ponto
-	         post :assinar
-	  end
-    get "historico"
-    get "carta"
-    get "gerar_boletim"
-    post "salvar_boletim"
-    get "boletins"
-    get "exibir_boletim"
-	  resources :lotacoes do
-	     get "devolver_funcionario"
-	     get "confirmar_lotacao"
-	     get "cancelar_lotacao"
-         get "especificar_lotacao"
-         post "salvar_confirmacao"
-         post "salvar_cancelamento"
-         post "salvar_devolucao"
-         post "salvar_convalidacao"
-         post "salvar_especificacao"
-         resources :pontos do
-            get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
-            get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'
-         end
-
-end
-end
+     resources :ponto_assinaturas
+     get :assinar_ponto
+     post :assinar
+   end
+   get "historico"
+   get "carta"
+   get "gerar_boletim"
+   post "salvar_boletim"
+   get "boletins"
+   get "exibir_boletim"
+   resources :lotacoes do
+    get "devolver_funcionario"
+    get "confirmar_lotacao"
+    get "cancelar_lotacao"
+    get "especificar_lotacao"
+    post "salvar_confirmacao"
+    post "salvar_cancelamento"
+    post "salvar_devolucao"
+    post "salvar_convalidacao"
+    post "salvar_especificacao"
+    resources :pontos do
+      get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
+      get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'
+    end
 
   end
+end
+
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -231,7 +232,7 @@ end
   match 'lotacoes/secretarias',:controller=>"lotacoes",:action=>"escolas_destino"
   match 'folha/financeiro/auto_complete_for_folha_financeiro_funcionario_id',:controller=>"folha/financeiros",:action=>'auto_complete_for_folha_financeiro_funcionario_id'
   match 'folha/financeiro/auto_complete_for_folha_financeiro_evento_id',:controller=>"folha/financeiros",:action=>'auto_complete_for_folha_financeiro_evento_id'
-   match 'lotacoes/verifica_lotacao/:funcionario_id', :controller=> 'lotacoes',:action=>"verifica_lotacao"
+  match 'lotacoes/verifica_lotacao/:funcionario_id', :controller=> 'lotacoes',:action=>"verifica_lotacao"
   # match 'fotos/upload/:pessoa_id', :controller=> 'fotos',:action=>"upload"
   # Keep in mind you can assign values other than :controller and :action
 

@@ -67,15 +67,38 @@ class PontosController < ApplicationController
     @departamento = @lotacao.departamento
     respond_to do |format|
       if @ponto.save
-        salvar_em_pdf
-        format.html { redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto cadastrado com sucesso.') }
-        format.xml  { render :xml => @ponto, :status => :created, :location => @ponto }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @ponto.errors, :status => :unprocessable_entity }
+        @funcionario = @ponto.funcionario
+        @lotacao = @ponto.lotacao
+        @orgao = @lotacao.orgao
+        @departamento = @lotacao.departamento
+        @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
+        @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
+        @pasta = Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}")
+        if !File.exist?(@arquivo)
+          if !File.exist?(@pasta)
+           Dir.mkdir(@pasta)
+         end
+         pdf = render_to_string_with_pdf :pdf =>"#{@arquivo.basename.to_s}",
+         :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
+         :zoom => 0.8 ,
+         :margin=>{1,1,1,1},
+         :orientation => 'Portrait',
+         :template                       => 'pontos/salvar_em_pdf.pdf'
+         File.open(@arquivo, 'wb') do |file|
+          file << pdf
+        end
       end
+
+
+
+      format.html { redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto cadastrado com sucesso.') }
+      format.xml  { render :xml => @ponto, :status => :created, :location => @ponto }
+    else
+      format.html { render :action => "new" }
+      format.xml  { render :xml => @ponto.errors, :status => :unprocessable_entity }
     end
   end
+end
 
   # PUT /pontos/1
   # PUT /pontos/1.xml
@@ -97,41 +120,19 @@ class PontosController < ApplicationController
   # DELETE /pontos/1.xml
   def destroy
     @ponto = Ponto.find(params[:id])
-    @ponto.destroy
-
+    @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
+    if @ponto.destroy
+      FileUtils.rm_rf(@arquivo)
     respond_to do |format|
       format.html { redirect_to(:back,:alert=>"Ponto apagado com sucesso") }
       format.xml  { head :ok }
     end
   end
-
-  def salvar_em_pdf
-    @ponto = Ponto.find(params[:ponto_id])
-    @funcionario = @ponto.funcionario
-    @lotacao = @ponto.lotacao
-    @orgao = @lotacao.orgao
-    @departamento = @lotacao.departamento
-    @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
-    @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
-    @pasta = Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}")
-    if File.exist?(@arquivo)
-      redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto já existe.')
-    else
-      if !File.exist?(@pasta)
-       Dir.mkdir(@pasta)
-     end
-     render :pdf =>"#{@arquivo.basename.to_s}",
-       :save_to_file => @arquivo,
-       :save_only => true,
-       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-       :zoom => 0.8 ,
-       :margin=>{1,1,1,1},
-       :orientation => 'Portrait'
-    redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto cadastrado com sucesso.')
-  end
 end
 
-  private
+   
+
+private
 
 def ponto_lotacao
  @pessoa = Pessoa.find(params[:pessoa_id])

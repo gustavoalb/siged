@@ -32,13 +32,13 @@ Event.observe(window, 'load', function() {
 <fieldset style="width:97%; float:left; margin-right: 1%;">
   <table>
     <tr>
-      <th  align=left>ENDEREÇO</th>
-      <th  align=left>NÚMERO</th>
+      <th><%=f.label :endereço%></th>
+      <th><%=f.label :numero%></th>
     </tr>
     <tr>
-      <td><%= f.text_field :endereco,:style=>"width:92%;" %></td>
+      <td align=left><%= f.text_field :endereco,:style=>"width:92%;" %></td>
 
-      <td><%= f.text_field :numero,:style=>"width:20%;" %></td>
+      <td align=left><%= f.text_field :numero,:style=>"width:20%;" %></td>
     </tr>
   </table>
 
@@ -59,19 +59,43 @@ Event.observe(window, 'load', function() {
 
 
 
-
-<%=f.fields_for :funcionarios do |f2|%>
+<%@pessoa.funcionarios.each_with_index do |funcionario,index|%>
+<fieldset style="width:96%; float:left; margin-right: 1%;background: #FFF; border: 0px solid #fff;">
+  <h3>Funcionário de matrícula <%=funcionario.matricula%></h3>
+<%=f.fields_for :funcionarios,funcionario do |f2|%>
 
 <fieldset style="width:48%; float:left; margin-right: 1%;">
   <%= f2.label :disciplina_de_contratação %><br />
   <%= f2.select :disciplina_contratacao_id,@descs,:prompt=>true,:style=>"width:92%;" %>
 </fieldset>
 
-<fieldset style="width:48%; float:left; margin-right: 1%;">
-  <%= f2.label :municipio_de_opção %><br />
-  <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>
-</fieldset>
+      <%if funcionario.cargo.tipo and (funcionario.cargo.tipo.nome=='Magistério/Docência' or funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and funcionario.categoria and funcionario.categoria.nome=="Estado Novo"%>
+      <fieldset style="width:48%; float:left; margin-right: 1%;">
+        <%= f2.label :municipio_de_opção %><br />
+        <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município",:onchange=>remote_function(:url => {:controller => 'controller', :action => 'action'}) %>
 
+      </fieldset>
+
+      <%=observe_field "pessoa_funcionarios_attributes_#{index}_municipio_id", :url => "/funcionarios/distrito",
+      :frequency => 0.25,
+      :update => :dist,
+      :with => 'municipio'%>
+
+      <div id=dist>
+
+        <%if funcionario.municipio and funcionario.distrito -%>
+        <fieldset style="width:48%; float:left; margin-right: 1%;">
+          <%= label_tag :distrito_de_opção %><br /><br />
+          <%=f2.select :distrito_id,funcionario.municipio.distritos.all.collect{|d|[d.nome,d.id]},:style=>"width:92%;",:disabled=>true%>
+        </fieldset>
+        <%end%>
+      </div>
+
+      <%end%>
+
+
+<%end%>
+</fieldset>
 <%end%>
 
 

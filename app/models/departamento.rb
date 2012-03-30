@@ -4,7 +4,7 @@ class Departamento < ActiveRecord::Base
   belongs_to :tipo_destino
   belongs_to :entidade
   has_many :comissionados
-  has_many :lotacoes,:class_name=>"Lotacao"
+  has_many :lotacoes,:conditions=>["finalizada = ? and ativo = ? and complementar = ?",true,true,false]
   has_many :funcionarios,:through=>:lotacoes,:source=>"funcionario"
   has_one :responsavel,:through=>:comissionados,:source=>:funcionario
   #has_many :funcionarios_comissionados,:through=>:comissionados,:foreign_key=>"responsavel_id",:source=>'funcionario'
