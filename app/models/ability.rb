@@ -102,7 +102,9 @@ elsif user.role? :ucolom
  can :manage,Pessoa
  cannot :edit,Pessoa
  cannot :destroy,Pessoa
- can :carta,Funcionario
+ can :manage,Funcionario
+ cannot :destroy,Funcionario
+ cannot :edit,Funcionario
 
 elsif user.role? :sead
   can :read, :all
