@@ -26,13 +26,13 @@
 		<tr>
 			<td colspan=3 align=center>
 				
-				<b><center><h4>CARTA DE APRESENTAÇÃO <%=@lotacao.tipo_lotacao%><br/></center></b>
+				<b><center><h4>CARTA DE APRESENTAÇÃO <%=@lotacao.tipo_lotacao%><br/><br/></center></b>
 			</td>
 		</tr>
 
 		<tr>
 			<td colspan=3 align=left>Processo de Lotação nº <b><%=@processo.processo%></b>	Data: <b><%=@lotacao.data_lotacao.to_s_br%></b>
-				<br/>Sr. (a) Responsável pelo (a) <b><%=destino(@lotacao)%><br/><br/></b></td>
+				<br/>Sr. (a) Responsável pelo (a) <b><%=destino(@lotacao)%><br/><br/><br/></b></td>
 			</tr>
 
 			<tr style='font-size: 16;'>
@@ -58,20 +58,18 @@
 
 			<tr>
 				<td colspan=3><p><br/>____________________________________<br/>
-					Nome do Servidor<br/>
-					Chefe da UCOLOM<br/>
-					Decreto nº XXXX/XXXX-GEA</td>
+					Chefe da UCOLOM<br/><br/><br/>
 				</tr></p>
 
 				<tr>
 					<br/>
-					<td colspan=3 align=center><%=wicked_pdf_image_tag "../images/carta/hr.png"%></td>
+					<td colspan=3 align=center><%=wicked_pdf_image_tag "../images/carta/hr.png"%><br/><br/></td>
 				</tr>
 
 
 				<tr>
 					<td colspan=3 align=center>
-						<br/><b>CONFIRMAÇÃO DE APRESENTAÇÃO ESPECIAL</b>
+						<br/><b>CONFIRMAÇÃO DE APRESENTAÇÃO <%=@lotacao.tipo_lotacao%></b>
 					</td>
 				</tr>
 
@@ -99,21 +97,19 @@
 				</tr>
 						<tr>
 
-							<td colspan=3><br/><p>____________________________________<br/>
-									Nome do Servidor<br/>
-					Chefe da UCOLOM<br/>
-					Decreto nº XXXX/XXXX-GEA</td>
+							<td colspan=3><br/><br/><p>____________________________________<br/>
+					<%if @lotacao.tipo_lotacao=="REGULAR"%>
+					Gestor Escolar<br/>
+					<%elsif @lotacao.tipo_lotacao=="ESPECIAL"%>
+					Responsável<br/>
+					<%end%>
+					</td>
 							</tr></p>
 
 
 						</tr>
 						
-						<tr style='font-size: 12;'>
-							<td colspan=3 align=left>
-								<center><b>RIGOROSAMENTE DENTRO DO PRAZO DE VALIDADE, SOB PENA DO NÃO PROCESSAMENTO DE VENCIMENTO SALARIAL</b></center>
-									<center><b>SEU PRAZO DE VALIDADE É: (3 dias a Contar de <%=@lotacao.data_lotacao.to_s_br%>)</b></center>
-								</td>
-							</tr>
+						
 						
 
 

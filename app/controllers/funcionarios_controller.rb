@@ -157,8 +157,8 @@ def carta
       render :pdf =>"#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}",
       :layout => "pdf", # OPTIONAL
       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-      :margin => {:top=> 0,:bottom=> 20},
-      :footer=>{:html =>{:template => 'pessoas/footer.pdf.erb'}},
+      :margin => {:top=> 0,:bottom=> 35},
+      :footer=>{:html =>{:template => 'shared/lotacao_footer.pdf.erb'}},
       :zoom => 0.8 ,
       :orientation => 'Portrait'
   #  end

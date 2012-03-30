@@ -1,6 +1,5 @@
 require "barby/barcode/code_25_interleaved"
 require "barby/outputter/rmagick_outputter"
-
 class Ponto < ActiveRecord::Base
   default_scope where('pontos.entidade_id in (?)',User.usuario_atual.entidade_ids)
 
@@ -45,6 +44,29 @@ def codigo_a(cod)
   end
 end
 
+def salvar_em_pdf
+  range_dias = self.data.at_beginning_of_month..self.data.at_end_of_month
+  funcionario = self.funcionario
+  lotacao = self.lotacao
+  arquivo = Pathname.new(Rails.root.join("public/pontos/#{funcionario.pessoa.slug}", "ponto-de-#{funcionario.pessoa.slug}-#{funcionario.slug}-#{self.data.strftime("%b-%Y").downcase}.pdf"))
+  pasta = Rails.root.join("public/pontos/#{funcionario.pessoa.slug}")
+  if File.exist?(arquivo)
+    return "Arquivo '#{arquivo.basename.to_s}' já existe. "
+  else
+    if !File.exist?(pasta)
+     Dir.mkdir(pasta)
+   end
+   render_to_string :pdf =>"ponto-de-#{funcionario.pessoa.slug}-#{funcionario.slug}-#{self.data.strftime("%b-%Y").downcase}.pdf",
+   :save_to_file => arquivo,
+   :save_only => true,
+   :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
+   :zoom => 0.8 ,
+   :margin=>{1,1,1,1},
+   :orientation => 'Portrait'
+   return true  
+ end
+end
+
 private
 def img_codigo
   codigo=self.codigo_b
@@ -54,7 +76,7 @@ def img_codigo
    codigo2='0'+''+codigo
  end
  barcode=Barby::Code25Interleaved.new(codigo2)
- File.open("public/images/pontos/codigos/#{codigo2}.png","w"){|f|
+ File.open("public/pontos/codigos/#{codigo2}.png","w"){|f|
   f.write barcode.to_png}
 end
 

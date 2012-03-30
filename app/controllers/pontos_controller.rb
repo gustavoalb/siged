@@ -44,14 +44,15 @@ class PontosController < ApplicationController
     format.html # index.html.erb
     format.pdf do
         render :pdf =>"ponto - #{@funcionario.pessoa.nome}", # OPTIONAL
-           :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-            :zoom => 0.8 ,
-             :margin=>{1,1,1,1},
-               :orientation => 'Portrait'
+        :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
+        :zoom => 0.8 ,
+        :margin=>{1,1,1,1},
+        :orientation => 'Portrait'
 
+      end
+    end
   end
-  end
-  end
+
 
   # GET /pontos/1/edit
   def edit
@@ -64,10 +65,10 @@ class PontosController < ApplicationController
     @ponto = Ponto.new(params[:ponto])
     @orgao = @lotacao.orgao
     @departamento = @lotacao.departamento
-
     respond_to do |format|
       if @ponto.save
-        format.html { redirect_to(orgao_departamento_pontos_path(@orgao.id,@departamento.id,:funcionario_id=>@funcionario.id), :notice => 'Ponto cadastrado com sucesso.') }
+        salvar_em_pdf
+        format.html { redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto cadastrado com sucesso.') }
         format.xml  { render :xml => @ponto, :status => :created, :location => @ponto }
       else
         format.html { render :action => "new" }
@@ -83,7 +84,7 @@ class PontosController < ApplicationController
 
     respond_to do |format|
       if @ponto.update_attributes(params[:ponto])
-        format.html { redirect_to(@ponto, :notice => 'Ponto atualizado com sucesso.') }
+        format.html { redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto atualizado com sucesso.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -103,13 +104,38 @@ class PontosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def salvar_em_pdf
+    @ponto = Ponto.find(params[:ponto_id])
+    @funcionario = @ponto.funcionario
+    @lotacao = @ponto.lotacao
+    @orgao = @lotacao.orgao
+    @departamento = @lotacao.departamento
+    @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
+    @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
+    @pasta = Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}")
+    if File.exist?(@arquivo)
+      redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto já existe.')
+    else
+      if !File.exist?(@pasta)
+       Dir.mkdir(@pasta)
+     end
+     render :pdf =>"#{@arquivo.basename.to_s}",
+       :save_to_file => @arquivo,
+       :save_only => true,
+       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
+       :zoom => 0.8 ,
+       :margin=>{1,1,1,1},
+       :orientation => 'Portrait'
+    redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto cadastrado com sucesso.')
+  end
+end
+
   private
 
-
-
-  def ponto_lotacao
-   @pessoa = Pessoa.find(params[:pessoa_id])
-   @funcionario = @pessoa.funcionarios.find(params[:funcionario_id])
-   @lotacao = @funcionario.lotacoes.atual.find(params[:lotacao_id])
-   end
+def ponto_lotacao
+ @pessoa = Pessoa.find(params[:pessoa_id])
+ @funcionario = @pessoa.funcionarios.find(params[:funcionario_id])
+ @lotacao = @funcionario.lotacoes.atual.find(params[:lotacao_id])
+end
 end

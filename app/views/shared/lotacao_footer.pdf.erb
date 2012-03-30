@@ -1,0 +1,12 @@
+		<meta charset="utf-8" />
+		<center style="font-size:16; font-family:Times New Roman,Georgia,Serif;"><b>RIGOROSAMENTE DENTRO DO PRAZO DE VALIDADE, SOB PENA DO NÃO PROCESSAMENTO DE VENCIMENTO SALARIAL</b></center>
+		<center style="font-size:16; font-family:Times New Roman,Georgia,Serif;"><b>SEU PRAZO DE VALIDADE É:<%=@lotacao.data_lotacao.advance(:days=>3).to_s_br%> (3 dias a Contar de <%=@lotacao.data_lotacao.to_s_br%>)</b></center>
+		<br/>
+		<center style="font-size:16; font-family:Times New Roman,Georgia,Serif;">
+			Secretaria de Educação - SEED - Av. Fab, Nº 96 - 68900-000<br/>
+			Coordenadoria de Administração<br/>
+			Fone/Fax: 96 3131-2211
+		</center>
+		<span align=left style="font-size:16; font-family:Times New Roman,Georgia,Serif;">
+			Emitido por: <%=@lotacao.usuario%>, em <%=Time.now.strftime("%d/%m/%Y, às %T.")%>
+		</span>
