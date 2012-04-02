@@ -66,6 +66,10 @@ resources :series
 resources :comissionados do
   get "exonerar_comissionado"
   post "salvar_exoneracao"
+  resources :pontos do
+    get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
+    get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'
+  end
 end
 
 namespace :folha do resources :eventos end
@@ -181,7 +185,16 @@ resources :pessoas do
  post "salvar_lista"
  resources :formacoes
  resources :funcionarios do
+  resources :comissionados do
+  get "exonerar_comissionado"
+  post "salvar_exoneracao"
+  resources :pontos do
+    get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
+    get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'
+  end
+end
    get "boletim_funcional"
+
    resources :ponto_diarios do
 
      resources :ponto_assinaturas
@@ -226,6 +239,7 @@ end
   match 'lotacoes/destino'
   match 'lotacoes/tipo_destino'
   match 'funcionarios/distrito'
+  match 'pessoas/distrito'
   match 'funcionarios/diretor'
   match 'administracao/tarefas/atributos'
   match 'administracao/tarefas/verificar_atributo'

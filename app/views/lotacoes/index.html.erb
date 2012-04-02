@@ -29,7 +29,7 @@
   </script>
 
   <article class="module width_full">
-  <header><h3>Processos de Lotação de <%=@pessoa.nome%>, <%=cargo_disciplina(@funcionario)%>, <%=jornada(@funcionario.sjuridica)%></h3></header>
+  <header><h3>Lotações de <%=@pessoa.nome%>, <%=cargo_disciplina(@funcionario)%>, <%=jornada(@funcionario.sjuridica)%></h3></header>
   <div class="module_content">
   <div id="tabs1" class="tabset">
 
@@ -57,6 +57,7 @@
   <% end %>
   <%= f.hidden_field :usuario,:value=>current_user.username %>
   <%= f.hidden_field :funcionario_id,:value=>@funcionario.id %>
+  <%= f.hidden_field :data_lotacao,:value=>Date.today %>
 
   <table border=0>
 
@@ -85,10 +86,6 @@
 
 
 
-  <tr>
-  <td><b><label>Data de Lotação</label> </b></td>
-  <td><%= f.date_select :data_lotacao,:style=>"width:40%;" %></td>
-  </tr>
 
   <!--
   <%if !@funcionario.lotacoes.atual.none?%>
@@ -172,8 +169,8 @@
 <th>Tipo</th>
 <th>Destino</th>
 <th>Data da lotação</th>
-<th>Regência de classe</th>
-<th>Responsável</th>
+<th>Regência</th>
+<th>Usuário</th>
 <th>Status do Processo</th>
   <th colspan=3>Ações Disponíveis</th>
 
@@ -184,8 +181,8 @@
   <%if @lotacao_aberta%>
   <%@lotacao_aberta.each do |lotacao_aberta|%>
     <tr>
-    <td>Lotação <%= lotacao_aberta.tipo_lotacao.titleize %></td>
-    <td><%= destino(lotacao_aberta) %></td>
+    <td><%= lotacao_aberta.tipo_lotacao.titleize %></td>
+    <td width=23%><%= destino(lotacao_aberta) %></td>
     <td><%= lotacao_aberta.data_lotacao.to_date.to_s_br %></td>
     <td><%= sim_nao(lotacao_aberta.regencia_de_classe) %></td>
     <td><%=lotacao_aberta.usuario%></td>
@@ -217,27 +214,23 @@
     <th>Tipo</th>
     <th>Destino</th>
     <th>Data da lotação</th>
-    <th>Regência de classe</th>
+    <th>Regência</th>
     <th>Usuário</th>
     <th>Confirmada em</th>
     <th>Status</th>
     <th colspan='2'>Ações</th>
-
-
-
-
     </tr>
     </thead>
     <tbody>
 
     <%@lotacoes.each do |l|%>
       <tr>
-      <td>Lotação <%= l.tipo_lotacao.titleize %></td>
-      <td><%= destino(l) %></td>
+      <td><%= l.tipo_lotacao.titleize %></td>
+      <td width=23%><%= destino(l) %></td>
       <td><%= l.data_lotacao.to_date.to_s_br %></td>
       <td><%= sim_nao(l.regencia_de_classe) %></td>
       <td><%= l.usuario %></td>
-      <td><%= l.data_confirmacao %></td>
+      <td><%= l.data_confirmacao.to_s_br %></td>
       <td><%=status_lotacao(l.status.last.status)%></td>
       <%if l.status.last.status=="LOTADO"%>
       <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(@pessoa,@funcionario,l.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
@@ -289,16 +282,6 @@
           </div>
           </div>
 
-          <div id="tab-cinco" class="tabset_content">
-          <%if current_user.role?("chefia-nupes")%>
-          <%@lotacoes.each do |l|%>
-            <%l.funcionario.matricula%>
-            <%l.funcionario.pessoa.nome%>
-            <%l.tipo_lotacao%>
-            <%end%>
-            <%else%>
-            <%end%>
-            </div>
 
             </div>
 

@@ -17,14 +17,13 @@
             <thead>
               <tr>
                 <th>Denominação</th>
-                <th>Sigla</th>
-                <th>Telefone</th>
-                <th>Vinculação</th>
-                <th>Responsável</th>
+                <th align=center>Sigla</th>
+                <th align=center>Telefone</th>
+                <th align=center>Vinculação</th>
+                <th align=center>Responsável</th>
                 <%if current_user.role?("gabinete")%>
                 <th>Telefones</th>
                 <%end%>
-                <th></th>
                 <th></th>
                 <th></th>
             </tr>
@@ -32,15 +31,14 @@
         <tbody>
             <% @departamentos.each do |departamento| %>
             <tr class='<%= cycle("odd", "even", :name => "row_class") -%>'>
-                <td width='80%'><%= departamento.nome %></td>
-                <td><%= departamento.sigla %></td>
-                <td width='15%'><%= departamento.telefone %></td>
-                <td><%= pai(departamento)%></td>
+                <td width=30%><%= departamento.nome %></td>
+                <td width=1% align=center><%= departamento.sigla %></td>
+                <td width=13%><%= departamento.telefone %></td>
+                <td align=center><%= pai(departamento)%></td>
                 <td><%= detalhes(departamento.responsavel) %></td>
                 <%if current_user.role?("gabinete")%>
                 <td><%=telefones(departamento.responsavel.pessoa.nome)%></td>
                 <%end%>
-                <td><%= link_to 'Detalhes', orgao_departamento_path(@orgao,departamento) %></td>
                 <%if can? :manage,Departamento%>
                 <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_orgao_departamento_path(@orgao,departamento) %></td>
                 <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), orgao_departamento_path(@orgao,departamento), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>

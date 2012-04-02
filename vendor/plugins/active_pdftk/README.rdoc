@@ -1,0 +1,134 @@
+= ActivePdftk
+
+This gem is intended to be a wrapper for the PDFTK command line utility for working with pdfs, mainly editable pdfs.
+
+Currently this gem is intended to make the following much easier with pdftk:
+  1. Perform all operations provided by PDFTK (burst, cat, ....).
+  2. Making pdf forms reading & filling easy.
+  3. Get all the form fields details (type, readonly, ...) in a structured way to use them within other frameworks (such as Rails).
+  4. More to come through specifics adapters...
+
+Official Repository : https://github.com/tcocca/active_pdftk
+
+Library references : http://rubydoc.info/gems/active_pdftk
+
+Issue tracker : https://github.com/tcocca/active_pdftk/issues
+
+
+== Installation
+
+You must have PDFTK binary installed :
+
+https://github.com/tcocca/active_pdftk/wiki/Install-pdftk
+
+Or directly :
+
+http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit
+
+Then install the gem (note this is just in prep - the gem has not be released yet, soon I promise!)
+
+  gem install active_pdftk
+
+or with Bundler :
+
+  gem 'active_pdftk'
+
+or in a old rails 2.3.x app
+
+  config.gem 'active_pdftk'
+
+
+== Usage
+
+PDFTK provide all kind of operations (See below for a full list).
+Depending of your needs you will use different Adapters.
+
+For form handling use +ActivePdftk::Form+ :
+
+  bic = ActivePdftk::Form.new('bic.pdf')
+  bic.set('first_field', 'SomeString') #=> 'SomeString'
+  bic.save #=> StringIO
+  bic.save('/path/to/filled.pdf') #=> '/path/to/filled.pdf'
+
+it is quite straightforward !
+
+For read/write metadata on a pdf file use +ActivePdftk::Metadata+ (coming soon).
+
+for other needs you will use +ActivePdftk::Wrapper+ to access all operations of PDFTK.
+
+if you want to digg deeper check +ActivePdftk::Call+ which build the command line from an options hash.
+
+=== ActivePdftk::Wrapper
+
+This is the class you will interact with for all operations.
+The class will discover your 'pdftk' library (works on all *nix systems), but you can optionally give a path to the binary :
+
+  @pdftk = ActivePdftk::Wrapper.new
+  @pdftk.path # => 'etc/bin/pdftk'
+
+OR
+
+  @pdftk = ActivePdftk::Wrapper.new(:path => '/usr/local/bin/pdftk')
+  @pdftk.path # => '/usr/local/bin/pdftk'
+
+Then all operations are available :
+
+  @pdftk.cat([{:pdf => 'a.pdf', :pass => 'foo'}, {:pdf => 'b.pdf', :start => 1, :end => 'end', :orientation => 'N', :pages => 'even'}])
+  @pdftk.burst('in1.pdf')
+  @pdftk.dump_data_fields('~/Desktop/a.pdf', :output => '~/Desktop/data_fields.txt')
+  ...
+
+Other operations are :
+
+    cat (partially supported)
+    shuffle (partially supported)
+    burst (fully supported)
+    generate_fdf (fully supported) (this operation doesn't always provide readable FDF, we support this feature by our means)
+    fill_form (fully supported)
+    background (fully supported)
+    multibackground (fully supported)
+    stamp (fully supported)
+    multistamp (fully supported)
+    dump_data (fully supported)
+    dump_data_utf8 (fully supported)
+    dump_data_fields (fully supported)
+    dump_data_fields_utf8 (fully supported)
+    update_info (fully supported)
+    update_info_utf8 (fully supported)
+    attach_files (partially supported)
+    unpack_files (fully supported)
+
+=== The Domain Specific Language
+
+All operations & options are available through a hash corresponding to a DSL.
+A full explanation of this DSL could be read in +ActivePdftk::Call+ reference.
+
+#TODO write a more explicit, but concise paragraph.
+
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+
+== Copyright
+
+Copyright (c) 2011 Tom Cocca. See LICENSE for details.
+
+
+== Contributors
+
+Marco ( https://github.com/elmatou ) - Thanks for contributing so much to the re-write of this gem and for adding most of the support for other methods in the Call class.
+
+
+== Props
+
+Props to this gem go out to jkraemer (Jens Krämer) for creating https://github.com/jkraemer/pdf-forms and devfu (Dev Fu!) for creating https://github.com/devfu/pdftk.
+
+This gem was originally based on the work of those two projects and greatly expands upon their functionality.

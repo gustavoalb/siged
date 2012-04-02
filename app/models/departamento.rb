@@ -3,11 +3,11 @@ class Departamento < ActiveRecord::Base
   belongs_to :orgao
   belongs_to :tipo_destino
   belongs_to :entidade
-  has_many :comissionados
+  has_many :comissionados,:conditions=>["ativo = ?",true]
   has_many :lotacoes,:conditions=>["finalizada = ? and ativo = ? and complementar = ?",true,true,false]
   has_many :funcionarios,:through=>:lotacoes,:source=>"funcionario"
-  has_one :responsavel,:through=>:comissionados,:source=>:funcionario
-  #has_many :funcionarios_comissionados,:through=>:comissionados,:foreign_key=>"responsavel_id",:source=>'funcionario'
+  has_one :responsavel,:through=>:comissionados,:conditions=>["comissionados.tipo = ?","CHEFIA"],:source=>:funcionario
+  has_many :funcionarios_comissionados,:through=>:comissionados,:conditions=>["comissionados.ativo = true"],:source=>'funcionario'
   belongs_to :departamento_pai,:class_name=>"Departamento",:foreign_key => "pai_id"
   has_many :departamentos_filhos,:class_name=>"Departamento",:foreign_key => "pai_id",:order => 'sigla ASC'
   scope :do_orgao, lambda {|id|where("departamentos.orgao_id = ?",id) }
