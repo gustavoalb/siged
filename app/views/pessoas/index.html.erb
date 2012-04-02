@@ -46,7 +46,7 @@
 <%if pessoa.funcionarios.size>0 -%>
 <% pessoa.funcionarios.each do |funcionario|%>
 <article class="module width_full">
-<table class="tablesorter" cellspacing="0">
+<table class="tablesorter" cellspacing="0" border="0">
 <tr>
 
     <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Funcionário à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
@@ -55,7 +55,7 @@
     <%if can? :qualificar_funcionario,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%></td><%end -%>
      <%if !funcionario.lotacoes.atual.none? -%>
      <%if funcionario.lotacoes.atual.last.tipo_lotacao=="REGULAR" or funcionario.lotacoes.atual.last.tipo_lotacao=="SUMARIA" or funcionario.lotacoes.atual.last.tipo_lotacao=="PROLABORE" -%>
-     <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoas_especificar_lotacao_path(:pessoa_id=>pessoa.id,:funcionario_id=>funcionario.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+     <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_especificar2.png',:title=>"Especificar Lotação"), pessoas_especificar_lotacao_path(:pessoa_id=>pessoa.id,:funcionario_id=>funcionario.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
 
             <% end -%>
             <% else -%>
