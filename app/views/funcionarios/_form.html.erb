@@ -93,14 +93,12 @@
   </fieldset>
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :data_da_nomeação %><br /><br />
-    <%= f.date_select :data_nomeacao,:style=>"width:36%;" %>
+    <%= f.date_select :data_nomeacao, :year_range => 91.years.ago..0.years.ago,:start_year=>1970,:order=>[:day,:month,:year], :style=>"width:36%;" %>
 
   </fieldset>
-
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :termo_de_posse %><br />
     <%= f.text_field :termo_posse,:style=>"width:92%;" %>
-
   </fieldset>
 
   <div id='munic'></div>
