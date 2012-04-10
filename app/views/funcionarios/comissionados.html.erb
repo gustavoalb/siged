@@ -29,12 +29,12 @@
 
 </fieldset>
 <fieldset style="width:48%; float:left; margin-right: 1%;">
-<%= f.label :data_publicacao %><br /><br />
+<%= f.label :data_publicação %><br /><br />
 <%= f.date_select :data_publicacao,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;",:prompt=>true %>
 
 </fieldset>
 <fieldset style="width:48%; float:left; margin-right: 1%;">
-<%= f.label :orgao_id %><br /><br />
+<%= f.label :orgão_id %><br /><br />
 <%= f.select :orgao_id,@orgaos,:prompt=>true,:selected=>5,:style=>"width:92%;"  %>
 
 </fieldset>
@@ -48,7 +48,7 @@
 <%=if params[:departamento] then (params[:departamento][:nome]) end%>
 
 <fieldset style="width:48%; float:left; margin-right: 1%;">
-<%= f.label :descricao_comissao %><br /><br />
+<%= f.label :Descrição_comissão %><br /><br />
 <%= f.text_field :descricao_comissao,:style=>"width:92%;" %>
 
 </fieldset>

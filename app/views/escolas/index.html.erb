@@ -19,6 +19,7 @@
   <tr>
     <th>Código</th>
     <th>Nome</th>
+    <th>Rede</th>
     <th>Município</th>
     <th colspan=5>Ações</th>
   </tr>
@@ -28,6 +29,7 @@
   <tr>
     <td><%= raw("#{highlight(escola.codigo,@busca)}") %></td>
     <td><%= raw("#{highlight(escola.nome_da_escola, @busca)}") %></td>
+    <td><%= detalhes(escola.entidade) %></td>
     <td><%= escola.municipio.nome %></td>
     <td><%=ano_config(escola,escola.anos_letivos.find_by_ano(Date.today.year))%></td>
     
