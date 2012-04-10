@@ -107,6 +107,23 @@ elsif user.role? :ucolom
  cannot :destroy,Funcionario
  cannot :edit,Funcionario
 
+elsif user.role? :conectado
+ can :manage, Lotacao
+ cannot :convalidar,Lotacao
+ can :manage,Ponto
+ can :manage,Departamento
+ cannot :update,Departamento
+ cannot :create,Departamento
+ cannot :destroy,Departamento
+ can :read,Funcionario
+ can :manage,Pessoa
+ cannot :edit,Pessoa
+ cannot :destroy,Pessoa
+ can :manage,Funcionario
+ cannot :qualificar_funcionario,Pessoa
+ cannot :destroy,Funcionario
+ cannot :edit,Funcionario
+
 elsif user.role? :sead
   can :read, :all
 
