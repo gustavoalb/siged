@@ -34,7 +34,7 @@
     <td><%= ambiente.ativo %></td>
     <td><%= ambiente.ano_letivo %></td>
     <td><%= link_to 'Detalhes', escola_ambiente_path(@escola,ambiente)%></td>
-    <td><%=config_ambiente_tipo(@escola,ambiente)%></td>
+    <td><%= link_to 'Configurar Ambiente', escola_ambiente_configurar_ambiente_path(@escola,ambiente)%></td>
     <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_escola_ambiente_path(@escola,ambiente) %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), escola_ambiente_path(@escola,ambiente), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
   </tr>
