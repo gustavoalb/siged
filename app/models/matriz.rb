@@ -5,7 +5,7 @@ class Matriz < ActiveRecord::Base
 	belongs_to :escola
 	belongs_to :entidade
 	has_many :turmas
-	has_many :settings,:foreign_key=>"objeto_id",:inverse_of=>:escola, :dependent => :delete_all, :validate => :false
+	#has_many :settings,:foreign_key=>"objeto_id",:inverse_of=>:escola, :dependent => :delete_all, :validate => :false
 	has_and_belongs_to_many :series,:class_name=>"Serie",:join_table => "colapso_matrizes",:foreign_key=>:matriz_id
 
 	after_save :criar_curriculo
@@ -20,7 +20,7 @@ class Matriz < ActiveRecord::Base
 		["1º Segmento","1S"],
 		["2º Segmento","2S"]
 	]
-	private
+
 	def criar_curriculo
 		self.series.each do |s|
 			s.disciplinas.each do |d|

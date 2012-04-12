@@ -35,6 +35,7 @@ class Lotacao < ActiveRecord::Base
   scope :a_convalidar, where(:convalidada=>false)
 
   after_create :lotacao_regular
+  before_create :data_lotacao
 
 
 
@@ -52,10 +53,10 @@ class Lotacao < ActiveRecord::Base
  def confirma_lotacao
    proc = self.processos.em_aberto.encaminhado.last
    proc.finalizado = true
-   proc.data_finalizado = Time.now
+   proc.data_finalizado = Date.now
    if proc.save!
     self.finalizada = true
-    self.data_confirmacao = Time.now
+    self.data_confirmacao = Date.now
     self.save
     status = proc.status.new
     status.status = 'LOTADO'
@@ -150,11 +151,19 @@ def img_codigo
   f.write barcode.to_png}
 end
 
+def data_lotacao
+  self.data_lotacao = Date.today
+  if self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL"
+  self.data_confirmacao = Date.today
+  end
+end
+
+
 private
 def lotacao_regular
   self.img_codigo
   self.entidade_id = self.funcionario.entidade_id
-  self.data_lotacao = Date.today
+  #self.data_lotacao = Date.today
   processo=Processo.new
   processo.entidade_id = self.entidade_id
   processo.tipo="LOTAÇÃO"
@@ -222,6 +231,7 @@ else
 end
 
 end
+
 
 
 

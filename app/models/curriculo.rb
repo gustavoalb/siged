@@ -7,5 +7,4 @@ class Curriculo < ActiveRecord::Base
 	scope :da_serie,lambda{|serie| where("serie_id=?",serie)}
 	scope :da_disciplina,lambda{|dis| where("disciplina_id=?",dis)}
 	scope :da_matriz,lambda{|mat| where("matriz_id=?",mat)}
-
 end

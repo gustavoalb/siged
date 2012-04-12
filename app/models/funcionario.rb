@@ -14,7 +14,7 @@ class Funcionario < ActiveRecord::Base
   scope :da_entidade, lambda {|id|where("funcionarios.entidade_id = ?",id) }
 
 
-  has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>:colapso_grupo
+  #has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>:colapso_grupo
   belongs_to :pessoa,:class_name=>'Pessoa'
   belongs_to :quadro
   belongs_to :cargo
