@@ -7,7 +7,8 @@ class Matriz < ActiveRecord::Base
 	has_many :turmas
 	#has_many :settings,:foreign_key=>"objeto_id",:inverse_of=>:escola, :dependent => :delete_all, :validate => :false
 	has_and_belongs_to_many :series,:class_name=>"Serie",:join_table => "colapso_matrizes",:foreign_key=>:matriz_id
-
+	
+	
 	after_save :criar_curriculo
 
 	NIVEL=[
@@ -23,7 +24,7 @@ class Matriz < ActiveRecord::Base
 
 	def criar_curriculo
 		self.series.each do |s|
-			s.disciplinas.each do |d|
+			s.disciplinas.uniq.each do |d|
 				c = self.curriculos.create(:serie_id=>s.id,:disciplina_id=>d.id)
 				c.save!
 			end

@@ -1,7 +1,7 @@
 class Funcionario < ActiveRecord::Base
   extend FriendlyId
   friendly_id :matricula, :use=> :slugged
-  default_scope where('funcionarios.entidade_id in (?)',User.usuario_atual.entidade_ids)
+  #default_scope where('funcionarios.entidade_id in (?)',User.usuario_atual.entidade_ids)
   #validates_presence_of  :cargo_id, :orgao_id,:matricula,:descricao_cargo_id,:sjuridica_id,:message=>"Não pode ficar em branco!"
   validates_uniqueness_of :matricula,:message=>"já existente",:on=>:create
   #scoped_search

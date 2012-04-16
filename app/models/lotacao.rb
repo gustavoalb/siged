@@ -24,7 +24,7 @@ class Lotacao < ActiveRecord::Base
   scope :atual,where("finalizada = ? and ativo = ? and complementar = ?",true,true,false)
   scope :complementares,where("complementar = ?",true)
   scope :ativo, where("ativo = ?",true)
-  scope :inativo, where("ativo = ?",false)
+  scope :inativa, where("ativo = ?",false)
   scope :confirmada_fechada, where("finalizada = ? and ativo=?",true,true)
   scope :verifica, lambda {|func,escola| where("funcionario_id = ? and escola_id=?",func,escola)}
   scope :pro_labore, where("tipo_lotacao = ?","PROLABORE")
@@ -35,7 +35,7 @@ class Lotacao < ActiveRecord::Base
   scope :a_convalidar, where(:convalidada=>false)
 
   after_create :lotacao_regular
-  before_create :data_lotacao
+  before_create :data
 
 
 
@@ -151,7 +151,7 @@ def img_codigo
   f.write barcode.to_png}
 end
 
-def data_lotacao
+def data
   self.data_lotacao = Date.today
   if self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL"
   self.data_confirmacao = Date.today
@@ -164,6 +164,7 @@ def lotacao_regular
   self.img_codigo
   self.entidade_id = self.funcionario.entidade_id
   #self.data_lotacao = Date.today
+  #self.save!
   processo=Processo.new
   processo.entidade_id = self.entidade_id
   processo.tipo="LOTAÇÃO"
@@ -188,24 +189,24 @@ def lotacao_regular
  end
  processo.funcionario_id=self.funcionario_id
  processo.destino_id=self.escola_id
- processo.ano_processo=self.data_lotacao.year
+ processo.ano_processo=Date.today.year
  processo.regencia_classe=self.regencia_de_classe
- processo.encaminhado_em=self.data_lotacao
+ processo.encaminhado_em=Date.today
  processo.lotacao_id=self.id
  if processo.save!
   num=processo.id
   cod=Num.new
   if self.tipo_lotacao=="PROLABORE"
-    processo.processo="PL#{cod.numero(num)}/#{self.data_lotacao.year}"
+    processo.processo="PL#{cod.numero(num)}/#{Date.today.year}"
   elsif self.tipo_lotacao=="REGULAR"
-    processo.processo="LR#{cod.numero(num)}/#{self.data_lotacao.year}"
+    processo.processo="LR#{cod.numero(num)}/#{Date.today.year}"
   elsif self.tipo_lotacao=="ESPECIAL"
-    processo.processo="LE#{cod.numero(num)}/#{self.data_lotacao.year}"
+    processo.processo="LE#{cod.numero(num)}/#{Date.today.year}"
   elsif self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL"
-    processo.processo="LS#{cod.numero(num)}/#{self.data_lotacao.year}"
+    processo.processo="LS#{cod.numero(num)}/#{Date.today.year}"
     processo.finalizado=true
   elsif self.tipo_lotacao=="COMISSÃO"
-    processo.processo="LC#{cod.numero(num)}/#{self.data_lotacao.year}"
+    processo.processo="LC#{cod.numero(num)}/#{Date.today.year}"
     processo.finalizado=true
   end
   status=Status.new

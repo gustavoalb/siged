@@ -19,29 +19,16 @@ class LotacoesController < ApplicationController
 
   def gerar_relatorio
     @responsavel = User.usuario_atual
-    render :layout=>"facebox"
+    render :layout=>"facebox"  
   end
 
-  def relatorio
-   @inicio = "#{params[:relatorio][:inicio][:year]}"
-   @fim = "#{params[:relatorio][:inicio][:year]}"
-   @lotacoes = Lotacao.atual.find :all,:limit=>3,:conditions=>["data_lotacao BETWEEN '#{@inicio}' and '#{@fim}'"]
-   relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
-     r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
-      t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
-      t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
-      t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
-      t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
-      t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
-      t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
-      t.add_column(:user) {|l| "#{l.usuario}"}
-      t.add_column(:lotacao) {|l| "#{dest(l)}"}
+  def gerar_arquivo
+    if !params[:relatorio].blank?
+      @inicio = params[:relatorio][:inicio]
+      @fim = params[:relatorio][:fim]
+      relatorio('2000-01-01','2012-12-21')
     end
   end
-
-  send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
-end
-
 
 def regencia
  if params[:tipo_lotacao].nil?
@@ -427,6 +414,25 @@ def destroy
   end
 end
 private
+
+def relatorio(inicio,fim)
+   @lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
+   relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
+     r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
+      t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
+      t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
+      t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
+      t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
+      t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
+      t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
+      t.add_column(:user) {|l| "#{l.usuario}"}
+      t.add_column(:lotacao) {|l| "#{dest(l)}"}
+    end
+  end
+
+  send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
+end
+
 def funcionario
   @funcionario = Funcionario.find_by_slug(params[:funcionario_id])
   @pessoa = Pessoa.find_by_slug (params[:pessoa_id])
@@ -434,23 +440,33 @@ def funcionario
 end
 
 def dest(lotacao)
-  if lotacao
-   if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-    return "#{lotacao.departamento.nome}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-    return "#{lotacao.departamento.nome}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-    return "#{lotacao.orgao.nome}"
-  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-    return "#{lotacao.orgao.nome}"
-  else
-    return "#{lotacao.escola.nome_da_escola}"
+ if lotacao
+     if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
+        return "#{lotacao.escola.nome_da_escola}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.ambiente.nome}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome=="Sala de Aula"
+        return "#{lotacao.escola.nome_da_escola}"
+    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "LOTAÇÃO INVÁLIDA"
+    end
+end
+end
+end
 
-  end
-end
-end
-end

@@ -1,5 +1,4 @@
 class TipoListasController < ApplicationController
-  include ApplicationHelper
   # GET /tipo_lista
   # GET /tipo_lista.xml
   load_and_authorize_resource

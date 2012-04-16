@@ -215,7 +215,7 @@ def cargo_resumido(func)
   elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo.nil?
     return "#{func.nivel.codigo.upcase}"
   else
-    return raw("<font color=red><b>Nada Cadastrado</b></font>")
+    return "Nada Cadastrado"
   end
 end
 

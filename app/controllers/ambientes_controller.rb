@@ -112,11 +112,11 @@ class AmbientesController < ApplicationController
       page.visual_effect :highlight,"matriz"
       page.replace_html "turma", :partial=>"listar_turmas", :notice => 'Ambiente atualizado com sucesso.'
     end
-    # else
-    #  render :update do |page|
-    #        page.visual_effect :highlight,"matriz"
-    #        page.replace_html "turma", :partial=>"erro_turma",:locals=>{:f=>@turma}
-    #  end
+     else
+      render :update do |page|
+            page.replace_html "turma", :partial=>"erro_turma",:locals=>{:f=>@turma}
+            page.visual_effect :highlight,"matriz"
+      end
   end
 end
 
@@ -141,11 +141,12 @@ end
 def excluir_turma
   @escola = Escola.find params[:escola_id]
   @ambiente = @escola.ambientes.find params[:ambiente_id]
-  @turma = @ambiente.turmas.new(params[:turma])
+  @turma = @ambiente.turmas.find(params[:turma_id])
   @turmas = @ambiente.turmas.all
+  if @turma.destroy
   render :update do |page|
-    page.visual_effect :highlight,"turma"
-    page.replace_html "turma", :partial=>"listar_turmas"
+    page.reload()
+  end
   end
 end
 
@@ -155,8 +156,7 @@ def excluir_ambiente_fisico
   @ambiente_fisico = @ambiente.ambientes_fisicos.new(params[:ambiente_fisico])
   @turmas = @ambiente.ambientes_fisicos.all
   render :update do |page|
-    page.visual_effect :highlight,"turma"
-    page.replace_html "turma", :partial=>"listar_ambientes_fisicos"
+    page.reload()
   end
 end
 

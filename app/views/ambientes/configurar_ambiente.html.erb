@@ -22,8 +22,8 @@
 <tr>
 <td><%=t.turno%></td>
 <td><%=t.ambiente.nome%></td>
-<td><%=t.serie.nome%></td>
-<td><%=t.matriz.codigo%></td>
+<td><%=detalhes(t.serie)%></td>
+<td><%=cod(t.matriz)%></td>
 <td><%=link_to "Remover Turma", escola_ambiente_excluir_turma_path(@escola,@ambiente,:turma_id=>t.id),:confirm=>"Tem certeza que deseja remover a turma",:remote=>true%></td>
 </tr>
 <%end%>

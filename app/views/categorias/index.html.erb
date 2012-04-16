@@ -37,6 +37,9 @@
 				  <%= link_to 'Cadastrar Categoria', new_categoria_path,:class=>"alt_btn",:type=>"submit"%> ou
 				  <%= link_to 'Voltar', :back,:type=>"submit" %>
 				</div>
+          <div class="submit_link">
+            <%=will_paginate @categorias%>
+          </div>
 			</footer>
 </article>
 

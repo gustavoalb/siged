@@ -2,7 +2,7 @@ class Pessoa < ActiveRecord::Base
   extend FriendlyId
   friendly_id :nome, :use=> :slugged
 
-	default_scope where('pessoas.entidade_id in (?)',User.usuario_atual.entidade_ids)
+	#default_scope where('pessoas.entidade_id in (?)',User.usuario_atual.entidade_ids)
 	include ScopedSearch::Model
 	validates_uniqueness_of :cpf,:on=>:create
 	#validates_presence_of :nome,:endereco,:sexo,:cpf,:rg,:numero,:bairro,:cidade_id,:uf,:titulo_eleitor,:zona_eleitoral,:secao,:message=>"Não pode ficar em branco!"
