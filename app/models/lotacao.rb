@@ -53,10 +53,10 @@ class Lotacao < ActiveRecord::Base
  def confirma_lotacao
    proc = self.processos.em_aberto.encaminhado.last
    proc.finalizado = true
-   proc.data_finalizado = Date.now
+   proc.data_finalizado = Date.today
    if proc.save!
     self.finalizada = true
-    self.data_confirmacao = Date.now
+    self.data_confirmacao = Date.today
     self.save
     status = proc.status.new
     status.status = 'LOTADO'

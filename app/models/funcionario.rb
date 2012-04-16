@@ -43,7 +43,8 @@ class Funcionario < ActiveRecord::Base
   has_many :lotacoes_especificadas,:class_name=>"EspecificarLotacao",:conditions=>{:ativo=>true},:dependent => :destroy
   scope :direcao, joins(:comissionados).where("comissionados.ativo=? and comissionados.tipo=?",true,'DIRETORIA')
   after_create :criar_comissionado
-  #after_update :criar_comissionado
+  attr_accessor_with_default(:nome) {pessoa.nome}
+ #after_update :criar_comissionado
 
   def aposentadoria
     self.data_nomeacao.months_since(300)

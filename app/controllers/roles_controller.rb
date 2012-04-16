@@ -9,13 +9,15 @@ class RolesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @roles }
-    end
+
+     end
   end
 
   # GET /roles/1
   # GET /roles/1.xml
   def show
     @role = Role.find(params[:id])
+   
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +29,7 @@ class RolesController < ApplicationController
   # GET /roles/new.xml
   def new
     @role = Role.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @role }
@@ -43,7 +45,7 @@ class RolesController < ApplicationController
   # POST /roles.xml
   def create
     @role = Role.new(params[:role])
-
+    
     respond_to do |format|
       if @role.save
         format.html { redirect_to(@role, :notice => 'Papel cadastrado com sucesso.') }
@@ -59,7 +61,7 @@ class RolesController < ApplicationController
   # PUT /roles/1.xml
   def update
     @role = Role.find(params[:id])
-
+    
     respond_to do |format|
       if @role.update_attributes(params[:role])
         format.html { redirect_to(@role, :notice => 'Papel atualizado com sucesso.') }
@@ -76,7 +78,7 @@ class RolesController < ApplicationController
   def destroy
     @role = Role.find(params[:id])
     @role.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to(roles_url) }
       format.xml  { head :ok }
