@@ -1,6 +1,6 @@
 class Ambiente < ActiveRecord::Base
 	include ScopedSearch::Model
-	default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
+	#default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
 	belongs_to :tipo_ambiente
 	belongs_to :entidade
 	belongs_to :ano_letivo,:class_name=>"Setting",:foreign_key => "setting_id",:conditions=>["settings.tipo_config=?","ANOLETIVO"]

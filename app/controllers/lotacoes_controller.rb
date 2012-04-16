@@ -271,13 +271,13 @@ end
 def devolver_funcionario
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
-  render :layout=>"lotacoes2"
+  render :layout=>"facebox"
 end
 
 def confirmar_lotacao
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
-  render :layout=>"lotacoes2"
+  render :layout=>"facebox"
 end
 
 def cancelar_lotacao
@@ -286,7 +286,7 @@ def cancelar_lotacao
   end
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
-  render :layout=>"lotacoes2"
+  render :layout=>"facebox"
 end
 
 def convalidar

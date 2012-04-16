@@ -1,5 +1,5 @@
 class PontoAssinatura < ActiveRecord::Base
-	default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
+	#default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
 	belongs_to :ponto_diario
 	belongs_to :entidade
 	scope :do_ano,lambda {|ano|where("ano=?",ano) }

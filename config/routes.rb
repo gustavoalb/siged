@@ -12,6 +12,8 @@ Siged20::Application.routes.draw do
     get 'estatisticas_depois'
   end
 
+resources :home, :only=>:index
+
   namespace :folha do resources :fonte_recursos end
 
     namespace :arquivo do resources :documentos end

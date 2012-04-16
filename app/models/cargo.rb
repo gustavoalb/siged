@@ -1,5 +1,5 @@
 class Cargo < ActiveRecord::Base
-default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
+#default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
   include ScopedSearch::Model
   #acts_as_taggable
   #acts_as_taggable_on :nome, :codigo

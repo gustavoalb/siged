@@ -45,7 +45,6 @@ class OrgaosController < ApplicationController
   # GET /orgaos/new.xml
   def new
     @orgao = Orgao.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @orgao }

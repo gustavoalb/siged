@@ -1,7 +1,7 @@
 class Funcionario < ActiveRecord::Base
   extend FriendlyId
   friendly_id :matricula, :use=> :slugged
-  default_scope where('funcionarios.entidade_id in (?)',User.usuario_atual.entidade_ids)
+  #default_scope where('funcionarios.entidade_id in (?)',User.usuario_atual.entidade_ids)
   #validates_presence_of  :cargo_id, :orgao_id,:matricula,:descricao_cargo_id,:sjuridica_id,:message=>"Não pode ficar em branco!"
   validates_uniqueness_of :matricula,:message=>"já existente",:on=>:create
   #scoped_search
@@ -43,7 +43,8 @@ class Funcionario < ActiveRecord::Base
   has_many :lotacoes_especificadas,:class_name=>"EspecificarLotacao",:conditions=>{:ativo=>true},:dependent => :destroy
   scope :direcao, joins(:comissionados).where("comissionados.ativo=? and comissionados.tipo=?",true,'DIRETORIA')
   after_create :criar_comissionado
-  #after_update :criar_comissionado
+  attr_accessor_with_default(:nome) {pessoa.nome}
+ #after_update :criar_comissionado
 
   def aposentadoria
     self.data_nomeacao.months_since(300)

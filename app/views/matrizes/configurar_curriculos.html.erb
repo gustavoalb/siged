@@ -9,16 +9,20 @@
 <h1>Séries Cadastradas na Matriz</h1>
 
 <%for c in @curriculos%>
+
 <%=form_for c,:url=>matriz_curriculo_url(@matriz,c),:method=>:post,:remote=>true do |f|%>
+
 <fieldset style="width:20%;float:left; margin-right: 1%;">
 &nbsp;&nbsp;&nbsp;<b><%=c.serie.nome%> - <%=c.disciplina.nome%></b><br/><br/>
 &nbsp;&nbsp;&nbsp;<b>hora Semanal</b><br/>
 <div id="campo_<%=c.id%>">
 <%=f.text_field :horas_semanal,:style=>"width:30px;align:left;",:id=>"horas_semanais_"+c.id.to_s%>
 <%=f.submit "Salvar",:class=>"alt_btn"%>
+
 <%end%>
 </div>
 </fieldset>
+
 <%end%>
 
 
@@ -26,11 +30,8 @@
 
 </div>
 
-<footer>
-	<div class="submit_link">
 
-	<%=link_to 'Cancelar',:back%>
-	</div>
+
 </footer>
 
 </article>
