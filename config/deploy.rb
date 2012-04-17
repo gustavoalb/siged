@@ -5,6 +5,8 @@ set :use_sudo,    false
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
 set :deploy_to, "/var/www/siged"
+before 'deploy:update_code', 'deploy:web:disable'
+after 'deploy:restart', 'deploy:web:enable'
  
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
@@ -21,6 +23,34 @@ set :ssh_options, { :forward_agent => true }
 role :app, "192.168.1.13"
 role :web, "192.168.1.13"
 role :db,  "192.168.1.13", :primary => true
+
+namespace :deploy do
+  namespace :web do
+    desc <<-DESC
+        Present a maintenance page to visitors. Disables your application's web \
+        interface by writing a "#{maintenance_basename}.html" file to each web server. The \
+        servers must be configured to detect the presence of this file, and if \
+        it is present, always display it instead of performing the request.
+
+        Customized task allow us to render erb file. Usage:
+
+        $ cap deploy:web:disable \\
+                REASON="hardware upgrade" \\
+                UNTIL="12pm Central Time"
+
+    DESC
+    task :disable, :roles => :app do
+
+      on_rollback { rm "#{shared_path}/system/maintenance.html" }
+
+      require 'erb'
+      deadline, reason = ENV['UNTIL'], ENV['REASON']
+      maintenance = ERB.new(File.read("./app/views/layouts/maintenance.html.erb")).result(binding)
+
+      put maintenance, "#{shared_path}/system/maintenance.html", :mode => 0644
+    end
+  end
+end
  
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"

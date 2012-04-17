@@ -1,12 +1,4 @@
 Siged20::Application.routes.draw do
-
-
-
-
-
-
-
-
   resources :enquetes do
     get 'estatisticas_antes'
     get 'estatisticas_depois'
@@ -149,6 +141,7 @@ namespace :folha do resources :eventos end
   get 'lotacoes/convalidar'
   get 'lotacoes/relatorio'
   get 'lotacoes/gerar_relatorio'
+  get 'lotacoes/gerar_arquivo'
   resources :lotacoes
 
 

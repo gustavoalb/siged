@@ -11,7 +11,7 @@ class PessoasController < ApplicationController
      @busca = params[:search][:busca]
      @pessoas =  @search.order('nome ASC').paginate :page => params[:page], :per_page => 10
    else
-     @pessoas = Pessoa.find_all_by_entidade_id(nil).paginate :page => params[:page], :per_page => 10
+     @pessoas = Pessoa.find_all_by_entidade_id(0).paginate :page => params[:page], :per_page => 10
    end
    respond_to do |format|
     format.html # index.html.erb

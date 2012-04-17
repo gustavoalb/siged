@@ -45,5 +45,8 @@
 				  <%= link_to 'Cadastrar Matriz', new_matriz_path,:class=>"alt_btn",:type=>"submit"%> ou
 				  <%= link_to 'Voltar', :back,:type=>"submit" %>
 				</div>
+                <div class="submit_link">
+                    <%=will_paginate @matrizes%>
+                </div>
 			</footer>
 </article>

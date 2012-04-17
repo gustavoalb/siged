@@ -23,11 +23,13 @@ class LotacoesController < ApplicationController
   end
 
   def gerar_arquivo
-    if !params[:relatorio].blank?
-      @inicio = params[:relatorio][:inicio]
-      @fim = params[:relatorio][:fim]
-      relatorio('2000-01-01','2012-12-21')
-    end
+      @inicio = Date.civil(params[:relatorio]["inicio(1i)"].to_i,
+                         params[:relatorio]["inicio(2i)"].to_i,
+                         params[:relatorio]["inicio(3i)"].to_i)
+      @fim = Date.civil(params[:relatorio]["fim(1i)"].to_i,
+                         params[:relatorio]["fim(2i)"].to_i,
+                         params[:relatorio]["fim(3i)"].to_i)
+      relatorio(@inicio.to_date,@fim.to_date)
   end
 
 def regencia
