@@ -13,10 +13,8 @@
 <table class="tablesorter" cellspacing="0">
 <thead>
   <tr>
-    <th>Codigo</th>
-    <th>Nivel</th>
-    <th>Modalidade</th>
-    <th>Dias letivos</th>
+    <th>Código</th>
+    <th>Nível</th>
     <th>Ações</th>
     <th></th>
     <th></th>
@@ -27,9 +25,7 @@
 <% @matrizes.each do |matrize| %>
   <tr>
     <td><%= matrize.codigo %></td>
-    <td><%= matrize.nivel %></td>
-    <td><%= matrize.modalidade %></td>
-    <td><%= matrize.dias_letivos_anuais %></td>
+    <td><%= detalhes(matrize.nivel) %></td>
     <td><%= link_to 'Detalhes', matrize %></td>
     <td><%= link_to 'Configurar matriz', matriz_configurar_curriculos_path(matrize) %></td>
     <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_matriz_path(matrize) %></td>

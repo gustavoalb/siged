@@ -1,5 +1,5 @@
 <%content_for :links do%>
-		<%=link_to "Série",series_path%><div class="breadcrumb_divider"></div><a class="current">Cadastrando Série </a>
+		<%=link_to "Série",niveis_ensino_series_path(@nivel) %><div class="breadcrumb_divider"></div><a class="current">Cadastrando Série </a>
 
 <%end%>
 <%= render 'form',:legenda=>' Cadastro de Series ' %>

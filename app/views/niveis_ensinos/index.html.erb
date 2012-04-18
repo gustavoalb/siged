@@ -1,0 +1,37 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando Níveis de Ensino</h3>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Nome</th>
+    <th>Código</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @niveis_ensinos.each do |niveis_ensino| %>
+  <tr>
+    <td><%= niveis_ensino.nome %></td>
+    <td><%= niveis_ensino.codigo %></td>
+    <td><%= link_to 'Detalhes', niveis_ensino %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_niveis_ensino_path(niveis_ensino) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), niveis_ensino, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Niveis ensino', new_niveis_ensino_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

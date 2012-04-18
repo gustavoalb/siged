@@ -1,11 +1,9 @@
 <%content_for :links do%>
 		<%=link_to "Matrizes",matrizes_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
-
 <%end%>
 <article class="module width_full">
-<header><h3>Detalhes de </h3></header>
+<header><h3>Detalhes da matriz <%=@matriz.codigo%> <%= link_to 'Configurar matriz', matriz_configurar_curriculos_path(@matriz) %></h3></header>
 <div class="module_content">
-
 
 <p>
   <b>Codigo:</b>
@@ -14,17 +12,27 @@
 
 <p>
   <b>Nivel:</b>
-  <%= @matriz.nivel %>
+  <%= detalhes(@matriz.nivel) %>
 </p>
 
 <p>
-  <b>Modalidade:</b>
-  <%= @matriz.modalidade %>
+  <b>Módulo/Aula:</b>
+  <%= @matriz.modulo_aula %>
 </p>
 
 <p>
   <b>Dias letivos anuais:</b>
   <%= @matriz.dias_letivos_anuais %>
+</p>
+
+<p>
+  <b>Semanas letivas:</b>
+  <%= @matriz.semanas_letivas %>
+</p>
+
+<p>
+  <b>Carga horária anual:</b>
+  <%= @matriz.carga_horaria_anual %>
 </p>
 
 

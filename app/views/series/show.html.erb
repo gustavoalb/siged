@@ -1,5 +1,5 @@
 <%content_for :links do%>
-		<%=link_to "Série",series_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes </a>
+		<%=link_to "Série",niveis_ensino_series_path(@nivel,@serie)%><div class="breadcrumb_divider"></div><a class="current">Detalhes </a>
 
 <%end%>
 <article class="module width_full">
@@ -21,8 +21,8 @@
 </div>
 <footer>
 				<div class="submit_link">
-				  <%= link_to 'Editar', edit_serie_path(@serie),:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', series_path,:type=>"submit" %>
+				  <%= link_to 'Editar', edit_niveis_ensino_serie_path(@nivel,@serie),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', niveis_ensino_series_path,:type=>"submit" %>
 				</div>
 			</footer>
 </article>

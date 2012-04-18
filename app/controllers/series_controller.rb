@@ -1,10 +1,11 @@
 class SeriesController < ApplicationController
   load_and_authorize_resource
+  before_filter :nivel
   # GET /series
   # GET /series.xml
   def index
-    @search = Serie.scoped_search(params[:search])
-    @series = @search.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    #@search = Serie.scoped_search(params[:search])
+    @series = Serie.do_nivel(@nivel).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +47,7 @@ class SeriesController < ApplicationController
 
     respond_to do |format|
       if @serie.save
-        format.html { redirect_to(@serie, :notice => 'Serie cadastrado com sucesso.') }
+        format.html { redirect_to(niveis_ensino_serie_url(@nivel,@serie) , :notice => 'Serie cadastrado com sucesso.') }
         format.xml  { render :xml => @serie, :status => :created, :location => @serie }
       else
         format.html { render :action => "new" }
@@ -62,7 +63,7 @@ class SeriesController < ApplicationController
 
     respond_to do |format|
       if @serie.update_attributes(params[:serie])
-        format.html { redirect_to(@serie, :notice => 'Serie atualizado com sucesso.') }
+        format.html { redirect_to(niveis_ensino_serie_url(@nivel,@serie), :notice => 'Serie atualizado com sucesso.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,8 +79,13 @@ class SeriesController < ApplicationController
     @serie.destroy
 
     respond_to do |format|
-      format.html { redirect_to(series_url) }
+      format.html { redirect_to(niveis_ensino_series_url,:notice=>"Série deletada com sucesso") }
       format.xml  { head :ok }
     end
   end
+end
+
+private
+def nivel
+  @nivel = NiveisEnsino.find(params[:niveis_ensino_id])
 end

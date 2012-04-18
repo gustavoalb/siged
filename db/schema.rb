@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503162411) do
+ActiveRecord::Schema.define(:version => 20120503162419) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(:version => 20120503162411) do
     t.datetime "updated_at"
     t.integer  "entidade_id"
     t.string   "lei"
+    t.string   "sigla"
   end
 
   create_table "categoria_funcionarios", :id => false, :force => true do |t|
@@ -691,12 +692,16 @@ ActiveRecord::Schema.define(:version => 20120503162411) do
 
   create_table "matrizes", :force => true do |t|
     t.string   "codigo"
-    t.string   "nivel"
     t.string   "modalidade"
     t.integer  "dias_letivos_anuais"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "entidade_id"
+    t.integer  "dias_letivos_semanais"
+    t.integer  "semanas_letivas"
+    t.integer  "modulo_aula"
+    t.integer  "carga_horaria_anual"
+    t.integer  "nivel_id"
   end
 
   create_table "municipios", :force => true do |t|
@@ -728,6 +733,13 @@ ActiveRecord::Schema.define(:version => 20120503162411) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ordem",      :default => 0
+  end
+
+  create_table "niveis_ensinos", :force => true do |t|
+    t.string   "nome"
+    t.string   "codigo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "nivel_cargos", :force => true do |t|
@@ -1033,6 +1045,7 @@ ActiveRecord::Schema.define(:version => 20120503162411) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "entidade_id"
+    t.integer  "nivel_id"
   end
 
   create_table "sessions", :force => true do |t|
@@ -1181,6 +1194,7 @@ ActiveRecord::Schema.define(:version => 20120503162411) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "entidade_id"
+    t.string   "nome"
   end
 
   add_index "turmas", ["ambiente_id"], :name => "index_turmas_on_ambiente_id"

@@ -3,43 +3,29 @@
 <div class="module_content">
 
 
-<%= form_for @serie,:url=>niveis_ensino_series_url do |f| %>
-  <% if @serie.errors.any? %>
+<%= form_for(@niveis_ensino) do |f| %>
+  <% if @niveis_ensino.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@serie.errors.count, "erro impede","erros impedem") %> este serie de ser cadastrado:</h2>
+      <h2><%= pluralize(@niveis_ensino.errors.count, "erro impede","erros impedem") %> este niveis_ensino de ser cadastrado:</h2>
 
       <ul>
-      <% @serie.errors.full_messages.each do |msg| %>
+      <% @niveis_ensino.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <%=f.hidden_field :nivel_id,:value=>@nivel.id%>
-
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :nome %><br />
         <%= f.text_field :nome,:style=>"width:92%;" %>
-
+    
   </fieldset>
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :codigo %><br />
         <%= f.text_field :codigo,:style=>"width:92%;" %>
-
+    
   </fieldset>
-  <fieldset style="width:97%; float:left; margin-right: 1%;">
-<label> Disciplinas Disponíveis </label> <br/><br/>
-  <% for disciplina in Disciplina.find(:all) %>
-    <div>
-      <%= check_box_tag "serie[disciplina_ids][]", disciplina.id, @serie.disciplinas.include?(disciplina) %>
-      <%= disciplina.nome %>
-    </div>
-  <% end %>
-</fieldset>
-<fieldset style="width:97%; float:left; margin-right: 1%;">
-<div id='disciplinas'></div>
-</fieldset>
 <div class="clear"></div>
 </div>
         <footer>

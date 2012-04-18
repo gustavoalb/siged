@@ -1,0 +1,13 @@
+<fieldset style="width:97.5%; float:left; margin-right: 1%;">
+	<label> Séries Disponíveis </label> <br/><br/>
+	<%if @series.size>0%>
+	<% for serie in @series %>
+	<div>
+		<%= check_box_tag "matriz[serie_ids][]", serie.id %>
+		<%= serie.nome %>
+	</div>
+	<% end %>
+	<%else%>
+	<label><font color=red>Sem séries disponíveis</font></label>
+	<%end%>
+</fieldset>

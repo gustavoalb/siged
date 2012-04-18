@@ -12,15 +12,11 @@ class MatrizesController < ApplicationController
     end
   end
 
-     def criar_curriculo
-       @matriz = Matrize.find params[:id]
-       s = Serie.find params[:serie]
-       render :partial=>"curriculos"
-     end
   # GET /matrizes/1
   # GET /matrizes/1.xml
   def show
     @matriz = Matriz.find(params[:id])
+    @curriculos = Curriculo.da_matriz(@matriz)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -32,6 +28,7 @@ class MatrizesController < ApplicationController
   # GET /matrizes/new.xml
   def new
     @matriz = Matriz.new
+    @niveis = NiveisEnsino.order(:nome).collect{|n|[n.nome,n.id]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,19 +36,30 @@ class MatrizesController < ApplicationController
     end
   end
 
-def salvar_curriculo
-end
-
-def configurar_curriculos
- @matriz = Matriz.find params[:matriz_id]
-  if @matriz.curriculos.size==0
-    @matriz.criar_curriculo
+  def salvar_curriculo
   end
-    @curriculos = @matriz.curriculos.all
- end
+
+  def configurar_curriculos
+    @matriz = Matriz.find params[:matriz_id]
+    if @matriz.curriculos.size==0
+      @matriz.criar_curriculo
+    end
+    @curriculos = Curriculo.da_matriz(@matriz)
+  end
+
+  def series_nivel
+    if !params[:nivel_ensino].blank?
+      @nivel_ensino = NiveisEnsino.find(params[:nivel_ensino])
+      @series = @nivel_ensino.series.order(:nome)
+      render :partial=>'series'
+    else
+      render :text=>""
+    end
+  end
   # GET /matrizes/1/edit
   def edit
     @matriz = Matriz.find(params[:id])
+    @niveis = NiveisEnsino.order(:nome).collect{|n|[n.nome,n.id]}
   end
 
   # POST /matrizes

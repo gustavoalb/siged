@@ -1,4 +1,8 @@
 Siged20::Application.routes.draw do
+  resources :niveis_ensinos do
+    resources :series
+  end
+
   resources :enquetes do
     get 'estatisticas_antes'
     get 'estatisticas_depois'
@@ -55,7 +59,7 @@ resources :manutencoes do
   post "em_manutencao"
 end
 
-resources :series
+
 
 resources :comissionados do
   get "exonerar_comissionado"
@@ -144,7 +148,7 @@ namespace :folha do resources :eventos end
   get 'lotacoes/gerar_arquivo'
   resources :lotacoes
 
-
+  get 'relatorios/funcionarios_por_disciplina',:controller=>"funcionarios",:action=>'relatorio_por_disciplina'
   resources :funcionarios
   
   resources :escolas do

@@ -2,7 +2,7 @@ class FuncionariosController < ApplicationController
   load_and_authorize_resource
   # GET /funcionarios
   # GET /funcionarios.xml
-  before_filter :pessoa,:except=>[:folha,:comissionados,:cargo,:distrito,:diretor,:categoria]
+  before_filter :pessoa,:except=>[:folha,:relatorio_por_disciplina,:comissionados,:cargo,:distrito,:diretor,:categoria]
   before_filter :dados_essenciais,:except=>:comissionados
   def index
     #@search = Funcionario.da_pessoa(params[:pessoa_id]).scoped_search(params[:search])
@@ -255,6 +255,20 @@ def update
   end
 end
 
+def relatorio_por_disciplina
+     @funcionarios = Funcionario.disciplina_def
+     relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/disciplinas.odt") do |r|
+     r.add_table("FUNCIONARIOS", @funcionarios, :header=>true) do |t|
+      t.add_column(:nome) {|f| "#{f.pessoa.nome}"}
+      t.add_column(:cat) {|f| "#{f.categoria.sigla}"}
+      t.add_column(:cargo) {|f| "#{cargo_resumido(f)}"}
+      t.add_column(:localizacao) {|f| "#{dest(f.lotacoes.atual.first,f)}"}
+    end
+  end
+
+  send_file(relatorio.generate,:filename=>"Relatório de funcionários por disciplina.odt")
+end
+
 # DELETE /funcionarios/1
 # DELETE /funcionarios/1.xml
 def destroy
@@ -269,6 +283,31 @@ end
 private
 def pessoa
   @pessoa = Pessoa.find(params[:pessoa_id])
+end
+
+def dest(lotacao,f)
+  if lotacao
+   if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+    return "#{lotacao.departamento.sigla.upcase}/#{lotacao.orgao.sigla.upcase}"
+  elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
+    return "#{lotacao.escola.nome_da_escola.upcase}/#{lotacao.orgao.sigla.upcase}"
+  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+    return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla.upcase}"
+  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+    return "#{lotacao.escola.nome_da_escola.upcase}/#{lotacao.orgao.sigla.upcase}"
+  elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+    return "#{lotacao.orgao.sigla.upcase}"
+  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+    return "#{lotacao.orgao.sigla.upcase}"
+  else
+    return "#{lotacao.escola.nome_da_escola.upcase}"
+
+  end
+elsif !f.lotacao_recad.blank?
+  return "#{f.lotacao_recad.upcase}"
+else
+  return "NADA CADASTRADO"
+end
 end
 
 end
