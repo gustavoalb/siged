@@ -1,47 +1,84 @@
-<%content_for :links do%>
-		<%=link_to "Matrizes",matrizes_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
-<%end%>
-<article class="module width_full">
-<header><h3>Detalhes da matriz <%=@matriz.codigo%> <%= link_to 'Configurar matriz', matriz_configurar_curriculos_path(@matriz) %></h3></header>
-<div class="module_content">
+ <%content_for :links do%>
+ <%=link_to "Matrizes",matrizes_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+ <%end%>
+ <article class="module width_full">
+  <header><h3>Detalhes da matriz <%=@matriz.codigo%> <%= link_to 'Configurar matriz', matriz_configurar_curriculos_path(@matriz) %></h3></header>
+  <div class="module_content">
+    <div id="tabs1" class="tabset">
+      <ul class="tabset_tabs">
+        <li><a href="#tab-um">Detalhes da matriz</a></li>
+        <li><a href="#tab-dois">Configurar matriz</a></li>
+      </ul>
 
-<p>
-  <b>Codigo:</b>
-  <%= @matriz.codigo %>
-</p>
+      <div class="tabset_content_container">
+        <div id="tab-one" class="tabset_content">
+          <p>
+            <b>Codigo:</b>
+            <%= @matriz.codigo %>
+          </p>
 
-<p>
-  <b>Nivel:</b>
-  <%= detalhes(@matriz.nivel) %>
-</p>
+          <p>
+            <b>Nivel:</b>
+            <%= detalhes(@matriz.nivel) %>
+          </p>
 
-<p>
-  <b>Módulo/Aula:</b>
-  <%= @matriz.modulo_aula %>
-</p>
+          <p>
+            <b>Módulo/Aula:</b>
+            <%= @matriz.modulo_aula %>
+          </p>
 
-<p>
-  <b>Dias letivos anuais:</b>
-  <%= @matriz.dias_letivos_anuais %>
-</p>
+          <p>
+            <b>Dias letivos anuais:</b>
+            <%= @matriz.dias_letivos_anuais %>
+          </p>
 
-<p>
-  <b>Semanas letivas:</b>
-  <%= @matriz.semanas_letivas %>
-</p>
+          <p>
+            <b>Semanas letivas:</b>
+            <%= @matriz.semanas_letivas %>
+          </p>
 
-<p>
-  <b>Carga horária anual:</b>
-  <%= @matriz.carga_horaria_anual %>
-</p>
+          <p>
+            <b>Carga horária anual:</b>
+            <%= @matriz.carga_horaria_anual %>
+          </p>
 
+        </div>
+        <div id="tab-two" class="tabset_content">
+          <div id='curriculos'>
+            <h1 align=center>Séries Cadastradas na Matriz</h1>
+            <%@matriz.series.each do |s|%>
+            <h2 align=center>Disciplinas da <%=s.nome%></h2><b>
 
-</div>
-<footer>
-				<div class="submit_link">
-				  <%= link_to 'Editar', edit_matriz_path(@matriz),:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', matrizes_path,:type=>"submit" %>
-				</div>
-			</footer>
+            <fieldset style='border: 1px solid #CCCCCC; background: none; width: 80%; align: right; margin-left: 10.5%;'>
+              <%for c in s.curriculos.da_matriz(@matriz)%>
+
+              <%=form_for c,:url=>matriz_curriculo_url(@matriz,c),:method=>:post,:remote=>true do |f|%>
+
+              <fieldset style="width:32%;float:left; margin-left: 0.76%; margin-right: 0%;">
+                &nbsp;&nbsp;&nbsp;<b><%=c.disciplina.nome%></b><br/><br/>
+                &nbsp;&nbsp;&nbsp;<b>horas semanais</b><br/>
+                <div id="campo_<%=c.id%>">
+                  <%=f.text_field :horas_semanal,:style=>"width:30px;align:left;",:id=>"horas_semanais_"+c.id.to_s%>
+                  <%=f.submit "Salvar",:class=>"alt_btn"%>
+                  <%end%>
+                </div>
+                <br/>
+              </fieldset>
+
+              <%end%>
+            </fieldset>
+            <%end%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="submit_link">
+      <%= link_to 'Editar', edit_matriz_path(@matriz),:class=>"alt_btn",:type=>"submit"%> ou
+      <%= link_to 'Voltar', matrizes_path,:type=>"submit" %>
+    </div>
+  </footer>
 </article>
 

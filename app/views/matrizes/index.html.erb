@@ -27,7 +27,6 @@
     <td><%= matrize.codigo %></td>
     <td><%= detalhes(matrize.nivel) %></td>
     <td><%= link_to 'Detalhes', matrize %></td>
-    <td><%= link_to 'Configurar matriz', matriz_configurar_curriculos_path(matrize) %></td>
     <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_matriz_path(matrize) %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), matrize, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
   </tr>

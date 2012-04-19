@@ -1,21 +1,21 @@
 /*
  * Tab Class - requires Prototype 1.6+ and Script.aculo.us Effects 1.8+
  */
-var Tab = Class.create({
-	initialize: function(options) {
-		this.tab = $(options.id);
-		if (!this.tab) {
-			throw ("Attempted to initalize tab with undefined element: " + options.id);
-		}
-		var styles = {'display': 'none', 'opacity': 0};
+ var Tab = Class.create({
+ 	initialize: function(options) {
+ 		this.tab = $(options.id);
+ 		if (!this.tab) {
+ 			throw ("Attempted to initalize tab with undefined element: " + options.id);
+ 		}
+ 		var styles = {'display': 'none', 'opacity': 0};
 
-		this.toggleClass = "tabset_tabs";
-		this.activeClass = "active";
-		this.contentClass = "tabset_content";
-		this.current = 0;
-		this.tabs = this.tab.select("." + this.toggleClass + " li");
-		this.contents = this.tab.select('.' + this.contentClass);
-		this.isAnimating = false;
+ 		this.toggleClass = "tabset_tabs";
+ 		this.activeClass = "active";
+ 		this.contentClass = "tabset_content";
+ 		this.current = 0;
+ 		this.tabs = this.tab.select("." + this.toggleClass + " li");
+ 		this.contents = this.tab.select('.' + this.contentClass);
+ 		this.isAnimating = false;
 
 
 		// setup event listeners and determine current
@@ -92,5 +92,8 @@ var Tab = Class.create({
 		// set browser hash for those that support it
 		window.location.hash = this.tabs[i].down('a').href.split('#')[1];
 	}
+});
+document.observe('dom:loaded', function() {
+	new Tab({id: "tabs1", rounded: 1, height: 1});
 });
 
