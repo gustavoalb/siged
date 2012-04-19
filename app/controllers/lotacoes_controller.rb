@@ -23,21 +23,21 @@ class LotacoesController < ApplicationController
   end
 
   def gerar_arquivo
-      @inicio = Date.civil(params[:relatorio]["inicio(1i)"].to_i,
-                         params[:relatorio]["inicio(2i)"].to_i,
-                         params[:relatorio]["inicio(3i)"].to_i)
-      @fim = Date.civil(params[:relatorio]["fim(1i)"].to_i,
-                         params[:relatorio]["fim(2i)"].to_i,
-                         params[:relatorio]["fim(3i)"].to_i)
-      relatorio(@inicio.to_date,@fim.to_date)
+    @inicio = Date.civil(params[:relatorio]["inicio(1i)"].to_i,
+     params[:relatorio]["inicio(2i)"].to_i,
+     params[:relatorio]["inicio(3i)"].to_i)
+    @fim = Date.civil(params[:relatorio]["fim(1i)"].to_i,
+     params[:relatorio]["fim(2i)"].to_i,
+     params[:relatorio]["fim(3i)"].to_i)
+    relatorio(@inicio.to_date,@fim.to_date)
   end
 
-def regencia
- if params[:tipo_lotacao].nil?
-   render :partial=>"prolabore"
- else
-  render :partial=>"regular"
-end
+  def regencia
+   if params[:tipo_lotacao].nil?
+     render :partial=>"prolabore"
+   else
+    render :partial=>"regular"
+  end
 end
 
 def complementar_esp
@@ -166,14 +166,16 @@ def disciplinas_especificacao
   @escola_lotacao = @lotacao.escola
   @turma = Turma.find params[:turma]
   @serie = @turma.serie
-  @disciplinas = @serie.disciplinas.fun_habilitacao(@funcionario.ids_disciplinas).collect{|d|[d.nome,d.id]}
+  @disciplinas = @serie.disciplinas.fun_habilitacao(@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
   render :partial=>"disciplinas"
 end
 
 def tipo_especificacao
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
-  @escola_lotacao = @lotacao.escola
+  @escola = @lotacao.escola
+  @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
+  @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
   @tipo = params[:tipo]
   render :partial=>"tipo_especificacao"
 end
@@ -203,12 +205,13 @@ def salvar_especificacao
     @serie = @turma.serie
     @disciplina = @serie.disciplinas.find(params[:especificar_lotacao][:disciplina_id])
     @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
-    @especificar = @disciplina.fator_de_lotacoes.new(params[:especificar_lotacao])
   end
   @escola = @lotacao.escola
   respond_to do |format|
     if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo)
-     format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.") }
+     format.html { redirect_to("#{pessoa_funcionario_lotacoes_path(@pessoa,@funcionario)}#tab-tres", :notice => "O Funcionário foi especificados com sucesso.") }
+   else
+     format.html { redirect_to (:back, :alert => "A lotação não pode ser especificada.") }
    end
  end
 
@@ -368,21 +371,25 @@ def fator_lotacao
   @escola = @turma.escola
   @serie = @turma.serie
   @lotacao = Lotacao.find(params[:lotaco_id])
-  @disciplina = @serie.disciplinas.find params[:disciplina_id]
+  if !params[:disciplina_id].blank?
+  @disciplina = @serie.disciplinas.find(params[:disciplina_id])
   @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
   @fator = @disciplina.pode_especificar?(@turma)
   @fator_n = @disciplina.fator(@turma)
-  if @fator
-    if @funcionario.regencia_semanal_nominal_sobra>0
-     @motivo="Regência Semanal Compatível"
-     render :partial=>"fator_lotacao"
+    if @fator
+      if (@funcionario.rsd - @fator_n) >=0
+       @motivo="Regência Semanal compatível"
+       render :partial=>"fator_lotacao"
+     else
+       @motivo="Regência Semanal incompatível"
+       render :partial=>"nao_pode_especificar"
+     end
    else
-     @motivo="Regência Semanal Incompatível"
-     render :partial=>"nao_pode_especificar"
+    @motivo="Não há carencia para a disciplina nesta turma."
+    render :partial=>"nao_pode_especificar"
    end
- else
-  @motivo="A Disciplína não Dispõe de Fator de Lotação"
-  render :partial=>"nao_pode_especificar"
+ else 
+  render :nothing=>true
 end
 end
 
@@ -418,21 +425,21 @@ end
 private
 
 def relatorio(inicio,fim)
-   @lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
-   relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
-     r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
-      t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
-      t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
-      t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
-      t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
-      t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
-      t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
-      t.add_column(:user) {|l| "#{l.usuario}"}
-      t.add_column(:lotacao) {|l| "#{dest(l)}"}
-    end
+ @lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
+ relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
+   r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
+    t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
+    t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
+    t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
+    t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
+    t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
+    t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
+    t.add_column(:user) {|l| "#{l.usuario}"}
+    t.add_column(:lotacao) {|l| "#{dest(l)}"}
   end
+end
 
-  send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
+send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
 end
 
 def funcionario
@@ -443,31 +450,31 @@ end
 
 def dest(lotacao)
  if lotacao
-     if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
-        return "#{lotacao.escola.nome_da_escola}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.ambiente.nome}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome=="Sala de Aula"
-        return "#{lotacao.escola.nome_da_escola}"
-    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "LOTAÇÃO INVÁLIDA"
-    end
+   if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+    return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
+    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+    return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
+    return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
+    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+    return "#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+    return "#{lotacao.orgao.sigla}"
+  elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
+    return "#{lotacao.escola.nome_da_escola}"
+  elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
+    return "#{lotacao.escola.nome_da_escola}/#{lotacao.ambiente.nome}"
+  elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome=="Sala de Aula"
+    return "#{lotacao.escola.nome_da_escola}"
+  elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
+    return "LOTAÇÃO INVÁLIDA"
+  end
 end
 end
 end

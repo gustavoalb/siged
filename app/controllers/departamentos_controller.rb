@@ -4,8 +4,8 @@ class DepartamentosController < ApplicationController
   # GET /departamentos.xml
   before_filter :orgao,:dados_essenciais,:except=>[:auto_complete_for_pessoa_nome]
   def index
-    #@search = Departamento.scoped_search(params[:search])
-    @departamentos = Departamento.do_orgao(@orgao.id).order(:hierarquia).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    @search = Departamento.scoped_search(params[:search])
+    @departamentos = @search.order(:hierarquia).find(:all,:conditions=>["orgao_id = ?",@orgao.id]).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     #@departamentos = Departamento.do_orgao(@orgao.id).find(:all, :joins =>[:departamento_pai],:order => 'departamento_pais_departamentos.sigla').paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     respond_to do |format|
       format.html # index.html.erb

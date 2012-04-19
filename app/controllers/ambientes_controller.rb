@@ -4,8 +4,7 @@ class AmbientesController < ApplicationController
   # GET /ambientes.xml
   before_filter :dados_essenciais,:except=>[:matrizes]
   def index
-    @escola = Escola.find params[:escola_id]
-    @search = @escola.ambientes.scoped_search(params[:search])
+    @escola = Escola.find_by_slug(params[:escola_id])
     @ambientes = @escola.ambientes.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
 
     respond_to do |format|
@@ -107,7 +106,7 @@ class AmbientesController < ApplicationController
     @ambiente = @escola.ambientes.find params[:ambiente_id]
     @turma = @ambiente.turmas.new(params[:turma])
     if @turma.save
-     @turmas = @ambiente.turmas.all
+    @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
      render :update do |page|
       page.visual_effect :highlight,"matriz"
       page.replace_html "turma", :partial=>"listar_turmas", :notice => 'Ambiente atualizado com sucesso.'
@@ -176,7 +175,8 @@ end
 def configurar_ambiente
   @escola = Escola.find params[:escola_id]
   @ambiente = @escola.ambientes.find params[:ambiente_id]
-  @turmas = @ambiente.turmas.all
+  @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
+  #@turmas = @ambiente.turmas.join(:serie).order("serie.nome").all
 end
 
 def configurar_ambiente_fisico

@@ -1,6 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+ActiveSupport::Deprecation.silenced = true
+
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -28,7 +30,7 @@ module Siged20
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-     config.i18n.default_locale = :"pt-BR"
+    config.i18n.default_locale = :"pt-BR"
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
@@ -40,41 +42,41 @@ module Siged20
     config.filter_parameters += [:password]
 
 
-config.generators do |g|
-  g.stylesheets false
-end
+    config.generators do |g|
+      g.stylesheets false
+    end
   end
-class String
-  def rtrim(char)
-    dump.rtrim!(char)
-  end
+  class String
+    def rtrim(char)
+      dump.rtrim!(char)
+    end
 
-  def rtrim!(char)
-    gsub!(/#{Regexp.escape(char)}+$/, '')
-  end
+    def rtrim!(char)
+      gsub!(/#{Regexp.escape(char)}+$/, '')
+    end
 
-  def ltrim(char)
-    dump.ltrim!(char)
-  end
+    def ltrim(char)
+      dump.ltrim!(char)
+    end
 
-  def ltrim!(char)
-    gsub!(/^#{Regexp.escape(char)}+/, '')
-  end
+    def ltrim!(char)
+      gsub!(/^#{Regexp.escape(char)}+/, '')
+    end
 
-end
-ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
-  error_style = ""
-  if html_tag =~ /<(input|textarea|select)[^>]+class=/
-    first_whitespace = html_tag =~ /\s/
-    html_tag[first_whitespace] = " class='#{error_style}' "
-    html_tag+="<br/><font color=red><small><b>Erro:</b> #{instance.method_name.capitalize} #{instance.error_message} </small></font>".html_safe
-  elsif html_tag =~ /<(input|textarea|select)/
-    first_whitespace = html_tag =~ /\s/
-    html_tag[first_whitespace] = " class='#{error_style}' "
-    html_tag+="<br/><font color=red><small><b>Erro:</b> #{instance.method_name.capitalize} #{instance.error_message} </small></font>".html_safe
   end
-  html_tag
-end
+  ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+    error_style = ""
+    if html_tag =~ /<(input|textarea|select)[^>]+class=/
+      first_whitespace = html_tag =~ /\s/
+      html_tag[first_whitespace] = " class='#{error_style}' "
+      html_tag+="<br/><font color=red><small><b>Erro:</b> #{instance.method_name.capitalize} #{instance.error_message} </small></font>".html_safe
+    elsif html_tag =~ /<(input|textarea|select)/
+      first_whitespace = html_tag =~ /\s/
+      html_tag[first_whitespace] = " class='#{error_style}' "
+      html_tag+="<br/><font color=red><small><b>Erro:</b> #{instance.method_name.capitalize} #{instance.error_message} </small></font>".html_safe
+    end
+    html_tag
+  end
 
 
 

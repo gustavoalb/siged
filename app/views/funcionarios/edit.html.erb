@@ -75,7 +75,7 @@
     :with => 'categoria'%>
 
     <div id=disc>
-      <%if @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência' -%>
+      <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência' -%>
       <fieldset style="width:48%; float:left; margin-right: 1%;">
         <%= label_tag :disciplina_de_contratacao %><br />
         <%=select :funcionario,:disciplina_contratacao_id,@descs,:prompt=>true,:style=>"width:92%;"%>
@@ -100,7 +100,7 @@
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :nível %><br />
-      <%= f.text_field :nivel_id,:value=>"#{detalhes(@funcionario.nivel)}",:disabled=>true,:style=>"width:92%;",:prompt=>"Selecione o Nível" %>
+      <%= f.text_field :nivel_id,:value=>"#{placeholder(@funcionario.nivel)}",:disabled=>true,:style=>"width:92%;",:prompt=>"Selecione o Nível" %>
 
     </fieldset>
 
@@ -139,7 +139,7 @@
     </fieldset>
 
     <div id='munic'>
-      <%if @funcionario.cargo.tipo and (@funcionario.cargo.tipo.nome=='Magistério/Docência' or @funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and @funcionario.categoria and @funcionario.categoria.nome=="Estado Novo"%>
+      <%if @funcionario.cargo and @funcionario.cargo.tipo and (@funcionario.cargo.tipo.nome=='Magistério/Docência' or @funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and @funcionario.categoria and @funcionario.categoria.nome=="Estado Novo"%>
       <fieldset style="width:48%; float:left; margin-right: 1%;">
         <%= f.label :municipio_de_opção %><br /><br />
         <%= f.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>

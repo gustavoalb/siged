@@ -95,10 +95,6 @@ def comissionados
 
 end
 
-
-
-
-
 def distrito
   if params[:municipio].size>0
     @municipio = Municipio.find(params[:municipio])
@@ -118,7 +114,6 @@ def historico
   @historico = @funcionario.processos
   render :layout=>"lotacoes2"
 end
-
 
 def qualificar
   @funcionario = Funcionario.find(params[:funcionario_id])

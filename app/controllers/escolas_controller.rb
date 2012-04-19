@@ -6,7 +6,7 @@ class EscolasController < ApplicationController
   def index
     @search = Escola.scoped_search(params[:search])
     if params[:search]
-    @busca = params[:search][:busca]
+      @busca = params[:search][:busca]
     end
     @escolas = @search.order(:nome_da_escola).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     respond_to do |format|
@@ -19,7 +19,9 @@ class EscolasController < ApplicationController
   # GET /escolas/1.xml
   def show
     @escola = Escola.find(params[:id])
-
+    @funcionarios = @escola.funcionarios
+    @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
+    @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @escola }

@@ -5,7 +5,10 @@
 <article class="module width_full">
   <header><h3 class="tabs_involved">Listando Setores: <%=@orgao.sigla%></h3>
       <ul class="tabs">
-        <%= link_to  image_tag('/images/icn_agenda.png',:title=>"Agenda Telefonica do orgão",:format=>:html), orgao_agenda_path(@orgao) %>
+          <%= form_for @search,:url=>orgao_departamentos_url(@orgao) do |f| %>
+        <li><%= f.text_field :busca,:size=>13 %></li>
+        <li><%= image_submit_tag "icn_busca.png" %>
+      <% end %>
       </ul>
   </header>
 

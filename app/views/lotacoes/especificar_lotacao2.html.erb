@@ -1,0 +1,10 @@
+<%= form_for @lotacao do |f| %>
+<fieldset>
+    <%= label :especificar_lotacao,"Especificação" %><br /><br />
+    <%= select :lotacao,:ambiente_id,@escola_lotacao.ambientes.all.collect{|a|[a.nome,a.id]},:style=>"width:92%;",:prompt=>"Selecione a Sala Ambiente" %>
+</fieldset>
+<%=f.hidden_field :quick,:value=>false%>
+<div class='submit_link'>
+<%=f.submit "Salvar",:class=>"alt_btn" %>
+</div>
+<%end%>

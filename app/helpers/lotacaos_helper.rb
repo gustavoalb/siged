@@ -9,6 +9,14 @@ module LotacaosHelper
   end
 end
 
+def carencia(valor)
+    if valor>0
+        return "#{valor} horas"
+    else
+        return "#{nenhuma}"
+    end
+end
+
 def magisterio(f)
     if f and f.cargo
         if f.cargo.tipo.nome=='Magistério/Docência'

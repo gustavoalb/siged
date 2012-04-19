@@ -1,10 +1,24 @@
-<%= form_for @lotacao do |f| %>
-<fieldset>
-    <%= label :especificar_lotacao,"Especificação" %><br /><br />
-    <%= select :lotacao,:ambiente_id,@escola_lotacao.ambientes.all.collect{|a|[a.nome,a.id]},:style=>"width:92%;",:prompt=>"Selecione a Sala Ambiente" %>
-</fieldset>
-<%=f.hidden_field :quick,:value=>false%>
-<div class='submit_link'>
-<%=f.submit "Salvar",:class=>"alt_btn" %>
+<article class="module width_full">
+<header><h3>Especificação de Lotacao</h3></header>
+<div class="module_content">
+<div id="tabs1" class="tabset">
+<%= form_for  @especificacao,:url=>pessoa_funcionario_lotacao_salvar_especificacao_url(@pessoa,@funcionario,@lotacao) do |f|-%>  <fieldset>
+    <%= f.label "Tipo da Especificação" %><br /><br />
+      <%= f.select :tipo,TipoAmbiente.all.collect{|t|t.nome},:style=>"width:92%;",:prompt=>"Selecione o tipo de especificação" %>
+  </fieldset>
+  
+ <div id="tipo"></div>
+
+
+<%=observe_field :especificar_lotacao_tipo, 
+      :url => "/lotacoes/tipo_especificacao",
+      :frequency => 0.25,
+      :update => :tipo,
+      :with => "'tipo='+value+'&funcionario_id='+#{@funcionario.id}+'&lotacao_id='+#{@lotacao.id}"%>
+<div id="disciplinas"></div>
+<div id="fator"></div>
+
+<% end -%>
 </div>
-<%end%>
+</div>
+</article>

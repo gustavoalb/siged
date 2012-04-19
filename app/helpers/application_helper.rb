@@ -44,7 +44,8 @@ def porcentagem_funcional
   html+="<p class='overview_count'>#{Lotacao.sumaria_especial.ativo.count}</p>"
   html+="<p class='overview_type'>Lotações Sumárias Especiais</p>"
   html+="<p class='overview_count'>#{Lotacao.pro_labore.ativo.count}</p>"
-  html+="<p class='overview_type'>Lotações Pro Labore</p>  </article></div>"
+  html+="<p class='overview_type'>Lotações Pro Labore</p> </article></div>"
+
   return raw(html)
 
 end
@@ -95,10 +96,10 @@ end
 
 def compativel(mess,comp)
  message=""
- if comp
-   message+="<h5 class='alert_success'>#{mess}</h5>"
+ if comp==true
+   message+="<h4 class='alert_success'>#{mess}</h4>"
  else
-   message+="<h5 class='alert_error'>#{mess}</h5>"
+   message+="<h4 class='alert_warning'>#{mess}</h4>"
  end
  return raw(message)
 end

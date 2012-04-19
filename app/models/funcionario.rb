@@ -27,23 +27,25 @@ class Funcionario < ActiveRecord::Base
   belongs_to :fonte_recurso,:class_name=>"Folha::FonteRecurso"
   has_many :listas
   has_many :pontos
-  has_many :ponto_diarios
+  #has_many :ponto_diarios
   has_many :pontos_do_mes,:class_name=>"Ponto",:conditions=>["EXTRACT(MONTH FROM data)=? and EXTRACT(YEAR FROM data)=?",Time.now.month,Time.now.year]
   belongs_to :disciplina_contratacao
   has_many :comissionados
-  has_many :funcoes_comissionadas,:class_name=>"Processo",:conditions=>{:tipo=>"COMISSÃO"},:dependent=>:nullify
   belongs_to :gaveta,:class_name=>"Arquivo"
   belongs_to :nivel, :class_name=>'ReferenciaNivel'
   belongs_to :sjuridica,:class_name=>'SituacoesJuridica'
-  belongs_to :descricao_cargo,:class_name=>"DescricaoCargo"
   belongs_to :categoria
   has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy
   has_many :processos,:dependent=>:nullify
   has_many :boletins, :class_name=>"BoletimFuncional",:dependent=>:nullify
-  has_many :lotacoes_especificadas,:class_name=>"EspecificarLotacao",:conditions=>{:ativo=>true},:dependent => :destroy
+  has_many :especificacoes,:class_name=>"EspecificarLotacao",:conditions=>{:ativo=>true},:dependent => :destroy
   scope :direcao, joins(:comissionados).where("comissionados.ativo=? and comissionados.tipo=?",true,'DIRETORIA')
   after_create :criar_comissionado
   attr_accessor_with_default(:nome) {pessoa.nome}
+  attr_accessor_with_default(:rsn) {self.regencia_semanal_nominal}
+  attr_accessor_with_default(:rsd) {self.regencia_semanal_disponivel  }
+
+
  #after_update :criar_comissionado
 
   def aposentadoria
@@ -169,38 +171,33 @@ class Funcionario < ActiveRecord::Base
    carga = self.nivel.jornada.to_i
    case carga
    when 20 then rsn=12
-   when 40 then rsn=26
+   when 40 then rsn=24
    end
    return rsn
  end
 
 
- def regencia_semanal_nominal_sobra
-   horas=0
-   carga = self.nivel.jornada.to_i
-   case carga
-   when 20 then rsn=12
-   when 40 then rsn=26
-   end
-   self.lotacoes_especificadas.each do |h|
-    horas+=h.hora_semanal
+ def regencia_semanal_disponivel
+   horas = 0
+   self.especificacoes.all.each do |e|
+    horas+=e.hora_semanal
   end
-  return rsn-horas
+  return self.rsn-horas
 end
 
 
 def especificar_lotacao(escola,turma,disciplina,curriculo,lotacao,tipo)
- l = self.lotacoes_especificadas.new
+ l = self.especificacoes.new
  l.escola_id=escola.id
  l.lotacao_id=lotacao.id
- if tipo=="TURMA"
+ if tipo=="Sala de Aula"
    fator = disciplina.fator(turma)
    l.turma_id=turma.id
    l.disciplina_id=disciplina.id
-   if fator <= self.regencia_semanal_nominal_sobra
+   if fator <= self.rsd
     l.hora_semanal = fator
   else
-    l.hora_semanal = self.regencia_semanal_nominal_sobra
+    l.hora_semanal = self.rsd
   end
   if l.save
    disciplina.gerar_fator(turma,l.hora_semanal,turma.serie,curriculo,l)
@@ -208,7 +205,7 @@ def especificar_lotacao(escola,turma,disciplina,curriculo,lotacao,tipo)
  else
   return false
 end
-elsif tipo=="FISICO"
+elsif tipo=="Sala Ambiente"
   if l.save
     return true
   else
@@ -248,8 +245,8 @@ end
 
 def ids_disciplinas
   disciplinas=[]
-  if descricao_cargo
-    disc = self.descricao_cargo.disciplinas
+  if !self.disciplina_contratacao.nil?
+    disc = self.disciplina_contratacao.disciplinas
     disc.each do |d|
       disciplinas.push d.id
     end

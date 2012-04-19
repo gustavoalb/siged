@@ -30,6 +30,7 @@ class Lotacao < ActiveRecord::Base
   scope :pro_labore, where("tipo_lotacao = ?","PROLABORE")
   scope :sumaria, where("tipo_lotacao = ?","SUMARIA")
   scope :sumaria_especial, where("tipo_lotacao = ?","SUMARIA ESPECIAL")
+  scope :comissionada,where("tipo_lotacao = ?","COMISSÃO")
   scope :especial, where("tipo_lotacao = ?","ESPECIAL")
   scope :regular, where("tipo_lotacao = ?","REGULAR")
   scope :a_convalidar, where(:convalidada=>false)

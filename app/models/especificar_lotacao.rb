@@ -3,6 +3,7 @@ class EspecificarLotacao < ActiveRecord::Base
 	set_table_name :especificar_lotacaos
 	belongs_to :funcionario
 	belongs_to :entidade
+	belongs_to :turma
 	scope :da_escola,lambda{|escola| where("escola_id=?",escola)}
 	scope :da_turma,lambda{|turma| where("especificar_lotacaos.turma_id=?",turma)}
 	validates_uniqueness_of :funcionario_id,:scope=>[:escola_id, :turma_id, :disciplina_id, :hora_semanal]

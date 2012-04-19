@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503162419) do
+ActiveRecord::Schema.define(:version => 20120503162421) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -365,6 +365,7 @@ ActiveRecord::Schema.define(:version => 20120503162419) do
     t.integer  "municipio_id"
     t.integer  "esfera_id"
     t.integer  "entidade_id"
+    t.string   "slug"
   end
 
   add_index "escolas", ["municipio_id"], :name => "index_escolas_on_municipio_id"
@@ -1195,6 +1196,7 @@ ActiveRecord::Schema.define(:version => 20120503162419) do
     t.datetime "updated_at"
     t.integer  "entidade_id"
     t.string   "nome"
+    t.integer  "ano_letivo_id"
   end
 
   add_index "turmas", ["ambiente_id"], :name => "index_turmas_on_ambiente_id"

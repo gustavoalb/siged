@@ -66,6 +66,7 @@ class MatrizesController < ApplicationController
   # POST /matrizes.xml
   def create
     @matriz = Matriz.new(params[:matriz])
+    @niveis = NiveisEnsino.order(:nome).collect{|n|[n.nome,n.id]}
 
 
     respond_to do |format|
@@ -84,6 +85,7 @@ class MatrizesController < ApplicationController
   # PUT /matrizes/1.xml
   def update
     @matriz = Matriz.find(params[:id])
+    @niveis = NiveisEnsino.order(:nome).collect{|n|[n.nome,n.id]}
 
     respond_to do |format|
       if @matriz.update_attributes(params[:matriz])

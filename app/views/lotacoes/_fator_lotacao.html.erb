@@ -1,7 +1,7 @@
 <fieldset>
 <%=compativel(@motivo,true)%> <br/>
-Fator de Lotação da Disciplina: <%=@fator_n%> horas<br/>
-Regência Semanal do Professor: <%=@funcionario.regencia_semanal_nominal_sobra%> horas<br/>
+Carência da disciplina: <%=carencia(@fator_n)%><br/>
+Regência Semanal Disponível do Professor: <%=carencia(@funcionario.rsd)%><br/>
 </fieldset>
 <fieldset>
 <%= submit_tag 'Espeficar Lotação'%>

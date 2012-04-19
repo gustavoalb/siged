@@ -59,20 +59,12 @@ end
 
 
 def total_escolas
- lotacoes_total = 0
- a = Escola.all
- a.each do |e|
-   lotacoes_total+=e.lotacoes.size
-end
              resultado2="<div class='overview_today'>"
-             resultado2+="<p class='overview_day'>Dados Escolares</p>"
-             resultado2+="<p class='overview_count'>#{a.size}</p>"
+             resultado2+="<p class='overview_count'>#{Escola.count}</p>"
              resultado2+="<p class='overview_type'>Escolas Cadastradas</p>"
-             resultado2+="<p class='overview_count'>#{lotacoes_total}</p>"
+             resultado2+="<p class='overview_count'>#{Lotacao.sumaria.atual.count+Lotacao.regular.atual.count}</p>"
              resultado2+="<p class='overview_type'>Professores Lotados</p>"
 
   return raw(resultado2)
 end
-
-
 end

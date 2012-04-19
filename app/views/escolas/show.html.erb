@@ -2,87 +2,150 @@
 <%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
 <%end%>
 <article class="module width_full">
-<header><h3>Detalhes da <%=@escola.nome_da_escola.titleize%> </h3></header>
-<div class="module_content">
-<%= necessidade_professor_e(@escola,'qualquer') %>
-<p>
-  <b>Código:</b>
-  <%= @escola.codigo %>
-</p>
+  <header><h3>Detalhes da Escola: <%=@escola.nome_da_escola.titleize%> </h3></header>
+  <div class="module_content">
+    <div id="tabs1" class="tabset">
+      <ul class="tabset_tabs">
+        <li><a href="#tab-um">Detalhes</a></li>
+        <li><a href="#tab-dois">Quadro funcional</a></li>
+        <li><a href="#tab-tres">Turmas</a></li>
+      </ul>
 
-<p>
-  <b>Nome:</b>
-  <%= @escola.nome_da_escola %>
-</p>
+      <div class="tabset_content_container">
+        <div id="tab-one" class="tabset_content">
+          <p>
+            <b>Código:</b>
+            <%= @escola.codigo %>
+          </p>
 
-<p>
-  <b>Diretor:</b>
-  <%= detalhes(@escola.diretor) %>
-</p>
+          <p>
+            <b>Nome:</b>
+            <%= @escola.nome_da_escola %>
+          </p>
 
-<%if !@escola.secretario.nil?%>
-<p>
-  <b>Secretário:</b>
-  <%= detalhes(@escola.secretario) %>
-</p>
-<%end%>
+          <p>
+            <b>Diretor:</b>
+            <%= detalhes(@escola.diretor) %>
+          </p>
 
-<%if !@escola.diretor_adjunto.nil?%>
-<p>
-  <b>Diretor Adjunto:</b>
-  <%= detalhes(@escola.diretor_adjunto) %>
-</p>
-<%end%>
+          <%if !@escola.secretario.nil?%>
+          <p>
+            <b>Secretário:</b>
+            <%= detalhes(@escola.secretario) %>
+          </p>
+          <%end%>
 
-<p>
-  <b>Tipologia:</b>
-  <%= @escola.tipologia %>
-</p>
+          <%if !@escola.diretor_adjunto.nil?%>
+          <p>
+            <b>Diretor Adjunto:</b>
+            <%= detalhes(@escola.diretor_adjunto) %>
+          </p>
+          <%end%>
+
+          <p>
+            <b>Tipologia:</b>
+            <%= @escola.tipologia %>
+          </p>
 
 
-<p>
-  <b>Rede:</b>
-  <%= detalhes(@escola.esfera) %>
-</p>
+          <p>
+            <b>Rede:</b>
+            <%= detalhes(@escola.esfera) %>
+          </p>
 
-<p>
-  <b>Zona:</b>
-  <%= @escola.zona %>
-</p>
+          <p>
+            <b>Zona:</b>
+            <%= @escola.zona %>
+          </p>
 
-<p>
-  <b>Endereço:</b>
-  <%= @escola.endereco %>
-</p>
+          <p>
+            <b>Endereço:</b>
+            <%= @escola.endereco %>
+          </p>
 
-<p>
-  <b>Cidade:</b>
-  <%= @escola.municipio.nome %>
-</p>
+          <p>
+            <b>Cidade:</b>
+            <%= @escola.municipio.nome %>
+          </p>
 
-<p>
-  <b>Telefone:</b>
-  <%= @escola.telefone %>
-</p>
+          <p>
+            <b>Telefone:</b>
+            <%= @escola.telefone %>
+          </p>
 
-<p>
-  <b>Fax:</b>
-  <%= @escola.fax %>
-</p>
+          <p>
+            <b>Fax:</b>
+            <%= @escola.fax %>
+          </p>
 
-<p>
-  <b>Email:</b>
-  <%= @escola.email %>
-</p>
+          <p>
+            <b>Email:</b>
+            <%= @escola.email %>
+          </p>
+        </div>
+        <div id="tab-two" class="tabset_content" style='overflow-y: scroll; height: 200px;'>
+          <table class="tablesorter" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Matrícula</th>
+                <th>Funcionário</th>
+                <th>Cargo</th>
+                <th title="Regência Semanal Disponível">Reg. Disp.</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @funcionarios.each do |f| %>
+              <tr>
+               <td><%= f.matricula %></td>
+               <td><%= detalhes(f.pessoa) %></td>
+               <td><%= cargo_resumido(f) %></td>
+               <td title='<%=turmas(f)%>'><%= cor_rsd(f)%></td>
+             </tr>
+             <% end %>
+           </tbody>
+         </table>
+       </div>
+
+
+       <div id="tab-three" class="tabset_content">
+        <table class="tablesorter" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Turno</th>
+              <th>Série</th>
+              <th>Nome</th>
+              <th>Matriz Curricular</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%@turmas.each do |t|%>
+            <tr>
+              <td><%=t.turno%></td>
+              <td><%=detalhes(t.serie)%></td>
+              <td><%=t.nome%></td>
+              <td><%=cod(t.matriz)%></td>
+              <td><%=link_to "Remover Turma", escola_ambiente_excluir_turma_path(@escola,@ambiente,:turma_id=>t.id),:confirm=>"Tem certeza que deseja remover a turma",:remote=>true%></td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
 
 
 
 
 </div>
 <footer>
-				<div class="submit_link">
-				  <%= link_to 'Editar', edit_escola_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', escolas_path,:type=>"submit" %>
-				</div>
-			</footer>
+  <div class="submit_link">
+    <%= link_to 'Editar', edit_escola_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
+    <%= link_to 'Voltar', escolas_path,:type=>"submit" %>
+  </div>
+</footer>
 </article>

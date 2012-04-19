@@ -12,5 +12,6 @@ belongs_to :ambiente
 belongs_to :serie
 belongs_to :escola
 belongs_to :entidade
+belongs_to :ano_letivo
 
 end

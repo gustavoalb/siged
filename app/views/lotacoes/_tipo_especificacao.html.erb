@@ -1,23 +1,14 @@
-<%if @tipo=="SALA DE AULA"%>
+<%if @tipo=="Sala de Aula"%>
 <fieldset>
     <%= label :especificar_lotacao,"Turmas" %><br /><br />
-    <%= select :especificar_lotacao,:turma_id,@escola_lotacao.turmas.all.collect{|t|["#{t.id} - #{t.serie.nome} - #{t.turno}",t.id]},:style=>"width:92%;",:prompt=>"Selecione a Turma" %>
+    <%= select :especificar_lotacao,:turma_id,@turmas.collect{|t|["#{t.serie.nome} - #{t.turno}",t.id]},:style=>"width:92%;",:prompt=>"Selecione a Turma" %>
 </fieldset>
 
 <%=observe_field :especificar_lotacao_turma_id, :url => "/lotacoes/disciplinas_especificacao",
-      :frequency => 0.25,
+      :frequency => 0.75,
       :update => :disciplinas,
       :with => "'turma=' + value+'&funcionario_id='+#{@funcionario.id}+'&lotacao_id='+#{@lotacao.id}"%>
 <div id="disciplinas"></div>
 <%else%>
-<fieldset>
-    <%= label :especificar_lotacao,"Ambientes Físicos" %><br /><br />
-    <%= select :especificar_lotacao,:ambiente_fisico_id,@escola_lotacao.ambientes.salas_ambiente.all.collect{|a|[a.nome,a.id]},:style=>"width:92%;",:prompt=>"Selecione a Sala Ambiente" %>
-</fieldset>
 
-<%=observe_field :especificar_lotacao_ambiente_fisico_id, :url => "/lotacoes/fator_lotacao_fisico",
-      :frequency => 0.25,
-      :update => :disciplinas,
-      :with => "'ambiente_fisico=' + value+'&funcionario_id='+#{@funcionario.id}+'&lotacao_id='+#{@lotacao.id}"%>
-      <div id='lotacao_fisico'></div>
 <%end%>
