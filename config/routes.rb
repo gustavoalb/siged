@@ -152,6 +152,8 @@ namespace :folha do resources :eventos end
   resources :funcionarios
   
   resources :escolas do
+    get :controle_turma
+    get :listar_turmas
    resources :ano_letivos do
 
     resources :settings

@@ -91,7 +91,7 @@
                 <th>Funcionário</th>
                 <th>Cargo</th>
                 <th title="Regência Semanal Disponível">Reg. Disp.</th>
-                <th></th>
+                <th>Ações</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -103,6 +103,7 @@
                <td><%= detalhes(f.pessoa) %></td>
                <td><%= cargo_resumido(f) %></td>
                <td title='<%=turmas(f)%>'><%= cor_rsd(f)%></td>
+               <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo .find_by_funcionario_id(f.id),@escola),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
              </tr>
              <% end %>
            </tbody>
@@ -111,28 +112,7 @@
 
 
        <div id="tab-three" class="tabset_content">
-        <table class="tablesorter" cellspacing="0">
-          <thead>
-            <tr>
-              <th>Turno</th>
-              <th>Série</th>
-              <th>Nome</th>
-              <th>Matriz Curricular</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%@turmas.each do |t|%>
-            <tr>
-              <td><%=t.turno%></td>
-              <td><%=detalhes(t.serie)%></td>
-              <td><%=t.nome%></td>
-              <td><%=cod(t.matriz)%></td>
-              <td><%=link_to "Remover Turma", escola_ambiente_excluir_turma_path(@escola,@ambiente,:turma_id=>t.id),:confirm=>"Tem certeza que deseja remover a turma",:remote=>true%></td>
-            </tr>
-            <%end%>
-          </tbody>
-        </table>
+        <%=render :partial=>'turmas'%>
       </div>
 
     </div>
