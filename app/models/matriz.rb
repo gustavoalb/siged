@@ -8,7 +8,6 @@ class Matriz < ActiveRecord::Base
 	has_many :turmas
 	has_and_belongs_to_many :series,:class_name=>"Serie",:join_table => "colapso_matrizes",:foreign_key=>:matriz_id
 	validates_numericality_of :dias_letivos_anuais,:dias_letivos_semanais,:semanas_letivas,:carga_horaria_anual,:modulo_aula
-	
 	after_create :criar_curriculo
 	after_update :editar_curriculo
 

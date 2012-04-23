@@ -68,7 +68,7 @@
 </tr>
 	<tr>
 		<th>Matrícula:</th>
-		<td><%=funcionario.matricula%></td>
+		<td><%=raw("#{highlight(funcionario.matricula, @busca)}")%></td>
 
 		<th>Situação Jurídica:</th>
 		<td><%= detalhes(funcionario.sjuridica) %></td>

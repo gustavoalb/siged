@@ -9,7 +9,7 @@ class Disciplina < ActiveRecord::Base
 
 
  def pode_especificar?(turma)
-    valor=0
+   valor=0
    fatores = self.fatores.da_serie(turma.serie.id).da_turma(turma.id).all
    curriculo = self.curriculos.da_serie(turma.serie.id).da_disciplina(self.id).da_matriz(turma.matriz.id).last
           if fatores

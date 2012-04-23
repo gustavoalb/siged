@@ -11,7 +11,7 @@ class Escola < ActiveRecord::Base
   has_many :ambientes
   belongs_to :esfera
   belongs_to :orgao
-  has_many :funcionarios,:through=>:lotacoes
+  has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
   has_many :comissionados,:conditions=>["ativo = ?",true]
   has_many :anos_letivos,:class_name=>"AnoLetivo"
   belongs_to :entidade

@@ -48,9 +48,9 @@ class Funcionario < ActiveRecord::Base
 
  #after_update :criar_comissionado
 
-  def aposentadoria
-    self.data_nomeacao.months_since(300)
-  end
+ def aposentadoria
+  self.data_nomeacao.months_since(300)
+end
 
   #def quinquenio
   #  a = 0
@@ -180,13 +180,17 @@ class Funcionario < ActiveRecord::Base
  def regencia_semanal_disponivel
    horas = 0
    self.especificacoes.all.each do |e|
-    horas+=e.hora_semanal
+    if e.turma.nil? and !e.ambiente.nil?
+      horas+=self.rsn 
+    elsif !e.turma.nil?
+      horas+=e.hora_semanal
+    end
   end
   return self.rsn-horas
 end
 
 
-def especificar_lotacao(escola,turma,disciplina,curriculo,lotacao,tipo)
+def especificar_lotacao(escola = nil,turma = nil,disciplina = nil,curriculo = nil,lotacao = nil,tipo = nil,ambiente = nil)
  l = self.especificacoes.new
  l.escola_id=escola.id
  l.lotacao_id=lotacao.id
@@ -206,7 +210,8 @@ def especificar_lotacao(escola,turma,disciplina,curriculo,lotacao,tipo)
   return false
 end
 elsif tipo=="Sala Ambiente"
-  if l.save
+  l.ambiente_id = ambiente.id
+  if l.save!
     return true
   else
    return false
@@ -218,7 +223,6 @@ end
 def status_lotacao
   if !self.lotacoes.none?
     if !self.lotacoes.atual.none?
-
       if self.lotacoes.atual.last.status.last.status=="ENCAMINHADO"
         return "EM TRÂNSITO"
       elsif self.lotacoes.atual.last.status.last.status=="À DISPOSIÇÃO DO NUPES"
@@ -230,7 +234,6 @@ def status_lotacao
       end
     else
       return "À DISPOSIÇÃO DO NUPES"
-      
     end
   end
 else

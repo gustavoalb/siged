@@ -9,6 +9,19 @@
       :update => :disciplinas,
       :with => "'turma=' + value+'&funcionario_id='+#{@funcionario.id}+'&lotacao_id='+#{@lotacao.id}"%>
 <div id="disciplinas"></div>
-<%elsif @tipo=="Sala Ambiente" and @funcionario.disciplina_contratacao and @funcionario.disciplina_contratacao.tipo.nome=="Magistério/Docência"%>
+<%elsif @tipo=="Sala de Aula" and @funcionario.disciplina_contratacao.nil?%>
 
+<%elsif @tipo=="Sala de Aula" and !@funcionario.disciplina_contratacao.nil? and !@funcionario.disciplina_contratacao.tipo.nome=="Magistério/Docência"%>
+
+<%elsif @tipo=="Sala Ambiente"%>
+<fieldset>
+    <%= label :especificar_lotacao,"Salas Ambiente" %><br /><br />
+    <%= select :especificar_lotacao,:ambiente_id,@ambientes,:style=>"width:92%;",:prompt=>"Selecione o ambiente" %>
+</fieldset>
+<div id="disciplinas"></div>
+<%=observe_field :especificar_lotacao_ambiente_id, 
+      :url => "/lotacoes/fator_lotacao_fisico",
+      :frequency => 0.75,
+      :update => :disciplinas,
+      :with => "'ambiente=' + value+'&funcionario_id='+#{@funcionario.id}+'&lotacao_id='+#{@lotacao.id}"%>
 <%end%>

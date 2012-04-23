@@ -51,7 +51,7 @@ class AmbientesController < ApplicationController
 
     respond_to do |format|
       if @ambiente.save
-        format.html { redirect_to(escola_ambientes_url(@escola), :notice => 'Ambiente cadastrado com sucesso.') }
+        format.html { redirect_to(escola_ambiente_url(@escola,@ambiente), :notice => 'Ambiente cadastrado com sucesso.') }
         format.xml  { render :xml => @ambiente, :status => :created, :location => @ambiente }
       else
         format.html { render :action => "new" }
@@ -67,7 +67,7 @@ class AmbientesController < ApplicationController
     @ambiente = @escola.ambientes.find(params[:id])
     respond_to do |format|
       if @ambiente.update_attributes(params[:ambiente])
-        format.html { redirect_to(escola_ambientes_url(@escola), :notice => 'Ambiente atualizado com sucesso.') }
+        format.html { redirect_to(escola_ambiente_url(@escola,@ambiente), :notice => 'Ambiente atualizado com sucesso.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

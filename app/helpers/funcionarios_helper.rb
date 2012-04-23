@@ -9,13 +9,17 @@ module FuncionariosHelper
   end
 
   def turmas(f)
+    t = []
     if f and !f.especificacoes.none?
-      t = []
       f.especificacoes.each do |e|
-        t << e.turma.nome
+        if !e.turma.nil?
+          t << e.turma.nome
+        elsif e.turma.nil? and !e.ambiente.nil?
+          t << e.ambiente.nome
+        end
       end
     end
-    if !t.blank?
+    if !t.none?
       return raw("O funcionário está especificado em #{pluralize(t.count,'turma','turmas')}: #{t.to_sentence}.")
     else
       return raw("O funcionário não está especificado em nenhum ambiente!")

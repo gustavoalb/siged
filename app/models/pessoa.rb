@@ -11,7 +11,7 @@ class Pessoa < ActiveRecord::Base
 	has_many :listas
 	has_many :fotos
 	belongs_to :cidade
-	scope :busca, lambda { |q| where("cpf like ? or rg like ? or nome iLIKE ?" ,"%#{q.downcase}%","%#{q.downcase}%","%#{q.downcase}%") }
+	scope :busca,lambda { |q| includes(:funcionarios).where("pessoas.cpf like ? or funcionarios.matricula like ? or rg like ? or nome iLIKE ?" ,"%#{q.downcase}%","%#{q}%","%#{q.downcase}%","%#{q.downcase}%") }
 	scope :em_aberto, where("nascimento = ?",nil)
 
 	scope :que_esta_na_lista, joins(:listas).where("listas.tipo_lista_id=1")

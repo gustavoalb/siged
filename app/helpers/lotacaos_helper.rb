@@ -9,11 +9,13 @@ module LotacaosHelper
   end
 end
 
-def carencia(valor)
-    if valor>0
+def carencia(valor,ambiente=false)
+    if valor>0 and ambiente==false
         return "#{valor} horas"
+    elsif valor>0 and ambiente==true
+        return pluralize(valor,"professor","professores")
     else
-        return "#{nenhuma}"
+        return "nenhuma"
     end
 end
 

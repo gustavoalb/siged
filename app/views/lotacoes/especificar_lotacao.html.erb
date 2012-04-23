@@ -12,7 +12,7 @@
 
 <%=observe_field :especificar_lotacao_tipo, 
       :url => "/lotacoes/tipo_especificacao",
-      :frequency => 0.25,
+      :frequency => 0.75,
       :update => :tipo,
       :with => "'tipo='+value+'&funcionario_id='+#{@funcionario.id}+'&lotacao_id='+#{@lotacao.id}"%>
 <div id="disciplinas"></div>

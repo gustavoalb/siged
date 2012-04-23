@@ -2,5 +2,67 @@
 	<%=link_to "Escola",escolas_path%><div class="breadcrumb_divider"></div><%=link_to "Ambientes",escola_ambientes_path%><div class="breadcrumb_divider"></div><a class="current">Editando Ambientes</a>
     
 <%end%>
-<%= render 'form',:legenda=>'Edição de Ambientes ' %>
+<article class="module width_full">
+  <header><h3>Editando <%=@ambiente.nome%> de <%=@escola.nome_da_escola%></h3></header>
+  <div class="module_content">
+
+
+    <%= form_for @ambiente,:url=>escola_ambiente_url(@escola,@ambiente) do |f| %>
+    <% if @ambiente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ambiente.errors.count, "erro impede","erros impedem") %> este ambiente de ser cadastrado:</h2>
+
+      <ul>
+        <% @ambiente.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
+
+    <%=f.hidden_field :escola_id,:value=>@escola.id%>
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :nome %><br />
+      <%= f.text_field :nome,:style=>"width:92%;" %>
+
+    </fieldset>
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :tipo_ambiente_id %><br /><br />
+      <%= f.select :tipo_ambiente_id,@tipo_ambientes,:style=>"width:92%;" %>
+
+    </fieldset>
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :ano_letivo %><br /><br />
+      <%= f.select :setting_id,@escola.anos_letivos.collect{|t|[t.ano,t.id]},:style=>"width:92%;" %>
+
+    </fieldset>
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :ativo %><br /><br />
+
+      <%= f.check_box :ativo,:style=>"width:40%;" %>
+
+    </fieldset>
+
+    <fieldset style="width:98%; float:left; margin-right: 1%;">
+      <label>Turnos de funcionamento</label><br/><br/>
+      <% for turno in Turno.find(:all) %>
+
+      <%= check_box_tag "ambiente[turno_ids][]", turno.id, @ambiente.turnos.include?(turno) %>
+      <%= turno.nome %>
+      <% end %>
+    </fieldset>
+
+    <div class="clear"></div>
+  </div>
+  <footer>
+    <div class="submit_link">
+     <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+   </div>
+ </footer>
+ <% end %>
+</article>
+
+
 

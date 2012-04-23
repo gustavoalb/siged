@@ -1,6 +1,6 @@
 <fieldset>
 <%=compativel(@motivo,true)%>
-Carência da disciplina: <%=carencia(@fator_n)%><br/>
+Carência do ambiente: <%=carencia(@ambiente.fator_ambiente(@funcionario)[1])%> <br/>
 Regência Semanal Disponível do Professor: <%=carencia(@funcionario.rsd)%><br/>
 </fieldset>
 

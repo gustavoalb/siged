@@ -1,124 +1,124 @@
 class LotacoesController < ApplicationController
-  # GET /lotacaos
-  # GET /lotacaos.xml
-  load_and_authorize_resource
-  before_filter :funcionario,:except=>[:escolas_destino,:complementar_esp,:complementar,:auto_complete_for_escola_nome_da_escola,:auto_complete_for_departamento_nome,:disciplinas_especificacao,:sumesp,:convalidar,:salvar_especificacao,:fator_lotacao,:verifica_lotacao,:regencia,:destino,:lotacao_especial,:tipo_destino,:tipo_especificacao,:fator_lotacao_fisico]
-  before_filter :dados_essenciais,:except=>[:convalidar,:auto_complete_for_escola_nome_da_escola,:auto_complete_for_departamento_nome]
+# GET /lotacaos
+# GET /lotacaos.xml
+load_and_authorize_resource
+before_filter :funcionario,:except=>[:escolas_destino,:complementar_esp,:complementar,:auto_complete_for_escola_nome_da_escola,:auto_complete_for_departamento_nome,:fator_lotacao_fisico,:disciplinas_especificacao,:sumesp,:convalidar,:salvar_especificacao,:fator_lotacao,:verifica_lotacao,:regencia,:destino,:lotacao_especial,:tipo_destino,:tipo_especificacao,:fator_lotacao_fisico]
+before_filter :dados_essenciais,:except=>[:convalidar,:auto_complete_for_escola_nome_da_escola,:auto_complete_for_departamento_nome]
 
-  def index
-    @lotacaos = Lotacao.all
-    @lotacao = Lotacao.new
-    @lotacao_aberta = @funcionario.lotacoes.em_aberto.find :all,:conditions=>['funcionario_id=?',@funcionario.id]
-    @lotacoes = @funcionario.lotacoes.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 200
-    @processos = @funcionario.processos.order("created_at ASC, processo ASC")
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @lotacaos }
-    end
-  end
+def index
+  @lotacaos = Lotacao.all
+  @lotacao = Lotacao.new
+  @lotacao_aberta = @funcionario.lotacoes.em_aberto.find :all,:conditions=>['funcionario_id=?',@funcionario.id]
+  @lotacoes = @funcionario.lotacoes.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 200
+  @processos = @funcionario.processos.order("created_at ASC, processo ASC")
+  respond_to do |format|
+format.html # index.html.erb
+format.xml  { render :xml => @lotacaos }
+end
+end
 
-  def gerar_relatorio
-    @responsavel = User.usuario_atual
-    render :layout=>"facebox"  
-  end
+def gerar_relatorio
+  @responsavel = User.usuario_atual
+  render :layout=>"facebox"  
+end
 
-  def gerar_arquivo
-    @inicio = Date.civil(params[:relatorio]["inicio(1i)"].to_i,
-     params[:relatorio]["inicio(2i)"].to_i,
-     params[:relatorio]["inicio(3i)"].to_i)
-    @fim = Date.civil(params[:relatorio]["fim(1i)"].to_i,
-     params[:relatorio]["fim(2i)"].to_i,
-     params[:relatorio]["fim(3i)"].to_i)
-    relatorio(@inicio.to_date,@fim.to_date)
-  end
+def gerar_arquivo
+  @inicio = Date.civil(params[:relatorio]["inicio(1i)"].to_i,
+    params[:relatorio]["inicio(2i)"].to_i,
+    params[:relatorio]["inicio(3i)"].to_i)
+  @fim = Date.civil(params[:relatorio]["fim(1i)"].to_i,
+    params[:relatorio]["fim(2i)"].to_i,
+    params[:relatorio]["fim(3i)"].to_i)
+  relatorio(@inicio.to_date,@fim.to_date)
+end
 
-  def regencia
-   if params[:tipo_lotacao].nil?
-     render :partial=>"prolabore"
-   else
+def regencia
+  if params[:tipo_lotacao].nil?
+    render :partial=>"prolabore"
+  else
     render :partial=>"regular"
   end
 end
 
 def complementar_esp
- if params[:esp]=='ESPECIAL' or params[:esp]=='SUMARIA ESPECIAL'
-   render :partial=>"complementar_desabilitado"
- else
-   render :partial=>"complementar_habilitado"
- end
+  if params[:esp]=='ESPECIAL' or params[:esp]=='SUMARIA ESPECIAL'
+    render :partial=>"complementar_desabilitado"
+  else
+    render :partial=>"complementar_habilitado"
+  end
 end
 
 def sumesp
- if params[:tp_lotacao]=='SUMARIA ESPECIAL'
-   render :partial=>"esfera"
- else
-  render :partial=>"orgao_regular"
-end
+  if params[:tp_lotacao]=='SUMARIA ESPECIAL'
+    render :partial=>"esfera"
+  else
+    render :partial=>"orgao_regular"
+  end
 end
 
 def complementar
- if params[:complemento]=='1'
-   render :partial=>"prolabore"
- else
-  render :partial=>"regular"
-end
+  if params[:complemento]=='1'
+    render :partial=>"prolabore"
+  else
+    render :partial=>"regular"
+  end
 end
 
 def lotacao_especial
- if params[:tp_lotacao]=='ESPECIAL'
-   render :partial=>"esfera"
- else
-  render :partial=>"orgao_regular"
-end
+  if params[:tp_lotacao]=='ESPECIAL'
+    render :partial=>"esfera"
+  else
+    render :partial=>"orgao_regular"
+  end
 end
 
 def destino
- if params[:esfera].size>0
-   @esfera = Esfera.find(params[:esfera])
-   @orgaos_esfera = @esfera.orgaos.all.collect{|o|[o.nome,o.id]}
-   render :partial=>"destino"
- else
-   render :partial=>"destino_nulo"
- end
+  if params[:esfera].size>0
+    @esfera = Esfera.find(params[:esfera])
+    @orgaos_esfera = @esfera.orgaos.all.collect{|o|[o.nome,o.id]}
+    render :partial=>"destino"
+  else
+    render :partial=>"destino_nulo"
+  end
 end
 
 
 
 def tipo_destino
- if params[:orgao].size>0
-   @orgao = Orgao.find(params[:orgao])
-   @esfera = Esfera.find(@orgao.esfera_id)
-   @tipos_destino = TipoDestino.all.collect{|e|[e.nome,e.id]}
-   if @orgao.departamentos.size>0
-    render :partial=>"tipo_destino"
+  if params[:orgao].size>0
+    @orgao = Orgao.find(params[:orgao])
+    @esfera = Esfera.find(@orgao.esfera_id)
+    @tipos_destino = TipoDestino.all.collect{|e|[e.nome,e.id]}
+    if @orgao.departamentos.size>0
+      render :partial=>"tipo_destino"
+    else
+      render :partial=>"destino_nulo"
+    end
   else
-   render :partial=>"destino_nulo"
- end
-else
-  render :partial=>"destino_nulo"
-end
+    render :partial=>"destino_nulo"
+  end
 end
 
 def escolas_destino
- if params[:tipo_destino].size>0
-  @orgao = Orgao.find(params[:orgao_id])
-  @tipo = TipoDestino.find(params[:tipo_destino])
-  @escolas_lot_especial = @orgao.escolas.order(:nome_da_escola).collect{|e|[e.nome_da_escola,e.id]}
-  @departamentos = @orgao.departamentos.order(:nome).collect{|e|[e.nome,e.id]}
-  case @tipo.nome
-  when 'Escola' then
-    if @escolas_lot_especial.size==0
-     render :partial=>"destino_nulo"
-   else
-     render :partial=>"escolas"
-   end
- when 'Departamento' then
-   render :partial=>"departamentos"
- end
+  if params[:tipo_destino].size>0
+    @orgao = Orgao.find(params[:orgao_id])
+    @tipo = TipoDestino.find(params[:tipo_destino])
+    @escolas_lot_especial = @orgao.escolas.order(:nome_da_escola).collect{|e|[e.nome_da_escola,e.id]}
+    @departamentos = @orgao.departamentos.order(:nome).collect{|e|[e.nome,e.id]}
+    case @tipo.nome
+    when 'Escola' then
+      if @escolas_lot_especial.size==0
+        render :partial=>"destino_nulo"
+      else
+        render :partial=>"escolas"
+      end
+    when 'Departamento' then
+      render :partial=>"departamentos"
+    end
 
-else
- render :partial=>"destino_nulo"
-end
+  else
+    render :partial=>"destino_nulo"
+  end
 end
 
 
@@ -129,9 +129,9 @@ def show
   @lotacao = Lotacao.find(params[:id])
 
   respond_to do |format|
-    format.html # show.html.erb
-    format.xml  { render :xml => @lotacao }
-  end
+format.html # show.html.erb
+format.xml  { render :xml => @lotacao }
+end
 end
 
 
@@ -177,9 +177,9 @@ def tipo_especificacao
   @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
   @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
   @tipo = params[:tipo]
+  @ambientes = @escola.ambientes.find(:all,:conditions=>["nome not like ?",@ambiente.nome],:order=>"nome asc").collect{|a|[a.nome,a.id]}
   render :partial=>"tipo_especificacao"
 end
-
 
 def salvar_confirmacao
   @funcionario = Funcionario.find(params[:funcionario_id])
@@ -190,8 +190,8 @@ def salvar_confirmacao
     @lotacao.confirma_lotacao
     redirect_to pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :notice => 'Confirmação de Lotação Efetuada.'
   else
-   redirect_to  pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :alert => 'Confirmação de Lotação não executada, código incorreto.'
- end
+    redirect_to  pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :alert => 'Confirmação de Lotação não executada, código incorreto.'
+  end
 
 end
 
@@ -200,20 +200,22 @@ def salvar_especificacao
   @pessoa = @funcionario.pessoa
   @lotacao = Lotacao.find(params[:lotacao_id])
   @tipo=params[:especificar_lotacao][:tipo]
-  if @tipo!="SALA AMBIENTE"
+  if @tipo!="Sala Ambiente"
     @turma = Turma.find(params[:especificar_lotacao][:turma_id])
     @serie = @turma.serie
     @disciplina = @serie.disciplinas.find(params[:especificar_lotacao][:disciplina_id])
     @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
+  else
+    @ambiente = Ambiente.find(params[:especificar_lotacao][:ambiente_id])
   end
   @escola = @lotacao.escola
   respond_to do |format|
-    if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo)
-     format.html { redirect_to("#{pessoa_funcionario_lotacoes_path(@pessoa,@funcionario)}#tab-tres", :notice => "O Funcionário foi especificados com sucesso.") }
-   else
-     format.html { redirect_to (:back, :alert => "A lotação não pode ser especificada.") }
-   end
- end
+    if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo,@ambiente)
+      format.html { redirect_to(:back, :notice => "O Funcionário foi especificado com sucesso.") }
+    else
+      format.html { redirect_to(:back, :alert => "A lotação não pode ser especificada.") }
+    end
+  end
 
 end
 
@@ -282,9 +284,9 @@ def cancelar_lotacao
 end
 
 def convalidar
- @lotacao_aberta = Lotacao.em_aberto.a_convalidar.find :all
- respond_to do |format|
-  format.html # index.html.erb
+  @lotacao_aberta = Lotacao.em_aberto.a_convalidar.find :all
+  respond_to do |format|
+format.html # index.html.erb
 end
 end
 
@@ -295,9 +297,9 @@ def new
   @lotacao = Lotacao.new
   @lotacao_aberta = Lotacao.em_aberto.last
   respond_to do |format|
-    format.html # new.html.erb
-    format.xml  { render :xml => @lotacao }
-  end
+format.html # new.html.erb
+format.xml  { render :xml => @lotacao }
+end
 end
 
 # GET /lotacaos/1/edit
@@ -311,36 +313,36 @@ def create
   @lotacao = Lotacao.new(params[:lotacao])
   if params[:lotacao][:tipo_destino_id].nil? and params[:lotacao][:orgao_id].nil?
     if params[:escola][:nome_da_escola]
-     @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
-     @lotacao.escola_id = @escola.id
-   end
- elsif !params[:lotacao][:tipo_destino_id].nil? and params[:escola].nil?
-  if params[:departamento][:nome]
-   @departamento = Departamento.find_by_nome(params[:departamento][:nome])
-   @lotacao.departamento_id = @departamento.id
- end
-elsif !params[:lotacao][:tipo_destino_id].nil? and !params[:escola].nil?
-  if params[:escola][:nome_da_escola]
-   @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
-   @lotacao.escola_id = @escola.id
- end
-end
-respond_to do |format|
-  if @lotacao.save
-    format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.
-      Destino: #{dest(@lotacao)}") }
-    format.xml  { render :xml => @lotacao, :status => :created, :location => @lotacao }
-  else
-    html="<ul>"
-    @lotacao.errors.each do |atributo,msg|
-      html+="<li>#{msg}</li>"
+      @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
+      @lotacao.escola_id = @escola.id
     end
-    html+="</ul>"
-
-    format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :alert => "Lotação não Efetuada, Motivos: #{html}") }
-    format.xml  { render :xml => @lotacao.errors, :status => :unprocessable_entity }
+  elsif !params[:lotacao][:tipo_destino_id].nil? and params[:escola].nil?
+    if params[:departamento][:nome]
+      @departamento = Departamento.find_by_nome(params[:departamento][:nome])
+      @lotacao.departamento_id = @departamento.id
+    end
+  elsif !params[:lotacao][:tipo_destino_id].nil? and !params[:escola].nil?
+    if params[:escola][:nome_da_escola]
+      @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
+      @lotacao.escola_id = @escola.id
+    end
   end
-end
+  respond_to do |format|
+    if @lotacao.save
+      format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.
+        Destino: #{dest(@lotacao)}") }
+      format.xml  { render :xml => @lotacao, :status => :created, :location => @lotacao }
+    else
+      html="<ul>"
+      @lotacao.errors.each do |atributo,msg|
+        html+="<li>#{msg}</li>"
+      end
+      html+="</ul>"
+
+      format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :alert => "Lotação não Efetuada, Motivos: #{html}") }
+      format.xml  { render :xml => @lotacao.errors, :status => :unprocessable_entity }
+    end
+  end
 end
 
 # PUT /lotacaos/1
@@ -370,12 +372,12 @@ def fator_lotacao
   @turma = Turma.find params[:turma_id]
   @escola = @turma.escola
   @serie = @turma.serie
-  @lotacao = Lotacao.find(params[:lotaco_id])
+  @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
   if !params[:disciplina_id].blank?
-  @disciplina = @serie.disciplinas.find(params[:disciplina_id])
-  @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
-  @fator = @disciplina.pode_especificar?(@turma)
-  @fator_n = @disciplina.fator(@turma)
+    @disciplina = @serie.disciplinas.find(params[:disciplina_id])
+    @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
+    @fator = @disciplina.pode_especificar?(@turma)
+    @fator_n = @disciplina.fator(@turma)
     if @fator
       if (@funcionario.rsd - @fator_n) >=0
        @motivo="Regência Semanal compatível"
@@ -387,8 +389,8 @@ def fator_lotacao
    else
     @motivo="Não há carencia para a disciplina nesta turma."
     render :partial=>"nao_pode_especificar"
-   end
- else 
+  end
+else 
   render :nothing=>true
 end
 end
@@ -398,15 +400,26 @@ end
 def fator_lotacao_fisico
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.find(params[:lotacao_id])
-  @lotacao.escola
-  if @funcionario.regencia_semanal_nominal_sobra>0
-   @motivo="Regência Semanal Compatível"
-   render :partial=>"fator_lotacao"
- else
-   @motivo="Regência Semanal Incompatível"
-   render :partial=>"nao_pode_especificar"
- end
+  @escola = @lotacao.escola
+  if !params[:ambiente].blank?
+    @ambiente = Ambiente.find(params[:ambiente])
+    if @ambiente.fator_ambiente(@funcionario)[0]==true
+      @motivo="Regência Semanal Compatível"
+      render :partial=>"fator_lotacao_fisico"
+    elsif @ambiente.fator_ambiente(@funcionario)[0]==false
+      @motivo="Não há carência de professores neste ambiente."
+      render :partial=>"nao_pode_especificar_fisico"
+    else
+      @motivo="Regência semanal incompatível."
+      render :partial=>"nao_pode_especificar_fisico"
+    end
+  else
+    render :nothing=>true
+  end
 end
+
+
+
 
 
 
@@ -425,21 +438,21 @@ end
 private
 
 def relatorio(inicio,fim)
- @lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
- relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
-   r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
-    t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
-    t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
-    t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
-    t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
-    t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
-    t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
-    t.add_column(:user) {|l| "#{l.usuario}"}
-    t.add_column(:lotacao) {|l| "#{dest(l)}"}
+  @lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
+  relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
+    r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
+      t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
+      t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
+      t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
+      t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
+      t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
+      t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
+      t.add_column(:user) {|l| "#{l.usuario}"}
+      t.add_column(:lotacao) {|l| "#{dest(l)}"}
+    end
   end
-end
 
-send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
+  send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
 end
 
 def funcionario
@@ -449,33 +462,34 @@ def funcionario
 end
 
 def dest(lotacao)
- if lotacao
-   if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-    return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-    return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
-    return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
-    return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-    return "#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-    return "#{lotacao.orgao.sigla}"
-  elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
-    return "#{lotacao.escola.nome_da_escola}"
-  elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
-    return "#{lotacao.escola.nome_da_escola}/#{lotacao.ambiente.nome}"
-  elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome=="Sala de Aula"
-    return "#{lotacao.escola.nome_da_escola}"
-  elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
-    return "LOTAÇÃO INVÁLIDA"
+  if lotacao
+    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
+      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
+      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
+      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+      return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+      return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
+      return "#{lotacao.escola.nome_da_escola}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
+      return "#{lotacao.escola.nome_da_escola}/#{lotacao.ambiente.nome}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome=="Sala de Aula"
+      return "#{lotacao.escola.nome_da_escola}"
+    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
+      return "LOTAÇÃO INVÁLIDA"
+    end
   end
 end
-end
+
 end
 

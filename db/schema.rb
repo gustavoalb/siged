@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503162421) do
+ActiveRecord::Schema.define(:version => 20120503162424) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -79,6 +79,11 @@ ActiveRecord::Schema.define(:version => 20120503162421) do
 
   add_index "ambientes", ["setting_id"], :name => "index_ambientes_on_setting_id"
   add_index "ambientes", ["tipo_ambiente_id"], :name => "index_ambientes_on_tipo_ambiente_id"
+
+  create_table "ambientes_turnos", :id => false, :force => true do |t|
+    t.integer "turno_id"
+    t.integer "ambiente_id"
+  end
 
   create_table "ano_letivos", :force => true do |t|
     t.integer  "escola_id"
@@ -391,6 +396,7 @@ ActiveRecord::Schema.define(:version => 20120503162421) do
     t.integer  "lotacao_id"
     t.integer  "entidade_id"
     t.string   "tipo"
+    t.integer  "ambiente_id"
   end
 
   add_index "especificar_lotacaos", ["funcionario_id"], :name => "index_especificar_lotacaos_on_funcionario_id"
@@ -1203,6 +1209,12 @@ ActiveRecord::Schema.define(:version => 20120503162421) do
   add_index "turmas", ["escola_id"], :name => "index_turmas_on_escola_id"
   add_index "turmas", ["matriz_id"], :name => "index_turmas_on_matrize_id"
   add_index "turmas", ["serie_id"], :name => "index_turmas_on_serie_id"
+
+  create_table "turnos", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
