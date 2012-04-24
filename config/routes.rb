@@ -1,4 +1,6 @@
 Siged20::Application.routes.draw do
+  get "home/index"
+
   resources :niveis_ensinos do
     resources :series
   end
@@ -143,7 +145,6 @@ namespace :folha do resources :eventos end
 
   resources :formacoes
   get 'lotacoes/convalidar'
-  get 'lotacoes/relatorio'
   get 'lotacoes/gerar_relatorio'
   get 'lotacoes/gerar_arquivo'
   resources :lotacoes

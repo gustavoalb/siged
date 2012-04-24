@@ -152,9 +152,9 @@ def carta
       render :pdf =>"#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}",
       :layout => "pdf", # OPTIONAL
       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-      :margin => {:top=> 0,:bottom=> 35},
+      :margin => {:top=> 10,:left=>10,:right=>10,:bottom=> 10},
       :footer=>{:html =>{:template => 'shared/lotacao_footer.pdf.erb'}},
-      :zoom => 0.8 ,
+      :zoom => 1 ,
       :orientation => 'Portrait'
   #  end
     # @carta = Carta.create(:funcionario_id=>@funcionario.id, :lotacao_id=>@lotacao.id, :carta_file_name=> "#{filename}.pdf")
@@ -251,17 +251,17 @@ def update
 end
 
 def relatorio_por_disciplina
-     @funcionarios = Funcionario.disciplina_def
-     relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/disciplinas.odt") do |r|
-     r.add_table("FUNCIONARIOS", @funcionarios, :header=>true) do |t|
-      t.add_column(:nome) {|f| "#{f.pessoa.nome}"}
-      t.add_column(:cat) {|f| "#{f.categoria.sigla}"}
-      t.add_column(:cargo) {|f| "#{cargo_resumido(f)}"}
-      t.add_column(:localizacao) {|f| "#{dest(f.lotacoes.atual.first,f)}"}
-    end
+  @funcionarios = Funcionario.disciplina_def.find(:all,:joins=>[:disciplina_contratacao,:lotacoes],:order=>("descricao_cargos.nome asc"))
+  relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/disciplinas.odt") do |r|
+   r.add_table("FUNCIONARIOS", @funcionarios, :header=>true) do |t|
+    t.add_column(:nome) {|f| "#{f.pessoa.nome}"}
+    t.add_column(:cat) {|f| "#{f.categoria.sigla}"}
+    t.add_column(:cargo) {|f| "#{cargo_resumido(f)}"}
+    t.add_column(:localizacao) {|f| "#{dest(f.lotacoes.atual.first,f)}"}
   end
+end
 
-  send_file(relatorio.generate,:filename=>"Relatório de funcionários por disciplina.odt")
+send_file(relatorio.generate,:filename=>"Relatório de funcionários por disciplina.odt")
 end
 
 # DELETE /funcionarios/1

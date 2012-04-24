@@ -1,0 +1,11 @@
+<article class="module width_3_quarter">
+<header><h3>SIGED 2.5</h3></header>
+<div class="module_content">
+
+<%if current_user.role?('chefia_cebep')%>	
+<%=render :partial=>'disciplinas'%>
+<%end%>
+</div>
+<footer>
+    </footer>
+</article>

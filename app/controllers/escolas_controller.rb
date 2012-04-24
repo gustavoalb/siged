@@ -18,10 +18,14 @@ end
 # GET /escolas/1
 # GET /escolas/1.xml
 def show
-  @escola = Escola.find(params[:id])
+  @escola = Escola.find_by_slug(params[:id])
   @funcionarios = @escola.funcionarios
+  if !@escola.ambientes.none?
   @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
   @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
+  else
+  @turmas = Turma.find_all_by_escola_id(@escola.id)
+end
   respond_to do |format|
 format.html # show.html.erb
 format.xml  { render :xml => @escola }
