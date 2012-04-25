@@ -211,9 +211,9 @@ def salvar_especificacao
   @escola = @lotacao.escola
   respond_to do |format|
     if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo,@ambiente)
-      format.html { redirect_to(:back, :notice => "O Funcionário foi especificado com sucesso.") }
+      format.html { redirect_to("#{escola_path(@lotacao.escola)}#tab-dois",:notice => "O Funcionário foi especificado com sucesso.") }
     else
-      format.html { redirect_to(:back, :alert => "A lotação não pode ser especificada.") }
+      format.html { redirect_to("#{escola_path(@lotacao.escola)}#tab-dois", :alert => "A lotação não pode ser especificada.") }
     end
   end
 
@@ -223,7 +223,6 @@ end
 def salvar_cancelamento
 
   @funcionario = Funcionario.find(params[:funcionario_id])
-  motivo=params[:motivo]
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
   @lotacao.cancela_lotacao(motivo)
   if params[:cancelar][:cancelar]=="true"
@@ -236,7 +235,6 @@ end
 
 def salvar_devolucao
   @funcionario = Funcionario.find(params[:funcionario_id])
-  motivo=params[:motivo]
   @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
   @lotacao.devolve_funcionario(motivo)
   redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
@@ -311,21 +309,19 @@ end
 # POST /lotacaos.xml
 def create
   @lotacao = Lotacao.new(params[:lotacao])
-  if params[:lotacao][:tipo_destino_id].nil? and params[:lotacao][:orgao_id].nil?
-    if params[:escola][:nome_da_escola]
+  if params[:lotacao][:tipo_destino_id].blank? and params[:lotacao][:orgao_id].blank?
+    if !params[:escola].blank?
       @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
       @lotacao.escola_id = @escola.id
     end
-  elsif !params[:lotacao][:tipo_destino_id].nil? and params[:escola].nil?
-    if params[:departamento][:nome]
+  elsif !params[:lotacao][:tipo_destino_id].blank? and params[:escola].blank?
+    if params[:departamento].blank?
       @departamento = Departamento.find_by_nome(params[:departamento][:nome])
       @lotacao.departamento_id = @departamento.id
     end
-  elsif !params[:lotacao][:tipo_destino_id].nil? and !params[:escola].nil?
-    if params[:escola][:nome_da_escola]
+  elsif !params[:lotacao][:tipo_destino_id].blank? and !params[:escola].blank?
       @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
       @lotacao.escola_id = @escola.id
-    end
   end
   respond_to do |format|
     if @lotacao.save
@@ -435,6 +431,17 @@ def destroy
     format.xml  { head :ok }
   end
 end
+
+def apagar_especificacao
+  @lotacao = Lotacao.find(params[:lotacao_id])
+  @especificacao = @lotacao.especificacoes.find(params[:especificacao_id])
+  @especificacao.destroy
+  respond_to do |format|
+    format.html { redirect_to("#{escola_path(@lotacao.escola)}#tab-tres",:notice => 'Especificação de lotação desfeita com sucesso.') }
+    format.xml  { head :ok }
+  end
+end
+
 private
 
 def relatorio(inicio,fim)

@@ -2,7 +2,7 @@
 <thead>
 <tr>
 <th>Turno</th>
-<th>Ambiente</th>
+<th>Nome</th>
 <th>Série</th>
 <th>Matriz Curricular</th>
 </tr>
@@ -11,7 +11,7 @@
 <%@ambientes_fisicos.each do |t|%>
 <tr>
 <td><%=t.turno%></td>
-<td><%=t.ambiente.nome%></td>
+<td><%=t.nome%></td>
 <td><%=t.matriz.codigo%></td>
 </tr>
 <%end%>

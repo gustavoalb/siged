@@ -1,0 +1,43 @@
+.AccordionTitle, .AccordionContent, .AccordionContainer
+{
+  position:relative;
+  width:100%;
+}
+
+.AccordionTitle
+{
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+  cursor:pointer;
+  vertical-align:middle;
+  text-align:center;
+  border-top:#f0f0f0 1px solid;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration:none;
+  text-transform:uppercase;
+  color: #000;
+  background: #cccccc;
+  /* CSS3 Gradient Effect */
+  background: -moz-linear-gradient( top, #999999, #cccccc);
+  background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#cccccc));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99999999, endColorstr=#cccccccc); /* IE 7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99999999, endColorstr=#cccccccc)";   /* IE 8 */
+  -moz-user-select:none;
+}
+
+.AccordionContent
+{
+  height:0px;
+  overflow:auto;
+  display:none;
+}
+
+.AccordionContainer
+{
+  border-top: solid 1px #C1C1C1;
+  border-bottom: solid 1px #C1C1C1;
+  border-left: solid 2px #C1C1C1;
+  border-right: solid 2px #C1C1C1;
+}

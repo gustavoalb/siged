@@ -104,6 +104,13 @@ Event.observe(window, 'load', function() {
     <td><div id="reg"><%= f.check_box :regencia_de_classe %></div></td>
   </tr>
   <%end%>
+  <div id="motivo">
+<tr VALIGN=TOP>
+  <td><b><%= label_tag "Observação/Motivo" %></b></td>
+  <td><%= text_area :lotacao,:motivo,:placeholder => 'Justifique esta lotação',:size=>"47x4"%></td>
+</tr>
+</div>
+
 
   <%=observe_field :lotacao_tipo_lotacao_especial, :url => "/lotacoes/complementar_esp/",
   :frequency => 0.25,
@@ -174,7 +181,6 @@ Event.observe(window, 'load', function() {
     </thead>
     <tbody>
 
-      <%if @lotacao_aberta%>
       <%@lotacao_aberta.each do |lotacao_aberta|%>
       <tr>
         <td><%= lotacao_aberta.tipo_lotacao.titleize %></td>
@@ -188,8 +194,6 @@ Event.observe(window, 'load', function() {
         <td><%= link_to  image_tag('/images/icn_deletar.png',:title=>"Cancelar Lotação"), pessoa_funcionario_lotacao_cancelar_lotacao_path(lotacao_aberta.funcionario.pessoa_id,lotacao_aberta.funcionario_id,lotacao_aberta.id,:convalidar=>false),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
       </tr>
       <%end%>
-      <%end%>
-
     </tbody>
   </table>
 </div>
@@ -226,9 +230,6 @@ Event.observe(window, 'load', function() {
         <td><%=status_lotacao(l.status.last.status)%></td>
         <%if l.status.last.status=="LOTADO"%>
         <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(@pessoa,@funcionario,l.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
-        <%if l.tipo_lotacao=="REGULAR" or l.tipo_lotacao=="SUMARIA" or l.tipo_lotacao=="PROLABORE"%>
-        <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(@pessoa,@funcionario,l.id,@escola),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
-        <%end%>
         <%end%>
       </tr>
       <%end%>

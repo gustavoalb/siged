@@ -1,10 +1,12 @@
-<article class="module width_3_quarter">
+<article class="module width_full">
 <header><h3>SIGED 2.5</h3></header>
 <div class="module_content">
 
-<%if current_user.role?('chefia_cebep')%>	
+<div id="AccordionContainer" class="AccordionContainer">
 <%=render :partial=>'disciplinas'%>
-<%end%>
+<%=render :partial=>'categorias'%>
+
+</div>
 </div>
 <footer>
     </footer>

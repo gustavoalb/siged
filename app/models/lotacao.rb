@@ -17,7 +17,7 @@ class Lotacao < ActiveRecord::Base
   has_many :todos_processos,:class_name=>"Processo"
   has_many :status,:class_name=>"Status",:through=>:processos,:source=>"status"
   belongs_to :departamento
-  #has_one :especificacao,:class_name=>"EspecificarLotacao",:dependent => :nullify
+  has_many :especificacoes,:class_name=>"EspecificarLotacao",:dependent => :destroy
   belongs_to :ambiente
   scope :em_aberto, where("finalizada = ?",false)
   scope :finalizada, where("finalizada = ?",true)
@@ -37,6 +37,11 @@ class Lotacao < ActiveRecord::Base
 
   after_create :lotacao_regular
   before_create :data
+  validate do |lotacao|
+    if self.tipo_lotacao=="ESPECIAL" or self.tipo_lotacao=="SUMARIA ESPECIAL" and self.motivo.blank?
+      lotacao.errors.add_to_base("Lotações tendo um departamento como destino necessitam de um motivo.")
+    end
+  end
 
 
 
@@ -70,7 +75,7 @@ end
 
 
 
-def cancela_lotacao(motivo)
+def cancela_lotacao(motivo=self.motivo)
  proc = self.processos.em_aberto.encaminhado.last
  proc2 = proc.clone
  proc2.data_finalizado = Time.now
@@ -92,7 +97,7 @@ end
 
 end
 
-def devolve_funcionario(motivo)
+def devolve_funcionario(motivo=self.motivo)
  proc = self.processos.finalizado.last
  proc2 = proc.clone
  proc2.data_finalizado = Time.now
@@ -194,6 +199,7 @@ def lotacao_regular
  processo.regencia_classe=self.regencia_de_classe
  processo.encaminhado_em=Date.today
  processo.lotacao_id=self.id
+ processo.observacao = self.motivo
  if processo.save!
   num=processo.id
   cod=Num.new

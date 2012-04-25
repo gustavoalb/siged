@@ -69,6 +69,3 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff454545, endColorstr=#ff000000)";
 } */
 
-.verticalaccordion>ul>li>h3:hover {
-    cursor:pointer;
-}

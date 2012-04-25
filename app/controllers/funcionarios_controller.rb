@@ -152,9 +152,9 @@ def carta
       render :pdf =>"#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}",
       :layout => "pdf", # OPTIONAL
       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-      :margin => {:top=> 10,:left=>10,:right=>10,:bottom=> 10},
+      :margin=>{:top=>5,:left=>5,:right=>5,:bottom=>40},
       :footer=>{:html =>{:template => 'shared/lotacao_footer.pdf.erb'}},
-      :zoom => 1 ,
+      :zoom => 0.8 ,
       :orientation => 'Portrait'
   #  end
     # @carta = Carta.create(:funcionario_id=>@funcionario.id, :lotacao_id=>@lotacao.id, :carta_file_name=> "#{filename}.pdf")

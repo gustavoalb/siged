@@ -27,8 +27,7 @@
   <tr>
     <td><%= ambiente.nome %></td>
     <td><%= detalhes(ambiente.tipo_ambiente) %></td>
-    <td><%= ambiente.ativo %></td>
-    <td><%= ambiente.ano_letivo %></td>
+    <td><%= sim_nao(ambiente.ativo) %></td>
     <td><%= link_to 'Detalhes', escola_ambiente_path(@escola,ambiente)%></td>
     <td><%= link_to 'Configurar Ambiente', escola_ambiente_configurar_ambiente_path(@escola,ambiente)%></td>
     <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_escola_ambiente_path(@escola,ambiente) %></td>

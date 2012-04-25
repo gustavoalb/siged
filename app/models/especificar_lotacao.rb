@@ -6,6 +6,8 @@ class EspecificarLotacao < ActiveRecord::Base
 	belongs_to :turma
 	belongs_to :disciplina
 	belongs_to :ambiente
+	belongs_to :lotacao
+	has_one :fator_lotacao,:class_name=>"FatorLotacao",:dependent=>:destroy
 	scope :da_escola,lambda{|escola| where("escola_id=?",escola)}
 	scope :do_ambiente,lambda{|amb| where("ambiente_id=?",amb)}
 	scope :da_turma,lambda{|turma| where("especificar_lotacaos.turma_id=?",turma)}

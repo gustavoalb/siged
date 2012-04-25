@@ -2,7 +2,7 @@
 <thead>
 <tr>
 <th>Turno</th>
-<th>Ambiente</th>
+<th>Nome</th>
 <th>Série</th>
 <th>Matriz Curricular</th>
 <th>Ações</th>
@@ -12,7 +12,7 @@
 <%@turmas.each do |t|%>
 <tr>
 <td><%=t.turno%></td>
-<td><%=t.ambiente.nome%></td>
+<td><%=t.nome%></td>
 <td><%=t.serie.nome%></td>
 <td><%=cod(t.matriz)%></td>
 <td><%=link_to "Remover Turma", escola_ambiente_excluir_turma_path(@escola,@ambiente,:turma_id=>t.id),:confirm=>"Tem certeza que deseja remover a turma",:remote=>true%></td>

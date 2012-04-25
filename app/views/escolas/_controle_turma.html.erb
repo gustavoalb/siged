@@ -20,6 +20,7 @@
                <td><%= detalhes(e.disciplina)%></td>
                <td title='<%=turmas(e.funcionario)%>'><%= cor_rsd(e.funcionario)%></td>
                <td><%= carencia(e.hora_semanal)%></td>
+               <td><%= link_to "Desfazer especificação", pessoa_funcionario_lotacao_apagar_especificacao_path(e.funcionario.pessoa, e.funcionario, e.lotacao, :especificacao_id=>e.id,:turma=>e.turma.nome), :confirm=>"Tem certeza?" %></td>
              </tr>
              <% end %>
            </tbody>

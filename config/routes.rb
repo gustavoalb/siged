@@ -221,6 +221,7 @@ end
     post "salvar_devolucao"
     post "salvar_convalidacao"
     post "salvar_especificacao"
+    get  "apagar_especificacao"
     resources :pontos do
       get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
       get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'

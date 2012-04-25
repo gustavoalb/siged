@@ -19,7 +19,7 @@ end
 # GET /escolas/1.xml
 def show
   @escola = Escola.find_by_slug(params[:id])
-  @funcionarios = @escola.funcionarios
+  @funcionarios = @escola.funcionarios.joins(:lotacoes_atuais)
   if !@escola.ambientes.none?
   @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
   @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
@@ -112,20 +112,5 @@ def destroy
     format.xml  { head :ok }
   end
 end
-def funcionarios
-  @funcionarios= Funcionario.order(:matricula).collect{|f|[f.pessoa.nome,f.id]}
-end
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

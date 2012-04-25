@@ -1,0 +1,31 @@
+<div class="AccordionTitle" onclick="runAccordion(2);" onselectstart="return false;">
+	<h2 style="font-color: black;">Estatísticas - Funcionários por categoria</h2>
+  </div>
+  <div id="Accordion2Content" class="AccordionContent">
+<table border=1 WIDTH='100%'>
+	<thead>
+		<tr>
+			<th>Categoria</th>
+			<th>Qnt.</th>
+			<th>%</th>
+			<th WIDTH=1%>Lotados</th>
+			<th>%</th>
+			<th WIDTH=1%>Especificados</th>
+			<th>%</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@categorias.each do |c|%>
+		<tr>
+			<td><%=c.nome%></td>
+			<td ALIGN=CENTER><%=c.funcionarios.count%></td>
+			<td ALIGN=CENTER><%=(c.funcionarios.count*100)/Funcionario.count%></td>
+			<td ALIGN=CENTER><%=c.funcionarios.find(:all,:joins=>[:lotacoes_atuais]).count%></td>
+			<td ALIGN=CENTER><%=(c.funcionarios.find(:all,:joins=>[:lotacoes_atuais]).count*100)/c.funcionarios.count%></td>
+			<td ALIGN=CENTER><%=c.funcionarios.find(:all,:joins=>[:especificacoes]).count%></td>
+			<td ALIGN=CENTER><%=(c.funcionarios.find(:all,:joins=>[:especificacoes]).count*100)/c.funcionarios.count%></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+</div>
