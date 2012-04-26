@@ -89,9 +89,6 @@ Event.observe(window, 'load', function() {
               </tr>
 
 
-
-
-  <!--
   <%if !@funcionario.lotacoes.atual.none?%>
   <tr>
 
@@ -99,7 +96,7 @@ Event.observe(window, 'load', function() {
   <td><div id="comp"><%= f.check_box :complementar %></div></td>
 
   </tr>
-  <%end%>-->
+  <%end%>
 
   <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência'%>
   <tr>

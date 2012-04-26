@@ -22,7 +22,7 @@ class Lotacao < ActiveRecord::Base
   scope :em_aberto, where("finalizada = ?",false)
   scope :finalizada, where("finalizada = ?",true)
   scope :atual,where("finalizada = ? and ativo = ? and complementar = ?",true,true,false)
-  scope :complementares,where("complementar = ?",true)
+  scope :complementares,where("finalizada = ? and ativo = ? and complementar = ?",true,true,true)
   scope :ativo, where("ativo = ?",true)
   scope :inativa, where("ativo = ?",false)
   scope :confirmada_fechada, where("finalizada = ? and ativo=?",true,true)
@@ -225,7 +225,7 @@ def lotacao_regular
     status.status="ENCAMINHADO"
   end
   if self.complementar==false
-    lotacoes = Lotacao.ativo.find :all,:conditions=>["funcionario_id = ? and id<>?",self.funcionario_id,self.id]
+    lotacoes = Lotacao.atual.find :all,:conditions=>["funcionario_id = ? and id<>?",self.funcionario_id,self.id]
     lotacoes.each do |l|
       l.ativo = false
       l.save
