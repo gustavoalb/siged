@@ -55,7 +55,7 @@
             <h2 align=center>Disciplinas da <%=s.nome%></h2><b>
 
             <fieldset style='border: 1px solid #CCCCCC; background: none; width: 80%; align: right; margin-left: 10.5%;'>
-              <%for c in s.curriculos.da_matriz(@matriz)%>
+              <%for c in s.curriculos.da_matriz(@matriz).joins(:disciplina).order("grupo asc","horas_semanal desc")%>
 
               <%=form_for c,:url=>matriz_curriculo_url(@matriz,c),:method=>:post,:remote=>true do |f|%>
 
