@@ -171,6 +171,16 @@ elsif user.role? :recad
  cannot :destroy,Pessoa
  can :manage,Lotacao
 
+ 
+  elsif user.role? :revisao_carga_horaria
+   can :manage,Funcionario
+   cannot :destroy,Funcionario
+   can :manage,Pessoa
+   cannot :destroy,Pessoa
+   can :manage,Lotacao
+   cannot :destroy,Lotacao
+
+
 else
   can :read, Pessoa
   can :qualificar,Pessoa

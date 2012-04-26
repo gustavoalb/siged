@@ -64,8 +64,11 @@ Event.observe(window, 'load', function() {
 
             <tr>
               <td><b><label>Tipo de Lotação</label></b></td>
-              <td><%if current_user.role?("recad")==false%>
-                <%= f.radio_button :tipo_lotacao,"REGULAR" %>Regular&nbsp;&nbsp;&nbsp;<%= f.radio_button :tipo_lotacao,"ESPECIAL" %>Especial &nbsp;&nbsp;&nbsp; <%end%><%= f.radio_button :tipo_lotacao,"SUMARIA",:checked => true %>Sumária &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA ESPECIAL" %>Sumária - Especial</td>
+              <%if current_user.role?("ucolom")==true%>
+              <td><%= f.radio_button :tipo_lotacao,"REGULAR" %>Regular&nbsp;&nbsp;&nbsp;<%= f.radio_button :tipo_lotacao,"ESPECIAL" %>Especial &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA",:checked => true %>Sumária &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA ESPECIAL" %>Sumária - Especial</td>
+              <%else%>
+               <td><%= f.radio_button :tipo_lotacao,"SUMARIA",:checked => true %>Sumária &nbsp;&nbsp;&nbsp;</td>
+              <%end%>
 
               </tr>
 
