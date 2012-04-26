@@ -10,7 +10,6 @@
 			<td colspan=2 align='right' width=56.2%><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:style=>"align='center'"%></td>
 			<td align='right' width=43.8%><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
 		</tr>
-
 		<tr>
 			<td colspan=3 align=center style="font-size:14">
 				GOVERNO DO ESTADO DO AMAPÁ<br/>
@@ -22,36 +21,26 @@
 		</tr>
 	</table>
 	<table border=0 cellspacing="0" cellpadding="0" border=0 id="background-image" align="center" style="width:100%; position:relative;top:-60px;">
-
 		<tr>
 			<td colspan=3 align=center>
-
 				<b><center><h4>CARTA DE APRESENTAÇÃO <%=@lotacao.tipo_lotacao%><br/><br/></center></b>
 			</td>
 		</tr>
-
 		<tr>
 			<td colspan=3 align=left>Processo de Lotação nº <b><%=@processo.processo%></b>	Data: <b><%=@lotacao.data_lotacao.to_s_br%></b>
 				<br/>Sr. (a) Responsável pelo (a) <b><%=destino(@lotacao)%><br/><br/><br/></b></td>
 			</tr>
-
 			<tr style='font-size: 16;'>
 				<td colspan=3 align=justify>
-
-
 					<%if @lotacao.tipo_lotacao=='REGULAR' or @lotacao.tipo_lotacao=='SUMARIA' -%>
 					<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("lotacao_regular").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Apresentamos' ,'fim'=>','))%>
-
 					<%elsif @lotacao.tipo_lotacao=='ESPECIAL' or @lotacao.tipo_lotacao=='SUMARIA ESPECIAL' -%>
 					<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("lotacao_especial").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Apresentamos','fim'=>','))%>
 					<%end -%>
-
-
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A presente lotação está subordinada ao cumprimento dos direitos e deveres em conformidade com a Lei nº 9.394/96, Art. 12 e 13, e Lei nº 0066/93, art. 133 e 134. Devendo ingressar na supracitada escola, no prazo de 03 (três) dias úteis, após a emissão, sob pena de receber faltas (não justificáveis), exceto para os municípios de Macapá e Santana, cuja apresentação deverá ser imediata.
 					<br/><br/><center>Cordialmente,</center><br/><br/><br/>
 				</td>
 			</tr>
-
 			<tr>
 				<%if @funcionario.categoria and @funcionario.categoria.sigla=="C. ADM."%>
 				<td WIDTH=50%><br/>____________________________________
@@ -61,7 +50,7 @@
 					<td WIDTH=50% colspan=2><br/>____________________________________
 						<br/>Adalberto Carvalho Ribeiro<br/>
 						Secretário de Estado da Educação<br/>
-						Decreto NºXXXX/XXXX-GEA<br/><br/></td>
+						Decreto Nº0494/2012-GEA<br/><br/></td>
 						<%else%>
 						<td colspan=3><br/>____________________________________
 							<br/>Regina Lúcia Ferreira Valente<br/>
@@ -69,25 +58,20 @@
 							Decreto Nº0975/2012-GEA<br/><br/></td>
 							<%end%>
 						</tr>
-
 						<tr>
 							<br/>
 							<td colspan=3 align=center><%=wicked_pdf_image_tag "../images/carta/hr.png"%><br/><br/></td>
 						</tr>
-
-
 						<tr>
 							<td colspan=3 align=center>
 								<br/><b>CONFIRMAÇÃO DE APRESENTAÇÃO <%=@lotacao.tipo_lotacao%></b>
 							</td>
 						</tr>
-
 						<tr>
 							<td align=left WIDTH=50%>
 								<br/><b><%=destino(@lotacao)%><br/></b>
 								Confirmação de Apresentação de nº <b><%=@processo.processo%><br/><br/></b>
 							</td>
-
 							<td align=center WIDTH=50% colspan=2><%=wicked_pdf_image_tag "../images/carta/codigos/#{@lotacao.codigo_barra}.png",:WIDTH=>209, :HEIGHT=>35, :BORDER=>0%><br/>
 								<%=@lotacao.codigo_barra%>
 							</td>
@@ -101,7 +85,6 @@
 								<%elsif @lotacao.tipo_lotacao=='ESPECIAL' or @lotacao.tipo_lotacao=='SUMARIA ESPECIAL' -%>
 								<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("lotacao_especial").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Através deste, confirmo' ,'fim'=>', apresentou-se em ____/____/______ nesta Unidade Escolar,'))%>
 								<%end -%>
-
 							</td>
 						</tr>
 						<tr>
