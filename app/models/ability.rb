@@ -172,13 +172,17 @@ elsif user.role? :recad
  can :manage,Lotacao
 
  
-  elsif user.role? :revisao_carga_horaria
-   can :manage,Funcionario
-   cannot :destroy,Funcionario
-   can :manage,Pessoa
-   cannot :destroy,Pessoa
-   can :manage,Lotacao
-   cannot :destroy,Lotacao
+elsif user.role? :revisao_carga_horaria
+ can :manage,Funcionario
+ cannot :destroy,Funcionario
+ cannot :edit,Funcionario
+ cannot :edit,Pessoa
+ cannot :qualificar_funcionario,Pessoa
+ can :manage,Pessoa
+ cannot :destroy,Pessoa
+ can :manage,Lotacao
+ cannot :destroy,Lotacao
+ cannot :convalidar,Lotacao
 
 
 else
