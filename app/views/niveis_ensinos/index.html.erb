@@ -8,9 +8,7 @@
   <tr>
     <th>Nome</th>
     <th>Código</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan=4></th>
   </tr>
 </thead>
 <tbody>
@@ -19,6 +17,7 @@
     <td><%= niveis_ensino.nome %></td>
     <td><%= niveis_ensino.codigo %></td>
     <td><%= link_to 'Detalhes', niveis_ensino %></td>
+    <td><%= link_to 'Séries', niveis_ensino_series_path(niveis_ensino) %></td>
     <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_niveis_ensino_path(niveis_ensino) %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), niveis_ensino, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
   </tr>
