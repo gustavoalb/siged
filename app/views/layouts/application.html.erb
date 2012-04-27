@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" onKeyPress="return disableEnterKey(event)">
 
 <head>
 	<meta charset="utf-8"/>
@@ -15,25 +15,12 @@
 <%= javascript_include_tag 'auto_complete'%>
 <%= javascript_include_tag "facebox.js" %>
 <%= javascript_include_tag "maskedinput.js" %>
-<%=javascript_include_tag "tabs.js"%>
+<%= javascript_include_tag "tabs.js"%>
+<%= javascript_include_tag "enter.js"%>
 
-<%= calendar_date_select_includes "silver", :locale => "pt-BR" %>
+
+<%= calendar_date_select_includes "silver", :locale => "pt" %>
 <%= csrf_meta_tag %>
-
-
-<script type="text/javascript">
-function add()
-{
-	if($F('objeto_id').length > 0)
-	{
-
-		pui.add($F('name_id'));
-
-	}
-}
-</script>
-
-
 </head>
 
 
@@ -163,22 +150,6 @@ function add()
 	<div class="clear"></div>
 
 </section>
-<script type="text/javascript" >
-
-//
-// You can hide the accordions on page load like this, it maintains accessibility
-//
-// Special thanks go out to Will Shaver @ http://primedigit.com/
-//
-var verticalAccordions = $$('.accordion_toggle');
-verticalAccordions.each(function(accordion) {
-	$(accordion.next(0)).setStyle({
-		height: '0px'
-	});
-});
-
-
-</script>
 </body>
 
 </html>

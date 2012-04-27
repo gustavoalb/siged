@@ -149,11 +149,14 @@ GEM
     statistics (1.0.0)
     subexec (0.1.0)
     thor (0.14.6)
+    timeliness (0.3.6)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
     validates_existence (0.7.0)
+    validates_timeliness (3.0.11)
+      timeliness (~> 0.3.6)
     warden (1.1.0)
       rack (>= 1.0)
     will_paginate (2.3.16)
@@ -188,5 +191,6 @@ DEPENDENCIES
   statistics
   thor
   validates_existence (>= 0.4)
+  validates_timeliness
   will_paginate (~> 2.3.5)
   wkhtmltopdf (~> 0.1.2)

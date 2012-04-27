@@ -78,13 +78,12 @@ class AmbientesController < ApplicationController
 
   def incluir_turma
     @escola = Escola.find params[:escola_id]
-    @ambiente = @escola.ambientes.find params[:ambiente_id]
+    @ambiente = @escola.ambientes.find(params[:ambiente_id])
     @turma = @ambiente.turmas.new
     render :update do |page|
       page.visual_effect :highlight,"turma"
       page.replace_html "turma", :partial=>"turma"
     end
-
   end
 
 
@@ -97,7 +96,6 @@ class AmbientesController < ApplicationController
       page.visual_effect :highlight,"turma"
       page.replace_html "turma", :partial=>"ambientes_fisicos"
     end
-
   end
 
 
@@ -106,18 +104,18 @@ class AmbientesController < ApplicationController
     @ambiente = @escola.ambientes.find params[:ambiente_id]
     @turma = @ambiente.turmas.new(params[:turma])
     if @turma.save
-    @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
-     render :update do |page|
-      page.visual_effect :highlight,"matriz"
-      page.replace_html "turma", :partial=>"listar_turmas", :notice => 'Ambiente atualizado com sucesso.'
-    end
-     else
+      @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
       render :update do |page|
-            page.replace_html "turma", :partial=>"erro_turma",:locals=>{:f=>@turma}
-            page.visual_effect :highlight,"matriz"
+        page.visual_effect :highlight,"matriz"
+        page.replace_html "turma", :partial=>"listar_turmas", :notice => 'Ambiente atualizado com sucesso.'
       end
+    else
+      render :update do |page|
+        page.replace_html "turma", :partial=>"erro_turma",:locals=>{:f=>@turma}
+        page.visual_effect :highlight,"matriz"
+      end
+    end
   end
-end
 
   def salvar_ambiente_fisico
     @escola = Escola.find params[:escola_id]
@@ -126,14 +124,8 @@ end
     if @ambiente_fisico.save
      @ambientes_fisicos = @ambiente.ambientes_fisicos.all
      render :update do |page|
-      page.visual_effect :highlight,"matriz"
       page.replace_html "turma", :partial=>"listar_ambientes_fisicos", :notice => 'Ambiente atualizado com sucesso.'
     end
-    # else
-    #  render :update do |page|
-    #        page.visual_effect :highlight,"matriz"
-    #        page.replace_html "turma", :partial=>"erro_turma",:locals=>{:f=>@turma}
-    #  end
   end
 end
 
@@ -143,9 +135,9 @@ def excluir_turma
   @turma = @ambiente.turmas.find(params[:turma_id])
   @turmas = @ambiente.turmas.all
   if @turma.destroy
-  render :update do |page|
-    page.reload()
-  end
+    render :update do |page|
+      page.reload()
+    end
   end
 end
 
@@ -163,14 +155,14 @@ end
 
 def matrizes
  @escola = Escola.find(params[:escola_id])
- serie = Serie.find params[:serie]
- @matrizes = @escola.matrizes.all.collect{|m|[m.codigo,m.id]}
- render :update do |page|
-  page.visual_effect :highlight,"matriz"
-  page.replace_html "matriz", :partial=>"matriz"
+ if !params[:serie].blank?
+  serie = Serie.find(params[:serie])
+  @matrizes = @escola.matrizes.find(:all,:conditions=>["matrizes.id in (?)",serie.matriz_ids]).collect{|m|[m.codigo,m.id]}
+  render :partial=>"matriz"
+else
+ render :nothing=>true
 end
 end
-
 
 def configurar_ambiente
   @escola = Escola.find params[:escola_id]

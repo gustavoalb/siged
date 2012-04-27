@@ -10,7 +10,7 @@ Siged20::Application.routes.draw do
     get 'estatisticas_depois'
   end
 
-resources :home, :only=>:index
+  resources :home, :only=>:index
 
   namespace :folha do resources :fonte_recursos end
 
@@ -155,51 +155,53 @@ namespace :folha do resources :eventos end
   resources :escolas do
     get :controle_turma
     get :listar_turmas
-   resources :ano_letivos do
-
-    resources :settings
-  end
-  resources :ambientes do
-    get :configurar_ambiente
-    get :configurar_ambiente_fisico
     get :incluir_turma
     post :salvar_turma
-    get :excluir_turma
-    get :incluir_ambiente_fisico
-    post :salvar_ambiente_fisico
-    get :excluir_ambiente_fisico
-  end
-end
-get 'pessoas/especificar_lotacao'
-resources :pessoas do
-  get "gerar_relatorio"
-  resources :fotos,:only => [:index, :show, :novo, :create,:new] do
-   post 'upload',:on=>:collection
- end
- get "gerar_boletim"
- get "qualificar"
- get "edicao_rapida"
- post "salvar_boletim"
- get "boletins"
- get "boletim_pessoal"
- get "exibir_boletim"
- get "qualificar_funcionario"
- get "departamento"
- get "adicionar_a_lista"
- post "salvar_lista"
- resources :formacoes
- resources :funcionarios do
-  resources :comissionados do
-  get "exonerar_comissionado"
-  post "salvar_exoneracao"
-  resources :pontos do
-    get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
-    get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'
-  end
-end
-   get "boletim_funcional"
+    resources :ano_letivos do
 
-   resources :ponto_diarios do
+      resources :settings
+    end
+    resources :ambientes do
+      get :configurar_ambiente
+      get :configurar_ambiente_fisico
+      get :incluir_turma
+      post :salvar_turma
+      get :excluir_turma
+      get :incluir_ambiente_fisico
+      post :salvar_ambiente_fisico
+      get :excluir_ambiente_fisico
+    end
+  end
+  get 'pessoas/especificar_lotacao'
+  resources :pessoas do
+    get "gerar_relatorio"
+    resources :fotos,:only => [:index, :show, :novo, :create,:new] do
+     post 'upload',:on=>:collection
+   end
+   get "gerar_boletim"
+   get "qualificar"
+   get "edicao_rapida"
+   post "salvar_boletim"
+   get "boletins"
+   get "boletim_pessoal"
+   get "exibir_boletim"
+   get "qualificar_funcionario"
+   get "departamento"
+   get "adicionar_a_lista"
+   post "salvar_lista"
+   resources :formacoes
+   resources :funcionarios do
+    resources :comissionados do
+      get "exonerar_comissionado"
+      post "salvar_exoneracao"
+      resources :pontos do
+        get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
+        get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'
+      end
+    end
+    get "boletim_funcional"
+
+    resources :ponto_diarios do
 
      resources :ponto_assinaturas
      get :assinar_ponto

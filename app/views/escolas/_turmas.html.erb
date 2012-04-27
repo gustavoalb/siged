@@ -5,7 +5,7 @@
               <th>Série</th>
               <th>Nome</th>
               <th>Matriz Curricular</th>
-              <th>Ações</th>
+              <th colspan=2>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -16,6 +16,7 @@
               <td><%=link_to t.nome,"#"%></td>
               <td><%=cod(t.matriz)%></td>
               <td><%=link_to "Controle de Turma", escola_controle_turma_path(@escola,:turma=>t.nome),:remote=>true%></td>
+              <td><%=link_to "Remover Turma", escola_ambiente_excluir_turma_path(@escola,@ambiente,:turma_id=>t.id),:confirm=>"Tem certeza que deseja remover a turma",:remote=>true%></td>
             </tr>
             <%end%>
           </tbody>

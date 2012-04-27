@@ -1,16 +1,15 @@
 class Pessoa < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :nome, :use=> :slugged
+	extend FriendlyId
+	friendly_id :nome, :use=> :slugged
 
 	#default_scope where('pessoas.entidade_id in (?)',User.usuario_atual.entidade_ids)
 	include ScopedSearch::Model
 	validates_uniqueness_of :cpf,:on=>:create
-	#validates_presence_of :nome,:endereco,:sexo,:cpf,:rg,:numero,:bairro,:cidade_id,:uf,:titulo_eleitor,:zona_eleitoral,:secao,:message=>"Não pode ficar em branco!"
+	validates_presence_of :nome,:endereco,:sexo,:cpf,:rg,:numero,:bairro,:uf,:titulo_eleitor,:zona_eleitoral,:secao,:message=>"Não pode ficar em branco!"
 	validates_uniqueness_of :nome,:scope => [:entidade_id,:cpf,:rg],:message=>"já cadastrado",:on=>:create
 	#scoped_search
 	has_many :listas
 	has_many :fotos
-	belongs_to :cidade
 	scope :busca,lambda { |q| includes(:funcionarios).where("pessoas.cpf like ? or funcionarios.matricula like ? or rg like ? or nome iLIKE ?" ,"%#{q.downcase}%","%#{q}%","%#{q.downcase}%","%#{q.downcase}%") }
 	scope :em_aberto, where("nascimento = ?",nil)
 
@@ -26,37 +25,14 @@ class Pessoa < ActiveRecord::Base
 	has_many :formacoes,:class_name=>"Formacao"
 	has_many :boletins,:class_name=>"BoletimPessoal"
 
-	before_save :converter_cpf
-	before_update :converter_cpf
-	SEXO=[["Masculino","Masculino"],["Feminino","Feminino"]]
-	NATURALIDADES=[
-		['ACRIANO','Acre'],
-		['ALAGOANO','Alagoas'],
-		['AMAPAENSE','Amapa'],
-		['AMAZONENSE','Amazonas'],
-		['BAIANO','Bahia'],
-		['CEARENSE','Ceara'],
-		['ESPÍRITO-SANTENSE','Espirito Santo'],
-		['GOIANO','Goias'],
-		['MARANHENSE','Maranhao'],
-		['MATO-GROSSENSE','Mato Grosso'],
-		['MATO-GROSSENSE-DO-SUL','Mato Grosso do Sul'],
-		['MINEIRO','Minas Gerais'],
-		['PARAENSE','Para'],
-		['PARAIBANO','Paraiba'],
-		['PARANAENSE','Prana'],
-		['PERNAMBUCANO','Pernambuco'],
-		['PIAUIENSE','Piaui'],
-		['FLUMINENSE','Rio de Janeiro'],
-		['POTIGUAR','Rio Grande do Norte'],
-		['GAÚCHO','Rio Grande do Sul'],
-		['RONDONIANO','Rondonia'],
-		['RORAIMENSE','Roraima'],
-		['CATARINENSE','Santa Catarina'],
-		['PAULISTA','Sao Paulo'],
-		['SERGIPANO','Sergipe'],
-		['TOCANTINENSE','Tocantins']
-	]
+	before_save :converter_cpf,:nome_upcase
+	SEXO=[["Masculino","Masculino"],["Feminino","Feminino"],["Outros","Outros"]]
+	UF=[["AC"],["AL"],["AM"],["AP"],["BA"],
+		["CE"],["DF"],["ES"],["GO"],["MA"],
+		["MG"],["MS"],["MT"],["PA"],["PB"],
+		["PE"],["PI"],["PR"],["RJ"],["RN"],
+		["RO"],["RR"],["RS"],["SC"],["SE"],
+		["SP"],["TO"]]
 
 	NACION=[
 		['Brasileiro (a)'],
@@ -69,12 +45,14 @@ class Pessoa < ActiveRecord::Base
 		['Divorciado (a)'],
 		['União Estável','Uniao Estavel']
 	]
+
+	private
 	def converter_cpf
 		cpf = self.cpf
 		self.cpf = cpf.to_s.gsub(".","").gsub("-","")
 	end
-
-
-	private
+	def nome_upcase
+		self.nome = self.nome.upcase
+	end
 
 end

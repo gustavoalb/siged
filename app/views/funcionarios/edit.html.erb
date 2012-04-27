@@ -46,21 +46,28 @@
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :codigo_sirh%><br />
-      <%= f.text_field :codigo_sirh,:style=>"width:92%;" %>
+      <%= f.text_field :codigo_sirh,:disabled=>true,:style=>"width:92%;" %>
 
     </fieldset>
 
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :quadro %><br />
+      <% if !@funcionario.entidade.nil?%>
       <%= f.text_field :entidade_id,:disabled=>true,:value=>placeholder(@funcionario.entidade),:style=>"width:92%;"%>
+      <% else%>
+      <%=select :funcionario,:entidade_id,@entidades,:prompt=>true,:style=>"width:92%;"%>
+      <% end%>
 
     </fieldset>
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :folha %><br />
+      <% if !@funcionario.fonte_recurso.nil?%>
       <%=text_field :funcionario,:fonte_recurso_id,:disabled=>true,:value=>placeholder(@funcionario.fonte_recurso),:style=>"width:92%;"%>
-
+      <%else%>
+      <%=select :funcionario,:fonte_recurso_id,@recursos,:prompt=>true,:style=>"width:92%;"%>
+      <%end%>
     </fieldset>
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">

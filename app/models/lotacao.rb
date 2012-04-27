@@ -106,8 +106,11 @@ def devolve_funcionario(motivo=self.motivo)
  proc2.processo="DV#{proc2.processo}"
  proc2.tipo="DEVOLUÇÃO"
  if proc2.save!
-   self.finalizada = true
+   if self.funcionario.lotacoes_atuais.include?(self) and !self.funcionario.lotacoes.complementares.none?
+     self.funcionario.lotacoes.complementares.order("created_at asc").first.update_attributes(:complementar=>false)
+   end
    self.ativo = false
+   self.especificacoes.delete_all
    self.save
    status = proc2.status.new
    status.status = 'À DISPOSIÇÃO DO NUPES'
@@ -160,7 +163,7 @@ end
 def data
   self.data_lotacao = Date.today
   if self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL"
-  self.data_confirmacao = Date.today
+    self.data_confirmacao = Date.today
   end
 end
 

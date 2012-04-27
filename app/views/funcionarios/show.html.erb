@@ -68,15 +68,8 @@
   <%= detalhes(@funcionario.fonte_recurso) %>
 </p>
 
-<%if @funcionario.categoria.nome=='Estado Novo' or @funcionario.categoria.nome=='Contrato Administrativo'%>
-<p>
-  <b>Município de Opção:</b>
-  <%= municipio(@funcionario) %>
-</p>
+<%= municipio_distrito(@funcionario)%>
 <%end%>
-<%end%>
-
-
 
 
  <div id='com'>

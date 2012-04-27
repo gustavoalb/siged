@@ -177,6 +177,8 @@ end
 # POST /pessoas.xml
 def create
   @pessoa = Pessoa.new(params[:pessoa])
+  @data = (params[:data][:nascimento].to_date).strftime
+  @pessoa.nascimento = @data
   respond_to do |format|
     if @pessoa.save
       format.html { redirect_to(@pessoa, :notice => 'Pessoa cadastrada com sucesso.') }
@@ -192,6 +194,8 @@ end
 # PUT /pessoas/1.xml
 def update
   @pessoa = Pessoa.find(params[:id])
+  @data = (params[:data][:nascimento].to_date).strftime
+  @pessoa.nascimento = @data
   respond_to do |format|
     if @pessoa.update_attributes(params[:pessoa])
       if params[:edicao_rapida]

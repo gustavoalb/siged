@@ -52,7 +52,7 @@
   <footer>
     <div class="submit_link">
       <%if can? :manage,Funcionario %><%= link_to 'Cadastrar Funcionario', new_pessoa_funcionario_path,:class=>"alt_btn",:type=>"submit"%> ou<%end%>
-      <%= link_to 'Voltar', :back,:type=>"submit" %>
+      <%= link_to 'Voltar', pessoas_path,:type=>"submit" %>
     </div>
     <div class="submit_link">
       <%= will_paginate @funcionarios %>

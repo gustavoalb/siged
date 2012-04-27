@@ -124,7 +124,8 @@
 </div>
 <footer>
   <div class="submit_link">
-    <%= link_to 'Editar', edit_escola_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
+    <%= link_to "Incluir Turma", escola_incluir_turma_path(@escola),:rel=>"facebox",:rev=>"height:100px;width:600px"%>, 
+    <%= link_to 'Editar Escola', edit_escola_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
     <%= link_to 'Voltar', escolas_path,:type=>"submit" %>
   </div>
 </footer>

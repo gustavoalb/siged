@@ -7,7 +7,7 @@ TURNO=[
 ["Tarde","Tarde"],
 ["Noite","Noite"]
 ]
-has_many :especificacoes,:class_name=>'EspecificarLotacao'
+has_many :especificacoes,:class_name=>'EspecificarLotacao',:dependent=>:destroy
 belongs_to :matriz
 belongs_to :ambiente
 belongs_to :serie

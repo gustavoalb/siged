@@ -43,20 +43,6 @@ module FuncionariosHelper
 end
 
 
-
-
-def municipio(func)
-  if func.municipio and func.distrito and func.distrito.tipo.blank?
-    return raw("/#{func.municipio.nome} - #{func.distrito.nome }")
-  elsif func.municipio and func.distrito and !func.distrito.tipo.blank?
-    return raw("/#{func.municipio.nome} - #{func.distrito.tipo} #{func.distrito.nome}")
-  elsif func.municipio and func.distrito.nil?
-    return raw("/#{func.municipio.nome}")
-  else
-    return ""
-  end
-end
-
 def localizacao(func)
   texto=""
   if func.lotacoes.nil?
@@ -65,6 +51,17 @@ def localizacao(func)
   texto+= "#{destino(func.lotacoes.finalizada[-1])}"
 end
 return texto
+end
+
+
+def municipio_distrito(func)
+  if func.municipio and func.distrito.nil?
+    return raw("<p><b>Município de Opção:</b> #{detalhes(func.municipio)}</p>")
+  elsif func.municipio and func.distrito
+    return raw("<p><b>Município de Opção:</b> #{detalhes(func.municipio)}</p> <p><b>Distrito/Área de Opção:</b> #{detalhes(func.municipio)}</p>")
+  else
+    return ""
+  end
 end
 
 def dest(lotacao)

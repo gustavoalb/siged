@@ -7,6 +7,7 @@ gem 'thor'
 gem 'statistics'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem "validates_timeliness"
 gem "mongrel"
 gem 'postgres'
 gem "odf-report"

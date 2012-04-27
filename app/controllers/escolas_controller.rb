@@ -21,11 +21,11 @@ def show
   @escola = Escola.find_by_slug(params[:id])
   @funcionarios = @escola.funcionarios.joins(:lotacoes_atuais)
   if !@escola.ambientes.none?
-  @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
-  @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
+    @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
+    @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
   else
-  @turmas = Turma.find_all_by_escola_id(@escola.id)
-end
+    @turmas = Turma.find_all_by_escola_id(@escola.id)
+  end
   respond_to do |format|
 format.html # show.html.erb
 format.xml  { render :xml => @escola }
@@ -39,6 +39,38 @@ def controle_turma
   render :update do |page|
     page.visual_effect :highlight,"tab-three"
     page.replace_html "tab-three", :partial=>"controle_turma"
+  end
+end
+
+def incluir_turma
+  @escola = Escola.find params[:escola_id]
+  if !@escola.ambientes.none?
+    @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
+    @turma = @ambiente.turmas.new
+  end
+  render :partial=>"turma"
+end
+
+def salvar_turma
+  @escola = Escola.find(params[:escola_id])
+  @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
+  @turma = @ambiente.turmas.new(params[:turma])
+  if @turma.save
+    redirect_to("#{escola_path(@escola)}#tab-tres",:notice => "Turma criada com sucesso")
+  else
+    redirect_to("#{escola_path(@escola)}#tab-tres",:alert => "Turma não pode ser criada.")   
+ end
+end
+
+def excluir_turma
+  @escola = Escola.find(params[:escola_id])
+  @ambiente = @escola.ambientes.find params[:ambiente_id]
+  @turma = @ambiente.turmas.find(params[:turma_id])
+  @turmas = @ambiente.turmas.all
+  if @turma.destroy
+    render :update do |page|
+      page.reload()
+    end
   end
 end
 
