@@ -157,7 +157,7 @@ def matrizes
  @escola = Escola.find(params[:escola_id])
  if !params[:serie].blank?
   serie = Serie.find(params[:serie])
-  @matrizes = @escola.matrizes.find(:all,:conditions=>["matrizes.id in (?)",serie.matriz_ids]).collect{|m|[m.codigo,m.id]}
+  @matrizes = @escola.matrizes.collect{|m|[m.codigo,m.id]}
   render :partial=>"matriz"
 else
  render :nothing=>true
