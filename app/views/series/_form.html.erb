@@ -28,7 +28,7 @@
         <%= f.text_field :codigo,:style=>"width:92%;" %>
 
   </fieldset>
-  <fieldset style="width:97%; float:left; margin-right: 1%;">
+  <fieldset style="width:97%; height: auto;float:left; margin-right: 1%;">
 <label> Disciplinas Disponíveis </label> <br/><br/>
   <% for disciplina in Disciplina.find(:all) %>
     <div>
@@ -37,9 +37,7 @@
     </div>
   <% end %>
 </fieldset>
-<fieldset style="width:97%; float:left; margin-right: 1%;">
 <div id='disciplinas'></div>
-</fieldset>
 <div class="clear"></div>
 </div>
         <footer>
