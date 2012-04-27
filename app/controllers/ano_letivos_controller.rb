@@ -27,7 +27,7 @@ class AnoLetivosController < ApplicationController
 	def new
 		@escola = Escola.find(params[:escola_id])
 		@ano_letivo = @escola.anos_letivos.new
-		render :layout=>nil
+		render :layout=>"facebox"
 	end
 
 	# GET /ano_letivos/1/edit
@@ -38,12 +38,10 @@ class AnoLetivosController < ApplicationController
 	# POST /ano_letivos
 	# POST /ano_letivos.xml
 	def create
+		@escola = Escola.find params[:escola_id]
 		@ano_letivo = AnoLetivo.new(params[:ano_letivo])
 		ano ||= @ano_letivo.inicio.year
 		@ano_letivo.ano = ano.to_i
-        @escola = Escola.find params[:escola_id]
-        
-
 		respond_to do |format|
 			if @ano_letivo.save				
 			format.html { redirect_to(escola_ano_letivo_settings_url(@escola,@ano_letivo), :notice => 'Ano letivo criado com sucesso.') }
