@@ -2,7 +2,10 @@
  <%=link_to "Matrizes",matrizes_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
  <%end%>
  <article class="module width_full">
-  <header><h3>Detalhes da matriz <%=@matriz.codigo%> <%= link_to 'Configurar matriz', matriz_configurar_curriculos_path(@matriz) %></h3></header>
+  <header>
+    <h3>Detalhes da matriz <%=@matriz.codigo%>  <%= link_to 'Editar', edit_matriz_path(@matriz),:class=>"alt_btn",:type=>"submit"%> ou
+      <%= link_to 'Voltar', matrizes_path,:type=>"submit" %></h3>
+  </header>
   <div class="module_content">
     <div id="tabs1" class="tabset">
       <ul class="tabset_tabs">
@@ -80,10 +83,6 @@
     </div>
   </div>
   <footer>
-    <div class="submit_link">
-      <%= link_to 'Editar', edit_matriz_path(@matriz),:class=>"alt_btn",:type=>"submit"%> ou
-      <%= link_to 'Voltar', matrizes_path,:type=>"submit" %>
-    </div>
   </footer>
 </article>
 
