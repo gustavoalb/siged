@@ -80,6 +80,7 @@ class AmbientesController < ApplicationController
     @escola = Escola.find params[:escola_id]
     @ambiente = @escola.ambientes.find(params[:ambiente_id])
     @turma = @ambiente.turmas.new
+    @matrizes = @escola.matrizes.all.collect{|m|[m.codigo,m.id]}
     render :update do |page|
       page.visual_effect :highlight,"turma"
       page.replace_html "turma", :partial=>"turma"
@@ -155,9 +156,9 @@ end
 
 def matrizes
  @escola = Escola.find(params[:escola_id])
- if !params[:serie].blank?
-  serie = Serie.find(params[:serie])
-  @matrizes = @escola.matrizes.collect{|m|[m.codigo,m.id]}
+ if !params[:matrix].blank?
+  @matriz = Matriz.find(params[:matrix])
+  @series = @matriz.series.order(:nome).collect{|s|[s.nome,s.id]}
   render :partial=>"matriz"
 else
  render :nothing=>true

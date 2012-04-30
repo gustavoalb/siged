@@ -1104,33 +1104,6 @@ font-size: 14px;}
   list-style: square;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #main h7.mess_info {
 display: block;
 width: 95%;
@@ -1163,7 +1136,7 @@ padding: 5px 0;
 text-align: center;
 font-size: 10px;}
 
-#main h7.mess_error {
+h7.mess_error {
 display: block;
 width: 95%;
 margin: 0 0 0;
@@ -1179,7 +1152,7 @@ padding: 5px 0;
 text-align: center;
 font-size: 10px;}
 
-#main h7.mess_success {
+h7.mess_success {
 display: block;
 width: 95%;
 margin: 0 0 0;

@@ -68,11 +68,11 @@ class Escola < ActiveRecord::Base
 private
 
 def criar_ambientes
-  self.ambientes.create(:nome=>"Secretaria Escolar",:tipo_ambiente=>TipoAmbiente.find_by_nome("SALA AMBIENTE"))
-  self.ambientes.create(:nome=>"Biblioteca",:tipo_ambiente=>TipoAmbiente.find_by_nome("SALA AMBIENTE"))
-  self.ambientes.create(:nome=>"Serviço Técnico-Pedagógico",:tipo_ambiente=>TipoAmbiente.find_by_nome("SALA AMBIENTE"))
-  self.ambientes.create(:nome=>"Sala de Aula",:tipo_ambiente=>TipoAmbiente.find_by_nome("AMBIENTE EDUCACIONAL"))
-  self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("SALA AMBIENTE"))
+  self.ambientes.create(:nome=>"Secretaria Escolar",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+  self.ambientes.create(:nome=>"Biblioteca",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+  self.ambientes.create(:nome=>"Serviço Técnico-Pedagógico",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+  self.ambientes.create(:nome=>"Sala de Aula",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala de Aula"))
+  self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
 end
 
 

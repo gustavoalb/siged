@@ -2,8 +2,8 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
   adapter: postgresql
-#  encoding: unicode
-  database: siged20_development
+  #  encoding: unicode
+  database: siged20_testes
   pool: 5
   username: postgres
   password: 123456
@@ -11,8 +11,8 @@ development:
 
 antigo:
   adapter: postgresql
-#  encoding: unicode
-  database: siged_old
+  #  encoding: unicode
+  database: siged20_development
   pool: 5
   username: postgres
   password: 123456
@@ -20,7 +20,7 @@ antigo:
 
 production:
   adapter: postgresql
-#  encoding: unicode
+  #  encoding: unicode
   database: siged20_production
   pool: 5
   username: postgres

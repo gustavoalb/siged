@@ -365,7 +365,7 @@ end
 
 def fator_lotacao
   @funcionario = Funcionario.find(params[:funcionario_id])
-  @turma = Turma.find params[:turma_id]
+  @turma = Turma.find(params[:turma_id])
   @escola = @turma.escola
   @serie = @turma.serie
   @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])

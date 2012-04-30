@@ -1,44 +1,45 @@
 <%= form_for @turma,:url=>escola_salvar_turma_url(@escola,:ambiente_id=>@ambiente) do |f| %>
-  <% if @turma.errors.any? %>
-    <div id="erros">
-      <h2><%= pluralize(@turma.errors.count, "erro impede","erros impedem") %> este ambiente de ser cadastrado:</h2>
+<% if @turma.errors.any? %>
+<div id="erros">
+  <h2><%= pluralize(@turma.errors.count, "erro impede","erros impedem") %> este ambiente de ser cadastrado:</h2>
 
-      <ul>
-      <% @turma.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%=f.hidden_field :escola_id,:value=>@escola.id%>
-  <%=f.hidden_field :ano_letivo_id,:value=>@escola.anos_letivos.first.id%>
+  <ul>
+    <% @turma.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%=f.hidden_field :escola_id,:value=>@escola.id%>
+<%=f.hidden_field :ano_letivo_id,:value=>@escola.anos_letivos.first.id%>
 
-  <fieldset style="width:48%; float:left; margin-right: 1%;">
-    <%= f.label :serie_id %><br />
-        <%= f.select :serie_id,@series,:style=>"width:92%;",:prompt=>"Selecione a Série da Turma"%>
-  </fieldset>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+  <label> Matriz da Turma</label><br /><br />
+  <%= f.select :matriz_id,@matrizes,:style=>"width:92%;",:prompt=>true %>
+</fieldset>
 
-   <fieldset style="width:48%; float:left; margin-right: 1%;">
-    <%= f.label :nome %><br />
-        <%= f.text_field :nome,:style=>"width:92%;"%>
-  </fieldset>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+  <%= f.label :nome %><br />
+  <%= f.text_field :nome,:style=>"width:92%;"%>
+</fieldset>
 
-  <fieldset style="width:48%; float:left; margin-right: 1%;">
-    <%= f.label "Turno" %><br /><br />
-        <%= f.select :turno,Turma::TURNO,:style=>"width:92%;" %>
-  </fieldset>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+  <%= f.label "Turno" %><br />
+  <%= f.select :turno,Turma::TURNO,:style=>"width:92%;" %>
+</fieldset>
 
-<%=observe_field :turma_serie_id, :url => "/ambientes/matrizes",
-      :frequency => 0.25,
-      :update=>:matriz,
-      :with => "'serie='+value+'&escola_id='+#{@escola.id}"%>
-  <div id="matriz"></div>
+<%=observe_field :turma_matriz_id, :url => "/escolas/matrizes",
+:frequency => 0.75,
+:update=>:matriz,
+:with => "matrix"%>
+<div id="matriz"></div>
+
 
 
 <div class="clear"></div>
 </div>
-				<div class="submit_link">
-					<%=f.submit "Salvar Turma",:class=>"alt_btn" %>
-				</div>
+<div class="submit_link">
+ <%=f.submit "Salvar Turma",:class=>"alt_btn" %>
+</div>
 
 <% end %>

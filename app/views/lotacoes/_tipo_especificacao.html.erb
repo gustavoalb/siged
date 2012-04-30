@@ -9,7 +9,10 @@
       :update => :disciplinas,
       :with => "'turma=' + value+'&funcionario_id='+#{@funcionario.id}+'&lotacao_id='+#{@lotacao.id}"%>
 <div id="disciplinas"></div>
-<%elsif @tipo=="Sala de Aula" and @funcionario.disciplina_contratacao.nil?%>
+<%elsif @tipo=="Sala de Aula" and @funcionario.cargo.tipo.nome=="Magistério/Docência" and @funcionario.disciplina_contratacao.nil?%>
+
+<h7 class="mess_error" align=center>O Funcionário é professor, mas ainda não tem a disciplina de contratação cadastrada.</h7><br/>
+
 
 <%elsif @tipo=="Sala de Aula" and !@funcionario.disciplina_contratacao.nil? and !@funcionario.disciplina_contratacao.tipo.nome=="Magistério/Docência"%>
 

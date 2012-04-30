@@ -46,9 +46,21 @@ def incluir_turma
   @escola = Escola.find params[:escola_id]
   if !@escola.ambientes.none?
     @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
+    @matrizes = @escola.matrizes.all.collect{|m|[m.codigo,m.id]}
     @turma = @ambiente.turmas.new
   end
   render :partial=>"turma"
+end
+
+def matrizes
+ @escola = Escola.find_by_slug(params[:escola_id])
+ if !params[:matrix].blank?
+  @matriz = Matriz.find(params[:matrix])
+  @series = @matriz.series.order(:nome).collect{|s|[s.nome,s.id]}
+  render :partial=>"matriz"
+else
+ render :nothing=>true
+end
 end
 
 def salvar_turma
@@ -59,7 +71,7 @@ def salvar_turma
     redirect_to("#{escola_path(@escola)}#tab-tres",:notice => "Turma criada com sucesso")
   else
     redirect_to("#{escola_path(@escola)}#tab-tres",:alert => "Turma não pode ser criada.")   
- end
+  end
 end
 
 def excluir_turma

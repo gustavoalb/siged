@@ -14,10 +14,10 @@
   <%=f.hidden_field :escola_id,:value=>@escola.id%>
   <%=f.hidden_field :ano_letivo_id,:value=>@escola.anos_letivos.first.id%>
 
-  <fieldset style="width:48%; float:left; margin-right: 1%;">
-    <%= f.label :serie_id %><br />
-        <%= f.select :serie_id,@series,:style=>"width:92%;",:prompt=>"Selecione a Série da Turma"%>
-  </fieldset>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+    <label> Matriz da Turma</label><br /><br />
+        <%= f.select :matriz_id,@matrizes,:style=>"width:92%;",:prompt=>true %>
+</fieldset>
 
    <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :nome %><br />
@@ -29,9 +29,9 @@
         <%= f.select :turno,Turma::TURNO,:style=>"width:92%;" %>
   </fieldset>
 
-<%=observe_field :turma_serie_id, :url => "/ambientes/matrizes",
-      :frequency => 0.25,
-      :with => "'serie='+value+'&escola_id='+#{@escola.id}"%>
+<%=observe_field :turma_matriz_id, :url => "/ambientes/matrizes",
+      :frequency => 0.75,
+      :with => "matrix"%>
   <div id="matriz"></div>
 
 

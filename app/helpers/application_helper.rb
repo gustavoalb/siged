@@ -97,9 +97,9 @@ end
 def compativel(mess,comp)
  message=""
  if comp==true
-   message+="<h4 class='alert_success'>#{mess}</h4>"
+   message+="<h7 class='mess_success' style='width: 99.5%;'>#{mess}</h7>"
  else
-   message+="<h4 class='alert_warning'>#{mess}</h4>"
+   message+="<h7 class='mess_error' style='width: 99.5%;'>#{mess}</h7>"
  end
  return raw(message)
 end

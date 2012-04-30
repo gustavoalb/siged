@@ -194,8 +194,10 @@ end
 # PUT /pessoas/1.xml
 def update
   @pessoa = Pessoa.find(params[:id])
-  @data = (params[:data][:nascimento].to_date).strftime
-  @pessoa.nascimento = @data
+  if params[:data] and !params[:data][:nascimento].blank?
+    @data = (params[:data][:nascimento].to_date).strftime
+    @pessoa.nascimento = @data
+  end
   respond_to do |format|
     if @pessoa.update_attributes(params[:pessoa])
       if params[:edicao_rapida]

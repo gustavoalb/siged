@@ -30,17 +30,10 @@
 
     </fieldset>
     <fieldset style="width:48%; float:left; margin-right: 1%;">
-      <%= f.label :ano_letivo %><br /><br />
-      <%= f.select :setting_id,@escola.anos_letivos.collect{|t|[t.ano,t.id]},:style=>"width:92%;" %>
-
-    </fieldset>
-    <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :ativo %><br /><br />
-
       <%= f.check_box :ativo,:style=>"width:40%;" %>
 
     </fieldset>
-
     <fieldset style="width:98%; float:left; margin-right: 1%;">
       <label>Turnos de funcionamento</label><br/><br/>
       <% for turno in Turno.find(:all) %>
