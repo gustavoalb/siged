@@ -103,6 +103,7 @@ elsif user.role? :ucolom
  cannot :edit,Pessoa
  cannot :destroy,Pessoa
  can :manage,Funcionario
+ cannot :qualificar_funcionario,Pessoa
  cannot :destroy,Funcionario
  cannot :edit,Funcionario
 

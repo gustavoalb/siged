@@ -10,7 +10,7 @@ class Lotacao < ActiveRecord::Base
   belongs_to :orgao
   belongs_to :entidade
 
-  has_many :processos
+  has_many :processos,:dependent=>:destroy
   has_many :pontos
 
   #has_one :ponto_atual,:through=>:funcionario,:source=>'pontos_do_mes'
@@ -171,6 +171,10 @@ def lotacao_regular
    processo.natureza="LOTAÇÃO SUMÁRIA ESPECIAL"
    self.finalizada=true
    self.save
+ elsif self.tipo_lotacao=="COMISSÃO"
+   processo.natureza="LOTAÇÃO COMISSIONADA"
+   self.finalizada=true
+   self.save
  end
  processo.funcionario_id=self.funcionario_id
  processo.destino_id=self.escola_id
@@ -190,11 +194,14 @@ def lotacao_regular
   elsif self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL"
     processo.processo="LS#{cod.numero(num)}/#{self.data_lotacao.year}"
     processo.finalizado=true
+  elsif self.tipo_lotacao=="COMISSÃO"
+    processo.processo="LC#{cod.numero(num)}/#{self.data_lotacao.year}"
+    processo.finalizado=true
   end
   status=Status.new
   status.data=Time.now
   status.processo_id=processo.id
-  if self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL"
+  if self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL" or self.tipo_lotacao=="COMISSÃO" 
     status.status="LOTADO"
   else
     status.status="ENCAMINHADO"

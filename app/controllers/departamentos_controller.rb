@@ -36,17 +36,19 @@ class DepartamentosController < ApplicationController
   end
 
   def pontos
+    @departamento = Departamento.find(params[:departamento_id])
     @funcionario = Funcionario.find(params[:funcionario_id])
     @pessoa = @funcionario.pessoa
     @lotacao = @funcionario.lotacoes.atual.first
     @pontos = @funcionario.pontos.da_lotacao(@lotacao.id)
   end
+end
 
-  def pontos_do_mes
-    @departamento = Departamento.find(params[:departamento_id])
-    @lotacoes = @departamento.lotacoes
-    @range_dias = Date.today.at_beginning_of_month..Date.today.at_end_of_month
-    respond_to do |format|
+def pontos_do_mes
+  @departamento = Departamento.find(params[:departamento_id])
+  @lotacoes = @departamento.lotacoes
+  @range_dias = Date.today.at_beginning_of_month..Date.today.at_end_of_month
+  respond_to do |format|
     format.html # index.html.erb
     format.pdf do
         render :pdf =>"pontos do mês #{Time.now.month}", # OPTIONAL
@@ -135,31 +137,30 @@ class DepartamentosController < ApplicationController
       @lotacao = f.lotacoes.atual.last
       @ponto.data = Time.now
       @ponto.entidade_id = current_user.entidade_id
-       @ponto.save
-        @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
-        @arquivo = Pathname.new(Rails.root.join("public/pontos/#{f.pessoa.slug}", "ponto-de-#{f.pessoa.slug}-#{f.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
-        @pasta = Rails.root.join("public/pontos/#{f.pessoa.slug}")
-        if !File.exist?(@arquivo)
-          if !File.exist?(@pasta)
-           Dir.mkdir(@pasta)
-         end
-         pdf = render_to_string :pdf =>"#{@arquivo.basename.to_s}",
-         :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-         :zoom => 0.8 ,
-         :margin=>{1,1,1,1},
-         :orientation => 'Portrait',
-         :template => 'pontos/gerar_pontos.pdf  '
-         File.open(@arquivo, 'wb') do |file|
-          file << pdf
-        end
+      @ponto.save
+      @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
+      @arquivo = Pathname.new(Rails.root.join("public/pontos/#{f.pessoa.slug}", "ponto-de-#{f.pessoa.slug}-#{f.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
+      @pasta = Rails.root.join("public/pontos/#{f.pessoa.slug}")
+      if !File.exist?(@arquivo)
+        if !File.exist?(@pasta)
+         Dir.mkdir(@pasta)
+       end
+       pdf = render_to_string :pdf =>"#{@arquivo.basename.to_s}",
+       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
+       :zoom => 0.8 ,
+       :margin=>{1,1,1,1},
+       :orientation => 'Portrait',
+       :template => 'pontos/gerar_pontos.pdf  '
+       File.open(@arquivo, 'wb') do |file|
+        file << pdf
+      end
     end
   end
-     render :nothing => true
+  render :nothing => true
 end
 
 
 private
 def orgao
   @orgao = Orgao.find(params[:orgao_id])
-end
 end

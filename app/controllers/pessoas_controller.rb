@@ -7,14 +7,30 @@ class PessoasController < ApplicationController
 
   def index
    @search = Pessoa.scoped_search(params[:search])
-   if params[:search]
+   if params[:search] and params[:search][:busca].size>0 and !params[:search][:busca].include?('%')
      @busca = params[:search][:busca]
+     @pessoas =  @search.order('nome ASC').paginate :page => params[:page], :per_page => 10
+   else
+     @pessoas = Pessoa.find_all_by_entidade_id(nil).paginate :page => params[:page], :per_page => 10
    end
-   @pessoas =  @search.order('nome ASC').paginate :page => params[:page], :per_page => 10
-
    respond_to do |format|
     format.html # index.html.erb
     format.xml  { render :xml => @pessoas }
+
+  end
+end
+
+def distrito
+  if params[:municipio].size>0
+    @municipio = Municipio.find(params[:municipio])
+    @distritos = @municipio.distritos.all.collect{|m|[m.nome,m.id]}
+    if @distritos.size>0
+      render :partial=>"distritos"
+    else
+      render :partial=>"sem_distritos"
+    end
+  else
+    render :partial=>"sem_distritos"
   end
 end
 

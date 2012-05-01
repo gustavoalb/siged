@@ -8,13 +8,13 @@ class Comissionado < ActiveRecord::Base
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :departamento
   belongs_to :escola
-
-
+  has_many :pontos
+  after_create :lotacao_comissionada
   TIPOE=[
     ['Diretoria','DIRETORIA'],
-    ['Diretoria Adjunta','DIRETORIAADJUNTA'],
+    ['Diretoria Adjunta','DIRETORIA ADJUNTA'],
     ['Secretaria','SECRETARIA'],
-    ['Supervisão','SUPERVISAO']
+    ['Supervisão','SUPERVISÃO']
   ]
   TIPOD=[
     ['Chefia','CHEFIA']
@@ -23,6 +23,8 @@ class Comissionado < ActiveRecord::Base
 
 
   private
-
+def lotacao_comissionada
+    self.funcionario.lotacoes.create(:tipo_lotacao=>"COMISSÃO",:departamento_id=>self.departamento_id,:escola_id=>self.escola_id,:orgao=>self.orgao,:esfera_id=>self.orgao.esfera,:entidade_id=>self.funcionario.entidade_id,:data_lotacao=>Date.today,:usuario=>User.usuario_atual.username)
+end
 
 end

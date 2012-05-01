@@ -9,7 +9,7 @@ class Escola < ActiveRecord::Base
   has_many :ambientes
   belongs_to :esfera
   belongs_to :orgao
-  has_many :comissionados
+  has_many :comissionados,:conditions=>["ativo = ?",true]
   has_many :anos_letivos,:class_name=>"AnoLetivo"
   belongs_to :entidade
   has_many :matrizes,:class_name=>"Matriz",:through=>:settings,:conditions=>["settings.tipo_config=?","MATRIZ"],:source=>:matriz

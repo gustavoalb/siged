@@ -72,14 +72,14 @@ Event.observe(window, 'load', function() {
       <%if funcionario.cargo.tipo and (funcionario.cargo.tipo.nome=='Magistério/Docência' or funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and funcionario.categoria and funcionario.categoria.nome=="Estado Novo"%>
       <fieldset style="width:48%; float:left; margin-right: 1%;">
         <%= f2.label :municipio_de_opção %><br />
-        <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município",:onchange=>remote_function(:url => {:controller => 'controller', :action => 'action'}) %>
+        <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>
 
       </fieldset>
 
-      <%=observe_field "pessoa_funcionarios_attributes_#{index}_municipio_id", :url => "/funcionarios/distrito",
+      <%=observe_field "pessoa_funcionarios_attributes_#{index}_municipio_id", :url => "/pessoas/distrito",
       :frequency => 0.25,
       :update => :dist,
-      :with => 'municipio'%>
+      :with => "municipio"%>
 
       <div id=dist>
 
