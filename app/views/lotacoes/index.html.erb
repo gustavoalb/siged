@@ -55,9 +55,9 @@
     </ul>
     </div>
   <% end %>
+  
   <%= f.hidden_field :usuario,:value=>current_user.username %>
   <%= f.hidden_field :funcionario_id,:value=>@funcionario.id %>
-  <%= f.hidden_field :data_lotacao,:value=>Date.today %>
 
   <table border=0>
 
