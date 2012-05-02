@@ -5,7 +5,7 @@ class Pessoa < ActiveRecord::Base
 	default_scope where('pessoas.entidade_id in (?)',User.usuario_atual.entidade_ids)
 	acts_as_reportable :except =>[:id,:created_at,:updated_at]
 	include ScopedSearch::Model
-	#validates_uniqueness_of :cpf
+	validates_uniqueness_of :cpf
 	#validates_presence_of :nome,:endereco,:sexo,:cpf,:rg,:numero,:bairro,:cidade_id,:uf,:titulo_eleitor,:zona_eleitoral,:secao,:message=>"Não pode ficar em branco!"
 	validates_uniqueness_of :nome,:scope => [:entidade_id,:cpf,:rg],:message=>"já cadastrado",:on=>:create
 	#scoped_search

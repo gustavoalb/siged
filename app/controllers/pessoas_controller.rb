@@ -177,7 +177,6 @@ end
 # POST /pessoas.xml
 def create
   @pessoa = Pessoa.new(params[:pessoa])
-  @funcionario = Funcionario.find(params[:funcionario_id])
   respond_to do |format|
     if @pessoa.save
       format.html { redirect_to(@pessoa, :notice => 'Pessoa cadastrada com sucesso.') }
