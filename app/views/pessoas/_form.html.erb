@@ -85,6 +85,13 @@
 
     </fieldset>
     <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <div id="cidade">
+
+        <%= f.label :cidade %><br />
+        <%= f.text_field :cidade,:style=>"width:92%;" %>
+      </div>
+    </fieldset>
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :bairro %><br />
       <%= f.text_field :bairro,:style=>"width:92%;" %>
 
@@ -128,22 +135,16 @@
 
     </fieldset>
     <fieldset style="width:48%; float:left; margin-right: 1%;">
-      <%= f.label :pis_pasep %><br />
-      <%= f.text_field :pis_pasep,:style=>"width:92%;" %>
-
-    </fieldset>
-    <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :uf %><br /><br />
       <%= f.select :uf,Pessoa::UF,:prompt=>"UF",:style=>"width:92%;" %>
 
     </fieldset>
     <fieldset style="width:48%; float:left; margin-right: 1%;">
-      <div id="cidade">
+      <%= f.label :pis_pasep %><br />
+      <%= f.text_field :pis_pasep,:style=>"width:92%;" %>
 
-        <%= f.label :cidade %><br />
-        <%= f.text_field :cidade,:style=>"width:92%;" %>
-      </div>
     </fieldset>
+
 <!--
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :ano_de_chegada %><br />

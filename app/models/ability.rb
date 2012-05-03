@@ -112,6 +112,7 @@ elsif user.role? :ucolom
  cannot :destroy,Departamento
  can :read,Funcionario
  can :manage,Pessoa
+ cannot :create,Pessoa
  cannot :edit,Pessoa
  cannot :destroy,Pessoa
  can :manage,Funcionario
