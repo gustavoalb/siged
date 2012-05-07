@@ -59,11 +59,11 @@ end
 def destino(lotacao)
  if lotacao
      if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+        return "#{lotacao.departamento.nome}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+        return "#{lotacao.departamento.nome}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
