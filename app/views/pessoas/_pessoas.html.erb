@@ -1,27 +1,8 @@
-
-<script type="text/javascript">
- document.observe('dom:loaded', function() {
-  new UnobtrusiveLinker();
- });
-</script>
-<%content_for :links do%>
-    <a class="current">Pessoas</a>
-<%end%>
-<article class="module width_3_quarter">
-		<header><h3 class="tabs_involved">Listando pessoas</h3>
-		<ul class="tabs">
-			<%= form_for @search do |f| %>
-   			<li><%= f.text_field :busca,:size=>12 %></li>
-    		<li><%= image_submit_tag "icn_busca.png" %></li>
-			<% end %>
-		</ul>
-		</header>
-		<div id="pagination_container">
 <div id="pessoas" class="verticalaccordion">
 
 <p>
 <ul>
-	
+    
 <% @pessoas.each do |pessoa| %>
 <li>
 <header>
@@ -60,26 +41,26 @@
             <% end -%>
 
 </tr>
-	<tr>
-		<th>Matrícula:</th>
-		<td><%=raw("#{highlight(funcionario.matricula, @busca)}")%></td>
+    <tr>
+        <th>Matrícula:</th>
+        <td><%=raw("#{highlight(funcionario.matricula, @busca)}")%></td>
 
-		<th>Situação Jurídica:</th>
-		<td><%= detalhes(funcionario.sjuridica) %></td>
+        <th>Situação Jurídica:</th>
+        <td><%= detalhes(funcionario.sjuridica) %></td>
 
-		<th>Cargo:</th>
-		<td><%= cargo_disciplina(funcionario)%>
-	</tr>
-	<tr>
-		<th>Nível:</th>
-		<td><%= cod(funcionario.nivel) %></td>
+        <th>Cargo:</th>
+        <td><%= cargo_disciplina(funcionario)%>
+    </tr>
+    <tr>
+        <th>Nível:</th>
+        <td><%= cod(funcionario.nivel) %></td>
 
     <th>Quadro:</th>
-		<td><%=detalhes(funcionario.entidade)%></td>
+        <td><%=detalhes(funcionario.entidade)%></td>
 
-	  <th>Categoria Funcional:</th>
-		<td><%=detalhes(funcionario.categoria)%></td>
- 	</tr>
+      <th>Categoria Funcional:</th>
+        <td><%=detalhes(funcionario.categoria)%></td>
+    </tr>
 </table>
 </article>
     <p class=tabela>Localização anterior:  <%=l_ant(funcionario)%></p>
@@ -94,14 +75,11 @@
 </div>
 </div>
 <footer>
-				<div class="submit_link">
-				  <%if can? :create,Pessoa%><%= link_to 'Cadastrar Pessoa', new_pessoa_path,:class=>"alt_btn",:type=>"submit"%> ou <%end%>
-				  <%= link_to 'Voltar', :back,:type=>"submit" %>
-				</div>
+                <div class="submit_link">
+                  <%if can? :create,Pessoa%><%= link_to 'Cadastrar Pessoa', new_pessoa_path,:class=>"alt_btn",:type=>"submit"%> ou <%end%>
+                  <%= link_to 'Voltar', :back,:type=>"submit" %>
+                </div>
          <div class="submit_link">
-        <%= will_paginate @pessoas, :loading=>:highlight%>
+        <%= will_paginate @pessoas%>
         </div>
-			</footer>
-		</div>
-</article>
-
+            </footer>

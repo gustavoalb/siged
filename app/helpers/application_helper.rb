@@ -8,7 +8,17 @@ module ApplicationHelper
    return caminho
  end
 
- def log(obj)
+ def int_em_dias(data1)
+  data = (Date.today - data1).to_i
+  if data!=0
+    return "#{data} dias"
+  else
+    return "hoje"
+  end 
+end
+
+
+def log(obj)
   if obj and !obj.usuario.blank?
     return raw("<b>#{obj.usuario.upcase}</b>")
   else
@@ -248,13 +258,13 @@ def email(obj)
 end
 
 def telefones(obj)
-   if obj and !obj.telefone_residencial.blank? and !obj.telefone_celular.blank?
-    return "#{obj.telefone_residencial} / #{obj.telefone_celular}"
-  elsif obj and obj.telefone_residencial.blank? and !obj.telefone_celular.blank?
-    return "#{obj.telefone_celular}"
-  elsif obj and !obj.telefone_residencial.blank? and obj.telefone_celular.blank?
-    return "#{obj.telefone_residencial}"
-  end
+ if obj and !obj.telefone_residencial.blank? and !obj.telefone_celular.blank?
+  return "#{obj.telefone_residencial} / #{obj.telefone_celular}"
+elsif obj and obj.telefone_residencial.blank? and !obj.telefone_celular.blank?
+  return "#{obj.telefone_celular}"
+elsif obj and !obj.telefone_residencial.blank? and obj.telefone_celular.blank?
+  return "#{obj.telefone_residencial}"
+end
 else
  return raw("<font color=red><b>Nada Cadastrado</b></font>")
 end

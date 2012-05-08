@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503162427) do
+ActiveRecord::Schema.define(:version => 20120508211203) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -669,7 +669,6 @@ ActiveRecord::Schema.define(:version => 20120503162427) do
     t.string   "codigo_barra"
     t.boolean  "ativo",                                  :default => true
     t.string   "tipo_lotacao",             :limit => 20
-    t.string   "usuario"
     t.integer  "orgao_id"
     t.integer  "esfera_id"
     t.integer  "tipo_destino_id"
@@ -684,6 +683,7 @@ ActiveRecord::Schema.define(:version => 20120503162427) do
     t.date     "data_confirmacao"
     t.boolean  "quick",                                  :default => false
     t.text     "motivo"
+    t.integer  "usuario_id"
   end
 
   add_index "lotacaos", ["departamento_id"], :name => "index_lotacaos_on_departamento_id"

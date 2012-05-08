@@ -2,13 +2,14 @@ require "barby/barcode/code_25_interleaved"
 require "barby/outputter/rmagick_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
-  #default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
   #escola_id sempre nil em lotacao especial
-  #validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
+  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
+  validates_presence_of :usuario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :escola
   belongs_to :orgao
   belongs_to :entidade
+  #belongs_to :usuario,:class_name=>"User"
 
   has_many :processos,:dependent=>:destroy
   has_many :pontos
@@ -37,7 +38,7 @@ class Lotacao < ActiveRecord::Base
 
   after_create :lotacao_regular
   before_create :data
-  validate do |lotacao|
+  validate_on_create do |lotacao|
     if self.tipo_lotacao=="ESPECIAL" or self.tipo_lotacao=="SUMARIA ESPECIAL" and self.motivo.blank?
       lotacao.errors.add_to_base("Lotações tendo um departamento como destino necessitam de um motivo.")
     end

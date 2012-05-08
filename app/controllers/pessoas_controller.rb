@@ -15,6 +15,7 @@ class PessoasController < ApplicationController
    end
    respond_to do |format|
     format.html # index.html.erb
+    format.js { render :partial => "pessoas" }
     format.xml  { render :xml => @pessoas }
 
   end
