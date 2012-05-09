@@ -177,13 +177,13 @@ end
 
 def detalhes(obj)
  if obj
-  if obj.respond_to? "nome_da_escola"
+  if obj.respond_to? "nome_da_escola" and !obj.nome_da_escola.blank?
     return obj.nome_da_escola.upcase
-  elsif obj.respond_to? "sigla"
+  elsif obj.respond_to? "sigla" and !obj.sigla.blank?
     return obj.sigla.upcase
-  elsif obj.respond_to? "nome"
+  elsif obj.respond_to? "nome" and !obj.nome.blank?
     return obj.nome.upcase
-  elsif obj.respond_to? "username"
+  elsif obj.respond_to? "username" and !obj.username.blank?
     return obj.username.upcase
   else
      return raw("<font color=red><b>Nada Cadastrado</b></font>")
