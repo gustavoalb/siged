@@ -183,6 +183,8 @@ def detalhes(obj)
     return obj.sigla.upcase
   elsif obj.respond_to? "nome"
     return obj.nome.upcase
+  elsif obj.respond_to? "username"
+    return obj.username.upcase
   end
 else
  return raw("<font color=red><b>Nada Cadastrado</b></font>")
