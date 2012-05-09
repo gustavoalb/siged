@@ -139,7 +139,7 @@
 </div>
 
 
-<div id="tab-two" class="tabset_content">
+<div id="tab-two" class="tabset_content" style="HEIGHT: 400PX; overflow-y: scroll;">
   <table class="tablesorter" cellspacing="0">
     <thead>
       <tr>
@@ -172,12 +172,7 @@
   </table>
 </div>
 
-<div id="tab-three" class="tabset_content">
-
-
-
-
-
+<div id="tab-three" class="tabset_content" style="HEIGHT: 400PX; overflow-y: scroll;">
   <table class="tablesorter" cellspacing="0">
     <thead>
       <tr>
@@ -201,7 +196,7 @@
         <td><%= sim_nao(l.regencia_de_classe) %></td>
         <td><%= detalhes(l.usuario) %></td>
         <td><%= l.data_confirmacao.to_s_br %></td>
-        <td><%=status_lotacao(l.status.last.status)%></td>
+        <td><%= status_lotacao(l.status.last.status)%></td>
         <%if l.status.last.status=="LOTADO"%>
         <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(@pessoa,@funcionario,l.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
         <%end%>

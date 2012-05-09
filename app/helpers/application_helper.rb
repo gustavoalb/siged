@@ -185,6 +185,8 @@ def detalhes(obj)
     return obj.nome.upcase
   elsif obj.respond_to? "username"
     return obj.username.upcase
+  else
+     return raw("<font color=red><b>Nada Cadastrado</b></font>")
   end
 else
  return raw("<font color=red><b>Nada Cadastrado</b></font>")
