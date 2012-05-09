@@ -22,7 +22,7 @@
 			DO AMAPÁ<BR>
 			SECRETARIA DE
 			ESTADO DA EDUCAÇÃO<BR>
-			<%=destino(@lotacao).upcase%></B></FONT></P>
+			<%=header_ponto(@lotacao)%></B></FONT></P>
 		</TD>
 	</TR>
 </TABLE>
@@ -64,7 +64,7 @@
 			</P>
 		</TD>
 		<TD WIDTH=25% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
-			<P CLASS="western" ALIGN=CENTER><%=@lotacao.codigo_barra%><BR>
+			<P CLASS="western" ALIGN=CENTER><%=codigo_lotacao(@lotacao)%><BR>
 			</P>
 		</TD>
 		<TD WIDTH=25% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
@@ -90,7 +90,7 @@
 			</P>
 		</TD>
 		<TD WIDTH=50% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
-			<P CLASS="western" ALIGN=CENTER><%=@funcionario.cargo%><BR>
+			<P CLASS="western" ALIGN=CENTER><%=cargo_disciplina(@funcionario)%><BR>
 			</P>
 		</TD>
 	</TR>

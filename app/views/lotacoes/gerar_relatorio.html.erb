@@ -1,0 +1,14 @@
+<%= form_tag :controller=>'lotacoes,':action=>'relatorio' do %>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= label_tag :data_inicial %><br /><br />
+    <%= date_select :relatorio,:inicio, :start_year=>2012,:end_year=>2000,:prompt=>true %><br/>
+  </fieldset>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= label_tag :data_final %><br /><br />
+    <%= date_select :relatorio,:fim, :start_year=>2012,:end_year=>2000,:prompt=>true %><br/>
+  </fieldset>
+<div class="submit_link">
+<%=submit_tag "Gerar relatório"%>
+</div>
+<% end %>

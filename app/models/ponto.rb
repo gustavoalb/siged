@@ -7,7 +7,7 @@ class Ponto < ActiveRecord::Base
 
   scope :da_lotacao, lambda {|id|where("lotacao_id = ?",id) }
   scope :do_comissionado, lambda {|id|where("comissionado_id = ?",id) }
-  belongs_to :funcionario
+  belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :lotacao
   belongs_to :entidade
   belongs_to :comissionado

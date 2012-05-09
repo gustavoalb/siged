@@ -1,8 +1,7 @@
 class TipoLista < ActiveRecord::Base
   set_table_name :tipo_lista
   default_scope where('tipo_lista.entidade_id in (?)',User.usuario_atual.entidade_ids)
-
-  acts_as_reportable
+  
   has_attached_file :arquivo,:url => '/arquivos/:filename'
   validates_attachment_content_type :arquivo, :content_type =>['text/plain']
   #validates_attachment_presence(:arquivo)

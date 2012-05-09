@@ -88,6 +88,16 @@
     :update => :disc,
     :with => 'disciplina'%>
 
+    <%if GrupoEducacional.count>0 -%>
+    <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <label>Grupos Educacionais</label><br/><br/>
+      <% for grupo in GrupoEducacional.find(:all) -%>
+      <%= check_box_tag "funcionario[grupos_educacional_ids][]", grupo.id, @funcionario.grupos_educacionais.include?(grupo) %>
+      <%= grupo.nome %>
+      <% end -%>
+    </fieldset>
+    <% end -%>
+
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :nível %><br />
       <%= f.text_field :nivel_id,:value=>"#{detalhes(@funcionario.nivel)}",:disabled=>true,:style=>"width:92%;",:prompt=>"Selecione o Nível" %>

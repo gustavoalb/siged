@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501195927) do
+ActiveRecord::Schema.define(:version => 20120503162410) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -185,6 +185,12 @@ ActiveRecord::Schema.define(:version => 20120501195927) do
     t.datetime "updated_at"
   end
 
+  create_table "colapso_grupo", :id => false, :force => true do |t|
+    t.integer "grupo_educacional_id"
+    t.integer "funcionario_id"
+    t.integer "user_id"
+  end
+
   create_table "colapso_matrizes", :id => false, :force => true do |t|
     t.integer "matriz_id"
     t.integer "serie_id"
@@ -326,6 +332,7 @@ ActiveRecord::Schema.define(:version => 20120501195927) do
     t.integer  "esfera_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sigla"
   end
 
   create_table "escolas", :force => true do |t|
@@ -618,6 +625,12 @@ ActiveRecord::Schema.define(:version => 20120501195927) do
   add_index "funcionarios", ["quadro_id"], :name => "index_funcionarios_on_quadro_id"
   add_index "funcionarios", ["sjuridica_id"], :name => "index_funcionarios_on_sjuridica_id"
   add_index "funcionarios", ["slug"], :name => "index_funcionarios_on_slug", :unique => true
+
+  create_table "grupo_educacionais", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "listas", :force => true do |t|
     t.integer  "funcionario_id"

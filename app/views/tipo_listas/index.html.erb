@@ -30,7 +30,7 @@
     <td><%= sim_nao(tipo_lista.ativo) %></td>
     <td><%= tipo_lista.tipo_objeto %></td>
     <td><%= tipo_lista.pessoas.count %></td>
-    <td><%= link_to  image_tag('/images/icn_alert_info.png',:title=>"Relatório"),tipo_lista_relatorio_path(tipo_lista,:format=>:pdf) %>
+    <td><%= link_to  image_tag('/images/icn_alert_info.png',:title=>"Relatório"),tipo_lista_relatorio_path(tipo_lista) %>
     <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_tipo_lista_path(tipo_lista,:protocol => 'https') %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), tipo_lista,:protocol => 'https', :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
   </tr>

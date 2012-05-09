@@ -36,21 +36,21 @@ end
 def destino(lotacao)
  if lotacao
      if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.nome}/#{lotacao.orgao.sigla}"
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.nome}/#{lotacao.orgao.sigla}"
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.nome}/#{lotacao.orgao.sigla}"
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.nome}"
+        return "#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.nome}"
+        return "#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
         return "#{lotacao.escola.nome_da_escola}"
     elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
@@ -63,23 +63,46 @@ def destino(lotacao)
 end
 end
 
+def codigo_lotacao(lotacao)
+    if !lotacao.escola.nil?
+        return "#{lotacao.escola.orgao.codigo}"
+    elsif !lotacao.departamento.nil?
+        return "#{lotacao.orgao.codigo}"
+    elsif lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.funcionario.orgao.codigo}"
+    else
+        return raw("<font color=red><b>Nada Cadastrado</b></font>")
+    end
+end
+
+def header_ponto(lotacao)
+    if !lotacao.escola.nil?
+        return "#{lotacao.escola.nome_da_escola.upcase}"
+    elsif !lotacao.departamento.nil?
+        return "#{lotacao.departamento.nome.upcase}"
+    else
+        return ""
+    end
+end
+
+
 
 
 
 def destino_ponto(lotacao)
  if lotacao
      if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.orgao.nome}/#{lotacao.orgao.sigla}"
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.orgao.nome}/#{lotacao.orgao.sigla}"
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.nome}"
+        return "#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.nome}"
+        return "#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
         return "#{lotacao.escola.nome_da_escola}"
     elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?

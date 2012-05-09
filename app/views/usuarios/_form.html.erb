@@ -63,10 +63,22 @@
 <% end %>
 </fieldset>
 
+<%if GrupoEducacional.count>0%>
+<fieldset style="width:98%; float:left; margin-right: 1%;">
+<label>Grupos Educacionais</label><br/><br/>
+<% for grupo in GrupoEducacional.find(:all) %>
+
+<%= check_box_tag "usuario[grupos_educacional_ids][]", grupo.id, @user.grupos_educacionais.include?(grupo) %>
+<%= grupo.nome %>
+<% end %>
+</fieldset>
+<%end%>
+
+<!--
 <fieldset style="width:98%; float:left; margin-right: 1%;">
 <label>Entidade do usuário</label><br/><br/>
 <%select :usuario,:entidade_id,%>
-</fieldset>
+</fieldset>-->
 
 <fieldset style="width:98%; float:left; margin-right: 1%;">
 <label>Entidades para leitura</label><br/><br/>

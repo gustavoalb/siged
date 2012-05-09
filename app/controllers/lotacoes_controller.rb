@@ -17,12 +17,38 @@ class LotacoesController < ApplicationController
     end
   end
 
-  def regencia
-   if params[:tipo_lotacao].nil?
-     render :partial=>"prolabore"
-   else
-    render :partial=>"regular"
+  def gerar_relatorio
+    @responsavel = User.usuario_atual
+    render :layout=>"facebox"
   end
+
+  def relatorio
+   @inicio = "#{params[:relatorio][:inicio][:year]}"
+   @fim = "#{params[:relatorio][:inicio][:year]}"
+   @lotacoes = Lotacao.atual.find :all,:limit=>3,:conditions=>["data_lotacao BETWEEN '#{@inicio}' and '#{@fim}'"]
+   relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
+     r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
+      t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
+      t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
+      t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
+      t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
+      t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
+      t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
+      t.add_column(:user) {|l| "#{l.usuario}"}
+      t.add_column(:lotacao) {|l| "#{dest(l)}"}
+    end
+  end
+
+  send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
+end
+
+
+def regencia
+ if params[:tipo_lotacao].nil?
+   render :partial=>"prolabore"
+ else
+  render :partial=>"regular"
+end
 end
 
 def complementar_esp

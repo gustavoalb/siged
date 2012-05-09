@@ -145,6 +145,8 @@ namespace :folha do resources :eventos end
 
   resources :formacoes
   get 'lotacoes/convalidar'
+  get 'lotacoes/relatorio'
+  get 'lotacoes/gerar_relatorio'
   resources :lotacoes
 
 
@@ -233,8 +235,7 @@ end
   # Sample of regular route:
   match 'funcionarios/folha'
   match 'pessoas/naturalidade'
-  match 'lotacoes/prolabore'
-  
+  match 'lotacoes/prolabore'  
   match 'lotacoes/especial',:controller=>"lotacoes",:action=>"lotacao_especial"
   match 'lotacoes/destino'
   match 'lotacoes/tipo_destino'

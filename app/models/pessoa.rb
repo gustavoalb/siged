@@ -3,9 +3,8 @@ class Pessoa < ActiveRecord::Base
   friendly_id :nome, :use=> :slugged
 
 	default_scope where('pessoas.entidade_id in (?)',User.usuario_atual.entidade_ids)
-	acts_as_reportable :except =>[:id,:created_at,:updated_at]
 	include ScopedSearch::Model
-	validates_uniqueness_of :cpf
+	validates_uniqueness_of :cpf,:on=>:create
 	#validates_presence_of :nome,:endereco,:sexo,:cpf,:rg,:numero,:bairro,:cidade_id,:uf,:titulo_eleitor,:zona_eleitoral,:secao,:message=>"Não pode ficar em branco!"
 	validates_uniqueness_of :nome,:scope => [:entidade_id,:cpf,:rg],:message=>"já cadastrado",:on=>:create
 	#scoped_search
@@ -16,7 +15,7 @@ class Pessoa < ActiveRecord::Base
 	scope :em_aberto, where("nascimento = ?",nil)
 
 	scope :que_esta_na_lista, joins(:listas).where("listas.tipo_lista_id=1")
-	has_many :funcionarios,:dependent=>:destroy
+	has_many :funcionarios,:class_name=>"Funcionario",:dependent=>:destroy
 	accepts_nested_attributes_for :funcionarios
 	belongs_to :entidade
 	scope :diretores,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='DIRETORIA' and comissionados.ativo=true)")}

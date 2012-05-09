@@ -1,0 +1,103 @@
+<%content_for :links do%>
+  <%=link_to "Relatórios","#"%><div class="breadcrumb_divider"></div><a class="current">Lotações</a>
+  <% end %>
+
+
+   <article class="module width_full">
+  <header><h3>Lotações no período de</h3></header>
+  <div class="module_content">
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<TR>
+		<TD WIDTH=33% STYLE="border-top: 0px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER>
+			</P>
+		</TD>
+		<TD WIDTH=33% STYLE="border-top: 0px solid #000000; border-bottom: 0px solid #000000; border-left: 0px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><IMG SRC="relat%C3%B3rio%20de%20lota%C3%A7%C3%A3o_html_m20836acf.jpg" NAME="figura1" ALIGN=CENTER WIDTH=59 HEIGHT=67 BORDER=0><BR CLEAR=CENTER>
+			</P>
+		</TD>
+		<TD WIDTH=33% STYLE="border: 0px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><IMG SRC="relat%C3%B3rio%20de%20lota%C3%A7%C3%A3o_html_7ef9c8d.jpg" NAME="figura2" ALIGN=RIGHT WIDTH=136 HEIGHT=60 BORDER=0><BR CLEAR=RIGHT>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100% STYLE="border: 0px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>SECRETARIA DE ESTADO
+			DA EDUCAÇÃO<BR>COODENADORIA DE
+			ADMINISTRAÇÃO<BR>
+			NÚCLEO DE PESSOAL<BR> 
+			UNIDADE DE CONTROLE 
+			DE LOTAÇÃO E MOVIMENTAÇÃORELATÓRIO DE
+			LOTAÇÕES</FONT></P></B>
+		</TD>
+	</TR>
+</TABLE>
+<TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=141>
+	<COL WIDTH=67>
+	<COL WIDTH=158>
+	<COL WIDTH=68>
+	<COL WIDTH=77>
+	<COL WIDTH=81>
+		<thead>
+	<TR>
+		<TH WIDTH=141 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>Funcionário</B></FONT></P>
+		</TH>
+		<TH WIDTH=67 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>Cadastro</B></FONT></P>
+		</TH>
+		<TH WIDTH=158 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>Destino</B></FONT></P>
+		</TH>
+		<TH WIDTH=68 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>Processo</B></FONT></P>
+		</TH>
+		<TH WIDTH=77 bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>Data</B></FONT></P>
+		</TH>
+		<TH WIDTH=81 bgcolor=LightGray STYLE="border: 1px solid #000000; padding: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><B>Responsável</B></FONT></P>
+		</TH>
+	</TR>
+</thead>
+<tbody>
+	<% @lotacoes.all.each do |l| %>
+	<TR>
+		<TD WIDTH=141 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><%=l.funcionario.nome%></FONT></P>
+			</P>
+		</TD>
+		<TD WIDTH=67 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2><%=l.funcionario.matricula%></FONT></P>
+			</P>
+		</TD>
+		<TD WIDTH=158 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2></FONT></P>
+			</P>
+		</TD>
+		<TD WIDTH=68 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2></FONT></P>
+			</P>
+		</TD>
+		<TD WIDTH=77 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2></FONT></P>
+			</P>
+		</TD>
+		<TD WIDTH=81 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=2></FONT></P>
+			</P>
+		</TD>
+	</TR>
+	<% end %>
+</tbody>
+</TABLE>
+</div>
+ </article>

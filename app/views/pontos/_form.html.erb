@@ -17,13 +17,7 @@
   <% end %>
    <%=f.hidden_field :lotacao_id,:value=>@lotacao.id%>
    <%=f.hidden_field :funcionario_id,:value=>@funcionario.id%>
-
-  <fieldset style="width:48%; float:left; margin-right: 1%;">
-    <%= f.label :entidade_id %><br />
-        <%= f.text_field :entidade_id,:style=>"width:92%;" %>
-
-  </fieldset>
-
+   <%=f.hidden_field :entidade_id,:value=>@funcionario.entidade_id%>
 
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :data %><br />

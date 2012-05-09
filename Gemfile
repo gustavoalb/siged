@@ -9,11 +9,7 @@ gem 'statistics'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "mongrel"
 gem 'postgres'
-gem 'ruport'
-gem 'ruport-util'
-gem 'table_for_collection'
-#gem 'tabulatr','~> 0.3.0',:git=>"git://github.com/provideal/tabulatr.git"
-gem 'acts_as_reportable'
+gem "odf-report"
 gem "paperclip"#,:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
 gem 'pg'
 gem 'brazilian-rails'

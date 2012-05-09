@@ -12,9 +12,9 @@ class Funcionario < ActiveRecord::Base
   scope :diretores, lambda { |q| where("diretor = ?" , true) }
   scope :disciplina_def, where("disciplina_contratacao_id is not ?",nil)
   scope :da_entidade, lambda {|id|where("funcionarios.entidade_id = ?",id) }
-  attr_accessor_with_default(:nome) { pessoa.nome }
 
-  #scope :ap_tempo_serv,where("data_nomeacao like ?", Date.today.years_since(5) )
+
+  has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>:colapso_grupo
   belongs_to :pessoa,:class_name=>'Pessoa'
   belongs_to :quadro
   belongs_to :cargo

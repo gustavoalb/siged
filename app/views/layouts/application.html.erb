@@ -121,6 +121,8 @@ function add()
 <%end%>
 <%if can? :convalidar,Lotacao%><li class="icn_convalida"><%=link_to "Convalidar",lotacoes_convalidar_path%></li><%end%>
 
+ <li class="lotacoes"><%= link_to "Relatório de Lotação e Movimentação",lotacoes_gerar_relatorio_path,:rel=>"facebox",:rev=>"height:300px;width:500px"%></li>
+
 </ul>
 
 <h3>Usuário</h3>

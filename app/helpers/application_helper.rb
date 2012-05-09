@@ -193,11 +193,27 @@ def cargo_disciplina(func)
   elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome=='Magistério/Docência'
     return "#{func.cargo.nome.upcase}, #{func.nivel.nome.upcase}"
   elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome=='Comissão'
-    return "#{func.nivel.nome.upcase}"
-  elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo
+    return "#{func.cargo.nome.upcase}"
+  elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome!="Comissão"
     return "#{func.cargo.nome.upcase}, #{func.nivel.nome.upcase}"
   elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo.nil?
     return "#{func.nivel.nome.upcase}"
+  else
+    return raw("<font color=red><b>Nada Cadastrado</b></font>")
+  end
+end
+
+def cargo_resumido(func)
+  if func.cargo and func.cargo.tipo and func.cargo.tipo.nome=='Magistério/Docência' and func.disciplina_contratacao and func.nivel
+    return "#{func.cargo.nome.upcase} DE #{func.disciplina_contratacao.nome.upcase}, #{func.nivel.codigo.upcase}"
+  elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome=='Magistério/Docência'
+    return "#{func.cargo.nome.upcase}, #{func.nivel.codigo.upcase}"
+  elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome=='Comissão'
+    return "#{func.cargo.nome.upcase}"
+  elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome!="Comissão"
+    return "#{func.cargo.nome.upcase}, #{func.nivel.codigo.upcase}"
+  elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo.nil?
+    return "#{func.nivel.codigo.upcase}"
   else
     return raw("<font color=red><b>Nada Cadastrado</b></font>")
   end
