@@ -161,7 +161,7 @@
         <td width=23%><%= destino(lotacao_aberta) %></td>
         <td><%= lotacao_aberta.data_lotacao.to_s_br %></td>
         <td><%= sim_nao(lotacao_aberta.regencia_de_classe) %></td>
-        <td><%=lotacao_aberta.usuario%></td>
+        <td><%= detalhes(lotacao_aberta.usuario) %></td>
         <td><%=status_lotacao(lotacao_aberta.status.last.status)%></td>
         <td><%= link_to  image_tag('/images/pdf.png',:title=>"Carta de Apresentação"), "/pessoas/#{@pessoa.id}/funcionarios/#{@funcionario.id}/carta.pdf?lotacao=#{lotacao_aberta.id}" %></td>
         <td><%= link_to  image_tag('/images/positivo.png',:title=>"Confirmação de Lotação"), pessoa_funcionario_lotacao_confirmar_lotacao_path(@pessoa,@funcionario,lotacao_aberta.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
@@ -199,7 +199,7 @@
         <td width=23%><%= destino(l) %></td>
         <td><%= l.data_lotacao.to_s_br %></td>
         <td><%= sim_nao(l.regencia_de_classe) %></td>
-        <td><%= l.usuario %></td>
+        <td><%= detalhes(l.usuario) %></td>
         <td><%= l.data_confirmacao.to_s_br %></td>
         <td><%=status_lotacao(l.status.last.status)%></td>
         <%if l.status.last.status=="LOTADO"%>
