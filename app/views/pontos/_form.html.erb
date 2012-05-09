@@ -21,7 +21,7 @@
 
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :data %><br />
-        <%= f.date_select :data,:start_year=>2001,:discard_day=>true,:order=>[:year,:month],:style=>"width:10%;" %>
+        <%= f.date_select :data,:start_year=>2001,:discard_day=>true,:order=>[:month, :year],:style=>"width:10;" %>
 
   </fieldset>
 <div class="clear"></div>
