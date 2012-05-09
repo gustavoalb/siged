@@ -54,7 +54,7 @@
 
 
 
-<fieldset style="width:98%; float:left; margin-right: 1%;">
+<fieldset style="width:98%; height: auto; float:left; margin-right: 1%;">
 <label>Papéis Disponíveis</label><br/><br/>
 <% for role in Role.find(:all) %>
 
@@ -69,7 +69,7 @@
 <%select :usuario,:entidade_id,%>
 </fieldset>-->
 
-<fieldset style="width:98%; float:left; margin-right: 1%;">
+<fieldset style="width:98%; height: auto; float:left; margin-right: 1%;">
 <label>Entidades para leitura</label><br/><br/>
 <% for entidade in Entidade.find(:all) %>
 <div>

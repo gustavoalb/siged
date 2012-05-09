@@ -18,6 +18,8 @@ module ApplicationHelper
 end
 
 
+
+
 def log(obj)
   if obj and !obj.usuario.blank?
     return raw("<b>#{obj.usuario.upcase}</b>")
@@ -177,6 +179,8 @@ def detalhes(obj)
  if obj
   if obj.respond_to? "nome_da_escola"
     return obj.nome_da_escola.upcase
+  elsif obj.respond_to? "sigla"
+    return obj.sigla.upcase
   elsif obj.respond_to? "nome"
     return obj.nome.upcase
   end

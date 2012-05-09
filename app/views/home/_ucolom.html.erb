@@ -1,0 +1,17 @@
+		<div id="tabs1" class="tabset">
+			<ul class="tabset_tabs">
+				<li><a href="#tab-um">Relatórios</a></li>
+				<li><a href="#tab-dois">Controle de Lotação (<%=@lotacoes_abertas.count%>)</a></li>
+			</ul>
+
+			<div class="tabset_content_container">
+				<div id="tab-one" class="tabset_content" style="height: 400px ;overflow-y: scroll;">
+					<div id="AccordionContainer" class="AccordionContainer" style="width:16%;">
+						<%= render :partial=>"estatisticas_lotacao"%>
+					</div>
+				</div>
+				<div id="tab-two" class="tabset_content" style="height: 400px ;overflow-y: scroll;" >
+					<%= render :partial=>"lotacoes"%>
+				</div>
+			</div>
+		</div>

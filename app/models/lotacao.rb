@@ -9,7 +9,7 @@ class Lotacao < ActiveRecord::Base
   belongs_to :escola
   belongs_to :orgao
   belongs_to :entidade
-  #belongs_to :usuario,:class_name=>"User"
+  belongs_to :usuario,:class_name=>"User"
 
   has_many :processos,:dependent=>:destroy
   has_many :pontos

@@ -13,7 +13,7 @@
 
       <%@lotacoes_abertas.each do |lotacao_aberta|%>
       <tr title="Processo criado pelo usuário <%= lotacao_aberta.usuario.username%>">
-        <td style="width: 25%;"><%= lotacao_aberta.funcionario.nome%></td>
+        <td style="width: 25%;"><%= detalhes(lotacao_aberta.funcionario)%></td>
         <td style="width: 25%;"><%= destino(lotacao_aberta) %></td>
         <td style="width: 15%;"><%= raw("#{lotacao_aberta.data_lotacao.to_s_br}<sup>(#{int_em_dias(lotacao_aberta.data_lotacao)})</sup>") %></td>
         <td><%=status_lotacao(lotacao_aberta.status.last.status)%></td>

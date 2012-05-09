@@ -17,7 +17,7 @@
     <th>Orgão</th>
     <th>Departamento</th>
     <th>Papéis</th>
-    <th colspan=3></th>
+    <th colspan=3>Ações</th>
   </tr>
 </thead>
 <tbody>
@@ -28,7 +28,7 @@
     <td><%= usuario.username %></td>
     <td><%= detalhes(usuario.orgao) %>
     <td><%= detalhes(usuario.departamento) %>
-    <td><%= roles(usuario) %>
+    <td style="width: 2%;"><%= roles(usuario) %>
     <td><%= link_to 'Detalhes', usuario %></td>
     <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_usuario_path(usuario)%></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), usuario, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>

@@ -1,0 +1,34 @@
+<div class="AccordionTitle" onclick="runAccordion(1);" onselectstart="return false;">
+	<h2 style="font-color: black;">Professores</h2>
+</div>
+<div id="Accordion1Content" class="AccordionContent">
+	<table border=1>
+		<tr>
+			<th colspan=2>Lotações</th>
+		</tr>
+		<tr>
+			<th>Regular</th>
+			<td><%= sprintf('%04i', @regulares.count)%></td>
+		</tr>
+		<tr>
+			<th>Especial</th>
+			<td><%= sprintf('%04i', @especiais.count)%></td>
+		</tr>
+		<tr>
+			<th>Sumária</th>
+			<td><%= sprintf('%04i', @sumarias.count)%></td>
+		</tr>
+		<tr>
+			<th>Sumária Especial</th>
+			<td><%= sprintf('%04i', @sumarias_especiais.count)%></td>
+		</tr>
+		<tr>
+			<th>Total de Lotações</th>
+			<td><%= sprintf('%04i', @lotados.count)%></td>
+		</tr>
+		<tr>
+			<th>Não lotados</th>
+			<td><%= sprintf('%04i',@nao_lotados.count) %></td>
+		</tr>
+	</table>
+</div>

@@ -445,21 +445,25 @@ end
 private
 
 def relatorio(inicio,fim)
-  @lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
-  relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
-    r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
-      t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
-      t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
-      t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
-      t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
-      t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
-      t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
-      t.add_column(:user) {|l| "#{l.usuario}"}
-      t.add_column(:lotacao) {|l| "#{dest(l)}"}
-    end
-  end
+  #@lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
+  # relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
+  #   r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
+  #     t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
+  #     t.add_column(:mat) {|l| "#{l.funcionario.matricula}"}
+  #     t.add_column(:car) {|l| "#{cargo_resumido(l.funcionario)}"}
+  #     t.add_column(:cpf) {|l| "#{Cpf.new(l.funcionario.pessoa.cpf)}"}
+  #     t.add_column(:cat) {|l| "#{l.funcionario.categoria.nome}"}
+  #     t.add_column(:proc) {|l| "#{l.processos.first.processo}"}
+  #     t.add_column(:user) {|l| "#{l.usuario}"}
+  #     t.add_column(:lotacao) {|l| "#{dest(l)}"}
+  #   end
+  # end
 
-  send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
+  # send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
+    headers['Content-Type'] = "application/vnd.ms-excel"
+    headers['Content-Disposition'] = 'attachment; filename="report.xls"'
+    headers['Cache-Control'] = ''
+    @users = User.find(:all)
 end
 
 def funcionario
