@@ -54,7 +54,14 @@ class Lotacao < ActiveRecord::Base
    end
  end
 
-
+     def as_xls(options = {})
+      {
+          "Nome" => funcionario.nome,
+          "CPF" => funcionario.pessoa.cpf,
+          "MAT." => funcionario.matricula,
+          "CATEGORIA" => funcionario.categoria.nome
+      }
+    end
 
 
  def confirma_lotacao

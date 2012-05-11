@@ -25,7 +25,7 @@ gem "wkhtmltopdf", "~> 0.1.2"
 gem 'barby'
 gem 'rmagick'
 gem 'railroady'
-gem 'spreadsheet'
+gem 'to_xls-rails'
 gem 'silent-postgres'
 #gem 'prototype_legacy_helper', '0.0.0', :git => 'https://github.com/rails/prototype_legacy_helper.git'
 gem "validates_existence", ">= 0.4"

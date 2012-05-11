@@ -1,10 +1,45 @@
-<table border="1">
-  <tr>
-    <th>Name</th>
-  </tr>
-  <% @users.each do |u| %>
-  <tr>
-   <td><%= u.name %></td>
-  <% end %>
- </tr>
-</table>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+	<HEAD>
+
+		<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+			<TITLE></TITLE>
+			<META NAME="GENERATOR" CONTENT="LibreOffice 3.4  (Linux)">
+				<META NAME="CREATED" CONTENT="0;0">
+					<META NAME="CHANGED" CONTENT="0;0">
+
+						<STYLE>
+						<!-- 
+						BODY,DIV,TABLE,THEAD,TBODY,TFOOT,TR,TH,TD,P { font-family:"Liberation Sans"; font-size:x-small }
+						-->
+						</STYLE>
+
+					</HEAD>
+
+					<BODY TEXT="#000000">
+						<TABLE FRAME=VOID CELLSPACING=0 COLS=5 RULES=NONE BORDER=0>
+							<COLGROUP><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86></COLGROUP>
+							<TBODY>
+								<TR>
+									<TD WIDTH=150 HEIGHT=17 ALIGN=CENTER><B><FONT FACE="Liberation Serif">Nome</FONT></B></TD>
+									<TD WIDTH=86 ALIGN=CENTER><B><FONT FACE="Liberation Serif">CPF</FONT></B></TD>
+									<TD WIDTH=86 ALIGN=CENTER><B><FONT FACE="Liberation Serif">Matrícula</FONT></B></TD>
+									<TD WIDTH=86 ALIGN=CENTER><B><FONT FACE="Liberation Serif">Cargo</FONT></B></TD>
+									<TD WIDTH=86 ALIGN=CENTER><B><FONT FACE="Liberation Serif">Destino</FONT></B></TD>
+								</TR>
+								<% @lotacoes.each do |l| %>
+								<TR>
+									<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><%=l.funcionario.nome%></FONT></TD>
+									<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><%= Cpf.new(l.funcionario.pessoa.cpf)%></FONT></TD>
+									<TD ALIGN=RIGHT SDVAL="993280" SDNUM="1046;"><FONT FACE="Liberation Serif"><%= l.funcionario.matricula%></FONT></TD>
+									<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><%= cargo_disciplina(l.funcionario)%></FONT></TD>
+									<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><%= destino(l)%></FONT></TD>
+								</TR>
+								<% end %>
+							</TBODY>
+						</TABLE>
+						<!-- ************************************************************************** -->
+					</BODY>
+
+				</HTML>

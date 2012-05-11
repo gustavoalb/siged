@@ -9,7 +9,7 @@ def index
   @lotacaos = Lotacao.all
   @lotacao = Lotacao.new
   @lotacao_aberta = @funcionario.lotacoes.em_aberto.find :all,:conditions=>['funcionario_id=?',@funcionario.id]
-  @lotacoes = @funcionario.lotacoes.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 200
+  @lotacoes = @funcionario.lotacoes.order("data_lotacao desc")
   @processos = @funcionario.processos.order("created_at ASC, processo ASC")
   respond_to do |format|
 format.html # index.html.erb
@@ -30,6 +30,7 @@ def gerar_arquivo
     params[:relatorio]["fim(2i)"].to_i,
     params[:relatorio]["fim(3i)"].to_i)
   relatorio(@inicio.to_date,@fim.to_date)
+  render :layout=>false
 end
 
 def regencia
@@ -320,8 +321,8 @@ def create
       @lotacao.departamento_id = @departamento.id
     end
   elsif !params[:lotacao][:tipo_destino_id].blank? and !params[:escola].blank?
-      @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
-      @lotacao.escola_id = @escola.id
+    @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
+    @lotacao.escola_id = @escola.id
   end
   respond_to do |format|
     if @lotacao.save
@@ -445,7 +446,7 @@ end
 private
 
 def relatorio(inicio,fim)
-  #@lotacoes = Lotacao.atual.find :all,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
+  @lotacoes = Lotacao.atual.find :all,:limit=>10,:conditions=>["data_lotacao BETWEEN (?) and (?)",inicio,fim]
   # relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/lotacao.odt") do |r|
   #   r.add_table("FUNCIONARIOS", @lotacoes, :header=>true) do |t|
   #     t.add_column(:nome) {|l| "#{l.funcionario.pessoa.nome}"}
@@ -458,12 +459,10 @@ def relatorio(inicio,fim)
   #     t.add_column(:lotacao) {|l| "#{dest(l)}"}
   #   end
   # end
-
-  # send_file(relatorio.generate,:filename=>"Relatório UCOLOM.odt")
-    headers['Content-Type'] = "application/vnd.ms-excel"
-    headers['Content-Disposition'] = 'attachment; filename="report.xls"'
-    headers['Cache-Control'] = ''
-    @users = User.find(:all)
+  headers['Content-Type'] = "application/vnd.ms-excel"
+  headers['Content-Disposition'] = 'attachment; filename="report.xls"'
+  headers['Cache-Control'] = ''
+ #send_data(@lotacoes.to_xls, :content_type=>'application/vnd.ms-excel', :filename=> "Relatório de lotações de #{inicio.to_s_br} à #{fim.to_s_br}.xls")
 end
 
 def funcionario

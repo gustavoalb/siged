@@ -178,7 +178,7 @@
       <tr>
         <th>Tipo</th>
         <th>Destino</th>
-        <th>Data da lotação</th>
+        <th>Data</th>
         <th>Regência</th>
         <th>Usuário</th>
         <th>Confirmada em</th>
@@ -190,13 +190,14 @@
 
       <%@lotacoes.each do |l|%>
       <tr>
-        <td><%= l.tipo_lotacao.titleize %></td>
+        <td width=3%><%= l.tipo_lotacao.titleize %></td>
         <td width=23%><%= destino(l) %></td>
         <td><%= l.data_lotacao.to_s_br %></td>
         <td><%= sim_nao(l.regencia_de_classe) %></td>
         <td><%= detalhes(l.usuario) %></td>
         <td><%= l.data_confirmacao.to_s_br %></td>
         <td><%= status_lotacao(l.status.last.status)%></td>
+        <td><%= link_to  image_tag('/images/pdf.png',:title=>"Carta de Apresentação"), pessoa_funcionario_carta_path(@pessoa,@funcionario,:lotacao=>l.id) %></td>
         <%if l.status.last.status=="LOTADO"%>
         <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(@pessoa,@funcionario,l.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
         <%end%>
@@ -205,9 +206,6 @@
 
     </tbody>
   </tfooter>
-  <tr>
-    <td><%=will_paginate @lotacoes%></td>
-  </tr>
 </tfooter>
 </table>
 
