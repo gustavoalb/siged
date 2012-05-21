@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
   set_table_name :users
   has_one :entidade_user
-  has_and_belongs_to_many :roles,:join_table=>:roles_users
+  has_and_belongs_to_many :roles,:join_table=>'roles_users'
   has_and_belongs_to_many :entidades,:join_table=>:users_entidades
-  has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>:colapso_grupo
+  has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>'colapso_grupo'
   belongs_to :orgao
   belongs_to :departamento
   belongs_to :entidade
+  belongs_to :escola
+  belongs_to :funcionario
 
 
   # Include default devise modules. Others available are:
@@ -17,7 +19,7 @@ class User < ActiveRecord::Base
   #cattr_accessor :entidades_do
   cattr_accessor :ultimo_ip
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,:name,:username,:role_ids,:entidade_ids,:grupos_educacional_ids,:orgao_id,:departamento_id,:enabled
+  attr_accessible :email, :password, :password_confirmation, :remember_me,:name,:username,:role_ids,:entidade_ids,:grupos_educacional_ids,:orgao_id,:departamento_id,:enabled,:escola_id,:funcionario_id
 
   def disable
     self.enabled = false
@@ -34,6 +36,27 @@ class User < ActiveRecord::Base
   def inactive_message
     enabled? ? super : "Sua conta está desabilitada"
   end
+
+  def update_with_password(params={})
+        current_password = params.delete(:current_password)
+
+        if params[:password].blank?
+          params.delete(:password)
+          params.delete(:password_confirmation) if params[:password_confirmation].blank?
+        end
+
+        result = if params[:password].blank? || valid_password?(current_password) 
+          update_attributes(params)
+        else
+          self.attributes = params
+          self.valid?
+          self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+          false
+        end
+
+        clean_up_passwords
+        result
+      end
 
 
 

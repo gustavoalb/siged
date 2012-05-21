@@ -2,6 +2,7 @@ class EntidadesController < ApplicationController
   load_and_authorize_resource
   # GET /entidades
   # GET /entidades.xml
+  before_filter :dados_essenciais
   def index
     #@search = Entidade.scoped_search(params[:search])
     @entidades = Entidade.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10

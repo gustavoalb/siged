@@ -3,7 +3,7 @@ require "barby/outputter/rmagick_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
-  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
+  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao,:data_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
   validates_presence_of :usuario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :escola
@@ -53,15 +53,6 @@ class Lotacao < ActiveRecord::Base
      return false
    end
  end
-
-     def as_xls(options = {})
-      {
-          "Nome" => funcionario.nome,
-          "CPF" => funcionario.pessoa.cpf,
-          "MAT." => funcionario.matricula,
-          "CATEGORIA" => funcionario.categoria.nome
-      }
-    end
 
 
  def confirma_lotacao
@@ -192,17 +183,17 @@ def lotacao_regular
  elsif self.tipo_lotacao=="ESPECIAL"
    processo.natureza="LOTAÇÃO ESPECIAL"
  elsif self.tipo_lotacao=="SUMARIA"
-   processo.natureza="LOTAÇÃO SUMÁRIA"
-   self.finalizada=true
-   self.save
+   processo.natureza = "LOTAÇÃO SUMÁRIA"
+   self.update_attributes(:finalizada=>true)
+   self.save!
  elsif self.tipo_lotacao=="SUMARIA ESPECIAL"
-   processo.natureza="LOTAÇÃO SUMÁRIA ESPECIAL"
-   self.finalizada=true
-   self.save
+   processo.natureza = "LOTAÇÃO SUMÁRIA ESPECIAL"
+   self.update_attributes(:finalizada=>true)
+   self.save!
  elsif self.tipo_lotacao=="COMISSÃO"
    processo.natureza="LOTAÇÃO COMISSIONADA"
-   self.finalizada=true
-   self.save
+   self.update_attributes(:finalizada=>true)
+   self.save!
  end
  processo.funcionario_id=self.funcionario_id
  processo.destino_id=self.escola_id
@@ -217,6 +208,7 @@ def lotacao_regular
   if self.tipo_lotacao=="PROLABORE"
     processo.processo="PL#{cod.numero(num)}/#{Date.today.year}"
   elsif self.tipo_lotacao=="REGULAR"
+    self.orgao_id = self.escola.orgao_id
     processo.processo="LR#{cod.numero(num)}/#{Date.today.year}"
   elsif self.tipo_lotacao=="ESPECIAL"
     processo.processo="LE#{cod.numero(num)}/#{Date.today.year}"
@@ -236,7 +228,7 @@ def lotacao_regular
     status.status="ENCAMINHADO"
   end
   if self.complementar==false
-    lotacoes = Lotacao.atual.find :all,:conditions=>["funcionario_id = ? and id<>?",self.funcionario_id,self.id]
+    lotacoes = Lotacao.confirmada_fechada.ativo.find :all,:conditions=>["funcionario_id = ? and id<>?",self.funcionario_id,self.id]
     lotacoes.each do |l|
       l.ativo = false
       l.save

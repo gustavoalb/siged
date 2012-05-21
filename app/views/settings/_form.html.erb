@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for @setting,:url=>escola_ano_letivo_settings_url(@escola,@ano_letivo) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for @setting,:url=>escola_ano_letivo_settings_url(@escola,@ano_letivo) do |f| %>
   <% if @setting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@setting.errors.count, "erro impede","erros impedem") %> este setting de ser cadastrado:</h2>

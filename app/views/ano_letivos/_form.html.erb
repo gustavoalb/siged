@@ -1,4 +1,8 @@
-<%= form_for @ano_letivo,:url=> escola_ano_letivos_url(@escola) do |f| %>
+<article class="module width_3_quarter">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+<%= form_for @ano_letivo,:url=>anos_letivos_url do |f| %>
   <% if @ano_letivo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ano_letivo.errors.count, "erro impede","erros impedem") %> este ano_letivo de ser cadastrado:</h2>
@@ -11,15 +15,14 @@
     </div>
   <% end %>
 
-  <%=f.hidden_field :escola_id,:value=>@escola.id%>
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :inicio %><br /><br />
-        <%= f.date_select :inicio,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+        <%= f.date_select :inicio,:start_year=>Date.today.year,:end_year=>Date.today.year+1,:order=>[:day,:month,:year],:style=>"width:40%;",:prompt=>true %>
     
   </fieldset>
   <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :termino %><br /><br />
-        <%= f.date_select :termino,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+        <%= f.date_select :termino,:start_year=>Date.today.year,:end_year=>Date.today.year+1,:order=>[:day,:month,:year],:style=>"width:40%;",:prompt=>true %>
     
   </fieldset>
   <fieldset style="width:98%; height: auto; float:left; margin-right: 1%;">
@@ -35,3 +38,5 @@
 				</div>
 			</footer>
 <% end %>
+</div>
+</article>

@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@role) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@role) do |f| %>
   <% if @role.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@role.errors.count, "erro impede","erros impedem") %> este role de ser cadastrado:</h2>
@@ -29,7 +26,7 @@
 
   </fieldset>
 
-  <fieldset style="width:48%; float:left; margin-right: 1%;">
+  <fieldset style="width:48%; height: auto;float:left; margin-right: 1%;">
     <%= f.label :descrição %><br />
         <%= f.text_area :description ,:style=>"width:92%;" %>
 

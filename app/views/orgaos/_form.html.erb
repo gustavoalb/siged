@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for @orgao,:url=>orgaos_url do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for @orgao,:url=>orgaos_url do |f| %>
   <% if @orgao.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@orgao.errors.count, "error") %> prohibited this orgao from being saved:</h2>

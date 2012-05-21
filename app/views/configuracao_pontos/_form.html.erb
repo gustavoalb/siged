@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@configuracao_ponto) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@configuracao_ponto) do |f| %>
   <% if @configuracao_ponto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@configuracao_ponto.errors.count, "erro impede","erros impedem") %> este configuracao_ponto de ser cadastrado:</h2>

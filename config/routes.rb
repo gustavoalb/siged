@@ -1,4 +1,10 @@
 Siged20::Application.routes.draw do
+
+
+  get 'mensagens/inbox'
+
+  resources :mensagens
+
   get "home/index"
 
   resources :niveis_ensinos do
@@ -55,10 +61,6 @@ Siged20::Application.routes.draw do
     end
 
   #fim do namespace folha
-end
-
-resources :manutencoes do
-  post "em_manutencao"
 end
 
 
@@ -151,16 +153,14 @@ namespace :folha do resources :eventos end
 
   get 'relatorios/funcionarios_por_disciplina',:controller=>"funcionarios",:action=>'relatorio_por_disciplina'
   resources :funcionarios
-  
+  resources :anos_letivos,:controller=>'ano_letivos'
   resources :escolas do
     get :controle_turma
     get :listar_turmas
     get :incluir_turma
     post :salvar_turma
-    resources :ano_letivos do
-
-      resources :settings
-    end
+    get "configuracoes"
+    
     resources :ambientes do
       get :configurar_ambiente
       get :configurar_ambiente_fisico
@@ -238,6 +238,7 @@ end
   # first created -> highest priority.
 
   # Sample of regular route:
+  post 'administracao/tarefas/send_data'
   match 'funcionarios/folha'
   match 'pessoas/naturalidade'
   match 'lotacoes/prolabore'  

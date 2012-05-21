@@ -27,6 +27,8 @@ gem 'rmagick'
 gem 'railroady'
 gem 'to_xls-rails'
 gem 'silent-postgres'
+#gem 'messaging', :git=> 'git://github.com/frodefi/rails-messaging.git'
+#gem 'mailboxer'
 #gem 'prototype_legacy_helper', '0.0.0', :git => 'https://github.com/rails/prototype_legacy_helper.git'
 gem "validates_existence", ">= 0.4"
 gem 'rufus-scheduler'

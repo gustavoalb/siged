@@ -8,6 +8,6 @@ class CreateColapsoGrupo < ActiveRecord::Migration
 	end
 
 		def self.down
-			drop_table :users_entidades
+			drop_table :colapso_grupo
 		end
 	end

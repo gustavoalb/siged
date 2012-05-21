@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@referencia_nivei) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@referencia_nivei) do |f| %>
 <% if @referencia_nivei.errors.any? %>
 <div id="error_explanation">
 <h2><%= pluralize(@referencia_nivei.errors.count, "erro impede","erros impedem") %> este referencia_nivei de ser cadastrado:</h2>

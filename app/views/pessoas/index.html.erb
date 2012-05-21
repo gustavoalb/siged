@@ -21,7 +21,7 @@
 
 <p>
 <ul>
-	
+<% if @pessoas.size>0 -%>	
 <% @pessoas.each do |pessoa| %>
 <li>
 <header>
@@ -91,6 +91,9 @@
 <%end%>
 <%end%>
 <%end%>
+<%else%>
+<h2 class=tabela>Busca de pessoas</h2>
+<%end%>
 </div>
 </div>
 <footer>
@@ -104,4 +107,11 @@
 			</footer>
 		</div>
 </article>
-
+<article class='module width_quarter'>
+<p class='overview_day'>Quadro de Avisos</p>
+	<marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
+		<% @noticias.all.each do |n| %>
+		<p style='background: #CCCCCC;'><%=n.texto%></p><br/>
+		<% end %>
+	</marquee>
+</article>

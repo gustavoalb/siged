@@ -15,7 +15,7 @@ class HomeController < ApplicationController
 		@especiais = Funcionario.find(:all,:joins=>:lotacoes_atuais,:conditions=>["cargo_id = ? and lotacaos.tipo_lotacao = ?",Cargo.find_by_nome("Professor"),"ESPECIAL"]).uniq
 		@sumarias = Funcionario.find(:all,:joins=>:lotacoes_atuais,:conditions=>["cargo_id = ? and lotacaos.tipo_lotacao = ?",Cargo.find_by_nome("Professor"),"SUMARIA"]).uniq
 		@sumarias_especiais = Funcionario.find(:all,:joins=>:lotacoes_atuais,:conditions=>["cargo_id = ? and lotacaos.tipo_lotacao = ?",Cargo.find_by_nome("Professor"),"SUMARIA ESPECIAL"]).uniq
-
+		@noticias = Mensagem.noticias.order(:created_at)
 
 	end
 

@@ -1,0 +1,30 @@
+<%= form_for(@escola) do |f| %>
+<%= hidden_field_tag :notice,"Escola configurada com sucesso"%>
+<fieldset style="width:48%; float:left;  height: auto; margin-right: 1%;">
+	<%= f.label :matrizes %><br /><br />
+	<% for matriz in @matrizes%>
+	<div title="<%=matriz.codigo%>" style="float: left;">
+	<%= check_box_tag "escola[matriz_ids][]", matriz.id, @escola.matrizes.include?(matriz) %>
+	<%= matriz.codigo %>
+	</div>
+	<% end %>
+
+</fieldset>
+<!--<fieldset style="width:48%; float:left;  height: auto; margin-right: 1%;">
+	<%= f.label :niveis_de_ensino %><br /><br />
+	<% for nivel in NiveisEnsino.order(:nome)%>
+	<div title="<%=matriz.codigo%>" style="float: left;">
+	<%= check_box_tag "escola[nivel_ids][]", nivel.id, @escola.niveis_ensino.include?(nivel) %>
+	<%= nivel.codigo %>
+	</div>
+	<% end %>
+
+</fieldset>-->
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+	<%= f.label :ano_letivo %><br />
+	<%= f.select :ano_letivo_id,@anos_letivos,:style=>"width:92%;",:prompt=>true %>
+
+</fieldset>
+<%=f.submit "Salvar configurações"%>
+
+<%end%>

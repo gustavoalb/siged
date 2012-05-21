@@ -8,7 +8,7 @@ def index
   if params[:search]
     @busca = params[:search][:busca]
   end
-  @escolas = @search.order(:nome_da_escola).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+  @escolas = @search.includes(:entidade).order('entidades.nome',:nome_da_escola).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
   respond_to do |format|
 format.html # index.html.erb
 format.xml  { render :xml => @escolas }
@@ -19,7 +19,8 @@ end
 # GET /escolas/1.xml
 def show
   @escola = Escola.find_by_slug(params[:id])
-  @funcionarios = @escola.funcionarios.joins(:lotacoes_atuais)
+  @funcionarios = @escola.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",true,true)
+  @encaminhados = @escola.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",false,true)
   if !@escola.ambientes.none?
     @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
     @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
@@ -96,6 +97,11 @@ def listar_turmas
   end
 end
 
+def configuracoes
+  @escola = Escola.find_by_slug(params[:escola_id])
+  @matrizes = Matriz.find(:all,:joins=>:nivel,:order=>['niveis_ensinos.nome asc',:codigo])
+  render :layout=>'facebox'
+end
 
 # GET /escolas/new
 # GET /escolas/new.xml
@@ -133,10 +139,14 @@ end
 # PUT /escolas/1.xml
 def update
   @escola = Escola.find(params[:id])
-
+  if !params[:notice].blank?
+    notice = params[:notice]
+  else
+    notice = 'Escola atualizada com sucesso.'
+  end
   respond_to do |format|
     if @escola.update_attributes(params[:escola])
-      format.html { redirect_to(@escola, :notice => 'Escola atualizada com sucesso.') }
+      format.html { redirect_to(@escola, :notice => notice) }
       format.xml  { head :ok }
     else
       format.html { render :action => "edit" }

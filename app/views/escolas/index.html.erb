@@ -1,57 +1,63 @@
 <%content_for :links do%>
-		<a class="current">Escolas</a>
+<a class="current">Escolas</a>
 
 <%end%>
 
-<article class="module width_full">
-		<header><h3 class="tabs_involved">Escolas cadastradas</h3>
-		<ul class="tabs">
-			<%= form_for @search do |f| %>
-   			<li><%= f.text_field :busca,:size=>13 %></li>
-    		<li><%= image_submit_tag "icn_busca.png" %>
-			<% end %>
-		</ul>
-		</header>
-    <div class="tab_container">
-		<div id="tab1" class="tab_content">
-<table class="tablesorter" cellspacing="0">
-<thead>
-  <tr>
-    <th>Código</th>
-    <th>Nome</th>
-    <th>Rede</th>
-    <th>Município</th>
-    <th colspan=5>Ações</th>
-  </tr>
-</thead>
-<tbody>
-<% @escolas.each do |escola| %>
-  <tr>
-    <td><%= raw("#{highlight(escola.codigo,@busca)}") %></td>
-    <td><%= raw("#{highlight(escola.nome_da_escola, @busca)}") %></td>
-    <td><%= detalhes(escola.entidade) %></td>
-    <td><%= escola.municipio.nome %></td>
-    <td><%=ano_config(escola,escola.anos_letivos.find_by_ano(Date.today.year))%></td>
-    
-    <td><%= link_to 'Detalhes', escola %></td>
-    <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_escola_path(escola) %></td>
-    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), escola, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
-    <td><%= link_to  image_tag("/images/icn_unity.png",:title=>"Configura Ambientes"),escola_ambientes_path(escola) %></td>
-    </tr>
-<% end %>
-</tbody>
-</table>
+<article class="module width_3_quarter">
+  <header><h3 class="tabs_involved">Escolas cadastradas</h3>
+      <ul class="tabs">
+       <%= form_for @search do |f| %>
+       <li><%= f.text_field :busca,:size=>13 %></li>
+       <li><%= image_submit_tag "icn_busca.png" %>
+           <% end %>
+       </ul>
+   </header>
+   <div class="tab_container">
+      <div id="tab1" class="tab_content">
+        <table class="tablesorter" cellspacing="0">
+            <thead>
+              <tr>
+                <th WIDTH=2%>Código</th>
+                <th>Nome</th>
+                <th>Rede</th>
+                <th>Município</th>
+                <th colspan=5>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @escolas.each do |escola| %>
+            <tr>
+                <td WIDTH=2%><%= raw("#{highlight(escola.codigo,@busca)}") %></td>
+                <td><%= raw("#{highlight(escola.nome_da_escola.upcase, @busca)}") %></td>
+                <td><%= detalhes(escola.entidade,true) %></td>
+                <td><%= escola.municipio.nome %></td>
+                <%if can? :manage,Escola and escola.id==current_user.escola_id%>
+                <td><%= link_to 'Detalhes', escola %></td>
+                <td><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(escola),:rel=>'facebox',:rev=>"height:300px;width:500px"%></td>
+                
+                <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_escola_path(escola) %></td>
+                <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), escola, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+                <td><%= link_to  image_tag("/images/icn_unity.png",:title=>"Configura Ambientes"),escola_ambientes_path(escola) %></td>
+                <%else%>
+                <td><%=image_tag('block.png',:title=>'Você não tem permissão para acessar as informações dessa escola, apenas da sua.')%></td>
+                <td><%=image_tag('block.png',:title=>'Você não tem permissão para acessar as informações dessa escola, apenas da sua.')%></td>
+                <td><%=image_tag('block.png',:title=>'Você não tem permissão para acessar as informações dessa escola, apenas da sua.')%></td>
+                <%end%>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 
 </div>
 </div>
 <footer>
-				<div class="submit_link">
-				  <%= link_to 'Cadastrar Escola', new_escola_path,:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', :back,:type=>"submit" %>
-				</div>
-        <div class="submit_link">
-        <%= will_paginate @escolas %>
-        </div>
-			</footer>
+    <div class="submit_link">
+      <%= link_to 'Cadastrar Escola', new_escola_path,:class=>"alt_btn",:type=>"submit"%> ou
+      <%= link_to 'Voltar', :back,:type=>"submit" %>
+  </div>
+  <div class="submit_link">
+    <%= will_paginate @escolas %>
+</div>
+</footer>
 
 </article>

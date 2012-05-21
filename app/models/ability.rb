@@ -13,6 +13,16 @@ class Ability
    can :manage,Pessoa
    cannot :destroy,Pessoa
 
+ elsif user.role? :diretores
+   can :manage,Lotacao,:escola_id=>user.escola_id
+   cannot :create,Lotacao
+   can :manage,Turma,:escola_id=>user.escola_id
+   can :manage,Ambiente,:escola_id=>user.escola_id
+   can :manage,Escola,:id=>user.escola_id
+   cannot :destroy,Escola
+   cannot :destroy,Turma
+   can :read,Pessoa
+
  elsif user.role? :enquete
    can :read,Pessoa
    cannot :show,Pessoa

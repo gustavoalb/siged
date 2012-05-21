@@ -116,7 +116,11 @@ class PontosController < ApplicationController
     @funcionario = @ponto.funcionario
     @lotacao = @ponto.lotacao
     @orgao = @lotacao.orgao
-    @departamento = @lotacao.departamento
+    if !@lotacao.escola.nil?
+      @escola = @lotacao.escola
+    elsif !@lotacao.departamento.nil?
+      @departamento = @lotacao.departamento
+    end
     @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
     @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
     @pasta = Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}")

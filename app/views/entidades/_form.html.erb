@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@entidade) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@entidade) do |f| %>
   <% if @entidade.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@entidade.errors.count, "erro impede","erros impedem") %> este entidade de ser cadastrado:</h2>
@@ -22,8 +19,13 @@
 
   </fieldset>
   <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :sigla %><br />
+        <%= f.text_field :sigla,:style=>"width:92%;" %>
+
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :esfera_id %><br />
-        <%= f.text_field :esfera_id,:style=>"width:92%;" %>
+        <%= f.select :esfera_id,@esferas,:style=>"width:92%;",:prompt=>true %>
 
   </fieldset>
 <div class="clear"></div>

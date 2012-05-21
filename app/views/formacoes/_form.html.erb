@@ -28,11 +28,8 @@ alert("You typed the following: " + this.getValue());
     </script>
 
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content">
 <%= form_for @formacao,:url=>pessoa_formacoes_url do |f| %>
   <% if @formacao.errors.any? %>
     <div id="error_explanation">

@@ -1,0 +1,30 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Usuario:</b>
+  <%= @mensagem.usuario_id %>
+</p>
+
+<p>
+  <b>Destinatario:</b>
+  <%= @mensagem.destinatario_id %>
+</p>
+
+<p>
+  <b>Texto:</b>
+  <%= @mensagem.texto %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_mensagem_path(@mensagem),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', mensagens_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

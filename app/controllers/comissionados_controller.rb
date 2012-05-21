@@ -33,20 +33,20 @@ class ComissionadosController < ApplicationController
   end
 
   def auto_complete_for_escola_nome_da_escola
-  @escolas = Escola.find(:all,
-  :conditions => [ 'LOWER(nome_da_escola) iLIKE ?',
-    '%' + params[:escola][:nome_da_escola].downcase + '%' ])
+    @escolas = Escola.find(:all,
+      :conditions => [ 'LOWER(nome_da_escola) iLIKE ?',
+        '%' + params[:escola][:nome_da_escola].downcase + '%' ])
     render :partial => "busca_escolas"
 
   end
 
   def auto_complete_for_departamento_nome
     @departamentos = Departamento.find(:all,
-    :conditions => [ 'LOWER(nome) iLIKE ?',
-      '%' + params[:departamento][:nome].downcase + '%' ])
-      render :partial => "busca_departamentos"
+      :conditions => [ 'LOWER(nome) iLIKE ?',
+        '%' + params[:departamento][:nome].downcase + '%' ])
+    render :partial => "busca_departamentos"
 
-    end
+  end
 
 
 
@@ -101,14 +101,14 @@ class ComissionadosController < ApplicationController
     @funcionario = Funcionario.find(params[:comissionado][:funcionario_id])
     @pessoa = @funcionario.pessoa
     @comissionado = @funcionario.comissionados.new(params[:comissionado])
-     if params[:comissionado][:tipo_destino_id].size>0 and !params[:escola].nil?
-       @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
-       @comissionado.escola_id = @escola.id
-     elsif params[:comissionado][:tipo_destino_id].size>0 and !params[:departamento].nil?
-       @departamento = Departamento.find(:first,:conditions=>["nome ilike ?","%#{params[:departamento][:nome]}%"])
-       @comissionado.departamento_id = @departamento.id
-     end
-     respond_to do |format|
+    if !params[:comissionado][:tipo_destino_id].blank? and !params[:escola].nil?
+      @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
+      @comissionado.escola_id = @escola.id
+    elsif !params[:comissionado][:tipo_destino_id].blank? and !params[:departamento].nil?
+      @departamento = Departamento.find(:first,:conditions=>["nome ilike ?",params[:departamento][:nome]])
+      @comissionado.departamento_id = @departamento.id
+    end
+    respond_to do |format|
       if @comissionado.save
         format.html { redirect_to(pessoa_funcionario_url(@pessoa,@funcionario), :notice => 'Comissionado cadastrado com sucesso.') }
         format.xml  { render :xml => @comissionado, :status => :created, :location => @comissionado }

@@ -249,10 +249,10 @@
 
 </div>
 <footer>
-				<div class="submit_link">
-				  <%= link_to 'Editar', edit_administracao_tarefa_path(@administracao_tarefa),:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', administracao_tarefas_path,:type=>"submit" %>
-				</div>
-			</footer>
+                <div class="submit_link">
+                  <%= link_to 'Editar', edit_administracao_tarefa_path(@administracao_tarefa),:class=>"alt_btn",:type=>"submit"%> ou
+                  <%= link_to 'Voltar', administracao_tarefas_path,:type=>"submit" %>
+                </div>
+            </footer>
 </article>
 

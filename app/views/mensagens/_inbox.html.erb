@@ -1,0 +1,20 @@
+		<table class='tablesorter' style='width: 100%;'>
+			<thead>
+				<tr>
+					<th>Remetente</th>
+					<th>Tipo</th>
+					<th>Mensagem</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @mensagens.each do |m| %>
+				<tr>
+					<td><%= detalhes(m.destinatario)%></td>
+					<td><%= m.tipo.titleize%></td>
+					<td title="<%=m.texto%>"><%= m.texto[0..5]%></td>
+					<td><%= link_to image_tag("/images/icn_trash.png",:title=>"Apagar"),mensagem_path(m,:inbox=>true),:confirm=>'Tem certeza que deseja Apagar?',:method=>:delete %></td>
+				</tr>
+				<% end %>	
+			</tbody>
+		</table>

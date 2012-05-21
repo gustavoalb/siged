@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@disciplina_contratacao) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@disciplina_contratacao) do |f| %>
   <% if @disciplina_contratacao.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@disciplina_contratacao.errors.count, "erro impede","erros impedem") %> este descricao_cargo de ser cadastrado:</h2>

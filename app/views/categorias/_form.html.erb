@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@categoria) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@categoria) do |f| %>
 <% if @categoria.errors.any? %>
 <div id="error_explanation">
 <h2><%= pluralize(@categoria.errors.count, "erro impede","erros impedem") %> este categoria de ser cadastrado:</h2>

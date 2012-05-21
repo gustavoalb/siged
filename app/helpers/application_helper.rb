@@ -1,6 +1,7 @@
 module ApplicationHelper
   include ScopedSearch::Helpers
 
+
   def pdf_image_tag(image, options = {})
    caminho="../../../"+image
    options[:src] = File.expand_path(RAILS_ROOT) + '/public/images' + image
@@ -17,8 +18,17 @@ module ApplicationHelper
   end 
 end
 
-
-
+def setor
+  user = User.usuario_atual
+  if user.role?(:diretores) and !user.escola.nil?
+    html = "<li class='icn_descri'>#{link_to user.escola.nome_da_escola, escola_path(user.escola)}</li>"
+  elsif !user.role?(:diretores) and !user.departamento.nil? and can? :manage,Ponto
+    html = "<li class='icn_descri'>#{link_to user.departamento.sigla, orgao_departamento_pontos_funcionarios_path(user.orgao,user.departamento)}</li>"
+  else
+    html = ''
+  end
+  return raw(html)
+end
 
 def log(obj)
   if obj and !obj.usuario.blank?
@@ -175,19 +185,19 @@ return raw(html)
 
 end
 
-def detalhes(obj)
+def detalhes(obj=nil,sigla=false)
  if obj
   if obj.respond_to? "nome_da_escola" and !obj.nome_da_escola.blank?
     return obj.nome_da_escola.upcase
-  elsif obj.respond_to? "sigla" and !obj.sigla.blank?
+  elsif obj.respond_to? "sigla" and !obj.sigla.blank? and sigla==true
     return obj.sigla.upcase
   elsif obj.respond_to? "nome" and !obj.nome.blank?
     return obj.nome.upcase
   elsif obj.respond_to? "username" and !obj.username.blank?
     return obj.username.upcase
   else
-     return raw("<font color=red><b>Nada Cadastrado</b></font>")
-  end
+   return raw("<font color=red><b>Nada Cadastrado</b></font>")
+ end
 else
  return raw("<font color=red><b>Nada Cadastrado</b></font>")
 end

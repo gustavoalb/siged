@@ -76,7 +76,7 @@ end
 def destino
   if params[:esfera].size>0
     @esfera = Esfera.find(params[:esfera])
-    @orgaos_esfera = @esfera.orgaos.all.collect{|o|[o.nome,o.id]}
+    @orgaos_esfera = @esfera.orgaos.order(:nome).collect{|o|[o.nome.upcase,o.id]}
     render :partial=>"destino"
   else
     render :partial=>"destino_nulo"
@@ -312,16 +312,16 @@ def create
   @lotacao = Lotacao.new(params[:lotacao])
   if params[:lotacao][:tipo_destino_id].blank? and params[:lotacao][:orgao_id].blank?
     if !params[:escola].blank?
-      @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
+      @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
       @lotacao.escola_id = @escola.id
     end
   elsif !params[:lotacao][:tipo_destino_id].blank? and params[:escola].blank?
-    if params[:departamento].blank?
-      @departamento = Departamento.find_by_nome(params[:departamento][:nome])
+    if !params[:departamento].blank?
+      @departamento = Departamento.find(:first,:conditions=>["nome ilike ?","#{params[:departamento][:nome]}"])
       @lotacao.departamento_id = @departamento.id
     end
   elsif !params[:lotacao][:tipo_destino_id].blank? and !params[:escola].blank?
-    @escola = Escola.find_by_nome_da_escola(params[:escola][:nome_da_escola])
+    @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
     @lotacao.escola_id = @escola.id
   end
   respond_to do |format|

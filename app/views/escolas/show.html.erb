@@ -1,16 +1,18 @@
 <%content_for :links do%>
 <%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
 <%end%>
-<article class="module width_full">
-  <header><h3>Detalhes da Escola: <%=@escola.nome_da_escola.titleize%> </h3></header>
+<article class="module width_3_quarter">
+  <header><h3>Detalhes da Escola: <%= @escola.nome_da_escola.titleize%><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(@escola),:rel=>'facebox',:rev=>"height:300px;width:500px"%></h3></header>
   <div class="module_content">
     <div id="tabs1" class="tabset">
+      <% if can? :manage,Escola,:id=>current_user.escola_id%>
       <ul class="tabset_tabs">
         <li><a href="#tab-um">Detalhes</a></li>
         <li><a href="#tab-dois">Quadro funcional</a></li>
         <li><a href="#tab-tres">Turmas</a></li>
+        <li><a href="#tab-tres">Lotações à confirmar</a></li>
       </ul>
-
+      <%end%>
       <div class="tabset_content_container">
         <div id="tab-one" class="tabset_content">
           <p>
@@ -90,10 +92,9 @@
                 <th>Matrícula</th>
                 <th>Funcionário</th>
                 <th>Cargo</th>
-                <th title="Regência Semanal Disponível">Reg. Disp.</th>
+                <th title="Regência Semanal Disponível">RSD<sup>(?)</sup></th>
                 <th>Ações</th>
-                <th></th>
-                <th></th>
+                <th colspan=2></th>
               </tr>
             </thead>
             <tbody>
@@ -103,7 +104,8 @@
                <td><%= detalhes(f.pessoa) %></td>
                <td><%= cargo_resumido(f) %></td>
                <td title='<%=turmas(f)%>'><%= cor_rsd(f)%></td>
-               <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo .find_by_funcionario_id(f.id),@escola),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+               <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id),@escola),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+               <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
              </tr>
              <% end %>
            </tbody>
@@ -114,9 +116,36 @@
        <div id="tab-three" class="tabset_content">
         <%=render :partial=>'turmas'%>
       </div>
+      <div id="tab-four" class="tabset_content" style='overflow-y: scroll; height: 200px;'>
+        <table class="tablesorter" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Matrícula</th>
+              <th>Funcionário</th>
+              <th>Cargo</th>
+              <th title="Regência Semanal Disponível">RSD<sup>(?)</th>
+              <th>Ações</th>
+              <th colspan=3></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @encaminhados.each do |f| %>
+            <tr>
+             <td><%= f.matricula %></td>
+             <td><%= detalhes(f.pessoa) %></td>
+             <td><%= cargo_resumido(f) %></td>
+             <td title='<%=turmas(f)%>'><%= cor_rsd(f)%></td>
+             <td><%= link_to  image_tag('/images/pdf.png',:title=>"Carta de Apresentação"), pessoa_funcionario_carta_path(f.pessoa,f,:lotacao=>@escola.lotacoes.ativo.find_by_funcionario_id(f.id).id) %></td>
+             <td><%= link_to  image_tag('/images/positivo.png',:title=>"Confirmação de Lotação"), pessoa_funcionario_lotacao_confirmar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+             <td><%= link_to  image_tag('/images/icn_deletar.png',:title=>"Cancelar Lotação"), pessoa_funcionario_lotacao_cancelar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id),:convalidar=>false),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+           </tr>
+           <% end %>
+         </tbody>
+       </table>
+     </div>
 
-    </div>
-  </div>
+   </div>
+ </div>
 
 
 

@@ -44,7 +44,7 @@
 
 
 <div id="departamentos">
-<%if !@user.new_record?%>
+<%if !@user.new_record? and !@user.orgao.nil?%>
 <fieldset style="width:48%; float:left; margin-right: 1%;">
 <%= label :usuario,:departamentos %><br />
 <%= select :usuario,:departamento_id,@departamentos,:style=>"width:91%;",:prompt=>true %>
@@ -62,6 +62,12 @@
 <%= role.name %>
 <% end %>
 </fieldset>
+
+<fieldset style="width:98%; height: auto; float:left; margin-right: 1%;">
+<label>Ativo?</label><br/><br/>
+<%= radio_button :usuario,:enabled,true%>Sim <%= radio_button :usuario,:enabled,false%>Não
+</fieldset>
+
 
 <!--
 <fieldset style="width:98%; float:left; margin-right: 1%;">

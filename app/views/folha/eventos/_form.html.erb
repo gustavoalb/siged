@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@folha_evento) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@folha_evento) do |f| %>
   <% if @folha_evento.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@folha_evento.errors.count, "erro impede","erros impedem") %> este folha_evento de ser cadastrado:</h2>

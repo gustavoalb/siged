@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for(@quadro) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for(@quadro) do |f| %>
   <% if @quadro.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@quadro.errors.count, "erro impede","erros impedem") %> este quadro de ser cadastrado:</h2>

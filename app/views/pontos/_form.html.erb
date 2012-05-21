@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for @ponto,:url=> pessoa_funcionario_lotacao_pontos_url(@pessoa,@funcionario) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for @ponto,:url=> pessoa_funcionario_lotacao_pontos_url(@pessoa,@funcionario) do |f| %>
   <% if @ponto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ponto.errors.count, "erro impede","erros impedem") %> este ponto de ser cadastrado:</h2>

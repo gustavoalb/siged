@@ -1,0 +1,39 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando mensagens</h3>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Usuario</th>
+    <th>Destinatario</th>
+    <th>Texto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @mensagens.each do |mensagem| %>
+  <tr>
+    <td><%= mensagem.usuario_id %></td>
+    <td><%= mensagem.destinatario_id %></td>
+    <td><%= mensagem.texto %></td>
+    <td><%= link_to 'Detalhes', mensagem %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_mensagem_path(mensagem) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), mensagem, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Mensagem', new_mensagem_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

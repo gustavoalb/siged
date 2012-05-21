@@ -2,12 +2,12 @@ class Matriz < ActiveRecord::Base
 	has_many :curriculos,:foreign_key=>:matriz_id,:dependent=>:destroy
 	has_many :disciplinas
 	belongs_to :nivel,:class_name=>"NiveisEnsino"
-	#has_many :series,:through=>:nivel
-	belongs_to :escola
+	has_and_belongs_to_many :escolas,:join_table=>'escolas_matrizes'
 	belongs_to :entidade
 	has_many :turmas
 	has_and_belongs_to_many :series,:class_name=>"Serie",:join_table => "colapso_matrizes",:foreign_key=>:matriz_id
 	validates_numericality_of :dias_letivos_anuais,:dias_letivos_semanais,:semanas_letivas,:carga_horaria_anual,:modulo_aula
+	
 	after_create :criar_curriculo
 	after_update :editar_curriculo
 

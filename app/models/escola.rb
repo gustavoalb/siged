@@ -9,20 +9,24 @@ class Escola < ActiveRecord::Base
  has_many :series,:through=>:turmas,:source=>:serie
  has_many :settings
  has_many :ambientes
- belongs_to :esfera
- belongs_to :orgao
  has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
  has_many :comissionados,:conditions=>["ativo = ?",true]
- has_many :anos_letivos,:class_name=>"AnoLetivo"
- belongs_to :entidade
- has_many :matrizes,:class_name=>"Matriz",:through=>:settings,:conditions=>["settings.tipo_config=?","MATRIZ"],:source=>:matriz
  has_many :lotacoes,:class_name=>"Lotacao"
- has_one :diretor_adjunto,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIAADJUNTA'],:source=>:funcionario
+ has_one :diretor_adjunto,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA ADJUNTA'],:source=>:funcionario
  has_one :diretor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA'],:source=>:funcionario
  has_one :secretario,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SECRETARIA'],:source=>:funcionario
- has_one :supervisor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SUPERVISAO'],:source=>:funcionario
+ has_one :supervisor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SUPERVISÃO'],:source=>:funcionario
  belongs_to :tipo_destino
  belongs_to :municipio
+ belongs_to :esfera
+ belongs_to :orgao
+ belongs_to :ano_letivo,:class_name=>"AnoLetivo"
+ belongs_to :entidade
+ has_and_belongs_to_many :matrizes,:class_name=>"Matriz"
+ has_and_belongs_to_many :niveis_ensino,:class_name=>'NiveisEnsino',:join_table=>"escolas_matrizes"
+
+
+
  after_create :criar_ambientes
   #scoped_search
   include ScopedSearch::Model

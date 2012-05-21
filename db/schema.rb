@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509134325) do
+ActiveRecord::Schema.define(:version => 20120521122207) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -176,6 +176,12 @@ ActiveRecord::Schema.define(:version => 20120509134325) do
     t.integer  "entidade_id"
     t.string   "lei"
     t.string   "sigla"
+  end
+
+  create_table "categoria_ensinos", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categoria_funcionarios", :id => false, :force => true do |t|
@@ -372,11 +378,18 @@ ActiveRecord::Schema.define(:version => 20120509134325) do
     t.integer  "esfera_id"
     t.integer  "entidade_id"
     t.string   "slug"
+    t.integer  "ano_letivo_id"
   end
 
   add_index "escolas", ["municipio_id"], :name => "index_escolas_on_municipio_id"
   add_index "escolas", ["orgao_id"], :name => "index_escolas_on_orgao_id"
   add_index "escolas", ["tipo_destino_id"], :name => "index_escolas_on_tipo_destino_id"
+
+  create_table "escolas_matrizes", :id => false, :force => true do |t|
+    t.integer "escola_id"
+    t.integer "matriz_id"
+    t.integer "niveis_ensino_id"
+  end
 
   create_table "esferas", :force => true do |t|
     t.string   "nome"
@@ -711,6 +724,16 @@ ActiveRecord::Schema.define(:version => 20120509134325) do
     t.integer  "modulo_aula"
     t.integer  "carga_horaria_anual"
     t.integer  "nivel_id"
+  end
+
+  create_table "mensagens", :force => true do |t|
+    t.integer  "usuario_id"
+    t.integer  "destinatario_id"
+    t.text     "texto"
+    t.boolean  "aviso",           :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "tipo"
   end
 
   create_table "municipios", :force => true do |t|
@@ -1239,6 +1262,8 @@ ActiveRecord::Schema.define(:version => 20120509134325) do
     t.integer  "departamento_id"
     t.integer  "entidade_id"
     t.boolean  "enabled",                               :default => false
+    t.integer  "escola_id"
+    t.integer  "funcionario_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

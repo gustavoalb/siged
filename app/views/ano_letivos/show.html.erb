@@ -2,20 +2,14 @@
 <header><h3>Detalhes de </h3></header>
 <div class="module_content">
 
-
-<p>
-  <b>Escola:</b>
-  <%= @ano_letivo.escola_id %>
-</p>
-
 <p>
   <b>Inicio:</b>
-  <%= @ano_letivo.inicio %>
+  <%= @ano_letivo.inicio.to_s_br %>
 </p>
 
 <p>
   <b>Termino:</b>
-  <%= @ano_letivo.termino %>
+  <%= @ano_letivo.termino.to_s_br %>
 </p>
 
 <p>
@@ -27,8 +21,8 @@
 </div>
 <footer>
 				<div class="submit_link">
-				  <%= link_to 'Editar', edit_ano_letivo_path(@ano_letivo),:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', ano_letivos_path,:type=>"submit" %>
+				  <%= link_to 'Editar', edit_anos_letivo_path(@ano_letivo),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', anos_letivos_path,:type=>"submit" %>
 				</div>
 			</footer>
 </article>

@@ -387,6 +387,9 @@ background: url(../images/theme.png) no-repeat center left;
 #sidebar li.icn_niveis a {
 background: url(../images/icn_niveis.png) no-repeat center left;
 }
+#sidebar li.icn_msg a {
+background: url(../images/icn_msg.png) no-repeat center left;
+}
 #sidebar li.icn_convalida a {
 background: url(../images/icn_convalida.png) no-repeat center left;
 }

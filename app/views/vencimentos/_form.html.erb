@@ -1,9 +1,6 @@
 <article class="module width_full">
-<header><h3><%=legenda%></h3></header>
-<div class="module_content">
-
-
-<%= form_for @vencimento,:url=>referencia_nivel_vencimentos_path(@nivel,@vencimento) do |f| %>
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content"><%= form_for @vencimento,:url=>referencia_nivel_vencimentos_path(@nivel,@vencimento) do |f| %>
   <% if @vencimento.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vencimento.errors.count, "erro impede","erros impedem") %> este vencimento de ser cadastrado:</h2>

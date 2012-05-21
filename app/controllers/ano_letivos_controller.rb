@@ -1,9 +1,9 @@
 class AnoLetivosController < ApplicationController
 	# GET /ano_letivos
 	# GET /ano_letivos.xml
-	before_filter :verificar_ano,:except=>[:new,:create,:update,:edit,:destroy]
+	#before_filter :verificar_ano,:except=>[:new,:create,:update,:edit,:destroy]
 	def index
-		@ano_letivos = AnoLetivo.find_all_by_escola_id(params[:escola_id]).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+		@ano_letivos = AnoLetivo.order.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
 		
 		respond_to do |format|
 			format.html # index.html.erb
@@ -25,10 +25,12 @@ class AnoLetivosController < ApplicationController
 	# GET /ano_letivos/new
 	# GET /ano_letivos/new.xml
 	def new
-		@escola = Escola.find(params[:escola_id])
-		@ano_letivo = @escola.anos_letivos.new
-		render :layout=>"facebox"
-	end
+		@ano_letivo = AnoLetivo.new
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @ambientes }
+    end
+  end
 
 	# GET /ano_letivos/1/edit
 	def edit
@@ -38,17 +40,13 @@ class AnoLetivosController < ApplicationController
 	# POST /ano_letivos
 	# POST /ano_letivos.xml
 	def create
-		@escola = Escola.find params[:escola_id]
 		@ano_letivo = AnoLetivo.new(params[:ano_letivo])
 		ano ||= @ano_letivo.inicio.year
 		@ano_letivo.ano = ano.to_i
 		respond_to do |format|
 			if @ano_letivo.save				
-			format.html { redirect_to(escola_ano_letivo_settings_url(@escola,@ano_letivo), :notice => 'Ano letivo criado com sucesso.') }
-			format.xml  { head :ok }
-			
-			
-				
+				format.html { redirect_to(anos_letivo_url(@ano_letivo), :notice => 'Ano letivo criado com sucesso.') }
+				format.xml  { head :ok }	
 			else
 				format.html { render :action => "new" }
 				format.xml  { render :xml => @ano_letivo.errors, :status => :unprocessable_entity }
@@ -88,5 +86,5 @@ class AnoLetivosController < ApplicationController
 	def verificar_ano
 		@escola = Escola.find params[:escola_id]
 		#@ano_letivo = @escola.anos_letivos.find(params[:ano_letivo])
-    end
+	end
 end

@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
-  before_filter :render_404
   before_filter :set_entidade
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to :back, :alert => "Você não tem autorização para acessar esta área"
@@ -9,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-   before_filter do
+  before_filter do
     # Enable for all users in this case
     env['quickedit.enable'] = true
   end
@@ -49,14 +48,8 @@ class ApplicationController < ActionController::Base
     @categorias = Categoria.all.collect{|c|[c.nome,c.id]}
     @entidades = Entidade.all.collect{|e|[e.nome,e.id]}
     @recursos = Folha::FonteRecurso.all.collect{|r|[r.nome,r.id]}
+    @usuarios = User.order(:username).collect{|u|["#{u.name} (#{u.username})",u.id]}
+    @noticias = Mensagem.noticias.order(:created_at)
+    @anos_letivos = AnoLetivo.order(:ano).collect{|a|[a.ano,a.id]}
   end
-  def render_404
-    manutencao = Manutencao.last
-    if manutencao and manutencao.em_manutencao
-      render :file => "#{Rails.root}/public/404.html", :status => :not_found
-    else
-      session[:return_to] = request.url
-    end
-  end
-
 end

@@ -24,6 +24,7 @@ class Funcionario < ActiveRecord::Base
   belongs_to :distrito
   belongs_to :processo
   belongs_to :entidade
+  has_one :user,:dependent=>:destroy
   belongs_to :fonte_recurso,:class_name=>"Folha::FonteRecurso"
   has_many :listas
   has_many :pontos

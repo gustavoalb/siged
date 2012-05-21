@@ -103,9 +103,7 @@
 
 			<ul class="toggle">
 				<li class="theme"><%=link_to "#{current_user.orgao.sigla}",orgao_departamentos_path(current_user.orgao)%></li>
-				<%if can? :manage,Ponto%>
-				<li class="icn_descri"><%=link_to "#{current_user.departamento.sigla}",orgao_departamento_pontos_funcionarios_path(current_user.orgao,current_user.departamento)%></li>
-				<%end%>
+				<%=setor%>
 				<%if can? :convalidar,Lotacao%><li class="icn_convalida"><%=link_to "Convalidar",lotacoes_convalidar_path%></li>
 				<li class="lotacoes"><%= link_to "Relatório de Lotação e Movimentação",lotacoes_gerar_relatorio_path,:rel=>"facebox",:rev=>"height:300px;width:500px"%></li>
 				<%end%>
@@ -117,39 +115,27 @@
 			<h3>Usuário</h3>
 
 			<ul class="toggle">
+				<li class="icn_msg"><%=link_to "Caixa de Entrada", mensagens_inbox_path, :rel=>"facebox",:rev=>"height:300px;width:500px" %></li>
+				<li class="icn_msg"><%=link_to "Escrever Nova Mensagem", new_mensagem_path, :rel=>"facebox",:rev=>"height:300px;width:500px;" %></li>
 				<li class="icn_edit_article"><%=link_to "Perfil", edit_user_registration_path %></li>
 				<li class="icn_new_article"><%=link_to "Sair", destroy_user_session_path %></li>
 
 			</ul>
 
-<!--<h3>Media</h3>
-<ul class="toggle">
-<li class="icn_folder"><a href="#">File Manager</a></li>
-<li class="icn_photo"><a href="#">Gallery</a></li>
-<li class="icn_audio"><a href="#">Audio</a></li>
-<li class="icn_video"><a href="#">Video</a></li>
-</ul>
-<h3>Admin</h3>
-<ul class="toggle">
-<li class="icn_settings"><a href="#">Options</a></li>
-<li class="icn_security"><a href="#">Security</a></li>
-<li class="icn_jump_back"><a href="#">Logout</a></li>
-</ul>-->
+			<footer>
+				<hr />
+				<p><strong>Copyright &copy; 2011 AmapáOnRails</strong></p>
+			</footer>
+		</aside><!-- end of sidebar -->
+		<%end%>
+		<section id="main" class="column">
+			<%=mensagens%>
+			<%=yield%>
+			<div class="clear"></div>
+			&nbsp;
+			<div class="clear"></div>
 
-<footer>
-	<hr />
-	<p><strong>Copyright &copy; 2011 AmapáOnRails</strong></p>
-</footer>
-</aside><!-- end of sidebar -->
-<%end%>
-<section id="main" class="column">
-	<%=mensagens%>
-	<%=yield%>
-	<div class="clear"></div>
-	&nbsp;
-	<div class="clear"></div>
+		</section>
+	</body>
 
-</section>
-</body>
-
-</html>
+	</html>
