@@ -111,7 +111,7 @@
 <p class='overview_day'>Quadro de Avisos</p>
 	<marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
 		<% @noticias.all.each do |n| %>
-		<p style='background: #CCCCCC;'><%=n.texto%></p><br/>
+		<p style='background: #CCCCCC;'><%="#{n.created_at.to_date.to_s_br} - #{n.texto}"%></p><br/>
 		<% end %>
 	</marquee>
 </article>
