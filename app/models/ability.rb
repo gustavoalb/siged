@@ -53,6 +53,17 @@ class Ability
    can :manage,Ponto
    cannot :destroy,Ponto
 
+ elsif user.role? :cebep
+   can :manage,Pessoa
+   cannot :update,Pessoa
+   cannot :destroy,Pessoa
+   can :manage,Funcionario
+   cannot :update,Funcionario
+   cannot :destroy,Funcionario
+   can :manage, Comissionado
+   cannot :destroy,Comissionado
+   can [:read,:update],Escola
+
 
  elsif user.role? :gerencia_ude
    can :manage,Funcionario
