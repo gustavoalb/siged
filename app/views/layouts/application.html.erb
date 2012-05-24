@@ -115,8 +115,10 @@
 			<h3>Usuário</h3>
 
 			<ul class="toggle">
+				<%if current_user.role?(:admin)%>
 				<li class="icn_msg"><%=link_to "Caixa de Entrada", mensagens_inbox_path, :rel=>"facebox",:rev=>"height:300px;width:500px" %></li>
 				<li class="icn_msg"><%=link_to "Escrever Nova Mensagem", new_mensagem_path, :rel=>"facebox",:rev=>"height:300px;width:500px;" %></li>
+				<%end%>
 				<li class="icn_edit_article"><%=link_to "Perfil", edit_user_registration_path %></li>
 				<li class="icn_new_article"><%=link_to "Sair", destroy_user_session_path %></li>
 
