@@ -31,7 +31,7 @@
                 <td><%= raw("#{highlight(escola.nome_da_escola.upcase, @busca)}") %></td>
                 <td><%= detalhes(escola.entidade,true) %></td>
                 <td><%= escola.municipio.nome %></td>
-                <%if can? :manage,Escola and escola.id==current_user.escola_id%>
+                <%if (can? :manage,Escola and escola.id==current_user.escola_id) or current_user.role?(:admin)%>
                 <td><%= link_to 'Detalhes', escola %></td>
                 <td><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(escola),:rel=>'facebox',:rev=>"height:300px;width:500px"%></td>
                 
