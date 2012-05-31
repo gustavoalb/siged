@@ -72,7 +72,7 @@ PontosController.new.salvar_pdf(self)
 end
 
 def apagar_pdf
-  pdf = Pathname.new(Rails.root.join("public/pontos/#{self.funcionario.pessoa.slug}", "ponto-de-#{self.funcionario.pessoa.slug}-#{self.funcionario.slug}-#{self.data.strftime("%b-%Y").downcase}.pdf"))
+  pdf = Pathname.new(Rails.root.join("public/pontos/#{self.funcionario.pessoa.slug}", "ponto-de-#{self.funcionario.pessoa.slug}-#{self.funcionario.slug}-#{self.data.strftime("%Y-%m").downcase}.pdf"))
   codigo_barra = Pathname.new(Rails.root.join("public/pontos/codigos", "#{self.codigo_barras}.png"))
   FileUtils.rm_rf(pdf)
   FileUtils.rm_rf(codigo_barra)
