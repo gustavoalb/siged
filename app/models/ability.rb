@@ -84,6 +84,18 @@ class Ability
   can :update,Lotacao
   can :convalidar,Lotacao
 
+elsif user.role? :nupes
+  can :read,Pessoa
+  can :read,Funcionario
+  can :manage,Departamento
+  cannot :update,Departamento
+  cannot :create,Departamento
+  cannot :destroy,Departamento
+  can :manage,Ponto
+  cannot :destroy,Ponto
+  can :read,Orgao
+  can :agenda,Orgao
+
 elsif user.role? :chefia_upag
   can :read,Pessoa
   can :read,Funcionario

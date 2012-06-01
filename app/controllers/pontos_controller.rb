@@ -140,6 +140,9 @@ class PontosController < ApplicationController
   end
 end
 
+def gerar_ponto
+end
+
 
 
 private
