@@ -118,32 +118,43 @@ class PontosController < ApplicationController
     @orgao = @lotacao.orgao
     if !@lotacao.escola.nil?
       @escola = @lotacao.escola
+      destino = @escola.nome_da_escola.parameterize
     elsif !@lotacao.departamento.nil?
       @departamento = @lotacao.departamento
+      destino = @departamento.sigla.downcase
     end
     @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
-    @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%Y-%m").downcase}.pdf"))
-    @pasta = Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}")
+    #@arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%Y-%m").downcase}.pdf"))
+    @pasta1 = Rails.root.join("public/pontos/#{@orgao.sigla}")
+    @pasta2 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}")
+    @pasta3 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}")
+    @pasta4 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}/#{@funcionario.slug}")
+    @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}","#{@funcionario.slug}", "#{@ponto.data.strftime("%Y-%m")}.pdf"))
+
     if !File.exist?(@arquivo)
-      if !File.exist?(@pasta)
-       Dir.mkdir(@pasta)
+      if !File.exist?(@pasta1)
+       Dir.mkdir(@pasta1)
      end
-     pdf = render_to_string :pdf =>"#{@arquivo.basename.to_s}",
-     :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-     :zoom => 0.8 ,
-     :margin=>{1,1,1,1},
-     :orientation => 'Portrait',
-     :template                       => 'pontos/salvar_em_pdf.pdf'
-     File.open(@arquivo, 'wb') do |file|
-      file << pdf
-    end
+     if !File.exist?(@pasta2)
+       Dir.mkdir(@pasta2)
+     end
+     if !File.exist?(@pasta3)
+       Dir.mkdir(@pasta3)
+     end 
+     if !File.exist?(@pasta4)
+       Dir.mkdir(@pasta4) 
+     end
+   pdf = render_to_string :pdf =>"#{@arquivo.basename.to_s}",
+   :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
+   :zoom => 0.8 ,
+   :margin=>{1,1,1,1},
+   :orientation => 'Portrait',
+   :template => 'pontos/salvar_em_pdf.pdf'
+   File.open(@arquivo, 'wb') do |file|
+    file << pdf
   end
 end
-
-def gerar_ponto
 end
-
-
 
 private
 

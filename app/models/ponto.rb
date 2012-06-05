@@ -3,6 +3,7 @@ require "barby/outputter/rmagick_outputter"
 class Ponto < ActiveRecord::Base
   #default_scope where('pontos.entidade_id in (?)',User.usuario_atual.entidade_ids)
   validates_presence_of :data
+  validates_uniqueness_of :data,:scope=>[:funcionario_id,:lotacao_id]
 
 
   scope :da_lotacao, lambda {|id|where("lotacao_id = ?",id) }

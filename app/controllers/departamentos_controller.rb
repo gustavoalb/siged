@@ -13,6 +13,28 @@ class DepartamentosController < ApplicationController
     end
   end
 
+  def gerar_pontos
+    @departamento = Departamento.find(params[:departamento_id])
+    render :layout=>'facebox'
+  end
+
+  def salvar_pontos
+    data = Date.civil(params[:ponto]["data(1i)"].to_i, params[:ponto]["data(2i)"].to_i, params[:ponto]["data(3i)"].to_i)
+    @departamento = Departamento.find(params[:departamento_id])
+    @funcionarios = @departamento.funcionarios.joins(:pessoa).order('pessoas.nome asc')
+    @funcionarios.each do |f|
+      f.pontos.create(:data=>data,:funcionario_id=>f.id,:lotacao_id=>f.lotacoes.ativo.find_by_departamento_id(@departamento.id).id)
+    end
+    @pasta = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}")
+    @pasta2 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral")
+    @arquivos = Dir.glob(@pasta.join("**/**#{data.strftime('%Y-%m')}.pdf")).collect{|d|"#{d} "}
+    if !@pasta2.exist?
+      Dir.mkdir(@pasta2)
+    end
+    system("pdftk #{@arquivos} cat output #{@pasta2}/#{data.strftime('%Y-%m')}.pdf")
+    redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:notice=>"Pontos gerados com sucesso."
+  end
+
   # GET /departamentos/1
   # GET /departamentos/1.xml
   def show
@@ -43,23 +65,6 @@ class DepartamentosController < ApplicationController
     @pontos = @funcionario.pontos.da_lotacao(@lotacao.id)
   end
 end
-
-def pontos_do_mes
-  @departamento = Departamento.find(params[:departamento_id])
-  @lotacoes = @departamento.lotacoes
-  @range_dias = Date.today.at_beginning_of_month..Date.today.at_end_of_month
-  respond_to do |format|
-    format.html # index.html.erb
-    format.pdf do
-        render :pdf =>"pontos do mês #{Time.now.month}", # OPTIONAL
-        :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-        :zoom => 0.8 ,
-        :margin=>{1,1,1,1},
-        :orientation => 'Portrait'
-
-      end
-    end
-  end
 
 
   # GET /departamentos/new
@@ -126,41 +131,7 @@ def pontos_do_mes
     end
   end
 
-
-  def gerar_pontos
+  private
+  def orgao
     @orgao = Orgao.find(params[:orgao_id])
-    @departamento = @orgao.departamentos.find(params[:departamento_id])
-    @funcionarios = @departamento.funcionarios.all
-    @funcionarios.each do |f|
-      @ponto = f.pontos.new
-      @ponto.lotacao_id = f.lotacoes.atual.last.id
-      @lotacao = f.lotacoes.atual.last
-      @ponto.data = Time.now
-      @ponto.entidade_id = current_user.entidade_id
-      @ponto.save
-      @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
-      @arquivo = Pathname.new(Rails.root.join("public/pontos/#{f.pessoa.slug}", "ponto-de-#{f.pessoa.slug}-#{f.slug}-#{@ponto.data.strftime("%b-%Y").downcase}.pdf"))
-      @pasta = Rails.root.join("public/pontos/#{f.pessoa.slug}")
-      if !File.exist?(@arquivo)
-        if !File.exist?(@pasta)
-         Dir.mkdir(@pasta)
-       end
-       pdf = render_to_string :pdf =>"#{@arquivo.basename.to_s}",
-       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-       :zoom => 0.8 ,
-       :margin=>{1,1,1,1},
-       :orientation => 'Portrait',
-       :template => 'pontos/gerar_pontos.pdf  '
-       File.open(@arquivo, 'wb') do |file|
-        file << pdf
-      end
-    end
   end
-  render :nothing => true
-end
-
-
-private
-def orgao
-  @orgao = Orgao.find(params[:orgao_id])
-end

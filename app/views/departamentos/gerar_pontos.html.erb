@@ -1,0 +1,6 @@
+<h3>Gerar pontos do(a) <%= @departamento.sigla%></h3>
+<%= form_tag :controller=>'departamentos',:action=>'salvar_pontos',:method=>:post,:remote=>true%>
+<%= date_select :ponto,:data,:discard_day=>true%><br/><br/>
+<div class='submit_link'>
+<%= submit_tag 'Gerar Pontos'%>
+</div>

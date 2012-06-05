@@ -251,13 +251,12 @@ def update
 end
 
 def relatorio_por_disciplina
-  @funcionarios = Funcionario.disciplina_def.find(:all,:joins=>[:disciplina_contratacao,:lotacoes],:order=>("descricao_cargos.nome asc"))
+  @funcionarios = Funcionario.disciplina_def.find(:all,:joins=>[:disciplina_contratacao,:pessoa],:order=>("descricao_cargos.nome asc, pessoas.nome asc"))
   relatorio = ODFReport::Report.new("#{Rails.root}/public/relatorios/disciplinas.odt") do |r|
    r.add_table("FUNCIONARIOS", @funcionarios, :header=>true) do |t|
     t.add_column(:nome) {|f| "#{f.pessoa.nome}"}
-    t.add_column(:cat) {|f| "#{f.categoria.sigla}"}
-    t.add_column(:cargo) {|f| "#{cargo_resumido(f)}"}
-    t.add_column(:localizacao) {|f| "#{dest(f.lotacoes.atual.first,f)}"}
+    t.add_column(:disc) {|f| "#{f.disciplina_contratacao.nome}"}
+    t.add_column(:mat) {|f| "#{f.matricula}"}
   end
 end
 

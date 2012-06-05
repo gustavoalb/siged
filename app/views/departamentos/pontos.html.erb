@@ -29,7 +29,7 @@
     <td><%= ponto.lotacao.codigo_barra %></td>
     <td><%= ponto.data.strftime("%b") %></td>
     <td><%= ponto.data.year %></td>
-    <td><%= link_to 'Imprimir Ponto', "/pontos/#{ponto.funcionario.pessoa.slug}/ponto-de-#{ponto.funcionario.pessoa.slug}-#{ponto.funcionario.slug}-#{ponto.data.strftime("%Y-%m").downcase}.pdf"%></td>
+    <td><%= link_to 'Imprimir Ponto', "/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/#{@funcionario.pessoa.slug}/#{@funcionario.slug}/#{ponto.data.strftime('%Y-%m')}.pdf"%></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao,ponto), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -39,7 +39,7 @@
 </div>
 <footer>
 				<div class="submit_link">
-				  <%= link_to 'Cadastrar Ponto', new_pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Gerar Ponto', new_pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao),:class=>"alt_btn",:type=>"submit"%> ou
 				  <%= link_to 'Voltar', :back,:type=>"submit" %>
 				</div>
 			</footer>

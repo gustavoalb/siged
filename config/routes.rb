@@ -137,7 +137,8 @@ namespace :folha do resources :eventos end
       get 'pontos_funcionarios'
       get 'pontos'
       get 'pontos_do_mes'
-      post 'gerar_pontos'
+      get 'gerar_pontos'
+      post 'salvar_pontos'
     end
   end
 
