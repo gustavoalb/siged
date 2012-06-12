@@ -36,11 +36,12 @@ class Ability
 
  elsif user.role? :sage
    can :read,Pessoa
-   cannot :show,Pessoa
+   can :show,Pessoa
    can :manage,Ponto
    can :read,Orgao
    can :agenda,Orgao
-   can :read,Departamento
+   can :manage,Departamento
+   cannot :destroy,Departamento
    can :read,Funcionario
    can :read,Lotacao
 
