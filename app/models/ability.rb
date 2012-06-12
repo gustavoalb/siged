@@ -19,6 +19,7 @@ class Ability
    can :manage,Turma,:escola_id=>user.escola_id
    can :manage,Ambiente,:escola_id=>user.escola_id
    can :manage,Escola,:id=>user.escola_id
+   can :manage,Ponto,:escola_id=>user.escola_id
    cannot :destroy,Escola
    cannot :destroy,Turma
    can :read,Pessoa
@@ -33,12 +34,22 @@ class Ability
    can :read,Lotacao
    can :manage,Enquete
 
+ elsif user.role? :sage
+   can :read,Pessoa
+   cannot :show,Pessoa
+   can :manage,Ponto
+   can :read,Orgao
+   can :agenda,Orgao
+   can :read,Departamento
+   can :read,Funcionario
+   can :read,Lotacao
+
  elsif user.role? :chefia_cad
    can :read,Pessoa
    can :read,Funcionario
    can :manage,Departamento
    cannot :destroy,Departamento
-   can :manage,Ponto
+   can :manage,Ponto,:departamento_id=>user.departamento_id
    cannot :destroy,Ponto
 
  elsif user.role? :chefia_cebep
@@ -50,7 +61,7 @@ class Ability
    cannot :destroy,Pessoa
    can :manage,Departamento
    cannot :destroy,Departamento
-   can :manage,Ponto
+   can :manage,Ponto,:departamento_id=>user.departamento_id
    cannot :destroy,Ponto
 
  elsif user.role? :cebep
@@ -91,7 +102,7 @@ elsif user.role? :nupes
   cannot :update,Departamento
   cannot :create,Departamento
   cannot :destroy,Departamento
-  can :manage,Ponto
+  can :manage,Ponto,:departamento_id=>user.departamento_id
   cannot :destroy,Ponto
   can :read,Orgao
   can :agenda,Orgao
@@ -115,7 +126,7 @@ elsif user.role? :chefia_upag
   cannot :update,Departamento
   cannot :create,Departamento
   cannot :destroy,Departamento
-  can :manage,Ponto
+  can :manage,Ponto,:departamento_id=>user.departamento_id
   cannot :destroy,Ponto
 
 elsif user.role? :upag
@@ -138,7 +149,7 @@ elsif user.role? :upag
 elsif user.role? :ucolom
  can :manage, Lotacao
  cannot :convalidar,Lotacao
- can :manage,Ponto
+ can :manage,Ponto,:departamento_id=>user.departamento_id
  can :manage,Departamento
  cannot :update,Departamento
  cannot :create,Departamento
@@ -156,7 +167,7 @@ elsif user.role? :ucolom
 elsif user.role? :conectado
  can :manage, Lotacao
  cannot :convalidar,Lotacao
- can :manage,Ponto
+ can :manage,Ponto,:departamento_id=>user.departamento_id
  can :manage,Departamento
  cannot :update,Departamento
  cannot :create,Departamento
@@ -193,7 +204,7 @@ elsif user.role? :chefia_crh
   cannot :update,Departamento
   cannot :create,Departamento
   cannot :destroy,Departamento
-  can :manage,Ponto
+  can :manage,Ponto,:departamento_id=>user.departamento_id
   cannot :destroy,Ponto
   can :read,Orgao
   can :agenda,Orgao
