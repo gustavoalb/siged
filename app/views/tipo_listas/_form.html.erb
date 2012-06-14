@@ -6,7 +6,7 @@
 <%= form_for(@tipo_lista) do |f| %>
   <% if @tipo_lista.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tipo_lista.errors.count, "erro impede","erros impedem") %> este tipo_listum de ser cadastrado:</h2>
+      <h2><%= pluralize(@tipo_lista.errors.count, "erro impede","erros impedem") %> esta lista de ser cadastrado:</h2>
 
       <ul>
       <% @tipo_lista.errors.full_messages.each do |msg| %>
@@ -38,12 +38,23 @@
         <%= f.select :tipo_objeto,[["Pessoa"],["Funcionário"]],:style=>"width:5%;" %>
   </fieldset>
 
-<fieldset style="width:97%; float:left; margin-right: 1%;">
+<!--<fieldset style="width:97%; float:left; margin-right: 1%;">
 <label> Natureza da Lista </label> <br/><br/>
   <% for natureza in Natureza.find(:all) %>
     <div>
-      <%= check_box_tag "tipo_listum[natureza_ids][]", natureza.id, @tipo_listum.naturezas.include?(natureza) %>
+      
       <%= natureza.nome %>
+    </div>
+  <% end %>
+</fieldset>-->
+
+
+<fieldset style="width:97%; float:left; height: auto; margin-right: 1%;">
+<label>Proprietários da lista </label> <br/><br/>
+  <% for role in Role.find(:all) %>
+  <div style="float:left;">
+      <%= check_box_tag "tipo_lista[natureza_ids][]", role.id, @tipo_lista.roles.include?(role) %>
+      <%= role.name %>
     </div>
   <% end %>
 </fieldset>
@@ -53,6 +64,7 @@
       :update => :dist,
       :with => 'municipio',
       :function => "alert('Element changed')"%>
+
 <div class="clear"></div>
 </div>
         <footer>

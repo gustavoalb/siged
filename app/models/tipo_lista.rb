@@ -13,6 +13,7 @@ class TipoLista < ActiveRecord::Base
   scope :busca, lambda { |q| where("nome like ?" ,"%#{q}%") }
   has_many :funcionarios,:through=>:listas,:source=>:funcionario
   has_many :pessoas,:through=>:listas,:source=>:pessoa
+  has_and_belongs_to_many :roles
 
   # has_and_belongs_to_many :naturezas,:join_table=>:naturezas_listas
   validates_uniqueness_of :nome,:scope=>:tipo_objeto
@@ -20,7 +21,7 @@ class TipoLista < ActiveRecord::Base
   scope :pessoal_filtro, lambda {|ids| where("tipo_objeto=? and id not in (?)","Pessoa",ids)}
   scope :funcional,where("tipo_objeto=?","Funcionário")
   scope :ativa,where("ativo = ?",true)
-
+  scope :privadas,where("privada = ?",true)
 
 
   def possui_funcionarios?

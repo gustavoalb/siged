@@ -226,16 +226,18 @@ def destroy
     format.xml  { head :ok }
   end
 end
+
 def adicionar_a_lista
   @pessoa = Pessoa.find(params[:pessoa_id])
   @lista = @pessoa.listas.new
+  #roles = User.usuario_atual.role_ids
   if @pessoa.listas.size>0
     tipos = @pessoa.listas.collect{|l|l.tipo_lista.id}
     @tipos_lista = TipoLista.pessoal_filtro(tipos).all.collect{|t|[t.nome,t.id]}
   else
     @tipos_lista = TipoLista.pessoal.all.collect{|t|[t.nome,t.id]}
   end
-  render :partial=>"adicionar_a_listas"
+  render :partial=>"adicionar_a_lista"
 end
 
 def salvar_lista
@@ -243,7 +245,7 @@ def salvar_lista
   @lista = @pessoa.listas.new(params[:lista])
   respond_to do |format|
     if @lista.save
-      format.html { redirect_to(pessoas_url, :notice => "Pessoa adicionada à lista #{@lista.tipo_lista.nome} com sucesso.") }
+      format.html { redirect_to(:back, :notice => "Pessoa adicionada à lista #{@lista.tipo_lista.nome} com sucesso.") }
       format.xml  { render :xml => @pessoa, :status => :created, :location => @pessoa }
     else
       format.html { render :action => "index" }

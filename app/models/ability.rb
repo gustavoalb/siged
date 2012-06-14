@@ -190,11 +190,19 @@ elsif user.role? :seed
 
 elsif user.role? :crh
   can :read,Pessoa
+  can :adicionar_a_lista,Pessoa
+  can :salvar_lista,Pessoa
   can :read,Funcionario
   can :manage,Formacao
   cannot :destroy,Formacao
   can :read,Orgao
   can :agenda,Orgao
+  can :manage,TipoLista,:privada=>false
+  cannot :remover_pessoa,TipoLista,:privada=>false
+  cannot :destroy,TipoLista,:privada=>false
+  can :manage,TipoLista,TipoLista.privadas do |l|
+    !(l.role_ids & user.role_ids).none?
+  end
 
 elsif user.role? :chefia_crh
   can :read,Pessoa

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521122207) do
+ActiveRecord::Schema.define(:version => 20120613154445) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -250,6 +250,12 @@ ActiveRecord::Schema.define(:version => 20120521122207) do
     t.datetime "hora_limite_saida_manha"
     t.datetime "hora_limite_entrada_tarde"
     t.datetime "hora_limite_saida_tarde"
+  end
+
+  create_table "conversations", :force => true do |t|
+    t.string   "subject",    :default => ""
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "curriculos", :force => true do |t|
@@ -780,6 +786,24 @@ ActiveRecord::Schema.define(:version => 20120521122207) do
     t.datetime "updated_at"
   end
 
+  create_table "notifications", :force => true do |t|
+    t.string   "type"
+    t.text     "body"
+    t.string   "subject",              :default => ""
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.integer  "conversation_id"
+    t.boolean  "draft",                :default => false
+    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                              :null => false
+    t.integer  "notified_object_id"
+    t.string   "notified_object_type"
+    t.string   "notification_code"
+    t.string   "attachment"
+  end
+
+  add_index "notifications", ["conversation_id"], :name => "index_notifications_on_conversation_id"
+
   create_table "orgaos", :force => true do |t|
     t.string   "codigo"
     t.string   "nome"
@@ -1042,6 +1066,20 @@ ActiveRecord::Schema.define(:version => 20120521122207) do
     t.boolean  "mais_de_um_cargo",     :default => false
   end
 
+  create_table "receipts", :force => true do |t|
+    t.integer  "receiver_id"
+    t.string   "receiver_type"
+    t.integer  "notification_id",                                  :null => false
+    t.boolean  "read",                          :default => false
+    t.boolean  "trashed",                       :default => false
+    t.boolean  "deleted",                       :default => false
+    t.string   "mailbox_type",    :limit => 25
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  add_index "receipts", ["notification_id"], :name => "index_receipts_on_notification_id"
+
   create_table "referencia_niveis", :force => true do |t|
     t.string   "nome"
     t.string   "codigo"
@@ -1062,6 +1100,11 @@ ActiveRecord::Schema.define(:version => 20120521122207) do
     t.string   "fullname"
     t.string   "description"
     t.integer  "entidade_id"
+  end
+
+  create_table "roles_tipo_listas", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "tipo_lista_id"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|
@@ -1203,6 +1246,7 @@ ActiveRecord::Schema.define(:version => 20120521122207) do
     t.integer  "arquivo_file_size"
     t.datetime "arquivo_updated_at"
     t.integer  "entidade_id"
+    t.boolean  "privada",              :default => false
   end
 
   create_table "tipos", :force => true do |t|
