@@ -22,7 +22,7 @@ def setor
   user = User.usuario_atual
   if user.role?(:diretores) and !user.escola.nil?
     html = "<li class='icn_descri'>#{link_to user.escola.nome_da_escola, escola_path(user.escola)}</li>"
-  elsif !user.role?(:diretores) and !user.departamento.nil? and can? :manage,Ponto
+  elsif !user.role?(:diretores) and !user.departamento.nil? and can? :manage,Ponto,:departamento_id=>user.departamento_id
     html = "<li class='icn_descri'>#{link_to user.departamento.sigla, orgao_departamento_pontos_funcionarios_path(user.orgao,user.departamento)}</li>"
   else
     html = ''

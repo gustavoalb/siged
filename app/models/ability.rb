@@ -7,6 +7,22 @@ class Ability
    if user.role? :admin
     can :manage, :all
 
+
+  elsif user.role? :chefia_ucada
+    can :manage,Funcionario
+    cannot :destroy,Funcionario
+    can :manage,Pessoa
+    cannot :destroy,Pessoa
+    can :manage,Departamento
+    cannot :update,Departamento
+    cannot :create,Departamento
+    cannot :destroy,Departamento
+    can :manage,Ponto,:departamento_id=>user.departamento_id
+    cannot :destroy,Ponto
+    can :read,Orgao
+    can :agenda,Orgao
+    can :read,Lotacao
+
   elsif user.role? :ucada
    can :manage,Funcionario
    cannot :destroy,Funcionario
