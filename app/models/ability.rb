@@ -17,7 +17,7 @@ class Ability
     cannot :update,Departamento
     cannot :create,Departamento
     cannot :destroy,Departamento
-    can :manage,Ponto,:departamento_id=>user.departamento_id
+    can :manage,Ponto
     cannot :destroy,Ponto
     can :read,Orgao
     can :agenda,Orgao
