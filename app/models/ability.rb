@@ -53,7 +53,7 @@ class Ability
  elsif user.role? :sage
    can :read,Pessoa
    can :show,Pessoa
-   can :manage,Ponto
+   can :manage,Ponto,:departamento_id=>user.departamento_id
    can :read,Orgao
    can :agenda,Orgao
    can :manage,Departamento

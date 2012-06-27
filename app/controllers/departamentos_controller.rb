@@ -22,17 +22,25 @@ class DepartamentosController < ApplicationController
     data = Date.civil(params[:ponto]["data(1i)"].to_i, params[:ponto]["data(2i)"].to_i, params[:ponto]["data(3i)"].to_i)
     @departamento = Departamento.find(params[:departamento_id])
     @funcionarios = @departamento.funcionarios.joins(:pessoa).order('pessoas.nome asc')
+    @pasta = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}")
+    @pasta2 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral")
     @funcionarios.each do |f|
       f.pontos.create(:data=>data,:funcionario_id=>f.id,:lotacao_id=>f.lotacoes.ativo.find_by_departamento_id(@departamento.id).id)
     end
-    @pasta = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}")
-    @pasta2 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral")
     @arquivos = Dir.glob(@pasta.join("**/**#{data.strftime('%Y-%m')}.pdf")).collect{|d|"#{d} "}
+    @arquivo = @pasta2.join("#{data.strftime('%Y-%m')}.pdf")
+    if !@pasta.exist?
+      Dir.mkdir(@pasta)
+    end
     if !@pasta2.exist?
       Dir.mkdir(@pasta2)
     end
-    system("pdftk #{@arquivos} cat output #{@pasta2}/#{data.strftime('%Y-%m')}.pdf")
-    redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:notice=>"Pontos gerados com sucesso."
+    if !@arquivo.exist?
+      system("pdftk #{@arquivos} cat output #{@arquivo}")
+      redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:notice=>"Pontos gerados com sucesso. <a href=/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral/#{data.strftime('%Y-%m')}.pdf>Abrir</a>"
+    else
+      redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:alert=>"Arquivo já existe. <a href=/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral/#{data.strftime('%Y-%m')}.pdf>Abrir</a>"
+    end
   end
 
   # GET /departamentos/1

@@ -76,17 +76,26 @@
 <TABLE WIDTH=100% CELLPADDING=4 CELLSPACING=0>
 	<COL WIDTH=128*>
 	<COL WIDTH=128*>
+	<COL WIDTH=128*>
 	<TR VALIGN=TOP>
-		<TD WIDTH=51% bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		<TD WIDTH=33% bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>NOME</B></FONT></P>
+		</TD>
+		<TD WIDTH=23% bgcolor=LightGray STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>CPF</B></FONT></P>
 		</TD>
 		<TD WIDTH=49% bgcolor=LightGray STYLE="; border: 1px solid #000000; padding: 0.1cm">
 			<P CLASS="western" ALIGN=CENTER><FONT SIZE=1 STYLE="font-size: 8pt"><B>CARGO/FUNÇÃO</B></FONT></P>
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD WIDTH=50% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+		<TD WIDTH=38% STYLE="; border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
 			<P CLASS="western" ALIGN=CENTER><%=@funcionario.pessoa.nome%><BR>
+			</P>
+		</TD>
+
+		<TD WIDTH=23% ALIGN=CENTER VALIGN=middle STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<P CLASS="western" ALIGN=CENTER VALIGN=middle><%=Cpf.new(@funcionario.pessoa.cpf)%><BR>
 			</P>
 		</TD>
 		<TD WIDTH=50% STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">

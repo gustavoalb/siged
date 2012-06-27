@@ -25,7 +25,7 @@ gem "wkhtmltopdf", "~> 0.1.2"
 gem 'barby'
 gem 'rmagick'
 gem 'railroady'
-gem 'to_xls-rails'
+gem 'spreadsheet'
 gem 'silent-postgres'
 #gem 'messaging', :git=> 'git://github.com/frodefi/rails-messaging.git'
 #gem 'mailboxer'
