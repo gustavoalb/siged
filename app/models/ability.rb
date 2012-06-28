@@ -61,6 +61,17 @@ class Ability
    can :read,Funcionario
    can :read,Lotacao
 
+ elsif user.role? :ponto
+   can :read,Pessoa
+   can :show,Pessoa
+   can :manage,Ponto,:departamento_id=>user.departamento_id
+   can :read,Orgao
+   can :agenda,Orgao
+   can :manage,Departamento
+   cannot :destroy,Departamento
+   can :read,Funcionario
+   can :read,Lotacao
+
  elsif user.role? :chefia_cad
    can :read,Pessoa
    can :read,Funcionario
