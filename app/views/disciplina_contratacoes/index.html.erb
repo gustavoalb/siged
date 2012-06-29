@@ -1,49 +1,54 @@
 <%content_for :links do%>
-    <a class="current">Descrição de Cargo</a>
+<a class="current">Descrição de Cargo</a>
 
 <%end%>
 <article class="module width_3_quarter">
-		<header><h3 class="tabs_involved">Listando Disciplinas de Contratação</h3>
-		<ul class="tabs">
-   			</ul>
-		</header>
-    <div class="tab_container">
-		<div id="tab1" class="tab_content">
-<table class="tablesorter" cellspacing="0">
-<thead>
-  <tr>
-    <th>Código</th>
-    <th>Nome</th>
-    <th>Tipo</th>
-    <th>Nível</th>
-    <th>Ações</th>
-    <th></th>
-    <th></th>
-  </tr>
-</thead>
-<tbody>
-<% @disciplina_contratacoes.each do |disciplina_contratacao| %>
-  <tr>
-    <td><%= disciplina_contratacao.codigo %></td>
-    <td><%= disciplina_contratacao.nome %></td>
-    <td><%= detalhes(disciplina_contratacao.tipo) %></td>
-    <td><%= detalhes(disciplina_contratacao.nivel_cargo) %></td>
-    <td><%= link_to 'Detalhes', disciplina_contratacao %></td>
-    <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_disciplina_contratacao_path(disciplina_contratacao) %></td>
-    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), disciplina_contratacao, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
-</div>
+  <header><h3 class="tabs_involved">Listando Disciplinas de Contratação</h3>
+    <ul class="tabs">
+     <%= form_for @search do |f| %>
+     <li><%= f.text_field :busca,:size=>13 %></li>
+     <li><%= image_submit_tag "icn_busca.png" %>
+       <% end %>
+     </ul>
+   </ul>
+ </header>
+ <div class="tab_container">
+  <div id="tab1" class="tab_content">
+    <table class="tablesorter" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Nível</th>
+          <th>Ações</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @disciplina_contratacoes.each do |disciplina_contratacao| %>
+        <tr>
+          <td><%= disciplina_contratacao.codigo %></td>
+          <td><%= disciplina_contratacao.nome %></td>
+          <td><%= detalhes(disciplina_contratacao.tipo) %></td>
+          <td><%= detalhes(disciplina_contratacao.nivel_cargo) %></td>
+          <td><%= link_to 'Detalhes', disciplina_contratacao %></td>
+          <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_disciplina_contratacao_path(disciplina_contratacao) %></td>
+          <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), disciplina_contratacao, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 <footer>
-				<div class="submit_link">
-				  <%= link_to 'Cadastrar Descricao cargo', new_disciplina_contratacao_path,:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', :back,:type=>"submit" %>
-				</div>
-				<div class="submit_link">
-         <%= will_paginate @disciplina_contratacoes %>
-        </div>
-			</footer>
+  <div class="submit_link">
+    <%= link_to 'Cadastrar Descricao cargo', new_disciplina_contratacao_path,:class=>"alt_btn",:type=>"submit"%> ou
+    <%= link_to 'Voltar', :back,:type=>"submit" %>
+  </div>
+  <div class="submit_link">
+   <%= will_paginate @disciplina_contratacoes %>
+ </div>
+</footer>
 </article>
