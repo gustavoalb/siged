@@ -222,7 +222,7 @@ end
 
 
 def salvar_cancelamento
-
+  motivo = params[:motivo]
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
   @lotacao.cancela_lotacao(motivo)
@@ -235,6 +235,7 @@ end
 
 
 def salvar_devolucao
+  motivo = params[:motivo]
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
   @lotacao.devolve_funcionario(motivo)
@@ -242,9 +243,9 @@ def salvar_devolucao
 end
 
 def salvar_convalidacao
+  motivo = params[:motivo]
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
-  @lotacao.devolve_funcionario(motivo)
   redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
 end
 

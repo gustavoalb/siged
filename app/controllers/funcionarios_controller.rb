@@ -135,10 +135,10 @@ end
 def carta
   @funcionario = Funcionario.find(params[:funcionario_id])
   @pessoa = Pessoa.find(params[:pessoa_id])
-  @lotacao = Lotacao.em_aberto.find(params[:lotacao])
+  @lotacao = Lotacao.find(params[:lotacao])
   prazo = @lotacao.data_lotacao+3.day
   @prazo=prazo.to_date.to_s_br
-  @processo = @lotacao.processos.em_aberto.encaminhado.last
+  @processo = @lotacao.processos.last
   #file_name=Rails.root.join("public/cartas/#{@funcionario.pessoa.nome}", "#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}.pdf")
   #if File.exist?(file_name)
   # send_file(file_name,:type=>"application/pdf" )
