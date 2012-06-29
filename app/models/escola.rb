@@ -4,7 +4,7 @@ class Escola < ActiveRecord::Base
  validates_presence_of :codigo,:nome_da_escola,:message=>" Não pode ficar em branco!"
  validates_uniqueness_of :nome_da_escola, :message=>"Já cadastrado",:scope => [:codigo,:nome_da_escola ],:case_sensitive=>false
 
- has_many :turmas,:through=>:anos_letivos
+ has_many :turmas,:through=>:ano_letivo
  has_many :salas_ambiente,:class_name=>"Ambiente.salas_ambientes"
  has_many :series,:through=>:turmas,:source=>:serie
  has_many :settings
