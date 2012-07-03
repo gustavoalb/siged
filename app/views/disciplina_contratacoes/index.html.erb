@@ -21,6 +21,7 @@
           <th>Nome</th>
           <th>Tipo</th>
           <th>Nível</th>
+          <th>Nº de funcionários</th>
           <th>Ações</th>
           <th></th>
           <th></th>
@@ -33,6 +34,7 @@
           <td><%= disciplina_contratacao.nome %></td>
           <td><%= detalhes(disciplina_contratacao.tipo) %></td>
           <td><%= detalhes(disciplina_contratacao.nivel_cargo) %></td>
+          <td><%= disciplina_contratacao.funcionarios.count %></td>
           <td><%= link_to 'Detalhes', disciplina_contratacao %></td>
           <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_disciplina_contratacao_path(disciplina_contratacao) %></td>
           <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), disciplina_contratacao, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>

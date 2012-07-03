@@ -203,7 +203,7 @@ def especificar_lotacao(escola = nil,turma = nil,disciplina = nil,curriculo = ni
    l.disciplina_id=disciplina.id
    if fator <= self.rsd
     l.hora_semanal = fator
-  else
+  elsif fator == self.rsd
     l.hora_semanal = self.rsd
   end
   if l.save

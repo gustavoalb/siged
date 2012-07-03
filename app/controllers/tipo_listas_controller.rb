@@ -3,9 +3,9 @@ class TipoListasController < ApplicationController
   # GET /tipo_lista.xml
   load_and_authorize_resource
   def index
-    @search = TipoLista.ativa.scoped_search(params[:search])
-    @tipo_lista = @search.order("nome asc")#.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
-
+    @search = TipoLista.scoped_search(params[:search])
+    ids = (@search.where("privada = ? and id in (?)",true, User.usuario_atual.lista_ids).collect{|l|l.id} + @search.where("privada = ?",false).collect{|l|l.id}).uniq
+    @tipo_lista = TipoLista.where('id in (?)',ids).order(:nome) #.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tipo_lista }

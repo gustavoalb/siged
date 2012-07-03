@@ -22,7 +22,7 @@ class TipoLista < ActiveRecord::Base
   scope :funcional,where("tipo_objeto=?","Funcionário")
   scope :ativa,where("ativo = ?",true)
   scope :privadas,where("privada = ?",true)
-
+  scope :publicas,where("privada = ?",false)
 
   def possui_funcionarios?
    if self.funcionarios.size>0 or self.pessoas.size>0

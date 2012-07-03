@@ -8,19 +8,20 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  before_filter do
-    # Enable for all users in this case
-    env['quickedit.enable'] = true
-  end
-
-
   protected
 
   def set_entidade
     if user_signed_in?
+      listas = []
       User.usuario_atual = current_user
+      User.ultimo_ip = User.usuario_atual.current_sign_in_ip
       User.usuario_atual.save!
-      User.ultimo_ip = current_user.current_sign_in_ip
+      User.usuario_atual.roles.each do |r|
+        r.lista_ids.each do |l|
+          listas << l
+        end
+      end
+      User.lista_ids = listas
     end
   end
 

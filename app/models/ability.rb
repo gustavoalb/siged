@@ -7,118 +7,130 @@ class Ability
    if user.role? :admin
     can :manage, :all
 
-
-  elsif user.role? :chefia_ucada
-    can :manage,Funcionario
-    cannot :destroy,Funcionario
-    can :manage,Pessoa
-    cannot :destroy,Pessoa
-    can :manage,Departamento
-    cannot :update,Departamento
-    cannot :create,Departamento
-    cannot :destroy,Departamento
-    can :manage,Ponto
-    cannot :destroy,Ponto
-    can :read,Orgao
-    can :agenda,Orgao
-    can :read,Lotacao
-
-  elsif user.role? :ucada
-   can :manage,Funcionario
-   cannot :destroy,Funcionario
-   can :manage,Pessoa
-   cannot :destroy,Pessoa
-
- elsif user.role? :diretores
-   can :manage,Lotacao,:escola_id=>user.escola_id
-   cannot :create,Lotacao
-   can :manage,Turma,:escola_id=>user.escola_id
-   can :manage,Ambiente,:escola_id=>user.escola_id
-   can :manage,Escola,:id=>user.escola_id
-   can :manage,Ponto,:escola_id=>user.escola_id
-   cannot :destroy,Escola
-   cannot :destroy,Turma
-   can :read,Pessoa
-
- elsif user.role? :enquete
-   can :read,Pessoa
-   cannot :show,Pessoa
-   can :read,Orgao
-   can :agenda,Orgao
-   can :read,Departamento
-   can :read,Funcionario
-   can :read,Lotacao
-   can :manage,Enquete
-
- elsif user.role? :sage
-   can :read,Pessoa
-   can :show,Pessoa
-   can :manage,Ponto,:departamento_id=>user.departamento_id
-   can :read,Orgao
-   can :agenda,Orgao
-   can :manage,Departamento
-   cannot :destroy,Departamento
-   can :read,Funcionario
-   can :read,Lotacao
-
- elsif user.role? :ponto
-   can :read,Pessoa
-   can :show,Pessoa
-   can :manage,Ponto,:departamento_id=>user.departamento_id
-   can :read,Orgao
-   can :agenda,Orgao
-   can :manage,Departamento
-   cannot :destroy,Departamento
-   can :read,Funcionario
-   can :read,Lotacao
-
- elsif user.role? :chefia_cad
-   can :read,Pessoa
-   can :read,Funcionario
-   can :manage,Departamento
-   cannot :destroy,Departamento
-   can :manage,Ponto,:departamento_id=>user.departamento_id
-   cannot :destroy,Ponto
-
- elsif user.role? :chefia_cebep
-   can :manage,Pessoa
-   cannot :update,Pessoa
-   cannot :destroy,Pessoa
-   can :manage,Funcionario
-   cannot :update,Funcionario
-   cannot :destroy,Pessoa
-   can :manage,Departamento
-   cannot :destroy,Departamento
-   can :manage,Ponto,:departamento_id=>user.departamento_id
-   cannot :destroy,Ponto
-
- elsif user.role? :cebep
-   can :manage,Pessoa
-   cannot :update,Pessoa
-   cannot :destroy,Pessoa
-   can :manage,Funcionario
-   cannot :update,Funcionario
-   cannot :destroy,Funcionario
-   can :manage, Comissionado
-   cannot :destroy,Comissionado
-   can [:read,:update],Escola
+  #elsif !user.roles.none?
+  #  can :manage,TipoLista,:privada=>false
+  #  cannot :destroy,TipoLista,:privada=>false
+  #  can :manage,TipoLista,TipoLista.privadas do |l|
+  #    !(l.role_ids & user.role_ids).none?
+  #  end
 
 
- elsif user.role? :gerencia_ude
-   can :manage,Funcionario
-   cannot :destroy,Funcionario
-   can :manage,Pessoa
-   cannot :destroy,Pessoa
-   can :manage,Lotacao
-   cannot :destroy,Lotacao
+elsif user.role? :chefia_ucada
+  can :manage,Funcionario
+  cannot :destroy,Funcionario
+  can :manage,Pessoa
+  cannot :destroy,Pessoa
+  can :manage,Departamento
+  cannot :update,Departamento
+  cannot :create,Departamento
+  cannot :destroy,Departamento
+  can :manage,Ponto
+  cannot :destroy,Ponto
+  can :read,Orgao
+  can :agenda,Orgao
+  can :read,Lotacao
 
- elsif user.role? :dcp
-   can :manage,Funcionario
-   cannot :destroy,Funcionario
-   can :manage,Pessoa
-   cannot :destroy,Pessoa
+elsif user.role? :ucada
+ can :manage,Funcionario
+ cannot :destroy,Funcionario
+ can :manage,Pessoa
+ cannot :destroy,Pessoa
+ cannot :destroy,TipoLista,:privada=>false
+ can :manage,TipoLista
+ cannot [:update,:destroy],TipoLista,TipoLista.privadas do |l|
+  l.privada==true and (l.role_ids & user.role_ids).none?
+end
 
- elsif user.role? :chefia_nupes
+elsif user.role? :diretores
+ can :manage,Lotacao,:escola_id=>user.escola_id
+ cannot :create,Lotacao
+ can :manage,Turma,:escola_id=>user.escola_id
+ can :manage,Ambiente,:escola_id=>user.escola_id
+ can :manage,Escola,:id=>user.escola_id
+ can :manage,Ponto,:escola_id=>user.escola_id
+ cannot :destroy,Escola
+ cannot :destroy,Turma
+ can :read,Pessoa
+
+elsif user.role? :enquete
+ can :read,Pessoa
+ cannot :show,Pessoa
+ can :read,Orgao
+ can :agenda,Orgao
+ can :read,Departamento
+ can :read,Funcionario
+ can :read,Lotacao
+ can :manage,Enquete
+
+elsif user.role? :sage
+ can :read,Pessoa
+ can :show,Pessoa
+ can :manage,Ponto,:departamento_id=>user.departamento_id
+ can :read,Orgao
+ can :agenda,Orgao
+ can :manage,Departamento
+ cannot :destroy,Departamento
+ can :read,Funcionario
+ can :read,Lotacao
+
+elsif user.role? :ponto
+ can :read,Pessoa
+ can :show,Pessoa
+ can :manage,Ponto,:departamento_id=>user.departamento_id
+ can :read,Orgao
+ can :agenda,Orgao
+ can :manage,Departamento
+ cannot :destroy,Departamento
+ can :read,Funcionario
+ can :read,Lotacao
+
+elsif user.role? :chefia_cad
+ can :read,Pessoa
+ can :read,Funcionario
+ can :manage,Departamento
+ cannot :destroy,Departamento
+ can :manage,Ponto,:departamento_id=>user.departamento_id
+ cannot :destroy,Ponto
+
+elsif user.role? :chefia_cebep
+ can :manage,Pessoa
+ cannot :update,Pessoa
+ cannot :destroy,Pessoa
+ can :manage,Funcionario
+ cannot :update,Funcionario
+ cannot :destroy,Pessoa
+ can :manage,Departamento
+ cannot :destroy,Departamento
+ can :manage,Ponto,:departamento_id=>user.departamento_id
+ cannot :destroy,Ponto
+
+elsif user.role? :cebep
+ can :manage,Pessoa
+ cannot :update,Pessoa
+ cannot :destroy,Pessoa
+ can :manage,Funcionario
+ cannot :update,Funcionario
+ cannot :destroy,Funcionario
+ can :manage, Comissionado
+ cannot :destroy,Comissionado
+ can [:read,:update],Escola
+
+
+elsif user.role? :gerencia_ude
+ can :manage,Funcionario
+ cannot :destroy,Funcionario
+ can :manage,Pessoa
+ cannot :destroy,Pessoa
+ can :manage,Lotacao
+ cannot :destroy,Lotacao
+
+elsif user.role? :dcp
+ can :manage,Funcionario
+ cannot :destroy,Funcionario
+ can :manage,Pessoa
+ cannot :destroy,Pessoa
+
+elsif user.role? :chefia_nupes
   can :read,Lotacao
   can :update,Lotacao
   can :convalidar,Lotacao
@@ -226,10 +238,7 @@ elsif user.role? :crh
   can :agenda,Orgao
   can :manage,TipoLista,:privada=>false
   cannot :remover_pessoa,TipoLista,:privada=>false
-  cannot :destroy,TipoLista,:privada=>false
-  can :manage,TipoLista,TipoLista.privadas do |l|
-    !(l.role_ids & user.role_ids).none?
-  end
+  
 
 elsif user.role? :chefia_crh
   can :read,Pessoa
@@ -265,7 +274,6 @@ elsif user.role? :revisao_carga_horaria
  cannot :destroy,Lotacao
  cannot :convalidar,Lotacao
 
-
 else
   can :read, Pessoa
   can :qualificar,Pessoa
@@ -290,6 +298,8 @@ else
   can :read, NivelCargo
   can :read, Departamento
   can :read, Serie
+
+
 end
 end
 end

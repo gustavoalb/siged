@@ -176,7 +176,7 @@ def tipo_especificacao
   @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
   @escola = @lotacao.escola
   @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
-  @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
+  @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,nome')
   @tipo = params[:tipo]
   @ambientes = @escola.ambientes.find(:all,:conditions=>["nome not like ?",@ambiente.nome],:order=>"nome asc").collect{|a|[a.nome,a.id]}
   render :partial=>"tipo_especificacao"

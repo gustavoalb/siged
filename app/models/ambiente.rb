@@ -32,7 +32,7 @@ class Ambiente < ActiveRecord::Base
 			elsif necessidade==2 and self.funcionarios.count==1 and funcionario.rsd==funcionario.rsn
 				return true,(necessidade-self.funcionarios.count)
 			else
-				return false,(necessidade-self.funcionarios.count)
+				return true,(necessidade-self.funcionarios.count)
 			end
 		end
 	end

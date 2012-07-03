@@ -33,9 +33,14 @@
         <%= f.select :peso,[['0'],['3'],['5'],['7'],['10']],:style=>"width:92%;" %>
 
   </fieldset>
-  <fieldset style="width:97%; float:left; margin-right: 1%;">
-    <%= f.label :ativo %>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :ativa? %>
       <%= f.check_box :ativo,:style=>"width:10;" %>
+  </fieldset>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :privada? %>
+      <%= f.check_box :privada,:style=>"width:10;" %>
   </fieldset>
 
   <fieldset style="width:97%; float:left; margin-right: 1%;">
@@ -43,22 +48,12 @@
         <%= f.select :tipo_objeto,[["Pessoa"],["Funcionário"]],:style=>"width:5%;" %>
   </fieldset>
 
-<!--<fieldset style="width:97%; float:left; margin-right: 1%;">
-<label> Natureza da Lista </label> <br/><br/>
-  <% for natureza in Natureza.find(:all) %>
-    <div>
-      
-      <%= natureza.nome %>
-    </div>
-  <% end %>
-</fieldset>-->
-
 
 <fieldset style="width:97%; float:left; height: auto; margin-right: 1%;">
 <label>Proprietários da lista </label> <br/><br/>
   <% for role in Role.find(:all) %>
   <div style="float:left;">
-      <%= check_box_tag "tipo_lista[natureza_ids][]", role.id, @tipo_lista.roles.include?(role) %>
+      <%= check_box_tag "tipo_lista[role_ids][]", role.id, @tipo_lista.roles.include?(role) %>
       <%= role.name %>
     </div>
   <% end %>

@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   cattr_accessor :current
   #cattr_accessor :entidades_do
   cattr_accessor :ultimo_ip
+  cattr_accessor :lista_ids
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,:name,:username,:role_ids,:entidade_ids,:grupos_educacional_ids,:orgao_id,:departamento_id,:enabled,:escola_id,:funcionario_id
 
