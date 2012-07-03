@@ -11,7 +11,7 @@ class EspecificarLotacao < ActiveRecord::Base
 	scope :da_escola,lambda{|escola| where("escola_id=?",escola)}
 	scope :do_ambiente,lambda{|amb| where("ambiente_id=?",amb)}
 	scope :da_turma,lambda{|turma| where("especificar_lotacaos.turma_id=?",turma)}
-	validates_uniqueness_of :funcionario_id,:scope=>[:escola_id, :turma_id, :disciplina_id, :hora_semanal]
+	validates_uniqueness_of :funcionario_id,:scope=>[:escola_id, :turma_id, :disciplina_id]
 
 	
 end
