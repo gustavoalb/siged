@@ -2,11 +2,13 @@ class Disciplina < ActiveRecord::Base
 #has_and_belongs_to_many :matrizes
  has_many :fatores,:class_name=>"FatorLotacao"
  has_and_belongs_to_many :series,:class_name=>"Serie",:join_table => "colapso_matrizes"
- has_and_belongs_to_many :descricao_cargos,:class_name=>"DisciplinaContratacao",:join_table => "disciplinas_habilitacoes"
+ has_and_belongs_to_many :disciplinas_contratacao,:class_name=>"DisciplinaContratacao",:join_table => "disciplinas_habilitacoes"
  scope :fun_habilitacao, lambda { |ids| where("disciplinas.id in (?)",ids)}
+ has_many :especificacoes,:class_name=>'EspecificarLotacao'
+ has_many :funcionarios,:through=>:especificacoes,:uniq=>true
+ has_many :turmas,:through=>:especificacoes,:uniq=>true
  has_many :fator_de_lotacoes,:through=>:fatores,:source=>:especificar_lotacao
  has_many :curriculos
-
 
  def pode_especificar?(turma)
    valor=0

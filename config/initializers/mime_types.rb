@@ -4,3 +4,8 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 Mime::Type.register "text/siged-migracao",:smg
+Mime::Type.register "application/xls", :xls
+Mime::Type.register "application/odt", :odt
+
+
+

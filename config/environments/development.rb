@@ -2,11 +2,9 @@ Siged20::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
-  # since you don't have to restart the webserver when you make code changes.
-  ENV['stomp_host'] = 'localhost'
-  ENV['stomp_port'] = '61613'
-  ENV['site_address'] = 'localhost:3000'  
+  # since you don't have to restart the webserver when you make code changes. 
   config.cache_classes = false
+  config.action_controller.perform_caching = true
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true

@@ -8,11 +8,9 @@ class Funcionario < ActiveRecord::Base
   include ScopedSearch::Model
   scope :busca, lambda { |q| where("matricula like ?" ,"%#{q}%") }
   scope :da_pessoa, lambda {|id|where("pessoa_id = ?",id) }
-  scope :do_func, lambda {|id|where("funcionario_id = ?",id) }
   scope :diretores, lambda { |q| where("diretor = ?" , true) }
   scope :disciplina_def, where("disciplina_contratacao_id is not ?",nil)
-  scope :da_entidade, lambda {|id|where("funcionarios.entidade_id = ?",id) }
-
+  scope :da_escola,lambda {|id|joins(:lotacoes).where("lotacaos.escola_id = ?",id) }
 
   #has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>:colapso_grupo
   belongs_to :pessoa,:class_name=>'Pessoa'
@@ -46,23 +44,12 @@ class Funcionario < ActiveRecord::Base
   after_create :criar_comissionado
   attr_accessor_with_default(:nome) {pessoa.nome}
   attr_accessor_with_default(:rsn) {self.regencia_semanal_nominal}
-  attr_accessor_with_default(:rsd) {self.regencia_semanal_disponivel  }
-
-
- #after_update :criar_comissionado
+  attr_accessor_with_default(:rsd) {self.regencia_semanal_disponivel}
+  attr_accessor_with_default(:regencia_especificada) {self.regencia_semanal_nominal - self.regencia_semanal_disponivel}
 
  def aposentadoria
   self.data_nomeacao.months_since(300)
 end
-
-  #def quinquenio
-  #  a = 0
-  #case
-  #when self.data_nomeacao.months_since(60)<Date.today
-  #  a = a+1
-  #end
-  #return a
-  #end
 
   def quinquenio
     self.data_nomeacao.months_since(60)
@@ -242,12 +229,6 @@ def status_lotacao
 else
   return "NÃO LOTADO"
 end
-
-
-def fator_de_lotacao
-
-end
-
 
 def ids_disciplinas
   disciplinas=[]

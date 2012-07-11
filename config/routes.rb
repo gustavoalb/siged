@@ -160,8 +160,10 @@ namespace :folha do resources :eventos end
     get :listar_turmas
     get :incluir_turma
     post :salvar_turma
-    get "configuracoes"
-    
+    get :configuracoes
+    get :ctrl_ch_resumido
+    get :ctrl_ch_detalhado
+    get :gerar_controle_ch
     resources :ambientes do
       get :configurar_ambiente
       get :configurar_ambiente_fisico
