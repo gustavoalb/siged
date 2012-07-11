@@ -112,7 +112,7 @@ def incluir_turma
   @escola = Escola.find params[:escola_id]
   if !@escola.ambientes.none?
     @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
-    @matrizes = @escola.matrizes.all.collect{|m|[m.codigo,m.id]}
+    @matrizes = @escola.matrizes.collect{|m|[m.codigo,m.id]}
     @turma = @ambiente.turmas.new
   end
   render :partial=>"turma"
