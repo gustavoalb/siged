@@ -201,15 +201,16 @@ def salvar_especificacao
   @pessoa = @funcionario.pessoa
   @lotacao = Lotacao.find(params[:lotacao_id])
   @tipo=params[:especificar_lotacao][:tipo]
+  @escola = @lotacao.escola
   if @tipo!="Sala Ambiente"
     @turma = Turma.find(params[:especificar_lotacao][:turma_id])
     @serie = @turma.serie
     @disciplina = @serie.disciplinas.find(params[:especificar_lotacao][:disciplina_id])
     @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
+    @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
   else
     @ambiente = Ambiente.find(params[:especificar_lotacao][:ambiente_id])
   end
-  @escola = @lotacao.escola
   respond_to do |format|
     if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo,@ambiente)
       format.html { redirect_to("#{escola_path(@lotacao.escola)}#tab-dois",:notice => "O Funcionário foi especificado com sucesso.") }

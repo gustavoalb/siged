@@ -3,7 +3,7 @@ require "barby/outputter/rmagick_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
-  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao,:data_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
+  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao,:data_lotacao]#,:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
   validates_presence_of :usuario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :escola

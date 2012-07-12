@@ -45,11 +45,9 @@ class Funcionario < ActiveRecord::Base
   attr_accessor_with_default(:nome) {pessoa.nome}
   attr_accessor_with_default(:rsn) {self.regencia_semanal_nominal}
   attr_accessor_with_default(:rsd) {self.regencia_semanal_disponivel}
-  attr_accessor_with_default(:regencia_especificada) {self.regencia_semanal_nominal - self.regencia_semanal_disponivel}
-
- def aposentadoria
-  self.data_nomeacao.months_since(300)
-end
+  def aposentadoria
+    self.data_nomeacao.months_since(300)
+  end
 
   def quinquenio
     self.data_nomeacao.months_since(60)
@@ -177,6 +175,37 @@ end
     end
   end
   return self.rsn-horas
+end
+
+def turmas(escola,nivel=nil)
+  turmas = []
+  ambiente = escola.ambientes.find_by_nome("Sala de Aula")
+  if escola and nivel.nil?
+    self.especificacoes.da_escola(escola).do_ambiente(ambiente).each do |e|
+      turmas << e.turma
+    end
+  elsif escola and !nivel.nil?
+    self.especificacoes.da_escola(escola).do_ambiente(ambiente).each do |e|
+      if e.turma.serie.nivel==nivel
+        turmas << e.turma
+      end
+    end
+  end
+return turmas.collect{|t|[t.nome]}.to_sentence
+end
+
+def regencia_especificada(tipo=1)
+  horas=0
+  if tipo==1
+    self.especificacoes.find(:all,:joins=>:ambiente,:conditions=>["ambientes.nome = ?","Sala de Aula"]).each do |e|
+      horas+=e.hora_semanal
+    end      
+  elsif tipo==2
+    self.especificacoes.find(:all,:joins=>:ambiente,:conditions=>["ambientes.nome <> ?","Sala de Aula"]).each do |e|
+      horas+=e.hora_semanal
+    end
+  end
+  return horas
 end
 
 

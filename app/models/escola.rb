@@ -95,10 +95,10 @@ class Escola < ActiveRecord::Base
       @titulo = "CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
     else
       @destino = "#{@user.departamento.nome.upcase}"
-      @titulo = "CONTROLE DE CARGA HORÁRIA da #{@escola.nome_da_escola.upcase} – RESUMO GERAL"
+      @titulo = "CONTROLE DE CARGA HORÁRIA DA #{@escola.nome_da_escola.upcase} – RESUMO GERAL"
     end
     @disciplinas = []
-    @matrizes.all.each do |m|
+    @matrizes.each do |m|
       m.disciplinas.joins(:especificacoes).order(:nome).each do |d|
         @disciplinas << d
       end
