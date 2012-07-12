@@ -71,10 +71,14 @@ end
 
 def ctrl_ch_detalhado
   @escola = Escola.find(params[:escola_id])
-
-  relatorio = Tempfile.new("relatorio.odt")
-  @escola.cch_detalhado("#{Rails.public_path}/relatorios/controle_ch_detalhado.odt",relatorio.path)
-  send_file(relatorio.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+  if Rails.env!='production'
+    @template = "#{Rails.public_path}/relatorios/controle_ch_detalhado.odt"
+  else
+    @template = "/var/www/siged/current/public/relatorios/controle_ch_detalhado.odt"
+  end
+  @relatorio = Tempfile.new("relatorio.odt")
+  @escola.cch_detalhado(@template,@relatorio.path)
+  send_file(@relatorio.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
 end
 
 def controle_turma

@@ -22,7 +22,7 @@ class Disciplina < ActiveRecord::Base
           else
             fator_sobrando = curriculo.horas_semanal
           end
-          if 1==1 #fator_sobrando>0
+          if fator_sobrando>=0
             return true
           else
              return false
