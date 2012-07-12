@@ -70,12 +70,8 @@ def ctrl_ch_resumido
 end
 
 def ctrl_ch_detalhado
-  @escola = Escola.find(params[:escola_id])
-  if Rails.env!='production'
-    @template = "#{Rails.public_path}/relatorios/controle_ch_detalhado.odt"
-  else
-    @template = "/var/www/siged/current/public/relatorios/controle_ch_detalhado.odt"
-  end
+  @escola = Escola.find_by_slug(params[:escola_id])
+  @template = "#{Rails.public_path}/relatorios/controle_ch_detalhado.odt"
   @relatorio = Tempfile.new("relatorio.odt")
   @escola.cch_detalhado(@template,@relatorio.path)
   send_file(@relatorio.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
