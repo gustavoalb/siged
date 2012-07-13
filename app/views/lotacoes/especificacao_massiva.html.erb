@@ -1,0 +1,20 @@
+<div id='massiva'>
+<%= remote_form_for :especificacao,:url=>lotacoes_turmas_path,:update=>:turmas do |f|%>
+<%= f.hidden_field :lotacao_id,:value=>@lotacao.id%>
+<%= f.hidden_field :escola_id,:value=>@lotacao.escola_id%>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+	<%= label_tag :disciplina%><br/>
+	<%= select :especificacao,:disciplina_id,@disciplinas,:prompt=>true %>
+</fieldset>
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+	<%= label_tag :turno%><br/>
+	<%= select :especificacao,:turno,Turma::TURNO,:prompt=>true %>
+</fieldset>
+<div class='submit_link'>
+<%=f.submit "Buscar", :class=>"alt_btn"%>
+</div>
+<% end %>
+
+<div id='turmas'></div>
+</div>

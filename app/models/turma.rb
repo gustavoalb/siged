@@ -3,7 +3,7 @@ class Turma < ActiveRecord::Base
 
 validates_uniqueness_of :nome,:scope=>[:ambiente_id,:matriz_id,:ano_letivo_id,:serie_id,:turno,:escola_id],:message=>"já cadastrada"
 TURNO=[
-["Manha","Manhã"],
+["Manhã","Manhã"],
 ["Tarde","Tarde"],
 ["Noite","Noite"]
 ]

@@ -1,0 +1,27 @@
+<% form_tag({:controller=>'lotacoes',:action=>'salvar_especificacoes'},{:remote=>true}) do%>
+<%=hidden_field_tag :disciplina_id,@disciplina.id%>
+<%=hidden_field :especificacao,:lotacao_id,:value=>@lotacao.id%>
+<%=hidden_field :especificacao,:escola_id,:value=>@lotacao.escola_id%>
+
+
+<% if !@turmas.none?%>
+<fieldset style="width:96%; float:left; height: auto; margin-right: 1%;">
+	<%= label_tag :turmas %><br/><br/>
+	<% for turma in @turmas %>
+	<% if @disciplina.fator(turma)>0%>
+	<div title="<%=turma.nome%>" style="float: left;">
+		<%= check_box_tag "turmas[]",turma.id %>
+		<%= raw("#{turma.nome} - #{turma.serie.nivel.codigo}<b>(#{@disciplina.fator(turma)} h/a)</b>") %>
+	</div>
+	<% end %>
+	<% end %>
+</fieldset>
+<div class='submit_link'>
+<%=submit_tag "Especificar", :class=>"alt_btn"%>
+</div>
+<% else%>
+<fieldset style="width:96%; float:left; height: auto; margin-right: 1%; background: none; border: 0px white;">
+	<%=compativel("Não há turmas com disciplina na escola neste turno.",false)%>
+</fieldset>
+<% end %>
+<% end %>

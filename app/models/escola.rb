@@ -50,17 +50,6 @@ class Escola < ActiveRecord::Base
     end 
   end
 
-  def matrizes
-    matrizes = []
-    self.niveis.each do |n|
-      n.matrizes.each do |m|
-        matrizes << m
-      end
-    end
-    matrizes
-  end
-
-
   def calcular_oferta(disc)
     professores = self.funcionarios.find_all_by_cargo_id(Cargo.find_by_nome('Professor'))
     oferta = 0
@@ -85,31 +74,37 @@ class Escola < ActiveRecord::Base
     return preenchido
   end
 
-  def cch_detalhado(template,out)
-    @escola = self
-    @matrizes = @escola.matrizes
-    @user = User.usuario_atual
-    @data = Time.now.strftime("%d/%m/%Y %T")
-    if !@user.escola.nil? and @user.escola==@escola and @user.departamento.nil?
-      @destino = "#{@escola.nome_da_escola.upcase}"
-      @titulo = "CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
-    else
-      @destino = "#{@user.departamento.nome.upcase}"
-      @titulo = "CONTROLE DE CARGA HORÁRIA DA #{@escola.nome_da_escola.upcase} – RESUMO GERAL"
+  def calcular_a_preencher(disc)
+    preenchido = 0
+    self.especificacoes.da_disciplina(disc).uniq.each do |e|
+      preenchido+=e.hora_semanal.to_i
     end
-    @disciplinas = []
-    @matrizes.each do |m|
-      m.disciplinas.joins(:especificacoes).order(:nome).each do |d|
-        @disciplinas << d
-      end
-    end
-    @disciplinas = @disciplinas.uniq
-    self.gerar_odt(template,out)
+    return self.calcular_demanda(disc) - preenchido
   end
 
-  def gerar_odt(template,out)
-    render_odt(template,out)
+
+  def disciplinas
+    matrizes = self.matrizes
+    disciplinas = []
+    matrizes.each do |m|
+      m.disciplinas.order(:nome).each do |d|
+        disciplinas << d
+      end
+    end
+    disciplinas = disciplinas.uniq
+    return disciplinas
   end
+
+  def matrizes
+    matrizes = []
+    self.niveis.each do |n|
+      n.matrizes.each do |m|
+        matrizes << m
+      end
+    end
+    matrizes
+  end
+
 
   private
   def criar_ambientes

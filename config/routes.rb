@@ -175,7 +175,6 @@ namespace :folha do resources :eventos end
       get :excluir_ambiente_fisico
     end
   end
-  get 'pessoas/especificar_lotacao'
   resources :pessoas do
     get "gerar_relatorio"
     resources :fotos,:only => [:index, :show, :novo, :create,:new] do
@@ -221,12 +220,14 @@ namespace :folha do resources :eventos end
     get "confirmar_lotacao"
     get "cancelar_lotacao"
     get "especificar_lotacao"
+    get "especificacao_massiva"
     post "salvar_confirmacao"
     post "salvar_cancelamento"
     post "salvar_devolucao"
     post "salvar_convalidacao"
     post "salvar_especificacao"
     get  "apagar_especificacao"
+    #get "turmas"
     resources :pontos do
       get 'ponto',:controller=>'pontos',:action=>"exportar_em_pdf"
       get 'salvar_ponto',:controller=>'pontos',:action=>"salvar_em_pdf",:template=>'exportar_em_pdf'
@@ -247,6 +248,7 @@ end
   match 'lotacoes/prolabore'  
   match 'lotacoes/especial',:controller=>"lotacoes",:action=>"lotacao_especial"
   match 'lotacoes/destino'
+  match 'lotacoes/turmas'
   match 'lotacoes/tipo_destino'
   match 'funcionarios/distrito'
   match 'pessoas/distrito'

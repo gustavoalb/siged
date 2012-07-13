@@ -81,15 +81,10 @@ def ctrl_ch_detalhado
     @destino = "#{@user.departamento.nome.upcase}"
     @titulo = "CONTROLE DE CARGA HORÁRIA DA #{@escola.nome_da_escola.upcase} – RESUMO GERAL"
   end
-  @disciplinas = []
-  @matrizes.each do |m|
-    m.disciplinas.joins(:especificacoes).order(:nome).each do |d|
-      @disciplinas << d
-    end
-  end
-  @disciplinas = @disciplinas.uniq
+  @disciplinas = @escola.disciplinas
   @template = File.open("#{Rails.public_path}/relatorios/controle_ch_detalhado.odt")
   @relatorio = File.new("#{Rails.root}/public/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt",'w')
+  @relatorio.chmod(0777)
   render_odt(@template.path,@relatorio.path)
   send_file(@relatorio.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
 end

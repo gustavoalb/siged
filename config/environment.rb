@@ -12,4 +12,5 @@ CalendarDateSelect::FORMATS[:br_date] = {
   :javascript_include => "format_br_date"
 }
 
+
 CalendarDateSelect.format = :br_date

@@ -163,12 +163,16 @@ end
 
 def disciplinas_especificacao
   @funcionario = Funcionario.find(params[:funcionario_id])
-  @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
+  @lotacao = Lotacao.find(params[:lotacao_id])
   @escola_lotacao = @lotacao.escola
-  @turma = Turma.find params[:turma]
-  @serie = @turma.serie
-  @disciplinas = @serie.disciplinas.fun_habilitacao(@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
-  render :partial=>"disciplinas"
+  if !params[:turma].blank?
+    @turma = Turma.find params[:turma]
+    @serie = @turma.serie
+    @disciplinas = @serie.disciplinas.fun_habilitacao(@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
+    render :partial=>"disciplinas"
+  else
+    render :nothing=>true
+  end
 end
 
 def tipo_especificacao
@@ -314,7 +318,7 @@ def create
   @lotacao = Lotacao.new(params[:lotacao])
   if params[:lotacao][:tipo_destino_id].blank? and params[:lotacao][:orgao_id].blank?
     if !params[:escola].blank?
-      @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
+      @escola = Escola.find(:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
       @lotacao.escola_id = @escola.id
     end
   elsif !params[:lotacao][:tipo_destino_id].blank? and params[:escola].blank?
@@ -323,7 +327,7 @@ def create
       @lotacao.departamento_id = @departamento.id
     end
   elsif !params[:lotacao][:tipo_destino_id].blank? and !params[:escola].blank?
-    @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
+    @escola = Escola.find(:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
     @lotacao.escola_id = @escola.id
   end
   respond_to do |format|
@@ -377,7 +381,7 @@ def fator_lotacao
     @curriculo = @turma.matriz.curriculos.da_serie(@serie.id).da_disciplina(@disciplina.id).last
     @fator = @disciplina.pode_especificar?(@turma)
     @fator_n = @disciplina.fator(@turma)
-    if @fator
+    if @fator==true and @fator_n>0
       if (@funcionario.rsd - @fator_n) >=0
        @motivo="Regência Semanal compatível"
        render :partial=>"fator_lotacao"
@@ -417,11 +421,69 @@ def fator_lotacao_fisico
   end
 end
 
+def especificacao_massiva
+  @lotacao = Lotacao.find(params[:lotacao_id])
+  @escola = @lotacao.escola
+  @disciplinas = Disciplina.find(:all,:conditions=>["id in (?)",@funcionario.ids_disciplinas]).collect{|d|[d.nome,d.id]}
+  render :layout=>"facebox"
+end
 
+def turmas
+  @lotacao = Lotacao.find(params[:especificacao][:lotacao_id])
+  @escola = @lotacao.escola
+  if !params[:especificacao][:disciplina_id].blank?
+    @disciplina = Disciplina.find(params[:especificacao][:disciplina_id])
+  end
+  if !params[:especificacao][:turno].blank?
+    @turno = params[:especificacao][:turno]
+  end
 
+  if @disciplina and @turno
+    @turmas = @escola.turmas.da_escola(@escola).find(:all,:conditions=>["turno = ?",@turno])
+    render :partial=>"turmas"
+  else
+    render :nothing=>true
+  end
+end
 
-
-
+def salvar_especificacoes
+  @lotacao = Lotacao.find(params[:especificacao][:lotacao_id])
+  @funcionario = @lotacao.funcionario
+  @escola = @lotacao.escola
+  turmas = params[:turmas]
+  @turmas = Turma.find(:all,:conditions=>["id in (?)",turmas])
+  @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
+  @tipo = @ambiente.nome
+  @disciplina = Disciplina.find(params[:disciplina_id])
+  falhas = []
+  sucessos = []
+  @turmas.each do |turma|
+    curriculo = turma.matriz.curriculos.da_serie(turma.serie.id).da_disciplina(@disciplina.id).last
+    fator = @disciplina.pode_especificar?(turma)
+    fator_n = @disciplina.fator(turma)
+    if fator==true and fator_n>0
+      if (@funcionario.rsd - fator_n) >=0
+        if @funcionario.especificar_lotacao(@escola,turma,@disciplina,curriculo,@lotacao,@tipo,@ambiente)
+          sucessos << turma.nome
+        end
+      else
+        falhas << turma.nome
+      end
+    end
+  end
+  if sucessos.size>0 and falhas.size==0
+    notice = (flash[:notice] = "O Funcionário foi especificado com sucesso nas seguintes turmas: #{sucessos.to_sentence}")
+  elsif sucessos.size>0 and falhas.size>0
+    notice = (flash[:notice] = "O Funcionário foi especificado nas turmas #{sucessos.collect{|t|t.nome}.to_sentence} e não foi lotado nas turmas #{falhas.to_sentence}")
+  else
+    notice = (flash[:alert] = "O Funcionário não foi especificado em nenhuma das turmas")
+    sucesso = false
+  end
+  render :update do |page|
+    page.reload()
+    notice
+  end
+end
 
 # DELETE /lotacaos/1
 # DELETE /lotacaos/1.xml
@@ -469,7 +531,7 @@ end
 
 def funcionario
   @funcionario = Funcionario.find_by_slug(params[:funcionario_id])
-  @pessoa = Pessoa.find_by_slug (params[:pessoa_id])
+  @pessoa = Pessoa.find_by_slug(params[:pessoa_id])
   @escolas = Escola.all.collect{|p| [p.nome_da_escola,p.id]}
 end
 

@@ -3,7 +3,7 @@
 <fieldset style="width:48%; float:left;  height: auto; margin-right: 1%;">
 	<%= f.label :niveis_de_ensino %><br /><br />
 	<% for nivel in NiveisEnsino.order(:nome)%>
-	<div title="<%=nivel.codigo%>" style="float: left;">
+	<div title="<%=nivel.nome%>" style="float: left;">
 	<%= check_box_tag "escola[nivel_ids][]", nivel.id, @escola.niveis.include?(nivel) %>
 	<%= nivel.codigo %>
 	</div>
