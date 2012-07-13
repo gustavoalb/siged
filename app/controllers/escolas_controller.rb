@@ -84,8 +84,8 @@ def ctrl_ch_detalhado
   @disciplinas = @escola.disciplinas
   @template = File.open("#{Rails.public_path}/relatorios/controle_ch_detalhado.odt")
   @relatorio = File.new("#{Rails.root}/public/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt",'w')
-  @relatorio.chmod(0777)
   render_odt(@template.path,@relatorio.path)
+  @relatorio.chmod(0777)
   send_file(@relatorio.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
 end
 
