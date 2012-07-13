@@ -15,6 +15,7 @@ belongs_to :serie
 belongs_to :escola
 belongs_to :entidade
 belongs_to :ano_letivo
+has_one :nivel,:through=>:serie
 
 
 scope :do_nivel,lambda{|niv|joins(:serie).where("series.nivel_id = ?",niv)}
