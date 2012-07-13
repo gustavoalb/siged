@@ -1,4 +1,4 @@
-require 'bundler/capistrano'
+#require 'bundler/capistrano'
 set :application, "siged"
 default_run_options[:pty] = true
 set :use_sudo,    false
