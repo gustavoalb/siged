@@ -9,10 +9,10 @@ set :deploy_to, "/var/www/siged"
 #before 'deploy:update_code', 'deploy:web:disable'
 #after 'deploy:restart', 'deploy:web:enable'
 
-after 'deploy:update_code' do
-run "ln -s #{shared_dir}/tmp #{current_release}/public/relatorios/tmp"
-run "ln -s #{shared_dir}/pontos #{current_release}/public/pontos"
-run "cd #{current_release} && bundle install --local"
+before 'deploy:restart' do
+run "sudo ln -s #{shared_dir}/tmp #{deploy_to}/#{current_release}/public/relatorios/tmp"
+run "sudo ln -s #{shared_dir}/pontos #{deploy_to}/#{current_release}/public/pontos"
+run "cd #{current_release} && sudo bundle install --local"
 end 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
