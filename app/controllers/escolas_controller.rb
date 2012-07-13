@@ -27,7 +27,7 @@ end
       @encaminhados = @escola.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",false,true)
       if !@escola.ambientes.none?
         @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
-        @turmas = Turma.find(:all,:joins=>[:serie,:nivel],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'niveis_ensinos.nome,series.nome,turno')
+        @turmas = Turma.find(:all,:joins=>[:serie,:matriz],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome,matriz.codigo')
       else
         @turmas = Turma.find_all_by_escola_id(@escola.id)
       end
