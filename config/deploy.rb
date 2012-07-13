@@ -21,9 +21,9 @@ set :user, 'www-data'
 set :password, '@#siged$%'
 set :ssh_options, { :forward_agent => true }
  
-role :app, "192.168.1.2"
-role :web, "192.168.1.2"
-role :db,  "192.168.1.2", :primary => true
+role :app, "192.168.1.250"
+role :web, "192.168.1.250"
+role :db,  "192.168.1.250", :primary => true
 
 namespace :deploy do
   namespace :web do
