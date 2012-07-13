@@ -109,7 +109,7 @@ def gerar_controle_ch
   elsif !@user.departamento.nil? and @user.escola.nil?
     destino = "#{@escola.nome_da_escola.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
   end
-  @matrizes.all.each do |m|
+  @matrizes.each do |m|
     m.disciplinas.order(:nome).each do |d|
       @disciplinas << d
     end
