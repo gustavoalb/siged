@@ -443,7 +443,7 @@ def turmas
   end
 
   if @disciplina and @turno
-    @turmas = @escola.turmas.da_escola(@escola).find(:all,:joins=>:curriculos,:conditions=>["turno = ? and curriculos.disciplina_id = ?",@turno,@disciplina.id])
+    @turmas = @escola.turmas.da_escola(@escola).find(:all,:joins=>:curriculos,:conditions=>["turno = ? and curriculos.disciplina_id = ?",@turno,@disciplina.id]).uniq
     render :partial=>"turmas"
   else
     render :nothing=>true
