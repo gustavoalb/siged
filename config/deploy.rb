@@ -9,10 +9,9 @@ set :deploy_to, "/var/www/siged"
 #before 'deploy:update_code', 'deploy:web:disable'
 #after 'deploy:restart', 'deploy:web:enable'
 
-after 'déploy:update_code' do
+after 'deploy:update_code' do
 run "ln -s #{shared_dir}/tmp #{current_release}/public/relatorios/tmp"
 run "ln -s #{shared_dir}/pontos #{current_release}/public/pontos"
-
 end 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
