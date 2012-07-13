@@ -454,7 +454,7 @@ def salvar_especificacoes
   @turmas = Turma.find(:all,:conditions=>["id in (?)",turmas])
   @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
   @tipo = @ambiente.nome
-  @disciplina = Disciplina.find(params[:disciplina_id])
+  @disciplina = Disciplina.find(params[:especificacao][:disciplina_id])
   falhas = []
   sucessos = []
   @turmas.each do |turma|

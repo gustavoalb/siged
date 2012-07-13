@@ -17,7 +17,7 @@ set :branch, "master"
 set :deploy_via, :export
 set :git_shallow_clone, 1
  
-set :user, 'deploy'
+set :user, 'www-data'
 set :password, '@#siged$%'
 set :ssh_options, { :forward_agent => true }
  
