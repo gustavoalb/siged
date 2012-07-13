@@ -45,7 +45,7 @@ namespace :deploy do
                 UNTIL="12pm Central Time"
 
     DESC
-    task :disable, :roles => :app do
+    task :disable do
 
       on_rollback { rm "#{shared_path}/system/maintenance.html" }
 
