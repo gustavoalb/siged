@@ -83,7 +83,7 @@ def ctrl_ch_detalhado
   end
   @disciplinas = @escola.disciplinas
   @template = File.open("#{Rails.public_path}/relatorios/controle_ch_detalhado.odt")
-  @relatorio = File.new("#{Rails.root}/public/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt",'w')
+  @relatorio = File.new("#{Rails.public_path}/relatorios/tmp/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt",'w')
   render_odt(@template.path,@relatorio.path)
   if Rails.env=="production"
     system('sudo -u www-data chmod -f 777 #{@relatorio.path}')
