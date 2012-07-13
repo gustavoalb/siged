@@ -1,5 +1,5 @@
 <% form_tag({:controller=>'lotacoes',:action=>'salvar_especificacoes'},{:remote=>true}) do%>
-<%=hidden_field :especificacao :disciplina_id,:value=>@disciplina.id%>
+<%=hidden_field :especificacao,:disciplina_id,:value=>@disciplina.id%>
 <%=hidden_field :especificacao,:lotacao_id,:value=>@lotacao.id%>
 <%=hidden_field :especificacao,:escola_id,:value=>@lotacao.escola_id%>
 

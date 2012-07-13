@@ -19,4 +19,5 @@ belongs_to :ano_letivo
 
 scope :do_nivel,lambda{|niv|joins(:serie).where("series.nivel_id = ?",niv)}
 scope :da_escola,lambda{|esc| where("turmas.escola_id = ?",esc)}
+scope :da_disciplina,lambda{|esc|joins(:serie).where("turmas.escola_id = ?",esc)}
 end

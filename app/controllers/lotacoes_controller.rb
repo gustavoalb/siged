@@ -423,6 +423,8 @@ end
 
 def especificacao_massiva
   @lotacao = Lotacao.find(params[:lotacao_id])
+  @funcionario = @lotacao.funcionario
+  @pessoa = @funcionario.pessoa
   @escola = @lotacao.escola
   @disciplinas = Disciplina.find(:all,:conditions=>["id in (?)",@funcionario.ids_disciplinas]).collect{|d|[d.nome,d.id]}
   render :layout=>"facebox"
@@ -430,6 +432,8 @@ end
 
 def turmas
   @lotacao = Lotacao.find(params[:especificacao][:lotacao_id])
+  @funcionario = @lotacao.funcionario
+  @pessoa = @funcionario.pessoa
   @escola = @lotacao.escola
   if !params[:especificacao][:disciplina_id].blank?
     @disciplina = Disciplina.find(params[:especificacao][:disciplina_id])
@@ -439,7 +443,7 @@ def turmas
   end
 
   if @disciplina and @turno
-    @turmas = @escola.turmas.da_escola(@escola).find(:all,:conditions=>["turno = ?",@turno])
+    @turmas = @escola.turmas.da_escola(@escola).find(:all,:joins=>:curriculos,:conditions=>["turno = ? and curriculos.disciplina_id = ?",@turno,@disciplina.id])
     render :partial=>"turmas"
   else
     render :nothing=>true
@@ -449,6 +453,7 @@ end
 def salvar_especificacoes
   @lotacao = Lotacao.find(params[:especificacao][:lotacao_id])
   @funcionario = @lotacao.funcionario
+  @pessoa = @funcionario.pessoa
   @escola = @lotacao.escola
   turmas = params[:turmas]
   @turmas = Turma.find(:all,:conditions=>["id in (?)",turmas])
