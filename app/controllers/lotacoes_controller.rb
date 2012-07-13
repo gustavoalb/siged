@@ -168,7 +168,7 @@ def disciplinas_especificacao
   if !params[:turma].blank?
     @turma = Turma.find params[:turma]
     @serie = @turma.serie
-    @disciplinas = @serie.disciplinas.fun_habilitacao(@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
+    @disciplinas = @serie.disciplinas..where("id in (?)",@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
     render :partial=>"disciplinas"
   else
     render :nothing=>true
