@@ -16,10 +16,10 @@ class EspecificarLotacao < ActiveRecord::Base
 	validates_uniqueness_of :funcionario_id,:scope=>[:escola_id, :turma_id, :disciplina_id]
 
 	
-	validate_on_create do |especificacao|
-		if self.funcionario.rsd<self.hora_semanal
-			especificacao.errors.add_to_base("Regência Semanal Disponível insuficiente.")
-		end
-	end
+	#validate_on_create do |especificacao|
+	#	if self.funcionario.rsd<self.hora_semanal
+	#		especificacao.errors.add_to_base("Regência Semanal Disponível insuficiente.")
+	#	end
+	#end
 	
 end
