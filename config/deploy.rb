@@ -12,6 +12,7 @@ set :deploy_to, "/var/www/siged"
 after 'deploy:update_code' do
 run "ln -s #{shared_dir}/tmp #{current_release}/public/relatorios/tmp"
 run "ln -s #{shared_dir}/pontos #{current_release}/public/pontos"
+run "cd #{current_release} && bundle install --local"
 end 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
