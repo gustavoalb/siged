@@ -6,8 +6,8 @@ set :use_sudo,    false
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
 set :deploy_to, "/var/www/siged"
-before 'deploy:update_code', 'deploy:web:disable'
-after 'deploy:restart', 'deploy:web:enable'
+#before 'deploy:update_code', 'deploy:web:disable'
+#after 'deploy:restart', 'deploy:web:enable'
 
 after 'déploy:update_code' do
 run "ln -s #{shared_dir}/tmp #{current_release}/public/relatorios/tmp"
