@@ -56,6 +56,7 @@ end
 
 
 private
+
 def img_codigo
   codigo=self.codigo_b
   if codigo.size.even?
@@ -63,10 +64,22 @@ def img_codigo
  else
    codigo2='0'+''+codigo
  end
+ p1 = Rails.root.join("public/pontos")
+ p2 = Rails.root.join("public/pontos/codigos")
+ f =  Rails.root.join("public/pontos/codigos/#{codigo2}.png","w")
+ if !File.exist?(p1)
+  Dir.mkdir(p1)
+end
+if !File.exist?(p2)
+  Dir.mkdir(p2)
+end
+if !f.exist?
  barcode=Barby::Code25Interleaved.new(codigo2)
  File.open("public/pontos/codigos/#{codigo2}.png","w"){|f|
   f.write barcode.to_png}
 end
+end
+
 
 def salvar_pdf
   PontosController.new.salvar_pdf(self)

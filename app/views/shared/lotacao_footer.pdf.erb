@@ -8,5 +8,5 @@
 			Fone/Fax: 96 3131-2211
 		</center>
 		<span align=left style="font-size:16; font-family:Times New Roman,Georgia,Serif;">
-			Emitido por: <%=@lotacao.usuario%>, em <%=Time.now.strftime("%d/%m/%Y, às %T.")%>
+			Emitido por: <%=User.usuario_atual.username%>, em <%=Time.now.strftime("%d/%m/%Y, às %T.")%>
 		</span>
