@@ -93,7 +93,7 @@ def ctrl_ch_detalhado
    end
 
   @arq1 = File.open(@relatorio)
-  send_file(@arq1.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+  send_file('/var/www/siged/releases/20120720211243/public/relatorios/relatorio-2007181153.odt',:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
   #@relatorio.close
 end
 
