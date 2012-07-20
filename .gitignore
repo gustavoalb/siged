@@ -2,4 +2,6 @@
 db/*.sqlite3
 log/*.log
 tmp/
+public/pontos
+public/relatorios/tmp
 #config/database.yml

@@ -35,6 +35,7 @@ class Lotacao < ActiveRecord::Base
   scope :especial, where("tipo_lotacao = ?","ESPECIAL")
   scope :regular, where("tipo_lotacao = ?","REGULAR")
   scope :a_convalidar, where(:convalidada=>false)
+  scope :da_escola,lambda{|esc|where("escola_id = ?",esc)}
 
   after_create :lotacao_regular
   before_create :data

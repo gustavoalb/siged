@@ -37,9 +37,13 @@ class Escola < ActiveRecord::Base
   ZONA=[["Urbana","Urbana"],["Rural","Rural"]]
 
 
-  def calcular_demanda(disc)
+  def calcular_demanda(disc,niv=nil)
     demanda = 0
-    turmas = self.turmas
+    if niv.nil?
+      turmas = self.turmas
+    else
+      turmas = self.turmas.do_nivel(niv)
+    end
     if !turmas.none?
       turmas.all.each do |t|
         t.curriculos.da_serie(t.serie.id).da_disciplina(disc).uniq.each do |c|

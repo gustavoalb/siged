@@ -1,6 +1,7 @@
 class Funcionario < ActiveRecord::Base
   extend FriendlyId
   friendly_id :matricula, :use=> :slugged
+  #default_scope joins(:pessoa).order('pessoas.nome asc')
   #default_scope where('funcionarios.entidade_id in (?)',User.usuario_atual.entidade_ids)
   #validates_presence_of  :cargo_id, :orgao_id,:matricula,:descricao_cargo_id,:sjuridica_id,:message=>"Não pode ficar em branco!"
   validates_uniqueness_of :matricula,:message=>"já existente",:on=>:create
@@ -45,6 +46,7 @@ class Funcionario < ActiveRecord::Base
   attr_accessor_with_default(:nome) {pessoa.nome}
   attr_accessor_with_default(:rsn) {self.regencia_semanal_nominal}
   attr_accessor_with_default(:rsd) {self.regencia_semanal_disponivel}
+  attr_accessor_with_default(:disciplina) {self.disciplina_nome}
   def aposentadoria
     self.data_nomeacao.months_since(300)
   end
@@ -164,17 +166,27 @@ class Funcionario < ActiveRecord::Base
    return rsn
  end
 
-
- def regencia_semanal_disponivel
-   horas = 0
-   self.especificacoes.all.each do |e|
-    if e.turma.nil? and !e.ambiente.nil?
-      horas+=self.rsn 
-    elsif !e.turma.nil?
-      horas+=e.hora_semanal
-    end
+ def disciplina_nome
+  if !self.disciplina_contratacao.nil? and !self.nivel.nil? and self.cargo.nome=="Professor"
+    return "PROFESSOR DE #{self.disciplina_contratacao.nome.upcase},#{self.nivel.nome.upcase}"
+  elsif self.disciplina_contratacao.nil? and !self.nivel.nil? and self.cargo.nome=="Professor"
+    return "PROFESSOR,#{self.nivel.nome.upcase}"
+  else
+    return "#{cargo.nome.upcase},#{self.nivel.nome.upcase}"
   end
-  return self.rsn-horas
+end
+
+
+def regencia_semanal_disponivel
+ horas = 0
+ self.especificacoes.all.each do |e|
+  if e.turma.nil? and !e.ambiente.nil?
+    horas+=self.rsn 
+  elsif !e.turma.nil?
+    horas+=e.hora_semanal
+  end
+end
+return self.rsn-horas
 end
 
 def turmas(escola,nivel=nil)
@@ -191,7 +203,7 @@ def turmas(escola,nivel=nil)
       end
     end
   end
-return turmas.collect{|t|[t.nome]}.to_sentence
+  return turmas.collect{|t|[t.nome]}.to_sentence
 end
 
 def regencia_especificada(tipo=1)
