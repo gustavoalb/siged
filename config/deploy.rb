@@ -10,7 +10,7 @@ set :deploy_to, "/var/www/siged"
 #after 'deploy:restart', 'deploy:web:enable'
 
 before 'deploy:restart' do
-run "sudo ln -s #{deploy_to}/#{shared_dir}/tmp #{deploy_to}/current/public/relatorios/tmp"
+#run "sudo ln -s #{deploy_to}/#{shared_dir}/tmp #{deploy_to}/current/public/relatorios/tmp"
 run "sudo ln -s #{deploy_to}/#{shared_dir}/pontos #{deploy_to}/current/public/pontos"
 run "sudo ln -s #{deploy_to}/#{shared_dir}/relatorios #{deploy_to}/current/public/relatorios"
 run "cd #{deploy_to}/current && sudo bundle install --local"
