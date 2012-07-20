@@ -1,7 +1,7 @@
 #require 'bundler/capistrano'
 set :application, "siged"
 default_run_options[:pty] = true
-set :use_sudo,    false
+set :use_sudo,    true
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
