@@ -87,10 +87,10 @@ def ctrl_ch_detalhado
   @template = File.open("#{Rails.public_path}/relatorios/controle_ch_detalhado.odt")
   @relatorio = Rails.root.join("public/relatorios/tmp/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt")
   render_odt(@template.path,@relatorio)
-  @relatorio = ODFReport::Report.new(@relatorio) do |r|
+  rel = ODFReport::Report.new(@relatorio) do |r|
   end
-  @relatorio = @relatorio.generate
-  send_file(@relatorio,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+  relatorio = rel.generate
+  send_file(relatorio,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
 end
 
 def controle_turma
