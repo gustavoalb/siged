@@ -91,7 +91,7 @@ def ctrl_ch_detalhado
   if Rails.env=="production"
     system("sudo -u www-data chmod 0777 #{@relatorio.path}")
   end
-  send_file(@relatorio.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+  send_data(@relatorio,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
   @relatorio.close
 end
 
