@@ -85,12 +85,12 @@ def ctrl_ch_detalhado
   @desocupados = @escola.funcionarios.includes(:especificacoes).where("especificar_lotacaos.id is null")
   @ambientes = @escola.ambientes.joins(:funcionarios).order(:nome).where("nome <> 'Sala de Aula'").uniq
   @template = File.open("#{Rails.public_path}/relatorios/controle_ch_detalhado.odt")
-  @relatorio = Rails.root.join("public/relatorios/tmp/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt")
-  render_odt(@template.path,@relatorio)
-  rel = ODFReport::Report.new(@relatorio) do |r|
-  end
-  relatorio = rel.generate
-  send_file(relatorio,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+  @relatorio = File.open("#{Rails.public_path}/relatorios/tmp/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt",'w+')
+  @relatorio2 = Rails.root.join("public/relatorios/tmp/relatorio-final-#{Time.now.strftime("%d%m%H%M%S")}.odt")
+  render_odt(@template.path,@relatorio.path)
+  @relatorio.close
+  FileUtils.cp(@relatorio.path,@relatorio2)
+  send_file(@relatorio2,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
 end
 
 def controle_turma

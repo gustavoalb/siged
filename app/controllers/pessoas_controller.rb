@@ -178,8 +178,10 @@ end
 # POST /pessoas.xml
 def create
   @pessoa = Pessoa.new(params[:pessoa])
-  @data = (params[:data][:nascimento].to_date).strftime
-  @pessoa.nascimento = @data
+  if !params[:data][:nascimento].blank?
+    @data = (params[:data][:nascimento].to_date).strftime
+    @pessoa.nascimento = @data
+  end
   respond_to do |format|
     if @pessoa.save
       format.html { redirect_to(@pessoa, :notice => 'Pessoa cadastrada com sucesso.') }
