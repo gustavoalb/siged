@@ -85,13 +85,12 @@ def ctrl_ch_detalhado
   @desocupados = @escola.funcionarios.includes(:especificacoes).where("especificar_lotacaos.id is null")
   @ambientes = @escola.ambientes.joins(:funcionarios).order(:nome).where("nome <> 'Sala de Aula'").uniq
   @template = File.open("#{Rails.public_path}/relatorios/controle_ch_detalhado.odt")
-  @relatorio = File.open("#{Rails.public_path}/relatorios/tmp/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt",'wb')
-  @relatorio2 = Rails.root.join("public/relatorios/tmp/relatorio-final-#{Time.now.strftime("%d%m%H%M%S")}.odt")
+  @relatorio = File.open("#{Rails.public_path}/relatorios/tmp/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt",'w+')
   render_odt(@template.path,@relatorio.path)
   if Rails.env=="production"
     system("sudo -u www-data chmod 0777 #{@relatorio.path}")
   end
-  send_data(@relatorio,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+  send_file(@relatorio.path,:disposition=>'inline',:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
   @relatorio.close
 end
 
