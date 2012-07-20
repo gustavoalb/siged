@@ -93,7 +93,7 @@ def ctrl_ch_detalhado
    end
 
   @arq1 = File.open(@relatorio)
-  send_file('/var/www/siged/releases/20120720211243/public/relatorios/relatorio-2007181153.render_odt',:content_type=>"application/vnd.oasis.opendocument.text")
+  send_file('/var/www/siged/public/relatorios/relatorio-2007181153.render_odt',:content_type=>"application/vnd.oasis.opendocument.text")
   #@relatorio.close
 end
 
