@@ -92,8 +92,8 @@ def ctrl_ch_detalhado
      system("sudo -u www-data chmod 0777 #{@relatorio.to_s}")
    end
 
-   @arq1 = File.open(@relatorio)
-  send_file(@arq1,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+  @arq1 = File.open(@relatorio)
+  send_file(@arq1.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
   #@relatorio.close
 end
 
