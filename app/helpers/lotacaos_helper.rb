@@ -12,13 +12,13 @@ end
 def municipio(func)
   if func.municipio and func.distrito and func.distrito.tipo.blank?
     return raw("#{func.municipio.nome}/#{func.distrito.nome }")
-  elsif func.municipio and func.distrito and !func.distrito.tipo.blank?
+elsif func.municipio and func.distrito and !func.distrito.tipo.blank?
     return raw("/#{func.municipio.nome} - #{func.distrito.tipo} #{func.distrito.nome}")
-  elsif func.municipio and func.distrito.nil?
+elsif func.municipio and func.distrito.nil?
     return raw("/#{func.municipio.nome}")
-  else
+else
     return ""
-  end
+end
 end
 
 
@@ -58,7 +58,7 @@ end
 
 def destino(lotacao)
  if lotacao
-     if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
         return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
@@ -121,6 +121,10 @@ def destino_ponto(lotacao)
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
         return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
         return "#{lotacao.orgao.sigla}"
