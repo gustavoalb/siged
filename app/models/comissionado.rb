@@ -31,8 +31,10 @@ class Comissionado < ActiveRecord::Base
 
   private
   def atual
-    self.escola.comissionados.ativos.tipos(self.tipo).find(:all,:conditions=>["id <> ?",self.id]).each do |c|
-      c.update_attributes(:ativo=>false)
+    if !self.escola.nil?
+      self.escola.comissionados.ativos.tipos(self.tipo).find(:all,:conditions=>["id <> ?",self.id]).each do |c|
+        c.update_attributes(:ativo=>false)
+      end
     end
   end
 
