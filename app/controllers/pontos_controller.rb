@@ -125,11 +125,11 @@ class PontosController < ApplicationController
     end
     @range_dias = @ponto.data.at_beginning_of_month..@ponto.data.at_end_of_month
     #@arquivo = Pathname.new(Rails.root.join("public/pontos/#{@funcionario.pessoa.slug}", "ponto-de-#{@funcionario.pessoa.slug}-#{@funcionario.slug}-#{@ponto.data.strftime("%Y-%m").downcase}.pdf"))
-    @pasta1 = Rails.root.join("public/pontos/#{@orgao.sigla}")
-    @pasta2 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}")
-    @pasta3 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}")
-    @pasta4 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}/#{@funcionario.slug}")
-    @arquivo = Pathname.new(Rails.root.join("public/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}","#{@funcionario.slug}", "#{@ponto.data.strftime("%Y-%m")}.pdf"))
+    @pasta1 = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}")
+    @pasta2 = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}/#{destino}")
+    @pasta3 = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}")
+    @pasta4 = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}/#{@funcionario.slug}")
+    @arquivo = Pathname.new(Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}/#{destino}/#{@funcionario.pessoa.slug}","#{@funcionario.slug}", "#{@ponto.data.strftime("%Y-%m")}.pdf"))
 
     if !File.exist?(@arquivo)
       if !File.exist?(@pasta1)

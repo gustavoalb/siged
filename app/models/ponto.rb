@@ -18,17 +18,6 @@ class Ponto < ActiveRecord::Base
 
 
 
-  def criar_pdf
-    WickedPdf.new.pdf_from_string(
-      render_to_string(:pdf => "invoice",:template => 'pontos/salvar_em_pdf.pdf.erb'))
-  end
-
-
-
-
-
-
-
 
   def codigo_b
     codigo=self.funcionario_id.to_s+""+self.lotacao_id.to_s+'0'+''+self.funcionario.pessoa.cpf.to_s.gsub('.','').to_s.gsub("-","")
