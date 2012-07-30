@@ -34,7 +34,7 @@ class DepartamentosController < ApplicationController
       Dir.mkdir(@pasta)
     end
     if !@pasta1.exist?
-      Dir.mkdir(@pasta)
+      Dir.mkdir(@pasta1)
     end
     if !@pasta2.exist?
       Dir.mkdir(@pasta2)
