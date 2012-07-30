@@ -13,4 +13,5 @@ CalendarDateSelect::FORMATS[:br_date] = {
 }
 File.umask(0)
 
+
 CalendarDateSelect.format = :br_date

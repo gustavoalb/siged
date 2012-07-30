@@ -22,9 +22,9 @@ class DepartamentosController < ApplicationController
     data = Date.civil(params[:ponto]["data(1i)"].to_i, params[:ponto]["data(2i)"].to_i, params[:ponto]["data(3i)"].to_i)
     @departamento = Departamento.find(params[:departamento_id])
     @funcionarios = @departamento.funcionarios.joins(:pessoa).order('pessoas.nome asc')
-    @pasta = Rails.root.join("public/pontos/#{@orgao.sigla}")
-    @pasta1 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}")
-    @pasta2 = Rails.root.join("public/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral")
+    @pasta = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}")
+    @pasta1 = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}")
+    @pasta2 = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral")
     @funcionarios.each do |f|
       f.pontos.create(:data=>data,:funcionario_id=>f.id,:lotacao_id=>f.lotacoes.ativo.find_by_departamento_id(@departamento.id).id)
     end
