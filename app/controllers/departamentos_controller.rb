@@ -35,12 +35,8 @@ class DepartamentosController < ApplicationController
     if !@pasta2.exist?
       Dir.mkdir(@pasta2)
     end
-    if !@arquivo.exist?
       system("pdftk #{@arquivos} cat output #{@arquivo}")
       redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:notice=>"Pontos gerados com sucesso. <a href=/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral/#{data.strftime('%Y-%m')}.pdf>Abrir</a>"
-    else
-      redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:alert=>"Arquivo já existe. <a href=/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral/#{data.strftime('%Y-%m')}.pdf>Abrir</a>"
-    end
   end
 
   # GET /departamentos/1
