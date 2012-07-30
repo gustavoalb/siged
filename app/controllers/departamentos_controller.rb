@@ -27,6 +27,9 @@ class DepartamentosController < ApplicationController
     @pasta2 = Rails.root.join("#{SHARED}/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral")
     @funcionarios.each do |f|
       f.pontos.create(:data=>data,:funcionario_id=>f.id,:lotacao_id=>f.lotacoes.ativo.find_by_departamento_id(@departamento.id).id)
+      f.pontos.each do |p|
+        p.salvar_pdf
+      end  
     end
     @arquivos = Dir.glob(@pasta.join("**/**#{data.strftime('%Y-%m')}.pdf")).collect{|d|"#{d} "}
     @arquivo = @pasta2.join("#{data.strftime('%Y-%m')}.pdf")
@@ -39,8 +42,8 @@ class DepartamentosController < ApplicationController
     if !@pasta2.exist?
       Dir.mkdir(@pasta2)
     end
-      system("pdftk #{@arquivos} cat output #{@arquivo}")
-      redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:notice=>"Pontos gerados com sucesso. <a href=/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral/#{data.strftime('%Y-%m')}.pdf>Abrir</a>"
+    system("pdftk #{@arquivos} cat output #{@arquivo}")
+    redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:notice=>"Pontos gerados com sucesso. <a href=/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral/#{data.strftime('%Y-%m')}.pdf>Abrir</a>"
   end
 
   # GET /departamentos/1
