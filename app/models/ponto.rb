@@ -42,6 +42,9 @@ def codigo_a(cod)
   end
 end
 
+def salvar_pdf
+  PontosController.new.salvar_pdf(self)
+end
 
 
 private
@@ -70,18 +73,14 @@ end
 end
 
 
-def salvar_pdf
-  PontosController.new.salvar_pdf(self)
-end
-
 def apagar_pdf
   if !self.lotacao.escola.nil?
     destino = self.lotacao.escola.nome_da_escola.parameterize
   elsif !self.lotacao.departamento.nil?
     destino = self.lotacao.departamento.sigla.downcase
   end
-  pdf = Rails.root.join("public/pontos/#{self.lotacao.orgao.sigla}/#{destino}/#{self.funcionario.pessoa.slug}","#{self.funcionario.slug}", "#{self.data.strftime("%Y-%m")}.pdf")
-  codigo_barra = Pathname.new(Rails.root.join("public/pontos/codigos", "#{self.codigo_barras}.png"))
+  pdf = Rails.root.join("#{SHARED}/pontos/#{self.lotacao.orgao.sigla}/#{destino}/#{self.funcionario.pessoa.slug}","#{self.funcionario.slug}", "#{self.data.strftime("%Y-%m")}.pdf")
+  codigo_barra = Pathname.new(Rails.root.join("#{SHARED}/pontos/codigos", "#{self.codigo_barras}.png"))
   FileUtils.rm_rf(pdf)
   FileUtils.rm_rf(codigo_barra)
 end
