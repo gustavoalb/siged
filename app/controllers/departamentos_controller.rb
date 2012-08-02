@@ -46,6 +46,7 @@ class DepartamentosController < ApplicationController
     system("pdftk #{@arquivos} cat output #{@arquivo}")
     redirect_to orgao_departamento_pontos_funcionarios_path(@orgao,@departamento),:notice=>"Pontos gerados com sucesso. <a href=/pontos/#{@orgao.sigla}/#{@departamento.sigla.downcase}/geral/#{data.strftime('%Y-%m')}.pdf>Abrir</a>"
   end
+end
 
   # GET /departamentos/1
   # GET /departamentos/1.xml
