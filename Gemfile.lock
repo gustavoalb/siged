@@ -176,7 +176,7 @@ DEPENDENCIES
   axlsx
   barby
   brI18n
-  brazilian-rails
+  brazilian-rails (= 3.1.0)
   capistrano
   carrierwave
   devise
