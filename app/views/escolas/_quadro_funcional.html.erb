@@ -16,7 +16,7 @@
                <td><%= detalhes(f.pessoa) %></td>
                <td><%= cargo_resumido(f) %></td>
                <td title='<%=turmas(f)%>'><%= cor_rsd(f)%></td>
-               <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+               <td><%= link_to  image_tag('/images/icn_detalhada.png',:title=>"Especificar Lotação Detalhadamente"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
                <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação Massivamente."), pessoa_funcionario_lotacao_especificacao_massiva_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
                <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
              </tr>
