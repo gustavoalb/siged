@@ -228,7 +228,7 @@ def cargo_disciplina(func)
   elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo.nil?
     return "#{func.nivel.nome.upcase}"
   else
-    return raw("<font color=red><b>Nada Cadastrado</b></font>")
+    return "#{func.cargo.nome.upcase}, #{func.nivel.nome.upcase}"
   end
 end
 
