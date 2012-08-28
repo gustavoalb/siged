@@ -102,7 +102,6 @@ def tipo_lotacao(l)
     end
 end
 
-end
 
 def header_ponto(lotacao)
     if !lotacao.escola.nil?
