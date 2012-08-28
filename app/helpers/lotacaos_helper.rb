@@ -95,7 +95,7 @@ def codigo_lotacao(lotacao)
 end
 
 def tipo_lotacao(l)
-    if if l.tipo_lotacao=="PROLABORE"
+    if l.tipo_lotacao=="PROLABORE"
         return "PRÓ-LABORE"
     else
         return l.tipo_lotacao
