@@ -36,6 +36,8 @@
 					<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("lotacao_regular").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Apresentamos' ,'fim'=>','))%>
 					<%elsif @lotacao.tipo_lotacao=='ESPECIAL' or @lotacao.tipo_lotacao=='SUMARIA ESPECIAL' -%>
 					<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("lotacao_especial").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Apresentamos','fim'=>','))%>
+					<%elsif @lotacao.tipo_lotacao=='PROLABORE'-%>
+					<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("pro_labore").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Apresentamos','fim'=>','))%>
 					<%end -%>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A presente lotação está subordinada ao cumprimento dos direitos e deveres em conformidade com a Lei nº 9.394/96, Art. 12 e 13, e Lei nº 0066/93, art. 133 e 134. Devendo ingressar na supracitada escola, no prazo de 03 (três) dias úteis, após a emissão, sob pena de receber faltas (não justificáveis), exceto para os municípios de Macapá e Santana, cuja apresentação deverá ser imediata.
 					<br/><br/><center>Cordialmente,</center><br/><br/><br/>
@@ -84,15 +86,17 @@
 
 								<%elsif @lotacao.tipo_lotacao=='ESPECIAL' or @lotacao.tipo_lotacao=='SUMARIA ESPECIAL' -%>
 								<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("lotacao_especial").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Através deste, confirmo' ,'fim'=>', apresentou-se em ____/____/______ nesta Unidade Escolar,'))%>
+								<%elsif @lotacao.tipo_lotacao=='PROLABORE' -%>
+								<%t = Liquid::Template.parse(@funcionario.categoria.textos.find_by_nome("pro_labore").texto) -%> <%=raw(t.render('nome'=>@funcionario.nome,'cargo'=>cargo_disciplina(@funcionario),'municipio'=>municipio(@funcionario),'matricula'=>@funcionario.matricula,'data_nomeacao'=>@funcionario.data_nomeacao.to_s_br,'entidade'=>detalhes(@funcionario.entidade),'orgao'=>detalhes(@funcionario.orgao),'lotacao'=>destino(@lotacao),'jornada'=>jornada(@funcionario.nivel),'regencia'=>com_regencia(@lotacao.regencia_de_classe) ,'categoria'=>detalhes(@funcionario.categoria),'inicio'=>'Através deste, confirmo' ,'fim'=>', apresentou-se em ____/____/______ nesta Unidade Escolar,'))%>
 								<%end -%>
 							</td>
 						</tr>
 						<tr>
 							<td colspan=3><br/><br/>
 								____________________________________<br/>
-								<%if @lotacao.tipo_lotacao=="REGULAR"%>
+								<%if !@lotacao.escola.nil?%>
 								Gestor Escolar
-								<%elsif @lotacao.tipo_lotacao=="ESPECIAL"%>
+								<%elsif !@lotacao.departamento.nil?%>
 								Responsável
 								<%end%>
 							</td>
