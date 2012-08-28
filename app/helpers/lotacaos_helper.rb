@@ -74,11 +74,7 @@ def destino(lotacao)
         return "#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
         return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
-        return "#{lotacao.escola.nome_da_escola}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.ambiente.nome}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome=="Sala de Aula"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
         return "#{lotacao.escola.nome_da_escola}"
     elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
         return raw("<b><font color=red>LOTAÇÃO INVÁLIDA</b></font>")

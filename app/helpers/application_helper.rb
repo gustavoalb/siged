@@ -74,7 +74,7 @@ end
 
 def mensagens
   message = ""
-  if notice
+ if notice
    message+="<h4 class='alert_success'>#{notice}</h4>"
  elsif alert
   message+="<h4 class='alert_error'>#{alert}</h4>"
