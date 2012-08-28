@@ -94,6 +94,16 @@ def codigo_lotacao(lotacao)
     end
 end
 
+def tipo_lotacao(l)
+    if if l.tipo_lotacao=="PROLABORE"
+        return "PRÓ-LABORE"
+    else
+        return l.tipo_lotacao
+    end
+end
+
+end
+
 def header_ponto(lotacao)
     if !lotacao.escola.nil?
         return "#{lotacao.escola.nome_da_escola.upcase}"
