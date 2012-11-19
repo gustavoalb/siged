@@ -2,10 +2,10 @@ class TextosController < ApplicationController
   # GET /textos
   # GET /textos.xml
   load_and_authorize_resource
-  before_filter :dados_essenciais
+  before_filter :dados_essenciais,:categoria
   def index
     @search = Texto.scoped_search(params[:search])  
-    @textos = @search.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    @textos = @search.find(:all,:conditions=>["categoria_id = ?",@categoria.id]).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class TextosController < ApplicationController
   # GET /textos/1
   # GET /textos/1.xml
   def show
-    @texto = Texto.find(params[:id])
+    @texto = @categoria.textos.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,7 +40,7 @@ class TextosController < ApplicationController
   # GET /textos/new
   # GET /textos/new.xml
   def new
-    @texto = Texto.new
+    @texto = @categoria.textos.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,17 +50,17 @@ class TextosController < ApplicationController
 
   # GET /textos/1/edit
   def edit
-    @texto = Texto.find(params[:id])
+    @texto = @categoria.textos.find(params[:id])
   end
 
   # POST /textos
   # POST /textos.xml
   def create
-    @texto = Texto.new(params[:texto])
+    @texto = @categoria.textos.new(params[:texto])
 
     respond_to do |format|
       if @texto.save
-        format.html { redirect_to(administracao_texto_path(@texto), :notice => 'Texto cadastrado com sucesso.') }
+        format.html { redirect_to(categoria_texto_path(@categoria,@texto), :notice => 'Texto cadastrado com sucesso.') }
         format.xml  { render :xml => @texto, :status => :created, :location => @texto }
       else
         format.html { render :action => "new" }
@@ -72,11 +72,11 @@ class TextosController < ApplicationController
   # PUT /textos/1
   # PUT /textos/1.xml
   def update
-    @texto = Texto.find(params[:id])
+    @texto = @categoria.textos.find(params[:id])
 
     respond_to do |format|
       if @texto.update_attributes(params[:texto])
-        format.html { redirect_to(administracao_texto_path(@texto), :notice => 'Texto atualizado com sucesso.') }
+        format.html { redirect_to(categoria_texto_path(@categoria,@texto), :notice => 'Texto atualizado com sucesso.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -88,12 +88,18 @@ class TextosController < ApplicationController
   # DELETE /textos/1
   # DELETE /textos/1.xml
   def destroy
-    @texto = Texto.find(params[:id])
+    @texto = @categoria.textos.find(params[:id])
     @texto.destroy
 
     respond_to do |format|
-      format.html { redirect_to(administracao_textos_path) }
+      format.html { redirect_to(categoria_texto_path(@categoria)) }
       format.xml  { head :ok }
     end
   end
+end
+
+private
+
+def categoria
+  @categoria = Categoria.find(params[:categoria_id])
 end

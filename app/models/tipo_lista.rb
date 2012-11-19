@@ -8,7 +8,7 @@ class TipoLista < ActiveRecord::Base
 
 
   include ScopedSearch::Model
-  has_many :listas,:foreign_key=>"tipo_lista_id"
+  has_many :listas,:foreign_key=>"tipo_lista_id",:dependent=>:destroy
   belongs_to :entidade
   scope :busca, lambda { |q| where("nome like ?" ,"%#{q}%") }
   has_many :funcionarios,:through=>:listas,:source=>:funcionario

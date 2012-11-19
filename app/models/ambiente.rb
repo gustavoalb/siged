@@ -5,7 +5,7 @@ class Ambiente < ActiveRecord::Base
 	belongs_to :entidade
 	belongs_to :ano_letivo,:class_name=>"Setting",:foreign_key => "setting_id",:conditions=>["settings.tipo_config=?","ANOLETIVO"]
 	has_many :turmas
-	has_many :especificacoes,:class_name=>"EspecificarLotacao"
+	has_many :especificacoes,:class_name=>"EspecificarLotacao",:dependent=>:destroy
 	has_many :funcionarios,:through=>:especificacoes
 	has_and_belongs_to_many :turnos
 

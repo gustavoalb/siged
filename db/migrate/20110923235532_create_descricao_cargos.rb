@@ -5,6 +5,9 @@ class CreateDescricaoCargos < ActiveRecord::Migration
       t.string :nome
       t.integer :tipo_id
       t.integer :nivel_cargo_id
+      t.string :tipo
+      t.string :nivel_cargo
+
 
       t.timestamps
     end

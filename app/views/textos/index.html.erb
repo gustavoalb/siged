@@ -1,7 +1,7 @@
 <article class="module width_full">
 		<header><h3 class="tabs_involved">Listando textos</h3>
 		<ul class="tabs">
-            <%= form_for @search,:url=>administracao_textos_url do |f| %>
+            <%= form_for @search,:url=>categoria_textos_url(@categoria) do |f| %>
         <li><%= f.select :busca,[['Lotação','LOTACAO'],['Categoria','CATEGORIA']],:prompt=>true %></li>
         <li><%= image_submit_tag "icn_busca.png" %></li>
       <% end %>
@@ -28,9 +28,9 @@
     <td><%= texto.tipo %></td>
     <td><%= detalhes(texto.categoria) %></td>
     <td><%= "#{texto.texto}"[0..40] %></td>
-    <td><%= link_to 'Detalhes', administracao_texto_path(texto) %></td>
-    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_administracao_texto_path(texto) %></td>
-    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), administracao_texto_path(texto), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+    <td><%= link_to 'Detalhes', categoria_texto_path(@categoria,texto) %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_categoria_texto_path(@categoria,texto) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), categoria_texto_path(@categoria,texto), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
   </tr>
 <% end %>
 </tbody>
@@ -39,8 +39,8 @@
 </div>
 <footer>
 				<div class="submit_link">
-				  <%= link_to 'Cadastrar Texto', new_administracao_texto_path,:class=>"alt_btn",:type=>"submit"%> ou
-				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				  <%= link_to 'Cadastrar Texto', new_categoria_texto_path(@categoria),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', categorias_path,:type=>"submit" %>
 				</div>
         <div class="submit_link">
           <%=will_paginate @textos%>

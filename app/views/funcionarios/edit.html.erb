@@ -23,7 +23,7 @@
     <% end %>
 
     
-    <%if current_user.role?("ucolom")==true%>
+    <%if current_user.role?("lotacao")==true%>
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :disciplina_de_contratação %><br /><br />
       <%= f.select :disciplina_contratacao_id,@descs,:prompt=>"Selecione a disciplina de contratação",:style=>"width:92%;" %>

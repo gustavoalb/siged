@@ -186,7 +186,7 @@ elsif user.role? :upag
   cannot :destroy,ReferenciaNivel
 
 
-elsif user.role? :ucolom
+elsif user.role? :lotacao
  can :manage, Lotacao
  cannot :convalidar,Lotacao
  can :manage,Ponto,:departamento_id=>user.departamento_id

@@ -20,7 +20,7 @@ class Ponto < ActiveRecord::Base
 
 
   def codigo_b
-    codigo=self.funcionario_id.to_s+""+self.lotacao_id.to_s+'0'+''+self.funcionario.pessoa.cpf.to_s.gsub('.','').to_s.gsub("-","")
+    codigo=self.funcionario_id.to_s+""+self.lotacao_id.to_s+'0'+''+self.funcionario.pessoa.cpf.reverse.to_s.gsub('.','').to_s.gsub("-","")
     if self.codigo_barras.nil?
       if codigo.size.even?
        self.codigo_barras = codigo

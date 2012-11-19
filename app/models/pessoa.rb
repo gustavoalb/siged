@@ -8,8 +8,8 @@ class Pessoa < ActiveRecord::Base
 	validates_presence_of :nome,:endereco,:sexo,:cpf,:rg,:numero,:bairro,:uf,:titulo_eleitor,:zona_eleitoral,:secao,:message=>"Não pode ficar em branco!",:on=>:create
 	validates_uniqueness_of :nome,:scope => [:entidade_id,:cpf,:rg],:message=>"já cadastrado",:on=>:create
 	#scoped_search
-	has_many :listas
-	has_many :fotos
+	has_many :listas,:dependent=>:destroy
+	has_many :fotos,:dependent=>:destroy
 	scope :busca,lambda { |q| includes(:funcionarios).where("pessoas.cpf like ? or funcionarios.matricula like ? or rg like ? or nome iLIKE ?" ,"%#{q.downcase}%","%#{q}%","%#{q.downcase}%","%#{q.downcase}%") }
 	scope :em_aberto, where("nascimento = ?",nil)
 
@@ -22,8 +22,8 @@ class Pessoa < ActiveRecord::Base
 	scope :secretarios,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='SECRETARIA' and comissionados.ativo=true)")}
 	scope :supervisores,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='SUPERVISAO' and comissionados.ativo=true)")}
 
-	has_many :formacoes,:class_name=>"Formacao"
-	has_many :boletins,:class_name=>"BoletimPessoal"
+	has_many :formacoes,:class_name=>"Formacao",:dependent=>:destroy
+	has_many :boletins,:class_name=>"BoletimPessoal",:dependent=>:destroy
 
 	before_save :converter_cpf,:nome_upcase
 	SEXO=[["Masculino","Masculino"],["Feminino","Feminino"],["Outros","Outros"]]

@@ -44,7 +44,7 @@
 
     <%=f.hidden_field :entidade_id,:value=>current_user.entidade_id%>
 
-    <%if current_user.role?("ucolom")==true%>
+    <%if current_user.role?("lotacao")==true%>
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :telefone_residencial %><br />
       <%= f.text_field :telefone_residencial,:style=>"width:92%;" %>

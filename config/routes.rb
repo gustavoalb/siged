@@ -24,38 +24,40 @@ Siged20::Application.routes.draw do
 
       namespace :administracao do 
         resources :migracoes
-        resources :textos 
       end
 
-      resources :categorias
-
-      resources :configuracao_pontos
-
-      resources :entidades
-      get "administracao/tarefas/funcionarios"
-      namespace :administracao do resources :tarefas end
-
-        get "administracao/index"
+      resources :categorias do
+       resources :textos
+     end
 
 
-        get "administracao/atualizar_informacao"
+     resources :configuracao_pontos
 
-        namespace :folha do resources :competencias end
-          namespace :folha do
-            resources :financeiros do
-             get "validar_matricula"
-             get "validar_evento"
-           end
+     resources :entidades
+     get "administracao/tarefas/funcionarios"
+     namespace :administracao do resources :tarefas end
+
+      get "administracao/index"
+
+
+      get "administracao/atualizar_informacao"
+
+      namespace :folha do resources :competencias end
+        namespace :folha do
+          resources :financeiros do
+           get "validar_matricula"
+           get "validar_evento"
          end
-         resources :vencimentos
+       end
+       resources :vencimentos
 
 
-         namespace :folha do
-          resources :folhas do
-           get "imprimir_financeiros"
-           resources :financeiros do
+       namespace :folha do
+        resources :folhas do
+         get "imprimir_financeiros"
+         resources :financeiros do
 
-           end
+         end
 
       #fim do resource folhas
     end

@@ -1,7 +1,7 @@
 class Processo < ActiveRecord::Base
 	#default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
 	validates_uniqueness_of :processo,:scope=>[:natureza,:funcionario_id],:on=>:create
-	has_many :status,:class_name=>"Status"
+	has_many :status,:class_name=>"Status",:dependent=>:destroy
 	belongs_to :lotacao
 	belongs_to :entidade
 	scope :em_aberto, where("finalizado = ?",false)

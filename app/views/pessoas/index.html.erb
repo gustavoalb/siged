@@ -47,10 +47,8 @@
     <%if can? :manage,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_edit2.png",:title=>"Edição Rápida"),pessoa_edicao_rapida_path(pessoa,:funcionario_id=>funcionario.id),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:600px;width:800px"%></td><%end -%>
     <%if can? :manage,Formacao -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_formacao.png',:title=>"Formações"), pessoa_formacoes_path(pessoa) %></td><%end -%>
     <%if can? :qualificar_funcionario,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%></td><%end -%>
-     <%if funcionario.lotacoes.atual.none? -%>
             <%if can? :manage,Lotacao -%>
             <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_categories.png',:title=>"Lotação Funcional"),  pessoa_funcionario_lotacoes_path(pessoa,funcionario)%></td>
-            <% end -%>
             <% end -%>
 
 </tr>

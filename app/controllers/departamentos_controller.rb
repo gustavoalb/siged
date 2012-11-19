@@ -33,6 +33,7 @@ class DepartamentosController < ApplicationController
     end
     @arquivos = Dir.glob(@pasta1.join("**/**#{data.strftime('%Y-%m')}.pdf")).collect{|d|"#{d} "}
     @arquivo = @pasta2.join("#{data.strftime('%Y-%m')}.pdf")
+    @arquivos = @arquivos - @arquivo.to_a
     if !@pasta.exist?
       Dir.mkdir(@pasta)
     end

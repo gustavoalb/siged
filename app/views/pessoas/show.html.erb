@@ -46,7 +46,7 @@
   <%= @pessoa.bairro %>
 </p>
 
-<%if current_user.role?("ucolom")==false%>
+<%if current_user.role?("lotacao")==false%>
 <p>
   <b>Nascimento:</b>
   <%= @pessoa.nascimento.to_s_br %>

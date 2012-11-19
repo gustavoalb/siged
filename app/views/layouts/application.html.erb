@@ -53,7 +53,7 @@
 <aside id="sidebar" class="column">
 	<%=image_tag("logoSiged.png",:alt => "Sistema de Gerenciamento Educacional", :class => "logo_siged")%>
 	<hr/>
-	<% if current_user.role?("ucolom")==false%>
+	<% if current_user.role?("lotacao")==false%>
 	<h3>Principal</h3>
 
 	<ul class="toggle">
@@ -88,7 +88,7 @@
 		<%end%>
 
 
-		<%if can? :read,Folha::Folha%>
+		<!--<%if can? :read,Folha::Folha%>
 		<h3>Financeiro</h3>
 		<ul class="toggle">
 			<li class="icn_folha"><a href="/folha/folhas">Folhas</a></li>
@@ -97,29 +97,23 @@
 				<%end%>
 
 
-			</ul>
+			</ul>-->
 
 
 			<h3>Administração</h3>
 
 			<ul class="toggle">
-				<li class="theme"><%=link_to "#{current_user.orgao.sigla}",orgao_departamentos_path(current_user.orgao)%></li>
+				<%=orgao%>
 				<%=setor%>
-				<%if can? :convalidar,Lotacao%><li class="icn_convalida"><%=link_to "Convalidar",lotacoes_convalidar_path%></li>
-				<li class="lotacoes"><%= link_to "Relatório de Lotação e Movimentação",lotacoes_gerar_relatorio_path,:rel=>"facebox",:rev=>"height:300px;width:500px"%></li>
-				<%end%>
-
-
-
 			</ul>
 
 			<h3>Usuário</h3>
 
 			<ul class="toggle">
-				<%if current_user.role?(:admin)%>
+				<!--<%if current_user.role?(:admin)%>
 				<li class="icn_msg"><%=link_to "Caixa de Entrada", mensagens_inbox_path, :rel=>"facebox",:rev=>"height:300px;width:500px" %></li>
 				<li class="icn_msg"><%=link_to "Escrever Nova Mensagem", new_mensagem_path, :rel=>"facebox",:rev=>"height:300px;width:500px;" %></li>
-				<%end%>
+				<%end%>-->
 				<li class="icn_edit_article"><%=link_to "Perfil", edit_user_registration_path %></li>
 				<li class="icn_new_article"><%=link_to "Sair", destroy_user_session_path %></li>
 

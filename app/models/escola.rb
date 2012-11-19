@@ -9,11 +9,11 @@ class Escola < ActiveRecord::Base
  has_many :turmas,:include=>:ano_letivo,:conditions=>['turmas.ano_letivo_id = ano_letivo_id']
  has_many :salas_ambiente,:class_name=>"Ambiente.salas_ambientes"
  has_many :settings
- has_many :ambientes
+ has_many :ambientes,:dependent=>:destroy
  has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
  has_many :comissionados,:conditions=>["ativo = ?",true]
- has_many :lotacoes,:class_name=>"Lotacao"
- has_many :especificacoes,:class_name=>'EspecificarLotacao'
+ has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy
+ has_many :especificacoes,:class_name=>'EspecificarLotacao',:dependent=>:destroy
  has_one :diretor_adjunto,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA ADJUNTA'],:source=>:funcionario
  has_one :diretor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA'],:source=>:funcionario
  has_one :secretario,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SECRETARIA'],:source=>:funcionario
@@ -110,7 +110,7 @@ class Escola < ActiveRecord::Base
   end
 
 
-  private
+ 
   def criar_ambientes
     self.ambientes.create(:nome=>"Secretaria Escolar",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
     self.ambientes.create(:nome=>"Biblioteca",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))

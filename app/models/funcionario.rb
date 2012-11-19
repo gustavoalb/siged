@@ -25,20 +25,20 @@ class Funcionario < ActiveRecord::Base
   belongs_to :entidade
   has_one :user,:dependent=>:destroy
   belongs_to :fonte_recurso,:class_name=>"Folha::FonteRecurso"
-  has_many :listas
-  has_many :pontos
+  has_many :listas,:dependent=>:destroy
+  has_many :pontos,:dependent=>:destroy
   #has_many :ponto_diarios
-  has_many :funcoes_comissionadas,:class_name=>"Processo"
+  has_many :funcoes_comissionadas,:class_name=>"Processo",:dependent=>:destroy
   has_many :pontos_do_mes,:class_name=>"Ponto",:conditions=>["EXTRACT(MONTH FROM data)=? and EXTRACT(YEAR FROM data)=?",Time.now.month,Time.now.year]
   belongs_to :disciplina_contratacao
-  has_many :comissionados
+  has_many :comissionados,:dependent=>:destroy
   belongs_to :gaveta,:class_name=>"Arquivo"
   belongs_to :nivel, :class_name=>'ReferenciaNivel'
   belongs_to :sjuridica,:class_name=>'SituacoesJuridica'
   belongs_to :categoria
   has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy
   has_many :lotacoes_atuais,:class_name=>"Lotacao",:conditions=>["finalizada = ? and ativo = ? and complementar = ?",true,true,false]
-  has_many :processos,:dependent=>:nullify
+  has_many :processos,:dependent=>:destroy
   has_many :boletins, :class_name=>"BoletimFuncional",:dependent=>:nullify
   has_many :especificacoes,:class_name=>"EspecificarLotacao",:conditions=>{:ativo=>true},:dependent => :destroy
   scope :direcao, joins(:comissionados).where("comissionados.ativo=? and comissionados.tipo=?",true,'DIRETORIA')

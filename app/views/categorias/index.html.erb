@@ -14,9 +14,7 @@
 <thead>
   <tr>
     <th>Nome</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan=4></th>
   </tr>
 </thead>
 <tbody>
@@ -26,6 +24,7 @@
     <td><%= link_to 'Detalhes', categoria %></td>
     <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_categoria_path(categoria) %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), categoria, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Textos"), categoria_textos_path(categoria) %></td>
   </tr>
 <% end %>
 </tbody>

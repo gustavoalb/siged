@@ -10,8 +10,8 @@ scope :busca, lambda { |q| where("sigla like ? or codigo like ? or nome like ?" 
   belongs_to :poder, :class_name=>"Poder"
   belongs_to :tipo_destino
   has_many :funcionarios
-  has_many :lotacoes,:class_name=>"Lotacao"
+  has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy
   has_many :escolas
-  has_many :departamentos
+  has_many :departamentos,:dependent=>:destroy
   validates_uniqueness_of :nome
 end

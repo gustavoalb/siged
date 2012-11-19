@@ -4,7 +4,7 @@ class ReferenciaNivel < ActiveRecord::Base
 	scope :busca, lambda { |q| where("codigo ilike ? or nome ilike ?" ,"%#{q}%","%#{q}%") }
 	has_many :funcionarios,:foreign_key=>"nivel_id"
 	has_one :vencimento,:readonly=>true,:conditions=>["atual = ?",true]
-	has_many :vencimentos
+	has_many :vencimentos,:dependent=>:destroy
 	belongs_to :entidade
 
 	JORNADA=[

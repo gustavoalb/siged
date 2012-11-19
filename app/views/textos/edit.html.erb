@@ -3,7 +3,7 @@
   <div class="module_content">
 
 
-    <%= form_for @texto,:url=>administracao_texto_url do |f| %>
+    <%= form_for @texto,:url=>categoria_texto_path(@categoria,@texto) do |f| %>
     <% if @texto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@texto.errors.count, "erro impede","erros impedem") %> este texto de ser cadastrado:</h2>
@@ -33,7 +33,7 @@
 
     </fieldset>
 
-    <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <fieldset style="width:48%; height:auto; float:left; margin-right: 1%;">
       <%= f.label :texto %><br />
       <%= f.text_area :texto,:style=>"width:92%;" %>
 

@@ -30,7 +30,6 @@ class AddMissingIndexes < ActiveRecord::Migration
     add_index :turmas, :serie_id
     add_index :escolas, :orgao_id
     add_index :escolas, :tipo_destino_id
-    add_index :escolas, :municipio_id
     add_index :statuses, :processo_id
     add_index :descricao_cargos, :nivel_cargo_id
     add_index :descricao_cargos, :tipo_id
@@ -43,13 +42,11 @@ class AddMissingIndexes < ActiveRecord::Migration
     add_index :departamentos, :pai_id
     add_index :funcionarios, :orgao_id
     add_index :funcionarios, :pessoa_id
-    add_index :funcionarios, :folha_id
     add_index :funcionarios, :cargo_id
     add_index :funcionarios, :escola_id
     add_index :funcionarios, :quadro_id
     add_index :funcionarios, :distrito_id
     add_index :funcionarios, :descricao_cargo_id
-    add_index :funcionarios, :municipio_id
     add_index :funcionarios, :nivel_id
     add_index :funcionarios, :categoria_id
     add_index :funcionarios, :sjuridica_id
@@ -95,7 +92,6 @@ class AddMissingIndexes < ActiveRecord::Migration
     remove_index :escolas, :orgao_id
     remove_index :escolas, :esfera_id
     remove_index :escolas, :tipo_destino_id
-    remove_index :escolas, :municipio_id
     remove_index :statuses, :processo_id
     remove_index :descricao_cargos, :nivel_cargo_id
     remove_index :descricao_cargos, :tipo_id
@@ -109,14 +105,12 @@ class AddMissingIndexes < ActiveRecord::Migration
     remove_index :departamentos, :pai_id
     remove_index :funcionarios, :orgao_id
     remove_index :funcionarios, :pessoa_id
-    remove_index :funcionarios, :folha_id
     remove_index :funcionarios, :cargo_id
     remove_index :funcionarios, :escola_id
     remove_index :funcionarios, :quadro_id
     remove_index :funcionarios, :distrito_id
     remove_index :funcionarios, :gaveta_id
     remove_index :funcionarios, :descricao_cargo_id
-    remove_index :funcionarios, :municipio_id
     remove_index :funcionarios, :nivel_id
     remove_index :funcionarios, :categoria_id
     remove_index :funcionarios, :sjuridica_id
