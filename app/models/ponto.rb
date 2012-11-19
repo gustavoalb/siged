@@ -46,6 +46,12 @@ def salvar_pdf
   PontosController.new.salvar_pdf(self)
 end
 
+def departamento_id
+  if !self.lotacao.departamento.nil?
+    return self.lotacao.departamento_id
+  end
+end
+
 
 private
 
