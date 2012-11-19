@@ -143,7 +143,8 @@ class PontosController < ApplicationController
      end 
      if !File.exist?(@pasta4)
        Dir.mkdir(@pasta4) 
-     end
+     end     
+   end
    pdf = render_to_string :pdf =>"#{@arquivo.basename.to_s}",
    :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
    :zoom => 0.8 ,
@@ -153,7 +154,6 @@ class PontosController < ApplicationController
    File.open(@arquivo, 'wb') do |file|
     file << pdf
   end
-end
 end
 
 private
