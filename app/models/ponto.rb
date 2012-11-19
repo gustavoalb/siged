@@ -15,6 +15,7 @@ class Ponto < ActiveRecord::Base
   has_many :ponto_diarios
   after_create :img_codigo,:salvar_pdf
   before_destroy :apagar_pdf
+  attr_accessor_with_default(:departamento_id) {self.departamento}
 
 
 
@@ -46,7 +47,7 @@ def salvar_pdf
   PontosController.new.salvar_pdf(self)
 end
 
-def departamento_id
+def departamento
   if !self.lotacao.departamento.nil?
     return self.lotacao.departamento_id
   end
