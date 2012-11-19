@@ -63,9 +63,9 @@ def img_codigo
  else
    codigo2='0'+''+codigo
  end
- p1 = Rails.root.join("#{SHARED}/pontos")
- p2 = Rails.root.join("#{SHARED}/pontos/codigos")
- f =  Rails.root.join("#{SHARED}/pontos/codigos/#{codigo2}.png","w")
+ p1 = Rails.root.join("/pontos")
+ p2 = Rails.root.join("/pontos/codigos")
+ f =  Rails.root.join("/pontos/codigos/#{codigo2}.png","w")
  if !File.exist?(p1)
   Dir.mkdir(p1)
 end
@@ -74,7 +74,7 @@ if !File.exist?(p2)
 end
 if !f.exist?
  barcode=Barby::Code25Interleaved.new(codigo2)
- File.open("#{SHARED}/pontos/codigos/#{codigo2}.png","w"){|f|
+ File.open("/pontos/codigos/#{codigo2}.png","w"){|f|
   f.write barcode.to_png}
 end
 end
@@ -86,8 +86,8 @@ def apagar_pdf
   elsif !self.lotacao.departamento.nil?
     destino = self.lotacao.departamento.sigla.downcase
   end
-  pdf = Rails.root.join("#{SHARED}/pontos/#{self.lotacao.orgao.sigla}/#{destino}/#{self.funcionario.pessoa.slug}","#{self.funcionario.slug}", "#{self.data.strftime("%Y-%m")}.pdf")
-  codigo_barra = Pathname.new(Rails.root.join("#{SHARED}/pontos/codigos", "#{self.codigo_barras}.png"))
+  pdf = Rails.root.join("/pontos/#{self.lotacao.orgao.sigla}/#{destino}/#{self.funcionario.pessoa.slug}","#{self.funcionario.slug}", "#{self.data.strftime("%Y-%m")}.pdf")
+  codigo_barra = Pathname.new(Rails.root.join("/pontos/codigos", "#{self.codigo_barras}.png"))
   FileUtils.rm_rf(pdf)
   FileUtils.rm_rf(codigo_barra)
 end
