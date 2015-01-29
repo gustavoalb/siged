@@ -8,13 +8,12 @@
 	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
 	</head>
 	<body>
-	<table border=0 id="background-image" align="center" style="background: url('<%=Rails.root.join('public','images','carta/logo_grande.png').to_s%>') 0px 470px no-repeat;width: 600px;">
+	<table border=0 id="background-image" align="center"  >
 
 
 		<tr>
 			<td width=35%></td>
 			<td  width=100%><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:style=>"align='left'"%></td>
-			<td align=right width=33,3%><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
 		</tr>
 
 		<tr>
@@ -46,8 +45,8 @@
 		<tr>
 			<td colspan=3 align=justify><br/><br/>
 <br/>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do <b><%=detalhes(@funcionario.quadro)%></b>, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes_str(@funcionario.nivel.codigo)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) na <b><%=detalhes(@lotacao.escola.orgao).upcase%></b>, exercendo sua atividade funcional no(a) <b><%=detalhes_str(@lotacao.escola.nome_da_escola)%></b>, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.
-<b><%=if @funcionario.municipio then ("Município de Opção: #{@funcionario.municipio.nome}") end%></b>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do <b><%=detalhes(@funcionario.quadro)%></b>, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes(@funcionario.nivel)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) na <b><%=detalhes(@lotacao.escola.orgao).upcase%></b>, exercendo sua atividade funcional no(a) <b><%=detalhes_str(@lotacao.escola.nome_da_escola)%></b>, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.<br/>
+<b><%=if @funcionario.municipio then ("Município de Opção: #{@funcionario.municipio.nome}") end%></b><br/>
 <b><%=if @funcionario.descricao_cargo then ("Disciplina: #{@funcionario.descricao_cargo.nome}.") end%></p></b>
 <br/><br/><br/><br/><center>Cordialmente,</center><br/><br/><br/><br/>
     </td>
@@ -55,9 +54,9 @@
 
    <tr>
 				<td colspan=3><p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>____________________________________<br/>
-				Alessandra Pacheco da Costa Silva<br/>
-				Chefa da Ucolom<br/>
-				Decreto nº 4212/2011-GEA</td>
+				Emilly Rodrigues Coelho da Silva<br/>
+				Chefe da UCADA<br/>
+				Decreto nº 0357/2015-GEA</td>
 		</tr></p>
 <br />
 <br /><br />
@@ -76,13 +75,13 @@
 	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
 	</head>
 	<body>
-	<table border=0 id="background-image" align="center" style="background: url('<%=Rails.root.join('public','images','carta/logo_grande.png').to_s%>') 0px 470px no-repeat;width: 600px;">
+	<table border=0 id="background-image" align="center" >
 
 
 		<tr>
 			<td width=35%></td>
 			<td  width=100%><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:style=>"align='left'"%></td>
-			<td align=right width=33,3%><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
+			
 		</tr>
 
 		<tr>
@@ -114,8 +113,8 @@
 		<tr>
 			<td colspan=3 align=justify><br/><br/>
 <br/>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do <b><%=detalhes(@funcionario.quadro)%></b>, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes_str(@funcionario.nivel.codigo)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) no (a) <b><%=detalhes(@lotacao.orgao).upcase%></b>, exercendo sua atividade funcional no(a) <b><%=detalhes_str(@lotacao.escola.nome_da_escola)%></b>, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.<br/>
- <b><%=if @funcionario.municipio then ("Município de Opção: #{@funcionario.municipio.nome}") end%></b>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do Estado, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes_str(@funcionario.nivel.codigo)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) no (a) <b><%=detalhes(@lotacao.orgao).upcase%></b>, exercendo sua atividade funcional no(a) <b><%=detalhes(@lotacao.departamento)%></b>, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.<br/>
+<b><%=if @funcionario.municipio then ("Município de Opção: #{@funcionario.municipio.nome}") end%></b><br/>
 <b><%=if @funcionario.descricao_cargo then ("Disciplina: #{@funcionario.descricao_cargo.nome}.") end%></p></b>
 <br/><br/><br/><br/><center>Cordialmente,</center><br/><br/><br/><br/>
     </td>
@@ -123,9 +122,9 @@
 
    <tr>
 				<td colspan=3><p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>____________________________________<br/>
-				Alessandra Pacheco da Costa Silva<br/>
-				Chefa da Ucolom<br/>
-				Decreto nº 4212/2011-GEA</td>
+				Emilly Rodrigues Coelho da Silva<br/>
+				Chefe da UCADA<br/>
+				Decreto nº 0357/2015-GEA</td>
 		</tr></p>
 <br />
 <br /><br />
@@ -145,13 +144,13 @@
 	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
 	</head>
 	<body>
-	<table border=0 id="background-image" align="center" style="background: url('<%=Rails.root.join('public','images','carta/logo_grande.png').to_s%>') 0px 470px no-repeat;width: 600px;">
+	<table border=0 id="background-image" align="center" >
 
 
 		<tr>
 			<td width=35%></td>
 			<td  width=100%><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:style=>"align='left'"%></td>
-			<td align=right width=33,3%><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
+			
 		</tr>
 
 		<tr>
@@ -183,8 +182,8 @@
 		<tr>
 			<td colspan=3 align=justify><br/><br/>
 <br/>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do <b><%=detalhes(@funcionario.quadro)%></b>, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes_str(@funcionario.nivel.codigo)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) na <b>SECRETARIA DE ESTADO DA EDUCAÇÃO</b>, estando à disposição do NUPES há xxx dias, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.
-<b><%=if @funcionario.municipio then ("Município de Opção: #{@funcionario.municipio.nome}") end%></b>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do <b><%=detalhes(@funcionario.quadro)%></b>, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes_str(@funcionario.nivel.codigo)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) no(a) <b><%=destino(@lotacao)%></b>, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.<br/>
+<b><%=if @funcionario.municipio then ("Município de Opção: #{@funcionario.municipio.nome}") end%></b><br/>
 <b><%=if @funcionario.descricao_cargo then ("Disciplina: #{@funcionario.descricao_cargo.nome}.") end%></p></b>
 <br/><br/><br/><br/><center>Cordialmente,</center><br/><br/><br/><br/>
     </td>
@@ -192,9 +191,9 @@
 
    <tr>
 				<td colspan=3><p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>____________________________________<br/>
-				Alessandra Pacheco da Costa Silva<br/>
-				Chefa da Ucolom<br/>
-				Decreto nº 4212/2011-GEA</td>
+				Emilly Rodrigues Coelho da Silva<br/>
+				Chefe da UCADA<br/>
+				Decreto nº 0357/2015-GEA</td>
 		</tr></p>
 <br />
 <br /><br />

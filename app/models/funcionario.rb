@@ -55,6 +55,18 @@ class Funcionario < ActiveRecord::Base
     self.data_nomeacao.months_since(60)
   end
 
+  def quadrop
+    if self.categoria.nome.downcase=="Contrato Administrativo".downcase
+      return "Quadro Temporário do Estado - Contrato Administrativo"
+    elsif self.categoria.nome.downcase=="UDE".downcase
+      return "Quadro Temporário do Estado - UDE"
+    elsif self.categoria.nome.downcase=="Sem Vínculo".downcase
+      return "Cargo Comissionado"
+    else
+      return "Quadro Efetivo do Estado"
+    end
+  end
+
   JORNADA=[["20 horas","20"],["40 horas","40"]]
   BANCO=[
     ['Banco do Brasil S.A.','Banco do Brasil S.A.'],

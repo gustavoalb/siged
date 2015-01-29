@@ -18,6 +18,7 @@ module ApplicationHelper
   end 
 end
 
+
 def setor
   user = User.usuario_atual
   if user.role?(:diretores) and !user.escola.nil?
@@ -244,6 +245,32 @@ def cargo_disciplina(func)
   end
 end
 
+def destino(lotacao)
+ if lotacao
+    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
+        return "#{lotacao.escola.nome_da_escola}"
+    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "LOTAÇÃO INVÁLIDA"
+    end
+end
+end
+
 def cargo_resumido(func)
   if func.cargo and func.cargo.tipo and func.cargo.tipo.nome=='Magistério/Docência' and func.disciplina_contratacao and func.nivel
     return "#{func.cargo.nome.upcase} DE #{func.disciplina_contratacao.nome.upcase}, #{func.nivel.codigo.upcase}"
@@ -275,7 +302,7 @@ def jornada(obj)
  if obj and obj.jornada
   return "#{obj.jornada} horas semanais"
 else
- return raw("<font color=red><b>Nada Cadastrado</b></font>")
+ return "Nada Cadastrado"
 end
 end
 

@@ -6,13 +6,13 @@
 	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
 	</head>
 	<body>
-	<table id="background-image" align="center"  style="background: url('<%=Rails.root.join('public','images','carta/logo_grande.png').to_s%>'); 0px 590px no-repeat;">
+	<table id="background-image" align="center">
 
 
 		<tr>
 			<td width="200"></td>
 			<td align=center><%=wicked_pdf_image_tag "../images/carta/logo.jpg"%></td>
-			<td align=right width="200"><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>
+			<!--<td align=right width="200"><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"150", :height=>"100"%></td>-->
 		</tr>
 
 		<tr>

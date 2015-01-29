@@ -132,34 +132,63 @@ def qualificar
 end
 end
 
+# def carta
+#   @funcionario = Funcionario.find(params[:funcionario_id])
+#   @pessoa = Pessoa.find(params[:pessoa_id])
+#   @lotacao = Lotacao.find(params[:lotacao])
+#   prazo = @lotacao.data_lotacao+3.day
+#   @prazo=prazo.to_date.to_s_br
+#   @processo = @lotacao.processos.last
+#   #file_name=Rails.root.join("public/cartas/#{@funcionario.pessoa.nome}", "#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}.pdf")
+#   #if File.exist?(file_name)
+#   # send_file(file_name,:type=>"application/pdf" )
+#  #else
+#  respond_to do |format|
+#      ## format.html # show.html.erb
+#    #  if !File.exist?(Rails.root.join("public/cartas/#{@funcionario.pessoa.nome}"))
+#     #   Dir.mkdir(Rails.root.join("public/cartas/#{@funcionario.pessoa.nome}"))
+#     # end
+#     format.pdf do
+#       render :pdf =>"#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}",
+#       :layout => "pdf", # OPTIONAL
+#       :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
+#       :margin=>{:top=>5,:left=>5,:right=>5,:bottom=>40},
+#       :footer=>{:html =>{:template => 'shared/lotacao_footer.pdf.erb'}},
+#       :zoom => 0.8 ,
+#       :orientation => 'Portrait'
+#   #  end
+#     # @carta = Carta.create(:funcionario_id=>@funcionario.id, :lotacao_id=>@lotacao.id, :carta_file_name=> "#{filename}.pdf")
+#   end
+# end
+# end
+
 def carta
-  @funcionario = Funcionario.find(params[:funcionario_id])
-  @pessoa = Pessoa.find(params[:pessoa_id])
-  @lotacao = Lotacao.find(params[:lotacao])
-  prazo = @lotacao.data_lotacao+3.day
-  @prazo=prazo.to_date.to_s_br
-  @processo = @lotacao.processos.last
-  #file_name=Rails.root.join("public/cartas/#{@funcionario.pessoa.nome}", "#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}.pdf")
-  #if File.exist?(file_name)
-  # send_file(file_name,:type=>"application/pdf" )
- #else
- respond_to do |format|
-     ## format.html # show.html.erb
-   #  if !File.exist?(Rails.root.join("public/cartas/#{@funcionario.pessoa.nome}"))
-    #   Dir.mkdir(Rails.root.join("public/cartas/#{@funcionario.pessoa.nome}"))
-    # end
-    format.pdf do
-      render :pdf =>"#{@funcionario.pessoa.nome.downcase.parameterize}#{@processo.processo.parameterize}",
-      :layout => "pdf", # OPTIONAL
-      :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
-      :margin=>{:top=>5,:left=>5,:right=>5,:bottom=>40},
-      :footer=>{:html =>{:template => 'shared/lotacao_footer.pdf.erb'}},
-      :zoom => 0.8 ,
-      :orientation => 'Portrait'
-  #  end
-    # @carta = Carta.create(:funcionario_id=>@funcionario.id, :lotacao_id=>@lotacao.id, :carta_file_name=> "#{filename}.pdf")
-  end
-end
+ @funcionario = Funcionario.find(params[:funcionario_id])
+ @pessoa = Pessoa.find(params[:pessoa_id])
+ @lotacao = Lotacao.find(params[:lotacao])
+ prazo = @lotacao.data_lotacao+3.day
+ @prazo=prazo.to_date.to_s_br
+ @processo = @lotacao.processos.last
+ @usuario = @lotacao.usuario
+ carta = ODFReport::Report.new("#{Rails.public_path}/modelos/carta.odt") do |r|
+  r.add_field "NOME", @pessoa.nome
+  r.add_field "MATRICULA", @funcionario.matricula
+  r.add_field "QUADRO", @funcionario.quadrop
+  r.add_field "CARGO", cargo_disciplina(@funcionario)
+  r.add_field "JORNADA",jornada(@funcionario.nivel)
+  r.add_field "NUMERO", @processo.processo
+  r.add_field "DATA",@lotacao.data_lotacao.to_s_br
+  r.add_field "HORA",@lotacao.created_at.strftime("%H:%M")
+  r.add_field "DESTINO",@lotacao.destino
+  r.add_field "DATAAPRESENTACAO", @lotacao.data_lotacao+3.days
+  r.add_field "USER", @usuario.name
+ end
+ arquivo_carta = carta.generate
+ arquivo = Pathname.new(arquivo_carta)
+ dir = arquivo.dirname
+ system "libreoffice --headless --invisible --convert-to pdf #{arquivo_carta} --outdir #{dir}"
+ f = File.open("#{arquivo.to_s.gsub('.odt','')}.pdf")
+ send_file(f.path,:disposition=>'inline')
 end
 
 def boletins

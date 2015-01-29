@@ -5,13 +5,11 @@
 	<%= wicked_pdf_stylesheet_link_tag "pdf" -%>
 	</head>
 	<body>
-	<table border=0 id="background-image" align="center" style="width=100%; background: url('<%=Rails.root.join('public','images','carta/logo_grande.png').to_s%>') 0px 470px no-repeat;" >
+	<table border=0 id="background-image" align="center">
 
 
 		<tr>
-			<td width=33.3%></td>
-			<td  width=33.3%><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:width=>"60",:height=>"80",:style=>"align='center'"%></td>
-			<td align=right width=33.3%><%=wicked_pdf_image_tag "../images/carta/logo_amapa.jpg",:width=>"140", :height=>"100"%></td>
+			<td align='center'><%=wicked_pdf_image_tag "../images/carta/logo.jpg",:width=>"60",:height=>"80",:style=>"align='center'"%></td>
 		</tr>
 
 		<tr>
@@ -66,9 +64,9 @@
 
    <tr>
 				<td colspan=3><p><br/><br/><br/><br/><br/>____________________________________<br/>
-				José Freitas de Souza<br/>
+				Emilly Rodrigues Coelho da Silva<br/>
 				Chefe da UCADA<br/>
-				Decreto nº 0098/2011-GEA</td>
+				Decreto nº 0357/2015-GEA</td>
 		</tr></p>
 <br />
 <br />

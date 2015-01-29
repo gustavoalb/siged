@@ -167,6 +167,33 @@ def data
   end
 end
 
+def destino
+  lotacao = self
+ if lotacao
+    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
+        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
+        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "#{lotacao.orgao.sigla}"
+    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
+        return "#{lotacao.escola.nome_da_escola}"
+    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
+        return "LOTAÇÃO INVÁLIDA"
+    end
+end
+end
+
 
 private
 def lotacao_regular
