@@ -186,8 +186,9 @@ def carta
  arquivo_carta = carta.generate
  arquivo = Pathname.new(arquivo_carta)
  dir = arquivo.dirname
+ system "unoconv --listener &"
  system "unoconv #{arquivo_carta}"
- f = File.open("#{arquivo.to_s.gsub('.odt','')}.pdf")
+ f = File.open("#{arquivo.to_s.gsdub('.odt','')}.pdf")
  send_file(f.path,:disposition=>'inline')
 end
 
