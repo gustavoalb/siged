@@ -186,7 +186,7 @@ def carta
  arquivo_carta = carta.generate
  arquivo = Pathname.new(arquivo_carta)
  dir = arquivo.dirname
- system "libreoffice --headless --invisible --convert-to pdf #{arquivo_carta} --outdir #{dir}"
+ system "libreoffice --headless --invisible -convert-to pdf #{arquivo_carta} --outdir #{dir}"
  f = File.open("#{arquivo.to_s.gsub('.odt','')}.pdf")
  send_file(f.path,:disposition=>'inline')
 end
