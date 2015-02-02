@@ -185,7 +185,7 @@ def carta
  end
  arquivo_carta = carta.generate
  arquivo = Pathname.new(arquivo_carta)
- dir = arquivo.dirname
+ dir = Rails.root.join("tmp")
  system "unoconv #{arquivo_carta}"
  f = File.open("#{arquivo_carta.to_s.gsub('.odt','')}.pdf")
  send_file(f.path,:disposition=>'inline')
