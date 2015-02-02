@@ -5,4 +5,4 @@ tmp/
 public/pontos
 public/relatorios/tmp
 public/relatorios
-#config/database.yml
+config/database.yml
