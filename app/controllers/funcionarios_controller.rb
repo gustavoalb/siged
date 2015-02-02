@@ -187,8 +187,7 @@ def carta
  arquivo = Pathname.new(arquivo_carta)
  dir = arquivo.dirname
  system "unoconv #{arquivo_carta}"
- f = File.open("#{arquivo_carta.to_s.gsub('.odt','')}.pdf")
- send_file(f.path,:disposition=>'inline')
+ send_file(dir.join("carta.pdf"))
 end
 
 def boletins
