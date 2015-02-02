@@ -188,7 +188,7 @@ def carta
  dir = arquivo.dirname
  system "unoconv #{arquivo_carta}"
  f = dir.join("carta.pdf")
- send_file(arquivo.to_s)
+ send_file(f)
 end
 
 def boletins
