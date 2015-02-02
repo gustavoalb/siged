@@ -185,9 +185,9 @@ def carta
  end
  arquivo_carta = carta.generate
  arquivo = Pathname.new(arquivo_carta)
- dir = File.open(Rails.root.join("public","cartas"))
- system "unoconv #{arquivo_carta} -o #{dir}/#{@pessoa.nome.parameterize}.pdf"
- f = File.open(Rails.root.join("public","cartas").join("#{@pessoa.nome.parameterize}.pdf"))
+ dir = arquivo.dirname
+ system "unoconv #{arquivo_carta}"
+ f = File.open("#{arquivo.to_s.gsub('.odt','')}.pdf")
  send_file(f.path,:disposition=>'inline')
 end
 
