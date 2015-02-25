@@ -74,7 +74,7 @@ if !File.exist?(p2)
 end
 if !f.exist?
  barcode=Barby::Code25Interleaved.new(codigo2)
- File.open("/pontos/codigos/#{codigo2}.png","w"){|f|
+ File.open("public/pontos/codigos/#{codigo2}.png","w"){|f|
   f.write barcode.to_png}
 end
 end
