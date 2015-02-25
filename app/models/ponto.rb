@@ -63,9 +63,9 @@ def img_codigo
  else
    codigo2='0'+''+codigo
  end
- p1 = Rails.root.join("/pontos")
- p2 = Rails.root.join("/pontos/codigos")
- f =  Rails.root.join("/pontos/codigos/#{codigo2}.png","w")
+ p1 = Rails.root.join("public/pontos")
+ p2 = Rails.root.join("public/pontos")
+ f =  Rails.root.join("public/pontos/codigos/#{codigo2}.png","w")
  if !File.exist?(p1)
   Dir.mkdir(p1)
 end
