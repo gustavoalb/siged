@@ -178,10 +178,22 @@ def carta
   r.add_field "JORNADA",jornada(@funcionario.nivel)
   r.add_field "NUMERO", @processo.processo
   r.add_field "DATA",@lotacao.data_lotacao.to_s_br
-  r.add_field "HORA",@lotacao.created_at.strftime("%H:%M")
+  r.add_field "HORA",(@lotacao.created_at+3.hours).strftime("%H:%M")
   r.add_field "DESTINO",@lotacao.destino
   r.add_field "DATAAPRESENTACAO", @lotacao.data_lotacao+3.days
   r.add_field "USER", @usuario.name
+  if @funcionario.cargo.nome=="Professor" and @lotacao.disciplina_atuacao
+    r.add_field "DISC", "na disciplina de #{@lotacao.disciplina_atuacao.nome},"
+  else
+    r.add_field "DISC", ""
+  end
+  if @lotacao.tipo_lotacao=="REGULAR"
+    r.add_field "TIPODEST", "neste Estabelecimento de Ensino"
+  elsif @lotacao.tipo_lotacao=="ESPECIAL"
+    r.add_field "TIPODEST", "nesta Unidade Administrativa"
+  end
+
+
  end
  arquivo_carta = carta.generate
  arquivo = Pathname.new(arquivo_carta)

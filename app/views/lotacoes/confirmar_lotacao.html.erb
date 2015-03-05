@@ -26,13 +26,13 @@ alert("You typed the following: " + this.getValue());
     </script>
 
 <article class="module width_full">
-<header><h3>Processos de Lotação</h3></header>
+<header><h3>Confirmar Lotação</h3></header>
 <div class="module_content">
 <div id="tabs1" class="tabset">
 <%= form_tag(pessoa_funcionario_lotacao_salvar_confirmacao_url(@pessoa,@funcionario,@lotacao)) do -%>
  <fieldset>
-    <%= label_tag "Código" %><br />
-      <%= text_field_tag :codigo,nil,:placeholder => 'Entre com o código de barras...',:style=>"width:92%;",:required=>true,:autocomplete=>'on' %>
+    <%= label_tag "Confirmar a Lotação?" %><br /><br />
+    <%= radio_button_tag :confirmar,"SIM" ,:checked => true %>SIM&nbsp;&nbsp;&nbsp;<%= radio_button_tag :confirmar,"NÃO"%>NÃO&nbsp;&nbsp;&nbsp;
   </fieldset>
  <%= submit_tag 'Save' %>
 <% end -%>

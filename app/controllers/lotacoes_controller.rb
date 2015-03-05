@@ -188,14 +188,15 @@ end
 
 def salvar_confirmacao
   @funcionario = Funcionario.find(params[:funcionario_id])
-  codi=params[:codigo]
+  @confirma = params[:confirmar]
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
-  cpf = @lotacao.codigo_a(codi)
-  if @lotacao.codigo_a(codi)
+  #cpf = @lotacao.codigo_a(codi)
+  if @confirma=="SIM"
     @lotacao.confirma_lotacao
     redirect_to pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :notice => 'Confirmação de Lotação Efetuada.'
   else
-    redirect_to  pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :alert => 'Confirmação de Lotação não executada, código incorreto.'
+    @lotacao.cancela_lotacao
+    redirect_to  pessoa_funcionario_lotacoes_url(@pessoa,@funcionario), :alert => 'Confirmação de Lotação não executada'
   end
 
 end

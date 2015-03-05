@@ -3,7 +3,7 @@ require "barby/outputter/rmagick_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
-  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao,:data_lotacao]#,:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
+  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao,:data_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
   validates_presence_of :usuario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :escola
@@ -79,6 +79,7 @@ end
 def cancela_lotacao(motivo=self.motivo)
  proc = self.processos.em_aberto.encaminhado.last
  proc2 = proc.clone
+ proc2.finalizado = true
  proc2.data_finalizado = Time.now
  proc2.observacao = motivo
  proc2.natureza="CANCELAMENTO LOTAÇÃO"
