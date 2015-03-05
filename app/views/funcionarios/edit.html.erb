@@ -26,7 +26,7 @@
     <%if current_user.role?("lotacao")==true%>
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :disciplina_de_contratação %><br /><br />
-      <%= f.select :disciplina_contratacao_id,@descs,:prompt=>"Selecione a disciplina de contratação",:style=>"width:92%;" %>
+      <%= f.select :disciplina_contratacao_id,@disciplinas,:prompt=>"Selecione a disciplina de contratação",:style=>"width:92%;" %>
 
     </fieldset>
 
@@ -85,7 +85,7 @@
       <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência' -%>
       <fieldset style="width:48%; float:left; margin-right: 1%;">
         <%= label_tag :disciplina_de_contratacao %><br />
-        <%=select :funcionario,:disciplina_contratacao_id,@descs,:prompt=>true,:style=>"width:92%;"%>
+        <%=select :funcionario,:disciplina_contratacao_id,@disciplinas,:prompt=>true,:style=>"width:92%;"%>
       </fieldset>
       <%end%>
     </div>

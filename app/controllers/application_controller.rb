@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     @esferas = Esfera.order(:nome).collect{|n|[n.nome,n.id]}
     @escolas = Escola.order(:nome_da_escola).collect{|p| [p.nome_da_escola,p.id]}
     @poderes = Poder.order(:nome).collect{|p|[p.nome,p.id]}
-    @descs = DisciplinaContratacao.order(:nome).collect{|p|[p.nome,p.id]}
+    @disciplinas = DisciplinaContratacao.order(:nome).collect{|p|[p.nome,p.id]}
     @quadros = Quadro.order(:nome).collect{|p|[p.nome,p.id]}
     # @folhas = Folha.all.collect{|p|[p.nome,p.id]}
     @tipos = Tipo.order(:nome).collect{|p|[p.nome,p.id]}

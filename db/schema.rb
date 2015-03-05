@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120813145036) do
+ActiveRecord::Schema.define(:version => 20150305212020) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -705,6 +705,7 @@ ActiveRecord::Schema.define(:version => 20120813145036) do
     t.boolean  "quick",                                  :default => false
     t.text     "motivo"
     t.integer  "usuario_id"
+    t.integer  "disciplina_atuacao_id"
   end
 
   add_index "lotacaos", ["departamento_id"], :name => "index_lotacaos_on_departamento_id"
@@ -1049,6 +1050,28 @@ ActiveRecord::Schema.define(:version => 20120813145036) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "mais_de_um_cargo",     :default => false
+  end
+
+  create_table "recads", :force => true do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.string   "telefone_celular"
+    t.string   "telefone_residencial"
+    t.string   "endereco_rua"
+    t.string   "endereco_numero"
+    t.string   "endereco_bairro"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cargo"
+    t.string   "vinculo"
+    t.string   "gratificacao"
+    t.string   "decreto_nomeacao"
+    t.string   "data_nomeacao"
+    t.string   "diario"
+    t.string   "data_diario"
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "cep"
   end
 
   create_table "referencia_niveis", :force => true do |t|
