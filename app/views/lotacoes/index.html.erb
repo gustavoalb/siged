@@ -63,7 +63,7 @@
                 <td><%=l(@funcionario)%></td>
               </tr>
 
-  <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência'%>
+  <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência' and current_user.role?(:chefia_nupes)%>
   <tr>
     <td><b><%= f.label "Disciplina de Atuação" %></b></td>
     <td><div id="reg"><%= f.select :disciplina_atuacao_id,@disciplinas,:prompt=>"Selecione a disciplina"%></div></td>

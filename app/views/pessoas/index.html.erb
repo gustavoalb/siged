@@ -56,8 +56,8 @@
 		<th>Matrícula:</th>
 		<td><%=raw("#{highlight(funcionario.matricula, @busca)}")%></td>
 
-		<th>Situação Jurídica:</th>
-		<td><%= detalhes(funcionario.sjuridica) %></td>
+		<th>CPF:</th>
+		<td><%= Cpf.new(pessoa.cpf) %></td>
 
 		<th>Cargo:</th>
 		<td><%= cargo_disciplina(funcionario)%>

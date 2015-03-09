@@ -1,6 +1,30 @@
 module ApplicationHelper
   include ScopedSearch::Helpers
 
+  def disciplina(func)
+    if func.disciplina_contratacao
+      return func.disciplina_contratacao.nome
+    else
+      return "Nada Cadastrado"
+    end
+  end
+
+ def municipio_lotacao(lot)
+  if lot.escola and lot.escola.municipio
+    return lot.escola.municipio.nome
+  else
+    return "Nada Cadastrado"
+  end
+ end
+
+  def detalhe(obj)
+  if obj.blank?
+    return obj
+  else
+    return "Nada Cadastrado"
+  end
+ end
+
 
   def pdf_image_tag(image, options = {})
    caminho="../../../"+image

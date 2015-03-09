@@ -34,8 +34,11 @@
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :matricula%><br />
+      <%if !@funcionario.matricula.blank?%>
       <%= f.text_field :matricula,:disabled=>true,:style=>"width:92%;" %>
-
+      <%else%>
+      <%= f.text_field :matricula,:style=>"width:92%;" %>
+      <%end%>
     </fieldset>
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
@@ -44,31 +47,31 @@
 
     </fieldset>
 
-    <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <!--<fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :codigo_sirh%><br />
       <%= f.text_field :codigo_sirh,:disabled=>true,:style=>"width:92%;" %>
 
-    </fieldset>
+    </fieldset>-->
 
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :quadro %><br />
       <% if !@funcionario.entidade.nil?%>
-      <%= f.text_field :entidade_id,:disabled=>true,:value=>placeholder(@funcionario.entidade),:style=>"width:92%;"%>
+      <%= f.text_field :entidade_id,:disabled=>true,:value=>@funcionario.entidade.nome,:style=>"width:92%;"%>
       <% else%>
       <%=select :funcionario,:entidade_id,@entidades,:prompt=>true,:style=>"width:92%;"%>
       <% end%>
 
     </fieldset>
 
-    <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <!--<fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :folha %><br />
       <% if !@funcionario.fonte_recurso.nil?%>
       <%=text_field :funcionario,:fonte_recurso_id,:disabled=>true,:value=>placeholder(@funcionario.fonte_recurso),:style=>"width:92%;"%>
       <%else%>
       <%=select :funcionario,:fonte_recurso_id,@recursos,:prompt=>true,:style=>"width:92%;"%>
       <%end%>
-    </fieldset>
+    </fieldset>-->
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <label> Categoria Funcional </label> <br/><br />
@@ -119,11 +122,11 @@
 
 
 
-    <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <!--<fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :situação_jurídica %><br /><br />
       <%= f.select:sjuridica_id,@sitjuridicas,:style=>"width:92%;",:prompt=>"Selecione a Situação Jurídica" %>
       
-    </fieldset>
+    </fieldset>-->
 
 
 
@@ -146,7 +149,7 @@
     </fieldset>
 
     <div id='munic'>
-      <%if @funcionario.cargo and @funcionario.cargo.tipo and (@funcionario.cargo.tipo.nome=='Magistério/Docência' or @funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and @funcionario.categoria and @funcionario.categoria.nome=="Estado Novo"%>
+      <%if @funcionario.cargo and @funcionario.cargo.tipo and (@funcionario.cargo.tipo.nome=='Magistério/Docência' or @funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and @funcionario.categoria and (@funcionario.categoria.nome=="Estado Novo" or @funcionario.categoria.nome=="Contrato Administrativo")%>
       <fieldset style="width:48%; float:left; margin-right: 1%;">
         <%= f.label :municipio_de_opção %><br /><br />
         <%= f.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>

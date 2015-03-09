@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     @niveis_f = Nivel.order(:ordem).collect{|n|[n.nome.upcase,n.id]}
     @municipios = Municipio.order(:nome).collect{|m|[m.nome,m.id]}
     @sitjuridicas = SituacoesJuridica.order(:sigla).collect{|s|[s.nome,s.id]}
-    @niveis = ReferenciaNivel.order(:codigo).collect{|n|[n.codigo,n.id]}
+    @niveis = ReferenciaNivel.order(:codigo).collect{|n|[n.nome,n.id]}
     @esferas = Esfera.order(:nome).collect{|n|[n.nome,n.id]}
     @escolas = Escola.order(:nome_da_escola).collect{|p| [p.nome_da_escola,p.id]}
     @poderes = Poder.order(:nome).collect{|p|[p.nome,p.id]}

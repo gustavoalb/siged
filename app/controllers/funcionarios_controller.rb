@@ -172,6 +172,7 @@ def carta
  @usuario = @lotacao.usuario
  carta = ODFReport::Report.new("#{Rails.public_path}/modelos/carta.odt") do |r|
   r.add_field "NOME", @pessoa.nome
+  r.add_field "CPF", @pessoa.cpf
   r.add_field "MATRICULA", @funcionario.matricula
   r.add_field "QUADRO", @funcionario.quadrop
   r.add_field "CARGO", cargo_disciplina(@funcionario)
@@ -180,18 +181,23 @@ def carta
   r.add_field "DATA",@lotacao.data_lotacao.to_s_br
   r.add_field "HORA",(@lotacao.created_at+3.hours).strftime("%H:%M")
   r.add_field "DESTINO",@lotacao.destino
+  r.add_field "ANTERIOR",view_context.l_ant(@funcionario)
   r.add_field "DATAAPRESENTACAO", @lotacao.data_lotacao+3.days
   r.add_field "USER", @usuario.name
-  if @funcionario.cargo.nome=="Professor" and @lotacao.disciplina_atuacao
-    r.add_field "DISC", "na disciplina de #{@lotacao.disciplina_atuacao.nome},"
-  else
-    r.add_field "DISC", ""
-  end
-  if @lotacao.tipo_lotacao=="REGULAR"
-    r.add_field "TIPODEST", "neste Estabelecimento de Ensino"
-  elsif @lotacao.tipo_lotacao=="ESPECIAL"
-    r.add_field "TIPODEST", "nesta Unidade Administrativa"
-  end
+  r.add_field "DISCIPLINACONTRATACAO", view_context.disciplina(@funcionario)
+  r.add_field "MUNICIPIO", view_context.municipio_lotacao(@lotacao)
+  r.add_field "OBSERVACAO",@lotacao.motivo
+  #if @funcionario.cargo.nome=="Professor" and @lotacao.disciplina_atuacao
+  #  r.add_field "DISCIPLINACONTRATACAO", "na disciplina de #{@lotacao.disciplina_atuacao.nome},"
+  #else
+  # r.add_field "DISC", ""
+  #end
+
+  # if @lotacao.tipo_lotacao=="REGULAR"
+  #   r.add_field "TIPODEST", "neste Estabelecimento de Ensino"
+  # elsif @lotacao.tipo_lotacao=="ESPECIAL"
+  #   r.add_field "TIPODEST", "nesta Unidade Administrativa"
+  # end
 
 
  end

@@ -3,8 +3,8 @@ class Funcionario < ActiveRecord::Base
   friendly_id :matricula, :use=> :slugged
   #default_scope joins(:pessoa).order('pessoas.nome asc')
   #default_scope where('funcionarios.entidade_id in (?)',User.usuario_atual.entidade_ids)
-  #validates_presence_of  :cargo_id, :orgao_id,:matricula,:descricao_cargo_id,:sjuridica_id,:message=>"Não pode ficar em branco!"
-  validates_uniqueness_of :matricula,:message=>"já existente",:on=>:create
+  validates_presence_of  :cargo_id, :orgao_id,:categoria_id,:message=>"Não pode ficar em branco!"
+  validates_uniqueness_of :matricula,:message=>"já existente",:on=>:create,:if => Proc.new {|f| not f.matricula.blank?}
   #scoped_search
   include ScopedSearch::Model
   scope :busca, lambda { |q| where("matricula like ?" ,"%#{q}%") }
