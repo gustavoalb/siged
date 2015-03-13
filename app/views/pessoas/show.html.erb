@@ -25,7 +25,7 @@
   <%= @pessoa.telefone_celular %>
 </p>
 
-<%if can? :manage,Pessoa%>
+
 <p>
   <b>Endereço:</b>
   <%= @pessoa.endereco %>
@@ -46,7 +46,7 @@
   <%= @pessoa.bairro %>
 </p>
 
-<%if current_user.role?("lotacao")==false%>
+x 
 <p>
   <b>Nascimento:</b>
   <%= @pessoa.nascimento.to_s_br %>

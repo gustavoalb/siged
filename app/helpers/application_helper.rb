@@ -17,15 +17,6 @@ module ApplicationHelper
   end
  end
 
-  def detalhe(obj)
-  if obj.blank?
-    return obj
-  else
-    return "Nada Cadastrado"
-  end
- end
-
-
   def pdf_image_tag(image, options = {})
    caminho="../../../"+image
    options[:src] = File.expand_path(RAILS_ROOT) + '/public/images' + image
