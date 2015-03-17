@@ -28,7 +28,7 @@
 <tr align=center>
 <td WIDTH="500" HEIGHT="4"><h4><%=link_to raw("#{highlight(pessoa.nome.upcase, @busca)}"),pessoa %></h4></td>
 
- <%if can? :manage,Pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_path(pessoa) %></td><%end%>
+ <%if can? :edit,Pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_path(pessoa) %></td><%end%>
  <%if can? :destroy,Pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td><%end%>
  <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_view_users.png",:title=>"Listar Funcionários da Pessoa"), pessoa_funcionarios_path(pessoa)%></td>
  <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Pessoa à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
@@ -44,7 +44,7 @@
 <tr>
 
     <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Funcionário à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
-    <%if can? :manage,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_edit2.png",:title=>"Edição Rápida"),pessoa_edicao_rapida_path(pessoa,:funcionario_id=>funcionario.id),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:600px;width:800px"%></td><%end -%>
+    <%if can? :update,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_edit2.png",:title=>"Edição Rápida"),pessoa_edicao_rapida_path(pessoa,:funcionario_id=>funcionario.id),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:600px;width:800px"%></td><%end -%>
     <%if can? :manage,Formacao -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_formacao.png',:title=>"Formações"), pessoa_formacoes_path(pessoa) %></td><%end -%>
     <%if can? :qualificar_funcionario,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%></td><%end -%>
             <%if can? :manage,Lotacao -%>

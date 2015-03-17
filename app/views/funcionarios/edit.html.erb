@@ -1,8 +1,35 @@
-<%content_for :links do%>
-<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Editando Funcionários</a>
+ <script type="text/javascript">
 
-<%end%>
-<article class="module width_full">
+ Event.observe(window, 'load', function() {
+
+  new MaskedInput('.date', '99/99/9999');
+  new MaskedInput("#pessoa_telefone_residencial", '(99) 9999-9999');
+  new MaskedInput('#pessoa_telefone_celular', '(99) 9999-9999');
+  new MaskedInput('#pessoa_cpf', '999.999.999-99');
+  new MaskedInput('#ssn', '999-99-9999');
+  new MaskedInput('#product', 'a*-999-a999');
+
+  new MaskedInput('#eyescript', '~9.99 ~9.99 999', {
+    completed: function(){
+      alert("You typed the following: " + this.getValue());
+    }
+  });
+
+  MaskedInput.definitions['~']='[+-]';
+
+  new MaskedInput('#eyescript2', '~9.99 ~9.99 999', {
+    completed: function(){
+      alert("You typed the following: " + this.getValue());
+    }
+  });
+});
+ </script>
+
+ <%content_for :links do%>
+ <%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Editando Funcionários</a>
+
+ <%end%>
+ <article class="module width_full">
   <header><h3>Editando funcionários de <%=@pessoa.nome.titleize%></h3></header>
   <div class="module_content">
 
@@ -135,12 +162,15 @@
       <%= f.text_field :decreto_nomeacao,:style=>"width:92%;" %>
 
     </fieldset>
+
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :data_da_nomeação %><br /><br />
-      <%= f.calendar_date_select :data_nomeacao,:style=>"width:36%;" %>
-
+      <%if @funcionario.data_nomeacao.blank?%>
+      <%= f.text_field :data_nomeacao,:class=>"date",:style=>"width:92%;"%>
+      <%else%>
+      <%= f.text_field :data_nomeacao,:value=>@funcionario.data_nomeacao.to_s_br,:class=>"date",:style=>"width:92%;" %>
+      <% end%>
     </fieldset>
-
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :termo_de_posse %><br /><br />

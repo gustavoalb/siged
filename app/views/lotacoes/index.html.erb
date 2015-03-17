@@ -9,13 +9,16 @@
     <div id="tabs1" class="tabset">
 
       <ul class="tabset_tabs">
+        <%if can? :create,Lotacao%>
         <li class="active"><a href="#tab-um">Novo Processo de Lotação</a></li>
+        <%end%>
         <li><a href="#tab-dois">Lotações em Aberto</a></li>
         <li><a href="#tab-tres">Histórico de Lotações</a></li>
         <li><a href="#tab-quatro">Histórico de Processos</a></li>
       </ul>
 
       <div class="tabset_content_container">
+        <%if can? :create,Lotacao%>
         <div id="tab-one" class="tabset_content">
 
           <%= form_for @lotacao,:url=>pessoa_funcionario_lotacoes_url do |f| %>
@@ -44,37 +47,37 @@
               <%else%>
                <td><%= f.radio_button :tipo_lotacao,"SUMARIA",:checked => true %>Sumária &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA ESPECIAL" %>Sumária - Especial</td>
               <%end%>
-              </tr>-->
+            </tr>-->
 
 
-              <tr>
-                <td><b><label>Destino</label></b></td>
-                <td><div id="org"><%= text_field_with_auto_complete :escola, :nome_da_escola,:indicator=>'indicator1',:after_update_element=>"javascript.alert('teste')",:style=>"width:92%;",:required=>true  %></div></td>
-                <td><div id='esc'></div></td>
+            <tr>
+              <td><b><label>Destino</label></b></td>
+              <td><div id="org"><%= text_field_with_auto_complete :escola, :nome_da_escola,:indicator=>'indicator1',:after_update_element=>"javascript.alert('teste')",:style=>"width:92%;",:required=>true  %></div></td>
+              <td><div id='esc'></div></td>
+            </tr>
+
+            <tr>
+              <td><b><label>Localização anterior </label> </b></td>
+              <td><%=l_ant(@funcionario)%></td>
+            </tr>
+
+            <tr>
+              <td><b><label>Localização atual</label> </b></td>
+              <td><%=l(@funcionario)%></td>
+            </tr>
+
+            <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência' and current_user.role?(:chefia_nupes)%>
+            <tr>
+              <td><b><%= f.label "Disciplina de Atuação" %></b></td>
+              <td><div id="reg"><%= f.select :disciplina_atuacao_id,@disciplinas,:prompt=>"Selecione a disciplina"%></div></td>
+            </tr>
+            <%end%>
+            <div id="motivo">
+              <tr VALIGN=TOP>
+                <td><b><%= label_tag "Observação/Motivo" %></b></td>
+                <td><%= text_area :lotacao,:motivo,:placeholder => 'Justifique esta lotação',:size=>"47x4"%></td>
               </tr>
-
-              <tr>
-                <td><b><label>Localização anterior </label> </b></td>
-                <td><%=l_ant(@funcionario)%></td>
-              </tr>
-
-              <tr>
-                <td><b><label>Localização atual</label> </b></td>
-                <td><%=l(@funcionario)%></td>
-              </tr>
-
-  <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência' and current_user.role?(:chefia_nupes)%>
-  <tr>
-    <td><b><%= f.label "Disciplina de Atuação" %></b></td>
-    <td><div id="reg"><%= f.select :disciplina_atuacao_id,@disciplinas,:prompt=>"Selecione a disciplina"%></div></td>
-  </tr>
-  <%end%>
-  <div id="motivo">
-<tr VALIGN=TOP>
-  <td><b><%= label_tag "Observação/Motivo" %></b></td>
-  <td><%= text_area :lotacao,:motivo,:placeholder => 'Justifique esta lotação',:size=>"47x4"%></td>
-</tr>
-</div>
+            </div>
 
 
   <!--<%if !@funcionario.lotacoes.atual.none?%>
@@ -138,6 +141,7 @@
 :with => 'escola_id'%>
 
 </div>
+<%end%>
 
 
 <div id="tab-two" class="tabset_content" style="HEIGHT: 400PX; overflow-y: scroll;">

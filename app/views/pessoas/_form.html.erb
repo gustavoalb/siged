@@ -2,7 +2,7 @@
 
  Event.observe(window, 'load', function() {
 
-  new MaskedInput('#date', '99/99/9999');
+  new MaskedInput('.date', '99/99/9999');
   new MaskedInput("#pessoa_telefone_residencial", '(99) 9999-9999');
   new MaskedInput('#pessoa_telefone_celular', '(99) 9999-9999');
   new MaskedInput('#pessoa_cpf', '999.999.999-99');
@@ -109,7 +109,11 @@
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :data_de_nascimento %><br /><br />
-      <%= calendar_date_select :data,:nascimento, :year_range => 91.years.ago..0.years.ago, :style=>"width:36%;" %>
+      <%if @pessoa.nascimento.blank?%>
+      <%= f.text_field :nascimento,:class=>"date",:style=>"width:92%;" %>
+      <%else%>
+      <%= f.text_field :nascimento,:value=>@pessoa.nascimento.to_s_br,:class=>"date",:style=>"width:92%;"%>
+      <% end%>
 
     </fieldset>
 

@@ -117,8 +117,10 @@
 <div class="clear"></div>
 <footer>
 				<div class="submit_link">
+          <% if can? :edit, Pessoa%>
 				  <%= link_to 'Editar', edit_pessoa_path(@pessoa),:class=>"alt_btn",:type=>"submit"%> ou
-          <%= link_to 'Funcionarios da Pessoa', pessoa_funcionarios_path(@pessoa),:class=>"alt_btn",:type=>"submit"%> ou
+          <% end %>
+          <%= link_to 'Funcionarios da Pessoa', pessoa_funcionarios_path(@pessoa),:class=>"alt_btn",:type=>"submit" if can? :manage,Funcionario%> ou
 				  <%= link_to 'Voltar', pessoas_path,:type=>"submit" %>
 				</div>
 			</footer>

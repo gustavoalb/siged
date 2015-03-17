@@ -94,7 +94,7 @@ elsif user.role? :chefia_cebep
  can :manage,Funcionario
  cannot :update,Funcionario
  cannot :destroy,Pessoa
-  can :qualificar_funcionario, Pessoa
+ can :qualificar_funcionario, Pessoa
 
 elsif user.role? :cebep
  can :manage,Pessoa
@@ -180,8 +180,25 @@ elsif user.role? :lotacao
  cannot :edit,Pessoa
  cannot :destroy,Pessoa
  can :manage,Funcionario
+ cannot :create,Funcionario
  cannot :destroy,Funcionario
  cannot :edit,Funcionario
+
+elsif user.role? :chefia_ucolom
+ can :manage, Lotacao
+ cannot :convalidar,Lotacao
+ cannot :create, Lotacao
+ can :read,Funcionario
+ can :manage,Pessoa
+ cannot :create,Pessoa
+ cannot :edit,Pessoa
+ cannot :destroy,Pessoa
+ can :manage,Funcionario
+ cannot :create,Funcionario
+ cannot :destroy,Funcionario
+ cannot :edit,Funcionario
+ can :emitir_relatorios,[Lotacao,Pessoa,Funcionario,Escola]
+
 
 elsif user.role? :crh
   can :read,Pessoa

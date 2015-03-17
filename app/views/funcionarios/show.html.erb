@@ -58,18 +58,9 @@
   <%= detalhes_str(@funcionario.termo_posse) %>
 </p>
 
-<!--<p>
-  <b>Situação jurídica:</b>
-  <%= detalhes(@funcionario.sjuridica) %>
-</p>-->
-<%if current_user.role?("lotacao")==false%>
-<p>
-  <b>Folha:</b>
-  <%= detalhes(@funcionario.fonte_recurso) %>
-</p>
+
 
 <%= municipio_distrito(@funcionario)%>
-<%end%>
 
 
  <div id='com'>
