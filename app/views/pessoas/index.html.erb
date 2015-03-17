@@ -28,8 +28,8 @@
 <tr align=center>
 <td WIDTH="500" HEIGHT="4"><h4><%=link_to raw("#{highlight(pessoa.nome.upcase, @busca)}"),pessoa %></h4></td>
 
- <%if can? :update,:pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_path(pessoa) %></td><%end%>
- <%if can? :destroy,:pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td><%end%>
+ <%if can? :manage,Pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_path(pessoa) %></td><%end%>
+ <%if can? :destroy,Pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td><%end%>
  <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_view_users.png",:title=>"Listar Funcionários da Pessoa"), pessoa_funcionarios_path(pessoa)%></td>
  <td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Pessoa à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
 </tr>

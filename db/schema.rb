@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150305212020) do
+ActiveRecord::Schema.define(:version => 20150316192039) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -706,6 +706,7 @@ ActiveRecord::Schema.define(:version => 20150305212020) do
     t.text     "motivo"
     t.integer  "usuario_id"
     t.integer  "disciplina_atuacao_id"
+    t.integer  "destino_id"
   end
 
   add_index "lotacaos", ["departamento_id"], :name => "index_lotacaos_on_departamento_id"
@@ -1302,6 +1303,7 @@ ActiveRecord::Schema.define(:version => 20150305212020) do
     t.boolean  "enabled",                               :default => false
     t.integer  "escola_id"
     t.integer  "funcionario_id"
+    t.boolean  "gerar_ponto",                           :default => false, :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

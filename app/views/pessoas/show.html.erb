@@ -46,7 +46,6 @@
   <%= @pessoa.bairro %>
 </p>
 
-x 
 <p>
   <b>Nascimento:</b>
   <%= @pessoa.nascimento.to_s_br %>
@@ -111,73 +110,7 @@ x
   <b>Seção:</b>
   <%= @pessoa.secao %>
 </p>
-<%end%>
 
-
-<%if can? :manage,Pessoa and !@pessoa.formacoes.none?%>
-<article class="module width_full">
-<div class="module_content">
-    <h3>Formações:</h3>
-    <div class="tab_container">
-    <div id="tab1" class="tab_content">
-<table class="tablesorter" cellspacing="0" border=0>
-  <tr align=center>
-    <th>Curso</th>
-    <th>Status</th>
-  </tr>
-<tbody>
-<% @pessoa.formacoes.each do |formacao| %>
-  <tr>
-    <td align=left><%= link_to "#{nome_curso(formacao)}" ,pessoa_formacao_path(@pessoa,formacao) %></td>
-    <td align=center><%= formacao.status%></td>
-  </tr>
-<% end %>
-
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="clear"></div>
-</article>
-<% end %>
-
-
-
-<!--
-<%if @pessoa.listas.size>0%>
-<article class="module width_full">
-<div class="module_content">
-		<h3>Listas na qual o funcionário está incluso</h3>
-    <div class="tab_container">
-		<div id="tab1" class="tab_content">
-<table class="tablesorter" cellspacing="0" border=0>
-  <tr align=center>
-    <th>Tipo</th>
-    <th>Data da inclusão</th>
-    <th>Peso da lista</th>
-    <th>Ativo?</th>
-  </tr>
-<tbody>
-<% @listas.each do |lista| %>
-  <tr align=left>
-    <td><%= detalhes(lista.tipo_lista) %></td>
-    <td><%= lista.data_inclusao.to_s_br %></td>
-    <td><%= lista.tipo_lista.peso %></td>
-    <td><%= sim_nao(lista.ativo)%></td>
-  </tr>
-<% end %>
-
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="clear"></div>
-</article>
-<% end %>
-
-<%end%>-->
 
 
 </div>

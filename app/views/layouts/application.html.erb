@@ -99,14 +99,14 @@
 
 			</ul>-->
 
-			<%if current_user.role? :diretores or can? :manage,Ponto %>
+			<%if can? :manage, Ponto%>
 			<h3>Administração</h3>
 
 			<ul class="toggle">
 				<%=orgao%>
 				<%=setor%>
 			</ul>
-			<%end%>
+			<% end %>
 
 			<h3>Usuário</h3>
 

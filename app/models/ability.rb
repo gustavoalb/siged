@@ -5,7 +5,16 @@ class Ability
   def initialize(user)
    user ||= User.new # guest user
 
-   if user.role? :admin
+  if user.gerar_ponto
+    can :manage,Departamento
+    cannot :update,Departamento
+    cannot :create,Departamento
+    cannot :destroy,Departamento
+    can :manage,Ponto,:departamento_id=>user.departamento_id
+    cannot :destroy,Ponto
+  end
+
+  if user.role? :admin
     can :manage, :all
 
   #elsif !user.roles.none?
@@ -28,6 +37,7 @@ elsif user.role? :chefia_ucada
   can :read,Orgao
   can :agenda,Orgao
   can :read,Lotacao
+  can :qualificar_funcionario, Pessoa
 
 elsif user.role? :ucada
  can :manage,Funcionario
@@ -39,6 +49,7 @@ elsif user.role? :ucada
  cannot [:update,:destroy],TipoLista,TipoLista.privadas do |l|
   l.privada==true and (l.role_ids & user.role_ids).none?
 end
+can :qualificar_funcionario, Pessoa
 
 elsif user.role? :diretores
  can :manage,Lotacao,:escola_id=>user.escola_id
@@ -69,10 +80,12 @@ elsif user.role? :sage
  cannot :destroy,Departamento
  can :read,Funcionario
  can :read,Lotacao
+ can :qualificar_funcionario, Pessoa
 
 elsif user.role? :chefia_cad
  can :read,Pessoa
  can :read,Funcionario
+ can :qualificar_funcionario, Pessoa
 
 elsif user.role? :chefia_cebep
  can :manage,Pessoa
@@ -81,6 +94,7 @@ elsif user.role? :chefia_cebep
  can :manage,Funcionario
  cannot :update,Funcionario
  cannot :destroy,Pessoa
+  can :qualificar_funcionario, Pessoa
 
 elsif user.role? :cebep
  can :manage,Pessoa
@@ -102,6 +116,7 @@ elsif user.role? :chefia_nupes
   cannot :destroy, Funcionario
   cannot :edit, Funcionario
   cannot :destroy, Lotacao
+  can :qualificar_funcionario, Pessoa
 
 elsif user.role? :nupes
   can :read,Pessoa
@@ -122,13 +137,14 @@ elsif user.role? :chefia_upag
   cannot :destroy,Folha::Evento
   can :manage,ReferenciaNivel
   cannot :destroy,ReferenciaNivel
+   can :qualificar_funcionario, Pessoa
   
 elsif user.role? :ponto
   can :manage,Departamento
   cannot :update,Departamento
   cannot :create,Departamento
   cannot :destroy,Departamento
-  can :manage,Ponto,:departamento_id=>user.departamento_id
+  can :manage,Ponto
   cannot :destroy,Ponto
 
 elsif user.role? :qualificacao
@@ -158,7 +174,7 @@ elsif user.role? :upag
 elsif user.role? :lotacao
  can :manage, Lotacao
  cannot :convalidar,Lotacao
-  can :read,Funcionario
+ can :read,Funcionario
  can :manage,Pessoa
  cannot :create,Pessoa
  cannot :edit,Pessoa
