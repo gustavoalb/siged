@@ -225,6 +225,8 @@ def detalhes(obj=nil,sigla=false)
     return obj.nome.upcase
   elsif obj.respond_to? "username" and !obj.username.blank?
     return obj.username.upcase
+  elsif obj.class==String and !obj.blank?
+    return obj
   else
    return raw("<font color=red><b>Nada Cadastrado</b></font>")
  end

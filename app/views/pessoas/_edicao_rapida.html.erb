@@ -1,10 +1,8 @@
-<script type="text/javascript">
+ <script type="text/javascript">
 
-Event.observe(window, 'load', function() {
-
-  new MaskedInput('#date', '99/99/9999');
-  new MaskedInput("#pessoa_telefone_residencial", '(99) 9999-9999');
-  new MaskedInput('#pessoa_telefone_celular', '(99) 9999-9999');
+  new MaskedInput('.date', '99/99/9999');
+  new MaskedInput(".telefone", '(99) 9999-9999');
+  new MaskedInput('.celular', '(99) 99999-9999');
   new MaskedInput('#pessoa_cpf', '999.999.999-99');
   new MaskedInput('#ssn', '999-99-9999');
   new MaskedInput('#product', 'a*-999-a999');
@@ -21,9 +19,9 @@ Event.observe(window, 'load', function() {
     completed: function(){
       alert("You typed the following: " + this.getValue());
     }
-  });
+ 
 });
-</script>
+ </script>
 
 <%= form_for(@pessoa) do |f| %>
 
@@ -47,13 +45,13 @@ Event.observe(window, 'load', function() {
 
 <fieldset style="width:48%; float:left; margin-right: 1%;">
   <%= f.label :telefone_residencial %><br />
-  <%= f.text_field :telefone_residencial,:style=>"width:92%;" %>
+  <%= f.text_field :telefone_residencial,:style=>"width:92%;",:class=>"telefone" %>
 
 </fieldset>
 
 <fieldset style="width:48%; float:left; margin-right: 1%;">
-  <%= f.label :telefone_celular %><br />
-  <%= f.text_field :telefone_celular,:style=>"width:92%;" %>
+  <%= f.label :celular %><br />
+  <%= f.text_field :telefone_celular,:style=>"width:92%;",:class=>"celular" %>
 </fieldset>
 
 
