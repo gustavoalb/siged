@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class String
   # Cria a data com horário no padrao brasileiro e permanece aceitando no formato tradicional.
   #
@@ -41,4 +42,5 @@ class Time
     self.strftime_nolocale(format)
   end
 end
+
 

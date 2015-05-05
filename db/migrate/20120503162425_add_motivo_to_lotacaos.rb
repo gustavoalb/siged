@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddMotivoToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :motivo, :text
@@ -7,3 +8,4 @@ class AddMotivoToLotacaos < ActiveRecord::Migration
     remove_column :lotacaos, :motivo
   end
 end
+

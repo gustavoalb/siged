@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddVencimentoToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :vencimento, :float
@@ -8,3 +9,4 @@ class AddVencimentoToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :vencimento
   end
 end
+

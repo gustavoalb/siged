@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -11,3 +12,4 @@ img = img.threshold(Magick::QuantumRange*0.55)
 #img.display
 img.write('threshold.jpg')
 exit
+

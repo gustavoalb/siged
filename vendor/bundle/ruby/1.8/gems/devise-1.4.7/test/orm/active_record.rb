@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ActiveRecord::Migration.verbose = false
 ActiveRecord::Base.logger = Logger.new(nil)
 
@@ -7,3 +8,4 @@ class ActiveSupport::TestCase
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
 end
+

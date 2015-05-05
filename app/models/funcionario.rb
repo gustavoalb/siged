@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Funcionario < ActiveRecord::Base
   extend FriendlyId
   friendly_id :matricula, :use=> :slugged
@@ -339,3 +340,4 @@ end
 
 
 end
+

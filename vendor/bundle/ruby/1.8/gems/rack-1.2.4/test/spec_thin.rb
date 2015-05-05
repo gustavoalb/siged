@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
 require 'rack/handler/thin'
 require File.expand_path('../testrequest', __FILE__)
@@ -84,3 +85,4 @@ end
 rescue LoadError
   $stderr.puts "Skipping Rack::Handler::Thin tests (Thin is required). `gem install thin` and try again."
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class StringJoin < Arel::Nodes::Join
@@ -9,3 +10,4 @@ module Arel
     end
   end
 end
+

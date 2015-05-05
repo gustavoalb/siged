@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'RMagick'
 
 # Draw a big red Bezier curve on a transparent background.
@@ -28,4 +29,5 @@ after = bg.composite(shadow, Magick::CenterGravity, Magick::OverCompositeOp)
 after.border!(1,1,'gray80')
 
 after.write('shadow_after.gif')
+
 

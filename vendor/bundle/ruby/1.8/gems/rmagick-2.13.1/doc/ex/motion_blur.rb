@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -9,3 +10,4 @@ img = img.motion_blur(0,7,180)
 
 img.write('motion_blur.jpg')
 exit
+

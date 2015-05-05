@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 class ArtefatoUploader < CarrierWave::Uploader::Base
 
@@ -46,3 +46,4 @@ class ArtefatoUploader < CarrierWave::Uploader::Base
   # end
 
 end
+

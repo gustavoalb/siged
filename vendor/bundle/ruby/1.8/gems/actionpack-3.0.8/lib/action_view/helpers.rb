@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/benchmarkable'
 
 module ActionView #:nodoc:
@@ -59,3 +60,4 @@ module ActionView #:nodoc:
     include UrlHelper
   end
 end
+

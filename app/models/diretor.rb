@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Diretor < Funcionario
 	belongs_to :escola
 	default_scope joins(:comissionados).where("comissionados.ativo=? and comissionados.tipo=?",true,'DIRETORIA')
@@ -5,3 +6,4 @@ class Diretor < Funcionario
 	has_one :usuario,:foreign_key=>'funcionario_id'
 	
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/rails/resource/resource_generator'
 
 module Rails
@@ -11,3 +12,4 @@ module Rails
     end
   end
 end
+

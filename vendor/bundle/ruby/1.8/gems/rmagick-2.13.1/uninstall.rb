@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # uninstall RMagick - called from Makefile uninstall target
 
 require 'fileutils'
@@ -72,3 +73,4 @@ rmdir File.join(doc_dir, 'scripts')
 rmdir doc_dir
 
 exit
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   class Ruby19
 
@@ -106,3 +106,4 @@ module Mail
     end
   end
 end
+

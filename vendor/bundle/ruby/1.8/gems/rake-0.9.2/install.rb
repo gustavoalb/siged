@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rbconfig'
 require 'find'
 require 'fileutils'
@@ -88,3 +89,4 @@ end
 # and the executable
 
 installBIN("bin/rake", "rake")
+

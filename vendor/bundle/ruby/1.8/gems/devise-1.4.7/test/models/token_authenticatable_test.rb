@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class TokenAuthenticatableTest < ActiveSupport::TestCase
@@ -47,3 +48,4 @@ class TokenAuthenticatableTest < ActiveSupport::TestCase
     assert_nil user
   end
 end
+

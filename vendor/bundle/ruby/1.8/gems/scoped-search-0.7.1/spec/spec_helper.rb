@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'ruby-debug'
 require 'rspec'
 
@@ -31,4 +32,5 @@ end
 RSpec.configure do |config|
   config.mock_with :rspec
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 
 class DinheiroTest < Test::Unit::TestCase
@@ -496,3 +497,4 @@ class DinheiroTest < Test::Unit::TestCase
   end
   
 end
+

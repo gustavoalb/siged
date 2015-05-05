@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UserRoles < ActiveRecord::Migration
   def self.up
     create_table :roles_users, :id => false do |t|
@@ -9,3 +10,4 @@ class UserRoles < ActiveRecord::Migration
     drop_table :roles_users
   end
 end
+

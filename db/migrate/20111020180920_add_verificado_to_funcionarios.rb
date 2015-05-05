@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddVerificadoToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :verificado, :boolean
@@ -7,3 +8,4 @@ class AddVerificadoToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :verificado
   end
 end
+

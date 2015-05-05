@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -15,3 +16,4 @@ animation.iterations = 10000
 
 animation.write('swirl.gif')
 exit
+

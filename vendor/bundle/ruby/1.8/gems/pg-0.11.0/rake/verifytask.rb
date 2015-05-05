@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #####################################################################
 ###	S U B V E R S I O N   T A S K S   A N D   H E L P E R S
 #####################################################################
@@ -62,3 +63,4 @@ class VerifyTask < Rake::TaskLib
 end
 
 # vim: set nosta noet ts=4 sw=4:
+

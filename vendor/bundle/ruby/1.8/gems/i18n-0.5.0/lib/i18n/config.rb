@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module I18n
   class Config
     # The only configuration value that is not global and scoped to thread is :locale.
@@ -84,3 +85,4 @@ module I18n
     end
   end
 end
+

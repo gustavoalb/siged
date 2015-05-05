@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateVencimentos < ActiveRecord::Migration
   def self.up
     create_table :vencimentos do |t|
@@ -15,3 +16,4 @@ class CreateVencimentos < ActiveRecord::Migration
     drop_table :vencimentos
   end
 end
+

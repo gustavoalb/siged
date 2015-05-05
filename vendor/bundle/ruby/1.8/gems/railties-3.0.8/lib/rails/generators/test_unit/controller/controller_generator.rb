@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/test_unit'
 
 module TestUnit
@@ -13,3 +14,4 @@ module TestUnit
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFinanceiroFixos < ActiveRecord::Migration
   def self.up
     create_table :financeiro_fixos do |t|
@@ -19,3 +20,4 @@ class CreateFinanceiroFixos < ActiveRecord::Migration
     drop_table :financeiro_fixos
   end
 end
+

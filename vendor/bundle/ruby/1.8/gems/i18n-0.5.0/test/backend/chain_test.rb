@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nBackendChainTest < Test::Unit::TestCase
@@ -65,3 +66,4 @@ class I18nBackendChainTest < Test::Unit::TestCase
       backend
     end
 end
+

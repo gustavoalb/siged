@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'stringio'
 require 'cgi'
 require 'rack/request'
@@ -578,3 +579,4 @@ EOF
     end
   }
 end
+

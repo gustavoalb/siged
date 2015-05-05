@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttrToMatrizes < ActiveRecord::Migration
   def self.up
     add_column :matrizes, :dias_letivos_semanais, :integer
@@ -13,3 +14,4 @@ class AddAttrToMatrizes < ActiveRecord::Migration
     remove_column :matrizes, :dias_letivos_semanais
   end
 end
+

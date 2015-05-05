@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/directory'
 require 'rack/mock'
 
@@ -55,3 +56,4 @@ describe Rack::Directory do
     res.should.be.not_found
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -112,3 +113,4 @@ class TCTimezoneMelbourne < Test::Unit::TestCase
     assert_equal(0, tz.local_to_utc(36000))
   end  
 end
+

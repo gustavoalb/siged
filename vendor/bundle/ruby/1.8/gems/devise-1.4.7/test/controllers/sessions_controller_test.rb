@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
@@ -14,3 +15,4 @@ class SessionsControllerTest < ActionController::TestCase
     assert_template "devise/sessions/new"
   end
 end
+

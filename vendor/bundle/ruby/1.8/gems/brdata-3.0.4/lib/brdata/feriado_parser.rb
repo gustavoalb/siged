@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'find'
 require 'yaml'
 class FeriadoParser
@@ -28,3 +29,4 @@ class FeriadoParser
   
   
 end
+

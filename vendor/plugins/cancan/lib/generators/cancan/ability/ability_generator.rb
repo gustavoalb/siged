@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Cancan
   module Generators
     class AbilityGenerator < Rails::Generators::Base
@@ -9,3 +10,4 @@ module Cancan
     end
   end
 end
+

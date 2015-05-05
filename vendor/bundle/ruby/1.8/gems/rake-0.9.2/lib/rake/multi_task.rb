@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
 
   # Same as a regular task, but the immediate prerequisites are done in
@@ -14,3 +15,4 @@ module Rake
   end
 
 end
+

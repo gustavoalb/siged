@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 
 describe Arel::Nodes::SelectStatement do
@@ -11,3 +12,4 @@ describe Arel::Nodes::SelectStatement do
     end
   end
 end
+

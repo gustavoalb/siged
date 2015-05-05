@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CalendarDateSelect
   VERSION = '1.15'
   FORMATS = {
@@ -114,3 +115,4 @@ module CalendarDateSelect
     end
   end
 end
+

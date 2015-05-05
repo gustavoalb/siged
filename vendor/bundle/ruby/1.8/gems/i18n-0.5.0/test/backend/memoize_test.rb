@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 require 'backend/simple_test'
@@ -45,3 +46,4 @@ class I18nBackendMemoizeTest < I18nBackendSimpleTest
     assert_equal 1, I18n.backend.spy_calls
   end
 end
+

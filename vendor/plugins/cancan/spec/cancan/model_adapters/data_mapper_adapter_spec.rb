@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 if ENV["MODEL_ADAPTER"] == "data_mapper"
   require "spec_helper"
 
@@ -117,3 +118,4 @@ if ENV["MODEL_ADAPTER"] == "data_mapper"
     # TODO: add more comparison specs
   end
 end
+

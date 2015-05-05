@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ActiveRecord::Associations::AssociationProxy.class_eval do
   protected
   def with_scope(*args)
@@ -35,3 +36,4 @@ ActiveRecord::Associations::HasAndBelongsToManyAssociation.class_eval do
     end
   end
 end if ActiveRecord::Base.respond_to? :find_first
+

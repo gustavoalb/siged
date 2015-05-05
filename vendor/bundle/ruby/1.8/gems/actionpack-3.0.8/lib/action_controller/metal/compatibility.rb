@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   module Compatibility
     extend ActiveSupport::Concern
@@ -68,3 +69,4 @@ module ActionController
     end
   end
 end
+

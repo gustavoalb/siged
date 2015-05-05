@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'securerandom'
 
 module Devise
@@ -22,3 +23,4 @@ module Devise
     end
   end
 end
+

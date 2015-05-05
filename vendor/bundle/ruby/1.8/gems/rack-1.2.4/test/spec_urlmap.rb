@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/urlmap'
 require 'rack/mock'
 
@@ -211,3 +212,4 @@ describe Rack::URLMap do
     res["X-ScriptName"].should.equal ""
   end
 end
+

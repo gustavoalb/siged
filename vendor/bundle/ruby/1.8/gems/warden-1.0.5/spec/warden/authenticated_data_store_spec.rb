@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe "authenticated data store" do
@@ -112,3 +112,4 @@ describe "authenticated data store" do
     end.should raise_error(Warden::NotAuthenticated)
   end
 end
+

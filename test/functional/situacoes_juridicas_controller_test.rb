@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class SituacoesJuridicasControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class SituacoesJuridicasControllerTest < ActionController::TestCase
     assert_redirected_to situacoes_juridicas_path
   end
 end
+

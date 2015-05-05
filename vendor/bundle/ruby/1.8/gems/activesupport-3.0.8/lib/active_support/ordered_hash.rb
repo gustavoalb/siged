@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'psych'
 rescue LoadError
@@ -190,3 +191,4 @@ module ActiveSupport
     end
   end
 end
+

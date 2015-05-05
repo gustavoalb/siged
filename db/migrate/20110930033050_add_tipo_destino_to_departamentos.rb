@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTipoDestinoToDepartamentos < ActiveRecord::Migration
   def self.up
     add_column :departamentos, :tipo_destino_id, :integer
@@ -7,3 +8,4 @@ class AddTipoDestinoToDepartamentos < ActiveRecord::Migration
     remove_column :departamentos, :tipo_destino_id
   end
 end
+

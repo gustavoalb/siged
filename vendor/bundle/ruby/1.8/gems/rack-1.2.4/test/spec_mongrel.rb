@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
 require 'rack'
 require 'rack/handler/mongrel'
@@ -181,3 +182,4 @@ rescue LoadError => ex
   warn ex
   warn "Skipping Rack::Handler::Mongrel tests (Mongrel is required). `gem install mongrel` and try again."
 end
+

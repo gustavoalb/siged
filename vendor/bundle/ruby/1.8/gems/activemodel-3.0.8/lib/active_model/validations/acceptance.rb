@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
 
   # == Active Model Acceptance Validator
@@ -66,3 +67,4 @@ module ActiveModel
     end
   end
 end
+

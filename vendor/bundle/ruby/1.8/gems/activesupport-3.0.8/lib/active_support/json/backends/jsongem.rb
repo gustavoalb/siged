@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'json' unless defined?(JSON)
 
 module ActiveSupport
@@ -45,3 +46,4 @@ module ActiveSupport
     end
   end
 end
+

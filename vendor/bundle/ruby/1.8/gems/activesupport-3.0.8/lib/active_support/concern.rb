@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # A typical module looks like this
 #
 #   module M
@@ -62,3 +63,4 @@ module ActiveSupport
     end
   end
 end
+

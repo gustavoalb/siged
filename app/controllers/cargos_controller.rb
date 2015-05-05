@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CargosController < ApplicationController
   load_and_authorize_resource
   # GET /cargos
@@ -84,3 +85,4 @@ before_filter :dados_essenciais
     end
   end
 end
+

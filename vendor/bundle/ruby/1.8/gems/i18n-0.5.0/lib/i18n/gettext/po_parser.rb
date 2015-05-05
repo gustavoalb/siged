@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 =begin
   poparser.rb - Generate a .mo
 
@@ -327,3 +328,4 @@ module_eval <<'.,.,', 'src/poparser.ry', 103
   end   # class PoParser
 
 end   # module GetText
+

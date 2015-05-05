@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Update992 < ActiveRecord::Migration
 
 	def self.up
@@ -793,3 +794,4 @@ if f393 then f393.update_attributes(:categoria_id=>'2',:observacao=>'Gaveta 14 p
 	def self.down
 	end
 end
+

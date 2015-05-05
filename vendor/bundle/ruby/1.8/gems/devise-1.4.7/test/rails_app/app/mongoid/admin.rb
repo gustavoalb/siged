@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'shared_admin'
 
 class Admin
@@ -7,3 +8,4 @@ class Admin
 
   field :remember_token, :type => String
 end
+

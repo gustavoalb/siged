@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'lsapi'
 require 'rack/content_length'
 require 'rack/rewindable_input'
@@ -61,3 +62,4 @@ module Rack
     end
   end
 end
+

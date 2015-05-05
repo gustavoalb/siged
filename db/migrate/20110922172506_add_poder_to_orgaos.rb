@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPoderToOrgaos < ActiveRecord::Migration
   def self.up
     add_column :orgaos, :poder_id, :integer
@@ -9,3 +10,4 @@ class AddPoderToOrgaos < ActiveRecord::Migration
     remove_column :orgaos, :poder_id
   end
 end
+

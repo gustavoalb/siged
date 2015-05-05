@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators'
 Rails::Generators.configure!
 
@@ -8,3 +9,4 @@ end
 
 name = ARGV.shift
 Rails::Generators.invoke name, ARGV, :behavior => :invoke, :destination_root => Rails.root
+

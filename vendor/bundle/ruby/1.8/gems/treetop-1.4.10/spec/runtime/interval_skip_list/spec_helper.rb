@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 class IntervalSkipList
@@ -89,3 +90,4 @@ module IntervalSkipListSpecHelper
 end
 
 require 'runtime/interval_skip_list/palindromic_fixture'
+

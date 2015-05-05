@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erb'
 require 'open-uri'
 
@@ -268,3 +269,4 @@ class Thor
     end
   end
 end
+

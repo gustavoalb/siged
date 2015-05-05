@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # Copyright (c) 2005 David Heinemeier Hansson
 #
@@ -78,3 +79,4 @@ module ActiveSupport
 end
 
 autoload :I18n, "active_support/i18n"
+

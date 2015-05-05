@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Perfectline
   module ValidatesExistence
 
@@ -42,4 +43,5 @@ module Perfectline
     end
   end
 end
+
 

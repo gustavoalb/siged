@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module I18n
   module Backend
     autoload :Base,                  'i18n/backend/base'
@@ -16,3 +17,4 @@ module I18n
     autoload :Transliterator,        'i18n/backend/transliterator'
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Mail
   # A delivery method implementation which sends via sendmail.
   #
@@ -60,3 +61,4 @@ module Mail
     end
   end
 end
+

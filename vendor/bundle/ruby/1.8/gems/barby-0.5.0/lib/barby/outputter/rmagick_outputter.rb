@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'barby/outputter'
 require 'RMagick'
 
@@ -124,3 +125,4 @@ module Barby
 
 
 end
+

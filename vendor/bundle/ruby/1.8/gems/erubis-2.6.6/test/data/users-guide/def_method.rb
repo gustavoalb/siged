@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erubis'
 s = "hello <%= name %>"
 eruby = Erubis::Eruby.new(s)
@@ -12,3 +13,4 @@ p Dummy.new.render('world')    #=> "hello world"
 obj = Object.new
 eruby.def_method(obj, 'render(name)', filename)    # filename is optional
 p obj.render('world')          #=> "hello world"
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   class Application
     module Finisher
@@ -62,3 +63,4 @@ module Rails
     end
   end
 end
+

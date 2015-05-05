@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
   module VERSION #:nodoc:
     MAJOR = 3
@@ -8,3 +9,4 @@ module ActiveModel
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EnquetesController < ApplicationController
   # GET /enquetes
   # GET /enquetes.xml
@@ -81,3 +82,4 @@ class EnquetesController < ApplicationController
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   module Generators
     class PerformanceTestGenerator < NamedBase
@@ -5,3 +6,4 @@ module Rails
     end
   end
 end
+

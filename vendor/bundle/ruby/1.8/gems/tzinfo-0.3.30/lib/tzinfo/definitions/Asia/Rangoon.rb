@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TZInfo
   module Definitions
     module Asia
@@ -20,3 +21,4 @@ module TZInfo
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/railtie/configuration'
 
 module Rails
@@ -84,3 +85,4 @@ module Rails
     end
   end
 end
+

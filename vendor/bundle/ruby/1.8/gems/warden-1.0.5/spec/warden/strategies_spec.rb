@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::Strategies do
@@ -81,3 +81,4 @@ describe Warden::Strategies do
     Warden::Strategies[:foobar].should be_nil
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -45,4 +46,5 @@ canvas.border!(3, 3, "white")
 canvas.write("color_histogram.gif")
 
 exit
+
 

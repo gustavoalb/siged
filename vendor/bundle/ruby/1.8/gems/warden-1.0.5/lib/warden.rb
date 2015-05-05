@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'forwardable'
 
 require 'warden/mixins/common'
@@ -41,3 +41,4 @@ module Warden
     true
   end
 end
+

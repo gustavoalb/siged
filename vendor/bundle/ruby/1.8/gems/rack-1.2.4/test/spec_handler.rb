@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/handler'
 
 class Rack::Handler::Lobster; end
@@ -39,3 +40,4 @@ describe Rack::Handler do
     end
   end
 end
+

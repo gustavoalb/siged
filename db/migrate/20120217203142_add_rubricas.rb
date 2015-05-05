@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddRubricas < ActiveRecord::Migration
   def self.up
   	Folha::Evento.create(:codigo=>'10000',:intervalo=>'567890',:nome=>'SUBSIDIO',:ps_ativo=>'true',:ir_ativo=>'true',:fg_ativo=>'false',:dt_ativo=>'true',:ps_inativo=>'false',:ir_inativo=>'false',:dt_inativo=>'false',:formula=>'')
@@ -985,3 +986,4 @@ Folha::Evento.create(:codigo=>'67023',:intervalo=>'5',:nome=>'V. TRANS. URB. 2 C
   def self.down
   end
 end
+

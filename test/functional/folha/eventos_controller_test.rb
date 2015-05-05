@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Folha::EventosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class Folha::EventosControllerTest < ActionController::TestCase
     assert_redirected_to folha_eventos_path
   end
 end
+

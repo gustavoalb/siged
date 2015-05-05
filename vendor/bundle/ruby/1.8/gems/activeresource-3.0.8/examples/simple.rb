@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../lib"
 require 'active_resource'
 require 'active_support/core_ext/hash/conversions'
@@ -13,3 +14,4 @@ end
 
 bob = Person.find(1)
 puts bob.inspect
+

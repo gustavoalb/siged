@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
 
   class MockSession # :nodoc:
@@ -59,3 +60,4 @@ module Rack
   end
 
 end
+

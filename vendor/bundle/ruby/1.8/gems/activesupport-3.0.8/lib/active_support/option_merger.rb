@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/hash/deep_merge'
 
 module ActiveSupport
@@ -23,3 +24,4 @@ module ActiveSupport
       end
   end
 end
+

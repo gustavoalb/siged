@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module PontoAssinaturasHelper
 
   def d_assinaturas(tipo,ponto_diario)
@@ -112,3 +113,4 @@ module PontoAssinaturasHelper
     return raw(html)
   end
 end
+

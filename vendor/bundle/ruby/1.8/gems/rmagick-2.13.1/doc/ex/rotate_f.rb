@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -12,3 +13,4 @@ img = img.matte_replace(0,0)
 
 img.write('rotate_f.jpg')
 exit
+

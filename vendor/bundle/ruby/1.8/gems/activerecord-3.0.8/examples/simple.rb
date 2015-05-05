@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../lib"
 require 'active_record'
 
@@ -12,3 +13,4 @@ bob = Person.create!(:name => 'bob')
 puts Person.all.inspect
 bob.destroy
 puts Person.all.inspect
+

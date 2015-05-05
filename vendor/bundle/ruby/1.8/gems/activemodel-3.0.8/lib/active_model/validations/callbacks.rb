@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/callbacks'
 
 module ActiveModel
@@ -69,3 +70,4 @@ module ActiveModel
     end
   end
 end
+

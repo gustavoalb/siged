@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'rufus/scheduler'
 class Manutencao < ActiveRecord::Base
@@ -14,3 +15,4 @@ class Manutencao < ActiveRecord::Base
       end
   end
 end
+

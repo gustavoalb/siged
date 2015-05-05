@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 require 'tmpdir'
 
@@ -88,4 +89,5 @@ describe Compiler::GrammarCompiler do
     File.delete(alternate_target_path) if File.exists?(alternate_target_path)
   end
 end
+
 

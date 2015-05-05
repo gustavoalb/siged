@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateOrgaos < ActiveRecord::Migration
   def self.up
     create_table :orgaos do |t|
@@ -19,3 +20,4 @@ class CreateOrgaos < ActiveRecord::Migration
     drop_table :orgaos
   end
 end
+

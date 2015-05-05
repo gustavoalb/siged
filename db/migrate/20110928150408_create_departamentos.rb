@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDepartamentos < ActiveRecord::Migration
   def self.up
     create_table :departamentos do |t|
@@ -13,3 +14,4 @@ class CreateDepartamentos < ActiveRecord::Migration
     drop_table :departamentos
   end
 end
+

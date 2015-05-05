@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFieldToDistritos < ActiveRecord::Migration
   def self.up
     add_column :distritos, :tipo, :string
@@ -7,3 +8,4 @@ class AddFieldToDistritos < ActiveRecord::Migration
     remove_column :distritos, :tipo
   end
 end
+

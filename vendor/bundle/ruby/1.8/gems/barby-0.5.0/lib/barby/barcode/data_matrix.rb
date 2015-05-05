@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'semacode'
 require 'barby/barcode'
 
@@ -44,3 +45,4 @@ module Barby
   end
 
 end
+

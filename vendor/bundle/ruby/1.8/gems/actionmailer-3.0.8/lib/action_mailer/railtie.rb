@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "action_mailer"
 require "rails"
 
@@ -28,3 +29,4 @@ module ActionMailer
     end
   end
 end
+

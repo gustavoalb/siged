@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Dinheiro
   include Comparable
   
@@ -284,3 +285,4 @@ class Dinheiro
   end
   
 end
+

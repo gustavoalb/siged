@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddGrupoToDisciplinas < ActiveRecord::Migration
   def self.up
     add_column :disciplinas, :grupo, :integer
@@ -7,3 +8,4 @@ class AddGrupoToDisciplinas < ActiveRecord::Migration
     remove_column :disciplinas, :grupo
   end
 end
+

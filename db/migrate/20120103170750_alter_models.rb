@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterModels < ActiveRecord::Migration
   def self.up
   add_column :ambientes,:entidade_id,:integer
@@ -59,3 +60,4 @@ class AlterModels < ActiveRecord::Migration
   remove_column :vencimentos,:entidade_id
   end
 end
+

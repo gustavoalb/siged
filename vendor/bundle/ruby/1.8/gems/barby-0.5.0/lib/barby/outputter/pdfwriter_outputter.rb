@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'barby/outputter'
 
 module Barby
@@ -81,3 +82,4 @@ module Barby
   end
 
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   module Mime
     # Returns String with mime type if found, otherwise use +fallback+.
@@ -206,3 +207,4 @@ module Rack
     }
   end
 end
+

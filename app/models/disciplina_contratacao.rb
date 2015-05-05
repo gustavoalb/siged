@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DisciplinaContratacao < ActiveRecord::Base
 	#default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
 
@@ -11,3 +12,4 @@ class DisciplinaContratacao < ActiveRecord::Base
 	has_many :lotacoes,:foreign_key=>"disciplina_atuacao_id"
 	has_and_belongs_to_many :disciplinas,:class_name=>"Disciplina",:join_table => "disciplinas_habilitacoes"
 end
+

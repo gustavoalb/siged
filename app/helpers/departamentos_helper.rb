@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module DepartamentosHelper
 
 def pai(obj)
@@ -10,4 +11,5 @@ def pai(obj)
     end
     end
 end
+
 

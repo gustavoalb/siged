@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TZInfo
   module Definitions
     module Europe
@@ -99,3 +100,4 @@ module TZInfo
     end
   end
 end
+

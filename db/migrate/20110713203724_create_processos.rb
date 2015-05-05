@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateProcessos < ActiveRecord::Migration
   def self.up
     create_table :processos do |t|
@@ -31,4 +32,5 @@ class CreateProcessos < ActiveRecord::Migration
     drop_table :processos
   end
 end
+
 

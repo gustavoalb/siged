@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 1.9.1 fixes
 
 
@@ -22,5 +23,6 @@ unless Pathname.instance_methods.include?( :=~ )
 		end
 	end
 end
+
 
 

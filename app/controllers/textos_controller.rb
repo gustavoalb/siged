@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TextosController < ApplicationController
   # GET /textos
   # GET /textos.xml
@@ -103,3 +104,4 @@ private
 def categoria
   @categoria = Categoria.find(params[:categoria_id])
 end
+

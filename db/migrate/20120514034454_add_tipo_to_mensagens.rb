@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTipoToMensagens < ActiveRecord::Migration
   def self.up
     add_column :mensagens, :tipo, :string
@@ -7,3 +8,4 @@ class AddTipoToMensagens < ActiveRecord::Migration
     remove_column :mensagens, :tipo
   end
 end
+

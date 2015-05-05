@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'psych'
 rescue LoadError
@@ -1907,3 +1908,4 @@ end
 # TODO: Remove this and make it work with LAZY flag
 require 'active_record/connection_adapters/abstract_adapter'
 ActiveSupport.run_load_hooks(:active_record, ActiveRecord::Base)
+

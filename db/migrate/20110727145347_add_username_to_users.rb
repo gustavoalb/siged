@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddUsernameToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :username, :string
@@ -9,3 +10,4 @@ class AddUsernameToUsers < ActiveRecord::Migration
     remove_column :users, :username
   end
 end
+

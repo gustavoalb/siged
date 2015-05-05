@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -113,3 +114,4 @@ class TCTimezoneDefinition < Test::Unit::TestCase
     assert_equal(:GMT, LinkedDataTest.get.period_for_utc(DateTime.new(1847,12,1,0,1,15)).abbreviation)
   end  
 end
+

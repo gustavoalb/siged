@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFolhaFinanceiros < ActiveRecord::Migration
   def self.up
     create_table :folha_financeiros do |t|
@@ -21,3 +22,4 @@ class CreateFolhaFinanceiros < ActiveRecord::Migration
     drop_table :folha_financeiros
   end
 end
+

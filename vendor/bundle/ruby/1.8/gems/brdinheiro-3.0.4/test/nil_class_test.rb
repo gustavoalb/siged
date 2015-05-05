@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 
 class NilClassTest < Test::Unit::TestCase
@@ -27,3 +28,4 @@ class NilClassTest < Test::Unit::TestCase
   
   
 end
+

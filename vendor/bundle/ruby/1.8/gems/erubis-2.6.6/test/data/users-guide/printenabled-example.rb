@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erubis'
 class PrintEnabledEruby < Erubis::Eruby
   include Erubis::PrintEnabledEnhancer
@@ -6,3 +7,4 @@ input = File.read('printenabled-example.eruby')
 eruby = PrintEnabledEruby.new(input)
 list = ['aaa', 'bbb', 'ccc']
 print eruby.evaluate(:list=>list)
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rbconfig'
 require 'fileutils'
 
@@ -110,3 +111,4 @@ module FileUtils
     return split_all(head) + [tail]
   end
 end
+

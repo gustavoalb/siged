@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/array/extract_options'
 
 class Module
@@ -58,3 +59,4 @@ class Module
     mattr_writer(*syms)
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'time'
 require 'rack/utils'
 require 'rack/mime'
@@ -155,3 +156,4 @@ table { width:100%%; }
     end
   end
 end
+

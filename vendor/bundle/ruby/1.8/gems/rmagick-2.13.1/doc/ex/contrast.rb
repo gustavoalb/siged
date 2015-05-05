@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -34,3 +35,4 @@ imgs = img.montage {
 imgs.write('contrast.jpg')
 #imgs.display
 exit
+

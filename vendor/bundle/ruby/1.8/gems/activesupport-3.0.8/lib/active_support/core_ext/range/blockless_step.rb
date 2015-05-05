@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/module/aliasing'
 
 class Range
@@ -27,3 +28,4 @@ class Range
 
   alias_method_chain :step, :blockless
 end
+

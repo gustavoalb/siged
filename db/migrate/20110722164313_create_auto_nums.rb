@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAutoNums < ActiveRecord::Migration
   def self.up
     create_table :auto_nums do |t|
@@ -11,3 +12,4 @@ class CreateAutoNums < ActiveRecord::Migration
     drop_table :auto_nums
   end
 end
+

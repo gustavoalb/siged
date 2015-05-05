@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class Offset < Arel::Nodes::Unary
@@ -5,3 +6,4 @@ module Arel
     end
   end
 end
+

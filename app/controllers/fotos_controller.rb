@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FotosController < ApplicationController
 skip_before_filter :verify_authenticity_token, :except => [:create]
 
@@ -52,3 +53,4 @@ def upload_path # is used in upload and create
 
 end
 end
+

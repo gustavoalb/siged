@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakeTopLevelFunctions < Rake::TestCase
@@ -74,3 +75,4 @@ class TestRakeTopLevelFunctions < Rake::TestCase
     assert_raises(NameError) do Object.const_missing(:Xyz) end
   end
 end
+

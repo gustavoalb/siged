@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'optparse'
 require 'rbconfig'
 
@@ -54,3 +55,4 @@ ensure
     Rails.logger.flush if Rails.logger.respond_to?(:flush)
   end
 end
+

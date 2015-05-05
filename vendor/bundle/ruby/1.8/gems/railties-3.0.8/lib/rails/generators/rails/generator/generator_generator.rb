@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   module Generators
     class GeneratorGenerator < NamedBase
@@ -23,3 +24,4 @@ module Rails
     end
   end
 end
+

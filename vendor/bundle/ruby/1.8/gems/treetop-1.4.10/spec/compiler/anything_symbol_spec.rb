@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module AnythingSymbolSpec
@@ -42,3 +43,4 @@ module AnythingSymbolSpec
     end
   end
 end
+

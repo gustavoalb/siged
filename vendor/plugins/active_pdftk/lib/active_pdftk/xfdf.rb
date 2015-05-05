@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActivePdftk
 
   # Map keys and values to Adobe's XFDF format.
@@ -58,3 +59,4 @@ module ActivePdftk
 
   end
 end
+

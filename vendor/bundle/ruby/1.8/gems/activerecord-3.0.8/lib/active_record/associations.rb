@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/array/wrap'
 require 'active_support/core_ext/enumerable'
 require 'active_support/core_ext/module/delegation'
@@ -2305,3 +2306,4 @@ module ActiveRecord
     end
   end
 end
+

@@ -44,3 +44,5 @@
 class Cnpj
   include CpfCnpj
 end
+end
+

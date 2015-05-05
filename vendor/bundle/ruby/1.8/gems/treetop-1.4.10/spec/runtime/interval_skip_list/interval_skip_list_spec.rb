@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #require 'runtime/interval_skip_list/spec_helper'
 #
 #MAX_INTERVAL = 100000
@@ -56,3 +57,4 @@
 #    end
 #  end
 #end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
 
   # Allows you to create a new Mail::Message object.
@@ -253,3 +253,4 @@ module Mail
   @@uniq = self.something_random
 
 end
+

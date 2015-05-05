@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EspecificarLotacao < ActiveRecord::Base
 	#default_scope where('especificar_lotacaos.entidade_id in (?)',User.usuario_atual.entidade_ids)
 	set_table_name :especificar_lotacaos
@@ -23,3 +24,4 @@ class EspecificarLotacao < ActiveRecord::Base
 	#end
 	
 end
+

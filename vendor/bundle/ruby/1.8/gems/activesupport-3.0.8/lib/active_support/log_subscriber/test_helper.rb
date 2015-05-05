@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/log_subscriber'
 require 'active_support/buffered_logger'
 
@@ -97,3 +98,4 @@ module ActiveSupport
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -23,4 +24,5 @@ result = imgs.montage {
     }
 
 result.write('channel.jpg')
+
 

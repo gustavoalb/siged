@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "open3"
 require "tmpdir"
 
@@ -482,3 +483,4 @@ module ActivePdftk
 
   end
 end
+

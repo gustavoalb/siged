@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Validations
   #
@@ -82,3 +83,4 @@ end
 
 require "active_record/validations/associated"
 require "active_record/validations/uniqueness"
+

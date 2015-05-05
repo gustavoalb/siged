@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   module CommonMessageId # :nodoc:
     def element
@@ -42,3 +42,4 @@ module Mail
     
   end
 end
+

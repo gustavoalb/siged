@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 def helper
   @helper ||= ApplicationController.helpers
 end
@@ -5,3 +6,4 @@ end
 def controller
   @controller ||= ApplicationController.new
 end
+

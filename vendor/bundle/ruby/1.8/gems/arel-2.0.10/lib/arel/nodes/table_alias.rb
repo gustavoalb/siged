@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class TableAlias < Arel::Nodes::Binary
@@ -11,3 +12,4 @@ module Arel
     end
   end
 end
+

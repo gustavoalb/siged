@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFieldsToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :codigo_sirh, :string
@@ -7,3 +8,4 @@ class AddFieldsToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :codigo_sirh
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'action_view/helpers/form_helper'
 require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/enumerable'
@@ -76,3 +77,4 @@ module ActionView
     end
   end
 end
+

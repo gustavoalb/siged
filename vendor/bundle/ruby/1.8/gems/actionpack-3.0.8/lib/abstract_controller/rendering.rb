@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "abstract_controller/base"
 require "action_view"
 
@@ -168,3 +169,4 @@ module AbstractController
     end
   end
 end
+

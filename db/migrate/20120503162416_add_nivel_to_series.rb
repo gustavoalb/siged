@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddNivelToSeries < ActiveRecord::Migration
   def self.up
     add_column :series, :nivel_id, :integer
@@ -7,3 +8,4 @@ class AddNivelToSeries < ActiveRecord::Migration
     remove_column :series, :nivel_id
   end
 end
+

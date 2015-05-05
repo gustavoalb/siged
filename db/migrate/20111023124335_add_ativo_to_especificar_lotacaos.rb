@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAtivoToEspecificarLotacaos < ActiveRecord::Migration
   def self.up
     add_column :especificar_lotacaos, :ativo, :boolean,:default=>true
@@ -7,3 +8,4 @@ class AddAtivoToEspecificarLotacaos < ActiveRecord::Migration
     remove_column :especificar_lotacaos, :ativo
   end
 end
+

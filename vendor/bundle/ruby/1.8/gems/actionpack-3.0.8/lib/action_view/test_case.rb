@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/blank'
 require 'action_controller'
 require 'action_controller/test_case'
@@ -227,3 +228,4 @@ module ActionView
 
   end
 end
+

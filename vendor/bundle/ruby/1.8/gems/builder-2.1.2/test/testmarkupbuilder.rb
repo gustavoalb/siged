@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 #--
@@ -446,4 +447,5 @@ class TestIndentedXmlMarkup < Test::Unit::TestCase
   end
 
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class TestHelpersTest < ActionController::TestCase
@@ -132,3 +133,4 @@ class TestHelpersTest < ActionController::TestCase
     assert_match /User ##{second_user.id}/, @response.body
   end
 end
+

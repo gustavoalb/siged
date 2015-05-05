@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $LOAD_PATH << "#{File.dirname(__FILE__)}/html-scanner"
 
 module HTML
@@ -18,3 +19,4 @@ module HTML
     autoload :WhiteListSanitizer, 'html/sanitizer'
   end
 end
+

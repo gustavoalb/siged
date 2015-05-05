@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe CanCan::ControllerResource do
@@ -410,3 +411,4 @@ describe CanCan::ControllerResource do
     @controller.instance_variable_get(:@project).should be_nil
   end
 end
+

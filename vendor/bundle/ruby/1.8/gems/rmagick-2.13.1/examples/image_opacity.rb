@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 # Ccreate a semi-transparent title for an image.
 
@@ -27,3 +28,4 @@ result = balloons.composite(legend, SouthGravity, OverCompositeOp)
 puts "...Writing image_opacity.miff"
 result.write 'image_opacity.miff'
 exit
+

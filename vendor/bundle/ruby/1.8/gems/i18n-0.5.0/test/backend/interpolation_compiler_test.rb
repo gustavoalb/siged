@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class InterpolationCompilerTest < Test::Unit::TestCase
@@ -100,3 +101,4 @@ class I18nBackendInterpolationCompilerTest < Test::Unit::TestCase
   end
 
 end
+

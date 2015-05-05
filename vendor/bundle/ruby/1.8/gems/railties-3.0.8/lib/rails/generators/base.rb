@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'thor/group'
 rescue LoadError
@@ -373,3 +374,4 @@ module Rails
     end
   end
 end
+

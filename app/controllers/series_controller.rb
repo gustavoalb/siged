@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SeriesController < ApplicationController
   load_and_authorize_resource
   before_filter :nivel
@@ -89,3 +90,4 @@ private
 def nivel
   @nivel = NiveisEnsino.find(params[:niveis_ensino_id])
 end
+

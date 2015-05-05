@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/try'
 
 module ActionView
@@ -65,3 +66,4 @@ module ActionView
     end
   end
 end
+

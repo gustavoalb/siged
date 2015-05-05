@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController #:nodoc:
   module SessionManagement #:nodoc:
     extend ActiveSupport::Concern
@@ -7,3 +8,4 @@ module ActionController #:nodoc:
     end
   end
 end
+

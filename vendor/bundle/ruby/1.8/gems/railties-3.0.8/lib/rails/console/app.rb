@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/all'
 require 'active_support/test_case'
 require 'action_controller'
@@ -30,3 +31,4 @@ def reload!(print=true)
   ActionDispatch::Callbacks.new(Proc.new {}, false).call({})
   true
 end
+

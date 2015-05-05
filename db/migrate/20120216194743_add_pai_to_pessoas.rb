@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPaiToPessoas < ActiveRecord::Migration
   def self.up
     add_column :pessoas, :pai, :string
@@ -9,3 +10,4 @@ class AddPaiToPessoas < ActiveRecord::Migration
     remove_column :pessoas, :pai
   end
 end
+

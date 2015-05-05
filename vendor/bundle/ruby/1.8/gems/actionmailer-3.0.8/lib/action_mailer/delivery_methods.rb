@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'tmpdir'
 
 module ActionMailer
@@ -84,3 +85,4 @@ module ActionMailer
     end
   end
 end
+

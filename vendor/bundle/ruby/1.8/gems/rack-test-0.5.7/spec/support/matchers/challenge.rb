@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 RSpec::Matchers.define :be_challenge do
   match do |actual_response|
     actual_response.status == 401 &&
@@ -9,3 +10,4 @@ RSpec::Matchers.define :be_challenge do
     "a HTTP Digest challenge response"
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 
 describe Arel::Nodes::SelectCore do
@@ -20,3 +21,4 @@ describe Arel::Nodes::SelectCore do
     end
   end
 end
+

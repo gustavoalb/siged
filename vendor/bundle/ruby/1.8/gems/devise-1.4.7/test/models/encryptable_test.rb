@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class EncryptableTest < ActiveSupport::TestCase
@@ -65,3 +66,4 @@ class EncryptableTest < ActiveSupport::TestCase
     assert_not admin.valid_password?('123456')
   end
 end
+

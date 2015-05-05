@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # wkhtml2pdf Ruby interface
 # http://code.google.com/p/wkhtmltopdf/
 
@@ -159,3 +160,4 @@ class WickedPdf
     end
 
 end
+

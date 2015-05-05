@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/core_ext/enumerable"
 
 module ActionView
@@ -122,3 +123,4 @@ module ActionView
 
   TemplateError = Template::Error
 end
+

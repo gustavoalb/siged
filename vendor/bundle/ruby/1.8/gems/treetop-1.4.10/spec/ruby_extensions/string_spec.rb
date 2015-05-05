@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe String do
@@ -30,3 +31,4 @@ describe String do
     @string.line_of(24).should == 3
   end
 end
+

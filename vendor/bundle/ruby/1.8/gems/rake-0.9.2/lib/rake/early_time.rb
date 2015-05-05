@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
 
   # EarlyTime is a fake timestamp that occurs _before_ any other time value.
@@ -16,3 +17,4 @@ module Rake
 
   EARLY = EarlyTime.instance
 end
+

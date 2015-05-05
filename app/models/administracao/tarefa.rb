@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Administracao::Tarefa < ActiveRecord::Base
 
 
@@ -20,3 +21,4 @@ CLASSE=[
 
 ]
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UpdateDataNomeacao < ActiveRecord::Migration
   def self.up
 User.usuario_atual = User.find 1
@@ -23454,3 +23455,4 @@ if f11724 then f11724.update_attributes(:data_nomeacao=>'2008-07-01') end
   def self.down
   end
 end
+

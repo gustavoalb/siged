@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/dependencies'
 
 module AbstractController
@@ -167,3 +168,4 @@ module AbstractController
     end
   end
 end
+

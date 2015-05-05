@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thor/shell/basic'
 
 class Thor
@@ -119,3 +120,4 @@ class Thor
     end
   end
 end
+

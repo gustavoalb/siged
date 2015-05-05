@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'libxml'
 require 'active_support/core_ext/object/blank'
 
@@ -83,3 +84,4 @@ module ActiveSupport
     end
   end
 end
+

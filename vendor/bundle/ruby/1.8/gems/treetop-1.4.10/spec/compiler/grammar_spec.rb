@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module GrammarSpec
@@ -39,3 +40,4 @@ module GrammarSpec
     end
   end
 end
+

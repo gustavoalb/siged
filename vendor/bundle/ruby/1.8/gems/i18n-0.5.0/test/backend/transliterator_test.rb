@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # :coding: utf-8
 require 'test_helper'
 
@@ -79,3 +80,4 @@ class I18nBackendTransliterator < Test::Unit::TestCase
   end
 
 end
+

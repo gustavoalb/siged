@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Kernel
   def suppress_warnings
     original_verbosity = $VERBOSE
@@ -7,3 +8,4 @@ module Kernel
     result
   end
 end
+

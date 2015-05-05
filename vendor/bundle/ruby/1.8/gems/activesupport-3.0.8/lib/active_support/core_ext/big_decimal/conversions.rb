@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'bigdecimal'
 
 begin
@@ -42,3 +43,4 @@ class BigDecimal
   alias_method :_original_to_s, :to_s
   alias_method :to_s, :to_formatted_s
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     ###
@@ -42,3 +43,4 @@ module Arel
     end
   end
 end
+

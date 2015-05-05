@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "thin"
 require "rack/content_length"
 require "rack/chunked"
@@ -16,3 +17,4 @@ module Rack
     end
   end
 end
+

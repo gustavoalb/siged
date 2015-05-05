@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
   
   has_one :company, :foreign_key => 'owner_id'
@@ -15,3 +16,4 @@ class User < ActiveRecord::Base
     self.find_by_email_and_name(email, name)
   end
 end
+

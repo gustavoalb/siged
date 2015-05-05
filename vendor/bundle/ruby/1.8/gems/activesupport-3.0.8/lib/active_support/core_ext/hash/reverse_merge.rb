@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Hash
   # Allows for reverse merging two hashes where the keys in the calling hash take precedence over those
   # in the <tt>other_hash</tt>. This is particularly useful for initializing an option hash with default values:
@@ -26,3 +27,4 @@ class Hash
 
   alias_method :reverse_update, :reverse_merge!
 end
+

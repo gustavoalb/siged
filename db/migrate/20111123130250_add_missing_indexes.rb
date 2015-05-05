@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddMissingIndexes < ActiveRecord::Migration
   def self.up
     
@@ -143,4 +144,5 @@ class AddMissingIndexes < ActiveRecord::Migration
     remove_index :boletins_funcionais, :funcionario_id
   end
 end
+
 

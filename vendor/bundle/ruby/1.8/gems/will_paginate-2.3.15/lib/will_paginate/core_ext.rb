@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 require 'will_paginate/array'
 
@@ -41,3 +42,4 @@ unless Hash.instance_methods.include_method? :slice
     end
   end
 end
+

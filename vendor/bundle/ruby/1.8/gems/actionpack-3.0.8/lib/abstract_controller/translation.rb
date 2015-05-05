@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module AbstractController
   module Translation
     def translate(*args)
@@ -11,3 +12,4 @@ module AbstractController
     alias :l :localize
   end
 end
+

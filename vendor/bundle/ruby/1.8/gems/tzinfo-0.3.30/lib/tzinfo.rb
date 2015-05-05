@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # Copyright (c) 2005-2010 Philip Ross
 # 
@@ -53,3 +54,4 @@ require 'tzinfo/country_info'
 
 require 'tzinfo/country'
 require 'tzinfo/country_timezone'
+

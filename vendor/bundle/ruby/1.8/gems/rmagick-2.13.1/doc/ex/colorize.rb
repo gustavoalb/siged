@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -14,3 +15,4 @@ colorized = mono.colorize(0.30, 0.30, 0.30, '#cc9933')
 
 colorized.write('colorize.jpg')
 exit
+

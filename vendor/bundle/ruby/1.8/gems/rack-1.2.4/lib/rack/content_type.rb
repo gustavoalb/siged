@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/utils'
 
 module Rack
@@ -21,3 +22,4 @@ module Rack
     end
   end
 end
+

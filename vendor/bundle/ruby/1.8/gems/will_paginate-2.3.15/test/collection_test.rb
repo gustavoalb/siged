@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 require 'will_paginate/array'
 
@@ -141,3 +142,4 @@ class ArrayPaginationTest < Test::Unit::TestCase
       Array.new(size)
     end
 end
+

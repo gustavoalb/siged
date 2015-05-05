@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddColLotacao < ActiveRecord::Migration
   def self.up
         add_column :lotacaos,:ativo,:boolean,:default=>true
@@ -7,4 +8,5 @@ class AddColLotacao < ActiveRecord::Migration
         remove_colum :lotacaos,:ativo
   end
 end
+
 

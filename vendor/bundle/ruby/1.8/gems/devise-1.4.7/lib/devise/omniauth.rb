@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require "omniauth/core"
 rescue LoadError => e
@@ -25,3 +26,4 @@ module Devise
     autoload :UrlHelpers,  "devise/omniauth/url_helpers"
   end
 end
+

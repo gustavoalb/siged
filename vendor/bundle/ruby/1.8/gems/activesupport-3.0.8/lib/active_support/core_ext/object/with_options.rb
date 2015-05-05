@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/option_merger'
 
 class Object
@@ -24,3 +25,4 @@ class Object
     yield ActiveSupport::OptionMerger.new(self, options)
   end
 end
+

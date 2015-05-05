@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSlugToPessoas < ActiveRecord::Migration
   def self.up
     add_column :pessoas, :slug, :string
@@ -10,3 +11,4 @@ class AddSlugToPessoas < ActiveRecord::Migration
     remove_column :pessoas, :slug
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/inflector'
 
 class Module
@@ -86,3 +87,4 @@ class Module
     local_constants.map { |c| c.to_s }
   end
 end
+

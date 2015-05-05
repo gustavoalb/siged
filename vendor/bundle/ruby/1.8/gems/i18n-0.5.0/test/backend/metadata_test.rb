@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nBackendMetadataTest < Test::Unit::TestCase
@@ -64,4 +65,5 @@ class I18nBackendMetadataTest < Test::Unit::TestCase
       translations[:en][key].translation_metadata[name] = value
     end
 end
+
 

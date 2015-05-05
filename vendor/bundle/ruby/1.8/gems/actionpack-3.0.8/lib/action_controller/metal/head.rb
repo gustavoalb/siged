@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   module Head
     extend ActiveSupport::Concern
@@ -30,3 +31,4 @@ module ActionController
     end
   end
 end
+

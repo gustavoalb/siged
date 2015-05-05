@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -19,3 +20,4 @@ animation.iterations = 10000
 #animation.animate
 animation.write('cycle_colormap.gif')
 exit
+

@@ -1,4 +1,5 @@
-include Serenity::Generator
+# -*- encoding : utf-8 -*-
+#include Serenity::Generator
 class Escola < ActiveRecord::Base
  include ScopedSearch::Model
  extend FriendlyId
@@ -119,3 +120,4 @@ class Escola < ActiveRecord::Base
     self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
   end
 end
+

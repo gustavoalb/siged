@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSlugToEscolas < ActiveRecord::Migration
   def self.up
     add_column :escolas, :slug, :string
@@ -8,3 +9,4 @@ class AddSlugToEscolas < ActiveRecord::Migration
     remove_column :escolas, :slug
   end
 end
+

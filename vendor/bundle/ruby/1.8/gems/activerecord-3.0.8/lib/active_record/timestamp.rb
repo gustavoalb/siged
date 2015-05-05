@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Timestamp
   #
@@ -85,4 +86,5 @@ module ActiveRecord
     end
   end
 end
+
 

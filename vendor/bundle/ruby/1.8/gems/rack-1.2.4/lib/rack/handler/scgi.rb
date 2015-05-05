@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'scgi'
 require 'stringio'
 require 'rack/content_length'
@@ -57,3 +58,4 @@ module Rack
     end
   end
 end
+

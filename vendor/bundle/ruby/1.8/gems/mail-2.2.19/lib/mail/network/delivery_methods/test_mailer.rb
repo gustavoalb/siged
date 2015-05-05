@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Mail
   # The TestMailer is a bare bones mailer that does nothing.  It is useful
   # when you are testing.
@@ -38,3 +39,4 @@ module Mail
     
   end
 end
+

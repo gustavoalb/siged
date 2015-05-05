@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 RSpec::Matchers.define :orderlessly_match do |original_string|
   match do |given_string|
     original_string.split('').sort == given_string.split('').sort
@@ -11,3 +12,4 @@ RSpec::Matchers.define :orderlessly_match do |original_string|
     "expected \"#{given_string}\" not to have the same characters as \"#{original_string}\""
   end
 end
+

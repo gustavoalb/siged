@@ -8,8 +8,8 @@ gem 'statistics'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "validates_timeliness"
-gem "mongrel"
-gem 'postgres'
+#gem "mongrel"
+#gem 'postgres'
 gem "odf-report"
 gem "paperclip"#,:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
 gem 'pg'
@@ -25,7 +25,7 @@ gem "wkhtmltopdf", "~> 0.1.2"
 gem 'barby'
 gem 'rmagick'
 gem 'railroady'
-gem 'axlsx'
+#gem 'axlsx'
 gem 'silent-postgres'
 gem 'serenity-odt','0.2.0'
 #gem 'messaging', :git=> 'git://github.com/frodefi/rails-messaging.git'
@@ -37,6 +37,8 @@ gem 'rufus-scheduler'
 # gem 'unicorn'
 gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'friendly_id'
+gem "cocoon"
+gem 'rails3-jquery-autocomplete'
 
 
 # Deploy with Capistrano

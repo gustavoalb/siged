@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class ConfirmationInstructionsTest < ActionMailer::TestCase
@@ -88,3 +89,4 @@ class ConfirmationInstructionsTest < ActionMailer::TestCase
     end
   end
 end
+

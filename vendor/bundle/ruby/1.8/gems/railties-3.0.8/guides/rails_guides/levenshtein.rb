@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RailsGuides
   module Levenshtein
     # Based on the pseudocode in http://en.wikipedia.org/wiki/Levenshtein_distance.
@@ -29,3 +30,4 @@ module RailsGuides
     end
   end
 end
+

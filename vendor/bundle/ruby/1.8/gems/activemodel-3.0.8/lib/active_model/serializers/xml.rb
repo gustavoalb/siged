@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/array/wrap'
 require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/array/conversions'
@@ -146,3 +147,4 @@ module ActiveModel
     end
   end
 end
+

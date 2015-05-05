@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Num
 def numero(id)
     num=id.to_s
@@ -12,4 +13,5 @@ def numero(id)
       end
     return cod
 end
+
 

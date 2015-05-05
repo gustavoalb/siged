@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require File.join(File.dirname(__FILE__), 'test_utils')
@@ -154,3 +155,4 @@ class TCCountry < Test::Unit::TestCase
     assert_equal('US', Country.get('US').code)
   end
 end
+

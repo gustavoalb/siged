@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 require 'fileutils'
 
@@ -77,4 +78,5 @@ class TestRakeDefinitions < Rake::TestCase
   end
 
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ENV["RAILS_ENV"] = "test"
 DEVISE_ORM = (ENV["DEVISE_ORM"] || :active_record).to_sym
 
@@ -25,3 +26,4 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 require "rails/generators/test_case"
 require "generators/devise/install_generator"
 require "generators/devise/views_generator"
+

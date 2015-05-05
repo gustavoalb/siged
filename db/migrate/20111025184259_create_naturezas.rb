@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateNaturezas < ActiveRecord::Migration
   def self.up
     create_table :naturezas do |t|
@@ -12,3 +13,4 @@ class CreateNaturezas < ActiveRecord::Migration
     drop_table :naturezas
   end
 end
+

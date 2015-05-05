@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erubis'
 input = File.read('example1.eruby')
 eruby = Erubis::Eruby.new(input)    # create Eruby object
@@ -15,3 +16,4 @@ puts eruby.result(binding())        # get result
 ## input = File.read('example1.eruby')
 ## src = eruby.convert(input)
 ## eval src
+

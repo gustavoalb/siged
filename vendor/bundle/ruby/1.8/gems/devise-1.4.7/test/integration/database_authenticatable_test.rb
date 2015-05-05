@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class DatabaseAuthenticationTest < ActionController::IntegrationTest
@@ -80,3 +81,4 @@ class DatabaseAuthenticationTest < ActionController::IntegrationTest
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class ManutencoesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class ManutencoesControllerTest < ActionController::TestCase
     assert_redirected_to manutencoes_path
   end
 end
+

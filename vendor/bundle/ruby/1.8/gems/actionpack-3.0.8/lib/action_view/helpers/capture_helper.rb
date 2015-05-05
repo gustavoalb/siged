@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/string/output_safety'
 
@@ -186,3 +187,4 @@ module ActionView
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class CategoriaControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class CategoriaControllerTest < ActionController::TestCase
     assert_redirected_to categoria_path
   end
 end
+

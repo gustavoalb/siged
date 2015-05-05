@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   module Utilities
     include Patterns
@@ -209,3 +209,4 @@ module Mail
 
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 
 # Documentation Rake tasks
 # 
@@ -120,4 +121,5 @@ end
 task :apidocs => DOCFILES
 
 CLEAN.include( API_DOCSDIR.to_s )
+
 

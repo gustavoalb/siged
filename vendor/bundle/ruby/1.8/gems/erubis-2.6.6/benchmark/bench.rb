@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 ###
@@ -311,3 +312,4 @@ if __FILE__ == $0
   MainApplication.new().execute()
 
 end
+

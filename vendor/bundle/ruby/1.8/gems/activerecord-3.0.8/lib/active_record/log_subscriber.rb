@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   class LogSubscriber < ActiveSupport::LogSubscriber
     def self.runtime=(value)
@@ -46,3 +47,4 @@ module ActiveRecord
 end
 
 ActiveRecord::LogSubscriber.attach_to :active_record
+

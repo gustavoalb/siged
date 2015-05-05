@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module NonterminalSymbolSpec
@@ -38,3 +39,4 @@ module NonterminalSymbolSpec
     end
   end
 end
+

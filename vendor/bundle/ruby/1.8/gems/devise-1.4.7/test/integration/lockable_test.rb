@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class LockTest < ActionController::IntegrationTest
@@ -199,3 +200,4 @@ class LockTest < ActionController::IntegrationTest
   end
 
 end
+

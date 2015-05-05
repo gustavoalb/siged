@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/base'
 require 'rails/generators/generated_attribute'
 
@@ -121,3 +122,4 @@ module Rails
     end
   end
 end
+

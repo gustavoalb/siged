@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nLocaleTagRfc4646ParserTest < Test::Unit::TestCase
@@ -140,3 +140,4 @@ class I18nLocaleTagSubtagsTest < Test::Unit::TestCase
     assert_equal parents, tag.self_and_parents.map(&:to_s)
   end
 end
+

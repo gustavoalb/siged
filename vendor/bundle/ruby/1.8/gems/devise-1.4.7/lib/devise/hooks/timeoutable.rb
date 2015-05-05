@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Each time a record is set we check whether its session has already timed out
 # or not, based on last request time. If so, the record is logged out and
 # redirected to the sign in page. Also, each time the request comes and the
@@ -20,3 +21,4 @@ Warden::Manager.after_set_user do |record, warden, options|
     warden.session(scope)['last_request_at'] = Time.now.utc
   end
 end
+

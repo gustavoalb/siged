@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFotos < ActiveRecord::Migration
   def self.up
     create_table :fotos do |t|
@@ -12,3 +13,4 @@ class CreateFotos < ActiveRecord::Migration
     drop_table :fotos
   end
 end
+

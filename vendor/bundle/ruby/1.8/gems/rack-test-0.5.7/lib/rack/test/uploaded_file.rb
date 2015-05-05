@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "tempfile"
 require "fileutils"
 
@@ -44,3 +45,4 @@ module Rack
 
   end
 end
+

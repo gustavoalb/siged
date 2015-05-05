@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/content_type'
 
 describe Rack::ContentType do
@@ -27,3 +28,4 @@ describe Rack::ContentType do
       should.equal [["CONTENT-Type","foo/bar"]]
   end
 end
+

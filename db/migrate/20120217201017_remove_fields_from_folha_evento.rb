@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveFieldsFromFolhaEvento < ActiveRecord::Migration
 	def self.up
 		remove_column :folha_eventos, :incide_previdencia
@@ -29,3 +30,4 @@ class RemoveFieldsFromFolhaEvento < ActiveRecord::Migration
 		remove_column :folha_eventos,:intervalo
 	end
 end
+

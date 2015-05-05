@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
 
   # This module adds the accessible_by class method to a model. It is included in the model adapters.
@@ -29,3 +30,4 @@ module CanCan
     end
   end
 end
+

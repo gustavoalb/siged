@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Polyglot
     VALID_GRAMMAR_EXT = ['treetop', 'tt']
@@ -7,3 +8,4 @@ end
 
 require 'polyglot'
 Polyglot.register(Treetop::Polyglot::VALID_GRAMMAR_EXT, Treetop)
+

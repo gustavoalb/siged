@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateArquivoDocumentos < ActiveRecord::Migration
   def self.up
     create_table :arquivo_documentos do |t|
@@ -14,3 +15,4 @@ class CreateArquivoDocumentos < ActiveRecord::Migration
     drop_table :arquivo_documentos
   end
 end
+

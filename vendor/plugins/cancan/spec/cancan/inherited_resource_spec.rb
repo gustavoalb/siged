@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe CanCan::InheritedResource do
@@ -40,3 +41,4 @@ describe CanCan::InheritedResource do
     @controller.instance_variable_get(:@projects).should == :projects
   end
 end
+

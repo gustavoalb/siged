@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 require 'lib/view_test_process'
 
@@ -371,3 +372,4 @@ class ViewTest < WillPaginate::ViewTestCase
   end
   
 end
+

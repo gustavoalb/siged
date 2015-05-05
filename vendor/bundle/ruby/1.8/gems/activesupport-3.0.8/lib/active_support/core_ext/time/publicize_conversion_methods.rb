@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'date'
 
 class Time
@@ -8,3 +9,4 @@ class Time
     end
   end
 end
+

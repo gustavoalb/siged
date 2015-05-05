@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController #:nodoc:
   module Flash
     extend ActiveSupport::Concern
@@ -26,3 +27,4 @@ module ActionController #:nodoc:
       end
   end
 end
+

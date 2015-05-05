@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class SessionTimeoutTest < ActionController::IntegrationTest
@@ -87,3 +88,4 @@ class SessionTimeoutTest < ActionController::IntegrationTest
     assert warden.authenticated?(:user)
   end
 end
+

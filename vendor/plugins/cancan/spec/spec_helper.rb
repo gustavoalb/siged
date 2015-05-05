@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'bundler/setup'
 
@@ -39,3 +40,4 @@ class Project < SuperModel::Base
     end
   end
 end
+

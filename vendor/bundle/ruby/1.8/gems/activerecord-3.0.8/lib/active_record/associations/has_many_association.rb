@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Has Many Association
   module Associations
@@ -126,3 +127,4 @@ module ActiveRecord
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # rake/gempackagetask is deprecated in favor of rubygems/package_task
 
 warn 'rake/gempackagetask is deprecated.  Use rubygems/package_task instead'
@@ -10,4 +11,5 @@ require 'rake'
 module Rake
   GemPackageTask = Gem::PackageTask
 end
+
 

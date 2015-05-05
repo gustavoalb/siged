@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module HTML #:nodoc:
   module Version #:nodoc:
 
@@ -9,3 +10,4 @@ module HTML #:nodoc:
 
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class RememberMeTest < ActionController::IntegrationTest
@@ -206,3 +207,4 @@ class RememberMeTest < ActionController::IntegrationTest
     assert_not warden.authenticated?(:user)
   end
 end
+

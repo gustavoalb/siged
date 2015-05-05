@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 # The XChar library is provided courtesy of Sam Ruby (See
@@ -113,3 +114,4 @@ class String
     unpack('C*').map {|n| n.xchr}.join # ISO-8859-1, WIN-1252
   end
 end
+

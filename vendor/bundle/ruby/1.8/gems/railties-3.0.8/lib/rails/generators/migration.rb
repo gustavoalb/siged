@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   module Generators
     # Holds common methods for migrations. It assumes that migrations has the
@@ -62,3 +63,4 @@ module Rails
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #####################################################################
 ###	P A C K A G I N G   T A S K S
 #####################################################################
@@ -126,4 +127,5 @@ task :include_dev_dependencies do
 		GEMSPEC.add_development_dependency( name, version )
 	end
 end
+
 

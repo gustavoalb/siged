@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddIdsToEscola < ActiveRecord::Migration
   def self.up
     add_column :escolas, :diretor_adjunto_id, :integer
@@ -11,3 +12,4 @@ class AddIdsToEscola < ActiveRecord::Migration
     remove_column :escolas, :diretor_adjunto_id
   end
 end
+

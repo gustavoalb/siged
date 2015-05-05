@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class TrackableHooksTest < ActionController::IntegrationTest
@@ -79,3 +80,4 @@ class TrackableHooksTest < ActionController::IntegrationTest
   end
 
 end
+

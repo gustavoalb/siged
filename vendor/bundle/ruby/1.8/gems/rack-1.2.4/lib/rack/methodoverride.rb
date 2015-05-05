@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   class MethodOverride
     HTTP_METHODS = %w(GET HEAD PUT POST DELETE OPTIONS)
@@ -25,3 +26,4 @@ module Rack
     end
   end
 end
+

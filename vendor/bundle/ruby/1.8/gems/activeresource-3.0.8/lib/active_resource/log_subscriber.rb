@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveResource
   class LogSubscriber < ActiveSupport::LogSubscriber
     def request(event)
@@ -13,3 +14,4 @@ module ActiveResource
 end
 
 ActiveResource::LogSubscriber.attach_to :active_resource
+

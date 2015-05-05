@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
 <% unless options[:skip_active_record] -%>
@@ -53,3 +54,4 @@ module <%= app_const_base %>
     config.filter_parameters += [:password]
   end
 end
+

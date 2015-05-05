@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/deprecation'
 
 module ActiveRecord
@@ -141,3 +142,4 @@ module ActiveRecord
     end
   end
 end
+

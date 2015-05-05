@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Models
     # Registerable is responsible for everything related to registering a new
@@ -19,3 +20,4 @@ module Devise
     end
   end
 end
+

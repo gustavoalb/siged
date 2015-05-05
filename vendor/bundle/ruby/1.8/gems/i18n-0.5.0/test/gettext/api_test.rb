@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 require 'i18n/gettext/helpers'
 
@@ -204,3 +204,4 @@ class I18nGettextApiTest < Test::Unit::TestCase
     assert_equal '2 spezielle Äpfel', np_('special', ['A special apple', '%{count} special apples'], 2)
   end
 end
+

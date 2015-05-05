@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DepartamentosController < ApplicationController
   load_and_authorize_resource
   # GET /departamentos
@@ -147,3 +148,4 @@ end
   def orgao
     @orgao = Orgao.find(params[:orgao_id])
   end
+

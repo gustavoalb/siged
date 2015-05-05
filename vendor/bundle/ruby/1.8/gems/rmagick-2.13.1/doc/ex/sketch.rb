@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -15,4 +16,5 @@ sketch = sketch.sketch(0, 10, 135)
 img = img.dissolve(sketch, 0.75, 0.25)
 
 img.write('sketch.jpg')
+
 

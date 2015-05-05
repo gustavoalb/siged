@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/time/conversions'
 
 module Rails
@@ -31,3 +32,4 @@ module Rails
     end
   end
 end
+

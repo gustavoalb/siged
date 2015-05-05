@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -9,3 +10,4 @@ f.color_reset!(red)
 #f.display
 f.write('color_reset.gif')
 exit
+

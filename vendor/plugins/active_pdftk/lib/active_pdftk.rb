@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'builder'
 require 'active_pdftk/call'
 require 'active_pdftk/wrapper'
@@ -5,3 +6,4 @@ require 'active_pdftk/field'
 require 'active_pdftk/form'
 require 'active_pdftk/fdf'
 require 'active_pdftk/xfdf'
+

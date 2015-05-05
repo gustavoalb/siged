@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   # A general CanCan exception
   class Error < StandardError; end
@@ -48,3 +49,4 @@ module CanCan
     end
   end
 end
+

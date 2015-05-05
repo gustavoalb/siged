@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test/unit'
 require File.dirname(__FILE__) + '/../lib/brstring'
 
@@ -13,3 +14,4 @@ def p80 text
   p text
   yield if block_given?
 end
+

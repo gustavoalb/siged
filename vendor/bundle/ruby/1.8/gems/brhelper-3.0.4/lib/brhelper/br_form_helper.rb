@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionView::Helpers::FormHelper
   
   # Helper para seleção de sexo com radio_buttom.
@@ -11,3 +12,4 @@ module ActionView::Helpers::FormHelper
     "#{op1} Masculino\n#{op2} Feminino"
   end  
 end
+

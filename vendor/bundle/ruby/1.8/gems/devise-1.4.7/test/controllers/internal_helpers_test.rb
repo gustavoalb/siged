@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class MyController < ApplicationController
@@ -92,3 +93,4 @@ class HelpersTest < ActionController::TestCase
     MyController.send(:protected, :navigational_formats)
   end
 end
+

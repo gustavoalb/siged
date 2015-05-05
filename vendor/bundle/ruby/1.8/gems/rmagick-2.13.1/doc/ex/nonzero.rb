@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'rvg/rvg'
 
@@ -40,4 +41,5 @@ rvg = Magick::RVG.new(12.cm, 4.cm).viewbox(0, 0, 1200, 400) do |canvas|
 end
 
 rvg.draw.write('nonzero.gif')
+
 

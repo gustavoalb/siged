@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'pathname'
 
 module Rails
@@ -27,3 +28,4 @@ module Rails
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/module'
 
 module ActionController
@@ -89,3 +90,4 @@ module ActionController
     end
   end
 end
+

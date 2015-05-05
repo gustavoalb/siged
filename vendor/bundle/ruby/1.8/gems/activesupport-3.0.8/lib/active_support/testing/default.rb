@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   module Testing
     module Default #:nodoc:
@@ -7,3 +8,4 @@ module ActiveSupport
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "test_helper"
 
 if DEVISE_ORM == :mongoid
@@ -20,4 +21,5 @@ if DEVISE_ORM == :mongoid
     end
   end
 end
+
 

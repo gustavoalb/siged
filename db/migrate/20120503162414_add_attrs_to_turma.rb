@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttrsToTurma < ActiveRecord::Migration
   def self.up
     add_column :turmas, :nome, :string
@@ -7,3 +8,4 @@ class AddAttrsToTurma < ActiveRecord::Migration
     remove_column :turmas, :nome
   end
 end
+

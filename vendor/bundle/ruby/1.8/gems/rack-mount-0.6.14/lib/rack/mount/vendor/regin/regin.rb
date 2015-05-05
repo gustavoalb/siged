@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Regin
   autoload :Alternation, 'regin/alternation'
   autoload :Anchor, 'regin/anchor'
@@ -73,3 +74,4 @@ module Regin
     Regexp.compile(expression.to_s(true), expression.flags)
   end
 end
+

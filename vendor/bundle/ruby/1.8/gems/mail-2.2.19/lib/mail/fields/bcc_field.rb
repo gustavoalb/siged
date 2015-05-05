@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # = Blind Carbon Copy Field
 # 
@@ -54,3 +54,4 @@ module Mail
     
   end
 end
+

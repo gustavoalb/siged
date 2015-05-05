@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   module Generators
     class StylesheetsGenerator < Base
@@ -7,3 +8,4 @@ module Rails
     end
   end
 end
+

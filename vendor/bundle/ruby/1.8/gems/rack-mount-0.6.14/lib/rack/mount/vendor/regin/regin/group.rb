@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Regin
   class Group
     attr_reader :expression, :quantifier, :capture, :index, :name
@@ -83,3 +84,4 @@ module Regin
     end
   end
 end
+

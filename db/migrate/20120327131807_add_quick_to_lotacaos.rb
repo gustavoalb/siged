@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddQuickToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :quick, :boolean,:default=>false
@@ -7,3 +8,4 @@ class AddQuickToLotacaos < ActiveRecord::Migration
     remove_column :lotacaos, :quick
   end
 end
+

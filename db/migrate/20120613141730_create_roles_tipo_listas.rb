@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateRolesTipoListas < ActiveRecord::Migration
 	def self.up
 		create_table :roles_tipo_listas,:id=>false do |t|
@@ -9,3 +10,4 @@ class CreateRolesTipoListas < ActiveRecord::Migration
 		drop_table :roles_tipo_listas
 	end
 end
+

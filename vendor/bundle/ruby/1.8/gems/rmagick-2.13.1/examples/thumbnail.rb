@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'RMagick'
 include Magick
 
@@ -62,4 +63,5 @@ thumbnail = white_bg.composite(img, CenterGravity, OverCompositeOp)
 
 thumbnail.write("thumbnail.gif")
 exit
+
 

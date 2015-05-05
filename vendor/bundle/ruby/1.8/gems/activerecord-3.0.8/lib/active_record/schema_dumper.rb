@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'stringio'
 require 'active_support/core_ext/big_decimal'
 
@@ -193,3 +194,4 @@ HEADER
       end
   end
 end
+

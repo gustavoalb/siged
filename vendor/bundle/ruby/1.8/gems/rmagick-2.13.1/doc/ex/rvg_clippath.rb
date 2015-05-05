@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 hat = Magick::Image.read('images/Flower_Hat.jpg').first
@@ -11,4 +12,5 @@ rvg = Magick::RVG.new(hat.columns, hat.rows) do |canvas|
 end
 
 rvg.draw.write('rvg_clippath.gif')
+
 

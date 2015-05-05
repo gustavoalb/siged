@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'fileutils'
 require 'uri'
 require 'set'
@@ -82,3 +83,4 @@ module ActionController #:nodoc:
     end
   end
 end
+

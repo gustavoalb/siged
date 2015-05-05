@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TZInfo
   module Definitions
     module Antarctica
@@ -110,3 +111,4 @@ module TZInfo
     end
   end
 end
+

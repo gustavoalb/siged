@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 
 # Style Fixup Rake Tasks
 
@@ -58,5 +59,6 @@ namespace :style do
 	end
 
 end
+
 
 

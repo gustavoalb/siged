@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateReferenciaNiveis < ActiveRecord::Migration
   def self.up
     create_table :referencia_niveis do |t|
@@ -15,3 +16,4 @@ class CreateReferenciaNiveis < ActiveRecord::Migration
     drop_table :referencia_niveis
   end
 end
+

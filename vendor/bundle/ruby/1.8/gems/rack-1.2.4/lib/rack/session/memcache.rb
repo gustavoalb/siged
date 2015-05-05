@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # AUTHOR: blink <blinketje@gmail.com>; blink#ruby-lang@irc.freenode.net
 
 require 'rack/session/abstract/id'
@@ -117,3 +118,4 @@ module Rack
     end
   end
 end
+

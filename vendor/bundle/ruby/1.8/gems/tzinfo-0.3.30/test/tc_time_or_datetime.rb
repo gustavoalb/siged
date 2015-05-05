@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -420,3 +421,4 @@ class TCTimeOrDateTime < Test::Unit::TestCase
     assert_equal(1143214324, t2.to_orig)
   end
 end
+

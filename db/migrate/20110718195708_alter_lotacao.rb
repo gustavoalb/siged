@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterLotacao < ActiveRecord::Migration
   def self.up
     add_column :lotacaos,:codigo_barra,:string
@@ -7,3 +8,4 @@ class AlterLotacao < ActiveRecord::Migration
     remove_colum :lotacaos,:codigo_barra
   end
 end
+

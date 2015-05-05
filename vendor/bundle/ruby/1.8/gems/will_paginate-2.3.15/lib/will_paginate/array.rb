@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'will_paginate/collection'
 
 # http://www.desimcadam.com/archives/8
@@ -14,3 +15,4 @@ Array.class_eval do
     }
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -7,3 +8,4 @@ img = img.wave
 
 img.write('wave.jpg')
 exit
+

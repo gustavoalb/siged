@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class PessoasControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class PessoasControllerTest < ActionController::TestCase
     assert_redirected_to pessoas_path
   end
 end
+

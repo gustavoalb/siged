@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/version'
 if %w(--version -v).include? ARGV.first
   puts "Rails #{Rails::VERSION::STRING}"
@@ -16,3 +17,4 @@ require 'rails/generators'
 require 'rails/generators/rails/app/app_generator'
 
 Rails::Generators::AppGenerator.start
+

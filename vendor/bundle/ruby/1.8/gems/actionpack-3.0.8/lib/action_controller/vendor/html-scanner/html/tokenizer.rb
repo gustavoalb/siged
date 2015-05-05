@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'strscan'
 
 module HTML #:nodoc:
@@ -105,3 +106,4 @@ module HTML #:nodoc:
   end
 
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/duration'
 require 'active_support/core_ext/date/acts_like'
 require 'active_support/core_ext/date/calculations'
@@ -285,3 +286,4 @@ class Time
   alias_method :compare_without_coercion, :<=>
   alias_method :<=>, :compare_with_coercion
 end
+

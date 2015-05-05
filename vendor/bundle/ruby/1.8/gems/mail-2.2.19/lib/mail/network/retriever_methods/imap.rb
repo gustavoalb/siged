@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 module Mail
   # The IMAP retriever allows to get the last, first or all emails from a IMAP server.
@@ -156,3 +156,4 @@ module Mail
 
   end
 end
+

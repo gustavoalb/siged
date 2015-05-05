@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 if ENV['RAILS_ROOT']
   environment = File.expand_path('vendor/gems/environment', ENV['RAILS_ROOT'])
   require environment if File.exist?("#{environment}.rb")
@@ -295,3 +296,4 @@ class PrototypeHelperTest < ActionView::TestCase
       "/authors/#{author.id}/articles/#{article.id}"
     end
 end
+

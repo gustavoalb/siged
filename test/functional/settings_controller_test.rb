@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class SettingsControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class SettingsControllerTest < ActionController::TestCase
     assert_redirected_to settings_path
   end
 end
+

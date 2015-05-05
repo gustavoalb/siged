@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Controllers
     module ScopedViews
@@ -31,3 +32,4 @@ module Devise
     end
   end
 end
+

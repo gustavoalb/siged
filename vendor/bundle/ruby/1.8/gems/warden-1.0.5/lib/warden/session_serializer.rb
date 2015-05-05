@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Warden
   class SessionSerializer
     attr_reader :env
@@ -42,3 +42,4 @@ module Warden
     end
   end # SessionSerializer
 end # Warden
+

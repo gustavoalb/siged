@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   
   # Provides access to a header object.
@@ -263,3 +263,4 @@ module Mail
     
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 def bundle_check
   `bundle check` == "The Gemfile's dependencies are satisfied\n"
 end
@@ -19,3 +20,4 @@ results = gemfiles.map do |gemfile|
 end
 
 exit(results.inject(true) { |a, b| a && b })
+

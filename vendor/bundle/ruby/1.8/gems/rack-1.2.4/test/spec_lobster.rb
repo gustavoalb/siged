@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/lobster'
 require 'rack/mock'
 
@@ -41,3 +42,4 @@ describe Rack::Lobster do
     }.should.raise
   end
 end
+

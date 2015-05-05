@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAmbientes < ActiveRecord::Migration
   def self.up
     create_table :ambientes do |t|
@@ -14,3 +15,4 @@ class CreateAmbientes < ActiveRecord::Migration
     drop_table :ambientes
   end
 end
+

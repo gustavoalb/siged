@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SituacoesJuridicasController < ApplicationController
   load_and_authorize_resource
   # GET /situacoes_juridicas
@@ -90,3 +91,4 @@ class SituacoesJuridicasController < ApplicationController
 
   end
 end
+

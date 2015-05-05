@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/utils'
 require 'rack/mock'
 
@@ -687,3 +688,4 @@ describe Rack::Utils::Multipart do
       message.should.equal "value must be a Hash"
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/class/attribute'
 
 module ActionController #:nodoc:
@@ -124,3 +125,4 @@ module ActionController #:nodoc:
       end
   end
 end
+

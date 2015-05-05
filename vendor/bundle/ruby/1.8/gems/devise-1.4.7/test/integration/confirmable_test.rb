@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class ConfirmationTest < ActionController::IntegrationTest
@@ -177,3 +178,4 @@ class ConfirmationTest < ActionController::IntegrationTest
     end
   end
 end
+

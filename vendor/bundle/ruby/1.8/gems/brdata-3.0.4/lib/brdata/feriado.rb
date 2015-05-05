@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # == Configuração dos Feriados
 #
 # Os feriados são configurados através de arquivos YML que deverão estar na pasta feriados dentro da pasta config da sua aplicação.
@@ -93,3 +94,4 @@ class Date
   end
 
 end
+

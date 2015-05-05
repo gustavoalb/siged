@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
 
   # This module is automatically included into all controllers.
@@ -387,3 +388,4 @@ if defined? ActionController
     include CanCan::ControllerAdditions
   end
 end
+

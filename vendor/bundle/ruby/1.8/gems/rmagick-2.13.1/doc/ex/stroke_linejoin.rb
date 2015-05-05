@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -46,3 +47,4 @@ gc.text(280,120, "\"'bevel' join\"")
 gc.draw(imgl)
 
 imgl.write("stroke_linejoin.gif")
+

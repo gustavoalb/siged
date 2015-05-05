@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'boot'
 require 'lib/activerecord_test_connector'
 
@@ -9,3 +10,4 @@ Fixtures.create_fixtures(ActiveRecordTestConnector::FIXTURES_PATH, ActiveRecord:
 
 require 'will_paginate'
 WillPaginate.enable_activerecord
+

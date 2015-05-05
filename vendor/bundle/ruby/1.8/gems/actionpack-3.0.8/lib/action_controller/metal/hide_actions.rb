@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/class/attribute'
 
 module ActionController
@@ -46,3 +47,4 @@ module ActionController
     end
   end
 end
+

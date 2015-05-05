@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
 
   ####################################################################
@@ -72,3 +73,4 @@ module Rake
 
   EMPTY_TASK_ARGS = TaskArguments.new([], [])
 end
+

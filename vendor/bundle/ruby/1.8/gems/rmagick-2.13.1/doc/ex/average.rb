@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 # Demonstrate ImageList#average method
 require 'RMagick'
@@ -13,3 +14,4 @@ average_image = images.average
 average_image.compression = Magick::LZWCompression
 average_image.write "average_after.gif"
 exit
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "spec_helper"))
 
 describe "Creating a hashed password" do
@@ -80,3 +81,4 @@ describe "Validating a generated salt" do
     BCrypt::Engine.valid_salt?(BCrypt::Engine.generate_salt).should eq(true)
   end
 end
+

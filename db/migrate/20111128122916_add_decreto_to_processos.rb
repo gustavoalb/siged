@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDecretoToProcessos < ActiveRecord::Migration
   def self.up
     add_column :processos, :decreto_nomeacao_comissao, :string
@@ -13,3 +14,4 @@ class AddDecretoToProcessos < ActiveRecord::Migration
     remove_column :processos, :decreto_nomeacao_comissao
   end
 end
+

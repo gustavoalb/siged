@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ##
 ## $Rev$
 ## $Release: 2.6.6 $
@@ -719,3 +720,4 @@ END
   self.post_definition()
 
 end
+

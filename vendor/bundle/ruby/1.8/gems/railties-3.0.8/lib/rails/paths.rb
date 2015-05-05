@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 
 module Rails
@@ -149,3 +150,4 @@ module Rails
     end
   end
 end
+

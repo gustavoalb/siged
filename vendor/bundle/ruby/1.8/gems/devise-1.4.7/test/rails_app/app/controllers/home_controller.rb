@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class HomeController < ApplicationController
   def index
   end
@@ -23,3 +24,4 @@ class HomeController < ApplicationController
     render :text => "unauthenticated", :status => :unauthorized
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rake'
 
 # Load the test files from the command line.
@@ -11,3 +12,4 @@ ARGV.each do |f|
     require File.expand_path(f)
   end
 end
+

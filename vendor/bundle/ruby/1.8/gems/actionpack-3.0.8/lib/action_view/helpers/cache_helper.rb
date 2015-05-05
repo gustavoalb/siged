@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionView
   # = Action View Cache Helper
   module Helpers
@@ -60,3 +61,4 @@ module ActionView
     end
   end
 end
+

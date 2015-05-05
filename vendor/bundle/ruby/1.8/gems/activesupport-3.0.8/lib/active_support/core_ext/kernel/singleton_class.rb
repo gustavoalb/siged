@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Kernel
   # Returns the object's singleton class.
   def singleton_class
@@ -11,3 +12,4 @@ module Kernel
     singleton_class.class_eval(*args, &block)
   end
 end
+

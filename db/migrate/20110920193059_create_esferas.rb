@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEsferas < ActiveRecord::Migration
   def self.up
     create_table :esferas do |t|
@@ -16,3 +17,4 @@ class CreateEsferas < ActiveRecord::Migration
     drop_table :esferas
   end
 end
+

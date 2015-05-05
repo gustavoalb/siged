@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSlugToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :slug, :string
@@ -8,3 +9,4 @@ class AddSlugToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :slug
   end
 end
+

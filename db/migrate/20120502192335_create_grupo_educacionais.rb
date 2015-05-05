@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateGrupoEducacionais < ActiveRecord::Migration
   def self.up
     create_table :grupo_educacionais do |t|
@@ -11,3 +12,4 @@ class CreateGrupoEducacionais < ActiveRecord::Migration
     drop_table :grupo_educacionais
   end
 end
+

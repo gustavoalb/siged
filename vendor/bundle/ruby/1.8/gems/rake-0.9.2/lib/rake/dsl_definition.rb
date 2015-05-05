@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Rake DSL functions.
 require 'rake/file_utils_ext'
 
@@ -165,3 +166,4 @@ end
 
 self.extend Rake::DSL
 include Rake::DeprecatedObjectDSL
+

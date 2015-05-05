@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/inflector'
 
 class Integer
@@ -12,3 +13,4 @@ class Integer
     ActiveSupport::Inflector.ordinalize(self)
   end
 end
+

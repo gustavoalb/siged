@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/auth/digest/md5'
 require 'rack/mock'
 
@@ -227,3 +228,4 @@ describe Rack::Auth::Digest::MD5 do
     realm.should == app.realm
   end
 end
+

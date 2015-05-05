@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 Magick::RVG.dpi = 90
@@ -59,3 +60,4 @@ rvg = Magick::RVG.new(12.cm, (5.25).cm).viewbox(0, 0, 1200, 525) do |canvas|
 end
 
 rvg.draw.write('arcs02.gif')
+

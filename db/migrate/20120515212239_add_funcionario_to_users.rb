@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFuncionarioToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :funcionario_id, :integer
@@ -7,3 +8,4 @@ class AddFuncionarioToUsers < ActiveRecord::Migration
     remove_column :users, :funcionario_id
   end
 end
+

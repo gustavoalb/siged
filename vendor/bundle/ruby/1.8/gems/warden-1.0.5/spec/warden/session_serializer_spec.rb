@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::SessionSerializer do
@@ -46,3 +46,4 @@ describe Warden::SessionSerializer do
     @env['rack.session'].should_not have_key("warden.user.default.key")
   end
 end
+

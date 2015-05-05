@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'barby/outputter'
 require 'prawn'
 
@@ -119,3 +120,4 @@ module Barby
   end
 
 end
+

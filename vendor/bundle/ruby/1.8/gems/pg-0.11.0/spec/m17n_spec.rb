@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env spec
 # encoding: utf-8
 
@@ -149,3 +150,4 @@ describe "multinationalization support", :ruby_19 => true do
 		teardown_testing_db( @conn ) if @conn
 	end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/memoizable'
 
 module ActionDispatch
@@ -31,3 +32,4 @@ module ActionDispatch
     end
   end
 end
+

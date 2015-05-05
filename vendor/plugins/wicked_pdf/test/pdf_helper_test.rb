@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 module ActionController
@@ -24,3 +25,4 @@ class PdfHelperTest < ActionController::TestCase
     assert_match /^file:\/\/.*wicked_header_pdf.*\.html/, options[:header][:html][:url]
   end
 end
+

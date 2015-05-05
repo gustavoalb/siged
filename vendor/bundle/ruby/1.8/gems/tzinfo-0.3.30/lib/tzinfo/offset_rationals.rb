@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # Copyright (c) 2006-2010 Philip Ross
 # 
@@ -95,3 +96,4 @@ module TZInfo
     module_function :rational_for_offset
   end
 end
+

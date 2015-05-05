@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module SharedUser
   extend ActiveSupport::Concern
 
@@ -24,3 +25,4 @@ module SharedUser
     end
   end
 end
+

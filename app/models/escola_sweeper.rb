@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EscolaSweeper < ActionController::Caching::Sweeper
 	observe Escola
 	def after_create(escola)
@@ -16,3 +17,4 @@ class EscolaSweeper < ActionController::Caching::Sweeper
 	end
 
 end
+

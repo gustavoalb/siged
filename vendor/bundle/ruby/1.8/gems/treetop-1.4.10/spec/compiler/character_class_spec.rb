@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module CharacterClassSpec
@@ -274,3 +275,4 @@ module CharacterClassSpec
   end
 
 end
+

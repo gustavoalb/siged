@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UpdateEntidadeFromEscolas < ActiveRecord::Migration
 	def self.up
 		User.usuario_atual = User.find 1
@@ -15,3 +16,4 @@ class UpdateEntidadeFromEscolas < ActiveRecord::Migration
 	def self.down
 	end
 end
+

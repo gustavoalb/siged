@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 
 describe Arel::Nodes::UpdateStatement do
@@ -16,3 +17,4 @@ describe Arel::Nodes::UpdateStatement do
     end
   end
 end
+

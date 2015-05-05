@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Ambiente < ActiveRecord::Base
 	include ScopedSearch::Model
 	#default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
@@ -37,4 +38,5 @@ class Ambiente < ActiveRecord::Base
 		end
 	end
 end
+
 

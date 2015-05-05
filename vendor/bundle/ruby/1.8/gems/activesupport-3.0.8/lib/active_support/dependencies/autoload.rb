@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/inflector/methods"
 require "active_support/lazy_load_hooks"
 
@@ -48,3 +49,4 @@ module ActiveSupport
     end
   end
 end
+

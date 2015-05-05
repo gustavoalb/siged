@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 rvg = Magick::RVG.new(300, 300) do |canvas|
@@ -24,3 +25,4 @@ rvg = Magick::RVG.new(300, 300) do |canvas|
 end
 
 rvg.draw.write('rvg_pattern.gif')
+

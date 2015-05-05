@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
   module MassAssignmentSecurity
     module Sanitizer
@@ -21,3 +22,4 @@ module ActiveModel
     end
   end
 end
+

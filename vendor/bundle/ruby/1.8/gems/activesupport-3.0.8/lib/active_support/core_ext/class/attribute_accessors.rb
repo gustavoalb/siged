@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/array/extract_options'
 
 # Extends the class object with class and instance accessors for class attributes,
@@ -77,3 +78,4 @@ class Class
     cattr_writer(*syms, &blk)
   end
 end
+

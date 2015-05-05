@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'webrick'
 require 'stringio'
 require 'rack/content_length'
@@ -71,3 +72,4 @@ module Rack
     end
   end
 end
+

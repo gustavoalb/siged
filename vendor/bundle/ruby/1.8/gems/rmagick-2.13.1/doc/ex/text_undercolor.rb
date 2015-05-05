@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -26,3 +27,4 @@ gc.draw(canvas)
 
 canvas.write('text_undercolor.gif')
 exit
+

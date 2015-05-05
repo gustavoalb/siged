@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 module ActiveSupport #:nodoc:
   module Multibyte #:nodoc:
@@ -6,3 +6,4 @@ module ActiveSupport #:nodoc:
     class EncodingError < StandardError; end
   end
 end
+

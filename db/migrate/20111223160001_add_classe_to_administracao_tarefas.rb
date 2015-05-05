@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddClasseToAdministracaoTarefas < ActiveRecord::Migration
   def self.up
     add_column :administracao_tarefas, :classe, :string
@@ -7,3 +8,4 @@ class AddClasseToAdministracaoTarefas < ActiveRecord::Migration
     remove_column :administracao_tarefas, :classe
   end
 end
+

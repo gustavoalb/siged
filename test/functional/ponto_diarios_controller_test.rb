@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class PontoDiariosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class PontoDiariosControllerTest < ActionController::TestCase
     assert_redirected_to ponto_diarios_path
   end
 end
+

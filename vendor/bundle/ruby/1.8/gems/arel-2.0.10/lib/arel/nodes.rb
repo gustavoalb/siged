@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'arel/nodes/node'
 require 'arel/nodes/unary'
 require 'arel/nodes/binary'
@@ -51,3 +52,4 @@ require 'arel/nodes/except'
 require 'arel/nodes/intersect'
 require 'arel/nodes/union'
 require 'arel/nodes/union_all'
+

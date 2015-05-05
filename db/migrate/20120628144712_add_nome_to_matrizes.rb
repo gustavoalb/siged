@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddNomeToMatrizes < ActiveRecord::Migration
   def self.up
     add_column :matrizes, :nome, :string
@@ -7,3 +8,4 @@ class AddNomeToMatrizes < ActiveRecord::Migration
     remove_column :matrizes, :nome
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakeNameSpace < Rake::TestCase
@@ -41,3 +42,4 @@ class TestRakeNameSpace < Rake::TestCase
     assert_equal ["n:nn:z"], nns.tasks.map {|t| t.name}
   end
 end
+

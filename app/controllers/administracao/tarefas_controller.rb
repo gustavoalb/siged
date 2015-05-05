@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Administracao::TarefasController < ApplicationController
   # GET /administracao/tarefas
   # GET /administracao/tarefas.xml
@@ -123,3 +124,4 @@ class Administracao::TarefasController < ApplicationController
     end
   end
 end
+

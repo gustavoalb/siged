@@ -1,7 +1,10 @@
+# -*- encoding : utf-8 -*-
 class AnoLetivo < ActiveRecord::Base
     validates_presence_of :ano,:on=>:create
     has_many :turmas
     has_many :escolas
+    has_many :carencias
+    accepts_nested_attributes_for :carencias
 
     validate_on_create do |ano_letivo|
     	if self.inicio.year>Date.today.year and Date.today.month<=10
@@ -10,3 +13,4 @@ class AnoLetivo < ActiveRecord::Base
     end
 
 end
+

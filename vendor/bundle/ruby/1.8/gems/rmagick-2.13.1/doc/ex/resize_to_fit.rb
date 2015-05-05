@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -6,5 +7,6 @@ require 'RMagick'
 img = Magick::Image.read('images/Flower_Hat.jpg')[0]
 thumbnail = img.resize_to_fit(76, 76)
 thumbnail.write("resize_to_fit.jpg")
+
 
 

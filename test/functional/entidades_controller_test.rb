@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class EntidadesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class EntidadesControllerTest < ActionController::TestCase
     assert_redirected_to entidades_path
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Optional publish task for Rake
 
 require 'rake/contrib/sshpublisher'
@@ -15,3 +16,4 @@ desc "Publish the Documentation to RubyForge."
 task :publish => [:rdoc] do
   publisher.upload
 end
+

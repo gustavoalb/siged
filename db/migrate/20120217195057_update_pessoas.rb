@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UpdatePessoas < ActiveRecord::Migration
   def self.up
   	Pessoa.find_by_cpf('60113340249').update_attributes(:nascimento=>'1976-02-04',:pis_pasep=>'12707996035')
@@ -11475,3 +11476,4 @@ Pessoa.find_by_cpf('69636435200').update_attributes(:nascimento=>'1980-04-29',:p
   def self.down
   end
 end
+

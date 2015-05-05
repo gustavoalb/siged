@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakePathMap < Rake::TestCase
@@ -154,4 +155,5 @@ class TestRakePathMap < Rake::TestCase
     assert_equal "d#{sep}a/b/c#{sep}file.txt", "a/b/c/d/file.txt".pathmap("%-1d%s%3d%s%f")
   end
 end
+
 

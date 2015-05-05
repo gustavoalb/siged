@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   module ModelAdapters
     class MongoidAdapter < AbstractAdapter
@@ -51,3 +52,4 @@ end
 module Mongoid::Document::ClassMethods
   include CanCan::ModelAdditions::ClassMethods
 end
+

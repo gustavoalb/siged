@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/lock'
 require 'rack/mock'
 
@@ -34,3 +35,4 @@ describe Rack::Lock do
     app.call(Rack::MockRequest.env_for("/"))['rack.multithread'].should.equal true
   end
 end
+

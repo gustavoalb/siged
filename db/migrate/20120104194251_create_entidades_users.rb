@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEntidadesUsers < ActiveRecord::Migration
   def self.up
   create_table :users_entidades, :id => false do |t|
@@ -9,3 +10,4 @@ class CreateEntidadesUsers < ActiveRecord::Migration
   drop_table :users_entidades
   end
 end
+

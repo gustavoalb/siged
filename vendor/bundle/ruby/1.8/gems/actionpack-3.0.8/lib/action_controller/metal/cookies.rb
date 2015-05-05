@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController #:nodoc:
   module Cookies
     extend ActiveSupport::Concern
@@ -14,3 +15,4 @@ module ActionController #:nodoc:
       end
   end
 end
+

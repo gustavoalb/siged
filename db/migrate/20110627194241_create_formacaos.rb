@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFormacaos < ActiveRecord::Migration
   def self.up
     create_table :formacaos do |t|
@@ -17,3 +18,4 @@ class CreateFormacaos < ActiveRecord::Migration
     drop_table :formacaos
   end
 end
+

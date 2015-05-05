@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_resource/exceptions'
 
 module ActiveResource # :nodoc:
@@ -53,3 +54,4 @@ module ActiveResource # :nodoc:
     end
   end
 end
+

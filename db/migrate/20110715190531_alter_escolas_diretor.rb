@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterEscolasDiretor < ActiveRecord::Migration
   def self.up
     add_column :escolas,:diretor,:string
@@ -7,3 +8,4 @@ class AlterEscolasDiretor < ActiveRecord::Migration
     remove_column :escolas,:diretor
   end
 end
+

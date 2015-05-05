@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   module ModelAdapters
     class AbstractAdapter
@@ -54,3 +55,4 @@ module CanCan
     end
   end
 end
+

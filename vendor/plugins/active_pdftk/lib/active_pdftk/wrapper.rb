@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'tempfile'
 
 module ActivePdftk
@@ -283,3 +284,4 @@ module ActivePdftk
 
   end
 end
+

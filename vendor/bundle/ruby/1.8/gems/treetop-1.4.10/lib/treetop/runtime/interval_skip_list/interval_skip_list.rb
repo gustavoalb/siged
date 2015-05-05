@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class IntervalSkipList
   attr_reader :probability
 
@@ -198,3 +199,4 @@ class IntervalSkipList
     nodes
   end 
 end
+

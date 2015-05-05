@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # = To Field
 # 
@@ -53,3 +53,4 @@ module Mail
     
   end
 end
+

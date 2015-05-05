@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Devise::OmniauthCallbacksController < ApplicationController
   include Devise::Controllers::InternalHelpers
 
@@ -24,3 +25,4 @@ class Devise::OmniauthCallbacksController < ApplicationController
     new_session_path(scope)
   end
 end
+

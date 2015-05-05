@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 rvg = Magick::RVG.new(400, 120) do |canvas|
@@ -36,3 +37,4 @@ rvg = Magick::RVG.new(400, 120) do |canvas|
 end
 
 rvg.draw.write('Skew.gif')
+

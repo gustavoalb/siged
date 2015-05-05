@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  escola_id: 1
+  disciplina_id: 1
+  status: MyString
+  data: 2015-05-04
+
+two:
+  escola_id: 1
+  disciplina_id: 1
+  status: MyString
+  data: 2015-05-04

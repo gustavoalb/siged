@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   class Base
     class ConnectionSpecification #:nodoc:
@@ -111,3 +112,4 @@ module ActiveRecord
     end
   end
 end
+

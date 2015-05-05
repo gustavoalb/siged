@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 require 'digest/sha1'
 
@@ -169,3 +170,4 @@ class DatabaseAuthenticatableTest < ActiveSupport::TestCase
     assert !user.valid?
   end
 end
+

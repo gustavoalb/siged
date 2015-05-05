@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterEscolas < ActiveRecord::Migration
   def self.up
     add_column :escolas,:celular,:string
@@ -15,3 +16,4 @@ class AlterEscolas < ActiveRecord::Migration
   remove_column :escolas,:gt_id  
   end
 end
+

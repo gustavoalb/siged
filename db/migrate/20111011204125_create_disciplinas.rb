@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDisciplinas < ActiveRecord::Migration
   def self.up
     create_table :disciplinas do |t|
@@ -12,3 +13,4 @@ class CreateDisciplinas < ActiveRecord::Migration
     drop_table :disciplinas
   end
 end
+

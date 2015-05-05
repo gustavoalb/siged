@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EntidadesController < ApplicationController
   load_and_authorize_resource
   # GET /entidades
@@ -84,3 +85,4 @@ class EntidadesController < ApplicationController
     end
   end
 end
+

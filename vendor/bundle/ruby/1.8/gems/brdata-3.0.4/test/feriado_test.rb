@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 require 'rubygems'
 require 'active_support/all'
@@ -78,4 +78,5 @@ class FeriadoTest < Test::Unit::TestCase
   end
 
 end
+
 

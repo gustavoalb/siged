@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::Manager do
@@ -293,3 +293,4 @@ describe Warden::Manager do
     end
   end
 end
+

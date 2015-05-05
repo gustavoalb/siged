@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class Exists < Arel::Nodes::Function
@@ -5,3 +6,4 @@ module Arel
     end
   end
 end
+

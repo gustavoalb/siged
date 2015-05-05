@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddLeisToQuadros < ActiveRecord::Migration
   def self.up
     add_column :quadros, :lei, :string
@@ -9,3 +10,4 @@ class AddLeisToQuadros < ActiveRecord::Migration
     remove_column :quadros, :lei
   end
 end
+

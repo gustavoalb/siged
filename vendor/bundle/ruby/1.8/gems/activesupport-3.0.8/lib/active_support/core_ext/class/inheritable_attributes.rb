@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/duplicable'
 require 'active_support/core_ext/array/extract_options'
 
@@ -252,3 +253,4 @@ class Class
     extlib_inheritable_writer(*syms, &block)
   end
 end
+

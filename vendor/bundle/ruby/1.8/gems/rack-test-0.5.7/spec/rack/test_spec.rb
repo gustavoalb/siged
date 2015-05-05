@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe Rack::Test::Session do
@@ -458,3 +459,4 @@ describe Rack::Test::Session do
     end
   end
 end
+

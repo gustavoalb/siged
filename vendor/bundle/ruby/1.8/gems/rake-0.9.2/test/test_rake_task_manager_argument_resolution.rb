@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakeTaskManagerArgumentResolution < Rake::TestCase
@@ -34,3 +35,4 @@ class TestRakeTaskManagerArgumentResolution < Rake::TestCase
     tm.resolve_args(args)
   end
 end
+

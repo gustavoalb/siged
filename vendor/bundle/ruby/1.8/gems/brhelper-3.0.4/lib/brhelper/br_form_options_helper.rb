@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 module ActionView::Helpers::FormOptionsHelper
   ESTADOS_BRASILEIROS = [["Acre", "AC"],
     ["Alagoas", "AL"],
@@ -58,3 +58,4 @@ module ActionView::Helpers::FormOptionsHelper
     select object, method, [['Masculino', 'M'], ['Feminino', 'F']], options, html_options
   end
 end
+

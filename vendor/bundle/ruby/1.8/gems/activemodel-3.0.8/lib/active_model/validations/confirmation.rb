@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
 
   # == Active Model Confirmation Validator
@@ -61,3 +62,4 @@ module ActiveModel
     end
   end
 end
+

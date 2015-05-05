@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'mail/fields'
 
 # encoding: utf-8
@@ -222,3 +223,4 @@ module Mail
   end
   
 end
+

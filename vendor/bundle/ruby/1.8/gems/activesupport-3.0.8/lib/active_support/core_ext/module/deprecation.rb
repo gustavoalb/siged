@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/deprecation'
 
 class Module
@@ -9,3 +10,4 @@ class Module
     ActiveSupport::Deprecation.deprecate_methods(self, *method_names)
   end
 end
+

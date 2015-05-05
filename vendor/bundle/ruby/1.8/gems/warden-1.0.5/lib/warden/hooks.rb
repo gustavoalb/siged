@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Warden
   module Hooks
 
@@ -181,3 +181,4 @@ module Warden
     end
   end # Hooks
 end # Warden
+

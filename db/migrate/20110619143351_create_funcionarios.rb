@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFuncionarios < ActiveRecord::Migration
   def self.up
     create_table :funcionarios do |t|
@@ -32,3 +33,4 @@ class CreateFuncionarios < ActiveRecord::Migration
     drop_table :funcionarios
   end
 end
+

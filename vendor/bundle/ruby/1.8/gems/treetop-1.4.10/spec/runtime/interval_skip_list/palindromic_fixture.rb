@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module PalindromicFixtureSharedContext
   extend RSpec::Core::SharedContext
   include IntervalSkipListSpecHelper
@@ -33,3 +34,4 @@ module PalindromicFixtureSharedContext
     populate_interval_skip_list
   end
 end
+

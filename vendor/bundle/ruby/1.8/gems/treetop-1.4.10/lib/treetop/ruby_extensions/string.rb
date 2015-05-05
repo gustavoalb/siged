@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class String
   def column_of(index)
     return 1 if index == 0
@@ -40,3 +41,4 @@ class String
     to_s.gsub(/\/(.?)/){ "::" + $1.upcase }.gsub(/(^|_)(.)/){ $2.upcase }
   end
 end
+

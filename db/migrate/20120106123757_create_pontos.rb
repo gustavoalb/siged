@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePontos < ActiveRecord::Migration
   def self.up
     create_table :pontos do |t|
@@ -15,3 +16,4 @@ class CreatePontos < ActiveRecord::Migration
     drop_table :pontos
   end
 end
+

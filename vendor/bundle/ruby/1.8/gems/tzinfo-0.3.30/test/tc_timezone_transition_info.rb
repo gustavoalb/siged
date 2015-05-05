@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'date'
 require 'test/unit'
@@ -192,3 +193,4 @@ class TCTimezoneTransitionInfo < Test::Unit::TestCase
   end
     
 end
+

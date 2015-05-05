@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttrsToFormacaos < ActiveRecord::Migration
   def self.up
     add_column :formacaos, :verificado, :boolean,:default=>:false
@@ -9,3 +10,4 @@ class AddAttrsToFormacaos < ActiveRecord::Migration
     remove_column :formacaos, :verificado
   end
 end
+

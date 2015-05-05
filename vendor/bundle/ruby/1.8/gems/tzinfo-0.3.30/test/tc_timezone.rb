@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require File.join(File.dirname(__FILE__), 'test_utils')
@@ -962,3 +963,4 @@ class TCTimezone < Test::Unit::TestCase
     assert_equal('BST BST', tz.strftime('%Z %Z', Time.utc(2006, 7, 15, 22, 12, 2).to_i))
   end
 end
+

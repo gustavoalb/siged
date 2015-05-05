@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -30,3 +31,4 @@ after = before.texture_floodfill(100,100, hat)
 
 after.write('texture_floodfill_after.gif')
 exit
+

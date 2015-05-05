@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 module Rake
   require 'rake/alt_system'
@@ -53,3 +54,4 @@ module Rake
     end
   end
 end
+

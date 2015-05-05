@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "action_view"
 require "rails"
 
@@ -37,3 +38,4 @@ module ActionView
     end
   end
 end
+

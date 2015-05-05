@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'ostruct'
 require 'erb'
 require 'rack/request'
@@ -347,3 +348,4 @@ HTML
     # :startdoc:
   end
 end
+

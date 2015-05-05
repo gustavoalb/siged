@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class TipoListaControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class TipoListaControllerTest < ActionController::TestCase
     assert_redirected_to tipo_lista_path
   end
 end
+

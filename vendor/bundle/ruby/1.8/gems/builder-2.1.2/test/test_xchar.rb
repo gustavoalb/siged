@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 require 'test/unit'
@@ -35,3 +36,4 @@ class TestXmlEscaping < Test::Unit::TestCase
     assert_equal '&#169;',  "\xC2\xA9".to_xs     # copy
   end
 end
+

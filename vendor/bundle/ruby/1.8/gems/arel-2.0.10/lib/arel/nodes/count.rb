@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class Count < Arel::Nodes::Function
@@ -11,3 +12,4 @@ module Arel
     end
   end
 end
+

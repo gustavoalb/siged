@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module BrI18n
   module VERSION #:nodoc:
     MAJOR = 3
@@ -7,4 +8,5 @@ module BrI18n
     STRING = "#{MAJOR}.#{MINOR}.#{TINY}"
   end
 end
+
 

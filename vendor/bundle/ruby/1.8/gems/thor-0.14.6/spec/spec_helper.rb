@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $TESTING=true
 
 require 'simplecov'
@@ -52,3 +53,4 @@ RSpec.configure do |config|
 
   alias :silence :capture
 end
+

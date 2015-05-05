@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord #:nodoc:
   # = Active Record Serialization
   module Serialization
@@ -58,3 +59,4 @@ module ActiveRecord #:nodoc:
 end
 
 require 'active_record/serializers/xml_serializer'
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Expressions
     def count distinct = false
@@ -21,3 +22,4 @@ module Arel
     end
   end
 end
+

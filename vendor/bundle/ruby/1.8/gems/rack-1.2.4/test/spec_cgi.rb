@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../testrequest', __FILE__)
 require 'rack/handler/cgi'
 
@@ -89,3 +90,4 @@ describe Rack::Handler::CGI do
     Process.wait($pid).should == $pid
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'stringio'
 require 'rack/methodoverride'
 require 'rack/mock'
@@ -56,3 +57,4 @@ describe Rack::MethodOverride do
     req.env["rack.methodoverride.original_method"].should.equal "POST"
   end
 end
+

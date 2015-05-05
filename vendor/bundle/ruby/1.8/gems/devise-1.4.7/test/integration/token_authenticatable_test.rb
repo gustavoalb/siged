@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class TokenAuthenticationTest < ActionController::IntegrationTest
@@ -146,3 +147,4 @@ class TokenAuthenticationTest < ActionController::IntegrationTest
     end
 
 end
+

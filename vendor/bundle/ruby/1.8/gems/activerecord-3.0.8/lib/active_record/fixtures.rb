@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erb'
 
 begin
@@ -1010,3 +1011,4 @@ module ActiveRecord
       end
   end
 end
+

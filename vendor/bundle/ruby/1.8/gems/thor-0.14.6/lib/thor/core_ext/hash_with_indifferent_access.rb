@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Thor
   module CoreExt #:nodoc:
 
@@ -73,3 +74,4 @@ class Thor
     end
   end
 end
+

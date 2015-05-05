@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::Test::WardenHelpers do
@@ -65,3 +65,4 @@ describe Warden::Test::WardenHelpers do
     $captures.should == []
   end
 end
+

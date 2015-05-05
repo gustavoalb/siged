@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class PontoAssinaturasControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class PontoAssinaturasControllerTest < ActionController::TestCase
     assert_redirected_to ponto_assinaturas_path
   end
 end
+

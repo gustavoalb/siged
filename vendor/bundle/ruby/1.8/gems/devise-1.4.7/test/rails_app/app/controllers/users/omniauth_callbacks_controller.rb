@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     data = env["omniauth.auth"]
@@ -12,3 +13,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     render :text => ""
   end
 end
+

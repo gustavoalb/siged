@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 require 'test_helper'
 
@@ -91,3 +91,4 @@ unless RUBY_VERSION == '1.9.1' && RUBY_PATCHLEVEL <= 129
     end
   end
 end
+

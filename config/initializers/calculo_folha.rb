@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Calculo
 
 
@@ -54,3 +55,4 @@ module Calculo
 end
 
 Folha::Folha.send(:include, Calculo)
+

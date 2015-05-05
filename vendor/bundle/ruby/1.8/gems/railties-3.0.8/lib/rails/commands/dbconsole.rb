@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erb'
 
 begin
@@ -121,3 +122,4 @@ end
 if ARGV.first && !ARGV.first.index("-") && env = ARGV.first
   ENV['RAILS_ENV'] = %w(production development test).find { |e| e.index(env) } || env
 end
+

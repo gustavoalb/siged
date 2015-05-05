@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RailsGuides
   module Helpers
     def guide(name, url, options = {}, &block)
@@ -27,3 +28,4 @@ module RailsGuides
     end
   end
 end
+

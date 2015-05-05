@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   module Encodings
     class TransferEncoding
@@ -56,3 +56,4 @@ module Mail
     end
   end
 end
+

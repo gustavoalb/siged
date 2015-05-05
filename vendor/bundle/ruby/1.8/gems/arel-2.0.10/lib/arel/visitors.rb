@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'arel/visitors/visitor'
 require 'arel/visitors/depth_first'
 require 'arel/visitors/to_sql'
@@ -36,3 +37,4 @@ module Arel
     class << self; alias :for :visitor_for; end
   end
 end
+

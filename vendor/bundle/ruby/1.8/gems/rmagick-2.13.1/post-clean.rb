@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # delete RMagick documentation created by post-setup.rb
 # doc/*.rb.html
 # doc/ex/* (!rb)
@@ -10,3 +11,4 @@ FileUtils.safe_unlink(targets) unless targets.empty?
 targets = Dir['doc/ex/*']
 targets.delete_if { |entry| File.directory?(entry) || %r{\.rb\z}.match(entry) }
 FileUtils.safe_unlink(targets) unless targets.empty?
+

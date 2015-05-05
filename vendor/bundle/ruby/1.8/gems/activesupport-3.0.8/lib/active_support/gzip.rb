@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'zlib'
 require 'stringio'
 
@@ -27,3 +28,4 @@ module ActiveSupport
     end
   end
 end
+

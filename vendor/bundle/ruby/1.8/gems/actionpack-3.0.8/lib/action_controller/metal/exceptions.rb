@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   class ActionControllerError < StandardError #:nodoc:
   end
@@ -44,3 +45,4 @@ module ActionController
   class UnknownHttpMethod < ActionControllerError #:nodoc:
   end
 end
+

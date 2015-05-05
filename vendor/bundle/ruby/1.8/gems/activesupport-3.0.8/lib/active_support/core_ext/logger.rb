@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/class/attribute_accessors'
 
 # Adds the 'around_level' method to Logger.
@@ -106,3 +107,4 @@ class Logger
       def msg2str(msg) msg end
     end
 end
+

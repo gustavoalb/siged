@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFolhaFonteRecursos < ActiveRecord::Migration
   def self.up
     create_table :folha_fonte_recursos do |t|
@@ -12,3 +13,4 @@ class CreateFolhaFonteRecursos < ActiveRecord::Migration
     drop_table :folha_fonte_recursos
   end
 end
+

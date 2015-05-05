@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # = Mail Envelope
 # 
@@ -33,3 +33,4 @@ module Mail
     
   end
 end
+

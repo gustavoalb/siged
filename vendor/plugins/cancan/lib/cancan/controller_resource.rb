@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   # Handle the load and authorization controller logic so we don't clutter up all controllers with non-interface methods.
   # This class is used internally, so you do not need to call methods directly on it.
@@ -220,3 +221,4 @@ module CanCan
     end
   end
 end
+

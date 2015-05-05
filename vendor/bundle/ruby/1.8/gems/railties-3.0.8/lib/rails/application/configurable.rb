@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   class Application
     module Configurable
@@ -17,3 +18,4 @@ module Rails
     end
   end
 end
+

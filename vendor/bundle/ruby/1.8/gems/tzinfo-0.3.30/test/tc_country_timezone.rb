@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -119,3 +120,4 @@ class TCCountryTimezone < Test::Unit::TestCase
     assert_equal('America/New_York'.hash ^ 48857.hash ^ 1200.hash ^ -266423.hash ^ 3600.hash ^ 'Eastern Time'.hash, ct2.hash)
   end
 end
+

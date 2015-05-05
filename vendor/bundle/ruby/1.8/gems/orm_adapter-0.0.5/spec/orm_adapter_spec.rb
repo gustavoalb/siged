@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe OrmAdapter do
@@ -19,3 +20,4 @@ describe OrmAdapter do
     after { OrmAdapter.adapters.delete(adapter) }
   end
 end
+

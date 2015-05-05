@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Compiler    
     class ParenthesizedExpression < ParsingExpression
@@ -7,3 +8,4 @@ module Treetop
     end
   end
 end
+

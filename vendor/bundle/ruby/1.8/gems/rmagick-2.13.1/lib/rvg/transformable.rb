@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # $Id: transformable.rb,v 1.5 2009/02/28 23:52:28 rmagick Exp $
 # Copyright (C) 2009 Timothy P. Hunter
@@ -130,4 +131,5 @@ module Magick
 
     end # class RVG
 end # module Magick
+
 

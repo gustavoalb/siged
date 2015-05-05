@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Administracao::Migracao < ActiveRecord::Base
 	has_attached_file :arquivo,:url => '/arquivos/migracao/:id/:filename'
 
@@ -140,4 +141,5 @@ class Administracao::Migracao < ActiveRecord::Base
    		 end
 	end
 end
+
 

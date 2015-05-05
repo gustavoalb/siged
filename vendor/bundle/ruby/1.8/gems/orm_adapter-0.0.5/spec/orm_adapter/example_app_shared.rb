@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # to test your new orm_adapter, make an example app that matches the functionality
 # found in the existing specs for example, look at spec/orm_adapter/adapters/active_record_spec.rb
 #
@@ -179,3 +180,4 @@ shared_examples_for "example app with orm_adapter" do
     end
   end
 end
+

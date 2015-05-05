@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionDispatch
   module Session
     class MemCacheStore < AbstractStore
@@ -54,3 +55,4 @@ module ActionDispatch
     end
   end
 end
+

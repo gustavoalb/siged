@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 require 'rubygems'
 require 'net/http'
@@ -14,3 +15,4 @@ class BrFormHelperTest < Test::Unit::TestCase
   end
 
 end
+

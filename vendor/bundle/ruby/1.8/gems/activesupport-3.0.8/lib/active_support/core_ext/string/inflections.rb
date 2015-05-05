@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/inflector/methods'
 require 'active_support/inflector/inflections'
 require 'active_support/inflector/transliterate'
@@ -162,3 +163,4 @@ class String
     ActiveSupport::Inflector.foreign_key(self, separate_class_name_and_id_with_underscore)
   end
 end
+

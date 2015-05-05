@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class EscolasControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class EscolasControllerTest < ActionController::TestCase
     assert_redirected_to escolas_path
   end
 end
+

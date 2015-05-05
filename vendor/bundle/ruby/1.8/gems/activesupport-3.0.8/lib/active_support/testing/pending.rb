@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Some code from jeremymcanally's "pending"
 # http://github.com/jeremymcanally/pending/tree/master
 
@@ -46,3 +47,4 @@ module ActiveSupport
     end
   end
 end
+

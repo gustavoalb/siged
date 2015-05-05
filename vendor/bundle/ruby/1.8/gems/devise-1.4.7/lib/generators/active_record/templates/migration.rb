@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DeviseCreate<%= table_name.camelize %> < ActiveRecord::Migration
   def self.up
     create_table(:<%= table_name %>) do |t|
@@ -29,3 +30,4 @@ class DeviseCreate<%= table_name.camelize %> < ActiveRecord::Migration
     drop_table :<%= table_name %>
   end
 end
+

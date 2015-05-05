@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #require 'bundler/capistrano'
 set :application, "siged"
 default_run_options[:pty] = true
@@ -70,3 +71,4 @@ namespace :deploy do
     task t, :roles => :app do ; end
   end
 end
+

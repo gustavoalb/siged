@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # $Id: misc.rb,v 1.17 2010/03/21 01:43:01 baror Exp $
 # Copyright (C) 2009 Timothy P. Hunter
 module Magick
@@ -737,4 +738,5 @@ module Magick
         end # class Utility
     end # class RVG
 end # module Magick
+
 

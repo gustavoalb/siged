@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateStatuses < ActiveRecord::Migration
   def self.up
     create_table :statuses do |t|
@@ -13,3 +14,4 @@ class CreateStatuses < ActiveRecord::Migration
     drop_table :statuses
   end
 end
+

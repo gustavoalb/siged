@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Regin
   class Character < Atom
     attr_reader :quantifier
@@ -49,3 +50,4 @@ module Regin
     end
   end
 end
+

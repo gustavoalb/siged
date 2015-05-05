@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -13,3 +14,4 @@ img.border!(20, 25, 'white')
 
 img.write('shave.jpg')
 exit
+

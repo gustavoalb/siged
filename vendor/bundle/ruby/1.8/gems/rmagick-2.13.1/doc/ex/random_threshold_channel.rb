@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 
 # Demonstrate the random_channel_threshold method
@@ -11,3 +12,4 @@ img2 = img.random_threshold_channel(geom, Magick::RedChannel)
 
 img2.write('random_threshold_channel.jpg')
 exit
+

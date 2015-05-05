@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class Equality < Arel::Nodes::Binary
@@ -7,3 +8,4 @@ module Arel
     end
   end
 end
+

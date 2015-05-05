@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -42,3 +43,4 @@ gc.text(450,90, "\"'square' cap\"")
 gc.draw(imgl)
 
 imgl.write("stroke_linecap.gif")
+

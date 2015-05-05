@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Magick
     class RVG
 
@@ -54,3 +55,4 @@ module Magick
 
     end # class RVG
 end # module Magick
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe "be_able_to" do
@@ -31,3 +32,4 @@ describe "be_able_to" do
     end.should raise_error('expected to be able to :read 123 456')
   end
 end
+

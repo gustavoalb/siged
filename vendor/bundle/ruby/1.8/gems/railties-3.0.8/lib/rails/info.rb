@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "cgi"
 require "active_support/core_ext/cgi"
 
@@ -111,3 +112,4 @@ module Rails
     end
   end
 end
+

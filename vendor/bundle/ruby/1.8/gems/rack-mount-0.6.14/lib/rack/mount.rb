@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack'
 
 module Rack #:nodoc:
@@ -30,3 +31,4 @@ module Rack #:nodoc:
     end
   end
 end
+

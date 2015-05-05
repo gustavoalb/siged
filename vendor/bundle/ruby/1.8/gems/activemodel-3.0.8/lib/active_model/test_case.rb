@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel #:nodoc:
   class TestCase < ActiveSupport::TestCase #:nodoc:
     def with_kcode(kcode)
@@ -14,3 +15,4 @@ module ActiveModel #:nodoc:
     end
   end
 end
+

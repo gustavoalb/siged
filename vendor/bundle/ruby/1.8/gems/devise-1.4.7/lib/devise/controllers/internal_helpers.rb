@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Controllers
     # Those helpers are used only inside Devise controllers and should not be
@@ -146,3 +147,4 @@ MESSAGE
     end
   end
 end
+

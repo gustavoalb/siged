@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Naturezadalista < ActiveRecord::Migration
   def self.up
     create_table :naturezas_listas, :id => false do |t|
@@ -9,3 +10,4 @@ class Naturezadalista < ActiveRecord::Migration
     drop_table :naturezas_listas
   end
 end
+

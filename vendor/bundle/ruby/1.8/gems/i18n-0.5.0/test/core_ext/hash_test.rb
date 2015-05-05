@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 require 'i18n/core_ext/hash'
 
@@ -28,3 +29,4 @@ class I18nCoreExtHashInterpolationTest < Test::Unit::TestCase
     assert_equal expected, hash
   end
 end
+

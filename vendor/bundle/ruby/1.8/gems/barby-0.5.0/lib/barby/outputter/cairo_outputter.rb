@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'barby/outputter'
 require 'cairo'
 require 'stringio'
@@ -183,3 +184,4 @@ module Barby
   end
 
 end
+

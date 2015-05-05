@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ######################################################################
 # Core extension library
 #
@@ -25,3 +26,4 @@ class Module
     end
   end
 end
+

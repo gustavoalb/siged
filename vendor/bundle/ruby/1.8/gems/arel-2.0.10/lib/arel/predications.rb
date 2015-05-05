@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Predications
     def as other
@@ -181,3 +182,4 @@ module Arel
     end
   end
 end
+

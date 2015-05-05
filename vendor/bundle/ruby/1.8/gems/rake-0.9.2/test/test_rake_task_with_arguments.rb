@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakeTaskWithArguments < Rake::TestCase
@@ -159,4 +160,5 @@ class TestRakeTaskWithArguments < Rake::TestCase
     t.invoke("bill", "1.2")
   end
 end
+
 

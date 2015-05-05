@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/acts_like'
 
 class Date
@@ -6,3 +7,4 @@ class Date
     true
   end
 end
+

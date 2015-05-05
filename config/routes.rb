@@ -1,5 +1,11 @@
+# -*- encoding : utf-8 -*-
 Siged20::Application.routes.draw do
 
+
+  resources :carencias do
+    get :autocomplete_escola_nome_da_escola,:on=>:collection
+    get :autocomplete_disciplina_nome,:on=>:collection
+  end
 
   get 'mensagens/inbox'
 
@@ -314,3 +320,4 @@ end
   # Note: This route will make all actions in every controller accessible via GET requests.
   match ':controller(/:action(/:id(.:format)))'
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Locale Fallbacks
 #
 # Extends the I18n module to hold a fallbacks instance which is set to an
@@ -94,3 +95,4 @@ module I18n
     end
   end
 end
+

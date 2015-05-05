@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class IntervalSkipList
   class Node < HeadNode
     attr_accessor :key
@@ -162,3 +163,4 @@ class IntervalSkipList
     end
   end
 end
+

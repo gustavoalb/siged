@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Mail
   class Message
 
@@ -32,3 +33,4 @@ module Mail
 
   end
 end
+

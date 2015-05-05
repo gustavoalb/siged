@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Object
   # An object is blank if it's false, empty, or a whitespace string.
   # For example, "", "   ", +nil+, [], and {} are blank.
@@ -74,3 +75,4 @@ class Numeric #:nodoc:
     false
   end
 end
+

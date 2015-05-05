@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTextos < ActiveRecord::Migration
   def self.up
     create_table :textos do |t|
@@ -13,3 +14,4 @@ class CreateTextos < ActiveRecord::Migration
     drop_table :textos
   end
 end
+

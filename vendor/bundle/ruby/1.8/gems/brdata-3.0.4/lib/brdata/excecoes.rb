@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 def cria_excecao(classe, mensagem)
   eval "class #{classe}; def initialize; super('#{mensagem}'); end; end"
 end
@@ -8,4 +8,5 @@ cria_excecao("FeriadoDiaInvalidoError < ArgumentError", "O mês deve ser um núm
 cria_excecao("FeriadoParserDiretorioInvalidoError < ArgumentError", "Só é possivel fazer parser de um diretorio contendo os arquivos yml.")
 cria_excecao("FeriadoParserDiretorioVazioError < ArgumentError", "Não existe nenhum yml no diretorio.")
 cria_excecao("FeriadoParserMetodoInvalido < ArgumentError", "Quando for usado o parametro metodo não deve exitir dia nem mês.")
+
 

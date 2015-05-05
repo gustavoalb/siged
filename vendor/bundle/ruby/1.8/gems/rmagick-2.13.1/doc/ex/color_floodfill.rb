@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -26,3 +27,4 @@ after = before.color_floodfill(100,100, aquamarine)
 
 after.write('color_floodfill_after.gif')
 exit
+

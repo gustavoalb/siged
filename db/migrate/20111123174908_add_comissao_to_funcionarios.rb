@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddComissaoToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :cargo_em_comissao, :string
@@ -15,3 +16,4 @@ class AddComissaoToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :cargo_em_comissao
   end
 end
+

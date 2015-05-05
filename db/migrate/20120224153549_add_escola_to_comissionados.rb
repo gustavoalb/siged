@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddEscolaToComissionados < ActiveRecord::Migration
   def self.up
     add_column :comissionados, :escola_id, :integer
@@ -11,3 +12,4 @@ class AddEscolaToComissionados < ActiveRecord::Migration
     remove_column :comissionados, :tipo_destino_id
   end
 end
+

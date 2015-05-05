@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateMatrizesEscolas < ActiveRecord::Migration
 	def self.up
 		create_table :escolas_matrizes, :id => false do |t|
@@ -10,3 +11,4 @@ class CreateMatrizesEscolas < ActiveRecord::Migration
 			drop_table :escolas_matrizes
 		end
 	end
+

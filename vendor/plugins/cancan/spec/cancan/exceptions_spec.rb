@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe CanCan::AccessDenied do
@@ -56,3 +57,4 @@ describe CanCan::AccessDenied do
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 
 describe Arel::Nodes::DeleteStatement do
@@ -12,3 +13,4 @@ describe Arel::Nodes::DeleteStatement do
     end
   end
 end
+

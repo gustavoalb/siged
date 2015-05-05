@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -29,3 +30,4 @@ class TCRubyCoreSupport < Test::Unit::TestCase
     assert_equal(DateTime.new(-4713,12,31,10,58,59, 1, Date::ITALY), RubyCoreSupport.datetime_new!(Rational(-176461, 86400), 1, 2299161))
   end
 end
+

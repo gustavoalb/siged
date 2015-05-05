@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'bigdecimal'
 require 'date'
 
@@ -337,3 +338,4 @@ module Arel
     end
   end
 end
+

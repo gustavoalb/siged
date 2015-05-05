@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class NiveisEnsinosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class NiveisEnsinosControllerTest < ActionController::TestCase
     assert_redirected_to niveis_ensinos_path
   end
 end
+

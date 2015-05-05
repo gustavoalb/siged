@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 =begin
 
 = apache/erubis-run.rb
@@ -130,3 +131,4 @@ module Apache
    end
  end
 end
+

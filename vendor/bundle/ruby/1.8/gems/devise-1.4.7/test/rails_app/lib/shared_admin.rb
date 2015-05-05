@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module SharedAdmin
   extend ActiveSupport::Concern
 
@@ -7,3 +8,4 @@ module SharedAdmin
            :unlock_strategy => :time
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Thor
   class Task < Struct.new(:name, :description, :long_description, :usage, :options)
     FILE_REGEXP = /^#{Regexp.escape(File.dirname(__FILE__))}/
@@ -112,3 +113,4 @@ class Thor
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 class NilClass #:nodoc:
   def to_crlf
@@ -9,3 +9,4 @@ class NilClass #:nodoc:
     ''
   end
 end
+

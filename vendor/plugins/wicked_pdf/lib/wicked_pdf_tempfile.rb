@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'tempfile'
 
 class WickedPdfTempfile < Tempfile
@@ -7,4 +8,5 @@ class WickedPdfTempfile < Tempfile
     sprintf("%s_%d_%d%s", File.basename(basename, extension), $$, n.to_i, extension)
   end
 end
+
 

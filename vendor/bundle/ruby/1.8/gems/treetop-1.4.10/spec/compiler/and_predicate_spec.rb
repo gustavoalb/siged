@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module AndPredicateSpec
@@ -34,3 +35,4 @@ module AndPredicateSpec
     end
   end
 end
+

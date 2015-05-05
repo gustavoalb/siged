@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/recursive'
 require 'rack/mock'
 
@@ -67,3 +68,4 @@ describe Rack::Recursive do
     res["X-Query-String"].should.equal "meh"
   end
 end
+

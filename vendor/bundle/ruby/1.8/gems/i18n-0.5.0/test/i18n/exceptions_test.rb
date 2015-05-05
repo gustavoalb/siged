@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nExceptionsTest < Test::Unit::TestCase
@@ -114,3 +115,4 @@ class I18nExceptionsTest < Test::Unit::TestCase
       block_given? ? yield(e) : raise(e)
     end
 end
+

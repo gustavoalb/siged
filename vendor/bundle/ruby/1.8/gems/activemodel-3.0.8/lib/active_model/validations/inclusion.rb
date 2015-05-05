@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
 
   # == Active Model Inclusion Validator
@@ -58,3 +59,4 @@ module ActiveModel
     end
   end
 end
+

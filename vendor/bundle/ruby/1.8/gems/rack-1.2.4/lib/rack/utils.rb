@@ -1,4 +1,4 @@
-# -*- encoding: binary -*-
+# -*- encoding : utf-8 -*-
 
 require 'fileutils'
 require 'set'
@@ -672,3 +672,5 @@ EOF
     end
   end
 end
+end
+

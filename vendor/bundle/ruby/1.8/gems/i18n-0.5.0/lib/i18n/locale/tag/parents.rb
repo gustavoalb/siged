@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module I18n
   module Locale
     module Tag
@@ -20,3 +21,4 @@ module I18n
     end
   end
 end
+

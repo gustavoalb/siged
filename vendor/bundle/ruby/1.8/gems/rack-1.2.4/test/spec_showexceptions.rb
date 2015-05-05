@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/showexceptions'
 require 'rack/mock'
 
@@ -21,3 +22,4 @@ describe Rack::ShowExceptions do
     res.should =~ /ShowExceptions/
   end
 end
+

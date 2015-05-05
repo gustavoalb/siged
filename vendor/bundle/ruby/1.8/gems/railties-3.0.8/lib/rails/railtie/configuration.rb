@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/configuration'
 
 module Rails
@@ -80,3 +81,4 @@ module Rails
     end
   end
 end
+

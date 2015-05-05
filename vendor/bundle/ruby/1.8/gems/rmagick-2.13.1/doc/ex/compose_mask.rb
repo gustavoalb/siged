@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'RMagick'
 
 background = Magick::Image.read('images/Flower_Hat.jpg').first
@@ -20,4 +21,5 @@ result = background.composite(source, Magick::CenterGravity, Magick::OverComposi
 result.write "compose_mask_example.jpg"
 source.write "compose_mask_source.gif"
 mask.write "compose_mask.gif"
+
 

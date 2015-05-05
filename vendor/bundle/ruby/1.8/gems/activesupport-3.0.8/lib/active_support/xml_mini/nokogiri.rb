@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'nokogiri'
 rescue LoadError => e
@@ -81,3 +82,4 @@ module ActiveSupport
     Nokogiri::XML::Node.send(:include, Conversions::Node)
   end
 end
+

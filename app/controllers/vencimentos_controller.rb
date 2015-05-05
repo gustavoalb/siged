@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class VencimentosController < ApplicationController
   # GET /vencimentos
   # GET /vencimentos.xml
@@ -89,3 +90,4 @@ private
 def nivel
 @nivel = ReferenciaNivel.find(params[:referencia_nivel_id])
 end
+

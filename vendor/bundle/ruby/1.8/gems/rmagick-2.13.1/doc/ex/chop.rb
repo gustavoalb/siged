@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -27,3 +28,4 @@ chopped = bg.composite(chopped, Magick::NorthEastGravity, Magick::OverCompositeO
 
 chopped.write('chop_after.jpg')
 exit
+

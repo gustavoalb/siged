@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   module Auth
     module Digest
@@ -52,4 +53,5 @@ module Rack
     end
   end
 end
+
 

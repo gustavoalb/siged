@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class SqlLiteral < String
@@ -6,3 +7,4 @@ module Arel
     end
   end
 end
+

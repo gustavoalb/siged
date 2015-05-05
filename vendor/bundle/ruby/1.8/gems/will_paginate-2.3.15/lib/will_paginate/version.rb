@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module WillPaginate
   module VERSION
     MAJOR = 2
@@ -7,3 +8,4 @@ module WillPaginate
     STRING = [MAJOR, MINOR, TINY].join('.')
   end
 end
+

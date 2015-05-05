@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test/unit'
 require 'rubygems'
 require 'treetop'
@@ -16,3 +17,4 @@ module ParserTestHelper
     result
   end
 end
+

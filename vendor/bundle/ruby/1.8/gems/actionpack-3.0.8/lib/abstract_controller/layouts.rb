@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/core_ext/module/remove_method"
 
 module AbstractController
@@ -361,3 +362,4 @@ module AbstractController
     end
   end
 end
+

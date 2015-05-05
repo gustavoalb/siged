@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTiposToFormacaos < ActiveRecord::Migration
 	def self.up
 		User.usuario_atual = User.find 1
@@ -49,3 +50,4 @@ class AddTiposToFormacaos < ActiveRecord::Migration
 
 	end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Object
   # Invokes the method identified by the symbol +method+, passing it any arguments
   # and/or the block specified, just like the regular Ruby <tt>Object#send</tt> does.
@@ -34,3 +35,4 @@ class NilClass #:nodoc:
     nil
   end
 end
+

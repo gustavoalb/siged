@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'runtime/interval_skip_list/spec_helper'
 
 describe "The palindromic fixture", :palindromic => true do
@@ -161,3 +162,4 @@ describe "The palindromic fixture", :palindromic => true do
     end
   end
 end
+

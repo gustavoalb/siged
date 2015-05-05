@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class FuncionariosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class FuncionariosControllerTest < ActionController::TestCase
     assert_redirected_to funcionarios_path
   end
 end
+

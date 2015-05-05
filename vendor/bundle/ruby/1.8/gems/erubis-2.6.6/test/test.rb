@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ##
 ## $Release: 2.6.6 $
 ## copyright(c) 2006-2010 kuwata-lab.com all rights reserved.
@@ -27,3 +28,4 @@ if $0 == __FILE__
   require "#{TESTDIR}/test-main.rb"
   require "#{TESTDIR}/test-users-guide.rb"
 end
+

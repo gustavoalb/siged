@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $VERBOSE = nil
 
 # Load Rails rakefile extensions
@@ -14,3 +15,4 @@ $VERBOSE = nil
 ).each do |task|
   load "rails/tasks/#{task}.rake"
 end
+

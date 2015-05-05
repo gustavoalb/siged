@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Controllers
     # Helpers used in both FailureApp and Devise controllers.
@@ -24,3 +25,4 @@ module Devise
     end
   end
 end
+

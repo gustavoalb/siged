@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -36,3 +37,4 @@ bg.read('plasma:purple-gold') { self.size = '200x200' }
 after = bg.composite(after, Magick::CenterGravity, Magick::OverCompositeOp)
 after.write('transparent_after.gif')
 exit
+

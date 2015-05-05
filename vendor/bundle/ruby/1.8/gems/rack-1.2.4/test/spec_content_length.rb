@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/content_length'
 
 describe Rack::ContentLength do
@@ -40,3 +41,4 @@ describe Rack::ContentLength do
     response[1]['Content-Length'].should.equal nil
   end
 end
+

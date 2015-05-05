@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 require 'thread'
 require 'pathname'
@@ -666,3 +667,4 @@ module ActiveSupport #:nodoc:
 end
 
 ActiveSupport::Dependencies.hook!
+

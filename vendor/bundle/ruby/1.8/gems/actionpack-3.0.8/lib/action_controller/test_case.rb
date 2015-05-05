@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/session/abstract/id'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/object/to_query'
@@ -490,3 +491,4 @@ module ActionController
     include Behavior
   end
 end
+

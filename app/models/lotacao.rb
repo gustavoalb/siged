@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "barby/barcode/code_25_interleaved"
 require "barby/outputter/rmagick_outputter"
 class Lotacao < ActiveRecord::Base
@@ -277,3 +278,4 @@ end
 
 
 end
+

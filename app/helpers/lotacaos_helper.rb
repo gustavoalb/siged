@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module LotacaosHelper
 
   def status_l(status)
@@ -146,3 +147,4 @@ end
 
 
 end 
+

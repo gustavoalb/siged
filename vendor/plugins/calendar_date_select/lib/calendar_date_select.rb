@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "calendar_date_select/calendar_date_select.rb"
 require "calendar_date_select/form_helpers.rb"
 require "calendar_date_select/includes_helper.rb"
@@ -31,3 +32,4 @@ if Object.const_defined?(:Rails) && File.directory?(Rails.root.to_s + "/public")
     end
   end
 end
+

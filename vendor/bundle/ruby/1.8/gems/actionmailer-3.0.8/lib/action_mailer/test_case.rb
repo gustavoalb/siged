@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionMailer
   class NonInferrableMailerError < ::StandardError
     def initialize(name)
@@ -74,3 +75,4 @@ module ActionMailer
 
   end
 end
+

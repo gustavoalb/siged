@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 Magick::RVG.dpi = 90
@@ -24,3 +25,4 @@ rvg = Magick::RVG.new(3.in, 1.in).viewbox(0,0,300,100) do |canvas|
 end
 
 rvg.draw.write('writing_mode02.gif')
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 
 # Mercurial Rake Tasks
 
@@ -314,5 +315,6 @@ unless defined?( HG_DOTDIR )
 	end
 
 end
+
 
 

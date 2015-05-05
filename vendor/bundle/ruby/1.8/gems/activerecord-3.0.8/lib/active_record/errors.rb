@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
 
   # = Active Record Errors
@@ -170,3 +171,4 @@ module ActiveRecord
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   if defined? ::BasicObject
     # A class with no predefined methods that behaves similarly to Builder's
@@ -19,3 +20,4 @@ module ActiveSupport
     end
   end
 end
+

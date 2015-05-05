@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   module Test
 
@@ -129,3 +130,4 @@ EOF
 
   end
 end
+

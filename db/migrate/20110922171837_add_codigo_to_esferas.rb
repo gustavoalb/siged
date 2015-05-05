@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCodigoToEsferas < ActiveRecord::Migration
   def self.up
     add_column :esferas, :codigo, :string
@@ -7,3 +8,4 @@ class AddCodigoToEsferas < ActiveRecord::Migration
     remove_column :esferas, :codigo
   end
 end
+

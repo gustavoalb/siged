@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttachmentArquivoToTipoLista < ActiveRecord::Migration
   def self.up
     add_column :tipo_lista, :arquivo_file_name, :string
@@ -13,3 +14,4 @@ class AddAttachmentArquivoToTipoLista < ActiveRecord::Migration
     remove_column :tipo_lista, :arquivo_updated_at
   end
 end
+

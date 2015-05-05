@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'rvg/rvg'
@@ -19,3 +20,4 @@ rvg = Magick::RVG.new(258, 100) do |canvas|
 end
 
 rvg.draw.write('nested_rvg.gif')
+

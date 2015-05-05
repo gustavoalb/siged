@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail # :doc:
 
   require 'date'
@@ -82,3 +82,4 @@ module Mail # :doc:
   # Finally... require all the Mail.methods
   require 'mail/mail'
 end
+

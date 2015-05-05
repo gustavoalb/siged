@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Make a 32x32 animated GIF that resembles the OS X animation.
 # This produces a very small (~2.6Kb) GIF file.
 
@@ -48,3 +49,4 @@ end
 spinner.delay = DELAY
 spinner.compression = Magick::LZWCompression
 spinner.write('spinner.gif')
+

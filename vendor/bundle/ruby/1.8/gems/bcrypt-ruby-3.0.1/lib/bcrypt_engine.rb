@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'ffi'
 
 module BCrypt
@@ -31,4 +32,5 @@ module BCrypt
     end
   end
 end
+
 

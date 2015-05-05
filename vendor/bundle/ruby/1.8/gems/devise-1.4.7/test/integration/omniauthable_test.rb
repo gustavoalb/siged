@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class OmniauthableIntegrationTest < ActionController::IntegrationTest
@@ -134,3 +135,4 @@ class OmniauthableIntegrationTest < ActionController::IntegrationTest
     assert_contain 'Could not authorize you from Facebook because "Invalid credentials".'
   end
 end
+

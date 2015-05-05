@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class CategoriaTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class CategoriaTest < ActiveSupport::TestCase
     assert true
   end
 end
+

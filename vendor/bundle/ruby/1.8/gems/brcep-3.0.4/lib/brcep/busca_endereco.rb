@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require 'net/http'
 require 'rexml/document'
 
@@ -101,3 +101,4 @@ class BuscaEndereco
     end
   end
 end
+

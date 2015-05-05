@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateNiveisEnsinos < ActiveRecord::Migration
   def self.up
     create_table :niveis_ensinos do |t|
@@ -12,3 +13,4 @@ class CreateNiveisEnsinos < ActiveRecord::Migration
     drop_table :niveis_ensinos
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RDoc
 module Page
 
@@ -587,5 +588,6 @@ HTML
 
 end
 end
+
 
 

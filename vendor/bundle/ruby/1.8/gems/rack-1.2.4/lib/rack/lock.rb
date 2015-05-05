@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   class Lock
     FLAG = 'rack.multithread'.freeze
@@ -14,3 +15,4 @@ module Rack
     end
   end
 end
+

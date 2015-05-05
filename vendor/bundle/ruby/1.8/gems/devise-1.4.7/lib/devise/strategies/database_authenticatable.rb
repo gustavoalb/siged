@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'devise/strategies/authenticatable'
 
 module Devise
@@ -19,3 +20,4 @@ module Devise
 end
 
 Warden::Strategies.add(:database_authenticatable, Devise::Strategies::DatabaseAuthenticatable)
+

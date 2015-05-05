@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 require 'ostruct'
 
@@ -243,3 +244,4 @@ class ControllerAuthenticatableTest < ActionController::TestCase
     assert_not @controller.devise_controller?
   end
 end
+

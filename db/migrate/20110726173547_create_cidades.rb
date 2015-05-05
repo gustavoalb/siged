@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCidades < ActiveRecord::Migration
   def self.up
     create_table :cidades do |t|
@@ -9994,4 +9995,5 @@ class CreateCidades < ActiveRecord::Migration
     drop_table :cidades
   end
 end
+
 

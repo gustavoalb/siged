@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe CanCan::Ability do
@@ -417,3 +418,4 @@ describe CanCan::Ability do
     end
   end
 end
+

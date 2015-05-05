@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe Rack::Test::Utils do
@@ -119,3 +120,4 @@ describe Rack::Test::Utils do
     end
   end
 end
+

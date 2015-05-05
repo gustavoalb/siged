@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   module Rendering
     extend ActiveSupport::Concern
@@ -54,3 +55,4 @@ module ActionController
 
   end
 end
+

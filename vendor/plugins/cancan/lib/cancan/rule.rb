@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   # This class is used internally and should only be called through Ability.
   # it holds the information about a "can" call made on Ability and provides
@@ -140,3 +141,4 @@ module CanCan
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'ruby-prof'
 
@@ -423,3 +424,4 @@ begin
   end
 rescue LoadError
 end
+

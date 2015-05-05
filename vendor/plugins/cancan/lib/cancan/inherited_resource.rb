@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   # For use with Inherited Resources
   class InheritedResource < ControllerResource # :nodoc:
@@ -17,3 +18,4 @@ module CanCan
     end
   end
 end
+

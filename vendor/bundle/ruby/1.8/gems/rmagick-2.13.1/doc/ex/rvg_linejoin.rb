@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 Magick::RVG.dpi = 90
@@ -38,4 +39,5 @@ rvg = Magick::RVG.new(12.cm, 3.5.cm).viewbox(0, 0, 1200, 350) do |canvas|
 end
 
 rvg.draw.write('rvg_linejoin.gif')
+
 

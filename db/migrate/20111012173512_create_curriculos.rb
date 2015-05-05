@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCurriculos < ActiveRecord::Migration
   def self.up
     create_table :curriculos do |t|
@@ -16,3 +17,4 @@ class CreateCurriculos < ActiveRecord::Migration
     drop_table :curriculos
   end
 end
+

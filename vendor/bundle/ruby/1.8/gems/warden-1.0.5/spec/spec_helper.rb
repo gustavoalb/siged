@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 $TESTING=true
 
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
@@ -21,3 +21,4 @@ RSpec.configure do |config|
     end
   end
 end
+

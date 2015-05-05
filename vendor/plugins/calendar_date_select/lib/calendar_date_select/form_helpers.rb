@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Various helpers available for use in your view
 module CalendarDateSelect::FormHelpers
 
@@ -226,4 +227,5 @@ module ActionView
     end
   end
 end
+
 

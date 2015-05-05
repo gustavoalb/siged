@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support"
 require "rails"
 require "active_support/file_update_checker"
@@ -94,3 +95,4 @@ module I18n
     end
   end
 end
+

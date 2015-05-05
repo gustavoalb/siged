@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTipoLista < ActiveRecord::Migration
   def self.up
     create_table :tipo_lista do |t|
@@ -14,3 +15,4 @@ class CreateTipoLista < ActiveRecord::Migration
     drop_table :tipo_lista
   end
 end
+

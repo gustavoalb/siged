@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 require 'lib/activerecord_test_case'
 
@@ -494,3 +495,4 @@ class FinderTest < ActiveRecordTestCase
     end
   end
 end
+

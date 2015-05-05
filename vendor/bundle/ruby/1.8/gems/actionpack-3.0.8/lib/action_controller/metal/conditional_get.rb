@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   module ConditionalGet
     extend ActiveSupport::Concern
@@ -84,3 +85,4 @@ module ActionController
     end
   end
 end
+

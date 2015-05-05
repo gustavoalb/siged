@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'rvg/rvg'
 
@@ -8,4 +9,5 @@ rvg = Magick::RVG.new(150, 150) do |canvas|
 end
 
 rvg.draw.write('stroke_fill.gif')
+
 

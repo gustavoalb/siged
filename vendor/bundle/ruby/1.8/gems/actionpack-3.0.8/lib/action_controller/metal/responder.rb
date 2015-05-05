@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/json'
 
 module ActionController #:nodoc:
@@ -243,3 +244,4 @@ module ActionController #:nodoc:
     end
   end
 end
+

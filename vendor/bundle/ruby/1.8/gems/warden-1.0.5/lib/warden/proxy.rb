@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 module Warden
   class UserNotSet < RuntimeError; end
@@ -326,3 +326,4 @@ module Warden
 
   end # Proxy
 end # Warden
+

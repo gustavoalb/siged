@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Indexer
   
   def self.sortalize(array)
@@ -329,3 +330,4 @@ EOM
     find_indexes
   end
 end
+

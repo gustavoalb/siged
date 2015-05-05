@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 module Devise
@@ -70,3 +71,4 @@ class DeviseTest < ActiveSupport::TestCase
   end
   
 end
+

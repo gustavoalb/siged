@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Simple Locale tag implementation that computes subtags by simply splitting
 # the locale tag at '-' occurences.
 module I18n
@@ -37,3 +38,4 @@ module I18n
     end
   end
 end
+

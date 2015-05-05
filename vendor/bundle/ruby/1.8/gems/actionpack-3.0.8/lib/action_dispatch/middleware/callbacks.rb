@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionDispatch
   # Provide callbacks to be executed before and after the request dispatch.
   #
@@ -48,3 +49,4 @@ module ActionDispatch
     end
   end
 end
+

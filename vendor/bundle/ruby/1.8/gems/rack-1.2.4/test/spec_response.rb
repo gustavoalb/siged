@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 require 'rack/response'
 
@@ -238,3 +239,4 @@ describe Rack::Response do
   end
 
 end
+

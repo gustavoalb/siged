@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionView
   # = Action View Log Subscriber
   #
@@ -26,3 +27,4 @@ module ActionView
 end
 
 ActionView::LogSubscriber.attach_to :action_view
+

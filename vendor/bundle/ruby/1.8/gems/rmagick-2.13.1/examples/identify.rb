@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'RMagick'
 
 module Magick
@@ -184,4 +185,5 @@ ilist.each do |img|
 end
 
 exit
+
 

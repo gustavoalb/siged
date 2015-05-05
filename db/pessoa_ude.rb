@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ﻿@p1||=Pessoa.find(:first,:conditio:nome=>"RENATA FRANCISCA LEAL MONTEIRO DE",:cpf=>"73385727200",:nascimento=>"1983-04-22",:pis_pasep=>"12667584033",:entidade_id=>"2")
 puts "TEste #{@p1.nome}"
 p2||=Pessoa.create(:nome=>"JARLY DA SILVA SOARES",:cpf=>"1092157298",:nascimento=>"1967-06-19",:pis_pasep=>"20150370045",:entidade_id=>"2")
@@ -2017,3 +2018,4 @@ f1006=p1006.funcionarios.create(:matricula=>"UDE00811",:cargo_id=>"90",:data_nom
 f1007=p1007.funcionarios.create(:matricula=>"UDE00889",:cargo_id=>"79",:data_nomeacao=>"2011-05-02",:entidade_id=>"2")
 f1008=p1008.funcionarios.create(:matricula=>"UDE00890",:cargo_id=>"90",:data_nomeacao=>"2011-05-02",:entidade_id=>"2")
 f1009=p1009.funcionarios.create(:matricula=>"UDE00990",:cargo_id=>"79",:data_nomeacao=>"2011-06-20",:entidade_id=>"2")
+

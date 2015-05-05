@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateMensagens < ActiveRecord::Migration
   def self.up
     create_table :mensagens do |t|
@@ -14,3 +15,4 @@ class CreateMensagens < ActiveRecord::Migration
     drop_table :mensagens
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class PasswordTest < ActionController::IntegrationTest
@@ -266,3 +267,4 @@ class PasswordTest < ActionController::IntegrationTest
     end
   end
 end
+

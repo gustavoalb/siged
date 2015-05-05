@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   class Address
     
@@ -304,3 +304,4 @@ module Mail
  
   end
 end
+

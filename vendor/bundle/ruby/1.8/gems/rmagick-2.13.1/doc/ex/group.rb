@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 Magick::RVG.dpi = 90
@@ -24,3 +25,4 @@ rvg = Magick::RVG.new(6.cm, 4.cm).viewbox(0,0,600,400) do |canvas|
 end
 
 rvg.draw.write('group.gif')
+

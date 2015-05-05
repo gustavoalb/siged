@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'date'
 require 'active_support/core_ext/time/zones'
 
@@ -12,3 +13,4 @@ class Date
     end
   end
 end
+

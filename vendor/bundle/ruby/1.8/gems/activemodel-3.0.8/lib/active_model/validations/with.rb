@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
   module Validations
     module HelperMethods
@@ -129,3 +130,4 @@ module ActiveModel
     end
   end
 end
+

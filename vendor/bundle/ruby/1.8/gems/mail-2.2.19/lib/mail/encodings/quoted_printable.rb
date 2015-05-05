@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'mail/encodings/7bit'
 
 module Mail
@@ -36,3 +36,4 @@ module Mail
     end
   end
 end
+

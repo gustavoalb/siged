@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nBackendSimpleTest < Test::Unit::TestCase
@@ -77,3 +78,4 @@ class I18nBackendSimpleTest < Test::Unit::TestCase
     assert_equal I18n.backend.initialized?, false
   end
 end
+

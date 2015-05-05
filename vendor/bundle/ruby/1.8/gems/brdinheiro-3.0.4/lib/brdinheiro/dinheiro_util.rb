@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module DinheiroUtil
 
   # Ao incluir o modulo, cria aliases para_dinheiro
@@ -49,3 +50,4 @@ end
 
 Numeric.send(:include, DinheiroUtil)
 String.send(:include, DinheiroUtil)
+

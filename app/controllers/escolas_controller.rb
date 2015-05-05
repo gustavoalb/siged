@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 include Serenity::Generator
 class EscolasController < ApplicationController
   load_and_authorize_resource
@@ -253,3 +254,4 @@ end
     end
 
   end
+

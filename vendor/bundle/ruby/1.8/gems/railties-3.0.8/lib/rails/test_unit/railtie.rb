@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   class TestUnitRailtie < Rails::Railtie
     config.generators do |c|
@@ -13,3 +14,4 @@ module Rails
     end
   end
 end
+

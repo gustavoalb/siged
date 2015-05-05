@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 RSpec::Matchers.define :have_the_content_of do |expected|
   match do |actual|
     sha256_hash_of(actual) == sha256_hash_of(expected)
@@ -63,3 +64,4 @@ def sha256_hash_of_almost(entry)
       end
   end
 end
+

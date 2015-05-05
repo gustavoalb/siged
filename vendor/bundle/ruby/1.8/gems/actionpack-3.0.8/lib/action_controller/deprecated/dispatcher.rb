@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   class Dispatcher
     class << self
@@ -26,3 +27,4 @@ module ActionController
     end
   end
 end
+

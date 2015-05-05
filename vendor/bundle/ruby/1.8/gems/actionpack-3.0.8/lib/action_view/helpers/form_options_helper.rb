@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'cgi'
 require 'erb'
 require 'action_view/helpers/form_helper'
@@ -625,3 +626,4 @@ module ActionView
     end
   end
 end
+

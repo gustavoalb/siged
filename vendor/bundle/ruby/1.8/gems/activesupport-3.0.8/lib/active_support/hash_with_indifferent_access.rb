@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/hash/keys'
 
 # This class has dubious semantics and we only have it so that
@@ -150,3 +151,4 @@ module ActiveSupport
 end
 
 HashWithIndifferentAccess = ActiveSupport::HashWithIndifferentAccess
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Compiler
     module InlineModuleMixin
@@ -25,3 +26,4 @@ module Treetop
     end
   end
 end
+

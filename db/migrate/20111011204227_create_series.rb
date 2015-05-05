@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSeries < ActiveRecord::Migration
   def self.up
     create_table :series do |t|
@@ -12,3 +13,4 @@ class CreateSeries < ActiveRecord::Migration
     drop_table :series
   end
 end
+

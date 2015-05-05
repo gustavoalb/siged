@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/module/attr_internal'
 require 'active_support/core_ext/module/delegation'
 require 'active_support/core_ext/class/attribute'
@@ -241,3 +242,4 @@ module ActionView #:nodoc:
     ActiveSupport.run_load_hooks(:action_view, self)
   end
 end
+

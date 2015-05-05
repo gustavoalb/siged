@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Module
   # Declares an attribute reader backed by an internally-named instance variable.
   def attr_internal_reader(*attrs)
@@ -30,3 +31,4 @@ class Module
       Module.attr_internal_naming_format % attr
     end
 end
+

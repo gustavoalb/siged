@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/mount/utils'
 
 module Rack::Mount
@@ -34,3 +35,4 @@ module Rack::Mount
     end
   end
 end
+

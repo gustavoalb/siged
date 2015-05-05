@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEnquetes < ActiveRecord::Migration
   def self.up
     create_table :enquetes do |t|
@@ -16,3 +17,4 @@ class CreateEnquetes < ActiveRecord::Migration
     drop_table :enquetes
   end
 end
+

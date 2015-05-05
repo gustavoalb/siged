@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module FormulasFolha
 
   # Fórmula para a Soma de Eventos de determinados tipos
@@ -33,3 +34,4 @@ end
   Object.send(:include, FormulasFolha)
   Class.send(:include,UpActive)
 #String.send(:include, CalculosFolha)
+

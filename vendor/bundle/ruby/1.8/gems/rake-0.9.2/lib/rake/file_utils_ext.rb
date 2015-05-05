@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rake/file_utils'
 
 module Rake
@@ -140,3 +141,4 @@ module Rake
     extend self
   end
 end
+

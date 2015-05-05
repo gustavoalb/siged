@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -7,3 +8,4 @@ img = img.roll(img.columns/4, img.rows/4)
 
 img.write('roll.jpg')
 exit
+

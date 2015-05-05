@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # = Comments Field
 # 
@@ -39,3 +39,4 @@ module Mail
     
   end
 end
+

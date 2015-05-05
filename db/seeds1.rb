@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #Adiciona as Anoes
 Serie.delete_all
 serie1 = Serie.create(:nome=>"1ª Ano",:codigo=>"1S")
@@ -106,6 +107,7 @@ Curriculo.delete_all
 	  turma = eambiente.turmas.create(:matriz_id=>matriz.id, :serie_id=>serie8.id, :turno=>'Manhã', :escola_id=>e.id)
 	  turma = eambiente.turmas.create(:matriz_id=>matriz.id, :serie_id=>serie9.id, :turno=>'Manhã', :escola_id=>e.id)
 	 end 
+
 
 
 

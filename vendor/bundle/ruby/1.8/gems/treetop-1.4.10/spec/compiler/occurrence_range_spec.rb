@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module OccurrenceRangeSpec
@@ -187,3 +188,4 @@ module OccurrenceRangeSpec
   end
 
 end
+

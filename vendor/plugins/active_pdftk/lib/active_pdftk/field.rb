@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActivePdftk
   # Represents a fillable form field on a PDF form
   #
@@ -270,3 +271,4 @@ module ActivePdftk
 
   end
 end
+

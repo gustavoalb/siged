@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 
 # Dependency-checking and Installation Rake Tasks
 
@@ -73,4 +74,5 @@ desc "Install development dependencies as gems"
 task :install_dev_dependencies do
 	install_gems( DEVELOPMENT_DEPENDENCIES )
 end
+
 

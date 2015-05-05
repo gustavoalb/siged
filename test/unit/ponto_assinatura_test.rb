@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class PontoAssinaturaTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class PontoAssinaturaTest < ActiveSupport::TestCase
     assert true
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
   # == Active Model Conversions
   #
@@ -49,3 +50,4 @@ module ActiveModel
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # -*- coding: utf-8 -*-
 
 require 'active_support/core_ext/array/wrap'
@@ -321,3 +322,4 @@ module ActiveModel
     end
   end
 end
+

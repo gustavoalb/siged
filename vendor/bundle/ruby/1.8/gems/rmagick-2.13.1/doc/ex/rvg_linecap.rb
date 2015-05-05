@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'rvg/rvg'
 
@@ -40,4 +41,5 @@ rvg = Magick::RVG.new(12.cm, 2.cm).viewbox(0, 0, 1200, 200) do |canvas|
 end
 
 rvg.draw.write('rvg_linecap.gif')
+
 

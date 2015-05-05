@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   module Cache
     # Like MemoryStore, but thread-safe.
@@ -9,3 +10,4 @@ module ActiveSupport
     end
   end
 end
+

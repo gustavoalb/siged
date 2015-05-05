@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddEntidadeToPontoDiarios < ActiveRecord::Migration
   def self.up
     add_column :ponto_diarios, :entidade_id, :integer
@@ -7,3 +8,4 @@ class AddEntidadeToPontoDiarios < ActiveRecord::Migration
     remove_column :ponto_diarios, :entidade_id
   end
 end
+

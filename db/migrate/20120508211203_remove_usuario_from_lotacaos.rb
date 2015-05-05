@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveUsuarioFromLotacaos < ActiveRecord::Migration
   def self.up
     remove_column :lotacaos, :usuario
@@ -7,3 +8,4 @@ class RemoveUsuarioFromLotacaos < ActiveRecord::Migration
     add_column :lotacaos, :usuario, :string
   end
 end
+

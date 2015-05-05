@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 # We are defining method_added in Kernel and Object so that when
@@ -27,3 +28,4 @@ class Object
     end
   end
 end
+

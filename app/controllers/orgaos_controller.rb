@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class OrgaosController < ApplicationController
   load_and_authorize_resource
   # GET /orgaos
@@ -100,3 +101,4 @@ class OrgaosController < ApplicationController
     end
   end
 end
+

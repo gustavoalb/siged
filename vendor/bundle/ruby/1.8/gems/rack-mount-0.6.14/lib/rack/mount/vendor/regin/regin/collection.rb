@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Regin
   class Collection
     include Enumerable
@@ -75,3 +76,4 @@ module Regin
       end
   end
 end
+

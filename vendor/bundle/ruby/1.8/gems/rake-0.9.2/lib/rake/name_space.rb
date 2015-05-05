@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
 
   # The NameSpace class will lookup task names in the the scope
@@ -23,3 +24,4 @@ module Rake
     end
   end
 end
+

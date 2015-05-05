@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #
 # setup.rb
 #
@@ -1329,3 +1330,4 @@ if $0 == __FILE__
     exit 1
   end
 end
+

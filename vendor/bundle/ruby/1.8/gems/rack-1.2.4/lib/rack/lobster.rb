@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'zlib'
 
 require 'rack/request'
@@ -63,3 +64,4 @@ if $0 == __FILE__
     Rack::ShowExceptions.new(Rack::Lint.new(Rack::Lobster.new)),
     :Port => 9292
 end
+

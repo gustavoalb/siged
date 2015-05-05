@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/named_base'
 
 module TestUnit
@@ -6,3 +7,4 @@ module TestUnit
     end
   end
 end
+

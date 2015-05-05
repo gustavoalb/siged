@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDisciplinasFuncionarios < ActiveRecord::Migration
 	def self.up
 		create_table :disciplinas_funcionarios,:id=>false do |t|
@@ -10,3 +11,4 @@ class CreateDisciplinasFuncionarios < ActiveRecord::Migration
 		drop_table :disciplinas_funcionarios
 	end
 end
+

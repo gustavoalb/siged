@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'uri'
 require 'stringio'
 require 'rack'
@@ -188,3 +189,4 @@ module Rack
     include Response::Helpers
   end
 end
+

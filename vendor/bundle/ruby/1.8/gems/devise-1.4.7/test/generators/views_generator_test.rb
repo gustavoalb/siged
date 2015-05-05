@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "test_helper"
 
 class ViewsGeneratorTest < Rails::Generators::TestCase
@@ -43,3 +44,4 @@ class ViewsGeneratorTest < Rails::Generators::TestCase
     assert_file "app/views/#{scope}/unlocks/new.html.erb"
   end
 end
+

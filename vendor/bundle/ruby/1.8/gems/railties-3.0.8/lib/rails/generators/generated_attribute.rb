@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/time'
 
 module Rails
@@ -49,3 +50,4 @@ module Rails
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateBoletinsFuncionais < ActiveRecord::Migration
   def self.up
     create_table :boletins_funcionais do |t|
@@ -14,3 +15,4 @@ class CreateBoletinsFuncionais < ActiveRecord::Migration
     drop_table :boletins_funcionals
   end
 end
+

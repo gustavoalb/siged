@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionDispatch
   module Assertions
     # A small suite of assertions that test responses from \Rails applications.
@@ -105,3 +106,4 @@ module ActionDispatch
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/nulllogger'
 
 describe Rack::NullLogger do
@@ -10,3 +11,4 @@ describe Rack::NullLogger do
     lambda{ logger.call({}) }.should.not.raise
   end
 end
+

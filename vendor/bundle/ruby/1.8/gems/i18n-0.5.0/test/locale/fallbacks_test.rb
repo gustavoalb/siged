@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 include I18n::Locale
@@ -122,3 +123,4 @@ class I18nFallbacksComputationTest < Test::Unit::TestCase
     assert_equal [:he, :"en-US", :en], @fallbacks[:he]
   end
 end
+

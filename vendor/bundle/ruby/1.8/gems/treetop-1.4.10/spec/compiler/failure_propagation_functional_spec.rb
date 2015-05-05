@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe "An expression for braces surrounding zero or more letters followed by semicolons" do
@@ -19,3 +20,4 @@ describe "An expression for braces surrounding zero or more letters followed by 
     end
   end
 end
+

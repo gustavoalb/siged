@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # $Id: embellishable.rb,v 1.9 2009/02/28 23:52:13 rmagick Exp $
 # Copyright (C) 2009 Timothy P. Hunter
@@ -414,4 +415,5 @@ module Magick
 
     end # class RVG
 end # module Magick
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 nivel = ReferenciaNivel.find_by_codigo('M4A01')
 
 if nivel
@@ -716,3 +717,4 @@ nivel = ReferenciaNivel.find_by_codigo('M4F24')
 if nivel
  nivel.vencimentos.create(:ano=>2011, :mes=>12, :valor=>3492.37, :atual=>true)
 end
+

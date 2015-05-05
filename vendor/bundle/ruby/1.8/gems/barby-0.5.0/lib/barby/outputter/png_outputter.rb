@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'barby/outputter'
 require 'chunky_png'
 
@@ -105,3 +106,4 @@ module Barby
   end
 
 end
+

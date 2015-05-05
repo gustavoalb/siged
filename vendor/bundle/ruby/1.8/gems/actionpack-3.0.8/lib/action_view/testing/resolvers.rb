@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'action_view/template/resolver'
 
 module ActionView #:nodoc:
@@ -40,4 +41,5 @@ module ActionView #:nodoc:
   end
 
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Belongs To Polymorphic Association
   module Associations
@@ -80,3 +81,4 @@ module ActiveRecord
     end
   end
 end
+

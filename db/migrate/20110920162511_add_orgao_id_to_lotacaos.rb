@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddOrgaoIdToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :orgao_id, :integer
@@ -7,3 +8,4 @@ class AddOrgaoIdToLotacaos < ActiveRecord::Migration
     remove_column :lotacaos, :orgao_id
   end
 end
+

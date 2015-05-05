@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module NotPredicateSpec
@@ -36,3 +37,4 @@ module NotPredicateSpec
     end
   end
 end
+

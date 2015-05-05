@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # Copyright (c) 2004-2010 David Heinemeier Hansson
 #
@@ -93,3 +94,4 @@ module ActionDispatch
 end
 
 autoload :Mime, 'action_dispatch/http/mime_type'
+

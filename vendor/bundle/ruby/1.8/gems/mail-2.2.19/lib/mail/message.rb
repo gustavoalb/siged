@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require "yaml"
 
 module Mail
@@ -1995,3 +1995,4 @@ module Mail
 
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'pdf_helper'
 require 'wicked_pdf_helper'
 
@@ -24,3 +25,4 @@ if defined?(Rails)
 
   end
 end
+

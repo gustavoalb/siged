@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionDispatch
   class Rescue
     def initialize(app, rescuers = {}, &block)
@@ -24,3 +25,4 @@ module ActionDispatch
       end
   end
 end
+

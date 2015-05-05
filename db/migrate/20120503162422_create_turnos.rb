@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTurnos < ActiveRecord::Migration
   def self.up
     create_table :turnos do |t|
@@ -10,3 +11,4 @@ class CreateTurnos < ActiveRecord::Migration
     drop_table :turnos
   end
 end
+

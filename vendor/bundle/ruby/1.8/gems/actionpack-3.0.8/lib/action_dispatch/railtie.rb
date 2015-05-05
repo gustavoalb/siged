@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "action_dispatch"
 require "rails"
 
@@ -10,3 +11,4 @@ module ActionDispatch
     config.action_dispatch.best_standards_support = true
   end
 end
+

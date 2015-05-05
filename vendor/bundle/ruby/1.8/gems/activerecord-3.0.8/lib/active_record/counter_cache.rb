@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Counter Cache
   module CounterCache
@@ -113,3 +114,4 @@ module ActiveRecord
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::Test::Helpers do
@@ -88,3 +88,4 @@ describe Warden::Test::Helpers do
   end
 
 end
+

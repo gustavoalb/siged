@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -23,3 +24,4 @@ class TCOffsetRationals < Test::Unit::TestCase
     }
   end
 end
+

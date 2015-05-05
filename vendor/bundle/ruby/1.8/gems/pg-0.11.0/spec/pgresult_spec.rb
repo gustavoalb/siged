@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env spec
 # encoding: utf-8
 
@@ -222,3 +223,4 @@ describe PGresult do
 		teardown_testing_db( @conn )
 	end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rake'
 
 module Rake
@@ -20,3 +21,4 @@ module Rake
   end
 
 end
+

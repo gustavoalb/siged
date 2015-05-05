@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'arel/crud'
 
 require 'arel/expressions'
@@ -37,3 +38,4 @@ module Arel
   ## Convenience Alias
   Node = Arel::Nodes::Node
 end
+

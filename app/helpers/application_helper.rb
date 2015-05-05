@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   include ScopedSearch::Helpers
 
@@ -368,3 +369,4 @@ else
  return raw("<font color=red><b>Nada Cadastrado</b></font>")
 end
 end
+

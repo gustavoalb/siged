@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   module ConnectionAdapters # :nodoc:
     module DatabaseLimits
@@ -55,3 +56,4 @@ module ActiveRecord
     end
   end
 end
+

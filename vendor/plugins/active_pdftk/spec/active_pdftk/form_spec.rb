@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe ActivePdftk::Form do
@@ -454,4 +455,5 @@ describe ActivePdftk::Form do
   end
 
 end
+
 

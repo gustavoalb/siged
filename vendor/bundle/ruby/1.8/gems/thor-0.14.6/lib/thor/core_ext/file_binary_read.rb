@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class File #:nodoc:
 
   unless File.respond_to?(:binread)
@@ -7,3 +8,4 @@ class File #:nodoc:
   end
 
 end
+

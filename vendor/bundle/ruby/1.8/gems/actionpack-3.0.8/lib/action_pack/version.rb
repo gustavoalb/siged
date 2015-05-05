@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionPack
   module VERSION #:nodoc:
     MAJOR = 3
@@ -8,3 +9,4 @@ module ActionPack
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')
   end
 end
+

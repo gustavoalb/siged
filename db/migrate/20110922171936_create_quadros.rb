@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateQuadros < ActiveRecord::Migration
   def self.up
     create_table :quadros do |t|
@@ -13,3 +14,4 @@ class CreateQuadros < ActiveRecord::Migration
     drop_table :quadros
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
@@ -11,3 +12,4 @@ end
 
 I18n.load_path = Dir.glob("#{RAILS_ROOT}/config/locales/*") + Dir.glob("#{BrI18n::I18N_FILES}/*")
 I18n.default_locale = 'pt-BR'
+

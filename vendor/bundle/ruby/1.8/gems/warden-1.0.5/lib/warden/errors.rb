@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Warden
   class Proxy 
     # Lifted from DataMapper's dm-validations plugin :)
@@ -64,3 +64,4 @@ module Warden
     end # class Errors
   end # Proxy
 end # Warden
+

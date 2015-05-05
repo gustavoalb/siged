@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 {
   :af => { :i18n => { :plural => { :keys => [:one, :other], :rule => lambda { |n| n == 1 ? :one : :other } } } },
@@ -110,4 +110,5 @@
   :zh => { :i18n => { :plural => { :keys => [:other], :rule => lambda { |n| :other } } } },
   :zu => { :i18n => { :plural => { :keys => [:one, :other], :rule => lambda { |n| n == 1 ? :one : :other } } } }
 }
+
 

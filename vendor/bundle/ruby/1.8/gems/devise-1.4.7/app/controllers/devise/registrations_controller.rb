@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Devise::RegistrationsController < ApplicationController
   prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
@@ -118,3 +119,4 @@ class Devise::RegistrationsController < ApplicationController
       self.resource = send(:"current_#{resource_name}")
     end
 end
+

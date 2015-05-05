@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/notifications"
 require "active_support/descendants_tracker"
 
@@ -74,3 +75,4 @@ module Rails
     end
   end
 end
+

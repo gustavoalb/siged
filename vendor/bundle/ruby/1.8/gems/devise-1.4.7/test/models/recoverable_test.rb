@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class RecoverableTest < ActiveSupport::TestCase
@@ -223,3 +224,4 @@ class RecoverableTest < ActiveSupport::TestCase
   end
 
 end
+

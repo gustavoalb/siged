@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/concern'
 require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/proc'
@@ -112,3 +113,4 @@ module ActiveSupport
     end
   end
 end
+

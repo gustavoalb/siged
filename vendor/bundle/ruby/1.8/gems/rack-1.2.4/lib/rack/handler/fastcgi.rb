@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'fcgi'
 require 'socket'
 require 'rack/content_length'
@@ -87,3 +88,4 @@ module Rack
     end
   end
 end
+

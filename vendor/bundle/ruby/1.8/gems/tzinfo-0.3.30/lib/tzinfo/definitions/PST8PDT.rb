@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TZInfo
   module Definitions
     module PST8PDT
@@ -188,3 +189,4 @@ module TZInfo
     end
   end
 end
+

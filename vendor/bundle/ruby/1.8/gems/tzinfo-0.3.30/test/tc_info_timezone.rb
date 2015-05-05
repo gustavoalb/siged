@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -33,4 +34,5 @@ class TCInfoTimezone < Test::Unit::TestCase
     assert_same(i, tz.setup_info)
   end
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterModels2 < ActiveRecord::Migration
   def self.up
   	add_column :escolas,:entidade_id,:integer
@@ -22,3 +23,4 @@ class AlterModels2 < ActiveRecord::Migration
     remove_column :users,:entidade_id
   end
 end
+

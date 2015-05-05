@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # vim: ft=ruby encoding=utf-8
 #--
 # MIME::Types
@@ -749,3 +750,4 @@ module MIME
 end
 
 load File.join(File.dirname(__FILE__), 'types.rb.data')
+

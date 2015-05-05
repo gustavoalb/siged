@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "test_helper"
 
 class InstallGeneratorTest < Rails::Generators::TestCase
@@ -11,3 +12,4 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     assert_file "config/locales/devise.en.yml"
   end
 end
+

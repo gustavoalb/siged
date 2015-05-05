@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Object
   # Returns a hash that maps instance variable names without "@" to their
   # corresponding values. Keys are strings both in Ruby 1.8 and 1.9.
@@ -65,3 +66,4 @@ class Object
     vars.each { |name| instance_variable_set(name, object.instance_variable_get(name)) }
   end
 end
+

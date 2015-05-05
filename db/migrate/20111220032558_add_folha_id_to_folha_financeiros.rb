@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFolhaIdToFolhaFinanceiros < ActiveRecord::Migration
   def self.up
     add_column :folha_financeiros, :folha_id, :integer,:null=>false
@@ -7,3 +8,4 @@ class AddFolhaIdToFolhaFinanceiros < ActiveRecord::Migration
     remove_column :folha_financeiros, :folha_id
   end
 end
+

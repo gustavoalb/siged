@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class RoutesTest < ActionController::TestCase
@@ -57,3 +58,4 @@ class RoutesTest < ActionController::TestCase
     assert_path_and_url :registration, :cancel
   end
 end
+

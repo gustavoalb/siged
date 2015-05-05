@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 BENCHMARK = false
@@ -28,3 +29,4 @@ module CircularCompilationSpec
     end
   end
 end
+

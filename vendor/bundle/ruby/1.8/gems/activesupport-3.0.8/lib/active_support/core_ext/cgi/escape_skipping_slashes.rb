@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'cgi'
 
 class CGI #:nodoc:
@@ -17,3 +18,4 @@ class CGI #:nodoc:
     end
   end
 end
+

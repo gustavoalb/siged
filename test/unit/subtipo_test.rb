@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class SubtipoTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class SubtipoTest < ActiveSupport::TestCase
     assert true
   end
 end
+

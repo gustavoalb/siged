@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'nested_multimap'
 rescue LoadError
@@ -51,3 +52,4 @@ module Rack::Mount
     end
   end
 end
+

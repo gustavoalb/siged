@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'fileutils'
 require 'optparse'
 require 'action_dispatch'
@@ -92,3 +93,4 @@ module Rails
     end
   end
 end
+

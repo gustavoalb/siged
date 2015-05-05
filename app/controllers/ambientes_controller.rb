@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AmbientesController < ApplicationController
   load_and_authorize_resource
   # GET /ambientes
@@ -190,3 +191,4 @@ def destroy
   end
 end
 end
+

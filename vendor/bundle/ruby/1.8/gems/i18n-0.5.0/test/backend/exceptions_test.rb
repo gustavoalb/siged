@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nBackendExceptionsTest < Test::Unit::TestCase
@@ -21,3 +22,4 @@ class I18nBackendExceptionsTest < Test::Unit::TestCase
     assert_equal "translation missing: en.time.formats.foo", exception.message
   end
 end
+

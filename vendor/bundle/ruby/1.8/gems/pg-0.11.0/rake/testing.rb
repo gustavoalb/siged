@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 
 # Rake tasklib for testing tasks
 
@@ -148,5 +149,6 @@ rescue LoadError => err
 
 	task :unittests => :no_rspec
 end
+
 
 

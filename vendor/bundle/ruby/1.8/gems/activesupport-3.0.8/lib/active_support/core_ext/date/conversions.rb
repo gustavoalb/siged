@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'date'
 require 'active_support/inflector/methods'
 require 'active_support/core_ext/date/zones'
@@ -97,3 +98,4 @@ class Date
     to_time_in_current_zone.xmlschema
   end
 end
+

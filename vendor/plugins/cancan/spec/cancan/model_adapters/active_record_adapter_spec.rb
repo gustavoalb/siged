@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 if ENV["MODEL_ADAPTER"].nil? || ENV["MODEL_ADAPTER"] == "active_record"
   require "spec_helper"
 
@@ -276,3 +277,4 @@ if ENV["MODEL_ADAPTER"].nil? || ENV["MODEL_ADAPTER"] == "active_record"
     end
   end
 end
+

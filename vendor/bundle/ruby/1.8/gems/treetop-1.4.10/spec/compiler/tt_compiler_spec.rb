@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'digest/sha1'
 require 'tmpdir'
 
@@ -215,3 +216,4 @@ describe "The 'tt' comand line compiler" do
   end
 
 end
+

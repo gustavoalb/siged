@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   module Deprecation
     class << self
@@ -59,3 +60,4 @@ module ActiveSupport
     end
   end
 end
+

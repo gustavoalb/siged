@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class IndifferentHashTest < ActiveSupport::TestCase
@@ -31,3 +32,4 @@ class IndifferentHashTest < ActiveSupport::TestCase
     assert_kind_of Hash, @hash.to_hash
   end
 end if defined?(Devise::IndifferentHash)
+

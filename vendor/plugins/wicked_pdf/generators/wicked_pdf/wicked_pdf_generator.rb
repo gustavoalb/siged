@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class WickedPdfGenerator < Rails::Generator::Base
   def manifest
     record do |m|
@@ -5,3 +6,4 @@ class WickedPdfGenerator < Rails::Generator::Base
     end
   end
 end
+

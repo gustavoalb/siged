@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AmbienteFisico < ActiveRecord::Base
 	belongs_to :matriz
 	belongs_to :serie
@@ -16,3 +17,4 @@ class AmbienteFisico < ActiveRecord::Base
 ]
 
 end
+

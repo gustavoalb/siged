@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'singleton'
 require 'active_support/core_ext/array/wrap'
 require 'active_support/core_ext/module/aliasing'
@@ -213,3 +214,4 @@ module ActiveModel
       end
   end
 end
+

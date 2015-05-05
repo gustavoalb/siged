@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakeRequire < Rake::TestCase
@@ -32,4 +33,5 @@ class TestRakeRequire < Rake::TestCase
     assert_match(/testx/, ex.message)
   end
 end
+
 

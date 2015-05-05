@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'minitest/autorun'
 require 'fileutils'
@@ -11,3 +12,4 @@ class Object
     self.gsub(/\s+/, ' ').strip.must_equal other.gsub(/\s+/, ' ').strip
   end
 end
+

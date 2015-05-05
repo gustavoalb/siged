@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddJornadaToSituacoesJuridicas < ActiveRecord::Migration
   def self.up
     add_column :situacoes_juridicas, :jornada, :integer
@@ -7,3 +8,4 @@ class AddJornadaToSituacoesJuridicas < ActiveRecord::Migration
     remove_column :situacoes_juridicas, :jornada
   end
 end
+

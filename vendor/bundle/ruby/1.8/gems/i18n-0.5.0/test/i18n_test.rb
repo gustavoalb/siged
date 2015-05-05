@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nTest < Test::Unit::TestCase
@@ -234,3 +235,4 @@ class I18nTest < Test::Unit::TestCase
     assert_equal I18n.default_locale, I18n.locale
   end
 end
+

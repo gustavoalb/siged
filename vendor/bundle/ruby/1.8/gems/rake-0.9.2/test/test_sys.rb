@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 begin
   old_verbose = $VERBOSE
@@ -18,3 +19,4 @@ class TestSys < Rake::TestCase
     assert_equal ['..', 'a', 'b'], Sys.split_all('../a/b')
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'mail/encodings/binary'
 
 module Mail
@@ -29,3 +29,4 @@ module Mail
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Formacao < ActiveRecord::Base
   set_table_name :formacaos
   #acts_as_taggable
@@ -21,3 +22,4 @@ NIVEL=[
   ]
 STATUS=[['Cursando'],['Concluido'],['Incompleto']]
 end
+

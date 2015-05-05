@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddEsferaIdToOrgaos < ActiveRecord::Migration
   def self.up
     add_column :orgaos, :esfera_id, :integer
@@ -7,3 +8,4 @@ class AddEsferaIdToOrgaos < ActiveRecord::Migration
     remove_column :orgaos, :esfera_id
   end
 end
+

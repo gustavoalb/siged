@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 require 'rake/testtask'
 
@@ -120,3 +121,4 @@ class TestRakeTestTask < Rake::TestCase
     refute_match(/-I/, test_task.ruby_opts_string)
   end
 end
+

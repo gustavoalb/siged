@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class DefaultRoutingTest < ActionController::TestCase
@@ -238,3 +239,4 @@ class ScopedRoutingTest < ActionController::TestCase
     assert_equal '/publisher/accounts/get_in', @routes.url_helpers.new_publisher_account_session_path
   end
 end
+

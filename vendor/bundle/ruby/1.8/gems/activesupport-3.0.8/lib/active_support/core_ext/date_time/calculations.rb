@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rational' unless RUBY_VERSION >= '1.9.2'
 require 'active_support/core_ext/object/acts_like'
 require 'active_support/core_ext/time/zones'
@@ -113,3 +114,4 @@ class DateTime
   alias_method :compare_without_coercion, :<=>
   alias_method :<=>, :compare_with_coercion
 end
+

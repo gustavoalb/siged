@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDeviseTo<%= table_name.camelize %> < ActiveRecord::Migration
   def self.up
     change_table(:<%= table_name %>) do |t|
@@ -32,3 +33,4 @@ class AddDeviseTo<%= table_name.camelize %> < ActiveRecord::Migration
     raise ActiveRecord::IrreversibleMigration   
   end
 end
+

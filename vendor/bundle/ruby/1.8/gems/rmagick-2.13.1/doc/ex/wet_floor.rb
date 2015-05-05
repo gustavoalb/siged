@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 require 'RMagick'
@@ -57,3 +58,4 @@ result = results.montage do
     self.background_color = 'black'
 end
 result.write('wet_floor.gif')
+

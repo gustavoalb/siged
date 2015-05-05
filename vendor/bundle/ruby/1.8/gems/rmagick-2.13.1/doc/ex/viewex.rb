@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -32,4 +33,5 @@ end
 
 img.scale(5).write("viewex.gif")
 exit
+
 

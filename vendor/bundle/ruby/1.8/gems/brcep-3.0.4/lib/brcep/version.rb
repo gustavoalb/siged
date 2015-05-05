@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module BrCep
   module VERSION #:nodoc:
     MAJOR = 3
@@ -7,4 +8,5 @@ module BrCep
     STRING = "#{MAJOR}.#{MINOR}.#{TINY}"
   end
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
 
   ####################################################################
@@ -49,3 +50,4 @@ module Rake
     EMPTY = EmptyInvocationChain.new
   end
 end
+

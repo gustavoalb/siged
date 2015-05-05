@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -22,4 +23,5 @@ ann.annotate(img, 0,0,0,0, "TextureFill.new(granite)") {
 #img.display
 img.write("texturefill.gif")
 exit
+
 

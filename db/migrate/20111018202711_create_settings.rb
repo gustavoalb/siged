@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSettings < ActiveRecord::Migration
   def self.up
     create_table :settings do |t|
@@ -18,3 +19,4 @@ class CreateSettings < ActiveRecord::Migration
     drop_table :settings
   end
 end
+

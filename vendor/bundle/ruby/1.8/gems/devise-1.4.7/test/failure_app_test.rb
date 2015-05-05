@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 require 'ostruct'
 
@@ -205,3 +206,4 @@ class FailureTest < ActiveSupport::TestCase
     end
   end
 end
+

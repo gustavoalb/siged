@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Escola.create(:codigo=>'16000765',:nome_da_escola=>'ESC MUL ANTIDIO PROSPERO',:endereco=>'COMUNIDADE AMAPA GRANDE',:numero=>'',:bairro=>'ZONA RURAL',:complemento=>'',:telefone=>'',:rede=>'Municipal',:municipio=>'Amapá',:zona=>'Rural')
 Escola.create(:codigo=>'16007549',:nome_da_escola=>'ESC MUL FRANCISCO TORRES',:endereco=>'LOCALIDADE DE ARAQUICAUA',:numero=>'',:bairro=>'',:complemento=>'',:telefone=>'',:rede=>'Municipal',:municipio=>'Amapá',:zona=>'Rural')
 Escola.create(:codigo=>'16009908',:nome_da_escola=>'ESC MUL JORGE BRANDAO',:endereco=>'BICUDINHO',:numero=>'S/N',:bairro=>'ZONA RURAL',:complemento=>'',:telefone=>'',:rede=>'Municipal',:municipio=>'Amapá',:zona=>'Rural')
@@ -337,3 +338,4 @@ Escola.create(:codigo=>'16006585',:nome_da_escola=>'ESC MUL ALVARO MARQUES GONCA
 Escola.create(:codigo=>'16006690',:nome_da_escola=>'ESC MUL BENEDITO LIMA PENELVA',:endereco=>'PASS JOSE SIMEAO DE SOUZA',:numero=>'5791',:bairro=>'SANTA CLARA',:complemento=>'',:telefone=>'36221235',:rede=>'Municipal',:municipio=>'Vitória do Jari',:zona=>'Urbana')
 Escola.create(:codigo=>'16010795',:nome_da_escola=>'ESC MUL FELINTO BATISTA',:endereco=>'AV JOSE ADILAISON',:numero=>'137',:bairro=>'PRAINHA',:complemento=>'',:telefone=>'91378850',:rede=>'Municipal',:municipio=>'Vitória do Jari',:zona=>'Urbana')
 Escola.create(:codigo=>'16009444',:nome_da_escola=>'ESC MUL FRANCISCA DE FREITAS ARAUJO',:endereco=>'RUA DOS CAJUEIROS',:numero=>'SN',:bairro=>'CIDADE LIVRE',:complemento=>'',:telefone=>'36221448',:rede=>'Municipal',:municipio=>'Vitória do Jari',:zona=>'Urbana')
+

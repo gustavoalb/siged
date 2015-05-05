@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thread'
 
 module ActiveRecord
@@ -357,3 +358,4 @@ module ActiveRecord
     end
   end
 end
+

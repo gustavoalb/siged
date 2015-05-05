@@ -1,0 +1,40 @@
+<style>
+fieldset {width:22%; 
+  float:left; 
+  margin-right: 1%;
+}
+</style>
+<%= javascript_include_tag "mascara.js" %>
+<article class="module width_full">
+  <header><h3><%=legenda%></h3></header>
+  <div class="module_content">
+
+
+    <%= form_for @ano_letivo,:url=>carencias_path do |f| %>
+    <% if @ano_letivo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ano_letivo.errors.count, "erro impede","erros impedem") %> este carencia de ser cadastrado:</h2>
+
+      <ul>
+        <% @ano_letivo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div id="formulario">
+    <%=f.fields_for :carencias,:wrapper => false do |c|%>
+    <%render 'carencia_fields',:f=>c%>
+    
+    <%end%>
+    </div>
+    <%= link_to_add_association 'Nova carencia', f, :carencias,'data-target'=>'#formulario'%>
+    <div class="clear"></div>
+  </div>
+  <footer>
+    <div class="submit_link">
+     <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+   </div>
+ </footer>
+ <% end %>
+</article>

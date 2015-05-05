@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Topic < ActiveRecord::Base
   has_many :replies, :dependent => :destroy, :order => 'replies.created_at DESC'
   belongs_to :project
@@ -10,3 +11,4 @@ class Topic < ActiveRecord::Base
 
   def self.paginate_by_definition_in_class; end
 end
+

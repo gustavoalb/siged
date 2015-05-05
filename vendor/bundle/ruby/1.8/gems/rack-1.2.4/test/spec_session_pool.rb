@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thread'
 require 'rack/mock'
 require 'rack/session/pool'
@@ -175,3 +176,4 @@ describe Rack::Session::Pool do
     session['counter'].should.equal 2 # meeeh
   end
 end
+

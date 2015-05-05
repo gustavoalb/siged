@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/erb'
 require 'rails/generators/resource_helpers'
 
@@ -27,3 +28,4 @@ module Erb
     end
   end
 end
+

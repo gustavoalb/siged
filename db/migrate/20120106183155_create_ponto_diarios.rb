@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePontoDiarios < ActiveRecord::Migration
   def self.up
     create_table :ponto_diarios do |t|
@@ -19,3 +20,4 @@ class CreatePontoDiarios < ActiveRecord::Migration
     drop_table :ponto_diarios
   end
 end
+

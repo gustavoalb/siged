@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Models
     # Creates configuration values for Devise and for the given module.
@@ -89,3 +90,4 @@ module Devise
 end
 
 require 'devise/models/authenticatable'
+

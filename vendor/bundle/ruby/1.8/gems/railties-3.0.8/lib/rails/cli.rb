@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rbconfig'
 require 'rails/script_rails_loader'
 
@@ -12,3 +13,4 @@ require 'rails/ruby_version_check'
 Signal.trap("INT") { puts; exit }
 
 require 'rails/commands/application'
+

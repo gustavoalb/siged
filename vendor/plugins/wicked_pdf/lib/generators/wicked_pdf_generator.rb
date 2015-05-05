@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 if defined?(Rails) && Rails::VERSION::MAJOR != 2
 
   # Rails3 generator invoked with 'rails generate wicked_pdf'
@@ -9,3 +10,4 @@ if defined?(Rails) && Rails::VERSION::MAJOR != 2
   end
 
 end
+

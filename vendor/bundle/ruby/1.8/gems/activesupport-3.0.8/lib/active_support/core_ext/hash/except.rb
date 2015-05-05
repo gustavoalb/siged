@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Hash
   # Return a hash that includes everything but the given keys. This is useful for
   # limiting a set of parameters to everything but a few known toggles:
@@ -21,3 +22,4 @@ class Hash
     self
   end
 end
+

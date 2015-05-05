@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -34,3 +35,4 @@ gc.draw(canvas)
 canvas.border!(1,1,'gray50')
 canvas.write('text_align.gif')
 exit
+

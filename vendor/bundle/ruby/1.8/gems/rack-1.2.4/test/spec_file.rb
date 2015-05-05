@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/file'
 require 'rack/mock'
 
@@ -69,3 +70,4 @@ describe Rack::File do
     body.to_path.should.equal path
   end
 end
+

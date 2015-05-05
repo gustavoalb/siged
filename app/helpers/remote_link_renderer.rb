@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoteLinkRenderer < WillPaginate::LinkRenderer  
  def prepare(collection, options, template)    
    @remote = options.delete(:remote) || {}
@@ -9,3 +10,4 @@ protected
    #replace :method => :post if you need POST action
  end
 end
+

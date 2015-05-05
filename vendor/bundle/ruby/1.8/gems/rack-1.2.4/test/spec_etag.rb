@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/etag'
 
 describe Rack::ETag do
@@ -13,3 +14,4 @@ describe Rack::ETag do
     response[1]['ETag'].should.equal "\"abc\""
   end
 end
+

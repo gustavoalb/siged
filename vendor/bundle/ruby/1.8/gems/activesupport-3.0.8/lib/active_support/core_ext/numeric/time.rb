@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/duration'
 
 class Numeric
@@ -75,3 +76,4 @@ class Numeric
   # Reads best without arguments:  10.minutes.from_now
   alias :from_now :since
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class EnquetesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class EnquetesControllerTest < ActionController::TestCase
     assert_redirected_to enquetes_path
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 #--
@@ -11,3 +12,4 @@
 
 require 'builder/xmlmarkup'
 require 'builder/xmlevents'
+

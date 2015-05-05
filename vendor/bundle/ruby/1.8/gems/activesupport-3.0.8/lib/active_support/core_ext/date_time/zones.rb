@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/time/zones'
 
 class DateTime
@@ -19,3 +20,4 @@ class DateTime
     ActiveSupport::TimeWithZone.new(utc? ? self : getutc, ::Time.__send__(:get_zone, zone))
   end
 end
+

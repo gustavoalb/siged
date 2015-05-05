@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nApiChainTest < Test::Unit::TestCase
@@ -22,3 +23,4 @@ class I18nApiChainTest < Test::Unit::TestCase
     assert_equal I18n::Backend::Chain, I18n.backend.class
   end
 end
+

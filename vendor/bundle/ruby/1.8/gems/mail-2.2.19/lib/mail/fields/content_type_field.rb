@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'mail/fields/common/parameter_hash'
 
 module Mail
@@ -196,3 +196,4 @@ module Mail
     end
   end
 end
+

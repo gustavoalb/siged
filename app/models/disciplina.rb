@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Disciplina < ActiveRecord::Base
 #has_and_belongs_to_many :matrizes
  has_many :fatores,:class_name=>"FatorLotacao"
@@ -57,3 +58,4 @@ def gerar_fator(turma,fator,serie,curriculo,especificarlotacao)
 end
 
 end
+

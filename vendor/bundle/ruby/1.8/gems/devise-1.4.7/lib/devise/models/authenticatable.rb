@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'devise/hooks/activatable'
 require 'devise/models/serializable'
 
@@ -173,3 +174,4 @@ module Devise
     end
   end
 end
+

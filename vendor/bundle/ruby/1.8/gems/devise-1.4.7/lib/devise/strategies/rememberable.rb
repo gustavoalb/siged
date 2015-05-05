@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'devise/strategies/base'
 
 module Devise
@@ -51,3 +52,4 @@ module Devise
 end
 
 Warden::Strategies.add(:rememberable, Devise::Strategies::Rememberable)
+

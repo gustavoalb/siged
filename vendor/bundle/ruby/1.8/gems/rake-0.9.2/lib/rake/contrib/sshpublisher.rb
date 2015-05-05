@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rake/contrib/compositepublisher'
 
 module Rake
@@ -43,3 +44,4 @@ module Rake
     end
   end
 end
+

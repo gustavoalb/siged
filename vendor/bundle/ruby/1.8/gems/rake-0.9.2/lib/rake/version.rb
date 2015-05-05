@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
   module Version
     NUMBERS = [
@@ -8,3 +9,4 @@ module Rake
   end
   VERSION = Version::NUMBERS.join('.')
 end
+

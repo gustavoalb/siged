@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CurriculosController < ApplicationController
 def index
 end
@@ -17,3 +18,4 @@ def update
 end
 
 end
+

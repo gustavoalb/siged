@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Date::FERIADOS = []
 Date::FERIADOS_METODOS = []
 feriados, metodos = FeriadoParser.parser("#{Rails.root}/config/feriados")
@@ -9,4 +10,5 @@ end
 
 feriados.each { |f| Date::FERIADOS << f }
 metodos.each { |m| Date::FERIADOS_METODOS << m }
+
 

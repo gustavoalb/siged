@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Module
   def remove_possible_method(method)
     remove_method(method)
@@ -9,3 +10,4 @@ class Module
     define_method(method, &block)
   end
 end
+

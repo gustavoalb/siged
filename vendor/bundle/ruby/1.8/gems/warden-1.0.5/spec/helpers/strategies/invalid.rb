@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 Warden::Strategies.add(:invalid) do
   def valid?
     false
@@ -6,3 +6,4 @@ Warden::Strategies.add(:invalid) do
 
   def authenticate!; end
 end
+

@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 
 class DateTest < Test::Unit::TestCase
@@ -107,3 +107,4 @@ class DateTest < Test::Unit::TestCase
   end
 
 end
+

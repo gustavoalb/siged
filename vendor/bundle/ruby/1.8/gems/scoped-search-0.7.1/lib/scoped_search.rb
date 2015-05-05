@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # ScopedSearch, Copyright (c) 2010 Novagile.
 # Written by Nicolas Blanco.
 # Licensed under MIT license.
@@ -116,4 +117,5 @@ class ScopedSearch
     end
   end
 end
+
 

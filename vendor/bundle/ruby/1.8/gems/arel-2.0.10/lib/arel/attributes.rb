@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'arel/attributes/attribute'
 
 module Arel
@@ -18,3 +19,4 @@ module Arel
     end
   end
 end
+

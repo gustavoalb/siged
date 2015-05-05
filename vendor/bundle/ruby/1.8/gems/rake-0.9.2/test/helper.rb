@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'minitest/unit'
 require 'flexmock/test_unit_integration'
@@ -41,4 +42,5 @@ end
 # workarounds for 1.8
 $" << 'test/helper.rb'
 Test::Unit.run = true if Test::Unit.respond_to? :run=
+
 

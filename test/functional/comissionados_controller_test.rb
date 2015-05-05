@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class ComissionadosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class ComissionadosControllerTest < ActionController::TestCase
     assert_redirected_to comissionados_path
   end
 end
+

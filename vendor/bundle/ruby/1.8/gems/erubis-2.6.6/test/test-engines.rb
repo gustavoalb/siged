@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ##
 ## $Release: 2.6.6 $
 ## copyright(c) 2006-2010 kuwata-lab.com all rights reserved.
@@ -367,3 +368,4 @@ __END__
       alert("*** debug: i="+(i)); _buf.push("\n");
       _buf.join("");
  ##
+

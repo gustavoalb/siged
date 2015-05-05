@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 def valid_xfdf
   xfdf = Builder::XmlMarkup.new
   xfdf.instruct!
@@ -13,3 +14,4 @@ def valid_xfdf
   end
   xfdf.target!
 end
+

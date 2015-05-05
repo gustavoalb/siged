@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
 
   # == Active Model Numericality Validator
@@ -128,3 +129,4 @@ module ActiveModel
     end
   end
 end
+

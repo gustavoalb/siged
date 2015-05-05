@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 Warden::Strategies.add(:failz) do
   def authenticate!
     request.env['warden.spec.strategies'] ||= []
@@ -6,3 +6,4 @@ Warden::Strategies.add(:failz) do
     fail!("The Fails Strategy Has Failed You")
   end
 end
+

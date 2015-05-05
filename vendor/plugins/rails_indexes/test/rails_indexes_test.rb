@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class RailsIndexesTest < ActiveSupport::TestCase
@@ -81,3 +82,4 @@ class RailsIndexesTest < ActiveSupport::TestCase
 
   end
 end
+

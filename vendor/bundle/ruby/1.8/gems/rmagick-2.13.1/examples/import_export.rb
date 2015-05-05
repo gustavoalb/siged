@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #
 # Demonstrate the export_pixels and import_pixels methods.
 #
@@ -29,3 +30,4 @@ end
 
 copy.write("copy.gif")
 exit
+

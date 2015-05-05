@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'cgi'
 require 'action_view/helpers/tag_helper'
 require 'active_support/core_ext/object/blank'
@@ -590,3 +591,4 @@ module ActionView
     end
   end
 end
+

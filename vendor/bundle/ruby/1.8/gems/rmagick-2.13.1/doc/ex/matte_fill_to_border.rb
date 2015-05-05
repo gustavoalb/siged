@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -37,4 +38,5 @@ img = bg[0].composite(img, Magick::CenterGravity, Magick::OverCompositeOp)
 
 img.write('matte_fill_to_border_after.gif')
 exit
+
 

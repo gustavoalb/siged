@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ##
 ## $Release: 2.6.6 $
 ## copyright(c) 2006-2010 kuwata-lab.com all rights reserved.
@@ -97,3 +98,4 @@ module Erubis
 
 
 end
+

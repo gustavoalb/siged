@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'nokogiri'
 rescue LoadError => e
@@ -85,3 +86,4 @@ module ActiveSupport
     end
   end
 end
+

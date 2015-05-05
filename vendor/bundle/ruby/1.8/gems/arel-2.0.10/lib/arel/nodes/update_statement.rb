@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class UpdateStatement < Arel::Nodes::Node
@@ -19,3 +20,4 @@ module Arel
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/testing/performance'
 require 'active_support/testing/default'
 
@@ -17,3 +18,4 @@ begin
 rescue NameError
   $stderr.puts "Specify ruby-prof as application's dependency in Gemfile to run benchmarks."
 end
+

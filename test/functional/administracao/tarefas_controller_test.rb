@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Administracao::TarefasControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class Administracao::TarefasControllerTest < ActionController::TestCase
     assert_redirected_to administracao_tarefas_path
   end
 end
+

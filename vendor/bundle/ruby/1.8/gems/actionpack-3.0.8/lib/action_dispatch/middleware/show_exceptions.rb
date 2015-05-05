@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/exception'
 require 'active_support/notifications'
 require 'action_dispatch/http/request'
@@ -156,3 +157,4 @@ module ActionDispatch
       end
   end
 end
+

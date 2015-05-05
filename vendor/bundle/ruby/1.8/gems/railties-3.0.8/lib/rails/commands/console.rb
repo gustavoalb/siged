@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'optparse'
 require 'irb'
 require 'irb/completion'
@@ -50,3 +51,4 @@ end
 if ARGV.first && !ARGV.first.index("-") && env = ARGV.shift # has to shift the env ARGV so IRB doesn't freak
   ENV['RAILS_ENV'] = %w(production development test).detect {|e| e =~ /^#{env}/} || env
 end
+

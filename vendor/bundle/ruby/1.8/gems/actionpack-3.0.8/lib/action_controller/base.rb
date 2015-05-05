@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "action_controller/log_subscriber"
 
 module ActionController
@@ -232,4 +233,5 @@ module ActionController
     ActiveSupport.run_load_hooks(:action_controller, self)
   end
 end
+
 

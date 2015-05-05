@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # AUTHOR: blink <blinketje@gmail.com>; blink#ruby-lang@irc.freenode.net
 # bugrep: Andreas Zehnder
 
@@ -138,3 +139,4 @@ module Rack
     end
   end
 end
+

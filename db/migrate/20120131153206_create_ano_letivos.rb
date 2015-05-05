@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAnoLetivos < ActiveRecord::Migration
   def self.up
     create_table :ano_letivos do |t|
@@ -16,3 +17,4 @@ class CreateAnoLetivos < ActiveRecord::Migration
     drop_table :ano_letivos
   end
 end
+

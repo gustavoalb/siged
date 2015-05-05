@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'will_paginate/core_ext'
 
 module WillPaginate
@@ -262,3 +263,4 @@ module WillPaginate
     end
   end
 end
+

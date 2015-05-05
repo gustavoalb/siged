@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCepToEscolas < ActiveRecord::Migration
   def self.up
     add_column :escolas, :cep, :string
@@ -9,3 +10,4 @@ class AddCepToEscolas < ActiveRecord::Migration
     remove_column :escolas, :cep
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Mail
   autoload :UnstructuredField, 'mail/fields/unstructured_field'
   autoload :StructuredField, 'mail/fields/structured_field'
@@ -33,3 +34,4 @@ module Mail
   autoload :SubjectField, 'mail/fields/subject_field'
   autoload :ToField, 'mail/fields/to_field'
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Persistence
   module Persistence
@@ -292,3 +293,4 @@ module ActiveRecord
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   module CommonField # :nodoc:
 
@@ -49,3 +49,4 @@ module Mail
 
   end
 end
+

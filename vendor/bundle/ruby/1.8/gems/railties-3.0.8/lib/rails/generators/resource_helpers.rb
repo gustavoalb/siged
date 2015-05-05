@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/active_model'
 
 module Rails
@@ -78,3 +79,4 @@ module Rails
     end
   end
 end
+

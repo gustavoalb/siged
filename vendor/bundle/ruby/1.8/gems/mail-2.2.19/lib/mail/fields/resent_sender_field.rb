@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # = Resent-Sender Field
 # 
@@ -60,3 +60,4 @@ module Mail
     
   end
 end
+

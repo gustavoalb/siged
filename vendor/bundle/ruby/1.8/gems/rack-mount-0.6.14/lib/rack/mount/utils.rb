@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'regin'
 rescue LoadError
@@ -160,3 +161,4 @@ module Rack::Mount
     module_function :parse_regexp
   end
 end
+

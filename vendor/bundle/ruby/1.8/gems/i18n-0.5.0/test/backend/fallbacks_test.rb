@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nBackendFallbacksTranslateTest < Test::Unit::TestCase
@@ -114,3 +115,4 @@ class I18nBackendFallbacksWithChainTest < Test::Unit::TestCase
     assert_equal 'FOO', I18n.t(:foo, :locale => :'de-DE')
   end
 end
+

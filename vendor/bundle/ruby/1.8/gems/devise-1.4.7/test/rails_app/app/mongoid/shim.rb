@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Shim
   extend ::ActiveSupport::Concern
 
@@ -22,3 +23,4 @@ module Shim
     other.is_a?(self.class) && _id == other._id
   end
 end
+

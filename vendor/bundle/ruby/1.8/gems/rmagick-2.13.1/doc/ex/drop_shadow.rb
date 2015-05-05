@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -58,3 +59,4 @@ anim.iterations = 0
 #anim.animate
 anim.write('drop_shadow.gif')
 exit
+

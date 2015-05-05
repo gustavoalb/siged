@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 
 # Manual-generation Rake tasks and classes
 
@@ -783,5 +784,6 @@ else
 
 	end
 end
+
 
 

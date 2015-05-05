@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MyData
   attr_accessor :val, :list
 end
@@ -10,3 +11,4 @@ mydata.list = ['aaa', 'bbb', 'ccc']
 require 'erubis'
 eruby = Erubis::Eruby.new(File.read('example5.eruby'))
 puts eruby.evaluate(mydata)
+

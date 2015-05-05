@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveResource
   module Formats
     autoload :XmlFormat, 'active_resource/formats/xml_format'
@@ -12,3 +13,4 @@ module ActiveResource
     end
   end
 end
+

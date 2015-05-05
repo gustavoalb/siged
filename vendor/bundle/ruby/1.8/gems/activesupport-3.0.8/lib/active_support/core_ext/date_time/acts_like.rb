@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/acts_like'
 
 class DateTime
@@ -11,3 +12,4 @@ class DateTime
     true
   end
 end
+

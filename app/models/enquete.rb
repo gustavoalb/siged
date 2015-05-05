@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Enquete < ActiveRecord::Base
 	validates_presence_of :tipo,:sujeito
 	validates_uniqueness_of :sujeito,:scope=>[:comentario_um,:comentario_dois,:opiniao_um,:opiniao_dois]
@@ -39,3 +40,4 @@ end
 		['Secretário Escolar','SECRETARIO']
 	]
 end
+

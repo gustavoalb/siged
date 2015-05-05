@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module BrNumeros
   module VERSION #:nodoc:
     MAJOR = 3
@@ -7,4 +8,5 @@ module BrNumeros
     STRING = "#{MAJOR}.#{MINOR}.#{TINY}"
   end
 end
+
 

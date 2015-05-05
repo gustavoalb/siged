@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 module Rake
 
@@ -18,3 +19,4 @@ module Rake
   end
 
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MensagensController < ApplicationController
   # GET /mensagens
   # GET /mensagens.xml
@@ -89,3 +90,4 @@ end
   end
 end
 end
+

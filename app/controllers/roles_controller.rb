@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RolesController < ApplicationController
   load_and_authorize_resource
   # GET /roles
@@ -85,3 +86,4 @@ class RolesController < ApplicationController
     end
   end
 end
+

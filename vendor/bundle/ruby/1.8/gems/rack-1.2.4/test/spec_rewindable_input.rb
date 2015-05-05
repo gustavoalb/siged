@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'stringio'
 require 'rack/rewindable_input'
 
@@ -116,3 +117,4 @@ describe Rack::RewindableInput do
     behaves_like "a rewindable IO object"
   end
 end
+

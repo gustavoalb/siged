@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'mail/network/retriever_methods/base'
 
 module Mail
@@ -11,3 +12,4 @@ module Mail
   autoload :IMAP, 'mail/network/retriever_methods/imap'
   autoload :TestRetriever, 'mail/network/retriever_methods/test_retriever'
 end
+

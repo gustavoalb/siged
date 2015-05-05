@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 require 'active_support/core_ext/class/inheritable_attributes'
 
@@ -174,3 +175,4 @@ module HTML
     end
   end
 end
+

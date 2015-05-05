@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -9,3 +10,4 @@ before = Magick::Image.read('images/Flower_Hat.jpg').first
 after = before.level(0, Magick::QuantumRange, 1.50)
 after.write('level.jpg')
 exit
+

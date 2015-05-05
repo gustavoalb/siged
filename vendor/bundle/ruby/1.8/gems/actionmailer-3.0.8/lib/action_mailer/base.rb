@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'mail'
 require 'action_mailer/tmail_compat'
 require 'action_mailer/collector'
@@ -797,3 +798,4 @@ module ActionMailer #:nodoc:
     ActiveSupport.run_load_hooks(:action_mailer, self)
   end
 end
+

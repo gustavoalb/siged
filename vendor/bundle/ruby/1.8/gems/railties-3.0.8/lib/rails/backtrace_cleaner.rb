@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/backtrace_cleaner'
 
 module Rails
@@ -40,3 +41,4 @@ module Rails
     end
   end
 end
+

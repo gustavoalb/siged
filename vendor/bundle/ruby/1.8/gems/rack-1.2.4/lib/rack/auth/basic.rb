@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/auth/abstract/handler'
 require 'rack/auth/abstract/request'
 
@@ -56,3 +57,4 @@ module Rack
     end
   end
 end
+

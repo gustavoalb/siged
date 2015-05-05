@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -10,3 +11,4 @@ img = img.blur_image(0.0,2.5)
 
 img.write('blur_image.jpg')
 exit
+

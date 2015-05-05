@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Esfera < ActiveRecord::Base
   has_many :orgaos
   has_many :quadros
@@ -5,3 +6,4 @@ class Esfera < ActiveRecord::Base
   has_many :folhas
   has_many :entidades
 end
+

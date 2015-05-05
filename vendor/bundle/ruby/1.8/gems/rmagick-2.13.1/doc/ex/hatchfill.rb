@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -25,3 +26,4 @@ ann.annotate(img, 0,0,0,0, "HatchFill.new('#{Background}', '#{Foreground}')") {
 #img.display
 img.write('hatchfill.gif')
 exit
+

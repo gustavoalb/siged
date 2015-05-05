@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakePathMapExplode < Rake::TestCase
@@ -28,4 +29,5 @@ class TestRakePathMapExplode < Rake::TestCase
     end
   end
 end
+
 

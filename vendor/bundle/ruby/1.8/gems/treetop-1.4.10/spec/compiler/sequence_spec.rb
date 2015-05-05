@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module SequenceSpec
@@ -113,3 +114,4 @@ module SequenceSpec
   end
 
 end
+

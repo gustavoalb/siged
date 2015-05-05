@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -26,3 +27,4 @@ img.crop!(Magick::CenterGravity, 250, 200)
 #img.display
 img.write('unsharp_mask.jpg')
 exit
+

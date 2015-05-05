@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ###
 ### $Release: 2.6.6 $
 ### copyright(c) 2006-2010 kuwata-lab.com all rights reserved.
@@ -351,3 +352,4 @@ end   ###
 ## finish
 ActionController::Base.new.logger.info "** Erubis #{::Erubis::VERSION}"
 $stdout.puts "** Erubis #{::Erubis::VERSION}" if rails22
+

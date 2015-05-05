@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'shared_user'
 
 class User
@@ -8,3 +9,4 @@ class User
   field :username, :type => String
   field :facebook_token, :type => String
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'memcache'
 rescue LoadError => e
@@ -188,3 +189,4 @@ module ActiveSupport
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'base64'
 rescue LoadError
@@ -40,3 +41,4 @@ module ActiveSupport
     encode64(value).gsub(/\n/, '')
   end
 end
+

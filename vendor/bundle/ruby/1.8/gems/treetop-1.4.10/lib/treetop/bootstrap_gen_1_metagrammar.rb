@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This file's job is to load a Treetop::Compiler::Metagrammar and Treetop::Compiler::MetagrammarParser
 # into the environment by compiling the current metagrammar.treetop using a trusted version of Treetop.
 
@@ -40,3 +41,4 @@ Object.class_eval(compiled_metagrammar_source)
 # end
 
 $bootstrapped_gen_1_metagrammar = true
+

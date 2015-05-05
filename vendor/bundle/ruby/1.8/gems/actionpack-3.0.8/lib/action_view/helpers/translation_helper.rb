@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'action_view/helpers/tag_helper'
 require 'i18n/exceptions'
 
@@ -79,3 +80,4 @@ module ActionView
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This module allows you to easily cache all responses from the backend - thus
 # speeding up the I18n aspects of your application quite a bit.
 #
@@ -100,3 +101,4 @@ module I18n
     end
   end
 end
+

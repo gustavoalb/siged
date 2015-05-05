@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 require 'pathname'
@@ -234,5 +235,6 @@ module PgTestingHelpers
 		log_and_run @logfile, 'pg_ctl', '-D', @test_pgdata.to_s, 'stop'
 	end
 end
+
 
 

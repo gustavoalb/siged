@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
   module InvocationExceptionMixin
     # Return the invocation chain (list of Rake tasks) that were in
@@ -14,3 +15,4 @@ module Rake
     end
   end
 end
+

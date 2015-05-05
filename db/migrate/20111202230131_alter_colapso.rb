@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterColapso < ActiveRecord::Migration
 def self.up
   drop_table :colapso_matrizes
@@ -11,3 +12,4 @@ def self.up
     drop_table :colapso_matrizes
   end
 end
+

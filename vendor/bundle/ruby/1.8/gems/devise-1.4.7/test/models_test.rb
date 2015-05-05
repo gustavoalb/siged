@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Configurable < User
@@ -107,3 +108,4 @@ class ActiveRecordTest < ActiveSupport::TestCase
     Admin.create!
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/deprecation'
 
 module ActiveSupport
@@ -53,3 +54,4 @@ else
     end
   end
 end
+

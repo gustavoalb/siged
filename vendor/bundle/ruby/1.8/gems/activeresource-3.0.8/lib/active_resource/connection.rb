@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/benchmark'
 require 'net/https'
 require 'date'
@@ -281,3 +282,4 @@ module ActiveResource
       end
   end
 end
+

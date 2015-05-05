@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby -KU
 
 TIMES = (ENV['N'] || 10000).to_i
@@ -177,3 +178,4 @@ end
 
 ActiveRecord::Migration.drop_table "exhibits"
 ActiveRecord::Migration.drop_table "users"
+

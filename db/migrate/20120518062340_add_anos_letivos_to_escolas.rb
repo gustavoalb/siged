@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAnosLetivosToEscolas < ActiveRecord::Migration
   def self.up
     add_column :escolas, :ano_letivo_id, :integer
@@ -7,3 +8,4 @@ class AddAnosLetivosToEscolas < ActiveRecord::Migration
     remove_column :escolas, :ano_letivo_id
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFonteToFolhaFolhas < ActiveRecord::Migration
   def self.up
     add_column :folha_folhas, :fonte_recurso_id, :integer
@@ -7,3 +8,4 @@ class AddFonteToFolhaFolhas < ActiveRecord::Migration
     remove_column :folha_folhas, :fonte_recurso_id
   end
 end
+

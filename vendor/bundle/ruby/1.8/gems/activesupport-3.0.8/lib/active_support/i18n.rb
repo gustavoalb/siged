@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'i18n'
   require 'active_support/lazy_load_hooks'
@@ -8,3 +9,4 @@ end
 
 I18n.load_path << "#{File.dirname(__FILE__)}/locale/en.yml"
 ActiveSupport.run_load_hooks(:i18n)
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!ruby19
 # encoding: utf-8
 
@@ -37,3 +38,4 @@ module MultibyteCharsSpec
     end
   end
 end
+

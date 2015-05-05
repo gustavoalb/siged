@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::FolhasController < ApplicationController
   load_and_authorize_resource :class=> Folha::Folha
   # GET /folha/folhas
@@ -101,3 +102,4 @@ class Folha::FolhasController < ApplicationController
    @recursos = Folha::FonteRecurso.all.collect { |r|[r.nome,r.id]  }
   end
 end
+

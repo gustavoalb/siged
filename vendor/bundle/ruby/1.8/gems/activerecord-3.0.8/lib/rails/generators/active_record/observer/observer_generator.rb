@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/active_record'
 
 module ActiveRecord
@@ -13,3 +14,4 @@ module ActiveRecord
     end
   end
 end
+

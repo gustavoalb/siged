@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDistritos < ActiveRecord::Migration
   def self.up
     create_table :distritos do |t|
@@ -13,3 +14,4 @@ class CreateDistritos < ActiveRecord::Migration
     drop_table :distritos
   end
 end
+

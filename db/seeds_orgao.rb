@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 entidade||=Entidade.create(:nome=>"Governo do Estado do Amapá")
 e = Entidade.find_by_nome("Governo do Estado do Amapá")
 Orgao.create(:codigo=>'51',:nome=>'AG DE DEFESA INSPECAO AGROPECUARIA',:sigla=>'DIAGRO',:entidade_id=>e.id,:entidade_id=>e.id)
@@ -62,3 +63,4 @@ Cargo.all.each do |c|
      c.entidade_id=e.id
      c.save
  end
+

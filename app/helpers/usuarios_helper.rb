@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module UsuariosHelper
 
   def roles(u)
@@ -11,3 +12,4 @@ end
 end
 
 end
+

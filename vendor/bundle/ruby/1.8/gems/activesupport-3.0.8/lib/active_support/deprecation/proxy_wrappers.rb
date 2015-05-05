@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/inflector/methods'
 
 module ActiveSupport
@@ -79,3 +80,4 @@ module ActiveSupport
     end
   end
 end
+

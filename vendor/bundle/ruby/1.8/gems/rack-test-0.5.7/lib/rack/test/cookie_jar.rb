@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "uri"
 require "time"
 
@@ -174,3 +175,4 @@ module Rack
 
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/hash/conversions'
 
 module ActiveResource
@@ -34,3 +35,4 @@ module ActiveResource
     end
   end
 end
+

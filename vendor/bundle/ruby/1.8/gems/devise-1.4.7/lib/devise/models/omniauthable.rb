@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'devise/omniauth'
 
 module Devise
@@ -21,3 +22,4 @@ module Devise
     end
   end
 end
+

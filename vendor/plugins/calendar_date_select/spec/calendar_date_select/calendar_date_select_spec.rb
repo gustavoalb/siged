@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe CalendarDateSelect do
@@ -12,3 +13,4 @@ describe CalendarDateSelect do
     CalendarDateSelect.has_time?(DateTime.parse("January 7, 2007 3:00 pm")).should == true
   end
 end
+

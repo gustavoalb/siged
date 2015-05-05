@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'yaml'
 require 'net/http'
 require 'rack/lint'
@@ -76,3 +77,4 @@ class StreamingRequest
     yield "that is all.\n"
   end
 end
+

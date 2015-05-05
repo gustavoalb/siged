@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TipoListaHelper
 def num_funcionarios(obj)
     n=0
@@ -9,3 +10,4 @@ def num_funcionarios(obj)
     return n
     end
 end
+

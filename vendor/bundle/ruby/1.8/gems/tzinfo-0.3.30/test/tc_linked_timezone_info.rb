@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -16,3 +17,4 @@ class TCLinkedTimezoneInfo < Test::Unit::TestCase
     assert_equal('Test/Linked', lti.link_to_identifier)
   end
 end
+

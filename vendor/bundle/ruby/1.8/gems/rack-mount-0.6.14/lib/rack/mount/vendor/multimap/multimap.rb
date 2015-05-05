@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'forwardable'
 require 'multiset'
 
@@ -567,3 +568,4 @@ class Multimap
       @hash[key] = container
     end
 end
+

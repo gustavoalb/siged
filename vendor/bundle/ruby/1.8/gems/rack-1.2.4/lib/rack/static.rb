@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
 
   # The Rack::Static middleware intercepts requests for static files
@@ -36,3 +37,4 @@ module Rack
 
   end
 end
+

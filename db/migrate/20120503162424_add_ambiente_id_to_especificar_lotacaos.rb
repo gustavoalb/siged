@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAmbienteIdToEspecificarLotacaos < ActiveRecord::Migration
   def self.up
     add_column :especificar_lotacaos, :ambiente_id, :integer
@@ -7,3 +8,4 @@ class AddAmbienteIdToEspecificarLotacaos < ActiveRecord::Migration
     remove_column :especificar_lotacaos, :ambiente_id
   end
 end
+

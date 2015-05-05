@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module ParsingRuleSpec
@@ -59,3 +60,4 @@ module ParsingRuleSpec
     end
   end
 end
+

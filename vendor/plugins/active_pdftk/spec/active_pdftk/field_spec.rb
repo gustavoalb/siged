@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe ActivePdftk::Field do
@@ -517,3 +518,4 @@ describe ActivePdftk::Field do
   end
 
 end
+

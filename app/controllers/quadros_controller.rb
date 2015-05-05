@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class QuadrosController < ApplicationController
   load_and_authorize_resource
   # GET /quadros
@@ -85,3 +86,4 @@ class QuadrosController < ApplicationController
     end
   end
 end
+

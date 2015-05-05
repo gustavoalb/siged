@@ -1,4 +1,4 @@
-# -*- encoding: binary -*-
+# -*- encoding : utf-8 -*-
 require 'tempfile'
 require 'rack/utils'
 
@@ -102,3 +102,5 @@ module Rack
     end
   end
 end
+end
+

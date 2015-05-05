@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   module AttributeMethods
     module BeforeTypeCast
@@ -28,3 +29,4 @@ module ActiveRecord
     end
   end
 end
+

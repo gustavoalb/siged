@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -51,3 +52,4 @@ rescue NotImplementedError
     result.write("composite_layers1.gif")
 end
 exit
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Matriz < ActiveRecord::Base
 	has_many :curriculos,:foreign_key=>:matriz_id,:dependent=>:destroy
 	has_many :disciplinas,:through=>:curriculos,:uniq=>true
@@ -41,3 +42,4 @@ class Matriz < ActiveRecord::Base
 	end
 
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Lista < ActiveRecord::Base
 
   set_table_name "listas"
@@ -54,3 +55,4 @@ class Lista < ActiveRecord::Base
   end
 end
 end
+

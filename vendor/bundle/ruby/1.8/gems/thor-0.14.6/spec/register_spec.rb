@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 class BoringVendorProvidedCLI < Thor
@@ -90,3 +91,4 @@ describe ".register-ing a Thor::Group subclass" do
     group_output.should == "part one\npart two\n"
   end
 end
+

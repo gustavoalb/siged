@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionView
   # = Action View CSRF Helper
   module Helpers
@@ -12,3 +13,4 @@ module ActionView
     end
   end
 end
+

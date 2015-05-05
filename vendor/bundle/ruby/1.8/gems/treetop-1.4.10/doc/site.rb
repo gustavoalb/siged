@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'erector'
 require "#{File.dirname(__FILE__)}/sitegen"
@@ -110,3 +111,4 @@ end
 
 
 Layout.generate_site
+

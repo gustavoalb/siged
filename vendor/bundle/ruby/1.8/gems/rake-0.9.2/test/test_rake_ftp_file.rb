@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 require 'date'
 require 'time'
@@ -56,4 +57,5 @@ class TestRakeFtpFile < Rake::TestCase
     assert !file.directory?
   end
 end
+
 

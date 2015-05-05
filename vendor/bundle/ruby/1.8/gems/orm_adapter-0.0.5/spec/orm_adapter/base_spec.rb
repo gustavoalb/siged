@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe OrmAdapter::Base do
@@ -54,3 +55,4 @@ describe OrmAdapter::Base do
     end
   end
 end
+

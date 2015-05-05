@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/benchmark'
 require 'active_support/core_ext/hash/keys'
 
@@ -58,3 +59,4 @@ module ActiveSupport
     end
   end
 end
+

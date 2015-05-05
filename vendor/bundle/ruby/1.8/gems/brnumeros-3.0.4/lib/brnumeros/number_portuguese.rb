@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 module Extenso 
   @@unidade = {
     0 => "zero",  
@@ -160,4 +160,5 @@ module ExtensoReal
 end
 
 Numeric.send(:include, ExtensoReal)
+
 

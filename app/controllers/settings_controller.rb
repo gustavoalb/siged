@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SettingsController < ApplicationController
   load_and_authorize_resource
   # GET /settings
@@ -147,3 +148,4 @@ def escola
   @ano_letivo = @escola.anos_letivos.find(params[:ano_letivo_id])
 end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCodigoToFonteRecurso < ActiveRecord::Migration
   def self.up
     add_column :folha_fonte_recursos, :codigo, :string
@@ -7,3 +8,4 @@ class AddCodigoToFonteRecurso < ActiveRecord::Migration
     remove_column :folha_fonte_recursos, :codigo
   end
 end
+

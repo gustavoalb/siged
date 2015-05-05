@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module InEnvironment
   private
 
@@ -33,3 +34,4 @@ module InEnvironment
   end
 
 end
+

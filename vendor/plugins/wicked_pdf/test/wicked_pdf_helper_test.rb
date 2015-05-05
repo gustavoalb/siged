@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class WickedPdfHelperTest < ActionView::TestCase
@@ -21,3 +22,4 @@ class WickedPdfHelperTest < ActionView::TestCase
                  wicked_pdf_javascript_include_tag('foo', 'bar')
   end
 end
+

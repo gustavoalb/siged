@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 # Demonstrate the ImageList#quantize method
@@ -23,3 +24,4 @@ new = quant.append false
 new.write('quantize-m_after.jpg')
 
 exit
+

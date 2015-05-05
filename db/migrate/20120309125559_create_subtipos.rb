@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSubtipos < ActiveRecord::Migration
   def self.up
     create_table :subtipos do |t|
@@ -12,3 +13,4 @@ class CreateSubtipos < ActiveRecord::Migration
     drop_table :subtipos
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Through Association Scope
   module Associations
@@ -158,3 +159,4 @@ module ActiveRecord
     end
   end
 end
+

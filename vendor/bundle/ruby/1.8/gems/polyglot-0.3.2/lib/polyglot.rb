@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'pathname'
 
 module Polyglot
@@ -72,3 +73,4 @@ module Kernel
     end
   end
 end
+

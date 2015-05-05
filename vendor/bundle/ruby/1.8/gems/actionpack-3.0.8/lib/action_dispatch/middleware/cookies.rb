@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/core_ext/object/blank"
 
 module ActionDispatch
@@ -312,3 +313,4 @@ module ActionDispatch
     end
   end
 end
+

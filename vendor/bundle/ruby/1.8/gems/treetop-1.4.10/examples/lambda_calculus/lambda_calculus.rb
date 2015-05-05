@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module LambdaCalculus
   include Treetop::Runtime
   
@@ -716,3 +717,4 @@ end
 class LambdaCalculusParser < Treetop::Runtime::CompiledParser
   include LambdaCalculus
 end
+

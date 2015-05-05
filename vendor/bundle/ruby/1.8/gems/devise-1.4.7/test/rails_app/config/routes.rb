@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Rails.application.routes.draw do
   # Resources for testing
   resources :users, :only => [:index] do
@@ -85,3 +86,4 @@ Rails.application.routes.draw do
 
   root :to => "home#index"
 end
+

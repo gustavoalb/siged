@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   class MimeVersionElement
     
@@ -24,3 +24,4 @@ module Mail
     
   end
 end
+

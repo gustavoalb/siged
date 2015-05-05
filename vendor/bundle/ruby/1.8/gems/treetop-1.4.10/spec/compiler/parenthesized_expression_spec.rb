@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module ParenthesizedExpressionSpec
@@ -17,3 +18,4 @@ module ParenthesizedExpressionSpec
     end
   end
 end
+

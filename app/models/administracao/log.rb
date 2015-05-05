@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Administracao::Log < ActiveRecord::Base
 
 	def self.logger(log_texto,usuario,tipo)
@@ -9,3 +10,4 @@ class Administracao::Log < ActiveRecord::Base
        log.save
 	end
 end
+

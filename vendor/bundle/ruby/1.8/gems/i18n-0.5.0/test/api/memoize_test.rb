@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nMemoizeBackendWithSimpleApiTest < Test::Unit::TestCase
@@ -58,3 +59,4 @@ class I18nMemoizeBackendWithKeyValueApiTest < Test::Unit::TestCase
     assert_equal MemoizeBackend, I18n.backend.class
   end
 end if defined?(Rufus::Tokyo::Cabinet)
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Arquivo::DocumentosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class Arquivo::DocumentosControllerTest < ActionController::TestCase
     assert_redirected_to arquivo_documentos_path
   end
 end
+

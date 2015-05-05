@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ARGV << '--help' if ARGV.empty?
 
 aliases = {
@@ -71,3 +72,4 @@ In addition to those, there are:
 All commands can be run with -h for more information.
   EOT
 end
+

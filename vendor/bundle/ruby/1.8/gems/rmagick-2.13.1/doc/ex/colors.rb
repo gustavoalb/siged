@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 include Magick
@@ -62,3 +63,4 @@ sample.page = Rectangle.new(495,110)
 sample.write('colors.gif')
 
 exit
+

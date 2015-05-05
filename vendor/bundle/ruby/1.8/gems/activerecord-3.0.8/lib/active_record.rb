@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # Copyright (c) 2004-2010 David Heinemeier Hansson
 #
@@ -122,3 +123,4 @@ ActiveSupport.on_load(:active_record) do
 end
 
 I18n.load_path << File.dirname(__FILE__) + '/active_record/locale/en.yml'
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thor/core_ext/hash_with_indifferent_access'
 require 'thor/core_ext/ordered_hash'
 require 'thor/error'
@@ -577,3 +578,4 @@ class Thor
     end
   end
 end
+

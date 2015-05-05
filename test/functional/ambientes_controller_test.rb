@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class AmbientesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class AmbientesControllerTest < ActionController::TestCase
     assert_redirected_to ambientes_path
   end
 end
+

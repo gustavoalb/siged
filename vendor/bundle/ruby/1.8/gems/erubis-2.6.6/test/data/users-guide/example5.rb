@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erubis'
 input = File.read('example5.eruby')
 eruby = Erubis::Eruby.new(input)      # create Eruby object
@@ -14,3 +15,4 @@ context = {
 # context[:list] = ['aaa', 'bbb', 'ccc'],
 
 puts eruby.evaluate(context)         # get result
+

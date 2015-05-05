@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 # Demonstrate flatten_images method. Create an image with a drop-shadow effect.
@@ -34,3 +35,4 @@ primitives.annotate i, 0, 0, -2, -2, RMagick do
 # i.display
 i.flatten_images.write "flatten_images.gif"
 exit
+

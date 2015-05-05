@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 require 'i18n/core_ext/string/interpolate'
 
@@ -59,3 +60,4 @@ class I18nInterpolateTest < Test::Unit::TestCase
     assert_equal "foo 1.000000", I18n.interpolate("%{name} %<num>f", :name => "foo", :num => 1.0)
   end
 end
+

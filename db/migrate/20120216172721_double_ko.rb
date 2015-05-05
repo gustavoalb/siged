@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DoubleKo < ActiveRecord::Migration
   def self.up
 User.usuario_atual = User.find 1
@@ -260,3 +261,4 @@ Pessoa.find_by_cpf('60066296234').funcionarios.create(:matricula=>'1036734',:car
   def self.down
   end
 end
+

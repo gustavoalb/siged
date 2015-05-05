@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -18,3 +19,4 @@ Magick::fonts { |font|
     printf("%-*s %-*s %d %s\t%s\n", name_length, font.name,
         family_length, font.family, font.weight, font.style, font.stretch)
 }
+

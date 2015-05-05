@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Compiler    
     class AnythingSymbol < AtomicExpression
@@ -16,3 +17,4 @@ module Treetop
     end
   end
 end
+

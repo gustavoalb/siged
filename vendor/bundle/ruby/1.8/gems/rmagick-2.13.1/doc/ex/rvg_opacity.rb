@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'rvg/rvg'
 
@@ -16,4 +17,5 @@ rvg = Magick::RVG.new(450, 150) do |canvas|
 end
 
 rvg.draw.write('rvg_opacity.gif')
+
 

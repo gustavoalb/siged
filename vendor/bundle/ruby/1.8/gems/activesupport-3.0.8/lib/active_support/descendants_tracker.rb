@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/dependencies'
 
 module ActiveSupport
@@ -41,3 +42,4 @@ module ActiveSupport
     end
   end
 end
+

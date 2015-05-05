@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Mail
   
   class AddressContainer < Array
@@ -14,3 +15,4 @@ module Mail
   end
   
 end
+

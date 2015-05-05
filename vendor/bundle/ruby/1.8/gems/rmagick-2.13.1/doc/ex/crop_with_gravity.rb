@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 #=======================================================#
@@ -40,6 +41,7 @@ montage = pairs.montage {
     }
 montage.write('crop_with_gravity.miff')
 #montage.display
+
 
 
 

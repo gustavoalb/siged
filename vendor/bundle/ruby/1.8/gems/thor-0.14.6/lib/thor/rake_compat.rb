@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rake'
 
 class Thor
@@ -64,3 +65,4 @@ class Object #:nodoc:
     Thor::RakeCompat.rake_classes.pop
   end
 end
+

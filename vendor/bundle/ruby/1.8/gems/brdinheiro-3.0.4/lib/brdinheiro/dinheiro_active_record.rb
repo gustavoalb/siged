@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module DinheiroActiveRecord#:nodoc:
   def self.included(base)#:nodoc:
     base.extend ClassMethods
@@ -39,3 +40,4 @@ module DinheiroActiveRecord#:nodoc:
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "barby/barcode/code_25_interleaved"
 require "barby/outputter/rmagick_outputter"
 class Ponto < ActiveRecord::Base
@@ -98,3 +99,4 @@ def criar_ponto
 end
 
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "action_dispatch/http/mime_type"
 require 'active_support/core_ext/class/attribute'
 
@@ -39,3 +40,4 @@ module ActionView
   TemplateHandlers = Template::Handlers
   TemplateHandler = Template::Handler
 end
+

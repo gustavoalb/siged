@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ##
 ## $Release: 2.6.6 $
 ## copyright(c) 2006-2010 kuwata-lab.com all rights reserved.
@@ -70,3 +71,4 @@ require 'erubis/engine/eruby'
 #require 'erubis/engine/ejavascript'
 
 require 'erubis/local-setting'
+

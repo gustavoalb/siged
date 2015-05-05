@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 # RMagick version of ImageMagick's "smile.c" example program.
 
@@ -123,3 +124,4 @@ SmileBits = [
 #   img.display                               # Now display the result
     img.write('smile.gif')
     exit
+

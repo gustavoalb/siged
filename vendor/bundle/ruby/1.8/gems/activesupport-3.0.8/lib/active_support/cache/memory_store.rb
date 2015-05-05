@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'monitor'
 
 module ActiveSupport
@@ -157,3 +158,4 @@ module ActiveSupport
     end
   end
 end
+

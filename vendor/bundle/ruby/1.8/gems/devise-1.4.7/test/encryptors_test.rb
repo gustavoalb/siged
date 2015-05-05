@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Encryptors < ActiveSupport::TestCase
@@ -28,3 +29,4 @@ class Encryptors < ActiveSupport::TestCase
     end
   end
 end
+

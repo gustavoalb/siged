@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/static'
 require 'rack/mock'
 
@@ -31,3 +32,4 @@ describe Rack::Static do
   end
 
 end
+

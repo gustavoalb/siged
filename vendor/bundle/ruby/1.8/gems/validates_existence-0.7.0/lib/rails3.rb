@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/concern'
 require 'active_model'
 
@@ -64,4 +65,5 @@ module Perfectline
     end
   end
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Numeric
   KILOBYTE = 1024
   MEGABYTE = KILOBYTE * 1024
@@ -42,3 +43,4 @@ class Numeric
   end
   alias :exabyte :exabytes
 end
+

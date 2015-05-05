@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe CanCan::ControllerAdditions do
@@ -135,3 +136,4 @@ describe CanCan::ControllerAdditions do
     @controller_class.cancan_skipper[:authorize][:project].should == {:only => [:index, :show]}
   end
 end
+

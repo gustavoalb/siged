@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Administracao::LogTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class Administracao::LogTest < ActiveSupport::TestCase
     assert true
   end
 end
+

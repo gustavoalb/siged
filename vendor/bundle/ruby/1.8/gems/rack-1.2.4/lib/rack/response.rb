@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/request'
 require 'rack/utils'
 require 'time'
@@ -148,3 +149,4 @@ module Rack
     include Helpers
   end
 end
+

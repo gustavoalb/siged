@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CalendarDateSelect::IncludesHelper
   # returns the selected calendar_date_select stylesheet (not an array)
   def calendar_date_select_stylesheets(options = {})
@@ -27,3 +28,4 @@ module CalendarDateSelect::IncludesHelper
     stylesheet_link_tag(*calendar_date_select_stylesheets(:style => options[:style])) + "\n"
   end
 end
+

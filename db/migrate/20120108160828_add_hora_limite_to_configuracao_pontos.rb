@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddHoraLimiteToConfiguracaoPontos < ActiveRecord::Migration
   def self.up
     add_column :configuracao_pontos, :hora_limite_entrada_manha, :datetime
@@ -13,3 +14,4 @@ class AddHoraLimiteToConfiguracaoPontos < ActiveRecord::Migration
     remove_column :configuracao_pontos, :hora_limite_entrada_manha
   end
 end
+

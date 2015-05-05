@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'enumerator'
 
 class Array
@@ -98,3 +99,4 @@ class Array
     end
   end
 end
+

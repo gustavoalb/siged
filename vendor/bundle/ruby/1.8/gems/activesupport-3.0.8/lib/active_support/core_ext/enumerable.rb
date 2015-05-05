@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/ordered_hash'
 
 module Enumerable
@@ -118,3 +119,4 @@ class Range #:nodoc:
     (actual_last - first + 1) * (actual_last + first) / 2
   end
 end
+

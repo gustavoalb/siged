@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'generators/devise/orm_helpers'
 
 module Mongoid
@@ -15,3 +16,4 @@ module Mongoid
     end
   end
 end
+

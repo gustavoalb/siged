@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/test_case'
 
 class ActiveSupport::TestCase
@@ -22,3 +23,4 @@ class ActiveSupport::TestCase
     assert_no_difference('ActionMailer::Base.deliveries.size') { yield }
   end
 end
+

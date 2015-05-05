@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTables < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
@@ -29,3 +30,4 @@ class CreateTables < ActiveRecord::Migration
     drop_table :admins
   end
 end
+

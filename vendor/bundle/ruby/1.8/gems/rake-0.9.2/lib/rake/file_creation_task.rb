@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rake/file_task'
 require 'rake/early_time'
 
@@ -22,3 +23,4 @@ module Rake
   end
 
 end
+

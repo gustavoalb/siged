@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -61,4 +62,5 @@ gc.draw imgl
 
 imgl.border!(1,1, 'lightcyan2')
 imgl.write 'path.gif'
+
 

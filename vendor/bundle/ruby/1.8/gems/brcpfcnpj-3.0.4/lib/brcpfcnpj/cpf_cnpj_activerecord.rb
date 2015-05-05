@@ -59,3 +59,5 @@ module CpfCnpjActiveRecord #:nodoc:
     end
   end
 end
+end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/to_param'
 require 'active_support/core_ext/regexp'
 
@@ -280,3 +281,4 @@ module ActionDispatch
     end
   end
 end
+

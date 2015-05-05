@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class LotacoesController < ApplicationController
 # GET /lotacaos
 # GET /lotacaos.xml
@@ -572,4 +573,5 @@ def dest(lotacao)
 end
 
 end
+
 

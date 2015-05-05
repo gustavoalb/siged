@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class <%= migration_class_name %> < ActiveRecord::Migration
   def self.up
     create_table :<%= table_name %> do |t|
@@ -14,3 +15,4 @@ class <%= migration_class_name %> < ActiveRecord::Migration
     drop_table :<%= table_name %>
   end
 end
+

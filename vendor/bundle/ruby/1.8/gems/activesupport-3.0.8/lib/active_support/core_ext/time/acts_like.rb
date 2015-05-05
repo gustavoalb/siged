@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/acts_like'
 
 class Time
@@ -6,3 +7,4 @@ class Time
     true
   end
 end
+

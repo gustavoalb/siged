@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class EntidadeUserTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class EntidadeUserTest < ActiveSupport::TestCase
     assert true
   end
 end
+

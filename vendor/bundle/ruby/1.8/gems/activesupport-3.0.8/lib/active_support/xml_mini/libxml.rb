@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'libxml'
 require 'active_support/core_ext/object/blank'
 
@@ -77,3 +78,4 @@ end
 
 LibXML::XML::Document.send(:include, LibXML::Conversions::Document)
 LibXML::XML::Node.send(:include, LibXML::Conversions::Node)
+

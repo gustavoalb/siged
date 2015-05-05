@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'date'
 require 'bigdecimal'
 require 'bigdecimal/util'
@@ -215,3 +216,4 @@ module ActiveRecord
     end
   end
 end
+

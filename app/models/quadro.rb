@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Quadro < ActiveRecord::Base
 	include ScopedSearch::Model
 	has_many :funcionarios
@@ -7,3 +8,4 @@ class Quadro < ActiveRecord::Base
 
 	scope :busca, lambda { |q| where("codigo like ? or nome like ?" ,"%#{q}%","%#{q}%") }
 end
+

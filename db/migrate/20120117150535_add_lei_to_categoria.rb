@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddLeiToCategoria < ActiveRecord::Migration
   def self.up
     add_column :categoria, :lei, :string
@@ -7,3 +8,4 @@ class AddLeiToCategoria < ActiveRecord::Migration
     remove_column :categoria, :lei
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   module Rack
     class LogTailer
@@ -28,3 +29,4 @@ module Rails
     end
   end
 end
+

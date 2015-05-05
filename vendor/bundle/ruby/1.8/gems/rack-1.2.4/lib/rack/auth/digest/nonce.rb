@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'digest/md5'
 
 module Rack
@@ -49,3 +50,4 @@ module Rack
     end
   end
 end
+

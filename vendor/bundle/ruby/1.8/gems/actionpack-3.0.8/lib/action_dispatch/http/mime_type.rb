@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/object/blank'
@@ -228,3 +229,4 @@ module Mime
 end
 
 require 'action_dispatch/http/mime_types'
+

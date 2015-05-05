@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -9,3 +10,4 @@ img = img.ordered_dither
 
 img.write('ordered_dither.jpg')
 exit
+

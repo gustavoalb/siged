@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "rubygems"
 require "bundler/setup"
 
@@ -64,3 +65,4 @@ shared_examples_for "any #verb methods" do
     end
   end
 end
+

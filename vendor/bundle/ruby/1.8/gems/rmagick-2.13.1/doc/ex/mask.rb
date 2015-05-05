@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -33,4 +34,5 @@ img.mask q
 
 img = img.level(0, Magick::MaxRGB, 0.50)
 img.write('mask.jpg')
+
 

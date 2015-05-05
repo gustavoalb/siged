@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "digest/sha1"
 
 module Devise
@@ -20,3 +21,4 @@ module Devise
     end
   end
 end
+

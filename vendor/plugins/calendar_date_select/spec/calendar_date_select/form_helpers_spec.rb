@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe CalendarDateSelect::FormHelpers do
@@ -164,3 +165,4 @@ describe CalendarDateSelect::FormHelpers do
     end
   end
 end
+

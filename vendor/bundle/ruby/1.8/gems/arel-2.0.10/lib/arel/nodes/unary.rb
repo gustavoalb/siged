@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class Unary < Arel::Nodes::Node
@@ -9,3 +10,4 @@ module Arel
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateConfiguracaoPontos < ActiveRecord::Migration
   def self.up
     create_table :configuracao_pontos do |t|
@@ -22,3 +23,4 @@ class CreateConfiguracaoPontos < ActiveRecord::Migration
     drop_table :configuracao_pontos
   end
 end
+

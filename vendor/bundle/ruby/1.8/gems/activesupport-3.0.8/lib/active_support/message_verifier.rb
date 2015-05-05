@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/base64'
 require 'active_support/core_ext/object/blank'
 
@@ -60,3 +61,4 @@ module ActiveSupport
       end
   end
 end
+

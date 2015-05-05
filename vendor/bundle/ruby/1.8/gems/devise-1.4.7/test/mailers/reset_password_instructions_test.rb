@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class ResetPasswordInstructionsTest < ActionMailer::TestCase
@@ -76,3 +77,4 @@ class ResetPasswordInstructionsTest < ActionMailer::TestCase
     end
   end
 end
+

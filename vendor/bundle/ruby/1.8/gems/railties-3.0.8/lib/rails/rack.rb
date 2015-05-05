@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   module Rack
     autoload :Debugger,  "rails/rack/debugger"
@@ -6,3 +7,4 @@ module Rails
     autoload :Static,    "rails/rack/static"
   end
 end
+

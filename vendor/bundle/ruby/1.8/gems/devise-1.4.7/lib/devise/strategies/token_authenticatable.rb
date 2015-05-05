@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'devise/strategies/base'
 
 module Devise
@@ -55,3 +56,4 @@ module Devise
 end
 
 Warden::Strategies.add(:token_authenticatable, Devise::Strategies::TokenAuthenticatable)
+

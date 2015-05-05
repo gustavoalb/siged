@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class OrgaosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class OrgaosControllerTest < ActionController::TestCase
     assert_redirected_to orgaos_path
   end
 end
+

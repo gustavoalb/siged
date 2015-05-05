@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'swiftcore/swiftiplied_mongrel'
 
 module Rack
@@ -6,3 +7,4 @@ module Rack
     end
   end
 end
+

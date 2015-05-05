@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 dir = File.dirname(__FILE__)
 require File.expand_path("#{dir}/test_helper")
 
@@ -56,3 +57,4 @@ class ArithmeticParserTest < Test::Unit::TestCase
     assert !parse('4 == 3').eval
   end
 end
+

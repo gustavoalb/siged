@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSiglaToEntidades < ActiveRecord::Migration
   def self.up
     add_column :entidades, :sigla, :string
@@ -7,3 +8,4 @@ class AddSiglaToEntidades < ActiveRecord::Migration
     remove_column :entidades, :sigla
   end
 end
+

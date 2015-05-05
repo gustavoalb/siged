@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Mail
   autoload :Address, 'mail/elements/address'
   autoload :AddressList, 'mail/elements/address_list'
@@ -12,3 +13,4 @@ module Mail
   autoload :PhraseList, 'mail/elements/phrase_list'
   autoload :ReceivedElement, 'mail/elements/received_element'
 end
+

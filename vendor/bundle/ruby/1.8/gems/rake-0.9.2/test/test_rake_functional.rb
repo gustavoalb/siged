@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   old_verbose = $VERBOSE
   $VERBOSE = nil
@@ -466,3 +467,4 @@ class TestRakeFunctional < Rake::TestCase
     assert_equal expected_status, @status
   end
 end if defined?(Session)
+

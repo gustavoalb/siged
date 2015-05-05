@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Orgao < ActiveRecord::Base
   set_table_name :orgaos
   #default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
@@ -15,3 +16,4 @@ scope :busca, lambda { |q| where("sigla like ? or codigo like ? or nome like ?" 
   has_many :departamentos,:dependent=>:destroy
   validates_uniqueness_of :nome
 end
+

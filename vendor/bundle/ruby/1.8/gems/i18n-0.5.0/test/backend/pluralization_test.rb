@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nBackendPluralizationTest < Test::Unit::TestCase
@@ -42,3 +43,4 @@ class I18nBackendPluralizationTest < Test::Unit::TestCase
     assert_equal @rule, I18n.backend.send(:pluralizer, :'xx-XX')
   end
 end
+

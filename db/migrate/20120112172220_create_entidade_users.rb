@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEntidadeUsers < ActiveRecord::Migration
   def self.up
     create_table :entidade_users do |t|
@@ -12,3 +13,4 @@ class CreateEntidadeUsers < ActiveRecord::Migration
     drop_table :entidade_users
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Range
   # Compare two ranges and see if they overlap each other
   #  (1..5).overlaps?(4..6) # => true
@@ -6,3 +7,4 @@ class Range
     include?(other.first) || other.include?(first)
   end
 end
+

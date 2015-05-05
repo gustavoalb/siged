@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Developer < User
   has_and_belongs_to_many :projects, :include => :topics, :order => 'projects.name'
 
@@ -12,3 +13,4 @@ class Developer < User
 
   def self.per_page() 10 end
 end
+

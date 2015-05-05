@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module BrDinheiro
   module VERSION #:nodoc:
     MAJOR = 3
@@ -7,4 +8,5 @@ module BrDinheiro
     STRING = "#{MAJOR}.#{MINOR}.#{TINY}"
   end
 end
+
 

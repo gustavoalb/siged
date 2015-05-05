@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 dir = File.dirname(__FILE__)
 require File.expand_path("#{dir}/test_helper")
 require File.expand_path("#{dir}/arithmetic_node_classes")
@@ -87,3 +88,4 @@ class LambdaCalculusParserTest < Test::Unit::TestCase
     assert_equal 5 * 4 * 3 * 2, result
   end
 end
+

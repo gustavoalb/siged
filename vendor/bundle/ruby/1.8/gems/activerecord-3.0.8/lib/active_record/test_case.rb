@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Test Case
   #
@@ -72,3 +73,4 @@ module ActiveRecord
     end
   end
 end
+

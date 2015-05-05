@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module PontosHelper
   def datas_especiais(d)
 
@@ -36,3 +37,4 @@ module PontosHelper
   end
 
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--############################################################################
 # $Id: rvg.rb,v 1.10 2009/02/28 23:52:28 rmagick Exp $
 #
@@ -280,4 +281,5 @@ module Magick
 
     end # end class RVG
 end # end module Magick
+
 

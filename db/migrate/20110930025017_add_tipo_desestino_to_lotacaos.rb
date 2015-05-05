@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTipoDesestinoToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :tipo_destino_id, :integer
@@ -11,3 +12,4 @@ class AddTipoDesestinoToLotacaos < ActiveRecord::Migration
     remove_column :lotacaos, :tipo_destino_id
   end
 end
+

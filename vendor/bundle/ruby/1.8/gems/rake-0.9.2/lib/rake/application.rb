@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'shellwords'
 require 'optparse'
 
@@ -587,3 +588,4 @@ module Rake
     end
   end
 end
+

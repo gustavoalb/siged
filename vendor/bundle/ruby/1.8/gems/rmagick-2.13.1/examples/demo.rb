@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 #
 # Simple demo program for RMagick
@@ -322,3 +323,4 @@ rescue
 end
 
 exit
+

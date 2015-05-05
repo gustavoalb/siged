@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module ZeroOrMoreSpec
@@ -54,3 +55,4 @@ module ZeroOrMoreSpec
     end
   end
 end
+

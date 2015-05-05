@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 inputs = [:path, :hash, :file, :tempfile, :stringio]
@@ -448,3 +449,4 @@ describe ActivePdftk::Wrapper do
   end
 
 end # Wrapper
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/utils'
 
 module ActionDispatch
@@ -42,3 +43,4 @@ module ActionDispatch
       end
   end
 end
+

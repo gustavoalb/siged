@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module CompiledParserSpec
@@ -121,3 +122,4 @@ module CompiledParserSpec
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module OrmAdapter
   class Base
     attr_reader :klass
@@ -116,3 +117,4 @@ module OrmAdapter
     end
   end
 end
+

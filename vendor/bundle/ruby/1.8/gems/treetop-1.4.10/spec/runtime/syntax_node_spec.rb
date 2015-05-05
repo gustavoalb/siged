@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module SyntaxNodeSpec
@@ -75,3 +76,4 @@ module SyntaxNodeSpec
     end
   end
 end
+

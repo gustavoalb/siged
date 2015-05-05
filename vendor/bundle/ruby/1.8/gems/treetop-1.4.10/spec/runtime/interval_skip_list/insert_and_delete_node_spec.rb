@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'runtime/interval_skip_list/spec_helper'
 
 shared_examples_for "it is non-empty" do
@@ -383,3 +384,4 @@ describe IntervalSkipList do
     end
   end
 end
+

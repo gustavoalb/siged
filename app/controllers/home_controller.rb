@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class HomeController < ApplicationController
 	caches_action :index
 
@@ -20,3 +21,4 @@ class HomeController < ApplicationController
 	end
 
 end
+

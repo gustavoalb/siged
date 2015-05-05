@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop #:nodoc:
   module VERSION #:nodoc:
     MAJOR = 1
@@ -7,3 +8,4 @@ module Treetop #:nodoc:
     STRING = [MAJOR, MINOR, TINY].join('.')
   end
 end
+

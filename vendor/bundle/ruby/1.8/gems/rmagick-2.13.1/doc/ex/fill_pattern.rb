@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -21,6 +22,7 @@ gc.annotate(img, 0, 0, 0, 0, "PATT\nERNS") do
 end
 
 img.write("fill_pattern.gif")
+
 
 
 

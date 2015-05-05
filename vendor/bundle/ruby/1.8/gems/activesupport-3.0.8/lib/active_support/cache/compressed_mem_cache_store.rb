@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   module Cache
     class CompressedMemCacheStore < MemCacheStore
@@ -11,3 +12,4 @@ module ActiveSupport
     end
   end
 end
+

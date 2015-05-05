@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # The 'rake/clean' file defines two file lists (CLEAN and CLOBBER) and
 # two rake tasks (:clean and :clobber).
 #
@@ -29,3 +30,4 @@ desc "Remove any generated file."
 task :clobber => [:clean] do
   CLOBBER.each { |fn| rm_r fn rescue nil }
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::FinanceirosController < ApplicationController
   load_and_authorize_resource :class=> Folha::Financeiro
   # GET /folha/financeiros
@@ -132,3 +133,4 @@ end
   def entidade_id
   end
 end
+

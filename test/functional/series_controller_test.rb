@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class SeriesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class SeriesControllerTest < ActionController::TestCase
     assert_redirected_to series_path
   end
 end
+

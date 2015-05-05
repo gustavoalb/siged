@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -68,3 +69,4 @@ class TCCountryIndexDefinition < Test::Unit::TestCase
     assert_equal(0, co.zones.length)
   end  
 end
+

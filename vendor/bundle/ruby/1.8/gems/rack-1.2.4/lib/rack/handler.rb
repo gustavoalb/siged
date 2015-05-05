@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   # *Handlers* connect web servers with Rack.
   #
@@ -86,3 +87,4 @@ module Rack
     register 'thin', 'Rack::Handler::Thin'
   end
 end
+

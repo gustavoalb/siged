@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 User.usuario_atual = User.find 1
 Cargo.create(:codigo=>'2521-05',:nome=>'Administrador',:entidade_id=>'2')
 Cargo.create(:codigo=>'2410-05',:nome=>'Advogado',:entidade_id=>'2')
@@ -20,3 +21,4 @@ Cargo.create(:codigo=>'3516-05',:nome=>'Técnico em Segurança no Trabalho',:ent
 Cargo.create(:codigo=>'3222-15',:nome=>'Técnico de Enfermagem do Trabalho',:entidade_id=>'2')
 Cargo.create(:codigo=>'3131-30',:nome=>'Técnico Eletricista',:entidade_id=>'2')
 Cargo.create(:codigo=>'0000-01',:nome=>'Trabalhador de Serviço de Manutenção',:entidade_id=>'2')
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "forwardable"
 
 module Rack
@@ -78,3 +79,4 @@ module Rack
     end
   end
 end
+

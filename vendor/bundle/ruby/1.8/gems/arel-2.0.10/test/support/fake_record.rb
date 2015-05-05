@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module FakeRecord
   class Column < Struct.new(:name, :type)
   end
@@ -89,3 +90,4 @@ module FakeRecord
     end
   end
 end
+

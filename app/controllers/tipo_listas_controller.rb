@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TipoListasController < ApplicationController
   # GET /tipo_lista
   # GET /tipo_lista.xml
@@ -242,3 +243,4 @@ else
   return "NADA CADASTRADO"
 end
 end
+

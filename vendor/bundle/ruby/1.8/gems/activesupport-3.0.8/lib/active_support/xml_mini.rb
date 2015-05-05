@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/module/delegation'
 
 module ActiveSupport
@@ -160,3 +161,4 @@ module ActiveSupport
 
   XmlMini.backend = 'REXML'
 end
+

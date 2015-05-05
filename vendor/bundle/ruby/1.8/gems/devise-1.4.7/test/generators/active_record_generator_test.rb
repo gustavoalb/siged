@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "test_helper"
 
 if DEVISE_ORM == :active_record
@@ -35,3 +36,4 @@ if DEVISE_ORM == :active_record
     end
   end
 end
+

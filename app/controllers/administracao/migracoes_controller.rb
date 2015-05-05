@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Administracao::MigracoesController < ApplicationController
   # GET /administracao/migracoes
   # GET /administracao/migracoes.xml
@@ -171,3 +172,4 @@ class Administracao::MigracoesController < ApplicationController
 
   end
 end
+

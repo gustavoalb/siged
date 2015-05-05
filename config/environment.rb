@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 
@@ -15,3 +16,4 @@ File.umask(0)
 
 
 CalendarDateSelect.format = :br_date
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UpdateDisciplinaContratacao < ActiveRecord::Migration
   def self.up   
 User.usuario_atual = User.find 1
@@ -1370,3 +1371,4 @@ if f782 then f782.update_attributes(:disciplina_contratacao=>DisciplinaContratac
   def self.down
   end
 end
+

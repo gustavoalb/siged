@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 require 'date'
@@ -26,3 +27,4 @@ end
 
 
 result.write('polaroid.jpg')
+

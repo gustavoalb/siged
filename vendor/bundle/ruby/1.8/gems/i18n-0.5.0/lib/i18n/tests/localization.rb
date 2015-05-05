@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module I18n
   module Tests
     module Localization
@@ -17,3 +18,4 @@ module I18n
     end
   end
 end
+

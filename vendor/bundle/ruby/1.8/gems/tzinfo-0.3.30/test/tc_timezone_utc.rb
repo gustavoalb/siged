@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -27,3 +28,4 @@ class TCTimezoneUTC < Test::Unit::TestCase
     assert_equal(0, tz.period_for_local(DateTime.new(2004,12,31,23,59,59)).utc_total_offset)    
   end    
 end
+

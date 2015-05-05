@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RailsGuides
   module TextileExtensions
     def notestuff(body)
@@ -39,3 +40,4 @@ module RailsGuides
     end
   end
 end
+

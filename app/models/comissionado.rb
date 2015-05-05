@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Comissionado < ActiveRecord::Base
   include ScopedSearch::Model
   scope :do_func, lambda {|id|where("funcionario_id = ?",id) }
@@ -49,3 +50,4 @@ class Comissionado < ActiveRecord::Base
   end
 
 end
+

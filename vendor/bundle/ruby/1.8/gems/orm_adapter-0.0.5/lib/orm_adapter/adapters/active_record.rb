@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'activerecord'
 rescue LoadError
@@ -83,3 +84,4 @@ class ActiveRecord::Base
     end
   end
 end
+

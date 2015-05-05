@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Devise::ConfirmationsController < ApplicationController
   include Devise::Controllers::InternalHelpers
 
@@ -45,3 +46,4 @@ class Devise::ConfirmationsController < ApplicationController
     end
 
 end
+

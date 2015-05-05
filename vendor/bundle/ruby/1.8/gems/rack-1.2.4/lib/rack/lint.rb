@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/utils'
 
 module Rack
@@ -565,3 +566,4 @@ end
 ## Web Server Gateway Interface
 ## v1.0 (http://www.python.org/dev/peps/pep-0333/). I'd like to thank
 ## everyone involved in that effort.
+

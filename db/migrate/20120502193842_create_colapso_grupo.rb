@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateColapsoGrupo < ActiveRecord::Migration
 	def self.up
 		create_table :colapso_grupo, :id => false do |t|
@@ -11,3 +12,4 @@ class CreateColapsoGrupo < ActiveRecord::Migration
 			drop_table :colapso_grupo
 		end
 	end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/showstatus'
 require 'rack/mock'
 
@@ -77,3 +78,4 @@ describe Rack::ShowStatus do
     res.body.should.not =~ /foo/
   end
 end
+

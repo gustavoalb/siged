@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MatrizesController < ApplicationController
   load_and_authorize_resource
   # GET /matrizes
@@ -110,3 +111,4 @@ class MatrizesController < ApplicationController
     end
   end
 end
+

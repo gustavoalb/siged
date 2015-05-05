@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MunicipiosController < ApplicationController
   load_and_authorize_resource
   # GET /municipios
@@ -83,3 +84,4 @@ class MunicipiosController < ApplicationController
     end
   end
 end
+

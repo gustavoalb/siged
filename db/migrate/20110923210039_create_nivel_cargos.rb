@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateNivelCargos < ActiveRecord::Migration
   def self.up
     create_table :nivel_cargos do |t|
@@ -11,3 +12,4 @@ class CreateNivelCargos < ActiveRecord::Migration
     drop_table :nivel_cargos
   end
 end
+

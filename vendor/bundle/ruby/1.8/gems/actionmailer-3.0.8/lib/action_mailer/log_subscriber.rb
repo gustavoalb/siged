@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/array/wrap'
 
 module ActionMailer
@@ -20,3 +21,4 @@ module ActionMailer
 end
 
 ActionMailer::LogSubscriber.attach_to :action_mailer
+

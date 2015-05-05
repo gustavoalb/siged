@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # trace           =       [return]
 #                         1*received
@@ -73,3 +73,4 @@ module Mail
     
   end
 end
+

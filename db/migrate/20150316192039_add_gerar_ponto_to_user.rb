@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddGerarPontoToUser < ActiveRecord::Migration
   def self.up
     add_column :users, :gerar_ponto, :boolean,:null => false, :default => false
@@ -7,3 +8,4 @@ class AddGerarPontoToUser < ActiveRecord::Migration
     remove_column :users, :gerar_ponto
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionView
   # = Action View Layouts
   module Layouts
@@ -81,3 +82,4 @@ module ActionView
     end
   end
 end
+

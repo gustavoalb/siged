@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   # Rack::Builder implements a small DSL to iteratively construct Rack
   # applications.
@@ -78,3 +79,4 @@ module Rack
     end
   end
 end
+

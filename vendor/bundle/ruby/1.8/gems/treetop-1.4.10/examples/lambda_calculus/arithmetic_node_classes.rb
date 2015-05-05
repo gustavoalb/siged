@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arithmetic
   class BinaryOperation < Treetop::Runtime::SyntaxNode
     def eval(env={})
@@ -7,3 +8,4 @@ module Arithmetic
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module I18n
   module Tests
     module Basics
@@ -52,3 +53,4 @@ module I18n
     end
   end
 end
+

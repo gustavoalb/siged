@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 %w(blahblah foo bar pipo waouhhh pipomolo).each do |title|
@@ -90,3 +91,4 @@ describe 'ScopedSearch' do
     @search.build_relation.should be_a(ActiveRecord::Relation)
   end
 end
+

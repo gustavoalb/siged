@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/xml_mini'
 require 'active_support/time'
 require 'active_support/core_ext/array/wrap'
@@ -149,3 +150,4 @@ class Hash
       end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/kernel/requires'
 
 module Rails
@@ -23,3 +24,4 @@ module Rails
     end
   end
 end
+

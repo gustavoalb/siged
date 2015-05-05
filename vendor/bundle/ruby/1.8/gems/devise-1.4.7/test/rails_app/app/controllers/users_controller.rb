@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
   prepend_before_filter :current_user, :only => :exhibit
   before_filter :authenticate_user!, :except => [:accept, :exhibit]
@@ -21,3 +22,4 @@ class UsersController < ApplicationController
     render :text => 'User will be expired on next request'
   end
 end
+

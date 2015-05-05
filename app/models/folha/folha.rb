@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::Folha < ActiveRecord::Base
   include ScopedSearch::Model
   belongs_to :competencia
@@ -15,3 +16,4 @@ class Folha::Folha < ActiveRecord::Base
        return valor_total
   end
 end
+

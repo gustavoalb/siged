@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'mongo_mapper'
 
 module MongoMapper
@@ -66,3 +67,4 @@ module MongoMapper
     end
   end
 end
+

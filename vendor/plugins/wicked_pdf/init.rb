@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'wicked_pdf'
 require 'wicked_pdf_tempfile'
 
@@ -12,3 +13,4 @@ unless ActionView::Base.instance_methods.collect(&:to_s).include? "wicked_pdf_st
 end
 
 Mime::Type.register 'application/pdf', :pdf
+

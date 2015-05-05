@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support'
 
 module ActiveSupport
@@ -33,3 +34,4 @@ require 'active_support/core_ext/date_time/zones'
 
 require 'active_support/core_ext/integer/time'
 require 'active_support/core_ext/numeric/time'
+

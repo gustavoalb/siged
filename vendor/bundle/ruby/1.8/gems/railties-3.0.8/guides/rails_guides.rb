@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 pwd = File.dirname(__FILE__)
 $:.unshift pwd
 
@@ -48,3 +49,4 @@ RedCloth.send(:include, RailsGuides::TextileExtensions)
 
 require "rails_guides/generator"
 RailsGuides::Generator.new.generate
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'rack/session/memcache'
   require 'rack/mock'
@@ -277,3 +278,4 @@ rescue RuntimeError
 rescue LoadError
   $stderr.puts "Skipping Rack::Session::Memcache tests (Memcache is required). `gem install memcache-client` and try again."
 end
+

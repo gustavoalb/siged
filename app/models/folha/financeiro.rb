@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::Financeiro < ActiveRecord::Base
 	include ScopedSearch::Model
 	scope :busca, lambda { |q| where("funcionario_id = ?" ,"%#{q}%") }
@@ -56,3 +57,4 @@ class Folha::Financeiro < ActiveRecord::Base
 		end
 	end
 end
+

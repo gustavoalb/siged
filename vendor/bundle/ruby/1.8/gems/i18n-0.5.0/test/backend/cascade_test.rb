@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nBackendCascadeTest < Test::Unit::TestCase
@@ -83,3 +84,4 @@ class I18nBackendCascadeTest < Test::Unit::TestCase
     assert_equal 'namespace.controller.action.menu.destroy', lookup(:'namespace.controller.action.menu.destroy')
   end
 end
+

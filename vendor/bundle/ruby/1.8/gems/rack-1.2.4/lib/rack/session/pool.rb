@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # AUTHOR: blink <blinketje@gmail.com>; blink#ruby-lang@irc.freenode.net
 # THANKS:
 #   apeiros, for session id generation, expiry setup, and threadiness
@@ -98,3 +99,4 @@ module Rack
     end
   end
 end
+

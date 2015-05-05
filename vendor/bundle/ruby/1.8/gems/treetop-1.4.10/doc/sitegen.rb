@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Layout < Erector::Widget
 
   class << self
@@ -63,3 +64,4 @@ class Layout < Erector::Widget
     end
   end
 end
+

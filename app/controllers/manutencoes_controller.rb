@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ManutencoesController < ApplicationController
   load_and_authorize_resource
   # GET /manutencoes
@@ -81,3 +82,4 @@ class ManutencoesController < ApplicationController
     end
   end
 end
+

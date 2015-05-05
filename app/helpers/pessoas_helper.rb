@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module PessoasHelper
 
 
@@ -81,3 +82,4 @@ def negritar(pessoa)
 end
 
 end
+

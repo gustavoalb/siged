@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Warden
   module Strategies
     # A strategy is a place where you can put logic related to authentication. Any strategy inherits
@@ -173,3 +173,4 @@ module Warden
     end # Base
   end # Strategies
 end # Warden
+

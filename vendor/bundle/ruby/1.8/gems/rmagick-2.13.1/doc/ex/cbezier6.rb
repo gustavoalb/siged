@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -51,3 +52,4 @@ imgl.border!(1,1, 'lightcyan2')
 
 imgl.write("cbezier6.gif")
 exit
+

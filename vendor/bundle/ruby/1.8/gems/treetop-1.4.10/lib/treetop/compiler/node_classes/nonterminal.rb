@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Compiler    
     class Nonterminal < AtomicExpression
@@ -11,3 +12,4 @@ module Treetop
     end
   end
 end
+

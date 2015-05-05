@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDepartamentoToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :orgao_id, :integer
@@ -9,3 +10,4 @@ class AddDepartamentoToUsers < ActiveRecord::Migration
     remove_column :users, :orgao_id
   end
 end
+

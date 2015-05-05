@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erubis'
 input = File.read('fasteruby.rhtml')
 eruby = Erubis::FastEruby.new(input)    # create Eruby object
@@ -9,3 +10,4 @@ puts "---------- result ----------"
 context = { :title=>'Example', :list=>['aaa', 'bbb', 'ccc'] }
 output = eruby.evaluate(context)
 print output
+

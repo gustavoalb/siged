@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class LotacaoTraxx < ActiveRecord::Migration
   def self.up
   	f7 = Funcionario.find_by_matricula('281000')
@@ -8910,3 +8911,4 @@ if f4640 then Lotacao.create(:tipo_lotacao=>"SUMARIA", :funcionario=> f4640,:esc
   def self.down
   end
 end
+

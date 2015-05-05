@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePessoas < ActiveRecord::Migration
   def self.up
     create_table :pessoas do |t|
@@ -34,4 +35,5 @@ class CreatePessoas < ActiveRecord::Migration
     drop_table :pessoas
   end
 end
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionMailer
   module MailHelper
     # Uses Text::Format to take the text and format it, indented two spaces for
@@ -47,3 +48,4 @@ module ActionMailer
     end
   end
 end
+

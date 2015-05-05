@@ -1,0 +1,41 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando carencias</h3>
+		</header>
+    <div class="tab_container">
+		<div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Escola</th>
+    <th>Disciplina</th>
+    <th>Status</th>
+    <th>Data</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @carencias.each do |carencia| %>
+  <tr>
+    <td><%= carencia.escola_id %></td>
+    <td><%= carencia.disciplina_id %></td>
+    <td><%= carencia.status %></td>
+    <td><%= carencia.data %></td>
+    <td><%= link_to 'Detalhes', carencia %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_carencia_path(carencia) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), carencia, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Carencia', new_carencia_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

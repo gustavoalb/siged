@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Warden
   module Mixins
     module Common
@@ -40,3 +40,4 @@ module Warden
     end # Common
   end # Mixins
 end # Warden
+

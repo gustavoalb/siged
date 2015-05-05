@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestBrDinheiro < Test::Unit::TestCase
@@ -10,3 +10,4 @@ class TestBrDinheiro < Test::Unit::TestCase
     assert true
   end
 end
+

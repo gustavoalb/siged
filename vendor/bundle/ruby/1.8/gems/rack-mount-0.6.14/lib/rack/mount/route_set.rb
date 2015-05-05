@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/mount/multimap'
 require 'rack/mount/route'
 require 'rack/mount/utils'
@@ -415,3 +416,4 @@ module Rack::Mount
       end
   end
 end
+

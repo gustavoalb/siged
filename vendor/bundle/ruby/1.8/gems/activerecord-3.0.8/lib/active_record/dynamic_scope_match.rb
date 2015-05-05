@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
 
   # = Active Record Dynamic Scope Match
@@ -21,3 +22,4 @@ module ActiveRecord
     alias :scope? :scope
   end
 end
+

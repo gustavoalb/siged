@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/string/conversions'
 require 'active_support/core_ext/string/filters'
 require 'active_support/core_ext/string/multibyte'
@@ -11,3 +12,4 @@ require 'active_support/core_ext/string/output_safety'
 require 'active_support/core_ext/string/exclude'
 require 'active_support/core_ext/string/encoding'
 require 'active_support/core_ext/string/strip'
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/hash/conversions'
 require 'action_dispatch/http/request'
 require 'active_support/core_ext/hash/indifferent_access'
@@ -78,3 +79,4 @@ module ActionDispatch
       end
   end
 end
+

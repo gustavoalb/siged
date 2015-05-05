@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Barby #:nodoc:
   module VERSION #:nodoc:
     MAJOR = 0
@@ -7,3 +8,4 @@ module Barby #:nodoc:
     STRING = [MAJOR, MINOR, TINY].join('.')
   end
 end
+

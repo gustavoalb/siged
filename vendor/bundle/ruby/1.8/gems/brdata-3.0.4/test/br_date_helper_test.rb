@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 require 'mocha'
 
@@ -27,3 +27,4 @@ class ActionViewTest < Test::Unit::TestCase
     assert_equal "mais de 3 anos", distance_of_time_in_words("Sat Nov 06 20:51:59 -0300 2006".to_time, "Sat Dec 06 20:51:59 -0300 2009".to_time)
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCodigoAltToFolhaFinanceiro < ActiveRecord::Migration
   def self.up
     add_column :folha_financeiros, :codigo_alt, :string,:limit=>1
@@ -7,3 +8,4 @@ class AddCodigoAltToFolhaFinanceiro < ActiveRecord::Migration
     remove_column :folha_financeiros, :codigo_alt
   end
 end
+

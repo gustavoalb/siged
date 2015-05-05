@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/builder'
 require 'rack/mock'
 require 'rack/showexceptions'
@@ -121,3 +122,4 @@ describe Rack::Builder do
   end
 
 end
+

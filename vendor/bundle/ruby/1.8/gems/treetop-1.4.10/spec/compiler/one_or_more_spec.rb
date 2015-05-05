@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module OneOrMoreSpec
@@ -33,3 +34,4 @@ module OneOrMoreSpec
     end
   end
 end
+

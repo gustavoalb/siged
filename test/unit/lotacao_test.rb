@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class LotacaoTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class LotacaoTest < ActiveSupport::TestCase
     assert true
   end
 end
+

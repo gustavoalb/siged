@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'tsort'
 
 module Rails
@@ -82,3 +83,4 @@ module Rails
     end
   end
 end
+

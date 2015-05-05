@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Processo < ActiveRecord::Base
 	#default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
 	validates_uniqueness_of :processo,:scope=>[:natureza,:funcionario_id],:on=>:create
@@ -10,4 +11,5 @@ class Processo < ActiveRecord::Base
 	scope :finalizado,where("finalizado = ?",true)
 	scope :devolvido,where("tipo=?",'DEVOLUÇÃO')
 end
+
 

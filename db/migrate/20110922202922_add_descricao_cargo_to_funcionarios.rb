@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDescricaoCargoToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :descricao_cargo_id, :integer
@@ -7,3 +8,4 @@ class AddDescricaoCargoToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :descricao_cargo_id
   end
 end
+

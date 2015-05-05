@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   module Testing
     module Declarative
@@ -38,3 +39,4 @@ module ActiveSupport
     end
   end
 end
+

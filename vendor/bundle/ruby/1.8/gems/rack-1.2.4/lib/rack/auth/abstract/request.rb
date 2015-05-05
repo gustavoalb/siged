@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   module Auth
     class AbstractRequest
@@ -35,3 +36,4 @@ module Rack
 
   end
 end
+

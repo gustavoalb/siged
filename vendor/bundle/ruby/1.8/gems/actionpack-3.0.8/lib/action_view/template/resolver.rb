@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "pathname"
 require "active_support/core_ext/class"
 require "action_view/template"
@@ -129,3 +130,4 @@ module ActionView
     alias :== :eql?
   end
 end
+

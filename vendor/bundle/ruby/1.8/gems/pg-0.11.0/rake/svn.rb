@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 
 # Subversion Rake Tasks
 
@@ -665,4 +666,5 @@ unless defined?( SVN_DOTDIR )
 	end
 
 end # unless defined?( SVN_DOTDIR )
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Compiler
     class DeclarationSequence < Runtime::SyntaxNode
@@ -22,3 +23,4 @@ module Treetop
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddObservacaoToFolhaFinanceiros < ActiveRecord::Migration
   def self.up
     add_column :folha_financeiros, :observacao, :string
@@ -7,3 +8,4 @@ class AddObservacaoToFolhaFinanceiros < ActiveRecord::Migration
     remove_column :folha_financeiros, :observacao
   end
 end
+

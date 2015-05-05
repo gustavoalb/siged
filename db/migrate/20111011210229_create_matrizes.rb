@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateMatrizes < ActiveRecord::Migration
   def self.up
     create_table :matrizes do |t|
@@ -14,3 +15,4 @@ class CreateMatrizes < ActiveRecord::Migration
     drop_table :matrizes
   end
 end
+

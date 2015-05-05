@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 
 module ActionView
@@ -198,3 +199,4 @@ module ActionView
     end
   end
 end
+

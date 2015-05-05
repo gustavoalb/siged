@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFolhaCompetencias < ActiveRecord::Migration
   def self.up
     create_table :folha_competencias do |t|
@@ -13,3 +14,4 @@ class CreateFolhaCompetencias < ActiveRecord::Migration
     drop_table :folha_competencias
   end
 end
+

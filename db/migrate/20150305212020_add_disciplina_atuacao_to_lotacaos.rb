@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDisciplinaAtuacaoToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :disciplina_atuacao_id, :integer
@@ -7,3 +8,4 @@ class AddDisciplinaAtuacaoToLotacaos < ActiveRecord::Migration
     remove_column :lotacaos, :disciplina_atuacao_id
   end
 end
+

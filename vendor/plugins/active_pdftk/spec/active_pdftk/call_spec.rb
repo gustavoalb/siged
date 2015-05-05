@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 require 'tempfile'
 
@@ -256,3 +257,4 @@ describe ActivePdftk::Call do
     end
   end
 end
+

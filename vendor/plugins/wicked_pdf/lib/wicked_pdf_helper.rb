@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module WickedPdfHelper
   def wicked_pdf_stylesheet_link_tag(*sources)
     css_dir = Rails.root.join('public','stylesheets')
@@ -22,3 +23,4 @@ module WickedPdfHelper
     sources.collect{ |source| wicked_pdf_javascript_src_tag(source, {}) }.join("\n").html_safe
   end
 end
+

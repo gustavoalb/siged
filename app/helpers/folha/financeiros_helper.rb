@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Folha::FinanceirosHelper
 	def obs(o)
 		if !o.blank?
@@ -5,3 +6,4 @@ module Folha::FinanceirosHelper
 		end
 	end
 end
+

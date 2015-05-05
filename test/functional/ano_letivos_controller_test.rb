@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class AnoLetivosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class AnoLetivosControllerTest < ActionController::TestCase
     assert_redirected_to ano_letivos_path
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDistritoIdToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :distrito_id, :integer
@@ -7,3 +8,4 @@ class AddDistritoIdToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :distrito_id
   end
 end
+

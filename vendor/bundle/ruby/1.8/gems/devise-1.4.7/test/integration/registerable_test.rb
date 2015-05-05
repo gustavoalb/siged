@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class RegistrationTest < ActionController::IntegrationTest
@@ -274,3 +275,4 @@ class RegistrationTest < ActionController::IntegrationTest
     assert_equal User.count, 0
   end
 end
+

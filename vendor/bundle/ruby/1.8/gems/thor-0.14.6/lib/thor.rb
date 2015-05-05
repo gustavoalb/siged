@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thor/base'
 
 class Thor
@@ -332,3 +333,4 @@ class Thor
     task ? self.class.task_help(shell, task) : self.class.help(shell, subcommand)
   end
 end
+

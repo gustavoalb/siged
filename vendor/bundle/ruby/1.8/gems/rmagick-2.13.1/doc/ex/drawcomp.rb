@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -40,3 +41,4 @@ rescue Magick::ImageMagickError
     puts "#{$0}: ImageMagickError - #{$!}"
 end
 exit
+

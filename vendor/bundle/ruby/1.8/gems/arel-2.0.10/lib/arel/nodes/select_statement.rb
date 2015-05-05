@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class SelectStatement < Arel::Nodes::Node
@@ -20,3 +21,4 @@ module Arel
     end
   end
 end
+

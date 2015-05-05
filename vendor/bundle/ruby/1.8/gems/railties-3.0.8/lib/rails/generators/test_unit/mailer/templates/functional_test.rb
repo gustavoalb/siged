@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class <%= class_name %>Test < ActionMailer::TestCase
@@ -18,3 +19,4 @@ class <%= class_name %>Test < ActionMailer::TestCase
   end
 <% end -%>
 end
+

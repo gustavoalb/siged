@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/concern'
 require 'active_support/callbacks'
 
@@ -109,3 +110,4 @@ module ActiveSupport
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCodigoToPontos < ActiveRecord::Migration
   def self.up
     add_column :pontos, :codigo_barras, :string
@@ -11,3 +12,4 @@ class AddCodigoToPontos < ActiveRecord::Migration
     remove_column :pontos, :codigo_barras
   end
 end
+

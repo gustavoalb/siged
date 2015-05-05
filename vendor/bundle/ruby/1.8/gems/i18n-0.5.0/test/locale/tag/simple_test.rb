@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nLocaleTagSimpleTest < Test::Unit::TestCase
@@ -30,3 +30,4 @@ class I18nLocaleTagSimpleTest < Test::Unit::TestCase
     assert_equal %w(de-Latn-DE de-Latn de), Tag::Simple.new('de-Latn-DE').self_and_parents.map { |tag| tag.to_s}
   end
 end
+

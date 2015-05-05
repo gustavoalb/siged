@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class RolesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class RolesControllerTest < ActionController::TestCase
     assert_redirected_to roles_path
   end
 end
+

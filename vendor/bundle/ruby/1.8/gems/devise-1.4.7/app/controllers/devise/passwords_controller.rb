@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Devise::PasswordsController < ApplicationController
   prepend_before_filter :require_no_authentication
   include Devise::Controllers::InternalHelpers
@@ -49,3 +50,4 @@ class Devise::PasswordsController < ApplicationController
     end
 
 end
+

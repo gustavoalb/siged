@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NilClass
 
   def valor
@@ -21,4 +22,5 @@ class NilClass
   end  
 
 end
+
 

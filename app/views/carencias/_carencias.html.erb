@@ -1,0 +1,21 @@
+  <fieldset style="width:23.7%; float:left; margin-right: 1%;">
+        <%= c.label :escola_id %><br />
+        <%= text_field_with_auto_complete :escola, :nome_da_escola,:indicator=>'indicator1',:after_update_element=>"javascript.alert('teste')",:style=>"width:89%;",:required=>true  %>
+
+      </fieldset>
+
+      <fieldset style="width:23.7%; float:left; margin-right: 1%;">
+        <%= c.label :disciplina_id %><br />
+        <%= text_field_with_auto_complete :disciplina, :nome,:indicator=>'indicator1',:after_update_element=>"javascript.alert('teste')",:style=>"width:89%;",:required=>true  %>
+
+      </fieldset>
+      <fieldset style="width:23.7%; float:left; margin-right: 1%;">
+        <%= c.label :data %><br />
+        <%= c.text_field :data,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;",:class=>"date"%>
+
+      </fieldset>
+      <fieldset style="width:23.7%; float:left; margin-right: 1%;">
+        <%= c.label :status %><br />
+        <%= c.select :status,[["CARÊNCIA ATUALIZADA 2015"],["CARÊNCIA PREENCHIDA"],["CARÊNCIA NÃO INFORMADA"]],:style=>"width:89%;" %>
+
+      </fieldset>

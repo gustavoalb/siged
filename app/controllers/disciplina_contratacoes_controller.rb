@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DisciplinaContratacoesController < ApplicationController
   load_and_authorize_resource
   # GET /descricao_cargos
@@ -84,3 +85,4 @@ class DisciplinaContratacoesController < ApplicationController
     end
   end
 end
+

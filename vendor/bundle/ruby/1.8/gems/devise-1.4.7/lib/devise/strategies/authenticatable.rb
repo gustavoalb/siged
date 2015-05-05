@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'devise/strategies/base'
 
 module Devise
@@ -163,3 +164,4 @@ module Devise
     end
   end
 end
+

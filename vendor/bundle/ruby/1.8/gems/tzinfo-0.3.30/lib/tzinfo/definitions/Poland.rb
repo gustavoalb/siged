@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TZInfo
   module Definitions
     module Poland
@@ -7,3 +8,4 @@ module TZInfo
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -11,4 +12,5 @@ after = Magick::Image.from_blob(blob)
 
 after[0].write("to_blob.gif")
 exit
+
 

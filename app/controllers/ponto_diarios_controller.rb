@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PontoDiariosController < ApplicationController
   load_and_authorize_resource
   # GET /ponto_diarios
@@ -95,3 +96,4 @@ private
    @ponto_diario = @funcionario.ponto_diarios.find(params[:ponto_diario_id])
    end
 end
+

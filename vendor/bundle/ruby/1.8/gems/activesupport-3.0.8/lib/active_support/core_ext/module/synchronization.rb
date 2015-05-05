@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thread'
 require 'active_support/core_ext/module/aliasing'
 require 'active_support/core_ext/array/extract_options'
@@ -41,3 +42,4 @@ class Module
     end
   end
 end
+

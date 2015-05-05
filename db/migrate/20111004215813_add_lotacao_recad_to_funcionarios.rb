@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddLotacaoRecadToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :lotacao_recad, :string
@@ -7,3 +8,4 @@ class AddLotacaoRecadToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :lotacao_recad
   end
 end
+

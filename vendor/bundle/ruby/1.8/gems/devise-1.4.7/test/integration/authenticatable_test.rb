@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class AuthenticationSanityTest < ActionController::IntegrationTest
@@ -566,3 +567,4 @@ class AuthenticationSignOutViaTest < ActionController::IntegrationTest
     assert warden.authenticated?(:sign_out_via_delete_or_post)
   end
 end
+

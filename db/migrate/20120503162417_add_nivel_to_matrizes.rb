@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddNivelToMatrizes < ActiveRecord::Migration
   def self.up
     add_column :matrizes, :nivel_id, :integer
@@ -7,3 +8,4 @@ class AddNivelToMatrizes < ActiveRecord::Migration
     remove_column :matrizes, :nivel_id
   end
 end
+

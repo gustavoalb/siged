@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/head'
 require 'rack/mock'
 
@@ -28,3 +29,4 @@ describe Rack::Head do
     resp[2].should.equal([])
   end
 end
+

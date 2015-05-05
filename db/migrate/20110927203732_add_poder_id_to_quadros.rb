@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPoderIdToQuadros < ActiveRecord::Migration
   def self.up
     add_column :quadros, :poder_id, :integer
@@ -7,3 +8,4 @@ class AddPoderIdToQuadros < ActiveRecord::Migration
     remove_column :quadros, :poder_id
   end
 end
+

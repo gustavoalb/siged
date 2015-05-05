@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 I18n::Tests.setup_rufus_tokyo
@@ -44,3 +45,4 @@ class I18nBackendKeyValueTest < Test::Unit::TestCase
   end
 
 end if defined?(Rufus::Tokyo::Cabinet)
+

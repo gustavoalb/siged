@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MigraLotacoesAntigas < ActiveRecord::Migration
 	def self.up
 		User.usuario_atual = User.find 1
@@ -15,3 +16,4 @@ end
 	def self.down
 	end
 end
+

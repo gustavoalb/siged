@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateManutencoes < ActiveRecord::Migration
   def self.up
     create_table :manutencoes do |t|
@@ -13,3 +14,4 @@ class CreateManutencoes < ActiveRecord::Migration
     drop_table :manutencoes
   end
 end
+

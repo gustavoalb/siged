@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Generators
     class DeviseGenerator < Rails::Generators::NamedBase
@@ -20,3 +21,4 @@ module Devise
     end
   end
 end
+

@@ -11,3 +11,6 @@ ActiveRecord::Base.send :include, CpfCnpjActiveRecord
 module BrCpfCnpj
 end
 
+nd
+
+

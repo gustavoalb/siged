@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -73,3 +74,4 @@ class TCTimezoneIndexDefinition < Test::Unit::TestCase
     assert_equal(true, TimezonesTest4.linked_timezones.frozen?)
   end  
 end
+

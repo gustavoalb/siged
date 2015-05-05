@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/core_ext/kernel/singleton_class"
 
 class Proc #:nodoc:
@@ -12,3 +13,4 @@ class Proc #:nodoc:
     end.bind(object)
   end
 end
+

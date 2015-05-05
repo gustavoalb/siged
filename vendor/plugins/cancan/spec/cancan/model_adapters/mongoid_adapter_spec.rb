@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 if ENV["MODEL_ADAPTER"] == "mongoid"
   require "spec_helper"
 
@@ -214,3 +215,4 @@ if ENV["MODEL_ADAPTER"] == "mongoid"
     end
   end
 end
+

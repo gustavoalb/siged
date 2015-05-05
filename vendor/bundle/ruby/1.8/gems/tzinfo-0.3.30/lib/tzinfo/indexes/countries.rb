@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TZInfo
   module Indexes
     module Countries
@@ -916,3 +917,4 @@ module TZInfo
     end
   end
 end
+

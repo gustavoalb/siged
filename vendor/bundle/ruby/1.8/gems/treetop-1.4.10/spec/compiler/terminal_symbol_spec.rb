@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module TerminalSymbolSpec
@@ -35,3 +36,4 @@ module TerminalSymbolSpec
     end
   end
 end
+

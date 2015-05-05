@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPaiToDepartamentos < ActiveRecord::Migration
   def self.up
     add_column :departamentos, :pai_id, :integer, :references => :departamentos
@@ -9,3 +10,4 @@ class AddPaiToDepartamentos < ActiveRecord::Migration
     remove_column :departamentos, :pai_id
   end
 end
+

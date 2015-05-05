@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UsersController < ActionController::Base
   
   
@@ -6,3 +7,4 @@ class UsersController < ActionController::Base
     @user = User.find(1)
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150316192039) do
+ActiveRecord::Schema.define(:version => 20150505170337) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -144,6 +145,16 @@ ActiveRecord::Schema.define(:version => 20150316192039) do
   end
 
   add_index "boletins_pessoais", ["pessoa_id"], :name => "index_boletins_pessoais_on_pessoa_id"
+
+  create_table "carencias", :force => true do |t|
+    t.integer  "escola_id"
+    t.integer  "disciplina_id"
+    t.string   "status"
+    t.date     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "ano_letivo_id"
+  end
 
   create_table "cargos", :force => true do |t|
     t.string   "codigo"
@@ -706,7 +717,6 @@ ActiveRecord::Schema.define(:version => 20150316192039) do
     t.text     "motivo"
     t.integer  "usuario_id"
     t.integer  "disciplina_atuacao_id"
-    t.integer  "destino_id"
   end
 
   add_index "lotacaos", ["departamento_id"], :name => "index_lotacaos_on_departamento_id"
@@ -1326,3 +1336,4 @@ ActiveRecord::Schema.define(:version => 20150316192039) do
   end
 
 end
+

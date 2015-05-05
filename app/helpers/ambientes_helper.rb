@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module AmbientesHelper
 
 	def config_ambiente(escola,ambiente)
@@ -26,3 +27,4 @@ module AmbientesHelper
 	end
      
 end
+

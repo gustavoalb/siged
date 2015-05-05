@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 Warden::Strategies.add(:single) do
   def authenticate!
     request.env['warden.spec.strategies'] ||= []
@@ -10,3 +10,4 @@ Warden::Strategies.add(:single) do
     false
   end
 end
+

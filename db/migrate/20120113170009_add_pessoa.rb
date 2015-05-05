@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddPessoa < ActiveRecord::Migration
   def self.up
 p1=Pessoa.create(:nome=>'RENATA FRANCISCA LEAL MONTEIRO DE',:cpf=>'73385727200',:nascimento=>'1983-04-22',:pis_pasep=>'12667584033',:entidade_id=>'2')
@@ -2023,3 +2024,4 @@ f1009=p1009.funcionarios.create(:matricula=>"UDE00990",:cargo_id=>"79",:data_nom
   def self.down
   end
 end
+

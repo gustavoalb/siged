@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   class Engine
     module Configurable
@@ -23,3 +24,4 @@ module Rails
     end
   end
 end
+

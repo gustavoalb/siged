@@ -1,4 +1,4 @@
-# encoding: us-ascii
+# -*- encoding : utf-8 -*-
 module Mail
   module Patterns
     white_space = %Q|\x9\x20|
@@ -33,3 +33,4 @@ module Mail
     TOKEN_UNSAFE  = /[#{Regexp.quote tspecial}#{control}#{sp}]/n
   end
 end
+

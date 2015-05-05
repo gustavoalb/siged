@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   class PathChecker
     include Rails.application.routes.url_helpers
@@ -16,3 +17,4 @@ module Devise
     end
   end
 end
+

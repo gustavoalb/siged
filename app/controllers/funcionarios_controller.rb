@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FuncionariosController < ApplicationController
   load_and_authorize_resource
   # GET /funcionarios
@@ -352,3 +353,4 @@ end
 end
 
 end
+

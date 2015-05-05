@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class ConfiguracaoPontosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class ConfiguracaoPontosControllerTest < ActionController::TestCase
     assert_redirected_to configuracao_pontos_path
   end
 end
+

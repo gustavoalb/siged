@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class <%= controller_class_name %>ControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
     assert_redirected_to <%= index_helper %>_path
   end
 end
+

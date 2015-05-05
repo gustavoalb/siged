@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Folha::FolhasControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class Folha::FolhasControllerTest < ActionController::TestCase
     assert_redirected_to folha_folhas_path
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSessionsTable < ActiveRecord::Migration
   def self.up
     create_table :sessions do |t|
@@ -14,3 +15,4 @@ class AddSessionsTable < ActiveRecord::Migration
     drop_table :sessions
   end
 end
+

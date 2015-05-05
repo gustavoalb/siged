@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -35,3 +36,4 @@ gc.text( 90,15, '"100%"')
 gc.draw(canvas)
 canvas.write("opacity.png")
 exit
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::FonteRecursosController < ApplicationController
   load_and_authorize_resource :class=> Folha::FonteRecurso
   # GET /folha/fonte_recursos
@@ -88,3 +89,4 @@ class Folha::FonteRecursosController < ApplicationController
     @esferas = Esfera.all.collect { |e| [e.nome,e.id]  } 
   end
 end
+

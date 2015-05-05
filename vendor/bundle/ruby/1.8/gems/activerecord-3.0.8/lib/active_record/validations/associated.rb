@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   module Validations
     class AssociatedValidator < ActiveModel::EachValidator
@@ -46,3 +47,4 @@ module ActiveRecord
     end
   end
 end
+

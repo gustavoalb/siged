@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttachmentArquivoToMigracao < ActiveRecord::Migration
   def self.up
     add_column :administracao_migracoes, :arquivo_file_name, :string
@@ -13,3 +14,4 @@ class AddAttachmentArquivoToMigracao < ActiveRecord::Migration
     remove_column :administracao_migracoes, :arquivo_updated_at
   end
 end
+

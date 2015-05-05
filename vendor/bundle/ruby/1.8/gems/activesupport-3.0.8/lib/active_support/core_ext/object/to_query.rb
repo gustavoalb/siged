@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/to_param'
 
 class Object
@@ -25,3 +26,4 @@ end
 class Hash
   alias_method :to_query, :to_param
 end
+

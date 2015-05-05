@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/notifications"
 require "active_support/core_ext/array/wrap"
 
@@ -40,3 +41,4 @@ module ActiveSupport
     }
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "zlib"
 require "stringio"
 require "time"  # for Time.httpdate
@@ -94,3 +95,4 @@ module Rack
     end
   end
 end
+

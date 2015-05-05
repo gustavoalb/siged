@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module OrmAdapter
   # Extend into a class that has an OrmAdapter
   module ToAdapter
@@ -6,3 +7,4 @@ module OrmAdapter
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddQuadroIdToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :quadro_id, :integer
@@ -7,3 +8,4 @@ class AddQuadroIdToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :quadro_id
   end
 end
+

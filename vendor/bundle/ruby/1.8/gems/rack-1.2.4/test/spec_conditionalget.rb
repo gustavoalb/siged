@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'time'
 require 'rack/conditionalget'
 require 'rack/mock'
@@ -37,3 +38,4 @@ describe Rack::ConditionalGet do
     response.body.should.equal 'TEST'
   end
 end
+

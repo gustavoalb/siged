@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Generators
     module OrmHelpers
@@ -29,3 +30,4 @@ CONTENT
     end
   end
 end
+

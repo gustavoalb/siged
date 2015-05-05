@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 
 # windows compatibility, need different library name
@@ -71,3 +72,4 @@ if have_build_env
 else
   puts 'Could not find PostgreSQL build environment (libraries & headers): Makefile not created'
 end
+

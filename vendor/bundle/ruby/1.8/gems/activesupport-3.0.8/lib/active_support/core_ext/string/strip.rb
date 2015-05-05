@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/try'
 
 class String
@@ -24,3 +25,4 @@ class String
     gsub(/^[ \t]{#{indent}}/, '')
   end
 end
+

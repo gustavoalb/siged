@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Integer
   # Enables the use of time calculations and declarations, like 45.minutes + 2.hours + 4.years.
   #
@@ -37,3 +38,4 @@ class Integer
   end
   alias :year :years
 end
+

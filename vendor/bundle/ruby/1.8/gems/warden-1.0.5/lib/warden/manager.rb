@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'warden/hooks'
 require 'warden/config'
 
@@ -122,3 +122,4 @@ module Warden
     end # call_failure_app
   end
 end # Warden
+

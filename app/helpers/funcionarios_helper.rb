@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module FuncionariosHelper
 
   def desc(obj)
@@ -80,3 +81,4 @@ def dest(lotacao)
 end
 
 end
+

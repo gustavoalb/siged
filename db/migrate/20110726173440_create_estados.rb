@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEstados < ActiveRecord::Migration
   def self.up
     create_table :estados do |t|
@@ -48,4 +49,5 @@ class CreateEstados < ActiveRecord::Migration
     drop_table :estados
   end
 end
+
 

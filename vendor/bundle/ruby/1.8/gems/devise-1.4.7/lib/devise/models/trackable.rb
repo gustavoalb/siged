@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'devise/hooks/trackable'
 
 module Devise
@@ -28,3 +29,4 @@ module Devise
     end
   end
 end
+

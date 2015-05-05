@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # = Message-ID Field
 # 
@@ -81,3 +81,4 @@ module Mail
     
   end
 end
+

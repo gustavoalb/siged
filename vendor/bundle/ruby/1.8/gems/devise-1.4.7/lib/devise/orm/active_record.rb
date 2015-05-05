@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'orm_adapter/adapters/active_record'
 
 module Devise
@@ -36,3 +37,4 @@ end
 ActiveRecord::Base.extend Devise::Models
 ActiveRecord::ConnectionAdapters::Table.send :include, Devise::Orm::ActiveRecord::Schema
 ActiveRecord::ConnectionAdapters::TableDefinition.send :include, Devise::Orm::ActiveRecord::Schema
+

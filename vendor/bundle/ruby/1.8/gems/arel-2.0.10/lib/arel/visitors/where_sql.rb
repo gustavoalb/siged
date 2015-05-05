@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Visitors
     class WhereSql < Arel::Visitors::ToSql
@@ -7,3 +8,4 @@ module Arel
     end
   end
 end
+

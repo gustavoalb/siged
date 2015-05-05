@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'stringio'
 require 'rack/lint'
 require 'rack/mock'
@@ -513,3 +514,4 @@ describe "Rack::Lint::InputWrapper" do
     wrapper.read.should.equal "123"
   end
 end
+

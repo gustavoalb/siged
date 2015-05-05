@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Barby
 
 
@@ -114,3 +115,4 @@ module Barby
 
 
 end
+

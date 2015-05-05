@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddArquivoToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :arquivo_id, :integer
@@ -7,3 +8,4 @@ class AddArquivoToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :arquivo_id
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/kernel/reporting'
 
 module Kernel
@@ -24,3 +25,4 @@ module Kernel
     end
   end
 end
+

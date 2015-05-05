@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NiveisEnsinosController < ApplicationController
   # GET /niveis_ensinos
   # GET /niveis_ensinos.xml
@@ -81,3 +82,4 @@ class NiveisEnsinosController < ApplicationController
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/utils'
 require 'rack/request'
 require 'action_dispatch/middleware/cookies'
@@ -254,3 +255,4 @@ module ActionDispatch
     end
   end
 end
+

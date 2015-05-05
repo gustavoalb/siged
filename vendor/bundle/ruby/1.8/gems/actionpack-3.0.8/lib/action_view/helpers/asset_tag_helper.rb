@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thread'
 require 'cgi'
 require 'action_view/helpers/url_helper'
@@ -921,3 +922,4 @@ module ActionView
     end
   end
 end
+

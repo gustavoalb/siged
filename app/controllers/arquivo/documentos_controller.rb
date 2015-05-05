@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Arquivo::DocumentosController < ApplicationController
   # GET /arquivo/documentos
   # GET /arquivo/documentos.xml
@@ -82,3 +83,4 @@ class Arquivo::DocumentosController < ApplicationController
     end
   end
 end
+

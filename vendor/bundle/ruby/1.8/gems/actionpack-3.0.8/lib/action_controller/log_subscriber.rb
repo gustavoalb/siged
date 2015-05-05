@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/blank'
 
 module ActionController
@@ -58,3 +59,4 @@ module ActionController
 end
 
 ActionController::LogSubscriber.attach_to :action_controller
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::Config do
@@ -46,3 +46,4 @@ describe Warden::Config do
     c.scope_defaults(:foo).should == {:store => false}
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Administracao::MigracoesControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class Administracao::MigracoesControllerTest < ActionController::TestCase
     assert_redirected_to administracao_migracoes_path
   end
 end
+

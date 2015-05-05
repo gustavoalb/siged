@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDescricaoCargos < ActiveRecord::Migration
   def self.up
     create_table :descricao_cargos do |t|
@@ -17,3 +18,4 @@ class CreateDescricaoCargos < ActiveRecord::Migration
     drop_table :descricao_cargos
   end
 end
+

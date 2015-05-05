@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 begin
@@ -81,3 +82,4 @@ class I18nBackendCacheTest < Test::Unit::TestCase
 end
 
 end # AS cache check
+

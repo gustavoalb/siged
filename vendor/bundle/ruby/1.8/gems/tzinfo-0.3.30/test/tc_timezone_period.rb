@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -507,3 +508,4 @@ class TCTimezonePeriod < Test::Unit::TestCase
     assert_equal(nil.hash ^ nil.hash ^ o1.hash, p4.hash)    
   end
 end
+

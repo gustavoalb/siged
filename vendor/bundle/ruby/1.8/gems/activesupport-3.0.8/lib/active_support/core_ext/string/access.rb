@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/multibyte"
 
 class String
@@ -97,3 +98,4 @@ class String
     end
   end
 end
+

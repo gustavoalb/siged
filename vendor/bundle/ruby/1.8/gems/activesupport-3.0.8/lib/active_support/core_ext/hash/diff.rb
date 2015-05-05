@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Hash
   # Returns a hash that represents the difference between two hashes.
   #
@@ -11,3 +12,4 @@ class Hash
     dup.delete_if { |k, v| h2[k] == v }.merge!(h2.dup.delete_if { |k, v| has_key?(k) })
   end
 end
+

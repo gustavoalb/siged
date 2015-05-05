@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 # Purpose: Demonstrate getting information from the image attributes.
 # Usage: describe.rb filename1 [filename2...]
@@ -42,3 +43,4 @@ ARGV.each { |file|
         }
     end
 }
+

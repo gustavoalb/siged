@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'optparse'
 
 module Rack
@@ -274,3 +275,4 @@ module Rack
       end
   end
 end
+

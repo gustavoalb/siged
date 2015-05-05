@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class SerializableTest < ActiveSupport::TestCase
@@ -36,3 +37,4 @@ class SerializableTest < ActiveSupport::TestCase
   end
 
 end
+

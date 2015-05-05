@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'tempfile'
 require 'stringio'
 require 'strscan'
@@ -259,3 +260,4 @@ module ActionDispatch
     end
   end
 end
+

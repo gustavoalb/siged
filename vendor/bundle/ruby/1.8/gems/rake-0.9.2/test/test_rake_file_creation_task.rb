@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 require 'fileutils'
 
@@ -60,3 +61,4 @@ class TestRakeFileCreationTask < Rake::TestCase
     assert t1.timestamp < Time.now - 1000000
   end
 end
+

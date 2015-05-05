@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -9,4 +10,5 @@ rescue NotImplementedError
    img = Magick::Image.read("images/notimplemented.gif").first
 end
 img.write("remap.jpg")
+
 

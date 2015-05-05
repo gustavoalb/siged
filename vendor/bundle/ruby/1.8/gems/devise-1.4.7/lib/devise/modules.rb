@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/object/with_options'
 
 Devise.with_options :model => true do |d|
@@ -28,3 +29,4 @@ Devise.with_options :model => true do |d|
   # Stats for last, so we make sure the user is really signed in
   d.add_module :trackable
 end
+

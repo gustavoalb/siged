@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Attributes
     class Attribute < Struct.new :relation, :name, :column
@@ -16,3 +17,4 @@ module Arel
 
   Attribute = Attributes::Attribute
 end
+

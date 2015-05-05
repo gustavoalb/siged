@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 #--
@@ -61,3 +62,4 @@ module Builder
   end
 
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class IntervalSkipList
   class HeadNode
     attr_reader :height, :forward, :forward_markers
@@ -13,3 +14,4 @@ class IntervalSkipList
     end
   end
 end
+

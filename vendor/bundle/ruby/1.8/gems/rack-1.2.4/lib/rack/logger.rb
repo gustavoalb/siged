@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'logger'
 
 module Rack
@@ -16,3 +17,4 @@ module Rack
     end
   end
 end
+

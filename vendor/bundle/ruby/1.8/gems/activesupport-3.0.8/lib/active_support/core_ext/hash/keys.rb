@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Hash
   # Return a new hash with all keys converted to strings.
   def stringify_keys
@@ -43,3 +44,4 @@ class Hash
     raise(ArgumentError, "Unknown key(s): #{unknown_keys.join(", ")}") unless unknown_keys.empty?
   end
 end
+

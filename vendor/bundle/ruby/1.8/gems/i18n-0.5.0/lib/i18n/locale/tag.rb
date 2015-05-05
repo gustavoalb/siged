@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 module I18n
   module Locale
@@ -26,3 +26,4 @@ module I18n
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   module Generators
     class IntegrationTestGenerator < NamedBase
@@ -5,3 +6,4 @@ module Rails
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'barby/barcode'
 
 module Barby
@@ -191,3 +192,4 @@ module Barby
 
 
 end
+

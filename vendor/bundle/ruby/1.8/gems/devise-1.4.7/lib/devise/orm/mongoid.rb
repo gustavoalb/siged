@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'orm_adapter/adapters/mongoid'
 
 module Devise
@@ -29,3 +30,4 @@ Mongoid::Document::ClassMethods.class_eval do
   include Devise::Models
   include Devise::Orm::Mongoid::Hook
 end
+

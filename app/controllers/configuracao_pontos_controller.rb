@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ConfiguracaoPontosController < ApplicationController
   load_and_authorize_resource
   # GET /configuracao_pontos
@@ -82,3 +83,4 @@ class ConfiguracaoPontosController < ApplicationController
     end
   end
 end
+

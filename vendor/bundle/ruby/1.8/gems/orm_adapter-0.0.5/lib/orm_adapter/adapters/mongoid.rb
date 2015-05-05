@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'mongoid'
 
 module Mongoid
@@ -64,3 +65,4 @@ module Mongoid
     end
   end
 end
+

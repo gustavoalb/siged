@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::CompetenciasController < ApplicationController
   load_and_authorize_resource :class=> Folha::Competencia
   # GET /folha/competencias
@@ -83,3 +84,4 @@ class Folha::CompetenciasController < ApplicationController
     end
   end
 end
+

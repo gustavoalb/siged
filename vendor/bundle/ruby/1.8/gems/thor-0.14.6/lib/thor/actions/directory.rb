@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thor/actions/empty_directory'
 
 class Thor
@@ -91,3 +92,4 @@ class Thor
     end
   end
 end
+

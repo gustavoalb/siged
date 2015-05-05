@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'yaml'
 require 'rack/mock'
 
@@ -239,3 +240,4 @@ describe Rack::MockResponse do
     }.should.raise(Rack::MockRequest::FatalWarning)
   end
 end
+

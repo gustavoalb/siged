@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'abstract_controller'
 require 'action_dispatch'
 
@@ -75,3 +76,4 @@ require 'active_support/core_ext/module/attr_internal'
 require 'active_support/core_ext/module/delegation'
 require 'active_support/core_ext/name_error'
 require 'active_support/inflector'
+

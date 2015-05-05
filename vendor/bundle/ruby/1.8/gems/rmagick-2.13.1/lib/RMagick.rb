@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # $Id: RMagick.rb,v 1.84 2009/09/15 22:08:41 rmagick Exp $
 #==============================================================================
 #                  Copyright (C) 2009 by Timothy P. Hunter
@@ -1959,4 +1960,5 @@ class HatchFill
 end
 
 end # Magick
+
 

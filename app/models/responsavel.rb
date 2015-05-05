@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Responsavel < Funcionario
 	
 	has_one :departamento
@@ -6,3 +7,4 @@ class Responsavel < Funcionario
 
 	
 end
+

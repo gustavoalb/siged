@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module I18n
   # Handles exceptions raised in the backend. All exceptions except for
   # MissingTranslationData exceptions are re-raised. When a MissingTranslationData
@@ -86,3 +87,4 @@ module I18n
     end
   end
 end
+

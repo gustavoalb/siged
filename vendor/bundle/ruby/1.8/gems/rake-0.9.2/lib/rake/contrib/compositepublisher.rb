@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
 
   # Manage several publishers as a single entity.
@@ -18,4 +19,5 @@ module Rake
   end
 
 end
+
 

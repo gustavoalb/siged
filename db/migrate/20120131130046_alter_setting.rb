@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterSetting < ActiveRecord::Migration
   def self.up
   	rename_column :settings,:temporaridade,:temporalidade
@@ -8,3 +9,4 @@ class AlterSetting < ActiveRecord::Migration
   def self.down
   end
 end
+

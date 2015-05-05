@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 Warden::Strategies.add(:pass) do
   def authenticate!
     request.env['warden.spec.strategies'] ||= []
@@ -6,3 +6,4 @@ Warden::Strategies.add(:pass) do
     success!("Valid User") unless scope == :failz
   end
 end
+

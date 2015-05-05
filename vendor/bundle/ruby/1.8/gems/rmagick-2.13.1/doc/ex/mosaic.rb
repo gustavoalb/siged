@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -33,3 +34,4 @@ mosaic = b.mosaic
 mosaic.write("mosaic.gif")
 # mosaic.display
 exit
+

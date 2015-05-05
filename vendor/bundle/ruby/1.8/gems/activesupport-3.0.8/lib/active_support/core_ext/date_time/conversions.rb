@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/inflector/methods'
 require 'active_support/core_ext/time/conversions'
 require 'active_support/core_ext/date_time/calculations'
@@ -101,3 +102,4 @@ class DateTime
     (self - ::DateTime.civil(1970)) * seconds_per_day
   end
 end
+

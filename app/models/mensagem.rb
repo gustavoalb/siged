@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Mensagem < ActiveRecord::Base
 	belongs_to :usuario,:class_name=>'User'
 	belongs_to :destinatario,:class_name=>'User'
@@ -22,3 +23,4 @@ class Mensagem < ActiveRecord::Base
 	]
 	TIPO2=[['Notícia','NOTÍCIA'],['Contato','CONTATO']]
 end
+

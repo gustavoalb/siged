@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePoders < ActiveRecord::Migration
   def self.up
     create_table :poders do |t|
@@ -15,3 +16,4 @@ class CreatePoders < ActiveRecord::Migration
     drop_table :poders
   end
 end
+

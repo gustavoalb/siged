@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Module
   # Encapsulates the common pattern of:
   #
@@ -68,3 +69,4 @@ class Module
     STR
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'stringio'
 require 'rack/logger'
 
@@ -26,3 +27,4 @@ describe Rack::Logger do
     errors.string.should.match(/WARN -- : Nothing to do/)
   end
 end
+

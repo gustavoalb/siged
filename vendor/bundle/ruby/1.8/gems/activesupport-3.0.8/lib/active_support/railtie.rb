@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support"
 require "rails"
 require "active_support/i18n_railtie"
@@ -58,3 +59,4 @@ module ActiveSupport
     end
   end
 end
+

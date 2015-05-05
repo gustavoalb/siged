@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -10,3 +11,4 @@ vignette = img.vignette
 vignette.write('vignette.jpg')
 
 exit
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDataConfirmacaoToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :data_confirmacao, :date
@@ -7,3 +8,4 @@ class AddDataConfirmacaoToLotacaos < ActiveRecord::Migration
     remove_column :lotacaos, :data_confirmacao
   end
 end
+

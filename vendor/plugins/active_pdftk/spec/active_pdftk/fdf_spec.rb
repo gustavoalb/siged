@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe ActivePdftk::Fdf do
@@ -39,3 +40,4 @@ describe ActivePdftk::Fdf do
   end
   
 end
+

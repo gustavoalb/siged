@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -32,3 +33,4 @@ after = before.texture_fill_to_border(100,100, hat)
 
 after.write('texture_fill_to_border_after.gif')
 exit
+

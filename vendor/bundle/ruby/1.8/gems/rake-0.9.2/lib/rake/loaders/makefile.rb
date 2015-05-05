@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rake
 
   # Makefile loader to be used with the import file loader.
@@ -38,3 +39,4 @@ module Rake
   # Install the handler
   Rake.application.add_loader('mf', MakefileLoader.new)
 end
+

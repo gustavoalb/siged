@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 
 class Object
@@ -48,3 +49,4 @@ class Hash
     end.sort * '&'
   end
 end
+

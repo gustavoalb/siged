@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CategoriasController < ApplicationController
   # GET /categorias
   # GET /categorias.xml
@@ -82,3 +83,4 @@ class CategoriasController < ApplicationController
     end
   end
 end
+

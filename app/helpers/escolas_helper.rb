@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module EscolasHelper
 
  def necessidade_professor_e(escola,tipo='table')
@@ -68,3 +69,4 @@ def total_escolas
   return raw(resultado2)
 end
 end
+

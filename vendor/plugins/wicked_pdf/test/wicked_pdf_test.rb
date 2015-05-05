@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 WickedPdf.config = { :exe_path => '/usr/local/bin/wkhtmltopdf' }
@@ -138,3 +139,4 @@ class WickedPdfTest < ActiveSupport::TestCase
     end
   end
 end
+

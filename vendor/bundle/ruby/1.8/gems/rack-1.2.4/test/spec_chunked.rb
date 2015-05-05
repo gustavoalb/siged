@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/chunked'
 require 'rack/mock'
 
@@ -58,3 +59,4 @@ describe Rack::Chunked do
     end
   end
 end
+

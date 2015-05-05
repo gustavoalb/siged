@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/module/attr_internal'
 
 module ActiveRecord
@@ -36,3 +37,4 @@ module ActiveRecord
     end
   end
 end
+

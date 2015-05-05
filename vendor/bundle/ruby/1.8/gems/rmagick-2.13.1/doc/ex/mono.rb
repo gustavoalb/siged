@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -21,3 +22,4 @@ before_after = cheetah.composite mono_bottom, 0, cheetah.rows/2, Magick::OverCom
 
 before_after.write "mono.jpg"
 exit
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # = Tools for FTP uploading.
 #
 # This file is still under development and is not released for general
@@ -148,3 +149,4 @@ module Rake # :nodoc:
     end
   end
 end
+

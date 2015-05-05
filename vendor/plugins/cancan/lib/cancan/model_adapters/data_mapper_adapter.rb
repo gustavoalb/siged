@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   module ModelAdapters
     class DataMapperAdapter < AbstractAdapter
@@ -32,3 +33,4 @@ module CanCan
 end # module CanCan
 
 DataMapper::Model.append_extensions(CanCan::ModelAdditions::ClassMethods)
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddRolesMaskToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :roles_mask, :integer
@@ -7,3 +8,4 @@ class AddRolesMaskToUsers < ActiveRecord::Migration
     remove_column :users, :roles_mask
   end
 end
+

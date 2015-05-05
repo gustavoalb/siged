@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   # See http://fast-xs.rubyforge.org/ by Eric Wong.
   # Also included with hpricot.
@@ -16,3 +17,4 @@ else
     alias_method :to_xs, :fast_xs
   end
 end
+

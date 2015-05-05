@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 require 'orm_adapter/example_app_shared'
 
@@ -47,3 +48,4 @@ else
     end
   end
 end
+

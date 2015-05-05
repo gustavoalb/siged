@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
   module ModelAdapters
     class ActiveRecordAdapter < AbstractAdapter
@@ -163,3 +164,4 @@ end
 ActiveRecord::Base.class_eval do
   include CanCan::ModelAdditions
 end
+

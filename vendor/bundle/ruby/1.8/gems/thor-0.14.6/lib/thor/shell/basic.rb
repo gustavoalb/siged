@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'tempfile'
 
 class Thor
@@ -288,3 +289,4 @@ HELP
     end
   end
 end
+

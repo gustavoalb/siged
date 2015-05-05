@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSituacoesJuridicas < ActiveRecord::Migration
   def self.up
     create_table :situacoes_juridicas do |t|
@@ -20,3 +21,4 @@ class CreateSituacoesJuridicas < ActiveRecord::Migration
     drop_table :situacoes_juridicas
   end
 end
+

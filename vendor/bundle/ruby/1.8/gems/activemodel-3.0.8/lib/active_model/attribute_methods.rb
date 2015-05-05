@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/class/inheritable_attributes'
 
@@ -438,3 +439,4 @@ module ActiveModel
       end
   end
 end
+

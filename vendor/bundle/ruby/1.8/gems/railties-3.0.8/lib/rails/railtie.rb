@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/initializable'
 require 'rails/configuration'
 require 'active_support/inflector'
@@ -190,3 +191,4 @@ module Rails
     end
   end
 end
+

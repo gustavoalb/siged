@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCidadeToPessoas < ActiveRecord::Migration
   def self.up
     add_column :pessoas, :cidade, :string
@@ -7,3 +8,4 @@ class AddCidadeToPessoas < ActiveRecord::Migration
     remove_column :pessoas, :cidade
   end
 end
+

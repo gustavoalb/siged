@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "rubygems"
 
 require 'spec'
@@ -24,3 +25,4 @@ class String
     is_a?(Regexp) ? self : Regexp.new(Regexp.escape(self.to_s))
   end
 end
+

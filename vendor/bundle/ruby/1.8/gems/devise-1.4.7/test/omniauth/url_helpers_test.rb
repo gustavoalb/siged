@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class OmniAuthRoutesTest < ActionController::TestCase
@@ -56,3 +57,4 @@ class OmniAuthRoutesTest < ActionController::TestCase
                  @controller.omniauth_authorize_path(:user, :facebook)
   end
 end
+

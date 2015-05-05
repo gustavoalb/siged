@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 rvg = Magick::RVG.new(400, 150) do |canvas|
@@ -15,4 +16,5 @@ rvg = Magick::RVG.new(400, 150) do |canvas|
 end
 
 rvg.draw.write('OrigCoordSys.gif')
+
 

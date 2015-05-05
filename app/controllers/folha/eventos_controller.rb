@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::EventosController < ApplicationController
   load_and_authorize_resource :class=> Folha::Evento
   # GET /folha/eventos
@@ -83,3 +84,4 @@ class Folha::EventosController < ApplicationController
     end
   end
 end
+

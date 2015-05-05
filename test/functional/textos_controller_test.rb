@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class TextosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class TextosControllerTest < ActionController::TestCase
     assert_redirected_to textos_path
   end
 end
+

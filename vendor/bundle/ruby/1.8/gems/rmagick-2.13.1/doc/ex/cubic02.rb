@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 Magick::RVG.dpi = 90
@@ -90,5 +91,6 @@ rvg = Magick::RVG.new(10.cm, 10.cm).viewbox(0, 0, 1000, 1000) do |canvas|
 end
 
 rvg.draw.write('cubic02.gif')
+
 
 

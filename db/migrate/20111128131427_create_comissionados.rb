@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateComissionados < ActiveRecord::Migration
   def self.up
     create_table :comissionados do |t|
@@ -19,4 +20,5 @@ class CreateComissionados < ActiveRecord::Migration
     drop_table :comissionados
   end
 end
+
 

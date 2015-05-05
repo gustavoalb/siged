@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arithmetic
   include Treetop::Runtime
   
@@ -549,3 +550,4 @@ end
 class ArithmeticParser < Treetop::Runtime::CompiledParser
   include Arithmetic
 end
+

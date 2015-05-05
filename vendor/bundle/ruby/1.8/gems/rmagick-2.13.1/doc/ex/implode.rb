@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -32,3 +33,4 @@ puts "Producing animation..."
 
 frames.write("implode.gif")
 exit
+

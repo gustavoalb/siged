@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEscolas < ActiveRecord::Migration
   def self.up
     create_table :escolas do |t|
@@ -23,3 +24,4 @@ class CreateEscolas < ActiveRecord::Migration
     drop_table :escolas
   end
 end
+

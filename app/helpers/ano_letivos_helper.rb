@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module AnoLetivosHelper
 
 	def ano_config(escola,ano_letivo)
@@ -11,3 +12,4 @@ module AnoLetivosHelper
     return raw(html)
     end
 end
+

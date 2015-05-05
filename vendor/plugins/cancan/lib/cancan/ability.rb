@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module CanCan
 
   # This module is designed to be included into an Ability class. This will
@@ -296,3 +297,4 @@ module CanCan
     end
   end
 end
+

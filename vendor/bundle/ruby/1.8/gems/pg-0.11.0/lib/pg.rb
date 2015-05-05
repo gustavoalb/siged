@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 begin
@@ -67,5 +68,6 @@ class PGconn
 	end
 
 end # class PGconn
+
 
 

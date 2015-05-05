@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class <%= class_name %>ObserverTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class <%= class_name %>ObserverTest < ActiveSupport::TestCase
     assert true
   end
 end
+

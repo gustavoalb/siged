@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   class ContentTransferEncodingElement
     
@@ -22,3 +22,4 @@ module Mail
     
   end
 end
+

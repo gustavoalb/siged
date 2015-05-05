@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module NamespaceSpec
@@ -40,3 +41,4 @@ module NamespaceSpec
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 def path_to_pdf(filename)
   File.expand_path(File.join(File.dirname(__FILE__), '../', 'fixtures', "#{filename}"))
 end
@@ -80,3 +81,4 @@ end
 def cleanup_file_content(text)
   cleanup_file_content!(text.dup)
 end
+

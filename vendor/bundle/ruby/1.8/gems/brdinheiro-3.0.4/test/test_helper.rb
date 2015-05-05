@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test/unit'
 require File.dirname(__FILE__) + '/../../brnumeros/lib/brnumeros'
 require File.dirname(__FILE__) + '/../lib/brdinheiro'
@@ -21,3 +22,4 @@ class Test::Unit::TestCase
     assert_block(build_message(message, "<?> is not false.", boolean)) { !boolean }
   end
 end
+

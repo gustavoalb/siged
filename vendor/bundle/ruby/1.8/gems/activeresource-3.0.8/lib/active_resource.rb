@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # Copyright (c) 2006 David Heinemeier Hansson
 #
@@ -43,3 +44,4 @@ module ActiveResource
   autoload :Schema
   autoload :Validations
 end
+

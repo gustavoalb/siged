@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 require 'active_model/mass_assignment_security/sanitizer'
 
@@ -38,3 +39,4 @@ module ActiveModel
     end
   end
 end
+

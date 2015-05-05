@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PontosController < ApplicationController
   include AbstractController::Rendering
   include AbstractController::Helpers
@@ -164,3 +165,4 @@ def ponto_lotacao
  @lotacao = @funcionario.lotacoes.atual.find(params[:lotacao_id])
 end
 end
+

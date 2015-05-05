@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Demonstrate the Draw#rotation= method by producing
 # an animated MIFF file showing a rotating text string.
 
@@ -43,3 +44,4 @@ animation.delay = 8
 puts "...Writing rotating_text.gif"
 animation.write("rotating_text.gif")
 exit
+

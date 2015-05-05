@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TipoLista < ActiveRecord::Base
   set_table_name :tipo_lista
   #default_scope where('tipo_lista.entidade_id in (?)',User.usuario_atual.entidade_ids)
@@ -46,3 +47,4 @@ class TipoLista < ActiveRecord::Base
 end
 
 end
+

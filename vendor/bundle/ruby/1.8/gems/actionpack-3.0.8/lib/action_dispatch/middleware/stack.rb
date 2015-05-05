@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/inflector/methods"
 
 module ActionDispatch
@@ -88,3 +89,4 @@ module ActionDispatch
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTipoToEspecificarLotacaos < ActiveRecord::Migration
   def self.up
     add_column :especificar_lotacaos, :tipo, :string
@@ -7,3 +8,4 @@ class AddTipoToEspecificarLotacaos < ActiveRecord::Migration
     remove_column :especificar_lotacaos, :tipo
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module PdfHelper
   require 'wicked_pdf'
   require 'wicked_pdf_tempfile'
@@ -87,3 +88,4 @@ module PdfHelper
       options
     end
 end
+

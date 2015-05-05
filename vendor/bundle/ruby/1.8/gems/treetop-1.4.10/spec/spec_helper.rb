@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'benchmark'
 require 'rspec'
@@ -112,3 +113,4 @@ class Symbol
     end
   end unless method_defined?(:to_proc)
 end
+

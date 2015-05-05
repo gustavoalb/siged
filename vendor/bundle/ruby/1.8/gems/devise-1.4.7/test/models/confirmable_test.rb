@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class ConfirmableTest < ActiveSupport::TestCase
@@ -236,3 +237,4 @@ class ConfirmableTest < ActiveSupport::TestCase
     end
   end
 end
+

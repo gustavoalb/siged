@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Serie < ActiveRecord::Base
 include ScopedSearch::Model
   scope :busca, lambda { |q| where("nome like ? or nome like ?" ,"%#{q}%","%#{q}%") }
@@ -18,3 +19,4 @@ include ScopedSearch::Model
   	self.matrizes.each(&:editar_curriculo)
   end
 end
+

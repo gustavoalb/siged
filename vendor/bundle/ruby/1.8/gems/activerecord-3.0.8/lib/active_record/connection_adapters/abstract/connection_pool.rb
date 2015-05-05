@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'thread'
 require 'monitor'
 require 'set'
@@ -362,3 +363,4 @@ module ActiveRecord
     end
   end
 end
+

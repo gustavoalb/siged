@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'set'
 require 'active_support/core_ext/array/wrap'
 
@@ -570,3 +571,4 @@ module ActiveRecord
     end
   end
 end
+

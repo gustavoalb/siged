@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # ---------------------------------------------------------------------------
 #
 # This script generates the guides. It can be invoked either directly or via the
@@ -274,3 +275,4 @@ HTML
     end
   end
 end
+

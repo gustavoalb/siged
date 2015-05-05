@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Visitors
     class MSSQL < Arel::Visitors::ToSql
@@ -14,3 +15,4 @@ module Arel
     end
   end
 end
+

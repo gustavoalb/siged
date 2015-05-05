@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFolhas < ActiveRecord::Migration
   def self.up
     create_table :folhas do |t|
@@ -14,3 +15,4 @@ class CreateFolhas < ActiveRecord::Migration
     drop_table :folhas
   end
 end
+

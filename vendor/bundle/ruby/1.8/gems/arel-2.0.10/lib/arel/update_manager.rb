@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   class UpdateManager < Arel::TreeManager
     def initialize engine
@@ -47,3 +48,4 @@ module Arel
     end
   end
 end
+

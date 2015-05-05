@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePontoAssinaturas < ActiveRecord::Migration
   def self.up
     create_table :ponto_assinaturas do |t|
@@ -20,3 +21,4 @@ class CreatePontoAssinaturas < ActiveRecord::Migration
     drop_table :ponto_assinaturas
   end
 end
+

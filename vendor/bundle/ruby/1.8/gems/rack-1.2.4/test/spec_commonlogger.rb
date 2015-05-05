@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/commonlogger'
 require 'rack/mock'
 
@@ -54,3 +55,4 @@ describe Rack::CommonLogger do
     "hello world"
   end
 end
+

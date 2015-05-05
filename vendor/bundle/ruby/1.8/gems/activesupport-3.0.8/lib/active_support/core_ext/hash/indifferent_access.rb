@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/hash_with_indifferent_access'
 
 class Hash
@@ -10,3 +11,4 @@ class Hash
     ActiveSupport::HashWithIndifferentAccess.new_from_hash_copying_default(self)
   end
 end
+

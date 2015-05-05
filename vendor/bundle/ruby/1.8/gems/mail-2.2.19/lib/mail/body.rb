@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   
   # = Body
@@ -289,3 +289,4 @@ module Mail
     end
   end
 end
+

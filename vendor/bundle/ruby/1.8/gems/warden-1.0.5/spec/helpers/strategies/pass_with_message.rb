@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 Warden::Strategies.add(:pass_with_message) do
   def authenticate!
     request.env['warden.spec.strategies'] ||= []
@@ -6,3 +6,4 @@ Warden::Strategies.add(:pass_with_message) do
     success!("Valid User", "The Success Strategy Has Accepted You") unless scope == :failz
   end
 end
+

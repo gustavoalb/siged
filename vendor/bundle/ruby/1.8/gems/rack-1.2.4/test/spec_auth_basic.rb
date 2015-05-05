@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/auth/basic'
 require 'rack/mock'
 
@@ -68,3 +69,4 @@ describe Rack::Auth::Basic do
     realm.should == app.realm
   end
 end
+

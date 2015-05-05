@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class <%= class_name %>Test < ActionDispatch::IntegrationTest
@@ -8,3 +9,4 @@ class <%= class_name %>Test < ActionDispatch::IntegrationTest
     assert true
   end
 end
+

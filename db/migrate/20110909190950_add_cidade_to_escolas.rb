@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCidadeToEscolas < ActiveRecord::Migration
   def self.up
     add_column :escolas, :cidade, :string
@@ -7,3 +8,4 @@ class AddCidadeToEscolas < ActiveRecord::Migration
     remove_column :escolas, :cidade
   end
 end
+

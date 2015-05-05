@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/module/attribute_accessors'
 require 'active_support/core_ext/module/delegation'
 
@@ -49,3 +50,4 @@ module ActiveSupport
     end
   end
 end
+

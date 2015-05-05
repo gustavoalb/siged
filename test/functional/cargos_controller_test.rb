@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class CargosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class CargosControllerTest < ActionController::TestCase
     assert_redirected_to cargos_path
   end
 end
+

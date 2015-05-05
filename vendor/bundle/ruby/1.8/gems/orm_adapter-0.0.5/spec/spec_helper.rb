@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'rspec'
 
@@ -13,3 +14,4 @@ end
 
 require 'dm-active_model' if defined?(DataMapper)
 require 'orm_adapter'
+

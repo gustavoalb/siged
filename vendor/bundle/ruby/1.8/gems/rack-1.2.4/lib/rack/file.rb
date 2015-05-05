@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'time'
 require 'rack/utils'
 require 'rack/mime'
@@ -90,3 +91,4 @@ module Rack
     end
   end
 end
+

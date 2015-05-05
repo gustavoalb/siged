@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module BrCpfCnpj
   module VERSION #:nodoc:
     MAJOR = 3
@@ -7,4 +8,5 @@ module BrCpfCnpj
     STRING = "#{MAJOR}.#{MINOR}.#{TINY}"
   end
 end
+
 

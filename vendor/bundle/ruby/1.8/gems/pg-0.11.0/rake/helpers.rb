@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 #####################################################################
 ###	G L O B A L   H E L P E R   F U N C T I O N S
@@ -498,5 +498,6 @@ module RakefileHelpers
 	end
 
 end # module Rakefile::Helpers
+
 
 

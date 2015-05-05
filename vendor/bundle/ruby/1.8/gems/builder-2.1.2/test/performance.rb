@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/bin/env ruby
 
 require 'builder/xmlmarkup'
@@ -27,4 +28,5 @@ Benchmark.benchmark do |bm|
     end
   }
 end
+
 

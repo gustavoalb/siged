@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/string/multibyte'
 
 class String
@@ -47,3 +48,4 @@ class String
     (chars.length > length ? chars[0...stop] + options[:omission] : text).to_s
   end
 end
+

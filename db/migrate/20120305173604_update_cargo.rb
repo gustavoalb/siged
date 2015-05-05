@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UpdateCargo < ActiveRecord::Migration
   def self.up
   	User.usuario_atual = User.find 1
@@ -11,3 +12,4 @@ class UpdateCargo < ActiveRecord::Migration
   def self.down
   end
 end
+

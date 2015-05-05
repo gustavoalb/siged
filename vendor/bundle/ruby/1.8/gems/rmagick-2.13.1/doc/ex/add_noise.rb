@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -15,3 +16,4 @@ NOISE_TYPES.each do |noise|
 
 end
 exit
+

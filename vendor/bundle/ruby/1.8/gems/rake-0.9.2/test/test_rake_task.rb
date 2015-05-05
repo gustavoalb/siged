@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 require 'fileutils'
 
@@ -268,4 +269,5 @@ class TestRakeTask < Rake::TestCase
     assert_equal "HI", t.comment
   end
 end
+
 

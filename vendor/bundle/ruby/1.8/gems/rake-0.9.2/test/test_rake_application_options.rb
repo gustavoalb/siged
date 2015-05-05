@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 TESTING_REQUIRE = [ ]
@@ -379,4 +380,5 @@ class TestRakeApplicationOptions < Rake::TestCase
     @app.options
   end
 end
+
 

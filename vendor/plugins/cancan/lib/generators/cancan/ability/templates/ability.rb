@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Ability
   include CanCan::Ability
 
@@ -26,3 +27,4 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
   end
 end
+

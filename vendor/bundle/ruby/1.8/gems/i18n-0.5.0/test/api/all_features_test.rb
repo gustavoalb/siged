@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 begin
@@ -56,3 +57,4 @@ class I18nAllFeaturesApiTest < Test::Unit::TestCase
 
   # links: test that keys stored on one backend can link to keys stored on another backend
 end
+

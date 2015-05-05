@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require File.join(File.dirname(__FILE__), 'test_utils')
@@ -100,3 +101,4 @@ class TCLinkedTimezone < Test::Unit::TestCase
     assert_same(t, linked_tz.local)
   end  
 end
+

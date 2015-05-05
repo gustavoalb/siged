@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDescricaoToAmbientes < ActiveRecord::Migration
   def self.up
     add_column :ambientes, :descricao, :string
@@ -11,3 +12,4 @@ class AddDescricaoToAmbientes < ActiveRecord::Migration
     remove_column :ambientes,:setting_id
   end
 end
+

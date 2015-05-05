@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PDFController < Ruport::Controller
 
 stage :header,:body,:footer
@@ -37,3 +38,4 @@ stage :header,:body,:footer
  end
 
 end
+

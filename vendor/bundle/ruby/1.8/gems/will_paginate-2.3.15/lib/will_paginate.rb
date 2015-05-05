@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support'
 require 'will_paginate/core_ext'
 
@@ -88,3 +89,4 @@ if defined? Rails
   WillPaginate.enable_activerecord if defined? ActiveRecord
   WillPaginate.enable_actionpack if defined? ActionController
 end
+

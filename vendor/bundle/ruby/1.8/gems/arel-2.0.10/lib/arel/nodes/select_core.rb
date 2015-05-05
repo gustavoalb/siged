@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Nodes
     class SelectCore < Arel::Nodes::Node
@@ -24,3 +25,4 @@ module Arel
     end
   end
 end
+

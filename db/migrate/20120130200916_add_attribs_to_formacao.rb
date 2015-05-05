@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAttribsToFormacao < ActiveRecord::Migration
   def self.up
     add_column :formacaos, :tipo, :string
@@ -15,3 +16,4 @@ class AddAttribsToFormacao < ActiveRecord::Migration
     remove_column :formacaos, :tipo
   end
 end
+

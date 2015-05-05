@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTipoToProcessos < ActiveRecord::Migration
   def self.up
     add_column :processos, :tipo, :string
@@ -7,3 +8,4 @@ class AddTipoToProcessos < ActiveRecord::Migration
     remove_column :processos, :tipo
   end
 end
+

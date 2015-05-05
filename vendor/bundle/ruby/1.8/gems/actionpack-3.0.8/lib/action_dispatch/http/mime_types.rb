@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Build list of Mime types for HTTP responses
 # http://www.iana.org/assignments/media-types/
 
@@ -21,3 +22,4 @@ Mime::Type.register "application/json", :json, %w( text/x-json application/jsonr
 
 # Create Mime::ALL but do not add it to the SET.
 Mime::ALL = Mime::Type.new("*/*", :all, [])
+

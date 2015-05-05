@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rake/ext/core'
 
 ######################################################################
@@ -164,4 +165,5 @@ class String
     end
   end
 end # class String
+
 

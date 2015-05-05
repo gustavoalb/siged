@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 # Most of Rule functionality is tested in Ability specs
@@ -37,3 +38,4 @@ describe CanCan::Rule do
     rule.associations_hash.should == {}
   end
 end
+

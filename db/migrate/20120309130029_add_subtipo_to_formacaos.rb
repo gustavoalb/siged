@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSubtipoToFormacaos < ActiveRecord::Migration
   def self.up
     add_column :formacaos, :subtipo_id, :integer
@@ -7,3 +8,4 @@ class AddSubtipoToFormacaos < ActiveRecord::Migration
     remove_column :formacaos, :subtipo_id
   end
 end
+

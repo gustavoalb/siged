@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -29,3 +30,4 @@ bg = bg.composite(chopped, 23, 81, Magick::OverCompositeOp)
 bg.write('crop_after.png')
 
 exit
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Visitors
     class OrderClauses < Arel::Visitors::ToSql
@@ -9,3 +10,4 @@ module Arel
     end
   end
 end
+

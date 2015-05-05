@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   module AttributeMethods
     module TimeZoneConversion
@@ -62,3 +63,4 @@ module ActiveRecord
     end
   end
 end
+

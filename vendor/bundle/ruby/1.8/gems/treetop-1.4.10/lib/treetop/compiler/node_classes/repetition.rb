@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Compiler
     class Repetition < ParsingExpression
@@ -87,3 +88,4 @@ module Treetop
 
   end
 end
+

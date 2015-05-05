@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_record"
 require "rails"
 require "active_model/railtie"
@@ -89,3 +90,4 @@ module ActiveRecord
     end
   end
 end
+

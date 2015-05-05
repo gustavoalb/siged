@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UpdateDisciplinasTraxx < ActiveRecord::Migration
   def self.up
   	f2 = Funcionario.find_by_matricula('853070')
@@ -7204,3 +7205,4 @@ if f4652 then f4652.update_attributes(:disciplina_contratacao=>DisciplinaContrat
   def self.down
   end
 end
+

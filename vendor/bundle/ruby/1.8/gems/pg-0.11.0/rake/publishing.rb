@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #####################################################################
 ###	P U B L I C A T I O N   T A S K S
 #####################################################################
@@ -338,4 +339,5 @@ desc "Package up a release, publish it, and send out notifications"
 task :release => 'release:default'
 task :rerelease => 'release:rerelease'
 task :testrelease => 'release:test'
+
 

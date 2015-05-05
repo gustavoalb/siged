@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'helper'
 
 describe Arel::Nodes::Sum do
@@ -10,3 +11,4 @@ describe Arel::Nodes::Sum do
     end
   end
 end
+

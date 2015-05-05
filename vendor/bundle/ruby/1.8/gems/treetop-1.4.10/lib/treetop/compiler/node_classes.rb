@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'treetop/compiler/node_classes/parsing_expression'
 require 'treetop/compiler/node_classes/atomic_expression'
 require 'treetop/compiler/node_classes/inline_module'
@@ -17,3 +18,4 @@ require 'treetop/compiler/node_classes/repetition'
 require 'treetop/compiler/node_classes/optional'
 require 'treetop/compiler/node_classes/predicate'
 require 'treetop/compiler/node_classes/transient_prefix'
+

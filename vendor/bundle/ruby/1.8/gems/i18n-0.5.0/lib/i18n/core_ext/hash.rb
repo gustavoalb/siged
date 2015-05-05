@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Hash
   def slice(*keep_keys)
     h = {}
@@ -26,4 +27,5 @@ class Hash
     merge!(data, &MERGER)
   end unless Hash.method_defined?(:deep_merge!)
 end
+
 

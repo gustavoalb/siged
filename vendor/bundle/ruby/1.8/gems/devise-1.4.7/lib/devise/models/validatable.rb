@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Models
     # Validatable creates all needed validations for a user email and password.
@@ -60,3 +61,4 @@ module Devise
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCarta < ActiveRecord::Migration
   def self.up
     create_table :carta do |t|
@@ -17,3 +18,4 @@ class CreateCarta < ActiveRecord::Migration
     drop_table :carta
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Runtime
     class TerminalParseFailure
@@ -14,3 +15,4 @@ module Treetop
     end
   end
 end
+

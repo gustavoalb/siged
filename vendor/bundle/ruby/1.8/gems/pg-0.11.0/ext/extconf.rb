@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'pp'
 require 'mkmf'
 
@@ -56,4 +57,5 @@ have_header 'unistd.h' unless enable_config("static-build")
 
 create_header()
 create_makefile( "pg_ext" )
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -23,4 +24,5 @@ morph.iterations = 10000
 # morph.animate(12)
 morph.write "morph.gif"
 exit
+
 

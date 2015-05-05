@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rails
   class Application
     class Railties
@@ -29,3 +30,4 @@ module Rails
     end
   end
 end
+

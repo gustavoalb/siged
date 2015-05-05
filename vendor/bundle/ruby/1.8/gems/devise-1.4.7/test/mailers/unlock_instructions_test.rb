@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class UnlockInstructionsTest < ActionMailer::TestCase
@@ -70,3 +71,4 @@ class UnlockInstructionsTest < ActionMailer::TestCase
     assert_match unlock_url_regexp, mail.body.encoded
   end
 end
+

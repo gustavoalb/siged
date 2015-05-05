@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Regin
   class Options
     def self.from_int(flags)
@@ -53,3 +54,4 @@ module Regin
     end
   end
 end
+

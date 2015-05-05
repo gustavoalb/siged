@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 I18n::Tests.setup_rufus_tokyo
@@ -26,3 +27,4 @@ class I18nKeyValueApiTest < Test::Unit::TestCase
     assert_equal I18n::Backend::KeyValue, I18n.backend.class
   end
 end if defined?(Rufus::Tokyo::Cabinet)
+

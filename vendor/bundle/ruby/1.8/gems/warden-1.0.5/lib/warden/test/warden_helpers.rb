@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 
 module Warden
 
@@ -27,3 +27,4 @@ module Warden
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rails/generators/named_base'
 
 module Erb
@@ -19,3 +20,4 @@ module Erb
     end
   end
 end
+

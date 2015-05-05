@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/core_ext/kernel/reporting'
 
 # Fixes the rexml vulnerability disclosed at:
@@ -44,3 +45,4 @@ unless (defined?(REXML::VERSION) ? REXML::VERSION : REXML::Version) > "3.1.7.2"
     end
   end
 end
+

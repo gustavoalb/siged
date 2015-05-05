@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 ##
 ## $Release: 2.6.6 $
 ## copyright(c) 2006-2010 kuwata-lab.com all rights reserved.
@@ -880,4 +881,5 @@ __END__
 	  <li>b&amp;b / b&b</li>
 	  <li>&quot;ccc&quot; / "ccc"</li>
 	</ul>
+
 

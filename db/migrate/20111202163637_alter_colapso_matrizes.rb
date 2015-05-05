@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterColapsoMatrizes < ActiveRecord::Migration
   def self.up
     rename_column :colapso_matrizes, :matrize_id,:matriz_id 
@@ -9,3 +10,4 @@ class AlterColapsoMatrizes < ActiveRecord::Migration
     rename_column :colapso_matrizes, :matriz_id,:matrize_id 
   end
 end
+

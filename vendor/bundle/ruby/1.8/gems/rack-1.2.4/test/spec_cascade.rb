@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/cascade'
 require 'rack/file'
 require 'rack/urlmap'
@@ -43,3 +44,4 @@ describe Rack::Cascade do
     Rack::MockRequest.new(cascade).get('/foo').should.be.ok
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Thor
   module Actions
 
@@ -132,3 +133,4 @@ class Thor
     end
   end
 end
+

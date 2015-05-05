@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -62,3 +63,4 @@ labels.draw(canvas)
 #canvas.display
 canvas.write("axes.gif")
 exit
+

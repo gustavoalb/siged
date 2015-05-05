@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Folha::Evento < ActiveRecord::Base
   include ScopedSearch::Model
   scope :busca, lambda { |q| where("nome like ? or nome like ?" ,"%#{q}%","%#{q}%") }
@@ -14,3 +15,4 @@ class Folha::Evento < ActiveRecord::Base
     self.save
   end
 end
+

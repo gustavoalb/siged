@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 ######################################################################
@@ -84,3 +85,4 @@ class TestRakeTaskArguments < Rake::TestCase
     assert_nil ta[:cc]
   end
 end
+

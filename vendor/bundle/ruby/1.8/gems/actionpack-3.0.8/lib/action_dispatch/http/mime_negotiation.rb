@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionDispatch
   module Http
     module MimeNegotiation
@@ -88,3 +89,4 @@ module ActionDispatch
     end
   end
 end
+

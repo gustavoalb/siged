@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nPluralizationApiTest < Test::Unit::TestCase
@@ -28,3 +29,4 @@ class I18nPluralizationApiTest < Test::Unit::TestCase
 
   # links: test that keys stored on one backend can link to keys stored on another backend
 end
+

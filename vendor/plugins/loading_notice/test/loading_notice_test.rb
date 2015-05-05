@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class LoadingNoticeTest < ActiveSupport::TestCase
@@ -6,3 +7,4 @@ class LoadingNoticeTest < ActiveSupport::TestCase
     assert true
   end
 end
+

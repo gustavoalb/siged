@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'tzinfo'
@@ -280,3 +281,4 @@ class TCDataTimezoneInfo < Test::Unit::TestCase
     assert_raises(NoOffsetsDefined) { dti.periods_for_local(Time.utc(2005,1,1,0,0,0).to_i) }
   end
 end
+

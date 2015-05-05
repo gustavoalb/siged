@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCategoria < ActiveRecord::Migration
   def self.up
     create_table :categoria do |t|
@@ -11,3 +12,4 @@ class CreateCategoria < ActiveRecord::Migration
     drop_table :categoria
   end
 end
+

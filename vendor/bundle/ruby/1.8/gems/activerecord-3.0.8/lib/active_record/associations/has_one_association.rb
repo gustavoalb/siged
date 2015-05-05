@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Belongs To Has One Association
   module Associations
@@ -141,3 +142,4 @@ module ActiveRecord
     end
   end
 end
+

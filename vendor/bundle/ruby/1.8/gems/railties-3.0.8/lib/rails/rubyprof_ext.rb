@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'prof'
 
 module Prof #:nodoc:
@@ -33,3 +34,4 @@ module Prof #:nodoc:
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'erubis'
 eruby = Erubis::Eruby.new(File.read('template1.rhtml'))
 items = ['foo', 'bar', 'baz']
@@ -6,3 +7,4 @@ x = 1
 print eruby.result(binding())    
 ## local variable 'x' is changed unintendedly because it is changed in template!
 puts "** debug: x=#{x.inspect}"  #=> "baz"
+

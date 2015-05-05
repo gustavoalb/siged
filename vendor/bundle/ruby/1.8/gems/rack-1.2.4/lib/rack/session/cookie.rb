@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'openssl'
 require 'rack/request'
 require 'rack/response'
@@ -88,3 +89,4 @@ module Rack
     end
   end
 end
+

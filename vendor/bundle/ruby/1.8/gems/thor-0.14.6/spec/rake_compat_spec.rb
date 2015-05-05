@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 require 'thor/rake_compat'
 require 'rake/tasklib'
@@ -66,3 +67,4 @@ describe Thor::RakeCompat do
     end.should == "HIPER MEGA SUPER\n"
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   module CommonDate # :nodoc:
     # Returns a date time object of the parsed date
@@ -40,3 +40,4 @@ module Mail
     
   end
 end
+

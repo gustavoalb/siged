@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_support/string_inquirer"
 require "active_support/basic_object"
 
@@ -39,3 +40,4 @@ module Rails
   DeprecatedConstant.deprecate("RAILS_ENV",            "::Rails.env")
   DeprecatedConstant.deprecate("RAILS_DEFAULT_LOGGER", "::Rails.logger")
 end
+

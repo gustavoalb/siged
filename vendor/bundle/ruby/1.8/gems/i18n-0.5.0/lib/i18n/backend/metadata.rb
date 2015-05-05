@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # I18n translation metadata is useful when you want to access information
 # about how a translation was looked up, pluralized or interpolated in
 # your application.
@@ -63,3 +64,4 @@ module I18n
     end
   end
 end
+

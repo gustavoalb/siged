@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakeWin32 < Rake::TestCase
@@ -81,3 +82,4 @@ class TestRakeWin32 < Rake::TestCase
   end
 
 end
+

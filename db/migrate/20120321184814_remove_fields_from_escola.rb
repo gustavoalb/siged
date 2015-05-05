@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveFieldsFromEscola < ActiveRecord::Migration
   def self.up
     remove_column :escolas, :diretor_id
@@ -15,3 +16,4 @@ class RemoveFieldsFromEscola < ActiveRecord::Migration
     add_column :departamentos, :responsavel_id, :integer
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTipoToTipoDestinos < ActiveRecord::Migration
   def self.up
     add_column :tipo_destinos, :tipo, :string,:limit=>20
@@ -7,3 +8,4 @@ class AddTipoToTipoDestinos < ActiveRecord::Migration
     remove_column :tipo_destinos, :tipo
   end
 end
+

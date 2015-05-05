@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module WillPaginate
   # = Invalid page number error
   # This is an ArgumentError raised in case a page was requested that is either
@@ -142,3 +143,4 @@ module WillPaginate
     end
   end
 end
+

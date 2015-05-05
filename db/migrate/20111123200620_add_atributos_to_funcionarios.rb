@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAtributosToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :data_decreto_nomeacao, :date
@@ -11,3 +12,4 @@ class AddAtributosToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :data_decreto_nomeacao
   end
 end
+

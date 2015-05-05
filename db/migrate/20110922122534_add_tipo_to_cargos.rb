@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTipoToCargos < ActiveRecord::Migration
   def self.up
     add_column :cargos, :tipo, :string
@@ -7,3 +8,4 @@ class AddTipoToCargos < ActiveRecord::Migration
     remove_column :cargos, :tipo
   end
 end
+

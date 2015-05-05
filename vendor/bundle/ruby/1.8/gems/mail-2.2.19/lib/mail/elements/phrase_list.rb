@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Mail
   class PhraseList
     
@@ -19,3 +19,4 @@ module Mail
 
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AnoLetivosController < ApplicationController
 	# GET /ano_letivos
 	# GET /ano_letivos.xml
@@ -88,3 +89,4 @@ class AnoLetivosController < ApplicationController
 		#@ano_letivo = @escola.anos_letivos.find(params[:ano_letivo])
     end
 end
+

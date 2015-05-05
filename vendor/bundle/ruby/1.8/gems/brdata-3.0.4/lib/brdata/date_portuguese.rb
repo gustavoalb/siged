@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class String
   # Cria a data no padrao brasileiro e permanece aceitando no formato tradicional.
   #
@@ -47,4 +48,5 @@ class NilClass
     ""
   end
 end
+
 

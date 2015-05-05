@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Siged20::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -48,3 +49,4 @@ Siged20::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end
+

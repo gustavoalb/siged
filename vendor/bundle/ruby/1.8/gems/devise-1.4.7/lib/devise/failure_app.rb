@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "action_controller/metal"
 
 module Devise
@@ -146,3 +147,4 @@ module Devise
     end
   end
 end
+

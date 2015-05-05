@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'action_controller/record_identifier'
 
 module ActionView
@@ -61,3 +62,4 @@ module ActionView
     end
   end
 end
+

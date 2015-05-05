@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module RepeatedSubruleSpec
@@ -27,3 +28,4 @@ module RepeatedSubruleSpec
     end
   end
 end
+

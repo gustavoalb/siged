@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Array
   # Returns the tail of the array from +position+.
   #
@@ -44,3 +45,4 @@ class Array
     self[41]
   end
 end
+

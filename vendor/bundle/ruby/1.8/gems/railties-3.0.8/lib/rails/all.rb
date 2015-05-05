@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "rails"
 
 %w(
@@ -12,3 +13,4 @@ require "rails"
   rescue LoadError
   end
 end
+

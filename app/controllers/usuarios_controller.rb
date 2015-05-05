@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UsuariosController < ApplicationController
   # GET /users
   # GET /users.xml
@@ -108,3 +109,4 @@ end
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 RailsApp::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -17,3 +18,4 @@ RailsApp::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 end
+

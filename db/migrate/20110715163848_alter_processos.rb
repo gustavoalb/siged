@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlterProcessos < ActiveRecord::Migration
   def self.up
     add_column :processos,:lotacao_id,:integer
@@ -7,3 +8,4 @@ class AlterProcessos < ActiveRecord::Migration
     remove_column :processos,:lotacao_id
   end
 end
+

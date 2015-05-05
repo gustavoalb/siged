@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFullnameToRoles < ActiveRecord::Migration
   def self.up
     add_column :roles, :fullname, :string
@@ -9,3 +10,4 @@ class AddFullnameToRoles < ActiveRecord::Migration
     remove_column :roles, :fullname
   end
 end
+

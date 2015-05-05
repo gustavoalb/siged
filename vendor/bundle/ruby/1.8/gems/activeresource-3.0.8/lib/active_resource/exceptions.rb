@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveResource
   class ConnectionError < StandardError # :nodoc:
     attr_reader :response
@@ -67,3 +68,4 @@ module ActiveResource
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class TimeoutableTest < ActiveSupport::TestCase
@@ -26,3 +27,4 @@ class TimeoutableTest < ActiveSupport::TestCase
     end
   end
 end
+

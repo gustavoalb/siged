@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Curriculo < ActiveRecord::Base
 	belongs_to :matriz,:dependent=>:destroy
 	belongs_to :serie
@@ -9,3 +10,4 @@ class Curriculo < ActiveRecord::Base
 	scope :da_disciplina,lambda{|dis| where("disciplina_id = ?",dis)}
 	scope :da_matriz,lambda{|mat| where("matriz_id = ?",mat)}
 end
+

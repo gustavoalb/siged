@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module FileCreation
   OLDFILE = "testdata/old"
   NEWFILE = "testdata/new"
@@ -32,3 +33,4 @@ module FileCreation
     File.delete(name) rescue nil
   end
 end
+

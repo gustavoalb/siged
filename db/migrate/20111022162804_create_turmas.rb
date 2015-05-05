@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTurmas < ActiveRecord::Migration
   def self.up
     create_table :turmas do |t|
@@ -15,3 +16,4 @@ class CreateTurmas < ActiveRecord::Migration
     drop_table :turmas
   end
 end
+

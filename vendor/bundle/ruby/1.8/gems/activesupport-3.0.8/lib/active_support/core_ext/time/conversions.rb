@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/inflector/methods'
 require 'active_support/core_ext/time/publicize_conversion_methods'
 require 'active_support/values/time_zone'
@@ -83,3 +84,4 @@ class Time
     ::DateTime.civil(year, month, day, hour, min, sec, Rational(utc_offset, 86400))
   end unless method_defined?(:to_datetime)
 end
+

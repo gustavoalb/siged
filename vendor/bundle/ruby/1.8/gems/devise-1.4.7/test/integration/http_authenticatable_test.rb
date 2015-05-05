@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class HttpAuthenticationTest < ActionController::IntegrationTest
@@ -80,3 +81,4 @@ class HttpAuthenticationTest < ActionController::IntegrationTest
     end
 
 end
+

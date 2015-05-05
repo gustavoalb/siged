@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test/unit'
 require File.dirname(__FILE__) + '/../lib/brdata'
 
@@ -14,3 +15,4 @@ def p80 text
   p text
   p '*'*80
 end
+

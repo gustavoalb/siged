@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::Proxy::Errors do
@@ -45,3 +45,4 @@ describe Warden::Proxy::Errors do
   end
 
 end
+

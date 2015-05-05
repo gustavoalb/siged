@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateColapsoMatriz < ActiveRecord::Migration
 def self.up
     create_table :colapso_matrizes, :id => false do |t|
@@ -10,3 +11,4 @@ def self.up
     drop_table :colapso_matrizes
   end
 end
+

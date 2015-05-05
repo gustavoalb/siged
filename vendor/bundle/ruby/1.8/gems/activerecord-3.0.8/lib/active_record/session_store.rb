@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
   # = Active Record Session Store
   #
@@ -338,3 +339,4 @@ module ActiveRecord
       end
   end
 end
+

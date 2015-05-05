@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class Folha::FonteRecursosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class Folha::FonteRecursosControllerTest < ActionController::TestCase
     assert_redirected_to folha_fonte_recursos_path
   end
 end
+

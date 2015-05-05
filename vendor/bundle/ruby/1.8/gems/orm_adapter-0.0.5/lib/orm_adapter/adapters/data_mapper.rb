@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'dm-core'
 
 module DataMapper
@@ -58,3 +59,4 @@ module DataMapper
     end
   end
 end
+

@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
@@ -42,3 +42,4 @@ Date::FERIADOS.clear
 Date::FERIADOS_METODOS.clear
 feriados.each { |f| Date::FERIADOS << f }
 metodos.each { |m| Date::FERIADOS_METODOS << m }
+

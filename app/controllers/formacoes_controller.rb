@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FormacoesController < ApplicationController
   load_and_authorize_resource
   # GET /formacaos
@@ -100,3 +101,4 @@ end
   def pessoa
   @pessoa = Pessoa.find(params[:pessoa_id])
   end
+

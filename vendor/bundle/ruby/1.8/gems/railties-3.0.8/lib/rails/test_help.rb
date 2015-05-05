@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Make double-sure the RAILS_ENV is not set to production,
 # so fixtures aren't loaded into that environment
 abort("Abort testing: Your Rails environment is running in production mode!") if Rails.env.production?
@@ -39,3 +40,4 @@ class ActionDispatch::IntegrationTest
     @routes = Rails.application.routes
   end
 end
+

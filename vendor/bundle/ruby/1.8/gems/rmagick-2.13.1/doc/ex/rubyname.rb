@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -28,3 +29,4 @@ text.annotate(canvas, 0,0,0,0, Text) {
 #canvas.display
 canvas.write('rubyname.gif')
 exit
+

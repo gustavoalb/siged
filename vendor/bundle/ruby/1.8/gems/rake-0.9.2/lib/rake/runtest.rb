@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test/unit'
 require 'test/unit/assertions'
 
@@ -19,3 +20,4 @@ module Rake
 
   extend self
 end
+

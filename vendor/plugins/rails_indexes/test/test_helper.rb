@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 
 require 'test/unit'
@@ -28,3 +29,4 @@ Dir['test/fixtures/app/models/**/*.rb'].each { |f| require f }
 
 # load controllers
 Dir['test/fixtures/app/controllers/**/*.rb'].each { |f| require f }
+

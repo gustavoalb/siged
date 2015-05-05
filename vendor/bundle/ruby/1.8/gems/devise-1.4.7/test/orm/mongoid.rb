@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'mongoid/version'
 
 Mongoid.configure do |config|
@@ -12,3 +13,4 @@ class ActiveSupport::TestCase
     Admin.delete_all
   end
 end
+

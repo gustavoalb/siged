@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "active_resource"
 require "rails"
 
@@ -12,3 +13,4 @@ module ActiveResource
     end
   end
 end
+

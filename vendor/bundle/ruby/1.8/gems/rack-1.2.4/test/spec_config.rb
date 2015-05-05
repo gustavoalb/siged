@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/builder'
 require 'rack/config'
 require 'rack/content_length'
@@ -21,3 +22,4 @@ describe Rack::Config do
     response.body.should.equal('hello')
   end
 end
+

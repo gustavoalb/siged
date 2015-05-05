@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'barby/barcode'
 require 'java'
 require 'Pdf417lib'
@@ -74,3 +75,4 @@ module Barby
     end
   end
 end
+

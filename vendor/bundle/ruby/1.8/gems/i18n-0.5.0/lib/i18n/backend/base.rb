@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'yaml'
 require 'i18n/core_ext/hash'
 require 'i18n/core_ext/kernel/surpress_warnings'
@@ -172,3 +173,4 @@ module I18n
     end
   end
 end
+

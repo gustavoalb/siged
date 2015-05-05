@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "rails"
 require "action_controller"
 require "action_dispatch/railtie"
@@ -64,3 +65,4 @@ module ActionController
     end
   end
 end
+

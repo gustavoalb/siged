@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   class NullLogger
     def initialize(app)
@@ -16,3 +17,4 @@ module Rack
     def fatal(progname = nil, &block); end
   end
 end
+

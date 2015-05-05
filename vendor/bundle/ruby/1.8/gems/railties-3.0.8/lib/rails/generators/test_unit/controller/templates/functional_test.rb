@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class <%= class_name %>ControllerTest < ActionController::TestCase
@@ -16,3 +17,4 @@ class <%= class_name %>ControllerTest < ActionController::TestCase
 <% end -%>
 <% end -%>
 end
+

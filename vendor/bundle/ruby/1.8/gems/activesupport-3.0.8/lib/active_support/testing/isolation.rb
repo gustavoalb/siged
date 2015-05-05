@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rbconfig'
 module ActiveSupport
   module Testing
@@ -155,3 +156,4 @@ if ENV['ISOLATION_TEST']
     end
   end
 end
+

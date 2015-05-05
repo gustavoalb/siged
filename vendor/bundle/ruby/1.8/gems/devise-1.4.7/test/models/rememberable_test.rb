@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 module SharedRememberableTest
@@ -285,3 +286,4 @@ class WithSaltRememberableTest < ActiveSupport::TestCase
     end
   end
 end
+

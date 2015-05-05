@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class I18nSimpleBackendApiTest < Test::Unit::TestCase
@@ -26,3 +27,4 @@ class I18nSimpleBackendApiTest < Test::Unit::TestCase
     assert_equal I18n::Backend::Simple, I18n.backend.class
   end
 end
+

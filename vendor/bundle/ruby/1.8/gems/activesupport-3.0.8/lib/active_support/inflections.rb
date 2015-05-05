@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   Inflector.inflections do |inflect|
     inflect.plural(/$/, 's')
@@ -58,3 +59,4 @@ module ActiveSupport
     inflect.uncountable(%w(equipment information rice money species series fish sheep jeans))
   end
 end
+

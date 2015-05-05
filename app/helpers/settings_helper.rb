@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module SettingsHelper
 
   def nome_codigo(obj)
@@ -12,3 +13,4 @@ module SettingsHelper
   end
 
 end
+

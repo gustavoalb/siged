@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Devise::Mailer < ::ActionMailer::Base
   include Devise::Mailers::Helpers
 
@@ -13,3 +14,4 @@ class Devise::Mailer < ::ActionMailer::Base
     devise_mail(record, :unlock_instructions)
   end
 end
+

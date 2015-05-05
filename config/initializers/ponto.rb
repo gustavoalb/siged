@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Date
 feriados, metodos = FeriadoParser.parser("#{Rails.root}/config/feriados")
  if File.directory?("#{Rails.root}/config/feriados")
@@ -10,3 +11,4 @@ feriados, metodos = FeriadoParser.parser("#{Rails.root}/config/feriados")
  metodos.each { |m| Date::FERIADOS_METODOS << m }
 
 end
+

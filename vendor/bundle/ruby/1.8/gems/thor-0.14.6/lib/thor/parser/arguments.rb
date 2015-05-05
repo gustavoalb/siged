@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Thor
   class Arguments #:nodoc:
     NUMERIC = /(\d*\.\d+|\d+)/
@@ -159,3 +160,4 @@ class Thor
 
   end
 end
+

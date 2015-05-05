@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'openssl'
 require 'active_support/base64'
 
@@ -69,3 +70,4 @@ module ActiveSupport
       end
   end
 end
+

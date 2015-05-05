@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 module Warden
   module Strategies
     class << self
@@ -44,3 +44,4 @@ module Warden
     end # << self
   end # Strategies
 end # Warden
+

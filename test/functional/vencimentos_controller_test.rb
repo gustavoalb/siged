@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class VencimentosControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class VencimentosControllerTest < ActionController::TestCase
     assert_redirected_to vencimentos_path
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module FormacaosHelper
 
 	def titulo_formacao(f)
@@ -18,3 +19,4 @@ module FormacaosHelper
 		end
 	end 
 end
+

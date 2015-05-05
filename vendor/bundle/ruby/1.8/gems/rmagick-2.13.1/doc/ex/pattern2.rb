@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -24,3 +25,4 @@ gc.draw(img)
 img.border!(1,1, "lightcyan2")
 img.write('pattern2.gif')
 exit
+

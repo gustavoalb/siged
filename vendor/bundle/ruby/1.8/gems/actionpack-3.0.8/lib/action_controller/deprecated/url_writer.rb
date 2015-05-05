@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   module UrlWriter
     def self.included(klass)
@@ -12,3 +13,4 @@ module ActionController
     end
   end
 end
+

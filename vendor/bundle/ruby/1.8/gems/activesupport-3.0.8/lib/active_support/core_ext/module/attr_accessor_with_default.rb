@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Module
   # Declare an attribute accessor with an initial default return value.
   #
@@ -29,3 +30,4 @@ class Module
     EVAL
   end
 end
+

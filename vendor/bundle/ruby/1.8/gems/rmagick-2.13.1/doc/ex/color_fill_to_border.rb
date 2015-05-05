@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -27,3 +28,4 @@ before.write('color_fill_to_border_before.gif')
 after = before.color_fill_to_border(100,100, 'aquamarine')
 after.write('color_fill_to_border_after.gif')
 exit
+

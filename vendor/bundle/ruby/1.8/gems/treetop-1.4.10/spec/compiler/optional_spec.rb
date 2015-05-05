@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 module OptionalSpec
@@ -35,3 +36,4 @@ module OptionalSpec
     end
   end
 end
+

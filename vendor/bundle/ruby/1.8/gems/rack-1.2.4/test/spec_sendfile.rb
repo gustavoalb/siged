@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/sendfile'
 require 'rack/mock'
 
@@ -81,3 +82,4 @@ describe Rack::Sendfile do
     end
   end
 end
+

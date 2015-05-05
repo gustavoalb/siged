@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Visitors
     class Dot < Arel::Visitors::Visitor
@@ -228,3 +229,4 @@ module Arel
     end
   end
 end
+

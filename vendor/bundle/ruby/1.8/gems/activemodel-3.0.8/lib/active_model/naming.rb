@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'active_support/inflector'
 
 module ActiveModel
@@ -97,3 +98,4 @@ module ActiveModel
   end
 
 end
+

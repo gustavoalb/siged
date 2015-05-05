@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Object
   # A duck-type assistant method. For example, Active Support extends Date
   # to define an acts_like_date? method, and extends Time to define
@@ -8,3 +9,4 @@ class Object
     respond_to? :"acts_like_#{duck}?"
   end
 end
+

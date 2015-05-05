@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ComissionadosController < ApplicationController
   load_and_authorize_resource
   # GET /comissionados
@@ -155,3 +156,4 @@ class ComissionadosController < ApplicationController
     @escolas = Escola.all.collect{|p| [p.nome_da_escola,p.id]}
   end
 end
+

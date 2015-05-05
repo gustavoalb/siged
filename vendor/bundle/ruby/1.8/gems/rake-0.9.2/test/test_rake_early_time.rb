@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 
 class TestRakeEarlyTime < Rake::TestCase
@@ -29,3 +30,4 @@ class TestRakeEarlyTime < Rake::TestCase
     assert_equal "<EARLY TIME>", Rake::EARLY.to_s
   end
 end
+

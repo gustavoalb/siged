@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 warn 'Sys has been deprecated in favor of FileUtils'
 
 #--
@@ -189,3 +190,4 @@ module Sys
   end
 
 end
+

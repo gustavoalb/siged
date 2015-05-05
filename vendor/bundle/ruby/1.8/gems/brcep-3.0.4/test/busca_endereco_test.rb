@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 require 'rubygems'
 require 'net/http'
@@ -156,3 +156,4 @@ class BuscaEnderecoTest < Test::Unit::TestCase
     File.join(File.dirname(__FILE__), 'mocks', "zip_#{nome}_#{web_service}.xml")
   end
 end
+

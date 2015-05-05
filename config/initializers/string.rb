@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class String
   def rtrim(char)
     dump.rtrim!(char)
@@ -29,3 +30,4 @@ class ProperCategoryValidator < ActiveModel::EachValidator
     end
   end
 end
+

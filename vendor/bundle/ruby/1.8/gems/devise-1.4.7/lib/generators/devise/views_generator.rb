@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module Generators
     # Include this module in your generator to generate Devise views.
@@ -70,3 +71,4 @@ module Devise
     end
   end
 end
+

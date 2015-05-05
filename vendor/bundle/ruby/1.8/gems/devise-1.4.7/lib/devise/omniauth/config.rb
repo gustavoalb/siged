@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Devise
   module OmniAuth
     class Config
@@ -22,3 +23,4 @@ module Devise
     end
   end
 end     
+

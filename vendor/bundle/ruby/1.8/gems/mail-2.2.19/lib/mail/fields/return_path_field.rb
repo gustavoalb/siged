@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 # 
 # 4.4.3.  REPLY-TO / RESENT-REPLY-TO
 # 
@@ -63,3 +63,4 @@ module Mail
     
   end
 end
+

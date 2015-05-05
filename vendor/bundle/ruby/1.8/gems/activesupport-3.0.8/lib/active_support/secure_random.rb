@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 begin
   require 'securerandom'
 rescue LoadError
@@ -197,3 +198,4 @@ module ActiveSupport
     end
   end
 end
+

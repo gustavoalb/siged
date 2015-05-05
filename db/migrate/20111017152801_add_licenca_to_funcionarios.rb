@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddLicencaToFuncionarios < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :licenca, :boolean
@@ -7,3 +8,4 @@ class AddLicencaToFuncionarios < ActiveRecord::Migration
     remove_column :funcionarios, :licenca
   end
 end
+

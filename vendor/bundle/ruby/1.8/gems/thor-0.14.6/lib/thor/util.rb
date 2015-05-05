@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rbconfig'
 
 class Thor
@@ -227,3 +228,4 @@ class Thor
 
   end
 end
+

@@ -1,0 +1,35 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Escola:</b>
+  <%= @carencia.escola_id %>
+</p>
+
+<p>
+  <b>Disciplina:</b>
+  <%= @carencia.disciplina_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @carencia.status %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @carencia.data %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_carencia_path(@carencia),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', carencias_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'date'
 require 'action_view/helpers/tag_helper'
 require 'active_support/core_ext/hash/slice'
@@ -979,3 +980,4 @@ module ActionView
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveRecord
 
   # = Active Record Dynamic Finder Match
@@ -54,3 +55,4 @@ module ActiveRecord
     end
   end
 end
+

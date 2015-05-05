@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #--
 # Copyright (c) 2006 Philip Ross
 # 
@@ -92,3 +93,4 @@ module TZInfo
     end
   end
 end
+

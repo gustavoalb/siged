@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveSupport
   module Multibyte
     module Unicode
@@ -390,3 +391,4 @@ module ActiveSupport
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddConvalidadaToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :convalidada, :boolean,:default=>false
@@ -11,3 +12,4 @@ class AddConvalidadaToLotacaos < ActiveRecord::Migration
     remove_column :lotacaos, :convalidada
   end
 end
+

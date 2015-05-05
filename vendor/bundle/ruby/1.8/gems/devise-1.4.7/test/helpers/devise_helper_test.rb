@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test_helper'
 
 class DeviseHelperTest < ActionController::IntegrationTest
@@ -48,4 +49,5 @@ class DeviseHelperTest < ActionController::IntegrationTest
     assert_contain "Erreur lors de l'enregistrement de 'utilisateur': 2 erreurs"
   end
 end
+
 

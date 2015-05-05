@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAmbienteFisicos < ActiveRecord::Migration
   def self.up
     create_table :ambiente_fisicos do |t|
@@ -17,3 +18,4 @@ class CreateAmbienteFisicos < ActiveRecord::Migration
     drop_table :ambiente_fisicos
   end
 end
+

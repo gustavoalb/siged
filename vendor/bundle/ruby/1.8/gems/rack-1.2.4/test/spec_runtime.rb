@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/runtime'
 
 describe Rack::Runtime do
@@ -37,3 +38,4 @@ describe Rack::Runtime do
     Float(response[1]['X-Runtime-All']).should > Float(response[1]['X-Runtime-App'])
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module EnquetesHelper
 	def resposta(obj)
 		if obj=='OTIMAS'
@@ -23,3 +24,4 @@ module EnquetesHelper
 
 
 end
+

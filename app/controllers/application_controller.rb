@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :set_entidade
@@ -53,3 +54,4 @@ class ApplicationController < ActionController::Base
     @anos_letivos = AnoLetivo.order(:ano).collect{|a|[a.ano,a.id]}
   end
 end
+

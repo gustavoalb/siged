@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'RMagick'
 
 # Create a transparent image to tile over the background image.
@@ -19,5 +20,6 @@ img = Magick::Image.read("images/Flower_Hat.jpg").first
 # Composite the tile image over the background image.
 img.composite_tiled! wm
 img.write "composite_tiled.jpg"
+
 
 

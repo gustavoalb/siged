@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 Magick::RVG.dpi = 90
@@ -12,4 +13,5 @@ rvg = Magick::RVG.new(12.cm, 4.cm) do |canvas|
 end
 
 rvg.draw.write('rect01.gif')
+
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Backported Ruby builtins so you can code with the latest & greatest
 # but still run on any Ruby 1.8.x.
 #
@@ -20,3 +21,4 @@ require 'active_support/core_ext/rexml'
 require 'active_support/core_ext/time/conversions'
 require 'active_support/core_ext/file/path'
 require 'active_support/core_ext/module/method_names'
+

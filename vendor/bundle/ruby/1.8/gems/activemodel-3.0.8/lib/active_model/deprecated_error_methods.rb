@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActiveModel
   module DeprecatedErrorMethods
     def on(attribute)
@@ -31,3 +32,4 @@ module ActiveModel
     end
   end
 end
+

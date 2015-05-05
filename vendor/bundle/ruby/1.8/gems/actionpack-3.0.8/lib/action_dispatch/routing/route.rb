@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionDispatch
   module Routing
     class Route #:nodoc:
@@ -63,3 +64,4 @@ module ActionDispatch
     end
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Pessoa < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :nome, :use=> :slugged
@@ -56,3 +57,4 @@ class Pessoa < ActiveRecord::Base
 	end
 
 end
+

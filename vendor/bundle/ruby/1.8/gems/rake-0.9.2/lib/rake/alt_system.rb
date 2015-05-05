@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #
 # Copyright (c) 2008 James M. Lawrence
 #
@@ -107,3 +108,4 @@ module Rake::AltSystem
     define_module_function :'`', &Kernel.method(:'`')
   end
 end
+

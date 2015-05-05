@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
 
 class Head
@@ -17,3 +18,4 @@ class Head
 end
 
 end
+

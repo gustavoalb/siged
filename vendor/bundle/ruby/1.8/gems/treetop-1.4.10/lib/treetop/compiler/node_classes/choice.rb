@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Treetop
   module Compiler
     class Choice < ParsingExpression
@@ -29,3 +30,4 @@ module Treetop
     end
   end
 end
+

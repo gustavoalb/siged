@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "mkmf"
 require "date"
 
@@ -399,3 +400,4 @@ END_SUMMARY
 
 Logging::message SUMMARY
 message SUMMARY
+

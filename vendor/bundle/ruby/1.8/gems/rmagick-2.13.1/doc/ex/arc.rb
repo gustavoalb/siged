@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 require 'RMagick'
 
@@ -47,3 +48,4 @@ i.border!(1,1, "lightcyan2")
 
 #i.display
 i.write("arc.gif")
+

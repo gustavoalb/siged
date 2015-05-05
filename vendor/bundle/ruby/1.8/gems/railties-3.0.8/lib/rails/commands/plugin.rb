@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Rails Plugin Manager.
 #
 # Installing plugins:
@@ -545,3 +546,4 @@ class RecursiveHTTPFetcher
 end
 
 Commands::Plugin.parse!
+

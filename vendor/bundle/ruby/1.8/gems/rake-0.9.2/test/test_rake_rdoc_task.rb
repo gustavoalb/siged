@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../helper', __FILE__)
 begin
   old_verbose = $VERBOSE
@@ -79,3 +80,4 @@ class TestRakeRDocTask < Rake::TestCase
     assert_equal 0, rd.option_list.grep('--inline-source').size
   end
 end
+

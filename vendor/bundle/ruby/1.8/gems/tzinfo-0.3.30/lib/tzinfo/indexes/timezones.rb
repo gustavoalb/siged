@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module TZInfo
   module Indexes
     module Timezones
@@ -586,3 +587,4 @@ module TZInfo
     end
   end
 end
+

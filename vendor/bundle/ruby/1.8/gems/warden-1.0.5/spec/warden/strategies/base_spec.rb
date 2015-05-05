@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Warden::Strategies::Base do
@@ -311,3 +311,4 @@ describe Warden::Strategies::Base do
   end
 
 end
+

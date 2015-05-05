@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rvg/rvg'
 
 def example(cols, rows)
@@ -30,4 +31,5 @@ end
 
 example(300, 200).write('ViewBox_300x200.gif')
 example(150, 200).write('ViewBox_150x200.gif')
+
 

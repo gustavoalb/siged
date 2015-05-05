@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "spec_helper"
 
 describe CanCan::ModelAdapters::DefaultAdapter do
@@ -5,3 +6,4 @@ describe CanCan::ModelAdapters::DefaultAdapter do
     CanCan::ModelAdapters::AbstractAdapter.adapter_class(Object).should == CanCan::ModelAdapters::DefaultAdapter
   end
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionDispatch
   module Http
     class ParameterFilter
@@ -70,3 +71,4 @@ module ActionDispatch
     end
   end
 end
+

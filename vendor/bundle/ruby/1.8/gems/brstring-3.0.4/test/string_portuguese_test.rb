@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# -*- encoding : utf-8 -*-
 require File.dirname(__FILE__) + '/test_helper'
 
 NOMES_PROPRIOS = {
@@ -151,3 +151,4 @@ class StringPortugueseTest < Test::Unit::TestCase
   end
 
 end
+

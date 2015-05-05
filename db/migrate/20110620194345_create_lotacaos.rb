@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateLotacaos < ActiveRecord::Migration
   def self.up
     create_table :lotacaos do |t|
@@ -15,4 +16,5 @@ class CreateLotacaos < ActiveRecord::Migration
     drop_table :lotacaos
   end
 end
+
 

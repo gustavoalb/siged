@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rack/session/cookie'
 require 'rack/mock'
 
@@ -68,3 +69,4 @@ describe Rack::Session::Cookie do
     response2["Set-Cookie"].should.equal(response1["Set-Cookie"])
   end
 end
+

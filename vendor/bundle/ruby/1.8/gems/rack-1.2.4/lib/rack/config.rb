@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Rack
   # Rack::Config modifies the environment using the block given during
   # initialization.
@@ -13,3 +14,4 @@ module Rack
     end
   end
 end
+

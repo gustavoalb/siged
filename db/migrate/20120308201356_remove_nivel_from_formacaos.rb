@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveNivelFromFormacaos < ActiveRecord::Migration
   def self.up
     remove_column :formacaos, :nivel
@@ -7,3 +8,4 @@ class RemoveNivelFromFormacaos < ActiveRecord::Migration
     add_column :formacaos, :nivel, :string
   end
 end
+

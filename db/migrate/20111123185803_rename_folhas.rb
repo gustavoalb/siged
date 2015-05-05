@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenameFolhas < ActiveRecord::Migration
   def self.up
     rename_table :folhas, :folha_folhas
@@ -8,3 +9,4 @@ class RenameFolhas < ActiveRecord::Migration
  end
 
 end
+

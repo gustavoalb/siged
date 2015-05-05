@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Arel
   module Visitors
     class Visitor
@@ -25,3 +26,4 @@ module Arel
     end
   end
 end
+

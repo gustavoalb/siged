@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #! /usr/local/bin/ruby -w
 
 require 'RMagick'
@@ -58,3 +59,4 @@ canvas.crop!(crop.x, crop.y, crop.width, crop.height)
 canvas.write("clip_path.gif")
 
 exit
+
