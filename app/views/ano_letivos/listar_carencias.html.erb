@@ -18,10 +18,10 @@
 <tbody>
 <% @carencias.each do |carencia| %>
   <tr>
-    <td><%= carencia.escola_id %></td>
-    <td><%= carencia.disciplina_id %></td>
+    <td><%= carencia.escola %></td>
+    <td><%= carencia.disciplina %></td>
     <td><%= carencia.status %></td>
-    <td><%= carencia.data %></td>
+    <td><%= carencia.data.to_s_br %></td>
     <td><%= link_to 'Detalhes', carencia_path(@ano_letivo,carencia) %></td>
     <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_carencia_path(@ano_letivo,carencia) %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), carencia_path(@ano_letivo,carencia), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>

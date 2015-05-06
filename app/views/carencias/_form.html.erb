@@ -1,16 +1,10 @@
-<style>
-fieldset {width:22%; 
-  float:left; 
-  margin-right: 1%;
-}
-</style>
 <%= javascript_include_tag "mascara.js" %>
 <article class="module width_full">
   <header><h3><%=legenda%></h3></header>
   <div class="module_content">
 
 
-    <%= form_for @ano_letivo,:url=>carencias_path do |f| %>
+    <%= form_for @ano_letivo do |f| %>
     <% if @ano_letivo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ano_letivo.errors.count, "erro impede","erros impedem") %> este carencia de ser cadastrado:</h2>
@@ -22,13 +16,35 @@ fieldset {width:22%;
       </ul>
     </div>
     <% end %>
+    <%= link_to_add_association 'Nova carencia', f, :carencias,:"data-association-insertion-node"=>"#formulario",:"data-association-insertion-method"=>:append,:force_non_association_create => true%>
     <div id="formulario">
-    <%=f.fields_for :carencias,:wrapper => false do |c|%>
-    <%render 'carencia_fields',:f=>c%>
-    
-    <%end%>
+      <%=f.fields_for :carencias,@carencias,:wrapper => false do |c|%>
+      <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :escola_id %><br />
+        <%= c.autocomplete_field :escola_id, autocomplete_escola_nome_da_escola_carencias_path(@ano_letivo),:style=>"width:88%;",:value=>c.object.escola.nome_da_escola%>
+
+      </fieldset>
+
+      <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :disciplina_id %><br />
+        <%= c.autocomplete_field :disciplina_id, autocomplete_disciplina_nome_carencias_path(@ano_letivo),:style=>"width:88%;",:value=>c.object.disciplina.nome%>
+
+      </fieldset>
+      <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :data %><br />
+        <%= c.text_field :data,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;",:class=>"date"%>
+
+      </fieldset>
+      <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :status %><br />
+        <%= c.select :status,[["CARÊNCIA ATUALIZADA 2015"],["CARÊNCIA PREENCHIDA"],["CARÊNCIA NÃO INFORMADA"]],:style=>"width:89%;" %>
+
+      </fieldset>
+
+
+      <%end%>
+       <%=f.hidden_field :updated_at,:value=>Time.now%>
     </div>
-    <%= link_to_add_association 'Nova carencia', f, :carencias,'data-target'=>'#formulario'%>
     <div class="clear"></div>
   </div>
   <footer>

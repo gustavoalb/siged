@@ -17,6 +17,8 @@
           <tr>
             <td width=10%><%= ano_letivo.inicio.to_s_br %></td>
             <td width=10%><%= ano_letivo.termino.to_s_br %></td>
+            <td width=10%><%= link_to "Carencias",anos_letivo_gerir_carencias_path(ano_letivo) %></td>
+            <td width=10%><%= link_to "Carencias",anos_letivo_path(ano_letivo) %></td>
             <td></td>
           </tr>
           <% end %>

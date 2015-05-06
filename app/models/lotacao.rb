@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 require "barby/barcode/code_25_interleaved"
-require "barby/outputter/rmagick_outputter"
+require "barby/outputter/png_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial

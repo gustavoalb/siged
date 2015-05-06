@@ -2,68 +2,67 @@
 Siged20::Application.routes.draw do
 
 
-  resources :carencias do
-    get :autocomplete_escola_nome_da_escola,:on=>:collection
-    get :autocomplete_disciplina_nome,:on=>:collection
-  end
+ resources :carencias do
+   
+ end
 
-  get 'mensagens/inbox'
+ get 'mensagens/inbox'
 
-  resources :mensagens
+ resources :mensagens
 
-  get "home/index"
+ get "home/index"
 
-  resources :niveis_ensinos do
-    resources :series
-  end
+ resources :niveis_ensinos do
+  resources :series
+end
 
-  resources :enquetes do
-    get 'estatisticas_antes'
-    get 'estatisticas_depois'
-  end
+resources :enquetes do
+  get 'estatisticas_antes'
+  get 'estatisticas_depois'
+end
 
-  resources :home, :only=>:index
+resources :home, :only=>:index
 
-  namespace :folha do resources :fonte_recursos end
+namespace :folha do resources :fonte_recursos end
 
-    namespace :arquivo do resources :documentos end
+  namespace :arquivo do resources :documentos end
 
-      namespace :administracao do 
-        resources :migracoes
-      end
+    namespace :administracao do 
+      resources :migracoes
+    end
 
-      resources :categorias do
-       resources :textos
-     end
-
-
-     resources :configuracao_pontos
-
-     resources :entidades
-     get "administracao/tarefas/funcionarios"
-     namespace :administracao do resources :tarefas end
-
-      get "administracao/index"
+    resources :categorias do
+     resources :textos
+   end
 
 
-      get "administracao/atualizar_informacao"
+   resources :configuracao_pontos
 
-      namespace :folha do resources :competencias end
-        namespace :folha do
-          resources :financeiros do
-           get "validar_matricula"
-           get "validar_evento"
-         end
+   resources :entidades
+   get "administracao/tarefas/funcionarios"
+   namespace :administracao do resources :tarefas end
+
+    get "administracao/index"
+
+
+    get "administracao/atualizar_informacao"
+
+    namespace :folha do resources :competencias end
+      namespace :folha do
+        resources :financeiros do
+         get "validar_matricula"
+         get "validar_evento"
        end
-       resources :vencimentos
+     end
+     resources :vencimentos
 
 
-       namespace :folha do
-        resources :folhas do
-         get "imprimir_financeiros"
-         resources :financeiros do
+     namespace :folha do
+      resources :folhas do
+       get "imprimir_financeiros"
+       resources :financeiros do
 
-         end
+       end
 
       #fim do resource folhas
     end
@@ -162,7 +161,13 @@ namespace :folha do resources :eventos end
 
   get 'relatorios/funcionarios_por_disciplina',:controller=>"funcionarios",:action=>'relatorio_por_disciplina'
   resources :funcionarios
-  resources :anos_letivos,:controller=>'ano_letivos'
+  resources :anos_letivos,:controller=>'ano_letivos' do
+    get :gerir_carencias
+    get :listar_carencias
+    put :salvar_carencias
+    get :autocomplete_escola_nome_da_escola,:on=>:collection
+    get :autocomplete_disciplina_nome,:on=>:collection
+  end
   resources :escolas do
     get :controle_turma
     get :listar_turmas

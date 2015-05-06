@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 require "barby/barcode/code_25_interleaved"
-require "barby/outputter/rmagick_outputter"
+require "barby/outputter/png_outputter"
 class Ponto < ActiveRecord::Base
   #default_scope where('pontos.entidade_id in (?)',User.usuario_atual.entidade_ids)
   validates_presence_of :data

@@ -1,0 +1,54 @@
+  <%= javascript_include_tag "mascara.js" %>
+  <article class="module width_full">
+    <header><h3>Inserção de Carências</h3></header>
+    <div class="module_content">
+
+
+      <%= form_for @ano_letivo,:url=>anos_letivo_salvar_carencias_url(@ano_letivo) do |f| %>
+      <% if @ano_letivo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@ano_letivo.errors.count, "erro impede","erros impedem") %> este carencia de ser cadastrado:</h2>
+
+        <ul>
+          <% @ano_letivo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <%= link_to_add_association 'Nova carencia', f, :carencias,:"data-association-insertion-node"=>"#formulario",:"data-association-insertion-method"=>:append,:force_non_association_create => true%>
+      <div id="formulario">
+        <%=f.fields_for :carencias,@carencias,:wrapper => false do |c|%>
+        <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :escola %><br />
+        <%= c.autocomplete_field :escola, autocomplete_escola_nome_da_escola_anos_letivos_path,:style=>"width:88%;"%>
+
+        </fieldset>
+
+        <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :disciplina %><br />
+        <%= c.autocomplete_field :disciplina, autocomplete_disciplina_nome_anos_letivos_path,:style=>"width:88%;",'data-id-element' => '#order_customer_id'%>
+
+        </fieldset>
+        <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :data %><br />
+        <%= c.text_field :data,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;",:class=>"date",:value=>"#{c.object.data.strftime("%d/%m/%Y") unless c.object.new_record?}"%>
+
+        </fieldset>
+        <fieldset style="width:22%; float:left; margin-right: 1%;">
+        <%= c.label :status %><br />
+        <%= c.select :status,[["CARÊNCIA ATUALIZADA 2015"],["CARÊNCIA PREENCHIDA"],["CARÊNCIA NÃO INFORMADA"]],:style=>"width:89%;" %>
+
+        </fieldset>
+        <%end%>
+        <%=f.hidden_field :updated_at,:value=>Time.now%>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <footer>
+      <div class="submit_link">
+       <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+     </div>
+   </footer>
+   <% end %>
+ </article>

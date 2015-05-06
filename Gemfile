@@ -8,8 +8,6 @@ gem 'statistics'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "validates_timeliness"
-#gem "mongrel"
-#gem 'postgres'
 gem "odf-report"
 gem "paperclip"#,:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
 gem 'pg'
@@ -19,11 +17,12 @@ gem 'will_paginate','~> 2.3.5'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'chunky_png'
 gem 'liquid'
 gem 'scoped-search', :require=>"scoped_search"
 gem "wkhtmltopdf", "~> 0.1.2"
 gem 'barby'
-gem 'rmagick'
+#gem 'rmagick', '2.13.3'
 gem 'railroady'
 #gem 'axlsx'
 gem 'silent-postgres'

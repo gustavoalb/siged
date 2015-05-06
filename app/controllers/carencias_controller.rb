@@ -2,9 +2,9 @@
 class CarenciasController < ApplicationController
   # GET /carencias
   # GET /carencias.xml
+  before_filter :ano_letivo
 
-  autocomplete :escola, :nome_da_escola, :full => true
-  # autocomplete :disciplina, :nome, :full => true 
+ 
 
   # def auto_complete_for_escola_nome_da_escola
   #   @escolas = Escola.find(:all,
@@ -22,9 +22,8 @@ class CarenciasController < ApplicationController
   # end
 
   def index
-    @ano_letivo = AnoLetivo.find_by_ano(Date.today.year)
-    @carencias = @ano_letivo.carencias.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     
+    @carencias = @ano_letivo.carencias.all.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @carencias }
@@ -35,7 +34,6 @@ class CarenciasController < ApplicationController
   # GET /carencias/1.xml
   def show
     @carencia = Carencia.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @carencia }
@@ -46,9 +44,7 @@ class CarenciasController < ApplicationController
   # GET /carencias/new.xml
   def new
     @carencia = Carencia.new
-    @ano_letivo = AnoLetivo.find_by_ano(Date.today.year)
-    @carencias = @ano_letivo.carencias.all
-
+    @carencias = @ano_letivo.carencias
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @carencia }
@@ -58,8 +54,7 @@ class CarenciasController < ApplicationController
   # GET /carencias/1/edit
   def edit
     @carencia = Carencia.find(params[:id])
-    @ano_letivo = AnoLetivo.find_by_ano(Date.today.year)
-    @carencias = @ano_letivo.carencias.all
+    
   end
 
   # POST /carencias
@@ -68,12 +63,12 @@ class CarenciasController < ApplicationController
     @carencia = Carencia.new(params[:carencia])
 
     respond_to do |format|
-      if @carencia.save
-        format.html { redirect_to(@carencia, :notice => 'Carencia cadastrado com sucesso.') }
-        format.xml  { render :xml => @carencia, :status => :created, :location => @carencia }
+      if @ano_letivo.save!
+        format.html { redirect_to(ano_letivo_carencia_path(@ano_letivo,carencia), :notice => 'Carencia cadastrado com sucesso.') }
+        format.xml  { render :xml => @ano_letivo, :status => :created, :location => @ano_letivo }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @carencia.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @ano_letivo.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -101,9 +96,14 @@ class CarenciasController < ApplicationController
     @carencia.destroy
 
     respond_to do |format|
-      format.html { redirect_to(carencias_url) }
+      format.html { redirect_to(carencias_url(@ano_letivo)) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def ano_letivo
+    @ano_letivo = AnoLetivo.find_by_ano(Date.today.year)
   end
 end
 

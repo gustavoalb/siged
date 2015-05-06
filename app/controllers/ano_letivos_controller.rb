@@ -3,6 +3,8 @@ class AnoLetivosController < ApplicationController
 	# GET /ano_letivos
 	# GET /ano_letivos.xml
 	#before_filter :verificar_ano,:except=>[:new,:create,:update,:edit,:destroy]
+  autocomplete :escola, :nome_da_escola, :full => true
+  autocomplete :disciplina, :nome, :full => true 
 	def index
 		@ano_letivos = AnoLetivo.order.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
 		
@@ -27,15 +29,39 @@ class AnoLetivosController < ApplicationController
 	# GET /ano_letivos/new.xml
 	def new
 		@ano_letivo = AnoLetivo.new
-    respond_to do |format|
+		respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @ambientes }
-    end
   end
+end
 
 	# GET /ano_letivos/1/edit
 	def edit
 		@ano_letivo = AnoLetivo.find(params[:id])
+	end
+
+	def listar_carencias
+		@ano_letivo = AnoLetivo.find(params[:anos_letivo_id])
+		@carencias = @ano_letivo.carencias
+	end
+
+
+	def gerir_carencias
+		@ano_letivo = AnoLetivo.find(params[:anos_letivo_id])
+		@carencias = @ano_letivo.carencias
+	end
+
+	def salvar_carencias
+		@ano_letivo = AnoLetivo.find(params[:anos_letivo_id])
+		respond_to do |format|
+			if @ano_letivo.update_attributes(params[:ano_letivo])
+				format.html { redirect_to(anos_letivo_gerir_carencias_path(@ano_letivo), :notice => 'Ano letivo atualizado com sucesso.') }
+				format.xml  { head :ok }
+			else
+				format.html { render :action => "edit" }
+				format.xml  { render :xml => @ano_letivo.errors, :status => :unprocessable_entity }
+			end
+		end
 	end
 
 	# POST /ano_letivos
