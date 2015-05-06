@@ -464,6 +464,14 @@ float: left;
 margin-top: -2px;
 }
 
+section#ucolom {
+width: 100%;
+min-height: 500px;
+background: url(../images/sidebar_shadow.png) repeat-y left top;
+float: left;
+margin-top: -2px;
+}
+
 #barra {
 width: 77%;
 min-height: 500px;

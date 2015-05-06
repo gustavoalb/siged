@@ -49,6 +49,7 @@ end
 	def gerir_carencias
 		@ano_letivo = AnoLetivo.find(params[:anos_letivo_id])
 		@carencias = @ano_letivo.carencias
+		render :layout=>"ucolom"
 	end
 
 	def salvar_carencias

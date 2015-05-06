@@ -38,6 +38,7 @@ gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'friendly_id'
 gem "cocoon"
 gem 'rails3-jquery-autocomplete'
+gem "thin"
 
 
 # Deploy with Capistrano

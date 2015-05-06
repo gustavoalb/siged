@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR" onKeyPress="return disableEnterKey(event)">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>SIGED 2.0::SECRETARIA DE ESTADO DA EDUCAÇÃO</title>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<%= stylesheet_link_tag "facebox.css","ie.css","layout.css","pdf.css","tabs.css","verticalaccordion.css","accordion.css","loading_notice.css","jquery-ui.min.css"%>
+<%= javascript_include_tag 'jquery.js'%>
+<%= javascript_include_tag 'application.js','prototype.js'%>
+<%= javascript_include_tag "mascara.js" %>
+<%= javascript_include_tag 'jquery-ui.min.js'%>
+<%= javascript_include_tag "autocomplete-rails.js" %>
+<%= javascript_include_tag 'effects.js' %>
+<%= javascript_include_tag 'dragdrop.js' %>
+<%= javascript_include_tag 'controls.js' %>
+<%= javascript_include_tag 'rails.js' %>
+<%= javascript_include_tag "accordion" %>
+<%= javascript_include_tag 'auto_complete'%>
+<%= javascript_include_tag "facebox.js" %>
+<%= javascript_include_tag "maskedinput.js" %>
+<%= javascript_include_tag "tabs.js"%>
+<%= javascript_include_tag 'loading_notice.js'%>
+<%= javascript_include_tag 'cocoon.js' %>
+<!--<%= javascript_include_tag "enter.js"%>-->
+
+
+<%= calendar_date_select_includes "silver", :locale => "pt" %>
+<%= csrf_meta_tag %>
+</head>
+
+
+<body>
+	<%= favicon_link_tag "favicon.ico" %>
+	<%if user_signed_in? then%>
+<!--
+<header id="header">
+<hgroup>
+
+<h2 class="section_title">SIGED</h2>
+</hgroup>
+</header>  end of header bar
+
+-->
+
+<section id="secondary_bar">
+	<div class="user">
+
+		<p><%=current_user.name%></p>
+		<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
+	</div>
+	
+</section><!-- end of secondary bar -->
+
+<!--<aside id="sidebar" class="column" style="height: 100%;">
+	<%=image_tag("logoSiged.png",:alt => "Sistema de Gerenciamento Educacional", :class => "logo_siged")%>
+	<hr/>
+	<% if current_user.role?("lotacao")==false%>
+	<h3>Principal</h3>
+
+	<ul class="toggle">
+		<li class="icn_new_article"><a href="/pessoas">Pessoas</a></li>
+		<%if can? :manage,Enquete%><li class="icn_categoria"><a href="/enquetes">Enquete</a></li><%end%>
+		<%if can? :read,Escola%><li class="icn_escola"><a href="/escolas">Escolas</a></li><%end%>
+
+	</ul><%if current_user.role?("admin")==true%>
+	<h3>Configurações</h3>
+	<ul class="toggle">
+		<li class="icn_categoria"><a href="/categorias">Categorias Funcionais</a></li>
+		<li class="icn_cargo"><a href="/cargos">Cargos</a></li>
+		<li class="icn_orgao"><a href="/orgaos">Orgãos</a></li>
+		<li class="icn_serie"><a href="/niveis_ensinos">Níveis de Ensino</a></li>
+		<li class="icn_matrizes"><a href="/matrizes">Matrizes</a></li>
+		<li class="icn_paste"><a href="/disciplina_contratacoes">Disciplinas de Contratação</a></li>
+		<li class="icn_descri"><a href="/situacoes_juridicas">Situações Jurídicas</a></li>
+		<li class="icn_papeis"><a href="/roles">Papéis</a></li>
+		<li class="icn_listas"><a href="/tipo_listas">Listas</a></li>
+		<li class="icn_profile"><a href="/usuarios">Usuários</a></li>
+		
+	</ul>
+
+
+	<%end%>
+	<%else%>
+	<h3>Principal</h3>
+
+	<ul class="toggle">
+		<li class="icn_new_article"><a href="/pessoas">Lotação e Movimentação</a></li>
+		<li class="icn_matrizes"><a href="/ano_letivos">Controle de Carências</a></li>
+		<%end%>
+
+
+					<%if can? :manage, Ponto%>
+			<h3>Administração</h3>
+
+			<ul class="toggle">
+				<%=orgao%>
+				<%=setor%>
+			</ul>
+			<% end %>
+
+			<h3>Usuário</h3>
+
+			<ul class="toggle">
+				<li class="icn_edit_article"><%=link_to "Perfil", edit_user_registration_path %></li>
+				<li class="icn_new_article"><%=link_to "Sair", destroy_user_session_path %></li>
+
+			</ul>
+				<div id="footer_barra" style="position:absolute; bottom:0;">
+				<hr />
+				<p>
+					<strong>Copyright &copy; 2011 AmapáOnRails</strong>
+				</p>
+			</div>
+		</aside> -->
+		<!-- end of sidebar -->
+		<%end%>
+		<section id="ucolom" class="column">
+			<%=mensagens%>
+			<%=yield%>
+			<div class="clear"></div>
+			&nbsp;
+			<div class="clear"></div>
+		</section>
+	</body>
+
+	</html>

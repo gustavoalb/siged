@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150506100859) do
+ActiveRecord::Schema.define(:version => 20150506132404) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20150506100859) do
     t.integer  "ano_letivo_id"
     t.string   "disciplina"
     t.string   "escola"
+    t.string   "carga_horaria"
   end
 
   create_table "cargos", :force => true do |t|
