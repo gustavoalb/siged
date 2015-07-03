@@ -5,4 +5,5 @@ tmp/
 public/pontos
 public/relatorios/tmp
 public/relatorios
+public/images/carta/codigos/*
 #config/database.yml

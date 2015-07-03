@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-include Serenity::Generator
 class EscolasController < ApplicationController
   load_and_authorize_resource
   caches_page :ctrl_ch_resumido

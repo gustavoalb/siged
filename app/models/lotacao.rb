@@ -4,7 +4,7 @@ require "barby/outputter/png_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
-  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao,:data_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
+  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente."
   validates_presence_of :usuario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :escola
@@ -46,8 +46,6 @@ class Lotacao < ActiveRecord::Base
       lotacao.errors.add_to_base("Lotações tendo um departamento como destino necessitam de um motivo.")
     end
   end
-
-
 
   def check_ativo
    if self.ativo
@@ -172,29 +170,29 @@ end
 
 def destino
   lotacao = self
- if lotacao
+  if lotacao
     if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+      return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+      return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.sigla}"
+      return "#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.sigla}"
+      return "#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
-        return "#{lotacao.escola.nome_da_escola}"
+      return "#{lotacao.escola.nome_da_escola}"
     elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "LOTAÇÃO INVÁLIDA"
+      return "LOTAÇÃO INVÁLIDA"
     end
-end
+  end
 end
 
 

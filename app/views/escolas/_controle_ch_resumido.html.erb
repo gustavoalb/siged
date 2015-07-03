@@ -1,22 +1,24 @@
 <table class=tablesorter>
-<thead>
-<tr>
-  <th>Disciplina</th>
-  <th>Disponível</th>
-  <th>Demanda</th>
-  <th>Preenchido</th>
-  <th>Excedente</th>
-</tr>
-</thead>
-<tbody>
-  <%@disciplinas.each do |d|%>
-<tr>
-  <td><%= d.nome%></td>
-  <td><%= @escola.calcular_oferta(d)%></td>
-  <td><%= @escola.calcular_demanda(d)%></td>
-  <td><%= @escola.calcular_preenchido(d)%></td>
-  <td>0</td>
-</tr>
-<% end %>
-</tbody>
+  <thead>
+    <tr>
+      <th>Disciplina</th>
+      <th>Demanda</th>
+      <th>Preenchido</th>
+      <th>Disponível</th>
+      <th>À Preencher</th>
+      <th>Excedente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@disciplinas.each do |d|%>
+    <tr>
+      <td><%= d.nome%></td>
+      <td><%= @escola.calcular_demanda(d)%></td>
+      <td><%= @escola.calcular_preenchido(d)%></td>
+      <td><%= @escola.calcular_oferta(d)%></td>
+      <td><%= alerta_a_preencher(@escola,d)%></td>
+      <td><%= @escola.calcular_excedente(d)%></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>

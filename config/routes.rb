@@ -6,6 +6,27 @@ Siged20::Application.routes.draw do
    
  end
 
+  resources :escolas do
+    get :controle_turma
+    get :listar_turmas
+    get :incluir_turma
+    post :salvar_turma
+    get :configuracoes
+    get :ctrl_ch_resumido
+    get :ctrl_ch_detalhado
+    get :gerar_controle_ch
+    resources :ambientes do
+      get :configurar_ambiente
+      get :configurar_ambiente_fisico
+      get :incluir_turma
+      post :salvar_turma
+      get :excluir_turma
+      get :incluir_ambiente_fisico
+      post :salvar_ambiente_fisico
+      get :excluir_ambiente_fisico
+    end
+  end
+
  get 'mensagens/inbox'
 
  resources :mensagens
@@ -168,26 +189,7 @@ namespace :folha do resources :eventos end
     get :autocomplete_escola_nome_da_escola,:on=>:collection
     get :autocomplete_disciplina_nome,:on=>:collection
   end
-  resources :escolas do
-    get :controle_turma
-    get :listar_turmas
-    get :incluir_turma
-    post :salvar_turma
-    get :configuracoes
-    get :ctrl_ch_resumido
-    get :ctrl_ch_detalhado
-    get :gerar_controle_ch
-    resources :ambientes do
-      get :configurar_ambiente
-      get :configurar_ambiente_fisico
-      get :incluir_turma
-      post :salvar_turma
-      get :excluir_turma
-      get :incluir_ambiente_fisico
-      post :salvar_ambiente_fisico
-      get :excluir_ambiente_fisico
-    end
-  end
+ 
   resources :pessoas do
     get "gerar_relatorio"
     resources :fotos,:only => [:index, :show, :novo, :create,:new] do
