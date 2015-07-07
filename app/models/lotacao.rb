@@ -198,7 +198,7 @@ end
 
 private
 def lotacao_regular
-  self.img_codigo
+  #self.img_codigo
   self.entidade_id = self.funcionario.entidade_id
   #self.data_lotacao = Date.today
   #self.save!

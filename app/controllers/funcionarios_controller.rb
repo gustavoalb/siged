@@ -204,7 +204,7 @@ def carta
  end
  md5 = Digest::MD5.new.to_s
  arquivo_carta = carta.generate("/tmp/carta-#{md5}.odt")
- system "unoconv -f pdf #{arquivo_carta}"
+ system "unoconv -f pdf /tmp/carta-#{md5}.odt"
  f = File.open("/tmp/carta-#{md5}.pdf",'r')
  send_file(f,:filename=>"Carta de Apresentaçao - #{@pessoa.nome} - #{@funcionario.matricula}.pdf",:content_type=>"application/pdf")
 end

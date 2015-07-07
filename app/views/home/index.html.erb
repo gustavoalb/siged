@@ -1,20 +1,21 @@
 <article class="module width_3_quarter">
 	<header><h3>SIGED 2.5</h3></header>
 	<div class="module_content">
-
-		<%if current_user.role?("lotacao") %>
-		<%= render :partial=>"geral"%>
-		<% elsif current_user.role?("ucada")%>
-		<%= render :partial=>"ucada"%> 
-		<% else %>
-		<%= render :partial=>"disciplinas" %>
-		<% end %>
+		<center>
+			<%if current_user.role?("lotacao") %>
+			<%= render :partial=>"geral"%>
+			<% elsif current_user.role?("ucada")%>
+			<%= render :partial=>"ucada"%> 
+			<% else %>
+			<%= render :partial=>"disciplinas" %>
+			<% end %>
+		</center>
 	</div>
 	<footer>
 	</footer>
 </article>
 <article class='module width_quarter'>
-<p class='overview_day'>Quadro de Avisos</p>
+	<p class='overview_day'>Quadro de Avisos</p>
 	<marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
 		<% @noticias.all.each do |n| %>
 		<p style='background: #CCCCCC;'><%=n.texto%></p><br/>
