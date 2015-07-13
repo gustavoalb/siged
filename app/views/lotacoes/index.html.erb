@@ -51,7 +51,9 @@
 
             <tr>
               <td><b><label>Destino</label></b></td>
-              <td><div id="org"><%= text_field_with_auto_complete :escola, :nome_da_escola,:indicator=>'indicator1',:after_update_element=>"#destino_id",:style=>"width:92%;",:required=>true  %></div></td>
+              <td><div id="org">
+              <%= text_field_with_auto_complete :escola, :nome_da_escola,:after_update_element=>"#destino_id",:style=>"width:92%;",:required=>true  %>
+              </div></td>
               <td><div id='esc'></div></td>
             </tr>
             <%= f.hidden_field :destino_id %>
@@ -148,7 +150,6 @@
   <table class="tablesorter" cellspacing="0">
     <thead>
       <tr>
-        <th>Tipo</th>
         <th>Destino</th>
         <th>Data da lotação</th>
         <th>Regência</th>
@@ -162,7 +163,6 @@
 
       <%@lotacao_aberta.each do |lotacao_aberta|%>
       <tr>
-        <td><%= lotacao_aberta.tipo_lotacao.titleize %></td>
         <td width=23%><%= destino(lotacao_aberta) %></td>
         <td><%= lotacao_aberta.data_lotacao.to_s_br %></td>
         <td><%= sim_nao(lotacao_aberta.regencia_de_classe) %></td>
@@ -181,7 +181,6 @@
   <table class="tablesorter" cellspacing="0">
     <thead>
       <tr>
-        <th>Tipo</th>
         <th>Destino</th>
         <th>Data</th>
         <th>Regência</th>
@@ -195,7 +194,6 @@
 
       <%@lotacoes.each do |l|%>
       <tr>
-        <td width=3%><%= l.tipo_lotacao.titleize %></td>
         <td width=23%><%= destino(l) %></td>
         <td><%= l.data_lotacao.to_s_br %></td>
         <td><%= sim_nao(l.regencia_de_classe) %></td>

@@ -339,7 +339,7 @@ def create
   respond_to do |format|
     if @lotacao.save
       format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.
-        Destino: #{dest(@lotacao)}") }
+        Destino: ") }
       format.xml  { render :xml => @lotacao, :status => :created, :location => @lotacao }
     else
       html="<ul>"
@@ -543,35 +543,6 @@ def funcionario
   @escolas = Escola.all.collect{|p| [p.nome_da_escola,p.id]}
 end
 
-def dest(lotacao)
-  if lotacao
-    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
-      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-      return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-      return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and lotacao.ambiente.nil?
-      return "#{lotacao.escola.nome_da_escola}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome!="Sala de Aula"
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.ambiente.nome}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE" and !lotacao.ambiente.nil? and lotacao.ambiente.nome=="Sala de Aula"
-      return "#{lotacao.escola.nome_da_escola}"
-    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
-      return "LOTAÇÃO INVÁLIDA"
-    end
-  end
-end
 
 end
 

@@ -12,7 +12,7 @@ class Lotacao < ActiveRecord::Base
   belongs_to :disciplina_atuacao,:class_name=>"DisciplinaContratacao"
   belongs_to :usuario,:class_name=>"User"
   belongs_to :ambiente
-  belongs_to :destino,:polymorphic=>true
+  belongs_to :destino ,:polymorphic=>true
   has_many :processos,:dependent=>:destroy
   has_many :pontos
   has_many :todos_processos,:class_name=>"Processo"
@@ -193,7 +193,7 @@ def lotacao_regular
    self.save!
  end
  processo.funcionario_id = self.funcionario_id
- processo.destino = self.destino
+ processo.destino_id = self.destino_id
  processo.ano_processo=Date.today.year
  processo.regencia_classe=self.regencia_de_classe
  processo.encaminhado_em=Date.today

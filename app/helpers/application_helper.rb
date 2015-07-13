@@ -265,20 +265,7 @@ def cargo_disciplina(func)
   end
 end
 
-def destino(lotacao)
-  if lotacao and lotacao.destino
-   case lotacao
-   when lotacao.destino_type=="Escola"
-    return destino.nome
-  when lotacao.destino_type=="Departamento"
-    return "#{destino.sigla}/destino.orgao.sigla"
-  when lotacao.destino_type=="Orgao"
-    return destino.sigla
-  end
-  else
-    return "LOTAÇÃO INVÁLIDA"
-  end
-end
+
 
 def cargo_resumido(func)
   if func.cargo and func.cargo.tipo and func.cargo.tipo.nome=='Magistério/Docência' and func.disciplina_contratacao and func.nivel
