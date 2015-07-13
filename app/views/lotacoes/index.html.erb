@@ -36,18 +36,17 @@
 
           <%= f.hidden_field :usuario_id,:value=>current_user.id %>
           <%= f.hidden_field :funcionario_id,:value=>@funcionario.id %>
-          <%= f.hidden_field :tipo_lotacao, :value=>"REGULAR"%>
 
           <table border=0>
 
-          <!--<tr>
-              <td><b><label>Tipo de Lotação</label></b></td>
-              <%if current_user.role?("lotacao")==true%>
-              <td><%= f.radio_button :tipo_lotacao,"REGULAR" ,:checked => true %>Regular&nbsp;&nbsp;&nbsp;<%= f.radio_button :tipo_lotacao,"PROLABORE" %>Pro Labore&nbsp;&nbsp;&nbsp;<%= f.radio_button :tipo_lotacao,"ESPECIAL" %>Especial &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA"%>Sumária &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA ESPECIAL" %>Sumária - Especial</td>
+           <tr>
+            <td><b><label>Tipo de Lotação</label></b></td>
+            <%if current_user.role?("lotacao")==true%>
+            <td><%= f.radio_button :tipo_lotacao,"REGULAR" ,:checked => true %>Escola&nbsp;&nbsp;&nbsp;<%= f.radio_button :tipo_lotacao,"ESPECIAL" %>Setorial &nbsp;&nbsp;&nbsp;
               <%else%>
-               <td><%= f.radio_button :tipo_lotacao,"SUMARIA",:checked => true %>Sumária &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA ESPECIAL" %>Sumária - Especial</td>
+              <td><%= f.radio_button :tipo_lotacao,"SUMARIA",:checked => true %>Escola &nbsp;&nbsp;&nbsp; <%= f.radio_button :tipo_lotacao,"SUMARIA ESPECIAL" %>Setorial</td>
               <%end%>
-            </tr>-->
+            </tr>
 
 
             <tr>
@@ -247,15 +246,13 @@
     </tr>
   </tfooter>
 </table>
-</div>
-</div>
 
-
-</div>
 
 
 </div>
-</div>
+
+
+
 
 </div>
 

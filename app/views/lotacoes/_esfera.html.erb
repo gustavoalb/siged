@@ -1,8 +1,1 @@
-<b>Esfera</b>: <%= select :lotacao, :esfera_id, @esferas,:prompt=>true,:style=>"width:92%;" %>
-
-<%=observe_field :lotacao_esfera_id, :url => "/lotacoes/destino/",
-      :frequency => 0.25,
-      :update => :dest,
-      :with => 'esfera'%>
-<div id="dest"></div>
-<br/>
+<%= text_field_with_auto_complete :departamento, :nome,:indicator=>'indicator1',:after_update_element=>"javascript.alert('teste')",:style=>"width:92%;",:required=>true  %>

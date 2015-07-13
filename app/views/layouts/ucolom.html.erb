@@ -53,13 +53,10 @@
 		<p><%=current_user.name%></p>
 		<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
 	</div>
-	<div class="breadcrumbs_container">
-
-		<article class="breadcrumbs"><a href="/">Início</a><div class="breadcrumb_divider"></div><%=yield :links%></article>
-	</div>
+	
 </section><!-- end of secondary bar -->
 
-<aside id="sidebar" class="column" style="height: 100%;">
+<!--<aside id="sidebar" class="column" style="height: 100%;">
 	<%=image_tag("logoSiged.png",:alt => "Sistema de Gerenciamento Educacional", :class => "logo_siged")%>
 	<hr/>
 	<% if current_user.role?("lotacao")==false%>
@@ -67,7 +64,7 @@
 
 	<ul class="toggle">
 		<li class="icn_new_article"><a href="/pessoas">Pessoas</a></li>
-		<!--<%if can? :manage,Enquete%><li class="icn_categoria"><a href="/enquetes">Enquete</a></li><%end%>-->
+		<%if can? :manage,Enquete%><li class="icn_categoria"><a href="/enquetes">Enquete</a></li><%end%>
 		<%if can? :read,Escola%><li class="icn_escola"><a href="/escolas">Escolas</a></li><%end%>
 
 	</ul><%if current_user.role?("admin")==true%>
@@ -83,7 +80,7 @@
 		<li class="icn_papeis"><a href="/roles">Papéis</a></li>
 		<li class="icn_listas"><a href="/tipo_listas">Listas</a></li>
 		<li class="icn_profile"><a href="/usuarios">Usuários</a></li>
-		<!--<li class="icn_manu"><%= link_to "Sistema em Manutenção","/manutencoes/em_manutencao/0",:rel=>"facebox",:rev=>"height:300px;width:500px"%></li>-->
+		
 	</ul>
 
 
@@ -94,22 +91,10 @@
 	<ul class="toggle">
 		<li class="icn_new_article"><a href="/pessoas">Lotação e Movimentação</a></li>
 		<li class="icn_matrizes"><a href="/ano_letivos">Controle de Carências</a></li>
-		<!--<li class="icn_edit_article"><a href="#">Controle de Especificação</a></li>-->
 		<%end%>
 
 
-		<!--<%if can? :read,Folha::Folha%>
-		<h3>Financeiro</h3>
-		<ul class="toggle">
-			<li class="icn_folha"><a href="/folha/folhas">Folhas</a></li>
-			<li class="icn_niveis"><a href="/referencia_niveis">Níveis</a></li>
-			<li class="icn_fonte"><%=link_to "Fonte de Recursos",folha_fonte_recursos_path%>
-				<%end%>
-
-
-			</ul>-->
-
-			<%if can? :manage, Ponto%>
+					<%if can? :manage, Ponto%>
 			<h3>Administração</h3>
 
 			<ul class="toggle">
@@ -121,10 +106,6 @@
 			<h3>Usuário</h3>
 
 			<ul class="toggle">
-				<!--<%if current_user.role?(:admin)%>
-				<li class="icn_msg"><%=link_to "Caixa de Entrada", mensagens_inbox_path, :rel=>"facebox",:rev=>"height:300px;width:500px" %></li>
-				<li class="icn_msg"><%=link_to "Escrever Nova Mensagem", new_mensagem_path, :rel=>"facebox",:rev=>"height:300px;width:500px;" %></li>
-				<%end%>-->
 				<li class="icn_edit_article"><%=link_to "Perfil", edit_user_registration_path %></li>
 				<li class="icn_new_article"><%=link_to "Sair", destroy_user_session_path %></li>
 
@@ -135,9 +116,10 @@
 					<strong>Copyright &copy; 2011 AmapáOnRails</strong>
 				</p>
 			</div>
-		</aside><!-- end of sidebar -->
+		</aside> -->
+		<!-- end of sidebar -->
 		<%end%>
-		<section id="main" class="column">
+		<section id="ucolom" class="column">
 			<%=mensagens%>
 			<%=yield%>
 			<div class="clear"></div>

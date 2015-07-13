@@ -4,7 +4,7 @@ require "barby/outputter/png_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
-  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:tipo_lotacao,:data_lotacao],:if => :check_ativo,:message=>"Lotação já efetuada neste destino"
+  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente."
   validates_presence_of :usuario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :orgao
@@ -43,8 +43,6 @@ class Lotacao < ActiveRecord::Base
       lotacao.errors.add_to_base("Lotações tendo um departamento como destino necessitam de um motivo.")
     end
   end
-
-
 
   def check_ativo
    if self.ativo
@@ -167,8 +165,6 @@ state_machine :initial => :a_confirmar do
     transition :a_confirmar => :a_disposicao
   end
 end
-
-
 private
 def lotacao_regular
   self.entidade_id = self.funcionario.entidade_id

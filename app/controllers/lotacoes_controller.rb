@@ -246,7 +246,11 @@ def salvar_devolucao
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
   @lotacao.devolve_funcionario(motivo)
-  redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
+  if @lotacao.tipo_lotacao=="REGULAR" or @lotacao.tipo_lotacao=="SUMARIA"
+    redirect_to escola_path(@lotacao.escola),:anchor=>"#tab-dois", :notice => 'Funcionário Devolvido ao NUPES'
+  elsif @lotacao.tipo_lotacao=="ESPECIAL" or @lotacao.tipo_lotacao=="SUMARIA ESPECIAL"
+    redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
+  end
 end
 
 def salvar_convalidacao
@@ -464,26 +468,23 @@ def salvar_especificacoes
   @disciplina = Disciplina.find(params[:especificacao][:disciplina_id])
   falhas = []
   sucessos = []
+  soma_fator = 0
   @turmas.each do |turma|
     curriculo = turma.matriz.curriculos.da_serie(turma.serie.id).da_disciplina(@disciplina.id).last
     fator = @disciplina.pode_especificar?(turma)
     fator_n = @disciplina.fator(turma)
     if fator==true and fator_n>0
-      if (@funcionario.rsd - fator_n) >=0
-        if @funcionario.especificar_lotacao(@escola,turma,@disciplina,curriculo,@lotacao,@tipo,@ambiente)
-          sucessos << turma.nome
-        end
-      else
-        falhas << turma.nome
-      end
+      soma_fator+=fator_n
     end
   end
-  if sucessos.size>0 and falhas.size==0
-    notice = (flash[:notice] = "O Funcionário foi especificado com sucesso nas seguintes turmas: #{sucessos.to_sentence}")
-  elsif sucessos.size>0 and falhas.size>0
-    notice = (flash[:notice] = "O Funcionário foi especificado nas turmas #{sucessos.collect{|t|t.nome}.to_sentence} e não foi lotado nas turmas #{falhas.to_sentence}")
+  if soma_fator<=@funcionario.rsd
+    @turmas.each do |turma|
+      curriculo = turma.matriz.curriculos.da_serie(turma.serie.id).da_disciplina(@disciplina.id).last
+      @funcionario.especificar_lotacao(@escola,turma,@disciplina,curriculo,@lotacao,@tipo,@ambiente)
+    end
+    notice = (flash[:notice] = "O Funcionário foi especificado com sucesso nas seguintes turmas: #{@turmas.collect{|t|t.nome}.to_sentence}")
   else
-    notice = (flash[:alert] = "O Funcionário não foi especificado em nenhuma das turmas")
+    notice = (flash[:alert] = "O Funcionário não foi especificado, pois a RSD do Funcionário (#{@funcionario.rsd}) é menor que a carência total das turmas selecionadas (#{soma_fator}).")
     sucesso = false
   end
   render :update do |page|

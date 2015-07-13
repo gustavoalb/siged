@@ -15,7 +15,7 @@ class Ponto < ActiveRecord::Base
   belongs_to :comissionado
   has_many :ponto_diarios
   after_create :img_codigo,:salvar_pdf
-  before_destroy :apagar_pdf
+  #before_destroy :apagar_pdf
   attr_accessor_with_default(:departamento_id) {self.departamento}
 
 

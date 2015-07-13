@@ -19,25 +19,29 @@
       <%= link_to_add_association 'Nova carencia', f, :carencias,:"data-association-insertion-node"=>"#formulario",:"data-association-insertion-method"=>:append,:force_non_association_create => true%>
       <div id="formulario">
         <%=f.fields_for :carencias,@carencias,:wrapper => false do |c|%>
-        <fieldset style="width:22%; float:left; margin-right: 1%;">
-        <%= c.label :escola %><br />
-        <%= c.autocomplete_field :escola, autocomplete_escola_nome_da_escola_anos_letivos_path,:style=>"width:88%;"%>
+        <fieldset style="width:24%; float:left; margin-right: 1%;">
+          <%= c.label :escola %><br />
+          <%= c.autocomplete_field :escola, autocomplete_escola_nome_da_escola_anos_letivos_path,:style=>"width:88%;"%>
 
         </fieldset>
 
         <fieldset style="width:22%; float:left; margin-right: 1%;">
-        <%= c.label :disciplina %><br />
-        <%= c.autocomplete_field :disciplina, autocomplete_disciplina_nome_anos_letivos_path,:style=>"width:88%;",'data-id-element' => '#order_customer_id'%>
+          <%= c.label :disciplina %><br />
+          <%= c.autocomplete_field :disciplina, autocomplete_disciplina_nome_anos_letivos_path,:style=>"width:88%;",'data-id-element' => '#order_customer_id'%>
 
         </fieldset>
-        <fieldset style="width:22%; float:left; margin-right: 1%;">
-        <%= c.label :data %><br />
-        <%= c.text_field :data,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;",:class=>"date",:value=>"#{c.object.data.strftime("%d/%m/%Y") unless c.object.new_record?}"%>
+        <fieldset style="width:16%; float:left; margin-right: 1%;">
+          <%= c.label :status %><br />
+          <%= c.select :status,[["CARÊNCIA ATUALIZADA 2015"],["CARÊNCIA PREENCHIDA"],["CARÊNCIA NÃO INFORMADA"]],:style=>"width:89%;" %>
 
         </fieldset>
-        <fieldset style="width:22%; float:left; margin-right: 1%;">
-        <%= c.label :status %><br />
-        <%= c.select :status,[["CARÊNCIA ATUALIZADA 2015"],["CARÊNCIA PREENCHIDA"],["CARÊNCIA NÃO INFORMADA"]],:style=>"width:89%;" %>
+        <fieldset style="width:5%; float:left; margin-right: 1%;">
+          <%= c.label :carga_horaria %><br />
+          <%= c.select :carga_horaria,[["20H",20],["40H",40]],:style=>"width:89%;" %>
+        </fieldset>
+        <fieldset style="width:5%; float:left; margin-right: 1%;">
+          <%= c.label :data %><br />
+          <%= c.text_field :data,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;",:class=>"date",:value=>"#{c.object.data.strftime("%d/%m/%Y") unless c.object.new_record?}"%>
 
         </fieldset>
         <%end%>
@@ -47,7 +51,7 @@
     </div>
     <footer>
       <div class="submit_link">
-       <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+       <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',anos_letivos_path%>
      </div>
    </footer>
    <% end %>

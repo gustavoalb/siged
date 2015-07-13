@@ -184,6 +184,9 @@ elsif user.role? :lotacao
  cannot :create,Funcionario
  cannot :destroy,Funcionario
  cannot :edit,Funcionario
+ can :manage, AnoLetivo
+ cannot :create, AnoLetivo
+ can :gerir_carencias, Carencia
 
 elsif user.role? :chefia_ucolom
  can :manage, Lotacao

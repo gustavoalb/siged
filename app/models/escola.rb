@@ -30,6 +30,10 @@ class Escola < ActiveRecord::Base
 
 
  after_create :criar_ambientes
+
+ def self.find_or_create(attributes)
+  Escola.where(attributes).first || Escola.create(attributes)
+end
   #scoped_search
   
   scope :busca, lambda { |q| where("codigo ilike ? or nome_da_escola ilike ?" ,"%#{q}%","%#{q}%") }
@@ -87,37 +91,46 @@ class Escola < ActiveRecord::Base
     return self.calcular_demanda(disc) - preenchido
   end
 
-
-  def disciplinas
-    matrizes = self.matrizes
-    disciplinas = []
-    matrizes.each do |m|
-      m.disciplinas.order(:nome).each do |d|
-        disciplinas << d
-      end
+  def calcular_excedente(disc)
+    excedente = self.calcular_oferta(disc) - self.calcular_a_preencher(disc)
+    if excedente <=0
+      return 0
+    else
+      return excedente
     end
-    disciplinas = disciplinas.uniq
-    return disciplinas
   end
 
-  def matrizes
-    matrizes = []
-    self.niveis.each do |n|
-      n.matrizes.each do |m|
-        matrizes << m
+
+    def disciplinas
+      matrizes = self.matrizes
+      disciplinas = []
+      matrizes.each do |m|
+        m.disciplinas.order(:nome).each do |d|
+          disciplinas << d
+        end
       end
+      disciplinas = disciplinas.uniq
+      return disciplinas
     end
-    matrizes
-  end
+
+    def matrizes
+      matrizes = []
+      self.niveis.each do |n|
+        n.matrizes.each do |m|
+          matrizes << m
+        end
+      end
+      matrizes
+    end
 
 
- 
-  def criar_ambientes
-    self.ambientes.create(:nome=>"Secretaria Escolar",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
-    self.ambientes.create(:nome=>"Biblioteca",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
-    self.ambientes.create(:nome=>"Serviço Técnico-Pedagógico",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
-    self.ambientes.create(:nome=>"Sala de Aula",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala de Aula"))
-    self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+
+    def criar_ambientes
+      self.ambientes.create(:nome=>"Secretaria Escolar",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+      self.ambientes.create(:nome=>"Biblioteca",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+      self.ambientes.create(:nome=>"Serviço Técnico-Pedagógico",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+      self.ambientes.create(:nome=>"Sala de Aula",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala de Aula"))
+      self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+    end
   end
-end
 

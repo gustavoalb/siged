@@ -202,12 +202,11 @@ def carta
 
 
  end
- arquivo_carta = carta.generate
- arquivo = Pathname.new(arquivo_carta)
- dir = arquivo.dirname
- system "unoconv #{arquivo_carta}"
- f = dir.join("carta.pdf")
- send_file(f)
+ md5 = Digest::MD5.new.to_s
+ arquivo_carta = carta.generate("/tmp/carta-#{md5}.odt")
+ system "unoconv -f pdf #{arquivo_carta}"
+ f = File.open("/tmp/carta-#{md5}.pdf",'r')
+ send_file(f,:filename=>"Carta de Apresentaçao - #{@pessoa.nome} - #{@funcionario.matricula}.pdf",:content_type=>"application/pdf")
 end
 
 def boletins

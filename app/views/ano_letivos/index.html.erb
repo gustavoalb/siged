@@ -1,15 +1,15 @@
 <article class="module width_3_quarter">
   <header><h3 class="tabs_involved">Listando Anos Letivos</h3>
   </header>
-  <div class="tab_container">
-    <div id="tab1" class="tab_content">
+  
+    
       <table class="tablesorter" cellspacing="0">
         <thead>
           <tr>
             <th>Início</th>
             <th>Término</th>
-            <th>Status</th>
-            <th>Status</th>
+            <th>Ano</th>
+            <th colspan=3>Açoes</th>
           </tr>
         </thead>
         <tbody>
@@ -17,8 +17,8 @@
           <tr>
             <td width=10%><%= ano_letivo.inicio.to_s_br %></td>
             <td width=10%><%= ano_letivo.termino.to_s_br %></td>
+            <td width=10%><%= ano_letivo.ano %></td>
             <td width=10%><%= link_to "Carencias",anos_letivo_gerir_carencias_path(ano_letivo) %></td>
-            <td width=10%><%= link_to "Carencias",anos_letivo_path(ano_letivo) %></td>
             <td></td>
           </tr>
           <% end %>

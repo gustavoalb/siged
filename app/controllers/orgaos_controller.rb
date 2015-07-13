@@ -25,7 +25,6 @@ class OrgaosController < ApplicationController
           :layout => "pdf", # OPTIONAL
            :wkhtmltopdf=>"/usr/bin/wkhtmltopdf",
             :zoom => 0.8 ,
-             :margin=>{1,1,1,1},
                :orientation => 'Landscape'
   end
   end

@@ -1,10 +1,11 @@
 # -*- encoding : utf-8 -*-
 class AnoLetivosController < ApplicationController
+	load_and_authorize_resource
 	# GET /ano_letivos
 	# GET /ano_letivos.xml
 	#before_filter :verificar_ano,:except=>[:new,:create,:update,:edit,:destroy]
-  autocomplete :escola, :nome_da_escola, :full => true
-  autocomplete :disciplina, :nome, :full => true 
+	autocomplete :escola, :nome_da_escola, :full => true
+	autocomplete :disciplina, :nome, :full => true 
 	def index
 		@ano_letivos = AnoLetivo.order.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
 		
@@ -47,8 +48,13 @@ end
 
 
 	def gerir_carencias
-		@ano_letivo = AnoLetivo.find(params[:anos_letivo_id])
-		@carencias = @ano_letivo.carencias
+		if can?(:gerir_carencias,Carencia)
+			@ano_letivo = AnoLetivo.find(params[:anos_letivo_id])
+			@carencias = @ano_letivo.carencias
+			render :layout=>"ucolom"
+		else
+			redirect_to :anos_letivos,:alert=>"Você não tem acesso a esta área"
+		end
 	end
 
 	def salvar_carencias
