@@ -10,13 +10,13 @@ module ApplicationHelper
     end
   end
 
- def municipio_lotacao(lot)
-  if lot.escola and lot.escola.municipio
-    return lot.escola.municipio.nome
-  else
-    return "Nada Cadastrado"
+  def municipio_lotacao(lot)
+    if lot.escola and lot.escola.municipio
+      return lot.escola.municipio.nome
+    else
+      return "Nada Cadastrado"
+    end
   end
- end
 
   def pdf_image_tag(image, options = {})
    caminho="../../../"+image
@@ -105,7 +105,7 @@ end
 
 def mensagens
   message = ""
- if notice
+  if notice
    message+="<h4 class='alert_success'>#{notice}</h4>"
  elsif alert
   message+="<h4 class='alert_error'>#{alert}</h4>"
@@ -266,29 +266,18 @@ def cargo_disciplina(func)
 end
 
 def destino(lotacao)
- if lotacao
-    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
-        return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
-        return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
-        return "#{lotacao.escola.nome_da_escola}"
-    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
-        return "LOTAÇÃO INVÁLIDA"
-    end
-end
+  if lotacao and lotacao.destino
+   case lotacao
+   when lotacao.destino_type=="Escola"
+    return destino.nome
+  when lotacao.destino_type=="Departamento"
+    return "#{destino.sigla}/destino.orgao.sigla"
+  when lotacao.destino_type=="Orgao"
+    return destino.sigla
+  end
+  else
+    return "LOTAÇÃO INVÁLIDA"
+  end
 end
 
 def cargo_resumido(func)

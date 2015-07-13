@@ -52,9 +52,10 @@
 
             <tr>
               <td><b><label>Destino</label></b></td>
-              <td><div id="org"><%= text_field_with_auto_complete :escola, :nome_da_escola,:indicator=>'indicator1',:after_update_element=>"javascript.alert('teste')",:style=>"width:92%;",:required=>true  %></div></td>
+              <td><div id="org"><%= text_field_with_auto_complete :escola, :nome_da_escola,:indicator=>'indicator1',:after_update_element=>"#destino_id",:style=>"width:92%;",:required=>true  %></div></td>
               <td><div id='esc'></div></td>
             </tr>
+            <%= f.hidden_field :destino_id %>
 
             <tr>
               <td><b><label>Localização anterior </label> </b></td>
