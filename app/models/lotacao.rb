@@ -167,10 +167,7 @@ state_machine :initial => :a_confirmar do
 end
 private
 def lotacao_regular
-<<<<<<< HEAD
   #self.img_codigo
-=======
->>>>>>> 2b6f103ad0882fb216cb002ac8ed8ae30abf1ce0
   self.entidade_id = self.funcionario.entidade_id
   #self.data_lotacao = Date.today
   #self.save!
