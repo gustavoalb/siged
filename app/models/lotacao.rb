@@ -7,21 +7,18 @@ class Lotacao < ActiveRecord::Base
   validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente."
   validates_presence_of :usuario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
-  belongs_to :escola
   belongs_to :orgao
   belongs_to :entidade
   belongs_to :disciplina_atuacao,:class_name=>"DisciplinaContratacao"
   belongs_to :usuario,:class_name=>"User"
-
+  belongs_to :ambiente
+  belongs_to :destino ,:polymorphic=>true
   has_many :processos,:dependent=>:destroy
   has_many :pontos
-
-  #has_one :ponto_atual,:through=>:funcionario,:source=>'pontos_do_mes'
   has_many :todos_processos,:class_name=>"Processo"
   has_many :status,:class_name=>"Status",:through=>:processos,:source=>"status"
-  belongs_to :departamento
   has_many :especificacoes,:class_name=>"EspecificarLotacao",:dependent => :destroy
-  belongs_to :ambiente
+  
   scope :em_aberto, where("finalizada = ?",false)
   scope :finalizada, where("finalizada = ?",true)
   scope :atual,where("finalizada = ? and ativo = ? and complementar = ?",true,true,false)
@@ -119,47 +116,8 @@ def devolve_funcionario(motivo=self.motivo)
  else
   "Não foi possível gerar o processo"
 end
-
-
 end
 
-
-
-def codigo_b
-  codigo=self.funcionario_id.to_s+""+self.escola_id.to_s+'0'+''+self.funcionario.pessoa.cpf.to_s.gsub('.','').to_s.gsub("-","")
-  if self.codigo_barra.nil?
-    if codigo.size.even?
-     self.codigo_barra = codigo
-   else
-    self.codigo_barra ='0'+''+codigo
-  end
-  self.save
-end
-return codigo
-end
-
-def codigo_a(cod)
-  codigo = cod
-  if cod==self.codigo_barra
-    return true
-  else
-    return false
-
-  end
-end
-
-
-def img_codigo
-  codigo=self.codigo_b
-  if codigo.size.even?
-   codigo2 = codigo
- else
-   codigo2='0'+''+codigo
- end
- barcode=Barby::Code25Interleaved.new(codigo2)
- File.open("public/images/carta/codigos/#{codigo2}.png","w"){|f|
-  f.write barcode.to_png}
-end
 
 def data
   self.data_lotacao = Date.today
@@ -168,37 +126,51 @@ def data
   end
 end
 
-def destino
-  lotacao = self
-  if lotacao
-    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-      return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
-      return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
-      return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-      return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
-      return "#{lotacao.orgao.sigla}"
-    elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
-      return "#{lotacao.escola.nome_da_escola}"
-    elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
-      return "LOTAÇÃO INVÁLIDA"
-    end
+# def destino
+#   lotacao = self
+#  if lotacao
+#     if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+#         return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
+#         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+#         return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
+#         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
+#         return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
+#         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+#         return "#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
+#         return "#{lotacao.orgao.sigla}"
+#     elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
+#         return "#{lotacao.escola.nome_da_escola}"
+#     elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
+#         return "LOTAÇÃO INVÁLIDA"
+#     end
+# end
+# end
+
+state_machine :initial => :a_confirmar do
+
+  event :confirmar do
+    transition :a_confirmar => :lotado
+  end
+  event :devolver do
+    transition :lotado => :a_disposicao
+  end
+  event :cancelar do
+    transition :a_confirmar => :a_disposicao
   end
 end
-
-
 private
 def lotacao_regular
+<<<<<<< HEAD
   #self.img_codigo
+=======
+>>>>>>> 2b6f103ad0882fb216cb002ac8ed8ae30abf1ce0
   self.entidade_id = self.funcionario.entidade_id
   #self.data_lotacao = Date.today
   #self.save!
@@ -224,8 +196,8 @@ def lotacao_regular
    self.update_attributes(:finalizada=>true)
    self.save!
  end
- processo.funcionario_id=self.funcionario_id
- processo.destino_id=self.escola_id
+ processo.funcionario_id = self.funcionario_id
+ processo.destino_id = self.destino_id
  processo.ano_processo=Date.today.year
  processo.regencia_classe=self.regencia_de_classe
  processo.encaminhado_em=Date.today
@@ -237,7 +209,7 @@ def lotacao_regular
   if self.tipo_lotacao=="PROLABORE"
     processo.processo="PL#{cod.numero(num)}/#{Date.today.year}"
   elsif self.tipo_lotacao=="REGULAR"
-    self.orgao_id = self.escola.orgao_id
+    self.orgao = self.destino.orgao
     processo.processo="LR#{cod.numero(num)}/#{Date.today.year}"
   elsif self.tipo_lotacao=="ESPECIAL"
     processo.processo="LE#{cod.numero(num)}/#{Date.today.year}"
