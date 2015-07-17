@@ -10,8 +10,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20150713041357) do
+
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
     t.integer  "user_id"

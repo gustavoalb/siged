@@ -11,5 +11,9 @@ class DisciplinaContratacao < ActiveRecord::Base
 	has_many :funcionarios
 	has_many :lotacoes,:foreign_key=>"disciplina_atuacao_id"
 	has_and_belongs_to_many :disciplinas,:class_name=>"Disciplina",:join_table => "disciplinas_habilitacoes"
+
+	def self.find_or_create_by(attributes, &block)
+		find_by_codigo(attributes) || create(attributes, &block)
+	end
 end
 

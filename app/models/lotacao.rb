@@ -5,7 +5,7 @@ class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
   validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente."
-  validates_presence_of :usuario_id
+  validates_presence_of :usuario_id,:funcionario_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :orgao
   belongs_to :entidade
@@ -153,18 +153,18 @@ end
 # end
 # end
 
-state_machine :initial => :a_confirmar do
+# state_machine :initial => :a_confirmar do
 
-  event :confirmar do
-    transition :a_confirmar => :lotado
-  end
-  event :devolver do
-    transition :lotado => :a_disposicao
-  end
-  event :cancelar do
-    transition :a_confirmar => :a_disposicao
-  end
-end
+#   event :confirmar do
+#     transition :a_confirmar => :lotado
+#   end
+#   event :devolver do
+#     transition :lotado => :a_disposicao
+#   end
+#   event :cancelar do
+#     transition :a_confirmar => :a_disposicao
+#   end
+# end
 private
 def lotacao_regular
   #self.img_codigo

@@ -47,6 +47,7 @@ module Siged20
       g.stylesheets false
     end
   end
+  #require "#{Rails.root}/lib/find_or_create_by.rb"
   class String
     def rtrim(char)
       dump.rtrim!(char)
