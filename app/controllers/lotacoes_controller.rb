@@ -140,7 +140,7 @@ end
 def especificar_lotacao
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.find(params[:lotacao_id])
-  @escola_lotacao = @lotacao.escola
+  @escola_lotacao = @lotacao.destino
   @especificacao= EspecificarLotacao.new
   render :layout=>"facebox"
 
@@ -165,11 +165,12 @@ end
 def disciplinas_especificacao
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.find(params[:lotacao_id])
-  @escola_lotacao = @lotacao.escola
+  @escola_lotacao = @lotacao.destino
   if !params[:turma].blank?
     @turma = Turma.find params[:turma]
     @serie = @turma.serie
-    @disciplinas = @serie.disciplinas.where("disciplinas.id in (?)",@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
+    #@disciplinas = @serie.disciplinas.where("disciplinas.id in (?)",@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
+    @disciplinas = @serie.disciplinas.find(:all,:order=>'nome asc').uniq
     render :partial=>"disciplinas"
   else
     render :nothing=>true
@@ -179,7 +180,7 @@ end
 def tipo_especificacao
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = @funcionario.lotacoes.find(params[:lotacao_id])
-  @escola = @lotacao.escola
+  @escola = @lotacao.destino
   @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
   @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,nome')
   @tipo = params[:tipo]
@@ -207,7 +208,7 @@ def salvar_especificacao
   @pessoa = @funcionario.pessoa
   @lotacao = Lotacao.find(params[:lotacao_id])
   @tipo=params[:especificar_lotacao][:tipo]
-  @escola = @lotacao.escola
+  @escola = @lotacao.destino
   if @tipo!="Sala Ambiente"
     @turma = Turma.find(params[:especificar_lotacao][:turma_id])
     @serie = @turma.serie
@@ -219,9 +220,9 @@ def salvar_especificacao
   end
   respond_to do |format|
     if @funcionario.especificar_lotacao(@escola,@turma,@disciplina,@curriculo,@lotacao,@tipo,@ambiente)
-      format.html { redirect_to("#{escola_path(@lotacao.escola)}#tab-dois",:notice => "O Funcionário foi especificado com sucesso.") }
+      format.html { redirect_to("#{escola_path(@lotacao.destino)}#tab-dois",:notice => "O Funcionário foi especificado com sucesso.") }
     else
-      format.html { redirect_to("#{escola_path(@lotacao.escola)}#tab-dois", :alert => "A lotação não pode ser especificada.") }
+      format.html { redirect_to("#{escola_path(@lotacao.destino)}#tab-dois", :alert => "A lotação não pode ser especificada.") }
     end
   end
 
@@ -247,7 +248,7 @@ def salvar_devolucao
   @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
   @lotacao.devolve_funcionario(motivo)
   if @lotacao.tipo_lotacao=="REGULAR" or @lotacao.tipo_lotacao=="SUMARIA"
-    redirect_to escola_path(@lotacao.escola),:anchor=>"tab-dois", :notice => 'Funcionário Devolvido ao NUPES'
+    redirect_to escola_path(@lotacao.destino),:anchor=>"tab-dois", :notice => 'Funcionário Devolvido ao NUPES'
   elsif @lotacao.tipo_lotacao=="ESPECIAL" or @lotacao.tipo_lotacao=="SUMARIA ESPECIAL"
     redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
   end
@@ -325,7 +326,7 @@ def create
   if params[:lotacao][:tipo_destino_id].blank? and params[:lotacao][:orgao_id].blank?
     if !params[:escola].blank?
       @escola = Escola.find(:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
-      @lotacao.escola_id = @escola.id
+      @lotacao.destino_id = @escola.id
     end
   elsif !params[:lotacao][:tipo_destino_id].blank? and params[:escola].blank?
     if !params[:departamento].blank?
@@ -334,7 +335,7 @@ def create
     end
   elsif !params[:lotacao][:tipo_destino_id].blank? and !params[:escola].blank?
     @escola = Escola.find(:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
-    @lotacao.escola_id = @escola.id
+    @lotacao.destino_id = @escola.id
   end
   respond_to do |format|
     if @lotacao.save
@@ -409,7 +410,7 @@ end
 def fator_lotacao_fisico
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.find(params[:lotacao_id])
-  @escola = @lotacao.escola
+  @escola = @lotacao.destino
   if !params[:ambiente].blank?
     @ambiente = Ambiente.find(params[:ambiente])
     if @ambiente.fator_ambiente(@funcionario)[0]==true
@@ -431,8 +432,9 @@ def especificacao_massiva
   @lotacao = Lotacao.find(params[:lotacao_id])
   @funcionario = @lotacao.funcionario
   @pessoa = @funcionario.pessoa
-  @escola = @lotacao.escola
-  @disciplinas = Disciplina.find(:all,:conditions=>["id in (?)",@funcionario.ids_disciplinas]).collect{|d|[d.nome,d.id]}
+  @escola = @lotacao.destino
+  #@disciplinas = Disciplina.find(:all,:conditions=>["id in (?)",@funcionario.ids_disciplinas]).collect{|d|[d.nome,d.id]}
+  @disciplinas = @escola.disciplinas.collect{|d|[d.nome,d.id]}
   render :layout=>"facebox"
 end
 
@@ -440,7 +442,7 @@ def turmas
   @lotacao = Lotacao.find(params[:especificacao][:lotacao_id])
   @funcionario = @lotacao.funcionario
   @pessoa = @funcionario.pessoa
-  @escola = @lotacao.escola
+  @escola = @lotacao.destino
   if !params[:especificacao][:disciplina_id].blank?
     @disciplina = Disciplina.find(params[:especificacao][:disciplina_id])
   end
@@ -460,7 +462,7 @@ def salvar_especificacoes
   @lotacao = Lotacao.find(params[:especificacao][:lotacao_id])
   @funcionario = @lotacao.funcionario
   @pessoa = @funcionario.pessoa
-  @escola = @lotacao.escola
+  @escola = @lotacao.destino
   turmas = params[:turmas]
   @turmas = Turma.find(:all,:conditions=>["id in (?)",turmas])
   @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
@@ -477,16 +479,16 @@ def salvar_especificacoes
       soma_fator+=fator_n
     end
   end
-  if soma_fator<=@funcionario.rsd
+  #if soma_fator<=@funcionario.rsd
     @turmas.each do |turma|
       curriculo = turma.matriz.curriculos.da_serie(turma.serie.id).da_disciplina(@disciplina.id).last
       @funcionario.especificar_lotacao(@escola,turma,@disciplina,curriculo,@lotacao,@tipo,@ambiente)
     end
     notice = (flash[:notice] = "O Funcionário foi especificado com sucesso nas seguintes turmas: #{@turmas.collect{|t|t.nome}.to_sentence}")
-  else
-    notice = (flash[:alert] = "O Funcionário não foi especificado, pois a RSD do Funcionário (#{@funcionario.rsd}) é menor que a carência total das turmas selecionadas (#{soma_fator}).")
-    sucesso = false
-  end
+  # else
+  #   notice = (flash[:alert] = "O Funcionário não foi especificado, pois a RSD do Funcionário (#{@funcionario.rsd}) é menor que a carência total das turmas selecionadas (#{soma_fator}).")
+  #   sucesso = false
+  # end
   render :update do |page|
     page.reload()
     notice
@@ -510,7 +512,7 @@ def apagar_especificacao
   @especificacao = @lotacao.especificacoes.find(params[:especificacao_id])
   @especificacao.destroy
   respond_to do |format|
-    format.html { redirect_to("#{escola_path(@lotacao.escola)}#tab-tres",:notice => 'Especificação de lotação desfeita com sucesso.') }
+    format.html { redirect_to("#{escola_path(@lotacao.destino)}#tab-tres",:notice => 'Especificação de lotação desfeita com sucesso.') }
     format.xml  { head :ok }
   end
 end

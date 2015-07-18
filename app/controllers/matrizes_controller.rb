@@ -68,12 +68,10 @@ class MatrizesController < ApplicationController
   def create
     @matriz = Matriz.new(params[:matriz])
     @niveis = NiveisEnsino.order(:nome).collect{|n|[n.nome,n.id]}
-
-
     respond_to do |format|
       if @matriz.save
-        @series = @matriz.series.all
-        format.html { redirect_to(@matriz, :notice => 'Matrize cadastrado com sucesso.') }
+        @series = @matriz.series.all.uniq
+        format.html { redirect_to(@matriz, :notice => 'Matriz cadastrado com sucesso.') }
         format.xml  { render :xml => @matriz, :status => :created, :location => @matriz }
       else
         format.html { render :action => "new" }
@@ -90,7 +88,7 @@ class MatrizesController < ApplicationController
 
     respond_to do |format|
       if @matriz.update_attributes(params[:matriz])
-        format.html { redirect_to(@matriz, :notice => 'Matrize atualizado com sucesso.') }
+        format.html { redirect_to(@matriz, :notice => 'Matriz atualizado com sucesso.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

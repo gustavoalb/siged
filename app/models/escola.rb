@@ -13,7 +13,7 @@ class Escola < ActiveRecord::Base
  has_many :ambientes,:dependent=>:destroy
  has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
  has_many :comissionados,:conditions=>["ativo = ?",true]
- has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy
+ has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy,:as=>:destino
  has_many :especificacoes,:class_name=>'EspecificarLotacao',:dependent=>:destroy
  has_one :diretor_adjunto,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA ADJUNTA'],:source=>:funcionario
  has_one :diretor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA'],:source=>:funcionario

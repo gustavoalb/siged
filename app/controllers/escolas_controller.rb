@@ -27,9 +27,9 @@ end
       @encaminhados = @escola.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",false,true)
       if !@escola.ambientes.none?
         @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
-        @turmas = Turma.find(:all,:joins=>[:serie,:matriz],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
+        @turmas = Turma.find(:all,:joins=>[:serie,:matriz],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome,nome')
       else
-        @turmas = Turma.find_all_by_escola_id(@escola.id)
+        @turmas = Turma.find_all_by_escola_id(@escola.id).sort_by{|e|e.nome}
       end
       respond_to do |format|
     format.html # show.html.erb
@@ -142,7 +142,7 @@ def matrizes
   @escola = Escola.find_by_slug(params[:escola_id])
   if !params[:matrix].blank?
     @matriz = Matriz.find(params[:matrix])
-    @series = @matriz.series.order(:nome).collect{|s|[s.nome,s.id]}
+    @series = @matriz.series.order(:nome).collect{|s|[s.nome,s.id]}.uniq
     render :partial=>"matriz"
   else
     render :nothing=>true

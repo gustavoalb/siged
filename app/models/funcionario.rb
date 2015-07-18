@@ -242,11 +242,12 @@ def especificar_lotacao(escola = nil,turma = nil,disciplina = nil,curriculo = ni
    fator = disciplina.fator(turma)
    l.turma_id=turma.id
    l.disciplina_id=disciplina.id
-   if fator <= self.rsd
-    l.hora_semanal = fator
-  elsif fator == self.rsd
-    l.hora_semanal = self.rsd
-  end
+  #  if fator <= self.rsd
+  #   l.hora_semanal = fator
+  # elsif fator == self.rsd
+  #   l.hora_semanal = self.rsd
+  # end
+  l.hora_semanal = fator
   if l.save
    disciplina.gerar_fator(turma,l.hora_semanal,turma.serie,curriculo,l)
    return true

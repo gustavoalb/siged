@@ -7,7 +7,7 @@
 <div class="module_content">
 <div id='curriculos'>
 <h1 align=center>Séries Cadastradas na Matriz</h1>
-<%@matriz.series.each do |s|%>
+<%@matriz.series.uniq.each do |s|%>
 <h2 align=center>Disciplinas da <%=s.nome%></h2><b>
 
 <fieldset style='border: 1px solid #CCCCCC; background: none; width: 80%; align: right; margin-left: 10.5%;'>

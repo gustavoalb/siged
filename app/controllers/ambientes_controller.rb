@@ -81,7 +81,7 @@ class AmbientesController < ApplicationController
     @escola = Escola.find params[:escola_id]
     @ambiente = @escola.ambientes.find(params[:ambiente_id])
     @turma = @ambiente.turmas.new
-    @matrizes = @escola.matrizes.all.collect{|m|[m.codigo,m.id]}
+    @matrizes = @escola.matrizes.collect{|m|[m.codigo,m.id]}
     render :update do |page|
       page.visual_effect :highlight,"turma"
       page.replace_html "turma", :partial=>"turma"
@@ -93,7 +93,7 @@ class AmbientesController < ApplicationController
     @escola = Escola.find params[:escola_id]
     @ambiente = @escola.ambientes.find params[:ambiente_id]
     @ambiente_fisico = @ambiente.ambientes_fisicos.new
-    @matrizes = @escola.matrizes.all.collect{|m|[m.codigo,m.id]}
+    @matrizes = @escola.matrizes.collect{|m|[m.codigo,m.id]}
     render :update do |page|
       page.visual_effect :highlight,"turma"
       page.replace_html "turma", :partial=>"ambientes_fisicos"
