@@ -15,6 +15,7 @@ Siged20::Application.routes.draw do
     get :ctrl_ch_resumido
     get :ctrl_ch_detalhado
     get :gerar_controle_ch
+    get :autocomplete_escola_nome_da_escola, :on => :collection
     resources :ambientes do
       get :configurar_ambiente
       get :configurar_ambiente_fisico
@@ -126,7 +127,9 @@ namespace :folha do resources :eventos end
 
   resources :settings
 
-  resources :departamentos
+  resources :departamentos do
+    get :autocomplete_departamento_nome, :on => :collection
+  end
 
   resources :disciplina_contratacoes
 
@@ -161,6 +164,7 @@ namespace :folha do resources :eventos end
   resources :orgaos do
     get 'agenda'
     resources :departamentos do
+
       get 'tarefas'
       get 'pontos_funcionarios'
       get 'pontos'

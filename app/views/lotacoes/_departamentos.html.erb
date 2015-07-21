@@ -1,2 +1,5 @@
-<b>Depart</b>:
-<%= text_field_with_auto_complete :departamento, :nome,:indicator=>'indicator1',:after_update_element=>"#destino_id",:style=>"width:92%;",:required=>true  %>
+<%= fields_for :lotacao do |l|%>
+<%= l.autocomplete_field :destino_nome, autocomplete_departamento_nome_departamentos_path,:update_elements=>{:id=>'#lotacao_destino_id'}%>
+<%= l.hidden_field :destino_id %>
+<%= l.hidden_field :destino_type,:value=>"Departamento" %>
+<% end %>

@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 class EscolasController < ApplicationController
   load_and_authorize_resource
+  def autocomplete_escola_nome_da_escola
+    term = params[:term]
+    escolas = Escola.where('nome_da_escola ilike ? or codigo ilike ?', "%#{term}%","%#{term}%").order(:nome_da_escola).all
+    render :json => escolas.map { |escola| {:id => escola.id, :label => escola.nome_da_escola, :value => escola.nome_da_escola, :tipo=>"Escola"} }
+  end
   caches_page :ctrl_ch_resumido
   cache_sweeper :escola_sweeper
 # GET /escolas
@@ -88,12 +93,12 @@ def ctrl_ch_detalhado
   @relatorio ="#{Rails.public_path}/relatorios/relatorio-#{Time.now.strftime("%d%m%H%M%S")}.odt"
   render_odt(@template.path.to_s,@relatorio.to_s)
   
-   if Rails.env=="production"
-     system("sudo -u www-data chmod 0777 #{@relatorio.to_s}")
-   end
+  if Rails.env=="production"
+   system("sudo -u www-data chmod 0777 #{@relatorio.to_s}")
+ end
 
-  @arq1 = File.open(@relatorio)
-  send_file(@arq1.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
+ @arq1 = File.open(@relatorio)
+ send_file(@arq1.path,:content_type=>"application/vnd.oasis.opendocument.text",:filename=>"Controle de Carga Horária Detalhado - #{@escola.codigo}.odt")
   #@relatorio.close
 end
 

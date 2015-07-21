@@ -1,9 +1,10 @@
 # -*- encoding : utf-8 -*-
 class DepartamentosController < ApplicationController
   load_and_authorize_resource
+  autocomplete :departamento,:nome,:full=>true
   # GET /departamentos
   # GET /departamentos.xml
-  before_filter :orgao,:dados_essenciais,:except=>[:auto_complete_for_pessoa_nome]
+  before_filter :orgao,:dados_essenciais,:except=>[:auto_complete_for_pessoa_nome,:autocomplete_departamento_nome]
   def index
     @search = Departamento.scoped_search(params[:search])
     @departamentos = @search.order(:hierarquia).find(:all,:conditions=>["orgao_id = ?",@orgao.id]).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10

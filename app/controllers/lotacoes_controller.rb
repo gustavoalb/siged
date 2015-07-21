@@ -323,20 +323,6 @@ end
 # POST /lotacaos.xml
 def create
   @lotacao = Lotacao.new(params[:lotacao])
-  if params[:lotacao][:tipo_destino_id].blank? and params[:lotacao][:orgao_id].blank?
-    if !params[:escola].blank?
-      @escola = Escola.find(:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
-      @lotacao.destino_id = @escola.id
-    end
-  elsif !params[:lotacao][:tipo_destino_id].blank? and params[:escola].blank?
-    if !params[:departamento].blank?
-      @departamento = Departamento.find(:first,:conditions=>["nome ilike ?","#{params[:departamento][:nome]}"])
-      @lotacao.departamento_id = @departamento.id
-    end
-  elsif !params[:lotacao][:tipo_destino_id].blank? and !params[:escola].blank?
-    @escola = Escola.find(:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
-    @lotacao.destino_id = @escola.id
-  end
   respond_to do |format|
     if @lotacao.save
       format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.
