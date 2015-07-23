@@ -11,8 +11,8 @@ module ApplicationHelper
   end
 
   def municipio_lotacao(lot)
-    if lot.escola and lot.escola.municipio
-      return lot.escola.municipio.nome
+    if lot.destino and lot.destino_type=="Escola" and lot.destino.municipio
+      return lot.destino.municipio.nome
     else
       return "Nada Cadastrado"
     end

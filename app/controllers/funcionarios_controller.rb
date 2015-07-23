@@ -175,13 +175,13 @@ def carta
   r.add_field "NOME", @pessoa.nome
   r.add_field "CPF", @pessoa.cpf
   r.add_field "MATRICULA", @funcionario.matricula
-  r.add_field "QUADRO", @funcionario.quadrop
+  r.add_field "QUADRO", @funcionario.quadro
   r.add_field "CARGO", cargo_disciplina(@funcionario)
   r.add_field "JORNADA",jornada(@funcionario.nivel)
   r.add_field "NUMERO", @processo.processo
   r.add_field "DATA",@lotacao.data_lotacao.to_s_br
   r.add_field "HORA",(@lotacao.created_at+3.hours).strftime("%H:%M")
-  r.add_field "DESTINO",@lotacao.destino
+  r.add_field "DESTINO",view_context.detalhes(@lotacao.destino)
   r.add_field "ANTERIOR",view_context.l_ant(@funcionario)
   r.add_field "DATAAPRESENTACAO", @lotacao.data_lotacao+3.days
   r.add_field "USER", @usuario.name
