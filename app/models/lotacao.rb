@@ -5,7 +5,7 @@ class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
   validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente."
-  validates_presence_of :usuario_id,:funcionario_id
+  validates_presence_of :usuario_id,:funcionario_id,:destino_id
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :orgao
   belongs_to :entidade

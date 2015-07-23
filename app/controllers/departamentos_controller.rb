@@ -1,7 +1,11 @@
 # -*- encoding : utf-8 -*-
 class DepartamentosController < ApplicationController
   load_and_authorize_resource
-  autocomplete :departamento,:nome,:full=>true
+ def autocomplete_departamento_nome
+    term = params[:term]
+    departamentos = Departamento.where("nome ilike ? or sigla ilike ?","%#{term}%","%#{term}%").order("hierarquia asc")
+    render :json => departamentos.map { |departamento| {:id => departamento.id, :label => departamento.nome, :value => departamento.nome} }
+  end
   # GET /departamentos
   # GET /departamentos.xml
   before_filter :orgao,:dados_essenciais,:except=>[:auto_complete_for_pessoa_nome,:autocomplete_departamento_nome]
