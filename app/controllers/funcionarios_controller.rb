@@ -188,23 +188,12 @@ def carta
   r.add_field "DISCIPLINACONTRATACAO", view_context.disciplina(@funcionario)
   r.add_field "MUNICIPIO", view_context.municipio_lotacao(@lotacao)
   r.add_field "OBSERVACAO",@lotacao.motivo
-  #if @funcionario.cargo.nome=="Professor" and @lotacao.disciplina_atuacao
-  #  r.add_field "DISCIPLINACONTRATACAO", "na disciplina de #{@lotacao.disciplina_atuacao.nome},"
-  #else
-  # r.add_field "DISC", ""
-  #end
-
-  # if @lotacao.tipo_lotacao=="REGULAR"
-  #   r.add_field "TIPODEST", "neste Estabelecimento de Ensino"
-  # elsif @lotacao.tipo_lotacao=="ESPECIAL"
-  #   r.add_field "TIPODEST", "nesta Unidade Administrativa"
-  # end
 
 
  end
  md5 = Digest::MD5.new.to_s
- arquivo_carta = carta.generate("/tmp/carta-#{md5}.odt")
- system "unoconv -f pdf /tmp/carta-#{md5}.odt"
+ arquivo_carta = carta.generate("/tmp/carta-#{@funcionario.matricula}.odt")
+ system "unoconv -f pdf /tmp/carta-#{@funcionario.matricula}.odt"
  f = File.open("/tmp/carta-#{md5}.pdf",'r')
  send_file(f,:filename=>"Carta de Apresentaçao - #{@pessoa.nome} - #{@funcionario.matricula}.pdf",:content_type=>"application/pdf")
 end
