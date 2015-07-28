@@ -5,7 +5,7 @@
 	<% for nivel in NiveisEnsino.order(:nome)%>
 	<div title="<%=nivel.nome%>" style="float: left;">
 	<%= check_box_tag "escola[nivel_ids][]", nivel.id, @escola.niveis.include?(nivel) %>
-	<%= nivel.codigo %>
+	<%= nivel.nome %>
 	</div>
 	<% end %>
 
