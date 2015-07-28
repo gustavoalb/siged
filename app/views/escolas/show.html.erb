@@ -1,7 +1,7 @@
 <%content_for :links do%>
 <%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
 <%end%>
-<article class="module width_3_quarter">
+<article class="module width_full">
   <header><h3>Detalhes da Escola: <%= @escola.nome_da_escola.titleize%><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(@escola),:rel=>'facebox',:rev=>"height:300px;width:500px"%></h3></header>
   <div class="module_content">
     <div id="tabs1" class="tabset">

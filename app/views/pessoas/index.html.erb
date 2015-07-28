@@ -84,11 +84,8 @@ document.observe('dom:loaded', function() {
 										</tr>
 									</table>
 								</article>
-								<p class=tabela>Localização anterior:  <%=l_ant(funcionario)%></p>
 								<p class=tabela>Localização atual:  <%=l(funcionario)%></p>
-								<p class=tabela>Última atualização pessoal:  <%=pessoa.updated_at.strftime("%d de %B de %Y, às %H:%Mh")%></p>
-								<p class=tabela>Última atualização funcional:  <%=funcionario.updated_at.strftime("%d de %B de %Y, às %H:%Mh")%></p>
-
+								<p class=tabela>Localização anterior:  <%=l_ant(funcionario)%></p>
 
 								<%end%>
 								<%end%>
