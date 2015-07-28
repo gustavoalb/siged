@@ -171,10 +171,11 @@ class Funcionario < ActiveRecord::Base
   ]
 
   def regencia_semanal_nominal
-   carga = self.nivel.jornada.to_i
+   carga = self.nivel.jornada.to_i if self.nivel
    case carga
    when 20 then rsn=12
    when 40 then rsn=24
+  when nil then rsn=24
    end
    return rsn
  end

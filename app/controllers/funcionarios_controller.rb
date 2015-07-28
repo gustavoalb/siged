@@ -48,7 +48,7 @@ end
   def ponto
     @data = Date.today.months_ago(10)
     @dias = (@data.at_beginning_of_month..@data.end_of_month)
-    @mes =@data.month
+    @mes = @data.month
   end
 
   def folha
