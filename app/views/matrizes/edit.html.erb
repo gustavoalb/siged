@@ -27,6 +27,12 @@
       <%= f.text_field :codigo,:style=>"width:92%;" %>
 
     </fieldset>
+
+     <fieldset style="width:48%; float:left; margin-right: 1%;">
+      <%= f.label :nome %><br />
+      <%= f.text_field :nome,:style=>"width:92%;" %>
+    </fieldset>
+    
     <fieldset style="width:48%; float:left; margin-right: 1%;">
       <%= f.label :nivel %><br /><br />
       <%= f.select :nivel_id,@niveis,:prompt=>"Indique o nível de ensino",:style=>"width:92%;" %>  
