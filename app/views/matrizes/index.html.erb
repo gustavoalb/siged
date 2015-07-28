@@ -12,7 +12,7 @@
 <thead>
   <tr>
     <th>Código</th>
-    <th>Nível</th>
+    <th>Nome</th>
     <th>Ações</th>
     <th></th>
     <th></th>
@@ -23,7 +23,7 @@
 <% @matrizes.each do |matrize| %>
   <tr>
     <td><%= matrize.codigo %></td>
-    <td><%= detalhes(matrize.nivel) %></td>
+    <td><%= matrize.nome %></td>
     <td><%= link_to 'Detalhes', matrize %></td>
     <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_matriz_path(matrize) %></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), matrize, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
