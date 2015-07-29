@@ -15,7 +15,7 @@ module PessoasHelper
 end
 
 def l(func)
-  if func and func.lotacoes.none?
+  if func and func.lotacoes.ativo.none?
     return "NÃO LOTADO"
   else
     return detalhes(func.lotacoes.ativo.first.destino)
