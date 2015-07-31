@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class DepartamentosController < ApplicationController
   load_and_authorize_resource
- def autocomplete_departamento_nome
+  def autocomplete_departamento_nome
     term = params[:term]
     departamentos = Departamento.where("nome ilike ? or sigla ilike ?","%#{term}%","%#{term}%").order("hierarquia asc")
     render :json => departamentos.map { |departamento| {:id => departamento.id, :label => departamento.nome, :value => departamento.nome} }
@@ -9,6 +9,21 @@ class DepartamentosController < ApplicationController
   # GET /departamentos
   # GET /departamentos.xml
   before_filter :orgao,:dados_essenciais,:except=>[:auto_complete_for_pessoa_nome,:autocomplete_departamento_nome]
+
+  def create
+    @departamento = Departamento.new(params[:departamento])
+    respond_to do |format|
+      if @departamento.save
+
+        format.html { redirect_to(orgao_departamentos_url(@orgao), :notice => 'Departamento cadastrado com sucesso.') }
+        format.xml  { render :xml => @departamento, :status => :created, :location => @departamento }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @departamento.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def index
     @search = Departamento.scoped_search(params[:search])
     @departamentos = @search.order(:hierarquia).find(:all,:conditions=>["orgao_id = ?",@orgao.id]).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
@@ -57,7 +72,6 @@ class DepartamentosController < ApplicationController
   # GET /departamentos/1.xml
   def show
     @departamento = Departamento.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @departamento }
@@ -82,7 +96,6 @@ class DepartamentosController < ApplicationController
     @lotacao = @funcionario.lotacoes.atual.first
     @pontos = @funcionario.pontos.da_lotacao(@lotacao.id)
   end
-end
 
 
   # GET /departamentos/new
@@ -106,19 +119,7 @@ end
 
   # POST /departamentos
   # POST /departamentos.xml
-  def create
-    @departamento = Departamento.new(params[:departamento])
-    respond_to do |format|
-      if @departamento.save
 
-        format.html { redirect_to(orgao_departamento_url(@orgao,@departamento), :notice => 'Departamento cadastrado com sucesso.') }
-        format.xml  { render :xml => @departamento, :status => :created, :location => @departamento }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @departamento.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 
   # PUT /departamentos/1
   # PUT /departamentos/1.xml
@@ -154,3 +155,4 @@ end
     @orgao = Orgao.find(params[:orgao_id])
   end
 
+end
