@@ -29,7 +29,7 @@ alert("You typed the following: " + this.getValue());
 <div class="module_content">
 
 
-<%= form_for @departamento,:url=>orgao_departamentos_url do |f| %>
+<%= form_for @departamento,:url=>orgao_departamentos_url(@orgao) do |f| %>
   <% if @departamento.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@departamento.errors.count, "erro impede","erros impedem") %> este departamento de ser cadastrado:</h2>
