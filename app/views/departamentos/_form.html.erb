@@ -47,7 +47,7 @@ alert("You typed the following: " + this.getValue());
  <%=f.hidden_field :orgao_id,:value=>@orgao.id%>
    <fieldset style="width:48%; float:left; margin-right: 1%;">
     <%= f.label :departamento_pai %><br />
-        <%= f.select :pai_id,@pais,:prompt=>"Indique o departamento pai",:style=>"width:92%;" %>
+        <%#= f.select :pai_id,@pais,:prompt=>"Indique o departamento pai",:style=>"width:92%;" %>
 
   </fieldset>
   <fieldset style="width:48%; float:left; margin-right: 1%;">
