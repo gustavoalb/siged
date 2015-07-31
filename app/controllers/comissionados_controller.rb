@@ -98,27 +98,27 @@ class ComissionadosController < ApplicationController
 
   # POST /comissionados
   # POST /comissionados.xml
-  def create
-    @funcionario = Funcionario.find(params[:comissionado][:funcionario_id])
-    @pessoa = @funcionario.pessoa
-    @comissionado = @funcionario.comissionados.new(params[:comissionado])
-    if !params[:comissionado][:tipo_destino_id].blank? and !params[:escola].nil?
-      @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
-      @comissionado.escola_id = @escola.id
-    elsif !params[:comissionado][:tipo_destino_id].blank? and !params[:departamento].nil?
-      @departamento = Departamento.find(:first,:conditions=>["nome ilike ?",params[:departamento][:nome]])
-      @comissionado.departamento_id = @departamento.id
-    end
-    respond_to do |format|
-      if @comissionado.save
-        format.html { redirect_to(pessoa_funcionario_url(@pessoa,@funcionario), :notice => 'Comissionado cadastrado com sucesso.') }
-        format.xml  { render :xml => @comissionado, :status => :created, :location => @comissionado }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @comissionado.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  # def create
+  #   @funcionario = Funcionario.find(params[:comissionado][:funcionario_id])
+  #   @pessoa = @funcionario.pessoa
+  #   @comissionado = @funcionario.comissionados.new(params[:comissionado])
+  #   if !params[:comissionado][:tipo_destino_id].blank? and !params[:escola].nil?
+  #     @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
+  #     @comissionado.escola_id = @escola.id
+  #   elsif !params[:comissionado][:tipo_destino_id].blank? and !params[:departamento].nil?
+  #     @departamento = Departamento.find(:first,:conditions=>["nome ilike ?",params[:departamento][:nome]])
+  #     @comissionado.departamento_id = @departamento.id
+  #   end
+  #   respond_to do |format|
+  #     if @comissionado.save
+  #       format.html { redirect_to(pessoa_funcionario_url(@pessoa,@funcionario), :notice => 'Comissionado cadastrado com sucesso.') }
+  #       format.xml  { render :xml => @comissionado, :status => :created, :location => @comissionado }
+  #     else
+  #       format.html { render :action => "new" }
+  #       format.xml  { render :xml => @comissionado.errors, :status => :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /comissionados/1
   # PUT /comissionados/1.xml
