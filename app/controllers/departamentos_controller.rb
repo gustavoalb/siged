@@ -111,7 +111,7 @@ end
     respond_to do |format|
       if @departamento.save
 
-        format.html { redirect_to(orgao_departamentos_url(@orgao), :notice => 'Departamento cadastrado com sucesso.') }
+        format.html { redirect_to(orgao_departamento_url(@orgao,@departamento), :notice => 'Departamento cadastrado com sucesso.') }
         format.xml  { render :xml => @departamento, :status => :created, :location => @departamento }
       else
         format.html { render :action => "new" }
