@@ -324,8 +324,8 @@ end
 def create
   @lotacao = Lotacao.new(params[:lotacao])
   if @lotacao.tipo_lotacao=="ESPECIAL" or @lotacao.tipo_lotacao=="SUMARIA ESPECIAL"
-    @orgao  = Orgao.where(:id=>@lotacao.destino_id).first
-    @departamento  = Departamento.where(:id=>@lotacao.destino_id).first
+    @orgao  = Orgao.where(:nome=>params[:lotacao][:destino_nome]).first
+    @departamento  = Departamento.where(:nome=>params[:lotacao][:destino_nome]).first
     if @orgao
       @lotacao.destino_type = "Orgao"
     else

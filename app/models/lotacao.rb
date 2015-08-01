@@ -39,11 +39,11 @@ class Lotacao < ActiveRecord::Base
 
   after_create :lotacao_regular
   before_create :data
-  validate_on_create do |lotacao|
-    if self.tipo_lotacao=="ESPECIAL" or self.tipo_lotacao=="SUMARIA ESPECIAL" and self.motivo.blank?
-      lotacao.errors.add_to_base("Lotações tendo um departamento como destino necessitam de um motivo.")
-    end
-  end
+  # validate_on_create do |lotacao|
+  #   if self.tipo_lotacao=="ESPECIAL" or self.tipo_lotacao=="SUMARIA ESPECIAL" and self.motivo.blank?
+  #     lotacao.errors.add_to_base("Lotações tendo um departamento como destino necessitam de um motivo.")
+  #   end
+  # end
 
   def check_ativo
    if self.ativo
