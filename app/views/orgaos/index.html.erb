@@ -3,11 +3,14 @@
 
 <%end%>
 <article class="module width_full">
-		<header><h3 class="tabs_involved">Listando orgaos</h3>
-		<ul class="tabs">
-
-		</ul>
-		</header>
+  <header><h3 class="tabs_involved">Listando Orgao</h3>
+      <ul class="tabs">
+          <%= form_for @search,:url=>orgaos_url do |f| %>
+        <li><%= f.text_field :busca,:size=>13 %></li>
+        <li><%= image_submit_tag "icn_busca.png" %>
+      <% end %>
+      </ul>
+  </header>
     
 		
 <table class="tablesorter" cellspacing="0">

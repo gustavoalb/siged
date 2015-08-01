@@ -4,6 +4,8 @@ class DepartamentosController < ApplicationController
   def autocomplete_departamento_nome
     term = params[:term]
     departamentos = Departamento.where("nome ilike ? or sigla ilike ?","%#{term}%","%#{term}%").order("hierarquia asc")
+    orgaos = Orgao.where("nome ilike ? or sigla ilike ?","%#{term}%","%#{term}%").order("nome asc")
+    departamentos = orgaos+departamentos
     render :json => departamentos.map { |departamento| {:id => departamento.id, :label => departamento.nome, :value => departamento.nome} }
   end
   # GET /departamentos

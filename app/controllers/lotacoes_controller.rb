@@ -323,6 +323,15 @@ end
 # POST /lotacaos.xml
 def create
   @lotacao = Lotacao.new(params[:lotacao])
+  if @lotacao.tipo_lotacao=="ESPECIAL" or @lotacao.tipo_lotacao=="SUMARIA ESPECIAL"
+    @orgao  = Orgao.where(:id=>@lotacao.destino_id).first
+    @departamento  = Departamento.where(:id=>@lotacao.destino_id).first
+    if @orgao
+      @lotacao.destino_type = "Orgao"
+    else
+      @lotacao.destino_type = "Departamento"
+    end
+  end
   respond_to do |format|
     if @lotacao.save
       format.html { redirect_to(pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => "O Funcionário foi lotado com sucesso.
