@@ -6,7 +6,7 @@ document.observe('dom:loaded', function() {
 <%content_for :links do%>
 <a class="current">Pessoas</a>
 <%end%>
-<article class="module width_3_quarter">
+<article class="module width_full">
 	<header><h3 class="tabs_involved">Listando pessoas</h3>
 		<ul class="tabs">
 			<%= form_for @search do |f| %>
@@ -106,11 +106,11 @@ document.observe('dom:loaded', function() {
 						</footer>
 					</div>
 				</article>
-				<article class='module width_quarter'>
+				<!--<article class='module width_quarter'>
 					<p class='overview_day'>Quadro de Avisos</p>
 					<marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
 						<% @noticias.all.each do |n| %>
 						<p style='background: #CCCCCC;'><%="#{n.created_at.to_date.to_s_br} - #{n.texto}"%></p><br/>
 						<% end %>
 					</marquee>
-				</article>
+				</article>-->
