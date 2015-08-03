@@ -175,7 +175,7 @@ def carta
   r.add_field "NOME", @pessoa.nome
   r.add_field "CPF", @pessoa.cpf
   r.add_field "MATRICULA", @funcionario.matricula
-  r.add_field "QUADRO", @funcionario.entidade
+  r.add_field "QUADRO",  view_context.detalhes(@funcionario.entidade)
   r.add_field "CARGO", cargo_disciplina(@funcionario)
   r.add_field "JORNADA",jornada(@funcionario.nivel)
   r.add_field "NUMERO", @processo.processo
