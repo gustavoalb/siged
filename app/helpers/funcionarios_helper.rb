@@ -1,6 +1,22 @@
 # -*- encoding : utf-8 -*-
 module FuncionariosHelper
 
+  def cargo_disciplina(func)
+    if func.cargo and func.cargo.tipo and func.cargo.tipo.nome=='Magistério/Docência' and func.disciplina_contratacao and func.nivel
+      return "#{func.cargo.nome.upcase} DE #{func.disciplina_contratacao.nome.upcase}, #{func.nivel.nome.upcase}"
+    elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome=='Magistério/Docência'
+      return "#{func.cargo.nome.upcase}, #{func.nivel.nome.upcase}"
+    elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome=='Comissão'
+      return "#{func.cargo.nome.upcase}"
+    elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo and func.cargo.tipo.nome!="Comissão"
+      return "#{func.cargo.nome.upcase}, #{func.nivel.nome.upcase}"
+    elsif func.cargo and func.nivel and func.disciplina_contratacao.nil? and func.cargo.tipo.nil?
+      return "#{func.nivel.nome.upcase}"
+    else
+      return "#{func.cargo.nome.upcase}"
+    end
+  end
+
   def desc(obj)
     if obj
       return obj.nome
