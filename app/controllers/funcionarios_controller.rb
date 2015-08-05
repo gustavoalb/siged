@@ -171,6 +171,7 @@ def carta
  @prazo=prazo.to_date.to_s_br
  @processo = @lotacao.processos.last
  @usuario = @lotacao.usuario
+ File.open("/tmp/barcode-#{@funcionario.matricula}-#{@lotacao.id}.png", 'w'){|f| f.write @lotacao.img_codigo }
  carta = ODFReport::Report.new("#{Rails.public_path}/modelos/carta.odt") do |r|
   r.add_field "NOME", @pessoa.nome
   r.add_field "CPF", @pessoa.cpf
@@ -188,10 +189,8 @@ def carta
   r.add_field "DISCIPLINACONTRATACAO", view_context.cargo_disciplina(@funcionario)
   r.add_field "MUNICIPIO", @lotacao.destino.municipio_nome
   r.add_field "OBSERVACAO",@lotacao.motivo
-
-
+  r.add_image :codigo_barras,  "/tmp/barcode-#{@funcionario.matricula}-#{@lotacao.id}.png"
  end
- md5 = Digest::MD5.new.to_s
  arquivo_carta = carta.generate("/tmp/carta-#{@funcionario.matricula}.odt")
  system "unoconv -f pdf /tmp/carta-#{@funcionario.matricula}.odt"
  f = File.open("/tmp/carta-#{@funcionario.matricula}.pdf",'r')

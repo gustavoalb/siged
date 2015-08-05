@@ -131,7 +131,7 @@ end
 
 def img_codigo
   codigo = self.codigo
-  img = Barby::Code39.new(codigo).to_png
+  img = Barby::Code39.new(codigo).to_png(:height=>90,:margin=>0)
   return img
 end
 
@@ -185,6 +185,7 @@ private
 def lotacao_regular
   #self.img_codigo
   self.entidade_id = self.funcionario.entidade_id
+  self.codigo_barra = self.codigo
   #self.data_lotacao = Date.today
   #self.save!
   processo = Processo.new
