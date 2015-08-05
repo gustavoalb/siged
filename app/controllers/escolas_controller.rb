@@ -4,7 +4,7 @@ class EscolasController < ApplicationController
   def autocomplete_escola_nome_da_escola
     term = params[:term]
     escolas = Escola.where('nome_da_escola ilike ? or codigo ilike ?', "%#{term}%","%#{term}%").order(:nome_da_escola).all
-    render :json => escolas.map { |escola| {:id => escola.id, :label => escola.nome_da_escola, :value => escola.nome_da_escola, :tipo=>"Escola"} }
+    render :json => escolas.map { |escola| {:id => escola.id, :label => "#{escola.nome_da_escola} - #{escola.municipio_nome}", :value => escola.nome_da_escola, :tipo=>"Escola"} }
   end
   caches_page :ctrl_ch_resumido
   cache_sweeper :escola_sweeper
