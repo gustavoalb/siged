@@ -1,10 +1,10 @@
 <%= javascript_include_tag "mascara.js" %>
 
- <%content_for :links do%>
- <%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Editando Funcionários</a>
+<%content_for :links do%>
+<%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Editando Funcionários</a>
 
- <%end%>
- <article class="module width_full">
+<%end%>
+<article class="module width_full">
   <header><h3>Editando funcionários de <%=@pessoa.nome.titleize%></h3></header>
   <div class="module_content">
 
@@ -111,8 +111,8 @@
     <% end -%>
 
     <fieldset style="width:48%; float:left; margin-right: 1%;">
-      <%= f.label :nível %><br />
-      <%= f.text_field :nivel_id,:value=>"#{placeholder(@funcionario.nivel)}",:disabled=>true,:style=>"width:92%;",:prompt=>"Selecione o Nível" %>
+      <%= f.label :nivel_id %><br /><br />
+      <%= f.select :nivel_id,@niveis,:style=>"width:92%;",:prompt=>"Selecione a Referência/Nível do Funcionário" %>
 
     </fieldset>
 
@@ -199,9 +199,9 @@
 
 
    <fieldset style="width:48%; float:left; margin-right: 1%;">
-        <%= f.label :observacao %><br /><br />
-        <td><%= f.text_field :observacao,:style=>"width:92%;" %></td>
-      </fieldset>
+    <%= f.label :observacao %><br /><br />
+    <td><%= f.text_field :observacao,:style=>"width:92%;" %></td>
+  </fieldset>
 
 
 

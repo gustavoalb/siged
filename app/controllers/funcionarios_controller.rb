@@ -185,8 +185,8 @@ def carta
   r.add_field "ANTERIOR",view_context.l_ant(@funcionario)
   r.add_field "DATAAPRESENTACAO", @lotacao.data_lotacao+3.days
   r.add_field "USER", @usuario.name
-  r.add_field "DISCIPLINACONTRATACAO", @lotacao.destino.municipio_nome
-  r.add_field "MUNICIPIO", view_context.municipio(@funcionario)
+  r.add_field "DISCIPLINACONTRATACAO", view_context.cargo_disciplina(@funcionario)
+  r.add_field "MUNICIPIO", @lotacao.destino.municipio_nome
   r.add_field "OBSERVACAO",@lotacao.motivo
 
 
