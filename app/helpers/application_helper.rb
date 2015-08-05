@@ -222,6 +222,8 @@ def detalhes(obj=nil,sigla=false)
     return obj.nome_da_escola.upcase
   elsif obj.respond_to? "sigla" and !obj.sigla.blank? and sigla==true
     return obj.sigla.upcase
+  elsif obj.respond_to? "codigo" and !obj.codigo.blank? and sigla==true
+    return obj.codigo.upcase
   elsif obj.respond_to? "nome" and !obj.nome.blank?
     return obj.nome.upcase
   elsif obj.respond_to? "username" and !obj.username.blank?

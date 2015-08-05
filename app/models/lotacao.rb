@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-require "barby/barcode/code_25_interleaved"
+require "barby/barcode/code_39"
 require "barby/outputter/png_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
@@ -120,6 +120,19 @@ end
 end
 
 
+def codigo
+  funcionario = self.funcionario
+  codfuncionario = sprintf '%07d',funcionario.id
+  codlotacao = sprintf '%07d',self.id
+  codigo = codfuncionario+codlotacao
+end
+
+def img_codigo
+  codigo = self.codigo
+  img = Barby::Code39.new(codigo).to_png
+  return img
+end
+
 def data
   self.data_lotacao = Date.today
   if self.tipo_lotacao=="SUMARIA" or self.tipo_lotacao=="SUMARIA ESPECIAL"
@@ -172,7 +185,7 @@ def lotacao_regular
   self.entidade_id = self.funcionario.entidade_id
   #self.data_lotacao = Date.today
   #self.save!
-  processo=Processo.new
+  processo = Processo.new
   processo.entidade_id = self.entidade_id
   processo.tipo="LOTAÇÃO"
   if self.tipo_lotacao=="PROLABORE"
