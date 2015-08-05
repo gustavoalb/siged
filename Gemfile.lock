@@ -209,6 +209,3 @@ DEPENDENCIES
   validates_timeliness
   will_paginate (~> 2.3.5)
   wkhtmltopdf (~> 0.1.2)
-
-BUNDLED WITH
-   1.10.6
