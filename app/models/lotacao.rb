@@ -36,7 +36,7 @@ class Lotacao < ActiveRecord::Base
   scope :a_convalidar, where(:convalidada=>false)
   scope :da_escola,lambda{|esc|where("escola_id = ?",esc)}
   attr_accessor :destino_nome
-
+  before_create :codigo
   after_create :lotacao_regular
   before_create :data
   # validate_on_create do |lotacao|
@@ -130,6 +130,8 @@ def codigo
   codfuncionario = sprintf '%07d',funcionario.id
   codlotacao = sprintf '%07d',self.id
   codigo = codfuncionario+codlotacao
+  self.codigo_barra = codigo
+  return codigo
 end
 
 def img_codigo
