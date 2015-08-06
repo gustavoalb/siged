@@ -1,7 +1,7 @@
 <script type="text/javascript">
-document.observe('dom:loaded', function() {
-	new UnobtrusiveLinker();
-});
+	document.observe('dom:loaded', function() {
+		new UnobtrusiveLinker();
+	});
 </script>
 <%content_for :links do%>
 <a class="current">Pessoas</a>
@@ -49,6 +49,9 @@ document.observe('dom:loaded', function() {
 										<%if can? :qualificar_funcionario,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%></td><%end -%>
 										<%if can? :manage,Lotacao -%>
 										<td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_categories.png',:title=>"Lotação Funcional"),  pessoa_funcionario_lotacoes_path(pessoa,funcionario)%></td>
+										<%funcionario.lotacoes.em_aberto.each do |lotacao_aberta|%>
+										<td><%= link_to  image_tag('/images/positivo.png',:title=>"Confirmação de Lotação"), pessoa_funcionario_lotacao_confirmar_lotacao_path(pessoa,funcionario,lotacao_aberta.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+										<% end -%>
 										<% end -%>
 
 									</tr>

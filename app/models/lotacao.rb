@@ -86,9 +86,9 @@ def cancela_lotacao(motivo=self.motivo)
  proc2.processo="CN#{proc2.processo}"
  proc2.tipo="CANCELAMENTO"
  if proc2.save
-   self.finalizada = true
    self.ativo = false
    self.save
+   self.finalizada = true
    status = proc2.status.new
    status.status = 'CANCELADO'
    status.save
