@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Departamento < ActiveRecord::Base
   #default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
-   include ScopedSearch::Model
+  include ScopedSearch::Model
   belongs_to :orgao
   belongs_to :tipo_destino
   belongs_to :entidade
@@ -18,6 +18,10 @@ class Departamento < ActiveRecord::Base
   validates_uniqueness_of :nome,:scope=>[:nome,:sigla]
 
   before_save :setar_nil
+  
+  def municipio_nome
+    return "MACAPA"
+  end
   private
 
   def setar_nil

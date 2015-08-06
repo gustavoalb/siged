@@ -101,36 +101,42 @@ end
   end
 
 
-    def disciplinas
-      matrizes = self.matrizes
-      disciplinas = []
-      matrizes.each do |m|
-        m.disciplinas.order(:nome).each do |d|
-          disciplinas << d
-        end
+  def disciplinas
+    matrizes = self.matrizes
+    disciplinas = []
+    matrizes.each do |m|
+      m.disciplinas.order(:nome).each do |d|
+        disciplinas << d
       end
-      disciplinas = disciplinas.uniq
-      return disciplinas
     end
+    disciplinas = disciplinas.uniq
+    return disciplinas
+  end
 
-    def matrizes
-      matrizes = []
-      self.niveis.each do |n|
-        n.matrizes.each do |m|
-          matrizes << m
-        end
+  def matrizes
+    matrizes = []
+    self.niveis.each do |n|
+      n.matrizes.each do |m|
+        matrizes << m
       end
-      matrizes
     end
+    matrizes
+  end
 
-
-
-    def criar_ambientes
-      self.ambientes.create(:nome=>"Secretaria Escolar",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
-      self.ambientes.create(:nome=>"Biblioteca",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
-      self.ambientes.create(:nome=>"Serviço Técnico-Pedagógico",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
-      self.ambientes.create(:nome=>"Sala de Aula",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala de Aula"))
-      self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+  def municipio_nome
+    if self.municipio
+      return self.municipio.nome
     end
   end
+
+
+
+  def criar_ambientes
+    self.ambientes.create(:nome=>"Secretaria Escolar",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+    self.ambientes.create(:nome=>"Biblioteca",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+    self.ambientes.create(:nome=>"Serviço Técnico-Pedagógico",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+    self.ambientes.create(:nome=>"Sala de Aula",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala de Aula"))
+    self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
+  end
+end
 
