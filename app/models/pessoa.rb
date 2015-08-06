@@ -11,7 +11,8 @@ class Pessoa < ActiveRecord::Base
 	#scoped_search
 	has_many :listas,:dependent=>:destroy
 	has_many :fotos,:dependent=>:destroy
-	scope :busca,lambda { |q| includes(:funcionarios).where("pessoas.cpf like ? or funcionarios.matricula like ? or rg like ? or nome iLIKE ?" ,"%#{q.downcase}%","%#{q}%","%#{q.downcase}%","%#{q.downcase}%") }
+	has_many :lotacoes,:through=>:funcionarios
+	scope :busca,lambda { |q| includes(:funcionarios,:lotacoes).where("lotacaos.codigo_barra ilike ? or pessoas.cpf ilike ? or funcionarios.matricula ilike ? or rg ilike ? or nome iLIKE ?" ,"%#{q.downcase}%","%#{q}%","%#{q.downcase}%","%#{q.downcase}%","%#{q.downcase}%") }
 	scope :em_aberto, where("nascimento = ?",nil)
 
 	scope :que_esta_na_lista, joins(:listas).where("listas.tipo_lista_id=1")

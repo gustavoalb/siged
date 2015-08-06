@@ -32,7 +32,7 @@ alert("You typed the following: " + this.getValue());
 <%= form_tag(pessoa_funcionario_lotacao_salvar_confirmacao_url(@pessoa,@funcionario,@lotacao)) do -%>
  <fieldset>
     <%= label_tag "Confirmar a Lotação?" %><br /><br />
-    <%= radio_button_tag :confirmar,"SIM" ,:checked => true %>SIM&nbsp;&nbsp;&nbsp;<%= radio_button_tag :confirmar,"NÃO"%>NÃO&nbsp;&nbsp;&nbsp;
+    <%= text_field_tag :codigo,nil,:placeholder=>"Código de Barras",:autofocus=>true%>
   </fieldset>
  <%= submit_tag 'Save' %>
 <% end -%>

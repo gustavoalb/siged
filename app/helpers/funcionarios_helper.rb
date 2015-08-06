@@ -25,6 +25,18 @@ module FuncionariosHelper
     end
   end
 
+  def quadro(funcionario)
+    if funcionario.categoria and funcionario.entidade
+      return "#{funcionario.entidade.nome}/#{funcionario.categoria.nome}"
+    elsif funcionario.entidade and funcionario.categoria.nil?
+      return funcionario.entidade.nome
+    elsif funcionario.entidade.nil? and funcionario.categoria
+      return funcionario.categoria.nome
+    else
+      return "NADA CADASTRADO"
+    end
+  end
+
   def turmas(f)
     t = []
     if f and !f.especificacoes.none?
