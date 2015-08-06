@@ -6,6 +6,7 @@ class Lotacao < ActiveRecord::Base
   #escola_id sempre nil em lotacao especial
   validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente.",:on=>:create
   validates_presence_of :usuario_id,:funcionario_id,:destino_id
+  validates :motivo, :length => {:maximum => 230, :message => "Observaçao/Motivo até 230 caracteres" }
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :orgao
   belongs_to :entidade

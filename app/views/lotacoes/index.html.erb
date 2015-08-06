@@ -1,6 +1,16 @@
+<script type="text/javascript">
+// controls character input/counter
+jQuery('textarea#body').keyup(function() {
+var charLength = jQuery(this).val().length;
+// Displays count
+jQuery('span#charCount').html(charLength + ' of 250 characters used');
+// Alerts when 250 characters is reached
+if(jQuery(this).val().length > 230)
+jQuery('span#charCount').html('<strong>You may only have up to 230 characters.</strong>');
+});
+</script>
 <%content_for :links do%>
 <%=link_to "Pessoas",pessoas_path%><div class="breadcrumb_divider"></div><%=link_to "Funcionários",pessoa_funcionarios_path(@pessoa)%><div class="breadcrumb_divider"></div><a class="current">Lotações</a>
-
 <%end%>
 <article class="module width_full">
   <header><h3>Lotações de <%=@pessoa.nome%>, <%=cargo_disciplina(@funcionario)%>, <%=jornada(@funcionario.sjuridica)%></h3></header>
@@ -76,10 +86,12 @@
             <td><div id="reg"><%= f.select :disciplina_atuacao_id,@disciplinas,:prompt=>"Selecione a disciplina"%></div></td>
           </tr>
           <%end%>
+          <div id="characters"></div>
           <div id="motivo">
             <tr VALIGN=TOP>
               <td><b><%= label_tag "Observação/Motivo" %></b></td>
               <td><%= text_area :lotacao,:motivo,:placeholder => 'Justifique esta lotação',:size=>"47x4"%></td>
+              <span id="charCount"></span>
             </tr>
           </div>
 
