@@ -4,7 +4,7 @@ class Orgao < ActiveRecord::Base
   #default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
 
   include ScopedSearch::Model
-scope :busca, lambda { |q| where("sigla ilike ? or codigo ilike ? or nome ilike ?" ,"%#{q}%","%#{q}%","%#{q}%") }
+  scope :busca, lambda { |q| where("sigla ilike ? or codigo ilike ? or nome ilike ?" ,"%#{q}%","%#{q}%","%#{q}%") }
   belongs_to :esfera
   belongs_to :entidade
   belongs_to :tipo_administracao
@@ -15,5 +15,10 @@ scope :busca, lambda { |q| where("sigla ilike ? or codigo ilike ? or nome ilike 
   has_many :escolas
   has_many :departamentos,:dependent=>:destroy
   validates_uniqueness_of :nome
+
+  def municipio_nome
+    return "MACAPA"
+  end
+  
 end
 
