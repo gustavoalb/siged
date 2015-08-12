@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class HomeController < ApplicationController
-	  load_and_authorize_resource
+	#load_and_authorize_resource
 	caches_action :index,:expires_in=>4.hours
 
 	def index
