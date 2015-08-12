@@ -205,6 +205,9 @@ elsif user.role? :chefia_ucolom
  cannot :destroy,Funcionario
  cannot :edit,Funcionario
  can :emitir_relatorios,[Lotacao,Pessoa,Funcionario,Escola]
+ can :manage, Escola
+ cannot [:create,:update,:destroy,:configuracoes],Escola
+ cannot :especificar_lotacao,Lotacao
 
 
 elsif user.role? :crh

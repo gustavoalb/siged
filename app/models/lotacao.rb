@@ -68,7 +68,20 @@ class Lotacao < ActiveRecord::Base
   else
     "Não foi possível gerar o processo"
   end
+end
 
+def desconfirmar_lotacao
+    proc = self.processos.last
+   proc.finalizado = false
+   proc.data_finalizado = nil
+   if proc.save!
+    self.finalizada = false
+    self.data_confirmacao = nil
+    self.save
+    status = proc.status.last.destroy
+  else
+    "Não foi possível gerar o processo"
+  end
 end
 
 

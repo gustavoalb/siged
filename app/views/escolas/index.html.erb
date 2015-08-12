@@ -36,6 +36,8 @@
             <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_escola_path(escola) %></td>
             <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), escola, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
             <td><%= link_to  image_tag("/images/icn_unity.png",:title=>"Configura Ambientes"),escola_ambientes_path(escola) %></td>
+            <% elsif can? :inspecionar,Escola%>
+             <td><%= link_to 'Detalhes', escola %></td>
             <%else%>
             <td><%=image_tag('block.png',:title=>'Você não tem permissão para acessar as informações dessa escola, apenas da sua.')%></td>
             <td><%=image_tag('block.png',:title=>'Você não tem permissão para acessar as informações dessa escola, apenas da sua.')%></td>

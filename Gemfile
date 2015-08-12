@@ -42,6 +42,7 @@ gem 'friendly_id'
 gem "cocoon"
 gem 'rails3-jquery-autocomplete'
 gem 'puma', '2.7.1'
+gem 'thin'
 
 
 # Deploy with Capistrano

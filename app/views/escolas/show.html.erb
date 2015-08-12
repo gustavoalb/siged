@@ -2,7 +2,7 @@
 <%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
 <%end%>
 <article class="module width_full">
-  <header><h3>Detalhes da Escola: <%= @escola.nome_da_escola.titleize%><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(@escola),:rel=>'facebox',:rev=>"height:300px;width:500px"%></h3></header>
+  <header><h3>Detalhes da Escola: <%= @escola.nome_da_escola.titleize%><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(@escola),:rel=>'facebox',:rev=>"height:300px;width:500px" if can?(:configuracoes,Escola)%></h3></header>
   <div class="module_content">
     <div id="tabs1" class="tabset">
       <% if can? :manage,Escola,:id=>current_user.escola_id%>
@@ -85,6 +85,14 @@
             <b>Email:</b>
             <%= @escola.email %>
           </p>
+           <p>
+            <b>Funcionários Lotados e Confirmados:</b>
+            <%= @funcionarios.count %>
+          </p>
+          <p>
+            <b>Funcionários Lotados e Aguardando Confirmação de Apresentação:</b>
+            <%= @encaminhados.count %>
+          </p>
         </div>
         <div id="tab-two" class="tabset_content" style='overflow-y: scroll; height: 340px;'>
           <%= render :partial=>"quadro_funcional" %>
@@ -109,8 +117,10 @@
   </div>
   <footer>
     <div class="submit_link">
+    <%if can? :especificar_lotacao,Lotacao%>
       <%= link_to "Incluir Turma", escola_incluir_turma_path(@escola),:rel=>"facebox",:rev=>"height:100px;width:600px"%>, 
       <%= link_to 'Editar Escola', edit_escola_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
+      <% end %>
       <%= link_to 'Voltar', escolas_path,:type=>"submit" %>
     </div>
   </footer>
