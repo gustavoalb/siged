@@ -231,6 +231,7 @@ end
 def salvar_cancelamento
   motivo = params[:motivo]
   @funcionario = Funcionario.find(params[:funcionario_id])
+  @pessoa = @funcionario.pessoa
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
   @lotacao.cancela_lotacao(motivo)
   if params[:cancelar][:cancelar]=="true"
@@ -244,11 +245,12 @@ end
 def salvar_devolucao
   motivo = params[:motivo]
   @funcionario = Funcionario.find(params[:funcionario_id])
+  @pessoa = @funcionario.pessoa
   @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
   @lotacao.devolve_funcionario(motivo)
-  if @lotacao.tipo_lotacao=="REGULAR" or @lotacao.tipo_lotacao=="SUMARIA"
+  if @lotacao.tipo_lotacao=="REGULAR" or @lotacao.tipo_lotacao=="SUMARIA" or !current_user.role?(:lotacao)
     redirect_to escola_path(@lotacao.destino),:anchor=>"tab-dois", :notice => 'Funcionário Devolvido ao NUPES'
-  elsif @lotacao.tipo_lotacao=="ESPECIAL" or @lotacao.tipo_lotacao=="SUMARIA ESPECIAL"
+  elsif @lotacao.tipo_lotacao=="ESPECIAL" or @lotacao.tipo_lotacao=="SUMARIA ESPECIAL" or current_user.role?(:lotacao)
     redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
   end
 end
@@ -271,8 +273,6 @@ def verifica_lotacao
   end
 end
 
-
-
 def devolver_funcionario
   @funcionario = Funcionario.find(params[:funcionario_id])
   @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
@@ -290,6 +290,7 @@ def cancelar_lotacao
     @cancelar = params[:convalidar]
   end
   @funcionario = Funcionario.find(params[:funcionario_id])
+  @pessoa = @funcionario.pessoa
   @lotacao = Lotacao.em_aberto.find(params[:lotacao_id])
   render :layout=>"facebox"
 end

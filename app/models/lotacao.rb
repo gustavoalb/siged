@@ -4,8 +4,9 @@ require "barby/outputter/png_outputter"
 class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
-  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente."
+  validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente.",:on=>:create
   validates_presence_of :usuario_id,:funcionario_id,:destino_id
+  validates :motivo, :length => {:maximum => 230, :message => "Observaçao/Motivo até 230 caracteres" }
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :orgao
   belongs_to :entidade
@@ -36,7 +37,7 @@ class Lotacao < ActiveRecord::Base
   scope :a_convalidar, where(:convalidada=>false)
   scope :da_escola,lambda{|esc|where("escola_id = ?",esc)}
   attr_accessor :destino_nome
-
+  after_create :codigo
   after_create :lotacao_regular
   before_create :data
   # validate_on_create do |lotacao|
@@ -88,6 +89,9 @@ end
 
 def cancela_lotacao(motivo=self.motivo)
  proc = self.processos.em_aberto.encaminhado.last
+ self.finalizada = true
+ self.ativo = false
+ self.save
  proc2 = proc.clone
  proc2.finalizado = true
  proc2.data_finalizado = Time.now
@@ -95,9 +99,9 @@ def cancela_lotacao(motivo=self.motivo)
  proc2.natureza="CANCELAMENTO LOTAÇÃO"
  proc2.processo="CN#{proc2.processo}"
  proc2.tipo="CANCELAMENTO"
- self.ativo = false
- self.save
- if proc2.save!
+ if proc2.save
+   self.ativo = false
+   self.save
    self.finalizada = true
    status = proc2.status.new
    status.status = 'CANCELADO'
@@ -118,7 +122,7 @@ def devolve_funcionario(motivo=self.motivo)
  proc2.processo="DV#{proc2.processo}"
  proc2.tipo="DEVOLUÇÃO"
  self.ativo = false
- self.save
+ self.save!
  if proc2.save!
    if self.funcionario.lotacoes_atuais.include?(self) and !self.funcionario.lotacoes.complementares.none?
      self.funcionario.lotacoes.complementares.order("created_at asc").first.update_attributes(:complementar=>false)
@@ -140,6 +144,9 @@ def codigo
   codfuncionario = sprintf '%07d',funcionario.id
   codlotacao = sprintf '%07d',self.id
   codigo = codfuncionario+codlotacao
+  self.codigo_barra = codigo
+  self.save
+  return codigo
 end
 
 def img_codigo
