@@ -3,8 +3,10 @@ class CarenciasController < ApplicationController
   # GET /carencias
   # GET /carencias.xml
   before_filter :ano_letivo
+  load_and_authorize_resource
 
- 
+
+  
 
   # def auto_complete_for_escola_nome_da_escola
   #   @escolas = Escola.find(:all,

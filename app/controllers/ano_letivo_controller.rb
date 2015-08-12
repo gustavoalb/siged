@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class AnoLetivosController < ApplicationController
+	  load_and_authorize_resource
 	# GET /ano_letivos
 	# GET /ano_letivos.xml
 	before_filter :verificar_ano,:except=>[:new,:create,:update,:edit,:destroy,:gerir_carencias]

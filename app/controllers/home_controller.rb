@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class HomeController < ApplicationController
-	#caches_action :index,:expires_in=>3.days
+	  load_and_authorize_resource
+	caches_action :index,:expires_in=>4.hours
 
 	def index
 		@disciplinas = DisciplinaContratacao.find(:all,:joins=>:funcionarios,:order=>['nome asc']).uniq

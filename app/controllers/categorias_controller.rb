@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class CategoriasController < ApplicationController
+  load_and_authorize_resource
   # GET /categorias
   # GET /categorias.xml
   def index
