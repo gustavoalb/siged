@@ -188,7 +188,7 @@ elsif user.role? :lotacao
  cannot :create, AnoLetivo
  can :gerir_carencias, Carencia
  can :autocomplete_departamento_nome,Departamento
- can :autocomplete_escola_nome_da_escola,Escola
+ can :autocomplete_escola_nome,Escola
 
 
 elsif user.role? :chefia_ucolom

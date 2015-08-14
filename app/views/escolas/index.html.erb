@@ -26,7 +26,7 @@
           <% @escolas.each do |escola| %>
           <tr>
             <td WIDTH=2%><%= raw("#{highlight(escola.codigo,@busca)}") %></td>
-            <td><%= raw("#{highlight(escola.nome_da_escola.upcase, @busca)}") %></td>
+            <td><%= raw("#{highlight(escola.nome.upcase, @busca)}") %></td>
             <td><%= detalhes(escola.entidade,true) %></td>
             <td><%= detalhes(escola.municipio) %></td>
             <%if (can? :manage,Escola and escola.id==current_user.escola_id) or current_user.role?(:admin)%>

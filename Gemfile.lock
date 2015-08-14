@@ -158,7 +158,6 @@ GEM
     scoped-search (0.7.1)
     serenity-odt (0.2.0)
       rubyzip (>= 0.9.1)
-    silent-postgres (0.1.1)
     statistics (1.0.0)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
@@ -208,7 +207,6 @@ DEPENDENCIES
   ruport
   scoped-search
   serenity-odt (= 0.2.0)
-  silent-postgres
   statistics
   thin
   thor

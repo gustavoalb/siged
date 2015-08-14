@@ -17,7 +17,12 @@ class Orgao < ActiveRecord::Base
   validates_uniqueness_of :nome
 
   def municipio_nome
-    return "MACAPA"
+    if self.nome.include?("PREFEITURA")
+      nome = Orgao.last.nome.gsub('PREFEITURA MUNICIPAL DE ','')
+    else
+      nome = "MACAPA"
+    end
+    return nome
   end
   
 end

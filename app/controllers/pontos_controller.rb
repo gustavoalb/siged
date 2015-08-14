@@ -119,7 +119,7 @@ class PontosController < ApplicationController
 #     @orgao = @lotacao.orgao
 #     if !@lotacao.escola.nil?
 #       @escola = @lotacao.escola
-#       destino = @escola.nome_da_escola.parameterize
+#       destino = @escola.nome.parameterize
 #     elsif !@lotacao.departamento.nil?
 #       @departamento = @lotacao.departamento
 #       destino = @departamento.sigla.downcase

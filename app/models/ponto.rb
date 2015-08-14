@@ -83,7 +83,7 @@ end
 
 def apagar_pdf
   if !self.lotacao.escola.nil?
-    destino = self.lotacao.escola.nome_da_escola.parameterize
+    destino = self.lotacao.escola.nome.parameterize
   elsif !self.lotacao.departamento.nil?
     destino = self.lotacao.departamento.sigla.downcase
   end

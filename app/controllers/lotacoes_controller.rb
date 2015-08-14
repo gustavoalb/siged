@@ -3,8 +3,8 @@ class LotacoesController < ApplicationController
 # GET /lotacaos
 # GET /lotacaos.xml
 load_and_authorize_resource
-before_filter :funcionario,:except=>[:escolas_destino,:complementar_esp,:complementar,:auto_complete_for_escola_nome_da_escola,:auto_complete_for_departamento_nome,:fator_lotacao_fisico,:disciplinas_especificacao,:sumesp,:convalidar,:salvar_especificacao,:fator_lotacao,:verifica_lotacao,:regencia,:destino,:lotacao_especial,:tipo_destino,:tipo_especificacao,:fator_lotacao_fisico]
-before_filter :dados_essenciais,:except=>[:convalidar,:auto_complete_for_escola_nome_da_escola,:auto_complete_for_departamento_nome]
+before_filter :funcionario,:except=>[:escolas_destino,:complementar_esp,:complementar,:auto_complete_for_escola_nome,:auto_complete_for_departamento_nome,:fator_lotacao_fisico,:disciplinas_especificacao,:sumesp,:convalidar,:salvar_especificacao,:fator_lotacao,:verifica_lotacao,:regencia,:destino,:lotacao_especial,:tipo_destino,:tipo_especificacao,:fator_lotacao_fisico]
+before_filter :dados_essenciais,:except=>[:convalidar,:auto_complete_for_escola_nome,:auto_complete_for_departamento_nome]
 
 def index
   @lotacaos = Lotacao.all
@@ -105,7 +105,7 @@ def escolas_destino
   if params[:tipo_destino].size>0
     @orgao = Orgao.find(params[:orgao_id])
     @tipo = TipoDestino.find(params[:tipo_destino])
-    @escolas_lot_especial = @orgao.escolas.order(:nome_da_escola).collect{|e|[e.nome_da_escola,e.id]}
+    @escolas_lot_especial = @orgao.escolas.order(:nome).collect{|e|[e.nome,e.id]}
     @departamentos = @orgao.departamentos.order(:nome).collect{|e|[e.nome,e.id]}
     case @tipo.nome
     when 'Escola' then
@@ -146,10 +146,10 @@ def especificar_lotacao
 
 end
 
-def auto_complete_for_escola_nome_da_escola
+def auto_complete_for_escola_nome
   @escolas = Escola.find(:all,
-    :conditions => [ 'LOWER(nome_da_escola) iLIKE ?',
-      '%' + params[:escola][:nome_da_escola].downcase + '%' ])
+    :conditions => [ 'LOWER(nome) iLIKE ?',
+      '%' + params[:escola][:nome].downcase + '%' ])
   render :partial => "busca_escolas"
 
 end
@@ -537,7 +537,7 @@ end
 def funcionario
   @funcionario = Funcionario.find_by_slug(params[:funcionario_id])
   @pessoa = Pessoa.find_by_slug(params[:pessoa_id])
-  @escolas = Escola.all.collect{|p| [p.nome_da_escola,p.id]}
+  @escolas = Escola.all.collect{|p| [p.nome,p.id]}
 end
 
 

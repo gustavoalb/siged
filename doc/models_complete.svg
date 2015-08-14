@@ -846,7 +846,7 @@
 <text text-anchor="middle" x="2606" y="-4216.4" font-family="Times Roman,serif" font-size="14.00">Escola</text>
 <polyline fill="none" stroke="black" points="2517.5,-4207 2694.5,-4207 "/>
 <text text-anchor="start" x="2525.5" y="-4190.4" font-family="Times Roman,serif" font-size="14.00">codigo :string</text>
-<text text-anchor="start" x="2525.5" y="-4172.4" font-family="Times Roman,serif" font-size="14.00">nome_da_escola :string</text>
+<text text-anchor="start" x="2525.5" y="-4172.4" font-family="Times Roman,serif" font-size="14.00">nome :string</text>
 <text text-anchor="start" x="2525.5" y="-4154.4" font-family="Times Roman,serif" font-size="14.00">tipologia :string</text>
 <text text-anchor="start" x="2525.5" y="-4136.4" font-family="Times Roman,serif" font-size="14.00">rede :string</text>
 <text text-anchor="start" x="2525.5" y="-4118.4" font-family="Times Roman,serif" font-size="14.00">zona :string</text>

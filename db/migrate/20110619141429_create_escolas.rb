@@ -3,7 +3,7 @@ class CreateEscolas < ActiveRecord::Migration
   def self.up
     create_table :escolas do |t|
       t.string :codigo
-      t.string :nome_da_escola
+      t.string :nome
       t.string :tipologia
       t.string :rede
       t.string :zona

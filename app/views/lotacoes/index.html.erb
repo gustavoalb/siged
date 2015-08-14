@@ -62,7 +62,7 @@ if(jQuery(this).val().length > 230)
             <tr>
               <td><b><label>Destino</label></b></td>
               <td><div id="org">
-               <%= f.autocomplete_field :destino_nome, autocomplete_escola_nome_da_escola_escolas_path,:update_elements=>{:id=>'#lotacao_destino_id'}%>
+               <%= f.autocomplete_field :destino_nome, autocomplete_escola_nome_escolas_path,:update_elements=>{:id=>'#lotacao_destino_id'}%>
                <%= f.hidden_field :destino_id %>
                <%= f.hidden_field :destino_type,:value=>"Escola" %>
              </div></td>

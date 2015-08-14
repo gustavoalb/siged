@@ -33,10 +33,10 @@ class ComissionadosController < ApplicationController
     end
   end
 
-  def auto_complete_for_escola_nome_da_escola
+  def auto_complete_for_escola_nome
     @escolas = Escola.find(:all,
-      :conditions => [ 'LOWER(nome_da_escola) iLIKE ?',
-        '%' + params[:escola][:nome_da_escola].downcase + '%' ])
+      :conditions => [ 'LOWER(nome) iLIKE ?',
+        '%' + params[:escola][:nome].downcase + '%' ])
     render :partial => "busca_escolas"
 
   end
@@ -103,7 +103,7 @@ class ComissionadosController < ApplicationController
   #   @pessoa = @funcionario.pessoa
   #   @comissionado = @funcionario.comissionados.new(params[:comissionado])
   #   if !params[:comissionado][:tipo_destino_id].blank? and !params[:escola].nil?
-  #     @escola = Escola.find (:first,:conditions=>["nome_da_escola ilike ?",params[:escola][:nome_da_escola]])
+  #     @escola = Escola.find (:first,:conditions=>["nome ilike ?",params[:escola][:nome]])
   #     @comissionado.escola_id = @escola.id
   #   elsif !params[:comissionado][:tipo_destino_id].blank? and !params[:departamento].nil?
   #     @departamento = Departamento.find(:first,:conditions=>["nome ilike ?",params[:departamento][:nome]])
@@ -153,7 +153,7 @@ class ComissionadosController < ApplicationController
   def funcionario
     @funcionario = Funcionario.find(params[:funcionario_id])
     @pessoa = Pessoa.find(params[:pessoa_id])
-    @escolas = Escola.all.collect{|p| [p.nome_da_escola,p.id]}
+    @escolas = Escola.all.collect{|p| [p.nome,p.id]}
   end
 end
 

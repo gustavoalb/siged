@@ -38,7 +38,7 @@ end
 def setor
   user = User.usuario_atual
   if user.role?(:diretores) and !user.escola.nil?
-    html = "<li class='icn_descri'>#{link_to user.escola.nome_da_escola, escola_path(user.escola)}</li>"
+    html = "<li class='icn_descri'>#{link_to user.escola.nome, escola_path(user.escola)}</li>"
   elsif !user.role?(:diretores) and !user.orgao.nil? and can? :manage,Ponto
     html = "<li class='icn_descri'>#{link_to user.departamento.sigla, orgao_departamento_pontos_funcionarios_path(user.orgao,user.departamento)}</li>"
   else
@@ -52,7 +52,7 @@ end
 def orgao
   user = User.usuario_atual
   if user.role?(:diretores) and !user.escola.nil?
-    html = "<li class='icn_descri'>#{link_to user.escola.nome_da_escola, escola_path(user.escola)}</li>"
+    html = "<li class='icn_descri'>#{link_to user.escola.nome, escola_path(user.escola)}</li>"
   elsif !user.role?(:diretores) and !user.orgao.nil? and can? :manage,Ponto
     html = "<li class='icn_descri'>#{link_to user.orgao.sigla, orgao_path(user.orgao)}</li>"
   else
@@ -218,8 +218,8 @@ end
 
 def detalhes(obj=nil,sigla=false)
  if obj
-  if obj.respond_to? "nome_da_escola" and !obj.nome_da_escola.blank?
-    return obj.nome_da_escola.upcase
+  if obj.respond_to? "nome" and !obj.nome.blank?
+    return obj.nome.upcase
   elsif obj.respond_to? "sigla" and !obj.sigla.blank? and sigla==true
     return obj.sigla.upcase
   elsif obj.respond_to? "codigo" and !obj.codigo.blank? and sigla==true

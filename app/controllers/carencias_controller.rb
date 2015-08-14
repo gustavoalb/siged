@@ -8,10 +8,10 @@ class CarenciasController < ApplicationController
 
   
 
-  # def auto_complete_for_escola_nome_da_escola
+  # def auto_complete_for_escola_nome
   #   @escolas = Escola.find(:all,
-  #     :conditions => [ 'LOWER(nome_da_escola) iLIKE ?',
-  #       '%' + params[:escola][:nome_da_escola].downcase + '%' ])
+  #     :conditions => [ 'LOWER(nome) iLIKE ?',
+  #       '%' + params[:escola][:nome].downcase + '%' ])
   #   render :partial => "busca_escolas"
   # end
 

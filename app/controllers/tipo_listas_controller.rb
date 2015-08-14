@@ -224,17 +224,17 @@ def dest(lotacao,f)
    if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
     return "#{lotacao.departamento.sigla.upcase}/#{lotacao.orgao.sigla.upcase}"
   elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-    return "#{lotacao.escola.nome_da_escola.upcase}/#{lotacao.orgao.sigla.upcase}"
+    return "#{lotacao.escola.nome.upcase}/#{lotacao.orgao.sigla.upcase}"
   elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
     return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla.upcase}"
   elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-    return "#{lotacao.escola.nome_da_escola.upcase}/#{lotacao.orgao.sigla.upcase}"
+    return "#{lotacao.escola.nome.upcase}/#{lotacao.orgao.sigla.upcase}"
   elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
     return "#{lotacao.orgao.sigla.upcase}"
   elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
     return "#{lotacao.orgao.sigla.upcase}"
   else
-    return "#{lotacao.escola.nome_da_escola.upcase}"
+    return "#{lotacao.escola.nome.upcase}"
 
   end
 elsif !f.lotacao_recad.blank?

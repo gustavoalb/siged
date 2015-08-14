@@ -12,4 +12,3 @@ class HomeController < ApplicationController
 		@noticias = Mensagem.noticias.order(:created_at)
 	end
 end
-

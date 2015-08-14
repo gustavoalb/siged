@@ -15,7 +15,7 @@ Siged20::Application.routes.draw do
     get :ctrl_ch_resumido
     get :ctrl_ch_detalhado
     get :gerar_controle_ch
-    get :autocomplete_escola_nome_da_escola, :on => :collection
+    get :autocomplete_escola_nome, :on => :collection
     resources :ambientes do
       get :configurar_ambiente
       get :configurar_ambiente_fisico
@@ -190,7 +190,7 @@ namespace :folha do resources :eventos end
     get :gerir_carencias
     get :listar_carencias
     put :salvar_carencias
-    get :autocomplete_escola_nome_da_escola,:on=>:collection
+    get :autocomplete_escola_nome,:on=>:collection
     get :autocomplete_disciplina_nome,:on=>:collection
   end
  

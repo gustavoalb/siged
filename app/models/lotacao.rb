@@ -36,7 +36,15 @@ class Lotacao < ActiveRecord::Base
   scope :regular, where("tipo_lotacao = ?","REGULAR")
   scope :a_convalidar, where(:convalidada=>false)
   scope :da_escola,lambda{|esc|where("escola_id = ?",esc)}
+  scope :em_escolas_urbanas, where("destino_id in (?) and destino_type = 'Escola'",Escola.joins(:municipio).where("municipios.nome = 'Macapá' or municipios.nome = 'Santana' and zona = 'Urbana'"))
+  scope :interiorizacao_urbana,joins(:funcionario).where("funcionarios.interiorizacao = true and destino_type = 'Escola' and lotacaos.destino_id in (?)",Escola.joins(:municipio).where("municipios.nome = 'Macapá' or municipios.nome = 'Santana' and zona = 'Urbana'"))
+  scope :em_escolas_rurais, where("destino_id in (?) and destino_type = 'Escola'",Escola.joins(:municipio).where("municipios.nome = 'Macapá' or municipios.nome = 'Santana' and zona = 'Rural'"))
+  scope :em_prefeituras, where("destino_id in (?) and destino_type = 'Orgao'",Orgao.where("nome ilike 'Prefeitura%'"))
+  scope :em_orgaos, where("destino_type = 'Orgao'")
+  scope :em_setoriais, where("destino_type = 'Departamento'")
+  scope :com_interiorizacao,joins(:funcionario).where("funcionarios.interiorizacao = true")
   attr_accessor :destino_nome
+  #delegate :nome,:to=>:destino
   after_create :codigo
   after_create :lotacao_regular
   before_create :data
@@ -168,21 +176,21 @@ end
 #     if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
 #         return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
-#         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+#         return "#{lotacao.escola.nome}/#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
 #         return "#{lotacao.departamento.nome.upcase}/#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL"  and !lotacao.escola.nil? and lotacao.departamento.nil?
-#         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+#         return "#{lotacao.escola.nome}/#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.departamento.nil? and lotacao.escola.nil?
 #         return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="COMISSÃO" and !lotacao.escola.nil? and lotacao.departamento.nil?
-#         return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.sigla}"
+#         return "#{lotacao.escola.nome}/#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
 #         return "#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="SUMARIA ESPECIAL" and lotacao.escola.nil? and !lotacao.orgao.nil? and lotacao.departamento.nil?
 #         return "#{lotacao.orgao.sigla}"
 #     elsif lotacao.tipo_lotacao=="SUMARIA" or lotacao.tipo_lotacao=="REGULAR" or lotacao.tipo_lotacao=="PROLABORE"
-#         return "#{lotacao.escola.nome_da_escola}"
+#         return "#{lotacao.escola.nome}"
 #     elsif lotacao.escola.nil? and lotacao.orgao.nil? and lotacao.departamento.nil?
 #         return "LOTAÇÃO INVÁLIDA"
 #     end

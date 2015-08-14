@@ -851,7 +851,7 @@
 <text text-anchor="start" x="905" y="-1402.9" font-family="Times Roman,serif" font-size="14.00">_one_time_conditions_valid_302?</text>
 <text text-anchor="start" x="905" y="-1384.9" font-family="Times Roman,serif" font-size="14.00">apagar_especificacao</text>
 <text text-anchor="start" x="905" y="-1366.9" font-family="Times Roman,serif" font-size="14.00">auto_complete_for_departamento_nome</text>
-<text text-anchor="start" x="905" y="-1348.9" font-family="Times Roman,serif" font-size="14.00">auto_complete_for_escola_nome_da_escola</text>
+<text text-anchor="start" x="905" y="-1348.9" font-family="Times Roman,serif" font-size="14.00">auto_complete_for_escola_nome</text>
 <text text-anchor="start" x="905" y="-1330.9" font-family="Times Roman,serif" font-size="14.00">cancelar_lotacao</text>
 <text text-anchor="start" x="905" y="-1312.9" font-family="Times Roman,serif" font-size="14.00">complementar</text>
 <text text-anchor="start" x="905" y="-1294.9" font-family="Times Roman,serif" font-size="14.00">complementar_esp</text>
@@ -1103,7 +1103,7 @@
 <text text-anchor="start" x="1577" y="-924.9" font-family="Times Roman,serif" font-size="14.00">_callback_before_329</text>
 <text text-anchor="start" x="1577" y="-906.9" font-family="Times Roman,serif" font-size="14.00">_one_time_conditions_valid_330?</text>
 <text text-anchor="start" x="1577" y="-888.9" font-family="Times Roman,serif" font-size="14.00">auto_complete_for_departamento_nome</text>
-<text text-anchor="start" x="1577" y="-870.9" font-family="Times Roman,serif" font-size="14.00">auto_complete_for_escola_nome_da_escola</text>
+<text text-anchor="start" x="1577" y="-870.9" font-family="Times Roman,serif" font-size="14.00">auto_complete_for_escola_nome</text>
 <text text-anchor="start" x="1577" y="-852.9" font-family="Times Roman,serif" font-size="14.00">create</text>
 <text text-anchor="start" x="1577" y="-834.9" font-family="Times Roman,serif" font-size="14.00">destino</text>
 <text text-anchor="start" x="1577" y="-816.9" font-family="Times Roman,serif" font-size="14.00">destroy</text>
