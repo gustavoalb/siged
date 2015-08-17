@@ -62,7 +62,7 @@
 <aside id="sidebar" class="column" style="height: 100%;">
 	<%=image_tag("logoSiged.png",:alt => "Sistema de Gerenciamento Educacional", :class => "logo_siged")%>
 	<hr/>
-	<% if current_user.role?("lotacao")==false or current_user.role?("chefia_ucolom")==false%>
+	<% if current_user.role?("lotacao")==false%>
 	<h3>Principal</h3>
 
 	<ul class="toggle">
