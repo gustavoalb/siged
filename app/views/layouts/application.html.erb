@@ -62,7 +62,7 @@
 <aside id="sidebar" class="column" style="height: 100%;">
 	<%=image_tag("logoSiged.png",:alt => "Sistema de Gerenciamento Educacional", :class => "logo_siged")%>
 	<hr/>
-	<% if current_user.role?("lotacao")==false%>
+	<% if current_user.role?("lotacao")==false or current_user.role?("chefia_ucolom")==false%>
 	<h3>Principal</h3>
 
 	<ul class="toggle">
@@ -94,7 +94,7 @@
 	<ul class="toggle">
 		<li class="icn_new_article"><a href="/pessoas">Lotação e Movimentação</a></li>
 		<li class="nao_lotados"><a href="/pessoas/nao_lotados">Funcionários sem Lotação</a></li>
-		<li class="icn_matrizes"><a href="/ano_letivos">Controle de Carências</a></li>
+		<%if can? :read,Escola%><li class="icn_escola"><a href="/escolas">Escolas</a></li><%end%>
 		<!--<li class="icn_edit_article"><a href="#">Controle de Especificação</a></li>-->
 		<%end%>
 
