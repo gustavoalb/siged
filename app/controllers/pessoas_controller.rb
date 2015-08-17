@@ -22,6 +22,22 @@ class PessoasController < ApplicationController
   end
 end
 
+  def nao_lotados
+   @search = Pessoa.scoped_search(params[:search])
+   if params[:search] and params[:search][:busca].size>0 and !params[:search][:busca].include?('%')
+     @busca = params[:search][:busca]
+     @pessoas =  @search.order('nome ASC').paginate :page => params[:page], :per_page => 10
+   else
+     @pessoas = Pessoa.sem_lotacao.order(:nome).paginate :page => params[:page], :per_page => 10
+   end
+   respond_to do |format|
+    format.html # index.html.erb
+    format.js { render :partial => "pessoas" }
+    format.xml  { render :xml => @pessoas }
+  end
+end
+
+
 def distrito
   if params[:municipio].size>0
     @municipio = Municipio.find(params[:municipio])
@@ -219,9 +235,8 @@ end
 def destroy
   @pessoa = Pessoa.find(params[:id])
   @pessoa.destroy
-
   respond_to do |format|
-    format.html { redirect_to(pessoas_url) }
+    format.html { redirect_to(:back,:notice=>"Apagado com sucesso") }
     format.xml  { head :ok }
   end
 end

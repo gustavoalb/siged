@@ -80,6 +80,17 @@ if(jQuery(this).val().length > 230)
             <td><%=l(@funcionario)%></td>
           </tr>
 
+            <tr>
+            <td><b><label>Data da Lotação</label> </b></td>
+            <td>
+            <% if @funcionario.categoria and @funcionario.categoria.nome.include?("Contrato")%>
+            <%= f.text_field :data_lotacao,:class=>"date"%>
+            <% else %>
+            <%= f.text_field :data_lotacao,:class=>"date",:value=>Date.today,:readonly=>true%>
+            <% end %>
+            </td>
+          </tr>
+
           <%if @funcionario.cargo and @funcionario.cargo.tipo and @funcionario.cargo.tipo.nome=='Magistério/Docência' and current_user.role?(:chefia_nupes)%>
           <tr>
             <td><b><%= f.label "Disciplina de Atuação" %></b></td>

@@ -17,12 +17,14 @@ class Pessoa < ActiveRecord::Base
 
 	scope :que_esta_na_lista, joins(:listas).where("listas.tipo_lista_id=1")
 	has_many :funcionarios,:class_name=>"Funcionario",:dependent=>:destroy
+	has_many :lotacoes,:through=>:funcionarios
 	accepts_nested_attributes_for :funcionarios
 	belongs_to :entidade
 	scope :diretores,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='DIRETORIA' and comissionados.ativo=true)")}
 	scope :responsaveis,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='CHEFIA' and comissionados.ativo=true)")}
 	scope :secretarios,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='SECRETARIA' and comissionados.ativo=true)")}
 	scope :supervisores,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='SUPERVISAO' and comissionados.ativo=true)")}
+	scope :sem_lotacao, includes(:lotacoes).where(:lotacaos => { :funcionario_id => nil })
 
 	has_many :formacoes,:class_name=>"Formacao",:dependent=>:destroy
 	has_many :boletins,:class_name=>"BoletimPessoal",:dependent=>:destroy

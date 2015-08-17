@@ -196,6 +196,7 @@ namespace :folha do resources :eventos end
  
   resources :pessoas do
     get "gerar_relatorio"
+    get "nao_lotados",:on=>:collection
     resources :fotos,:only => [:index, :show, :novo, :create,:new] do
      post 'upload',:on=>:collection
    end

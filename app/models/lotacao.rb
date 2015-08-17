@@ -5,8 +5,10 @@ class Lotacao < ActiveRecord::Base
   set_table_name :lotacaos
   #escola_id sempre nil em lotacao especial
   validates_uniqueness_of :orgao_id,:scope=>[:funcionario_id,:ativo],:message=>"Funcionário precisa ser devolvido para ser lotado novamente.",:on=>:create
-  validates_presence_of :usuario_id,:funcionario_id,:destino_id
+  validates_presence_of :usuario_id,:funcionario_id
+  validates_presence_of :destino_id,:message=>"É necessário que o destino seja válido"
   validates :motivo, :length => {:maximum => 230, :message => "Observaçao/Motivo até 230 caracteres" }
+  validates_date :data_lotacao,:message=>"Data da Lotação Inválida"
   belongs_to :funcionario,:class_name=>'Funcionario'
   belongs_to :orgao
   belongs_to :entidade
@@ -47,7 +49,7 @@ class Lotacao < ActiveRecord::Base
   #delegate :nome,:to=>:destino
   after_create :codigo
   after_create :lotacao_regular
-  before_create :data
+  #before_create :data
   # validate_on_create do |lotacao|
   #   if self.tipo_lotacao=="ESPECIAL" or self.tipo_lotacao=="SUMARIA ESPECIAL" and self.motivo.blank?
   #     lotacao.errors.add_to_base("Lotações tendo um departamento como destino necessitam de um motivo.")
