@@ -16,7 +16,7 @@ def index
   if params[:search]
     @busca = params[:search][:busca]
   end
-  @escolas = @search.includes(:entidade).order('entidades.nome',:nome).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+  @escolas = @search.includes(:entidade).order('entidades.nome',"escolas.nome").paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
   respond_to do |format|
     format.html # index.html.erb
     format.xml  { render :xml => @escolas }
