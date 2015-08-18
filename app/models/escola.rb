@@ -36,9 +36,9 @@ class Escola < ActiveRecord::Base
 end
   #scoped_search
   
-  scope :busca, lambda { |q| where("codigo ilike ? or nome ilike ?" ,"%#{q}%","%#{q}%") }
-  scope :municipal, where("rede ilike ?","municipal")
-  scope :estadual, where("rede ilike ?","estadual")
+  scope :busca, lambda { |q| where("escolas.codigo ilike ? or escolas.nome ilike ?" ,"%#{q}%","%#{q}%") }
+  scope :municipal, where("escolas.rede ilike ?","municipal")
+  scope :estadual, where("escolas.rede ilike ?","estadual")
   ZONA=[["Urbana","Urbana"],["Rural","Rural"]]
 
 
