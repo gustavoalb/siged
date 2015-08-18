@@ -52,6 +52,16 @@ elsif user.role? :ucada
 end
 can :qualificar_funcionario, Pessoa
 
+elsif user.role? :ucada_alt
+ can :manage,Funcionario
+ can :manage,Pessoa
+ cannot :destroy,TipoLista,:privada=>false
+ can :manage,TipoLista
+ cannot [:update,:destroy],TipoLista,TipoLista.privadas do |l|
+  l.privada==true and (l.role_ids & user.role_ids).none?
+end
+can :qualificar_funcionario, Pessoa
+
 elsif user.role? :diretores
  can :manage,Lotacao,:escola_id=>user.escola_id
  cannot :create,Lotacao

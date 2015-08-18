@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150813202048) do
+ActiveRecord::Schema.define(:version => 20150818172753) do
 
   create_table "administracao_logs", :force => true do |t|
     t.text     "log"
@@ -925,6 +925,7 @@ ActiveRecord::Schema.define(:version => 20150813202048) do
     t.boolean  "verificado",      :default => false
     t.boolean  "valido",          :default => false
     t.integer  "comissionado_id"
+    t.string   "arquivo"
   end
 
   create_table "processos", :force => true do |t|
