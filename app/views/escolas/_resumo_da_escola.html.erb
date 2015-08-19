@@ -1,0 +1,35 @@
+<table class="tablesorter" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Cargo</th>
+      <th>Efetivos</th>
+      <th title="Ex-Território e MEC">Federal<sup>(?)</sup></th>
+      <th>Contratos</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @cargos_principais.each do |cargo| %>    <%# @funcionarios.each do |f| %>
+    <tr>
+     <td><%= cargo.nome %></td>
+     <td><%= cargo.funcionarios.efetivos.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+     <td><%= cargo.funcionarios.federais.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+     <td><%= cargo.funcionarios.contratos.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+     <td><%= cargo.funcionarios.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+   </tr>
+   <% end %>
+   <tr>
+     <td>OUTROS</td>
+     <td><%= @funcionarios_outros.efetivos.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+     <td><%= @funcionarios_outros.federais.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+     <td><%= @funcionarios_outros.contratos.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+     <td><%= @funcionarios_outros.joins(:lotacoes).where("lotacaos.destino_id = #{@escola.id} and lotacaos.destino_type = 'Escola'").count %></td>
+   </tr>
+  </tbody>
+  
+</table>
+
+
+<%# funcionarios.each do |funcionario| %>
+
+

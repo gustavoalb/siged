@@ -7,6 +7,7 @@
     <div id="tabs1" class="tabset">
       <% if can? :manage,Escola,:id=>current_user.escola_id%>
       <ul class="tabset_tabs">
+        <li><a href="#resumo">Resumo</a></li>
         <li><a href="#tab-um">Detalhes</a></li>
         <li><a href="#tab-dois">Quadro funcional</a></li>
         <li><a href="#tab-tres">Turmas</a></li>
@@ -15,6 +16,9 @@
       </ul>
       <%end%>
       <div class="tabset_content_container">
+        <div id="resumo" class="tabset_content">
+          <%= render :partial=>"resumo_da_escola" %>
+        </div>
         <div id="tab-one" class="tabset_content">
           <p>
             <b>Código:</b>
@@ -49,7 +53,6 @@
             <b>Tipologia:</b>
             <%= @escola.tipologia %>
           </p>
-
 
           <p>
             <b>Rede:</b>
