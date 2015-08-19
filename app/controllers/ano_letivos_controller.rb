@@ -4,7 +4,7 @@ class AnoLetivosController < ApplicationController
 	# GET /ano_letivos
 	# GET /ano_letivos.xml
 	#before_filter :verificar_ano,:except=>[:new,:create,:update,:edit,:destroy]
-	autocomplete :escola, :nome_da_escola, :full => true
+	autocomplete :escola, :nome, :full => true
 	autocomplete :disciplina, :nome, :full => true 
 	def index
 		@ano_letivos = AnoLetivo.order.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10

@@ -1,0 +1,119 @@
+<script type="text/javascript">
+	document.observe('dom:loaded', function() {
+		new UnobtrusiveLinker();
+	});
+</script>
+<%content_for :links do%>
+<a class="current">Pessoas</a>
+<%end%>
+<article class="module width_full">
+	<header><h3 class="tabs_involved">Listando pessoas</h3>
+		<ul class="tabs">
+			<%= form_for @search do |f| %>
+			<li><%= f.text_field :busca,:size=>12 %></li>
+			<li><%= image_submit_tag "icn_busca.png" %></li>
+			<% end %>
+		</ul>
+	</header>
+	<div id="pagination_container">
+		<div id="pessoas" class="verticalaccordion">
+
+			<p>
+				<ul>
+					<% if @pessoas.size>0 -%>	
+					<% @pessoas.each do |pessoa| %>
+					<li>
+						<header>
+							<table>
+								<tr align=center>
+									<td WIDTH="500" HEIGHT="4"><h4><%=link_to raw("#{highlight(pessoa.nome.upcase, @busca)}"),pessoa %></h4></td>
+
+									<%if can? :edit,Pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_path(pessoa) %></td><%end%>
+									<%if can? :destroy,Pessoa%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td><%end%>
+									<td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_view_users.png",:title=>"Listar Funcionários da Pessoa"), pessoa_funcionarios_path(pessoa)%></td>
+									<td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Pessoa à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+								</tr>
+							</table>
+						</header>
+
+						<div>
+							<%if pessoa.funcionarios.size>0 -%>
+							<% pessoa.funcionarios.each do |funcionario|%>
+							<article class="module width_full">
+								<table class="tablesorter" cellspacing="0" border="0">
+									<tr>
+
+										<td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/index-cards.png",:title=>"Adicionar Funcionário à uma Lista"),pessoa_adicionar_a_lista_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+										<%if can? :update,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/icn_edit2.png",:title=>"Edição Rápida"),pessoa_edicao_rapida_path(pessoa,:funcionario_id=>funcionario.id),:pessoa_id=>pessoa.id,:rel=>"facebox",:rev=>"height:600px;width:800px"%></td><%end -%>
+										<%if can? :manage,Formacao -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_formacao.png',:title=>"Formações"), pessoa_formacoes_path(pessoa) %></td><%end -%>
+										<%if can? :qualificar_funcionario,Pessoa -%><td WIDTH="100" HEIGHT="4"><%= link_to  image_tag("/images/badge.png",:title=>"Qualificar Funcionário"),pessoa_qualificar_funcionario_path(pessoa),:rel=>"facebox",:rev=>"height:300px;width:300px"%></td><%end -%>
+										<%if can? :manage,Lotacao -%>
+										<td WIDTH="100" HEIGHT="4"><%= link_to  image_tag('/images/icn_categories.png',:title=>"Lotação Funcional"),  pessoa_funcionario_lotacoes_path(pessoa,funcionario)%></td>
+										<%funcionario.lotacoes.em_aberto.each do |lotacao_aberta|%>
+										<td><%= link_to  image_tag('/images/positivo.png',:title=>"Confirmação de Lotação"), pessoa_funcionario_lotacao_confirmar_lotacao_path(pessoa,funcionario,lotacao_aberta.id),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+										<% end -%>
+										<% end -%>
+
+									</tr>
+									<tr>
+										<th>Data de Nascimento:</th>
+										<td><%= pessoa.nascimento.to_s_br %></td>
+
+										<th>Telefone:</th>
+										<td><%= detalhes(pessoa.telefone_residencial) %></td>
+
+										<th>Celular:</th>
+										<td><%= detalhes(pessoa.telefone_celular) %></td>
+									</tr>
+									<tr>
+										<th>Matrícula:</th>
+										<td><%=raw("#{highlight(funcionario.matricula, @busca)}")%></td>
+
+										<th>CPF:</th>
+										<td><%= Cpf.new(pessoa.cpf) %></td>
+
+										<th>Cargo:</th>
+										<td><%= cargo_disciplina(funcionario)%>
+										</tr>
+										<tr>
+											<th>Nível:</th>
+											<td><%= cod(funcionario.nivel) %></td>
+
+											<th>Quadro:</th>
+											<td><%=detalhes(funcionario.entidade)%></td>
+
+											<th>Categoria Funcional:</th>
+											<td><%=detalhes(funcionario.categoria)%></td>
+										</tr>
+									</table>
+								</article>
+								<p class=tabela>Localização atual:  <%=l(funcionario)%></p>
+								<p class=tabela>Localização anterior:  <%=l_ant(funcionario)%></p>
+
+								<%end%>
+								<%end%>
+								<%end%>
+								<%else%>
+								<h2 class=tabela>Busca de pessoas</h2>
+								<%end%>
+							</div>
+						</div>
+						<footer>
+							<div class="submit_link">
+								<%if can? :create,Pessoa%><%= link_to 'Cadastrar Pessoa', new_pessoa_path,:class=>"alt_btn",:type=>"submit"%> ou <%end%>
+								<%= link_to 'Voltar', :back,:type=>"submit" %>
+							</div>
+							<div class="submit_link">
+								<%= will_paginate @pessoas, :loading=>:highlight%>
+							</div>
+						</footer>
+					</div>
+				</article>
+				<!--<article class='module width_quarter'>
+					<p class='overview_day'>Quadro de Avisos</p>
+					<marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
+						<% @noticias.all.each do |n| %>
+						<p style='background: #CCCCCC;'><%="#{n.created_at.to_date.to_s_br} - #{n.texto}"%></p><br/>
+						<% end %>
+					</marquee>
+				</article>-->

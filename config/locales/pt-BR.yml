@@ -233,6 +233,7 @@
 
       messages:
         taken: "já está em uso"
+        invalid_date: "Data inválida"
         record_invalid: "A validação falhou: %{errors}"
         carrierwave_processing_error: 'Cannot resize image.'
         carrierwave_integrity_error: 'Not an image.'

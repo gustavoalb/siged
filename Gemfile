@@ -25,7 +25,7 @@ gem 'barby'
 #gem 'rmagick', '2.13.3'
 gem 'railroady'
 #gem 'axlsx'
-gem 'silent-postgres'
+#gem 'silent-postgres'
 #gem 'simple_form'
 gem 'serenity-odt','0.2.0'
 #gem 'state_machine'
@@ -43,6 +43,7 @@ gem "cocoon"
 gem 'rails3-jquery-autocomplete'
 gem 'puma', '2.7.1'
 gem 'thin'
+gem 'validates_timeliness'
 
 
 # Deploy with Capistrano

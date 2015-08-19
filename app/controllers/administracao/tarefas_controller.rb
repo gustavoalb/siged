@@ -59,8 +59,8 @@ class Administracao::TarefasController < ApplicationController
       relac = r.camelize
         if Kernel.const_get(relac).last.respond_to?('nome')
           @objetos = Kernel.const_get(relac).all.collect{|a|[a.nome,a.id]}
-        elsif Kernel.const_get(relac).last.respond_to?('nome_da_escola')
-          @objetos = Kernel.const_get(relac).all.collect{|a|[a.nome_da_escola,a.id]}
+        elsif Kernel.const_get(relac).last.respond_to?('nome')
+          @objetos = Kernel.const_get(relac).all.collect{|a|[a.nome,a.id]}
         elsif Kernel.const_get(relac).last.respond_to?('codigo')
           @objetos = Kernel.const_get(relac).all.collect{|a|[a.codigo,a.id]}
         else

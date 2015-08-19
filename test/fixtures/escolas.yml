@@ -2,7 +2,7 @@
 
 one:
   codigo: MyString
-  nome_da_escola: MyString
+  nome: MyString
   tipologia: MyString
   municipio: MyString
   rede: MyString
@@ -18,7 +18,7 @@ one:
 
 two:
   codigo: MyString
-  nome_da_escola: MyString
+  nome: MyString
   tipologia: MyString
   municipio: MyString
   rede: MyString

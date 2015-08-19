@@ -57,33 +57,25 @@ end
 
 private
 
-def img_codigo
-  codigo=self.codigo_b
-  if codigo.size.even?
-   codigo2 = codigo
- else
-   codigo2='0'+''+codigo
- end
- p1 = Rails.root.join("public/pontos")
- p2 = Rails.root.join("public/pontos")
- f =  Rails.root.join("public/pontos/codigos/#{codigo2}.png","w")
- if !File.exist?(p1)
-  Dir.mkdir(p1)
-end
-if !File.exist?(p2)
-  Dir.mkdir(p2)
-end
-if !f.exist?
- barcode=Barby::Code25Interleaved.new(codigo2)
- File.open("public/pontos/codigos/#{codigo2}.png","w"){|f|
-  f.write barcode.to_png}
-end
+def codigo
+  funcionario = self.funcionario
+  codfuncionario = sprintf '%07d',funcionario.id
+  codlotacao = sprintf '%07d',self.id
+  codigo = codfuncionario+codlotacao
+  self.codigo_barra = codigo
+  self.save
+  return codigo
 end
 
+def img_codigo
+  codigo = self.codigo
+  img = Barby::Code39.new(codigo).to_png(:height=>90,:margin=>0)
+  return img
+end
 
 def apagar_pdf
   if !self.lotacao.escola.nil?
-    destino = self.lotacao.escola.nome_da_escola.parameterize
+    destino = self.lotacao.escola.nome.parameterize
   elsif !self.lotacao.departamento.nil?
     destino = self.lotacao.departamento.sigla.downcase
   end

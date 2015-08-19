@@ -21,7 +21,7 @@
         <%=f.fields_for :carencias,@carencias,:wrapper => false do |c|%>
         <fieldset style="width:24%; float:left; margin-right: 1%;">
           <%= c.label :escola %><br />
-          <%= c.autocomplete_field :escola, autocomplete_escola_nome_da_escola_anos_letivos_path,:style=>"width:88%;"%>
+          <%= c.autocomplete_field :escola, autocomplete_escola_nome_anos_letivos_path,:style=>"width:88%;"%>
 
         </fieldset>
 

@@ -52,6 +52,16 @@ elsif user.role? :ucada
 end
 can :qualificar_funcionario, Pessoa
 
+elsif user.role? :ucada_alt
+ can :manage,Funcionario
+ can :manage,Pessoa
+ cannot :destroy,TipoLista,:privada=>false
+ can :manage,TipoLista
+ cannot [:update,:destroy],TipoLista,TipoLista.privadas do |l|
+  l.privada==true and (l.role_ids & user.role_ids).none?
+end
+can :qualificar_funcionario, Pessoa
+
 elsif user.role? :diretores
  can :manage,Lotacao,:escola_id=>user.escola_id
  cannot :create,Lotacao
@@ -188,7 +198,7 @@ elsif user.role? :lotacao
  cannot :create, AnoLetivo
  can :gerir_carencias, Carencia
  can :autocomplete_departamento_nome,Departamento
- can :autocomplete_escola_nome_da_escola,Escola
+ can :autocomplete_escola_nome,Escola
 
 
 elsif user.role? :chefia_ucolom

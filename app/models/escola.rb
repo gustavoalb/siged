@@ -43,6 +43,7 @@ class Escola < ActiveRecord::Base
   scope :contratos, joins(:funcionarios).where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Contrato Administrativo")])
   scope :em_comissao, joins(:funcionarios).where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Sem Vínculo"), Categoria.find_by_nome("Ex-Território Federal do Amapá - Comissionado"), Categoria.find_by_nome("Ministério da Educação - Comissionado")])
   scope :estadual, where("rede ilike ?","estadual")
+
   ZONA=[["Urbana","Urbana"],["Rural","Rural"]]
 
 

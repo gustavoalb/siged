@@ -12,6 +12,8 @@ class Funcionario < ActiveRecord::Base
   scope :da_pessoa, lambda {|id|where("pessoa_id = ?",id) }
   scope :diretores, lambda { |q| where("diretor = ?" , true) }
   scope :disciplina_def, where("disciplina_contratacao_id is not ?",nil)
+  scope :sem_categoria, where("categoria_id is ?",nil)
+  scope :sem_lotacao, includes(:lotacoes).where(:lotacaos => { :funcionario_id => nil })
   scope :da_escola,lambda {|id|joins(:lotacoes).where("lotacaos.escola_id = ?",id) }
 
   scope :efetivos, where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Ex-Ipesap"), Categoria.find_by_nome("Estado Antigo"), Categoria.find_by_nome("Estado Novo")])

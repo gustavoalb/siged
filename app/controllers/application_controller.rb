@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     @sitjuridicas = SituacoesJuridica.order(:sigla).collect{|s|[s.nome,s.id]}
     @niveis = ReferenciaNivel.order(:codigo).collect{|n|["#{n.nome} - #{n.codigo} - #{n.jornada}H",n.id]}
     @esferas = Esfera.order(:nome).collect{|n|[n.nome,n.id]}
-    @escolas = Escola.order(:nome_da_escola).collect{|p| [p.nome_da_escola,p.id]}
+    @escolas = Escola.order(:nome).collect{|p| [p.nome,p.id]}
     @poderes = Poder.order(:nome).collect{|p|[p.nome,p.id]}
     @disciplinas = DisciplinaContratacao.order(:nome).collect{|p|[p.nome,p.id]}
     @quadros = Quadro.order(:nome).collect{|p|[p.nome,p.id]}

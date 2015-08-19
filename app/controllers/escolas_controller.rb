@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
 class EscolasController < ApplicationController
   load_and_authorize_resource
-  def autocomplete_escola_nome_da_escola
+  def autocomplete_escola_nome
     term = params[:term]
-    escolas = Escola.where('nome_da_escola ilike ? or codigo ilike ?', "%#{term}%","%#{term}%").order(:nome_da_escola).all
-    render :json => escolas.map { |escola| {:id => escola.id, :label => "#{escola.nome_da_escola} - #{escola.municipio_nome}", :value => escola.nome_da_escola, :tipo=>"Escola"} }
+    escolas = Escola.where('nome ilike ? or codigo ilike ?', "%#{term}%","%#{term}%").order(:nome).all
+    render :json => escolas.map { |escola| {:id => escola.id, :label => "#{escola.nome} - #{escola.municipio_nome}", :value => escola.nome, :tipo=>"Escola"} }
   end
   caches_page :ctrl_ch_resumido
   cache_sweeper :escola_sweeper
@@ -16,7 +16,7 @@ class EscolasController < ApplicationController
     if params[:search]
       @busca = params[:search][:busca]
     end
-    @escolas = @search.includes(:entidade).order('entidades.nome',:nome_da_escola).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    @escolas = @search.includes(:entidade).order('entidades.nome',"escolas.nome").paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @escolas }
@@ -55,9 +55,9 @@ class EscolasController < ApplicationController
     @user = User.usuario_atual
     @disciplinas = []
     if !@user.escola.nil? and @user.escola==@escola and @user.departamento.nil?
-      destino = "#{@escola.nome_da_escola.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
+      destino = "#{@escola.nome.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
     elsif !@user.departamento.nil? and @user.escola.nil?
-      destino = "#{@escola.nome_da_escola.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
+      destino = "#{@escola.nome.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
     end
     @matrizes.each do |m|
       m.disciplinas.order(:nome).each do |d|
@@ -86,11 +86,11 @@ class EscolasController < ApplicationController
     @user = User.usuario_atual
     @data = Time.now.strftime("%d/%m/%Y %T")
     if !@user.escola.nil? and @user.escola==@escola and @user.departamento.nil?
-      @destino = "#{@escola.nome_da_escola.upcase}"
+      @destino = "#{@escola.nome.upcase}"
       @titulo = "CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
     else
       @destino = "#{@user.departamento.nome.upcase}"
-      @titulo = "CONTROLE DE CARGA HORÁRIA DA #{@escola.nome_da_escola.upcase} – RESUMO GERAL"
+      @titulo = "CONTROLE DE CARGA HORÁRIA DA #{@escola.nome.upcase} – RESUMO GERAL"
     end
     @disciplinas = @escola.disciplinas
     @desocupados = @escola.funcionarios.includes(:especificacoes).where("especificar_lotacaos.id is null")
@@ -124,9 +124,9 @@ class EscolasController < ApplicationController
     @user = User.usuario_atual
     @disciplinas = []
     if !@user.escola.nil? and @user.escola==@escola and @user.departamento.nil?
-      destino = "#{@escola.nome_da_escola.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
+      destino = "#{@escola.nome.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
     elsif !@user.departamento.nil? and @user.escola.nil?
-      destino = "#{@escola.nome_da_escola.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
+      destino = "#{@escola.nome.upcase} \n\n CONTROLE DE CARGA HORÁRIA – RESUMO GERAL"
     end
     @matrizes.each do |m|
       m.disciplinas.order(:nome).each do |d|
@@ -138,6 +138,7 @@ class EscolasController < ApplicationController
       page.replace_html "tab-five",:partial=>'controle_ch_resumido'
     end
   end
+
 
   def incluir_turma
     @escola = Escola.find params[:escola_id]

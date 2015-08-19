@@ -98,9 +98,9 @@ def dest(lotacao)
     if lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.nil?
       return "#{lotacao.orgao.nome}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and lotacao.escola.size>0
-      return "#{lotacao.escola.nome_da_escola}/#{lotacao.orgao.nome}"
+      return "#{lotacao.escola.nome}/#{lotacao.orgao.nome}"
     else
-      return "#{lotacao.escola.nome_da_escola}"
+      return "#{lotacao.escola.nome}"
 
     end
   else

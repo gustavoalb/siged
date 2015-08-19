@@ -45,7 +45,7 @@
 		<tr>
 			<td colspan=3 align=justify><br/><br/>
 <br/>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do <b><%=detalhes(@funcionario.quadro)%></b>, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes(@funcionario.nivel)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) na <b><%=detalhes(@lotacao.escola.orgao).upcase%></b>, exercendo sua atividade funcional no(a) <b><%=detalhes_str(@lotacao.escola.nome_da_escola)%></b>, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.<br/>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><%=@pessoa.nome%></b>, pertencente ao Quadro de Pessoal civil do <b><%=detalhes(@funcionario.quadro)%></b>, admitido (a) em <b><%=@funcionario.data_nomeacao.to_s_br%></b>, ocupante do cargo de <b><%=detalhes(@funcionario.cargo)%></b>, referência <b><%=detalhes(@funcionario.nivel)%></b>, matrícula <b><%=@funcionario.matricula%></b>, lotado (a) na <b><%=detalhes(@lotacao.escola.orgao).upcase%></b>, exercendo sua atividade funcional no(a) <b><%=detalhes_str(@lotacao.escola.nome)%></b>, com jornada semanal de <b><%=detalhes_str(@funcionario.sjuridica.jornada)%> horas</b>.<br/>
 <b><%=if @funcionario.municipio then ("Município de Opção: #{@funcionario.municipio.nome}") end%></b><br/>
 <b><%=if @funcionario.descricao_cargo then ("Disciplina: #{@funcionario.descricao_cargo.nome}.") end%></p></b>
 <br/><br/><br/><br/><center>Cordialmente,</center><br/><br/><br/><br/>
