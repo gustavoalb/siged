@@ -16,6 +16,12 @@ class Funcionario < ActiveRecord::Base
   scope :sem_lotacao, includes(:lotacoes).where(:lotacaos => { :funcionario_id => nil })
   scope :da_escola,lambda {|id|joins(:lotacoes).where("lotacaos.escola_id = ?",id) }
 
+  scope :efetivos, where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Ex-Ipesap"), Categoria.find_by_nome("Estado Antigo"), Categoria.find_by_nome("Estado Novo")])
+  scope :federais, where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Ex-Território do Amapá"), Categoria.find_by_nome("Ex-Território Federal do Amapá - Comissionado"), Categoria.find_by_nome("Ministério da Educação"), Categoria.find_by_nome("Ministério da Educação - Comissionado")])
+  scope :contratos, where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Contrato Administrativo")])
+  scope :em_comissao, where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Sem Vínculo"), Categoria.find_by_nome("Ex-Território Federal do Amapá - Comissionado"), Categoria.find_by_nome("Ministério da Educação - Comissionado")])
+
+
   #has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>:colapso_grupo
   belongs_to :pessoa,:class_name=>'Pessoa'
   belongs_to :quadro
@@ -173,175 +179,174 @@ class Funcionario < ActiveRecord::Base
   ]
 
   def regencia_semanal_nominal
-   carga = self.nivel.jornada.to_i if self.nivel
-   case carga
-   when 20 then rsn=12
-   when 40 then rsn=24
-  when nil then rsn=24
-   end
-   return rsn
- end
-
- def disciplina_nome
-  if !self.disciplina_contratacao.nil? and !self.nivel.nil? and self.cargo.nome=="Professor"
-    return "PROFESSOR DE #{self.disciplina_contratacao.nome.upcase},#{self.nivel.nome.upcase}"
-  elsif self.disciplina_contratacao.nil? and !self.nivel.nil? and self.cargo.nome=="Professor"
-    return "PROFESSOR,#{self.nivel.nome.upcase}"
-  else
-    return "#{cargo.nome.upcase},#{self.nivel.nome.upcase}"
-  end
-end
-
-
-def regencia_semanal_disponivel
- horas = 0
- self.especificacoes.all.each do |e|
-  if e.turma.nil? and !e.ambiente.nil?
-    horas+=self.rsn 
-  elsif !e.turma.nil?
-    horas+=e.hora_semanal
-  end
-end
-return self.rsn-horas
-end
-
-def turmas(escola,nivel=nil)
-  turmas = []
-  ambiente = escola.ambientes.find_by_nome("Sala de Aula")
-  if escola and nivel.nil?
-    self.especificacoes.da_escola(escola).do_ambiente(ambiente).each do |e|
-      turmas << e.turma
+    carga = self.nivel.jornada.to_i if self.nivel
+    case carga
+    when 20 then rsn=12
+    when 40 then rsn=24
+    when nil then rsn=24
     end
-  elsif escola and !nivel.nil?
-    self.especificacoes.da_escola(escola).do_ambiente(ambiente).each do |e|
-      if e.turma.serie.nivel==nivel
+    return rsn
+  end
+
+  def disciplina_nome
+    if !self.disciplina_contratacao.nil? and !self.nivel.nil? and self.cargo.nome=="PROFESSOR"
+      return "PROFESSOR DE #{self.disciplina_contratacao.nome.upcase},#{self.nivel.nome.upcase}"
+    elsif self.disciplina_contratacao.nil? and !self.nivel.nil? and self.cargo.nome=="PROFESSOR"
+      return "PROFESSOR,#{self.nivel.nome.upcase}"
+    else
+      return "#{cargo.nome.upcase},#{self.nivel.nome.upcase}"
+    end
+  end
+
+
+  def regencia_semanal_disponivel
+    horas = 0
+    self.especificacoes.all.each do |e|
+      if e.turma.nil? and !e.ambiente.nil?
+        horas+=self.rsn
+      elsif !e.turma.nil?
+        horas+=e.hora_semanal
+      end
+    end
+    return self.rsn-horas
+  end
+
+  def turmas(escola,nivel=nil)
+    turmas = []
+    ambiente = escola.ambientes.find_by_nome("Sala de Aula")
+    if escola and nivel.nil?
+      self.especificacoes.da_escola(escola).do_ambiente(ambiente).each do |e|
         turmas << e.turma
       end
-    end
-  end
-  return turmas.collect{|t|[t.nome]}.to_sentence
-end
-
-def regencia_especificada(tipo=1)
-  horas=0
-  if tipo==1
-    self.especificacoes.find(:all,:joins=>:ambiente,:conditions=>["ambientes.nome = ?","Sala de Aula"]).each do |e|
-      horas+=e.hora_semanal
-    end      
-  elsif tipo==2
-    self.especificacoes.find(:all,:joins=>:ambiente,:conditions=>["ambientes.nome <> ?","Sala de Aula"]).each do |e|
-      horas+=e.hora_semanal
-    end
-  end
-  return horas
-end
-
-
-def especificar_lotacao(escola = nil,turma = nil,disciplina = nil,curriculo = nil,lotacao = nil,tipo = nil,ambiente = nil)
- l = self.especificacoes.new
- l.escola_id=escola.id
- l.lotacao_id=lotacao.id
- if tipo=="Sala de Aula"
-   fator = disciplina.fator(turma)
-   l.turma_id=turma.id
-   l.disciplina_id=disciplina.id
-  #  if fator <= self.rsd
-  #   l.hora_semanal = fator
-  # elsif fator == self.rsd
-  #   l.hora_semanal = self.rsd
-  # end
-  l.hora_semanal = fator
-  if l.save
-   disciplina.gerar_fator(turma,l.hora_semanal,turma.serie,curriculo,l)
-   return true
- else
-  return false
-end
-elsif tipo=="Sala Ambiente"
-  l.ambiente_id = ambiente.id
-  if l.save!
-    return true
-  else
-   return false
- end
-end
-end
-
-
-def status_lotacao
-  if !self.lotacoes.none?
-    if !self.lotacoes.atual.none?
-      if self.lotacoes.atual.last.status.last.status=="ENCAMINHADO"
-        return "EM TRÂNSITO"
-      elsif self.lotacoes.atual.last.status.last.status=="À DISPOSIÇÃO DO NUPES"
-        return "À DISPOSIÇÃO DO NUPES"
-      elsif self.lotacoes.atual.last.status.last.status=="CANCELADO"
-        return "À DISPOSIÇÃO DO NUPES"
-      elsif self.lotacoes.atual.last.status.last.status=="LOTADO"
-        return "LOTADO"
-      end
-    else
-      return "À DISPOSIÇÃO DO NUPES"
-    end
-  end
-else
-  return "NÃO LOTADO"
-end
-
-def ids_disciplinas
-  disciplinas=[]
-  if !self.disciplina_contratacao.nil?
-    disc = self.disciplina_contratacao.disciplinas
-    disc.each do |d|
-      disciplinas.push d.id
-    end
-    return disciplinas
-  end
-end
-
-private
-def criar_comissionado
-  processo = self.funcoes_comissionadas.new
-  processo.tipo = "COMISSÃO"
-  if self.cargo_em_comissao.to_s=="true"
-    if self.tipo_comissao=="DIRETORIA"
-      processo.natureza="COMISSÃO/DIRETORIA"
-      if self.tipo_comissao=="DIRETORIA ADJUNTA"
-        processo.natureza="COMISSÃO/DIRETORIA"
-      elsif self.tipo_comissao=="SECRETARIA"
-        processo.natureza="COMISSÃO/SECRETARIA"
-      elsif self.tipo_comissao=="CHEFIA"
-        processo.natureza="COMISSÃO/CHEFIA"
-        self.comissao_ativa=true
-        self.save!
-      end
-      processo.funcionario_id=self.id
-      processo.ano_processo=self.data_decreto_nomeacao.year
-      processo.encaminhado_em=self.data_decreto_nomeacao
-      processo.data_decreto_nomeacao=self.data_decreto_nomeacao
-      processo.decreto_nomeacao=self.decreto_nomeacao
-      if processo.save!
-        num=processo.id
-        cod=Num.new
-        if self.tipo_comissao=="DIRETORIA"
-          processo.processo="CD#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
-        elsif self.tipo_comissao=="SECRETARIA"
-          processo.processo="CS#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
-        elsif self.tipo_comissao=="CHEFIA"
-          processo.processo="CC#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
-        elsif self.tipo_comissao=="DIRETORIA ADJUNTA"
-          processo.processo="CA#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
+    elsif escola and !nivel.nil?
+      self.especificacoes.da_escola(escola).do_ambiente(ambiente).each do |e|
+        if e.turma.serie.nivel==nivel
+          turmas << e.turma
         end
-        processo.save!
+      end
+    end
+    return turmas.collect{|t|[t.nome]}.to_sentence
+  end
+
+  def regencia_especificada(tipo=1)
+    horas=0
+    if tipo==1
+      self.especificacoes.find(:all,:joins=>:ambiente,:conditions=>["ambientes.nome = ?","Sala de Aula"]).each do |e|
+        horas+=e.hora_semanal
+      end
+    elsif tipo==2
+      self.especificacoes.find(:all,:joins=>:ambiente,:conditions=>["ambientes.nome <> ?","Sala de Aula"]).each do |e|
+        horas+=e.hora_semanal
+      end
+    end
+    return horas
+  end
+
+
+  def especificar_lotacao(escola = nil,turma = nil,disciplina = nil,curriculo = nil,lotacao = nil,tipo = nil,ambiente = nil)
+    l = self.especificacoes.new
+    l.escola_id=escola.id
+    l.lotacao_id=lotacao.id
+    if tipo=="Sala de Aula"
+      fator = disciplina.fator(turma)
+      l.turma_id=turma.id
+      l.disciplina_id=disciplina.id
+      #  if fator <= self.rsd
+      #   l.hora_semanal = fator
+      # elsif fator == self.rsd
+      #   l.hora_semanal = self.rsd
+      # end
+      l.hora_semanal = fator
+      if l.save
+        disciplina.gerar_fator(turma,l.hora_semanal,turma.serie,curriculo,l)
+        return true
+      else
+        return false
+      end
+    elsif tipo=="Sala Ambiente"
+      l.ambiente_id = ambiente.id
+      if l.save!
+        return true
+      else
+        return false
       end
     end
   end
-end
+
+
+  def status_lotacao
+    if !self.lotacoes.none?
+      if !self.lotacoes.atual.none?
+        if self.lotacoes.atual.last.status.last.status=="ENCAMINHADO"
+          return "EM TRÂNSITO"
+        elsif self.lotacoes.atual.last.status.last.status=="À DISPOSIÇÃO DO NUPES"
+          return "À DISPOSIÇÃO DO NUPES"
+        elsif self.lotacoes.atual.last.status.last.status=="CANCELADO"
+          return "À DISPOSIÇÃO DO NUPES"
+        elsif self.lotacoes.atual.last.status.last.status=="LOTADO"
+          return "LOTADO"
+        end
+      else
+        return "À DISPOSIÇÃO DO NUPES"
+      end
+    end
+    else
+      return "NÃO LOTADO"
+    end
+
+    def ids_disciplinas
+      disciplinas=[]
+      if !self.disciplina_contratacao.nil?
+        disc = self.disciplina_contratacao.disciplinas
+        disc.each do |d|
+          disciplinas.push d.id
+        end
+        return disciplinas
+      end
+    end
+
+    private
+    def criar_comissionado
+      processo = self.funcoes_comissionadas.new
+      processo.tipo = "COMISSÃO"
+      if self.cargo_em_comissao.to_s=="true"
+        if self.tipo_comissao=="DIRETORIA"
+          processo.natureza="COMISSÃO/DIRETORIA"
+          if self.tipo_comissao=="DIRETORIA ADJUNTA"
+            processo.natureza="COMISSÃO/DIRETORIA"
+          elsif self.tipo_comissao=="SECRETARIA"
+            processo.natureza="COMISSÃO/SECRETARIA"
+          elsif self.tipo_comissao=="CHEFIA"
+            processo.natureza="COMISSÃO/CHEFIA"
+            self.comissao_ativa=true
+            self.save!
+          end
+          processo.funcionario_id=self.id
+          processo.ano_processo=self.data_decreto_nomeacao.year
+          processo.encaminhado_em=self.data_decreto_nomeacao
+          processo.data_decreto_nomeacao=self.data_decreto_nomeacao
+          processo.decreto_nomeacao=self.decreto_nomeacao
+          if processo.save!
+            num=processo.id
+            cod=Num.new
+            if self.tipo_comissao=="DIRETORIA"
+              processo.processo="CD#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
+            elsif self.tipo_comissao=="SECRETARIA"
+              processo.processo="CS#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
+            elsif self.tipo_comissao=="CHEFIA"
+              processo.processo="CC#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
+            elsif self.tipo_comissao=="DIRETORIA ADJUNTA"
+              processo.processo="CA#{cod.numero(num)}/#{self.data_decreto_nomeacao.year}"
+            end
+            processo.save!
+          end
+        end
+      end
+    end
 
 
 
 
 
 
-end
-
+  end

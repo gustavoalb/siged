@@ -1,44 +1,49 @@
 # -*- encoding : utf-8 -*-
 #include Serenity::Generator
 class Escola < ActiveRecord::Base
- include ScopedSearch::Model
- extend FriendlyId
- friendly_id :nome, :use=> :slugged
- validates_presence_of :codigo,:nome,:message=>" Não pode ficar em branco!"
- validates_uniqueness_of :nome, :message=>"Já cadastrado",:scope => [:codigo,:nome ],:case_sensitive=>false
+  include ScopedSearch::Model
+  extend FriendlyId
+  friendly_id :nome_da_escola, :use=> :slugged
+  validates_presence_of :codigo,:nome_da_escola,:message=>" Não pode ficar em branco!"
+  validates_uniqueness_of :nome_da_escola, :message=>"Já cadastrado",:scope => [:codigo,:nome_da_escola ],:case_sensitive=>false
 
- has_many :turmas,:include=>:ano_letivo,:conditions=>['turmas.ano_letivo_id = ano_letivo_id']
- has_many :salas_ambiente,:class_name=>"Ambiente.salas_ambientes"
- has_many :settings
- has_many :ambientes,:dependent=>:destroy
- has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
- has_many :comissionados,:conditions=>["ativo = ?",true]
- has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy,:as=>:destino
- has_many :especificacoes,:class_name=>'EspecificarLotacao',:dependent=>:destroy
- has_one :diretor_adjunto,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA ADJUNTA'],:source=>:funcionario
- has_one :diretor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA'],:source=>:funcionario
- has_one :secretario,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SECRETARIA'],:source=>:funcionario
- has_one :supervisor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SUPERVISÃO'],:source=>:funcionario
- belongs_to :tipo_destino
- belongs_to :municipio
- belongs_to :esfera
- belongs_to :orgao
- belongs_to :ano_letivo,:class_name=>"AnoLetivo"
- belongs_to :entidade
- has_and_belongs_to_many :niveis,:class_name=>'NiveisEnsino',:join_table=>"escolas_matrizes"
+  has_many :turmas,:include=>:ano_letivo,:conditions=>['turmas.ano_letivo_id = ano_letivo_id']
+  has_many :salas_ambiente,:class_name=>"Ambiente.salas_ambientes"
+  has_many :settings
+  has_many :ambientes,:dependent=>:destroy
+  has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
+  has_many :comissionados,:conditions=>["ativo = ?",true]
+  has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy,:as=>:destino
+  has_many :especificacoes,:class_name=>'EspecificarLotacao',:dependent=>:destroy
+  has_one :diretor_adjunto,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA ADJUNTA'],:source=>:funcionario
+  has_one :diretor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA'],:source=>:funcionario
+  has_one :secretario,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SECRETARIA'],:source=>:funcionario
+  has_one :supervisor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SUPERVISÃO'],:source=>:funcionario
+  belongs_to :tipo_destino
+  belongs_to :municipio
+  belongs_to :esfera
+  belongs_to :orgao
+  belongs_to :ano_letivo,:class_name=>"AnoLetivo"
+  belongs_to :entidade
+  has_and_belongs_to_many :niveis,:class_name=>'NiveisEnsino',:join_table=>"escolas_matrizes"
 
 
 
- after_create :criar_ambientes
+  after_create :criar_ambientes
 
- def self.find_or_create(attributes)
-  Escola.where(attributes).first || Escola.create(attributes)
-end
+  def self.find_or_create(attributes)
+    Escola.where(attributes).first || Escola.create(attributes)
+  end
   #scoped_search
-  
-  scope :busca, lambda { |q| where("escolas.codigo ilike ? or escolas.nome ilike ?" ,"%#{q}%","%#{q}%") }
-  scope :municipal, where("escolas.rede ilike ?","municipal")
-  scope :estadual, where("escolas.rede ilike ?","estadual")
+
+  scope :busca, lambda { |q| where("codigo ilike ? or nome_da_escola ilike ?" ,"%#{q}%","%#{q}%") }
+  scope :municipal, where("rede ilike ?","municipal")
+  scope :efetivos, joins(:funcionarios).where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Ex-Ipesap"), Categoria.find_by_nome("Estado Antigo"), Categoria.find_by_nome("Estado Novo")])
+  scope :federais, joins(:funcionarios).where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Ex-Território do Amapá"), Categoria.find_by_nome("Ex-Território Federal do Amapá - Comissionado"), Categoria.find_by_nome("Ministério da Educação"), Categoria.find_by_nome("Ministério da Educação - Comissionado")])
+  scope :contratos, joins(:funcionarios).where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Contrato Administrativo")])
+  scope :em_comissao, joins(:funcionarios).where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Sem Vínculo"), Categoria.find_by_nome("Ex-Território Federal do Amapá - Comissionado"), Categoria.find_by_nome("Ministério da Educação - Comissionado")])
+  scope :estadual, where("rede ilike ?","estadual")
+
   ZONA=[["Urbana","Urbana"],["Rural","Rural"]]
 
 
@@ -56,7 +61,7 @@ end
         end
       end
       return demanda
-    end 
+    end
   end
 
   def calcular_oferta(disc)
@@ -139,4 +144,3 @@ end
     self.ambientes.create(:nome=>"Diretoria",:tipo_ambiente=>TipoAmbiente.find_by_nome("Sala Ambiente"))
   end
 end
-
