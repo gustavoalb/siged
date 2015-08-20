@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddStateToLotacaos < ActiveRecord::Migration
   def self.up
     add_column :lotacaos, :state, :string

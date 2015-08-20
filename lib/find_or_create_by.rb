@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module FindOrCreateBy
 	extend ActiveSupport::Concern
 	module ClassMethods

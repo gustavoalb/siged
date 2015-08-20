@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFieldsToCarencias < ActiveRecord::Migration
   def self.up
     add_column :carencias, :disciplina, :string

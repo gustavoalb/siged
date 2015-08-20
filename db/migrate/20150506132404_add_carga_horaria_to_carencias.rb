@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCargaHorariaToCarencias < ActiveRecord::Migration
   def self.up
     add_column :carencias, :carga_horaria, :string

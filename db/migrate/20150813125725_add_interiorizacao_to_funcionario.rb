@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddInteriorizacaoToFuncionario < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :interiorizacao, :boolean,:default=>false

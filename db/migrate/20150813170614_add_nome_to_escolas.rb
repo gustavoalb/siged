@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddNomeToEscolas < ActiveRecord::Migration
   def self.up
     add_column :escolas, :nome, :string

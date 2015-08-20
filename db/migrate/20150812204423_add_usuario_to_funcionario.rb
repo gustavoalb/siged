@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddUsuarioToFuncionario < ActiveRecord::Migration
   def self.up
     add_column :funcionarios, :usuario_id, :integer

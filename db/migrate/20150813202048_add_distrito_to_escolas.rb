@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDistritoToEscolas < ActiveRecord::Migration
   def self.up
     add_column :escolas, :distrito, :string

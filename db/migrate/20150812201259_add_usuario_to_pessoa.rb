@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddUsuarioToPessoa < ActiveRecord::Migration
   def self.up
     add_column :pessoas, :usuario_id, :integer

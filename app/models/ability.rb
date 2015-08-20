@@ -260,6 +260,10 @@ elsif user.role? :revisao_carga_horaria
  cannot :destroy,Lotacao
  cannot :convalidar,Lotacao
 
+elsif user.role? :codnope
+  can :read,Escola
+  can :manage,Matriz
+
 else
   can :read, Pessoa
   can :read, Cidade

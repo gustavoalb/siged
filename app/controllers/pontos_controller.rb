@@ -72,7 +72,7 @@ class PontosController < ApplicationController
   def create
     @ponto = Ponto.new(params[:ponto])
     @orgao = @lotacao.orgao
-    @departamento = @lotacao.departamento
+    #@departamento = @lotacao.departamento
     respond_to do |format|
       if @ponto.save
         format.html { redirect_to(orgao_departamento_pontos_path(@orgao,@departamento,:funcionario_id=>@funcionario.id), :notice => 'Ponto cadastrado com sucesso.') }
