@@ -4,15 +4,15 @@ module PontosHelper
 
     data = d.to_date
     if data.feriado? and data.strftime("%A")=="Sábado"
-      return  raw("<b>FERIADO</b> - <b>SÁBADO</b>")
+      return  "FERIADO - SÁBADO"
     elsif data.feriado? and data.strftime("%A")=="Domingo"
-      return  raw("<b>FERIADO</b> - <b>DOMINGO</b>")
+      return  "FERIADO - DOMINGO"
     elsif data.feriado?
-      return  raw("<b>FERIADO</b>")
+      return  "FERIADO"
     elsif data.strftime("%A")=="Sábado"
-      return  raw("<b>SÁBADO</b>")
+      return  "SÁBADO"
     elsif data.strftime("%A")=="Domingo"
-      return raw("<b>DOMINGO</b>")
+      return "DOMINGO"
     end
   end
 

@@ -13,7 +13,7 @@ gem "odf-report"
 gem "paperclip"#,:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
 gem 'pg'
 gem 'brazilian-rails', '3.1.0'
-gem 'brI18n'
+#gem 'brI18n'
 gem 'will_paginate','~> 2.3.5'
 gem 'devise'
 gem 'carrierwave'

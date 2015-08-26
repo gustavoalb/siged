@@ -1,5 +1,4 @@
-# -*- encoding : utf-8 -*-
-class AddArquivoToPontos < ActiveRecord::Migration
+class AddArquivoCodigoToPontos < ActiveRecord::Migration
   def self.up
     add_column :pontos, :arquivo_codigo, :bytea
   end

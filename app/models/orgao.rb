@@ -10,8 +10,8 @@ class Orgao < ActiveRecord::Base
   belongs_to :tipo_administracao
   belongs_to :poder, :class_name=>"Poder"
   belongs_to :tipo_destino
-  has_many :funcionarios
-  has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy
+  has_many :funcionarios,:through=>:lotacoes
+  has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy,:as=>:destino
   has_many :escolas
   has_many :departamentos,:dependent=>:destroy
   validates_uniqueness_of :nome

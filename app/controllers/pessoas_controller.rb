@@ -26,9 +26,9 @@ end
    @search = Pessoa.scoped_search(params[:search])
    if params[:search] and params[:search][:busca].size>0 and !params[:search][:busca].include?('%')
      @busca = params[:search][:busca]
-     @pessoas =  @search.order('nome ASC').paginate :page => params[:page], :per_page => 10
+     @pessoas =  @search.order('nome ASC').efetivos.sem_lotacao.paginate :page => params[:page], :per_page => 10
    else
-     @pessoas = Pessoa.sem_lotacao.order(:nome).paginate :page => params[:page], :per_page => 10
+     @pessoas = Pessoa.efetivos.sem_lotacao.order(:nome).paginate :page => params[:page], :per_page => 10
    end
    respond_to do |format|
     format.html # index.html.erb

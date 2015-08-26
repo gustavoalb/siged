@@ -26,13 +26,14 @@ module Siged20
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-     config.time_zone = 'Brasilia'
-     config.active_record.default_timezone = 'Brasilia'
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = 'Brasilia'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :"pt-BR"
-
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.enforce_available_locales = false
+    config.i18n.available_locales = [:'pt-BR']
+    config.i18n.default_locale = :'pt-BR'
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 
