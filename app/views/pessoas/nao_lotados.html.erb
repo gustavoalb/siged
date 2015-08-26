@@ -9,7 +9,7 @@
 <article class="module width_full">
 	<header><h3 class="tabs_involved">Listando pessoas</h3>
 		<ul class="tabs">
-			<%= form_for @search do |f| %>
+			<%= form_for @search,:url=>pessoas_nao_lotados_url do |f| %>
 			<li><%= f.text_field :busca,:size=>12 %></li>
 			<li><%= image_submit_tag "icn_busca.png" %></li>
 			<% end %>
