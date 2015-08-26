@@ -931,7 +931,7 @@ ActiveRecord::Schema.define(:version => 20150824125241) do
     t.boolean  "verificado",      :default => false
     t.boolean  "valido",          :default => false
     t.integer  "comissionado_id"
-    t.binary   "arquivo"
+    t.string   "arquivo"
     t.binary   "arquivo_codigo"
   end
 
