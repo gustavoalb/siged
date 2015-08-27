@@ -25,7 +25,7 @@ class Pessoa < ActiveRecord::Base
 	scope :secretarios,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='SECRETARIA' and comissionados.ativo=true)")}
 	scope :supervisores,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='SUPERVISAO' and comissionados.ativo=true)")}
 	scope :sem_lotacao, includes(:lotacoes).where(:lotacaos => { :funcionario_id => nil })
-	scope :efetivos, joins(:funcionarios).where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Ex-Ipesap"), Categoria.find_by_nome("Estado Antigo"), Categoria.find_by_nome("Estado Novo"),Categoria.find_by_nome("Concurso de 2012")])
+	scope :efetivos, where("funcionarios.categoria_id in (?)",[Categoria.find_by_nome("Ex-Ipesap"), Categoria.find_by_nome("Estado Antigo"), Categoria.find_by_nome("Estado Novo"),Categoria.find_by_nome("Concurso de 2012"),Categoria.find_by_nome("992")])
 
 	has_many :formacoes,:class_name=>"Formacao",:dependent=>:destroy
 	has_many :boletins,:class_name=>"BoletimPessoal",:dependent=>:destroy
