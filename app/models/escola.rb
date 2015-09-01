@@ -3,9 +3,9 @@
 class Escola < ActiveRecord::Base
   include ScopedSearch::Model
   extend FriendlyId
-  friendly_id :nome_da_escola, :use=> :slugged
-  validates_presence_of :codigo,:nome_da_escola,:message=>" Não pode ficar em branco!"
-  validates_uniqueness_of :nome_da_escola, :message=>"Já cadastrado",:scope => [:codigo,:nome_da_escola ],:case_sensitive=>false
+  friendly_id :nome, :use=> :slugged
+  validates_presence_of :codigo,:nome,:message=>" Não pode ficar em branco!"
+  validates_uniqueness_of :nome, :message=>"Já cadastrado",:scope => [:codigo,:nome_da_escola ],:case_sensitive=>false
 
   has_many :turmas,:include=>:ano_letivo,:conditions=>['turmas.ano_letivo_id = ano_letivo_id']
   has_many :salas_ambiente,:class_name=>"Ambiente.salas_ambientes"
