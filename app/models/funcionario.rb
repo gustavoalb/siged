@@ -23,6 +23,7 @@ class Funcionario < ActiveRecord::Base
 
 
   #has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>:colapso_grupo
+  has_and_belongs_to_many :gratificacoes
   belongs_to :pessoa,:class_name=>'Pessoa'
   belongs_to :quadro
   belongs_to :cargo

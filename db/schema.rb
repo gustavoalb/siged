@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150824125241) do
+ActiveRecord::Schema.define(:version => 20150901142707) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -682,6 +682,21 @@ ActiveRecord::Schema.define(:version => 20150824125241) do
   add_index "funcionarios", ["sjuridica_id"], :name => "index_funcionarios_on_sjuridica_id"
   add_index "funcionarios", ["slug"], :name => "index_funcionarios_on_slug", :unique => true
 
+  create_table "funcionarios_gratificacoes", :id => false, :force => true do |t|
+    t.integer "funcionario_id"
+    t.integer "gratificacao_id"
+  end
+
+  create_table "gratificacoes", :force => true do |t|
+    t.string   "nome"
+    t.string   "codigo"
+    t.integer  "valor_fixo"
+    t.integer  "valor_porcentagem"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rubrica"
+  end
+
   create_table "grupo_educacionais", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at"
@@ -931,8 +946,9 @@ ActiveRecord::Schema.define(:version => 20150824125241) do
     t.boolean  "verificado",      :default => false
     t.boolean  "valido",          :default => false
     t.integer  "comissionado_id"
-    t.string   "arquivo"
-    t.binary   "arquivo_codigo"
+    t.integer  "usuario_id"
+    t.integer  "arquivo_ponto"
+    t.integer  "arquivo_codigo"
   end
 
   create_table "processos", :force => true do |t|

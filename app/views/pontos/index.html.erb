@@ -23,8 +23,7 @@
     <td><%= ponto.funcionario_id %></td>
     <td><%= ponto.lotacao_id %></td>
     <td><%= ponto.data %></td>
-    <td><%= link_to 'Detalhes', pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao,ponto) %></td>
-    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao,ponto) %></td>
+    <td><%= link_to  image_tag("/images/printer.png",:title=>"Imprimir"), pessoa_funcionario_lotacao_ponto_gerar_arquivo_path(@pessoa,@funcionario,@lotacao,ponto)%></td>
     <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa_funcionario_lotacao_ponto_path(@pessoa,@funcionario,@lotacao,ponto), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
   </tr>
 <% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  codigo: MyString
+  valor_fixo: 1
+  valor_porcentagem: 1
+
+two:
+  nome: MyString
+  codigo: MyString
+  valor_fixo: 1
+  valor_porcentagem: 1
