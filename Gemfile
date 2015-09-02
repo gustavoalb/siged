@@ -47,5 +47,5 @@ gem 'puma', '2.7.1'
 gem 'thin'
 gem 'validates_timeliness'
 
-gem 'rjb'
-gem 'pdf-merger'
+#gem 'rjb'
+#gem 'pdf-merger'
