@@ -8,7 +8,6 @@ gem 'thor'
 gem 'statistics'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem "validates_timeliness"
 gem "odf-report"
 gem "paperclip"#,:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
 gem 'pg'
