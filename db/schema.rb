@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150901142707) do
+ActiveRecord::Schema.define(:version => 20150908141123) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -694,7 +694,7 @@ ActiveRecord::Schema.define(:version => 20150901142707) do
     t.integer  "valor_porcentagem"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "rubrica"
+    t.integer  "rubrica_id"
   end
 
   create_table "grupo_educacionais", :force => true do |t|

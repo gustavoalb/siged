@@ -45,16 +45,12 @@ class DepartamentosController < ApplicationController
     data = Date.civil(params[:ponto]["data(1i)"].to_i, params[:ponto]["data(2i)"].to_i, params[:ponto]["data(3i)"].to_i)
     @departamento = Departamento.find(params[:departamento_id])
     @lotacoes = @departamento.lotacoes
-    @pdf = PDF::Merger.new
+    @pdf = CombinePDF.new
     @lotacoes.each do |l|
-      ponto = l.funcionario.pontos.create(:data=>data,:funcionario_id=>l.funcionario.id,:lotacao_id=>l.id,:usuario=>current_user)
-      File.open("/tmp/pontos_#{l.id}_#{ponto.data.month}-#{ponto.data.year}.pdf",'wb'){|arquivo|arquivo.write ponto.arquivo_ponto.file.read}
-      f = File.open("/tmp/pontos_#{l.id}_#{ponto.data.month}-#{ponto.data.year}.pdf",'r')
-      @pdf.add_file(f.path)
+      ponto = l.pontos.find_by_data(data)||l.funcionario.pontos.create(:data=>data,:funcionario_id=>l.funcionario.id,:lotacao_id=>l.id,:usuario=>current_user)
+      @pdf << CombinePDF.parse(ponto.arquivo_ponto.file.read)
     end
-    @pdf.save_as("/tmp/ponto_do_mes.pdf")
-    ponto_do_mes = File.open("/tmp/ponto_do_mes.pdf",'r')
-    send_file ponto_do_mes
+    send_data @pdf.to_pdf,:filename=>"Ponto Mensal - #{@departamento.sigla} - #{ I18n.l(data,:format=>"%B de %Y").upcase}.pdf",:type=> 'application/pdf'
   end
 
   # GET /departamentos/1
