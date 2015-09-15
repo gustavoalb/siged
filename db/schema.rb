@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150908141123) do
+ActiveRecord::Schema.define(:version => 20150911140029) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -695,6 +695,7 @@ ActiveRecord::Schema.define(:version => 20150908141123) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rubrica_id"
+    t.integer  "funcionario_id"
   end
 
   create_table "grupo_educacionais", :force => true do |t|
@@ -1157,6 +1158,13 @@ ActiveRecord::Schema.define(:version => 20150908141123) do
 
   add_index "roles_users", ["role_id", "user_id"], :name => "index_roles_users_on_role_id_and_user_id"
   add_index "roles_users", ["user_id", "role_id"], :name => "index_roles_users_on_user_id_and_role_id"
+
+  create_table "rubricas", :force => true do |t|
+    t.string   "nome"
+    t.integer  "codigo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "series", :force => true do |t|
     t.string   "nome"
