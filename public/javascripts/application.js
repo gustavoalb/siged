@@ -34,10 +34,10 @@ accordion.prototype = {
 	//  Initialize the accordions
 	//
 	initialize: function(container, options) {
-	  if (!$(container)) {
-	    throw(container+" doesn't exist!");
-	    return false;
-	  }
+		if (!$(container)) {
+			throw(container+" doesn't exist!");
+			return false;
+		}
 
 		this.options = Object.extend({
 			resizeSpeed : 8,
@@ -60,7 +60,7 @@ accordion.prototype = {
 		accordions.each(function(accordion) {
 			Event.observe(accordion, this.options.onEvent, this.activate.bind(this, accordion), false);
 			if (this.options.onEvent == 'click') {
-			  accordion.onclick = function() {return false;};
+				accordion.onclick = function() {return false;};
 			}
 
 			if (this.options.direction == 'horizontal') {
@@ -104,9 +104,9 @@ accordion.prototype = {
 		}
 
 		if (this.currentAccordion == this.showAccordion) {
-		  this.deactivate();
+			this.deactivate();
 		} else {
-		  this._handleAccordion();
+			this._handleAccordion();
 		}
 	},
 	//
@@ -114,7 +114,7 @@ accordion.prototype = {
 	//
 	deactivate : function() {
 		var options = $H({
-		  duration: this.duration,
+			duration: this.duration,
 			scaleContent: false,
 			transition: Effect.Transitions.sinoidal,
 			queue: {
@@ -127,16 +127,16 @@ accordion.prototype = {
 			},
 			afterFinish: function() {
 				this.showAccordion.setStyle({
-          height: 'auto',
+					height: 'auto',
 					display: 'none'
 				});
 				this.showAccordion = null;
 				this.animating = false;
 			}.bind(this)
 		});
-    options.merge(this.scaling);
+		options.merge(this.scaling);
 
-    this.showAccordion.previous(0).removeClassName(this.options.classNames.toggleActive);
+		this.showAccordion.previous(0).removeClassName(this.options.classNames.toggleActive);
 
 		new Effect.Scale(this.showAccordion, 0, options);
 	},
@@ -144,90 +144,83 @@ accordion.prototype = {
   //
   // Handle the open/close actions of the accordion
   //
-	_handleAccordion : function() {
-		var options = $H({
-			sync: true,
-			scaleFrom: 0,
-			scaleContent: false,
-			transition: Effect.Transitions.sinoidal,
-			scaleMode: {
-				originalHeight: this.options.defaultSize.height ? this.options.defaultSize.height : this.currentAccordion.scrollHeight,
-				originalWidth: this.options.defaultSize.width ? this.options.defaultSize.width : this.currentAccordion.scrollWidth
-			}
-		});
-		options.merge(this.scaling);
+  _handleAccordion : function() {
+  	var options = $H({
+  		sync: true,
+  		scaleFrom: 0,
+  		scaleContent: false,
+  		transition: Effect.Transitions.sinoidal,
+  		scaleMode: {
+  			originalHeight: this.options.defaultSize.height ? this.options.defaultSize.height : this.currentAccordion.scrollHeight,
+  			originalWidth: this.options.defaultSize.width ? this.options.defaultSize.width : this.currentAccordion.scrollWidth
+  		}
+  	});
+  	options.merge(this.scaling);
 
-		this.effects.push(
-			new Effect.Scale(this.currentAccordion, 100, options)
-		);
+  	this.effects.push(
+  		new Effect.Scale(this.currentAccordion, 100, options)
+  		);
 
-		if (this.showAccordion) {
-			this.showAccordion.previous(0).removeClassName(this.options.classNames.toggleActive);
+  	if (this.showAccordion) {
+  		this.showAccordion.previous(0).removeClassName(this.options.classNames.toggleActive);
 
-			options = $H({
-				sync: true,
-				scaleContent: false,
-				transition: Effect.Transitions.sinoidal
-			});
-			options.merge(this.scaling);
+  		options = $H({
+  			sync: true,
+  			scaleContent: false,
+  			transition: Effect.Transitions.sinoidal
+  		});
+  		options.merge(this.scaling);
 
-			this.effects.push(
-				new Effect.Scale(this.showAccordion, 0, options)
-			);
-		}
+  		this.effects.push(
+  			new Effect.Scale(this.showAccordion, 0, options)
+  			);
+  	}
 
-    new Effect.Parallel(this.effects, {
-			duration: this.duration,
-			queue: {
-				position: 'end',
-				scope: 'accordionAnimation'
-			},
-			beforeStart: function() {
-				this.animating = true;
-			}.bind(this),
-			afterFinish: function() {
-				if (this.showAccordion) {
-					this.showAccordion.setStyle({
-						display: 'none'
-					});
-				}
-				$(this.currentAccordion).setStyle({
-				  height: 'auto'
-				});
-				this.showAccordion = this.currentAccordion;
-				this.animating = false;
-			}.bind(this)
-		});
-	}
+  	new Effect.Parallel(this.effects, {
+  		duration: this.duration,
+  		queue: {
+  			position: 'end',
+  			scope: 'accordionAnimation'
+  		},
+  		beforeStart: function() {
+  			this.animating = true;
+  		}.bind(this),
+  		afterFinish: function() {
+  			if (this.showAccordion) {
+  				this.showAccordion.setStyle({
+  					display: 'none'
+  				});
+  			}
+  			$(this.currentAccordion).setStyle({
+  				height: 'auto'
+  			});
+  			this.showAccordion = this.currentAccordion;
+  			this.animating = false;
+  		}.bind(this)
+  	});
+  }
 }
 
 var UnobtrusiveLinker = Class.create({ 
 
-  initialize: function() {
-    this.options = Object.extend({
-      container: 'pagination_container',
-      selector: 'div.pagination a'
-    }, arguments[0] || {});
-    this.initLinks();
-  },  
+	initialize: function() {
+		this.options = Object.extend({
+			container: 'pagination_container',
+			selector: 'div.pagination a'
+		}, arguments[0] || {});
+		this.initLinks();
+	},  
 
-  initLinks: function() {
-    $(this.options.container).select(this.options.selector).invoke('observe', 'click', this.linkHandler.bind(this));
-  },  
+	initLinks: function() {
+		$(this.options.container).select(this.options.selector).invoke('observe', 'click', this.linkHandler.bind(this));
+	},  
 
-  linkHandler: function(event) {
-    event.stop();
-    new Ajax.Updater(this.options.container, event.element().getAttribute('href'),{
-      method: 'get',
-      onComplete: this.initLinks.bind(this)
-    });
-  }
+	linkHandler: function(event) {
+		event.stop();
+		new Ajax.Updater(this.options.container, event.element().getAttribute('href'),{
+			method: 'get',
+			onComplete: this.initLinks.bind(this)
+		});
+	}
 
-});
-
-$(function() {
-  var faye = new Faye.Client('http://localhost:9292/faye');
-  faye.subscribe('/pessoas', function (data) {
-    alert(data);
-  });
 });

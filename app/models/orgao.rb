@@ -10,7 +10,7 @@ class Orgao < ActiveRecord::Base
   belongs_to :tipo_administracao
   belongs_to :poder, :class_name=>"Poder"
   belongs_to :tipo_destino
-  has_many :funcionarios,:through=>:lotacoes
+  has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
   has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy,:as=>:destino
   has_many :escolas
   has_many :departamentos,:dependent=>:destroy
@@ -18,12 +18,11 @@ class Orgao < ActiveRecord::Base
 
   def municipio_nome
     if self.nome.include?("PREFEITURA")
-      nome = Orgao.last.nome.gsub('PREFEITURA MUNICIPAL DE ','')
+      nome = self.nome.gsub('PREFEITURA MUNICIPAL DE ','')
     else
       nome = "MACAPA"
     end
     return nome
   end
-  
-end
 
+end

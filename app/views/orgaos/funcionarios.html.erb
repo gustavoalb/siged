@@ -1,0 +1,26 @@
+<%content_for :links do%>
+<%=link_to "Orgãos",orgaos_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+<%end%>
+<article class="module width_full">
+  <header><h3>Funcionários cedidos ao Orgão: <%= @orgao.nome.titleize%></h3></header>
+  <div class="module_content">
+   <div id="tabs1" class="tabset">
+    <ul class="tabset_tabs">
+      <li><a href="#resumo">Resumo</a></li>
+      <li><a href="#funcionarios">Quadro funcional</a></li>
+      <li><a href="#tab-quatro">Lotações à confirmar</a></li>
+    </ul>
+    <div class="tabset_content_container">
+      <div id="resumo" class="tabset_content">
+      </div>
+      <div id="funcionarios" class="tabset_content">
+        <div id="func">  
+          <%= render 'table_funcionarios' %>  
+        </div>  
+        <%= will_paginate @funcionarios, :update=>'func'%>
+      </div>
+      <div id="tab-quatro" class="tabset_content">
+      </div>
+    </div>
+  </div>
+</article>

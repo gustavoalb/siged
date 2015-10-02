@@ -162,6 +162,7 @@ Siged20::Application.routes.draw do
   resources :orgaos
   resources :orgaos do
     get 'agenda'
+    get 'funcionarios'
     resources :departamentos do
 
       get 'tarefas'

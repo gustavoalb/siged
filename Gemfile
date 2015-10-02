@@ -47,3 +47,6 @@ gem 'thin'
 gem 'validates_timeliness'
 
 gem 'combine_pdf'
+gem 'ajax_pagination'
+gem 'jquery-rails'
+gem "jquery-historyjs"
