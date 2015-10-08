@@ -231,6 +231,15 @@ min-height: 350px;
 margin-top: -4px;
 }
 
+aside#barra {
+width: 23%;
+background: #CCCCCC;
+float: left;
+min-height: 350px;
+margin-top: -4px;
+}
+
+
 #sidebar hr {
 border: none;
 outline: none;

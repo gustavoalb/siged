@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.8'
+gem 'rails', '3.0.9'
 gem "rake", "~> 0.9.2"
 gem 'capistrano'
 gem 'thor'
@@ -11,6 +11,7 @@ gem 'statistics'
 gem "odf-report"
 gem "paperclip"#,:path =>'vendor/cache/git/paperclip'#:git=>"git://github.com/thoughtbot/paperclip"
 gem 'pg'
+gem 'kaminari'
 gem 'brazilian-rails', '3.1.0'
 #gem 'brI18n'
 gem 'will_paginate','~> 2.3.5'
