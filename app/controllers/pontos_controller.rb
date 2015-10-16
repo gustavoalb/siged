@@ -10,7 +10,7 @@ class PontosController < ApplicationController
   load_and_authorize_resource
   # GET /pontos
   # GET /pontos.xml
-  before_filter :ponto_lotacao
+  before_filter :ponto_lotacao,:except=>[:funcionarios,:salvar_pontos,:gerar_pontos]
   def index
     @pontos = Ponto.da_lotacao(@lotacao.id).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
 
@@ -98,6 +98,83 @@ class PontosController < ApplicationController
       end
     end
   end
+
+  def gerar_pontos
+    @obj = params[:objeto_id]
+    @tipo = params[:tipo]
+    case @tipo
+    when "orgao"
+      @objeto = Orgao.find(@obj)
+      @obj_tipo = "Orgão"
+    when "departamento"
+      @objeto = Departamento.find(@obj)
+      @obj_tipo = "Setorial"
+    when "escola"
+      @objeto = Escola.find(@obj)
+      @obj_tipo = "Escola"
+    end
+    render :layout=>'facebox'
+  end
+
+  def salvar_pontos
+    data = Date.civil(params[:ponto]["data(1i)"].to_i, params[:ponto]["data(2i)"].to_i, params[:ponto]["data(3i)"].to_i)
+    @obj = params[:objeto_id]
+    @tipo = params[:tipo]
+    case @tipo
+    when "orgao"
+      @objeto = Orgao.find(@obj)
+      @obj_tipo = "Orgão"
+    when "departamento"
+      @objeto = Departamento.find(@obj)
+      @obj_tipo = "Setorial"
+    when "escola"
+      @objeto = Escola.find(@obj)
+      @obj_tipo = "Escola"
+    end
+    @lotacoes = @objeto.lotacoes
+    @pdf = CombinePDF.new
+    @lotacoes.each do |l|
+      ponto = l.pontos.find_by_data(data)||l.funcionario.pontos.create(:data=>data,:funcionario_id=>l.funcionario.id,:lotacao_id=>l.id,:usuario=>current_user)
+      @pdf << CombinePDF.parse(ponto.arquivo_ponto.file.read)
+    end
+    send_data @pdf.to_pdf,:filename=>"Ponto Mensal - #{@objeto.sigla} - #{ I18n.l(data,:format=>"%B de %Y").upcase}.pdf",:type=> 'application/pdf'
+  end
+
+  def funcionarios
+    @obj = params[:objeto_id]
+    @tipo = params[:tipo]
+    case @tipo
+    when "orgao"
+      @objeto = Orgao.find(@obj)
+      @obj_tipo = "Orgão"
+    when "departamento"
+      @objeto = Departamento.find(@obj)
+      @obj_tipo = "Setorial"
+    when "escola"
+      @objeto = Escola.find(@obj)
+      @obj_tipo = "Escola"
+    end
+
+    @funcionarios = @objeto.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",true,true).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 8
+    #@cargos_principais = Cargo.where("id in (?)",[Cargo.find_by_nome("PEDAGOGO").id,Cargo.find_by_nome("PROFESSOR").id,Cargo.find_by_nome("ESPECIALISTA DE EDUCACAO").id,Cargo.find_by_nome("AUXILIAR EDUCACIONAL").id,Cargo.find_by_nome("CUIDADOR").id,Cargo.find_by_nome("INTERPRETE").id]).order(:nome)
+    #@outros_cargos = Cargo.where("id not in (?)",@cargos_principais).order(:nome)
+    #@funcionarios_cargos_principais = @objeto.funcionarios.where("cargo_id in (?)",@cargos_principais).group_by{|t|t.cargo}
+    #@funcionarios_outros = @objeto.funcionarios.where("cargo_id in (?)",@outros_cargos)
+    @encaminhados = @objeto.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",false,true).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 8
+    @aba = params[:aba]
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js {
+        case @aba
+        when "encaminhados"
+          render :encaminhados
+        when "funcionarios"
+          render :funcionarios
+        end
+      }
+    end
+  end
+
 
   private
 

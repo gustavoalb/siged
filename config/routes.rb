@@ -92,6 +92,11 @@ Siged20::Application.routes.draw do
     #fim do namespace folha
   end
 
+  resources :pontos do
+    get :funcionarios,:on=>:collection
+    get :gerar_pontos,:on=>:collection
+    get :salvar_pontos,:on=>:collection
+  end
 
 
   resources :comissionados do
@@ -128,6 +133,7 @@ Siged20::Application.routes.draw do
 
   resources :departamentos do
     get :autocomplete_departamento_nome, :on => :collection
+    get :funcionarios
   end
 
   resources :disciplina_contratacoes
@@ -170,6 +176,7 @@ Siged20::Application.routes.draw do
       get 'pontos'
       get 'pontos_do_mes'
       get 'gerar_pontos'
+      get 'funcionarios'
       post 'salvar_pontos'
     end
   end

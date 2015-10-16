@@ -8,6 +8,7 @@ class Departamento < ActiveRecord::Base
   has_many :comissionados,:conditions=>["ativo = ?",true]
   has_many :lotacoes,:conditions=>["finalizada = ? and ativo = ? and complementar = ?",true,true,false],:as=>:destino
   has_many :funcionarios,:through=>:lotacoes,:source=>"funcionario"
+  has_many :funcionarios_encaminhados,:through=>:lotacoes,:conditions=>["lotacaos.ativo = ? and lotacaos. finalizada = ?",true,false],:class_name=>"Funcionario",:source=>"funcionario"
   has_one :responsavel,:through=>:comissionados,:conditions=>["comissionados.tipo = ?","CHEFIA"],:source=>:funcionario
   has_many :funcionarios_comissionados,:through=>:comissionados,:conditions=>["comissionados.ativo = true"],:source=>'funcionario'
   belongs_to :departamento_pai,:class_name=>"Departamento",:foreign_key => "pai_id"
@@ -18,7 +19,7 @@ class Departamento < ActiveRecord::Base
   validates_uniqueness_of :nome,:scope=>[:nome,:sigla]
 
   before_save :setar_nil
-  
+
   def municipio_nome
     return "MACAPA"
   end
@@ -26,8 +27,7 @@ class Departamento < ActiveRecord::Base
 
   def setar_nil
     if self.hierarquia==""
-     self.hierarquia=nil
-   end
- end
+      self.hierarquia=nil
+    end
+  end
 end
-

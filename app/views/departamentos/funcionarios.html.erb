@@ -2,12 +2,12 @@
 <%=link_to "Orgãos",orgaos_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
 <%end%>
 <article class="module width_full">
-  <header><h3>Funcionários cedidos ao Orgão: <%= @orgao.nome.titleize%></h3></header>
+  <header><h3>Funcionários cedidos ao <%"#{tipo_obj}"%>: <%= @objeto.nome.titleize%></h3></header>
   <div class="module_content">
    <div id="tabs1" class="tabset">
     <ul class="tabset_tabs">
       <li><a href="#funcionarios">Quadro funcional</a></li>
-      <li><%=link_to "Gerar Pontos",orgao_gerar_pontos_path(@orgao),:rel=>'facebox',:rev=>"height:300px;width:500px"%></li>
+      <li><%=link_to "Gerar Pontos",gerar_pontos_pontos_path(:objeto_id=>@objeto.id),:rel=>'facebox',:rev=>"height:300px;width:500px"%></li>
       <!--<li><a href="#tab-quatro">Lotações à confirmar</a></li>-->
     </ul>
     <div class="tabset_content_container">
@@ -17,6 +17,9 @@
         </div>
       </div>
       <div id="tab-quatro" class="tabset_content">
+        <div id="enc">
+          <%= render 'encaminhados' %>  
+        </div>
       </div>
     </div>
   </div>

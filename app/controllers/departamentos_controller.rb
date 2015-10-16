@@ -41,6 +41,33 @@ class DepartamentosController < ApplicationController
     render :layout=>'facebox'
   end
 
+  def funcionarios
+    @orgao = Orgao.find(params[:orgao_id])
+    @departamento = Departamento.find(params[:departamento_id])
+    #@funcionarios = [].paginate :page => params[:page]
+    @funcionarios = @departamento.funcionarios.joins(:pessoa).order("pessoas.nome").paginate :page => params[:page], :per_page => 8
+    #@cargos_principais = Cargo.where("id in (?)",[Cargo.find_by_nome("PEDAGOGO").id,Cargo.find_by_nome("PROFESSOR").id,Cargo.find_by_nome("ESPECIALISTA DE EDUCACAO").id,Cargo.find_by_nome("AUXILIAR EDUCACIONAL").id,Cargo.find_by_nome("CUIDADOR").id,Cargo.find_by_nome("INTERPRETE").id]).order(:nome)
+    #@outros_cargos = Cargo.where("id not in (?)",@cargos_principais).order(:nome)
+    #@funcionarios_cargos_principais = @orgao.funcionarios.where("cargo_id in (?)",@cargos_principais).group_by{|t|t.cargo}
+    #@funcionarios_outros = @orgao.funcionarios.where("cargo_id in (?)",@outros_cargos)
+    @encaminhados = @departamento.funcionarios_encaminhados.joins(:pessoa).order("pessoas.nome").paginate :page => params[:page], :per_page => 8,:order=>"pessoas.nome asc"
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
+    end
+  end
+
+  def encaminhados
+    @orgao = Orgao.find(params[:orgao_id])
+    @departamento = Departamento.find(params[:departamento_id])
+    @encaminhados = @departamento.funcionarios_encaminhados.joins(:pessoa).order("pessoas.nome").paginate :page => params[:page], :per_page => 8,:order=>"pessoas.nome asc"
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
+    end
+  end
+
+
   def salvar_pontos
     data = Date.civil(params[:ponto]["data(1i)"].to_i, params[:ponto]["data(2i)"].to_i, params[:ponto]["data(3i)"].to_i)
     @departamento = Departamento.find(params[:departamento_id])
