@@ -32,28 +32,6 @@
 </fieldset>
 
 
-<fieldset style="width:48%; float:left; margin-right: 1%;">
-<%= f.label "Tipo de Unidade Organizacional" %><br />
-<%= select :usuario, :tipo_uo,@tipos,:style=>"width:92%;",:prompt=>true %>
-</fieldset>
-
-<%= observe_field "tipo_uo", :url => "/usuarios/departamentos",
-:frequency => 0.25,
-:with => 'tipo'%>
-
-
-
-<div id="departamentos">
-<%if !@user.new_record? and !@user.orgao.nil?%>
-<fieldset style="width:48%; float:left; margin-right: 1%;">
-<%= label :usuario,"Unidade Organizacional" %><br />
-<%= select :usuario,:unidade_organizacional_id,@uos,:style=>"width:91%;",:prompt=>true %>
-<%= f.hidden_field :unidade_organizacional_type,:value=>"Departamento"%>
-<%end%>
-</fieldset>
-</div>
-
-
 
 <fieldset style="width:98%; height: auto; float:left; margin-right: 1%;">
 <label>Papéis Disponíveis</label><br/><br/>
@@ -90,6 +68,33 @@
 </div>
 <% end %>
 </fieldset>
+
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= f.label "Tipo de Unidade Organizacional" %><br />
+<%= select :usuario, :tipo_uo,@tipos,:style=>"width:92%;",:prompt=>true %>
+</fieldset>
+
+<%= observe_field "usuario_tipo_uo", :url => "/usuarios/departamentos",
+:frequency => 0.25,
+:with => 'tipo'%>
+
+
+
+<div id="departamentos">
+<%if !@user.new_record? and @user.unidade_organizacional.present?%>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= label :usuario,"Unidade Organizacional" %><br />
+<%= text_field :usuario, :unidade_organizacional_id,:value=>@user.unidade_organizacional.nome,:style=>"width:92%;"%>
+<%= f.hidden_field :unidade_organizacional_type,:value=>@user.unidade_organizacional_type%>
+<% else %>
+<fieldset style="width:48%; float:left; margin-right: 1%;">
+<%= label :usuario,"Unidade Organizacional" %><br />
+<%= text_field :usuario, :unidade_organizacional_id,:value=>"Selecione o tipo de unidade organizacional",:style=>"width:92%;",:disabled=>true%>
+</fieldset>
+<%end%>
+</fieldset>
+</div>
+
 
 <div class="submit_link">
 <%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>

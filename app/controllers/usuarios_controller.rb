@@ -32,7 +32,7 @@ class UsuariosController < ApplicationController
   def new
     @user = Usuario.new
     @entidades = Entidade.all.collect{|e|[e.nome,e.id]}
-    @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
+    @departamentos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
     @tipos = ["Orgão","Departamento","Escola"]
     @current_method = "new"
 
@@ -45,11 +45,11 @@ class UsuariosController < ApplicationController
   def departamentos
     @tipo = params[:tipo]
     if @tipo == "Orgao"
-      @uos = Orgao.all.order("nome asc").collect{|u|[u.nome,u.id]}
+      @uos = Orgao.order("nome asc").collect{|u|[u.sigla,u.id]}
     elsif @tipo == "Departamento"
       @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
     elsif @tipo == "Escola"
-      @uos = Escola.all.order("nome asc").collect{|u|[u.nome,u.id]}
+      @uos = Escola.order("nome asc").collect{|u|[u.nome,u.id]}
     end
     render :update do |page|
       page.visual_effect :highlight,"departamentos"
@@ -61,7 +61,16 @@ class UsuariosController < ApplicationController
     @user = Usuario.find(params[:id])
     @orgaos=Orgao.order(:sigla).collect{|o|[o.sigla,o.id]}
     @entidades = Entidade.all.collect{|e|[e.nome,e.id]}
-    @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
+    @tipo = @usuario.unidade_organizacional_type
+    if @tipo and @tipo == "Orgao"
+      @uos = Orgao.order("nome asc").collect{|u|[u.sigla,u.id]}
+    elsif @tipo and @tipo == "Departamento"
+      @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
+    elsif @tipo and @tipo == "Escola"
+      @uos = Escola.order("nome asc").collect{|u|[u.nome,u.id]}
+    else
+      @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
+    end
     @tipos = [["Orgão","Orgao"],["Departamento"],["Escola"]]
     if !@user.orgao.nil?
       @orgao= Orgao.find(@user.orgao_id)

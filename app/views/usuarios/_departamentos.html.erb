@@ -1,5 +1,5 @@
 <fieldset style="width:48%; float:left; margin-right: 1%;">
-<%= label :usuario,:departamentos %><br />
-<%= select :usuario,:unidade_organizacional,@departamentos,:style=>"width:91%;",:prompt=>true %>
+<%= label :usuario,"Unidade Organizacional" %><br />
+<%= select :usuario,:unidade_organizacional_id,@uos,:style=>"width:91%;",:prompt=>true %>
 <%= hidden_field :usuario,:unidade_organizacional_type,:value=>@tipo%>
 </fieldset>
