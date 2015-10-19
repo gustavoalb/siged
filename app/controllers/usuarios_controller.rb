@@ -4,11 +4,11 @@ class UsuariosController < ApplicationController
   # GET /users.xml
   load_and_authorize_resource
   def index
-     @search = Usuario.scoped_search(params[:search])
-     if params[:search] and params[:search][:busca]
-     @busca = params[:search][:busca]
-   end
-     @users =  @search.order('name ASC').paginate :page => params[:page], :per_page => 10
+    @search = Usuario.scoped_search(params[:search])
+    if params[:search] and params[:search][:busca]
+      @busca = params[:search][:busca]
+    end
+    @users =  @search.order('name ASC').paginate :page => params[:page], :per_page => 10
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,7 +32,8 @@ class UsuariosController < ApplicationController
   def new
     @user = Usuario.new
     @entidades = Entidade.all.collect{|e|[e.nome,e.id]}
-    @orgaos=Orgao.order(:sigla).collect{|o|[o.sigla,o.id]}
+    @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
+    @tipos = ["Orgão","Departamento","Escola"]
     @current_method = "new"
 
     respond_to do |format|
@@ -42,8 +43,14 @@ class UsuariosController < ApplicationController
   end
 
   def departamentos
-    @orgao=Orgao.find params[:org]
-    @departamentos=@orgao.departamentos.order(:sigla).collect{|d|[d.sigla,d.id]}
+    @tipo = params[:tipo]
+    if @tipo == "Orgao"
+      @uos = Orgao.all.order("nome asc").collect{|u|[u.nome,u.id]}
+    elsif @tipo == "Departamento"
+      @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
+    elsif @tipo == "Escola"
+      @uos = Escola.all.order("nome asc").collect{|u|[u.nome,u.id]}
+    end
     render :update do |page|
       page.visual_effect :highlight,"departamentos"
       page.replace_html "departamentos", :partial=>"departamentos"
@@ -54,6 +61,8 @@ class UsuariosController < ApplicationController
     @user = Usuario.find(params[:id])
     @orgaos=Orgao.order(:sigla).collect{|o|[o.sigla,o.id]}
     @entidades = Entidade.all.collect{|e|[e.nome,e.id]}
+    @uos = Orgao.find_by_sigla("SEED").departamentos.order("nome asc").collect{|u|["#{u.sigla}",u.id]}
+    @tipos = [["Orgão","Orgao"],["Departamento"],["Escola"]]
     if !@user.orgao.nil?
       @orgao= Orgao.find(@user.orgao_id)
       @departamentos=@orgao.departamentos.order(:sigla).collect{|d|[d.sigla,d.id]}
@@ -74,6 +83,7 @@ class UsuariosController < ApplicationController
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /users/1
@@ -82,20 +92,20 @@ class UsuariosController < ApplicationController
     @user = Usuario.find(params[:id])
     @orgaos=Orgao.order(:sigla).collect{|o|[o.sigla,o.id]}
     if params[:usuario][:password].blank?
-     params[:usuario].delete(:password)
-     params[:usuario].delete(:password_confirmation)
-   end
+      params[:usuario].delete(:password)
+      params[:usuario].delete(:password_confirmation)
+    end
 
-   respond_to do |format|
-    if @user.update_attributes(params[:usuario])
-      format.html { redirect_to(@user, :notice => "Usuario #{@user.username} atualizado com sucesso.") }
-      format.xml  { head :ok }
-    else
-      format.html { render :action => "edit" }
-      format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+    respond_to do |format|
+      if @user.update_attributes(params[:usuario])
+        format.html { redirect_to(@user, :notice => "Usuario #{@user.username} atualizado com sucesso.") }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
     end
   end
-end
 
   # DELETE /users/1
   # DELETE /users/1.xml
@@ -109,4 +119,3 @@ end
     end
   end
 end
-

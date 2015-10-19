@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :grupos_educacionais,:class_name=>"GrupoEducacional",:join_table=>'colapso_grupo'
   belongs_to :orgao
   belongs_to :departamento
+  belongs_to :unidade_organizacional,:polymorphic=>true
   belongs_to :entidade
   belongs_to :escola
   belongs_to :funcionario
@@ -15,14 +16,14 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
   cattr_accessor :current
   #cattr_accessor :entidades_do
   cattr_accessor :ultimo_ip
   cattr_accessor :lista_ids
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,:name,:username,:role_ids,:entidade_ids,:grupos_educacional_ids,:orgao_id,:departamento_id,:enabled,:escola_id,:funcionario_id,:gerar_ponto
-  
+  attr_accessible :email, :password, :password_confirmation, :remember_me,:name,:username,:role_ids,:entidade_ids,:grupos_educacional_ids,:orgao_id,:departamento_id,:enabled,:escola_id,:funcionario_id,:gerar_pontos,:unidade_organizacional_id,:unidade_organizacional_type
+
 
   def active_for_authentication?
     enabled?
@@ -33,25 +34,25 @@ class User < ActiveRecord::Base
   end
 
   def update_with_password(params={})
-        current_password = params.delete(:current_password)
+    current_password = params.delete(:current_password)
 
-        if params[:password].blank?
-          params.delete(:password)
-          params.delete(:password_confirmation) if params[:password_confirmation].blank?
-        end
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
 
-        result = if params[:password].blank? || valid_password?(current_password) 
-          update_attributes(params)
-        else
-          self.attributes = params
-          self.valid?
-          self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
-          false
-        end
+    result = if params[:password].blank? || valid_password?(current_password)
+      update_attributes(params)
+    else
+      self.attributes = params
+      self.valid?
+      self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+      false
+    end
 
-        clean_up_passwords
-        result
-      end
+    clean_up_passwords
+    result
+  end
 
 
 
@@ -76,4 +77,3 @@ class User < ActiveRecord::Base
   end
 
 end
-

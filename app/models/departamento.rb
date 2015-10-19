@@ -6,7 +6,7 @@ class Departamento < ActiveRecord::Base
   belongs_to :tipo_destino
   belongs_to :entidade
   has_many :comissionados,:conditions=>["ativo = ?",true]
-  has_many :lotacoes,:conditions=>["finalizada = ? and ativo = ? and complementar = ?",true,true,false],:as=>:destino
+  has_many :lotacoes,:conditions=>["lotacaos.finalizada = ? and lotacaos.ativo = ? and lotacaos.complementar = ?",true,true,false],:as=>:destino
   has_many :funcionarios,:through=>:lotacoes,:source=>"funcionario"
   has_many :funcionarios_encaminhados,:through=>:lotacoes,:conditions=>["lotacaos.ativo = ? and lotacaos. finalizada = ?",true,false],:class_name=>"Funcionario",:source=>"funcionario"
   has_one :responsavel,:through=>:comissionados,:conditions=>["comissionados.tipo = ?","CHEFIA"],:source=>:funcionario

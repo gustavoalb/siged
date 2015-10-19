@@ -37,12 +37,10 @@ module ApplicationHelper
 
   def setor
     user = User.usuario_atual
-    if user.role?(:diretores) and !user.escola.nil?
-      html = "<li class='icn_descri'>#{link_to user.escola.nome, escola_path(user.escola)}</li>"
-    elsif !user.role?(:diretores) and !user.orgao.nil? and can? :manage,Ponto
-      html = "<li class='icn_descri'>#{link_to user.departamento.sigla, orgao_departamento_pontos_funcionarios_path(user.orgao,user.departamento)}</li>"
-    else
-      html = ''
+    if user.unidade_organizacional
+      html = "<li class='icn_descri'>#{link_to 'Gerenciar Funcionários', funcionarios_pontos_path(:objeto_id=>user.unidade_organizacional_id,:tipo=>user.unidade_organizacional_type.downcase)}</li>"
+    elsif user.unidade_organizacional.nil?
+      ''
     end
     return raw(html)
   end

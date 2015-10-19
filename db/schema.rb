@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150911140029) do
+ActiveRecord::Schema.define(:version => 20151019133210) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -1338,12 +1338,12 @@ ActiveRecord::Schema.define(:version => 20150911140029) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "",    :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
+    t.string   "email",                                      :default => "",    :null => false
+    t.string   "encrypted_password",          :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                              :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -1356,10 +1356,13 @@ ActiveRecord::Schema.define(:version => 20150911140029) do
     t.integer  "orgao_id"
     t.integer  "departamento_id"
     t.integer  "entidade_id"
-    t.boolean  "enabled",                               :default => false
+    t.boolean  "enabled",                                    :default => false
     t.integer  "escola_id"
     t.integer  "funcionario_id"
-    t.boolean  "gerar_ponto",                           :default => false, :null => false
+    t.boolean  "gerar_ponto",                                :default => false, :null => false
+    t.string   "unidade_organizacional_type"
+    t.integer  "unidade_organizacional_id"
+    t.string   "tipo_uo"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
