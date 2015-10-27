@@ -39,6 +39,8 @@ GEM
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    best_in_placeish (0.2.5)
+      rails (~> 3.0.0)
     brI18n (3.1.0)
       actionpack (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.2.2)
   ajax_pagination
   barby
+  best_in_placeish
   brazilian-rails (= 3.1.0)
   capistrano
   carrierwave

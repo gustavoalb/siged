@@ -1,0 +1,5 @@
+<%if @funcionario.verificado%>
+<%= button_to "Invalidar Funcionário",pessoa_funcionario_desverificar_funcionario_path(@pessoa,@funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+<%else !@funcionario.verificado%>
+<%= button_to "Validar Funcionário",pessoa_funcionario_verificar_funcionario_path(@pessoa,@funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+<%end%>

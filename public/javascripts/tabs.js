@@ -93,7 +93,3 @@
 		window.location.hash = this.tabs[i].down('a').href.split('#')[1];
 	}
 });
-document.observe('dom:loaded', function() {
-	new Tab({id: "tabs1", rounded: 1, height: 1});
-});
-

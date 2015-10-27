@@ -10,6 +10,14 @@ module ApplicationHelper
     end
   end
 
+  def booleano(obj)
+    if obj==true
+      return "Verificado"
+    elsif obj==false or obj==nil
+      return "Não Verificado"
+    end
+  end
+
   def municipio_lotacao(lot)
     if lot.destino and lot.destino_type=="Escola" and lot.destino.municipio
       return lot.destino.municipio.nome
@@ -36,7 +44,7 @@ module ApplicationHelper
 
 
   def setor
-    user = User.usuario_atual
+    user = current_user
     if user.unidade_organizacional
       html = "<li class='icn_descri'>#{link_to 'Gerenciar Funcionários', funcionarios_pontos_path(:objeto_id=>user.unidade_organizacional_id,:tipo=>user.unidade_organizacional_type.downcase)}</li>"
     elsif user.unidade_organizacional.nil?

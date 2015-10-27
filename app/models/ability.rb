@@ -6,12 +6,12 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user
 
-    if user.gerar_ponto
+    if user.gerar_ponto?
       can :manage,Departamento
       cannot :update,Departamento
       cannot :create,Departamento
       cannot :destroy,Departamento
-      can :manage,Ponto,:departamento_id=>user.departamento_id
+      can :manage,Ponto,:unidade_organizacional_id=>user.unidade_organizacional_id
       cannot :destroy,Ponto
     end
 

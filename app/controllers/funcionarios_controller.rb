@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class FuncionariosController < ApplicationController
-  load_and_authorize_resource
   # GET /funcionarios
   # GET /funcionarios.xml
   before_filter :pessoa,:except=>[:folha,:relatorio_por_disciplina,:comissionados,:cargo,:distrito,:diretor,:categoria]
@@ -17,6 +16,26 @@ class FuncionariosController < ApplicationController
   def destino
     @destinos = TipoDestino.all.collect{|t|[t.nome,t.id]}
     render :partial=>'tipo'
+  end
+
+  def verificar_funcionario
+    @funcionario = Funcionario.find(params[:funcionario_id])
+    @funcionario.verificado = true
+    if @funcionario.save!(:validate=>false)
+      render :update do |page|
+        page.replace_html "verificado-#{@funcionario.matricula}", :partial=>"verificar_funcionario"
+      end
+    end
+  end
+
+  def desverificar_funcionario
+    @funcionario = Funcionario.find(params[:funcionario_id])
+    @funcionario.verificado = false
+    if @funcionario.save!(:validate=>false)
+      render :update do |page|
+        page.replace_html "verificado-#{@funcionario.matricula}", :partial=>"verificar_funcionario"
+      end
+    end
   end
 
   def cargo

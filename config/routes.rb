@@ -210,6 +210,7 @@ Siged20::Application.routes.draw do
     get "gerar_boletim"
     get "qualificar"
     get "edicao_rapida"
+    get "validar_funcionarios"
     post "salvar_boletim"
     get "boletins"
     get "boletim_pessoal"
@@ -220,6 +221,8 @@ Siged20::Application.routes.draw do
     post "salvar_lista"
     resources :formacoes
     resources :funcionarios do
+      post :verificar_funcionario
+      post :desverificar_funcionario
       resources :comissionados do
         get "exonerar_comissionado"
         post "salvar_exoneracao"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151019133210) do
+ActiveRecord::Schema.define(:version => 20151026185311) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -893,6 +893,7 @@ ActiveRecord::Schema.define(:version => 20151019133210) do
     t.string   "cidade"
     t.string   "conjunto"
     t.integer  "usuario_id"
+    t.boolean  "verificado"
   end
 
   add_index "pessoas", ["slug"], :name => "index_pessoas_on_slug", :unique => true

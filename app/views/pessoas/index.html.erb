@@ -1,8 +1,3 @@
-<script type="text/javascript">
-	document.observe('dom:loaded', function() {
-		new UnobtrusiveLinker();
-	});
-</script>
 <%content_for :links do%>
 <a class="current">Pessoas</a>
 <%end%>
@@ -55,60 +50,72 @@
 										<% end -%>
 
 									</tr>
-									<tr>
-										<th>Data de Nascimento:</th>
-										<td><%= pessoa.nascimento.to_s_br %></td>
+								<tr>
+									<th>Data de Nascimento:</th>
+									<td><%= pessoa.nascimento.to_s_br %></td>
 
-										<th>Telefone:</th>
-										<td><%= detalhes(pessoa.telefone_residencial) %></td>
+									<th>Telefone:</th>
+									<td><%= detalhes(pessoa.telefone_residencial) %></td>
 
-										<th>Celular:</th>
-										<td><%= detalhes(pessoa.telefone_celular) %></td>
-									</tr>
-									<tr>
-										<th>Matrícula:</th>
-										<td><%=raw("#{highlight(funcionario.matricula, @busca)}")%></td>
+									<th>Celular:</th>
+									<td><%= detalhes(pessoa.telefone_celular) %></td>
 
-										<th>CPF:</th>
-										<td><%= Cpf.new(pessoa.cpf) %></td>
+								</tr>
+								</tr>
+								<tr>
+									<th>Matrícula:</th>
+									<td><%=raw("#{highlight(funcionario.matricula, @busca)}")%></td>
 
-										<th>Cargo:</th>
-										<td><%= cargo_disciplina(funcionario)%>
-										</tr>
-										<tr>
-											<th>Nível:</th>
-											<td><%= cod(funcionario.nivel) %></td>
+									<th>CPF:</th>
+									<td><%= Cpf.new(pessoa.cpf) %></td>
 
-											<th>Quadro:</th>
-											<td><%=detalhes(funcionario.entidade)%></td>
+									<th>Cargo:</th>
+									<td><%= cargo_disciplina(funcionario)%>
+								</tr>
+								<tr>
+									<th>Nível:</th>
+									<td><%= cod(funcionario.nivel) %></td>
 
-											<th>Categoria Funcional:</th>
-											<td><%=detalhes(funcionario.categoria)%></td>
-										</tr>
-									</table>
-								</article>
-								<p class=tabela>Localização atual:  <%=l(funcionario)%></p>
-								<p class=tabela>Localização anterior:  <%=l_ant(funcionario)%></p>
+									<th>Quadro:</th>
+									<td><%=detalhes(funcionario.entidade)%></td>
 
-								<%end%>
-								<%end%>
-								<%end%>
-								<%else%>
-								<h2 class=tabela>Busca de pessoas</h2>
-								<%end%>
-							</div>
+									<th>Categoria Funcional:</th>
+									<td><%=detalhes(funcionario.categoria)%></td>
+								</tr>
+								</tr>
+							</table>
+						</article>
+						<p class=tabela>Localização atual:  <%=l(funcionario)%></p>
+						<p class=tabela>Localização anterior:  <%=l_ant(funcionario)%></p>
+						<p class=tabela>
+						<div id='verificado-<%=funcionario.matricula%>'>
+						<%if funcionario.verificado%>
+						<%= button_to "Invalidar Funcionário",pessoa_funcionario_desverificar_funcionario_path(pessoa,funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+						<%else !funcionario.verificado%>
+						<%= button_to "Validar Funcionário",pessoa_funcionario_verificar_funcionario_path(pessoa,funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+						<%end%>
+
 						</div>
-						<footer>
-							<div class="submit_link">
-								<%if can? :create,Pessoa%><%= link_to 'Cadastrar Pessoa', new_pessoa_path,:class=>"alt_btn",:type=>"submit"%> ou <%end%>
-								<%= link_to 'Voltar', :back,:type=>"submit" %>
-							</div>
-							<div class="submit_link">
-								<%= will_paginate @pessoas, :loading=>:highlight%>
-							</div>
-						</footer>
+						</p>
+						<%end%>
+						<%end%>
+						<%end%>
+						<%else%>
+						<h2 class=tabela>Busca de pessoas</h2>
+						<%end%>
 					</div>
-				</article>
+				</div>
+				<footer>
+					<div class="submit_link">
+						<%if can? :create,Pessoa%><%= link_to 'Cadastrar Pessoa', new_pessoa_path,:class=>"alt_btn",:type=>"submit"%> ou <%end%>
+						<%= link_to 'Voltar', :back,:type=>"submit" %>
+					</div>
+					<div class="submit_link">
+						<%= will_paginate @pessoas, :loading=>:highlight%>
+					</div>
+				</footer>
+			</div>
+		</article>
 				<!--<article class='module width_quarter'>
 					<p class='overview_day'>Quadro de Avisos</p>
 					<marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">

@@ -6,6 +6,7 @@ gem "rake", "~> 0.9.2"
 gem 'capistrano'
 gem 'thor'
 gem 'statistics'
+gem "best_in_placeish"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "odf-report"
