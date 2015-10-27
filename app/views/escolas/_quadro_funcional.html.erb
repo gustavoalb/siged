@@ -1,27 +1,35 @@
 <table class="tablesorter" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Matrícula</th>
-                <th>Funcionário</th>
-                <th>Cargo</th>
-                <th title="Regência Semanal Disponível">RSD<sup>(?)</sup></th>
-                <th>Ações</th>
-                <th colspan=2></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @funcionarios.each do |f| %>
-              <tr>
-               <td><%= f.matricula %></td>
-               <td><%= detalhes(f.pessoa) %></td>
-               <td><%= cargo_resumido(f) %></td>
-               <td title='<%=turmas(f)%>'><%= cor_rsd(f)%></td>
-               <%if can? :especificar_lotacao,Lotacao%>
-               <td><%= link_to  image_tag('/images/icn_detalhada.png',:title=>"Especificar Lotação Detalhadamente"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
-               <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação Massivamente."), pessoa_funcionario_lotacao_especificacao_massiva_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
-               <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
-               <% end %>
-             </tr>
-             <% end %>
-           </tbody>
-         </table>
+  <thead>
+    <tr>
+      <th>Matrícula</th>
+      <th>Funcionário</th>
+      <th>Cargo</th>
+      <th title="Regência Semanal Disponível">RSD<sup>(?)</sup></th>
+      <th>Ações</th>
+      <th colspan=3></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @funcionarios.each do |f| %>
+    <tr>
+     <td><%= f.matricula %></td>
+     <td><%= detalhes(f.pessoa) %></td>
+     <td><%= cargo_resumido(f) %></td>
+     <td title='<%=turmas(f)%>'><%= cor_rsd(f)%></td>
+     <%if can? :especificar_lotacao,Lotacao%>
+     <td><%= link_to  image_tag('/images/icn_detalhada.png',:title=>"Especificar Lotação Detalhadamente"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+     <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação Massivamente."), pessoa_funcionario_lotacao_especificacao_massiva_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
+     <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+     <td><div id='verificado-<%=f.matricula%>'>
+      <%if f.verificado%>
+      <%= button_to "Invalidar Funcionário",pessoa_funcionario_desverificar_funcionario_path(f.pessoa,f),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+      <%else !f.verificado%>
+      <%= button_to "Validar Funcionário",pessoa_funcionario_verificar_funcionario_path(f.pessoa,f),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+      <%end%>
+    </td>
+  </div>
+  <% end %>
+</tr>
+<% end %>
+</tbody>
+</table>
