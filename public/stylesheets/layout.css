@@ -825,6 +825,23 @@ text-shadow: 0 1px 0 #6CDCF9;
 cursor: pointer;
 }
 
+input[type=submit].alt_btn_dng {
+background: #D0D1D4 url(../images/btn_submit_3.png) repeat-x;
+border: 1px solid#C84830;
+-webkit-box-shadow: 0 1px 0 #fff;
+-moz-box-shadow: 0 1px 0 #fff;
+box-shadow: 0 1px 0 #fff;
+font-weight: bold;
+height: 22px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+padding: 0 10px;
+color: #490B00;
+text-shadow: 0 1px 0 #F9896c;
+cursor: pointer;
+}
+
 input[type=submit].alt_btn:hover {
 color: #001217;
 }

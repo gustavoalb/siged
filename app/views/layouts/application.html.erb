@@ -75,12 +75,12 @@
 		</ul>
 		<% end %>
 
-		<% if current_user.role?("lotacao") or current_user.role?(:chefia_ucolom)%>
+		<% if can?(:inspecionar,Escola)%>
 		<h3>Principal</h3>
 		<ul class="toggle">
 			<li class="icn_new_article"><a href="/pessoas">Lotação e Movimentação</a></li>
 			<li class="nao_lotados"><a href="/pessoas/nao_lotados">Funcionários sem Lotação</a></li>
-			<%if current_user.role?("chefia_ucolom")%><li class="icn_escola"><a href="/escolas">Escolas</a></li><%end%>
+			<li class="icn_escola"><a href="/escolas">Escolas</a></li>
 			<!--<li class="icn_edit_article"><a href="#">Controle de Especificação</a></li>-->
 		</ul>
 		<% end %>

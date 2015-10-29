@@ -90,7 +90,7 @@
 						<p class=tabela>
 						<div id='verificado-<%=funcionario.matricula%>'>
 						<%if funcionario.verificado%>
-						<%= button_to "Invalidar Funcionário",pessoa_funcionario_desverificar_funcionario_path(pessoa,funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+						<%= button_to "Invalidar Funcionário",pessoa_funcionario_desverificar_funcionario_path(pessoa,funcionario),:remote=>true,:method=>:post,:class=>'alt_btn_dng'%>
 						<%else !funcionario.verificado%>
 						<%= button_to "Validar Funcionário",pessoa_funcionario_verificar_funcionario_path(pessoa,funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
 						<%end%>

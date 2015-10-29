@@ -20,15 +20,15 @@
      <td><%= link_to  image_tag('/images/icn_detalhada.png',:title=>"Especificar Lotação Detalhadamente"), pessoa_funcionario_lotacao_especificar_lotacao_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
      <td><%= link_to  image_tag('/images/icn_especificar.png',:title=>"Especificar Lotação Massivamente."), pessoa_funcionario_lotacao_especificacao_massiva_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"%></td>
      <td><%= link_to  image_tag('/images/icn_devolver.png',:title=>"Devolver funcionario"), pessoa_funcionario_lotacao_devolver_funcionario_path(f.pessoa,f,@escola.lotacoes.ativo.find_by_funcionario_id(f.id)),:rel=>"facebox",:rev=>"height:300px;width:500px"  %></td>
+     <% end %>
      <td><div id='verificado-<%=f.matricula%>'>
       <%if f.verificado%>
-      <%= button_to "Invalidar Funcionário",pessoa_funcionario_desverificar_funcionario_path(f.pessoa,f),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+      <%= button_to "Invalidar Funcionário",pessoa_funcionario_desverificar_funcionario_path(f.pessoa,f),:remote=>true,:method=>:post,:class=>'alt_btn_dng'%>
       <%else !f.verificado%>
       <%= button_to "Validar Funcionário",pessoa_funcionario_verificar_funcionario_path(f.pessoa,f),:remote=>true,:method=>:post,:class=>'alt_btn'%>
       <%end%>
     </td>
   </div>
-  <% end %>
 </tr>
 <% end %>
 </tbody>

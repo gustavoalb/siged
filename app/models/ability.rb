@@ -199,6 +199,10 @@ class Ability
       can :gerir_carencias, Carencia
       can :autocomplete_departamento_nome,Departamento
       can :autocomplete_escola_nome,Escola
+      can :manage, Escola
+      can :inspecionar, Escola
+      cannot [:create,:update,:destroy,:configuracoes],Escola
+      cannot :especificar_lotacao,Lotacao
 
 
     elsif user.role? :chefia_ucolom
