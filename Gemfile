@@ -60,5 +60,5 @@ gem "jquery-historyjs"
 
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
-gem 'less'
+gem 'less-rails'
 gem 'therubyracer'
