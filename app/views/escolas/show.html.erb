@@ -1,19 +1,23 @@
 <%content_for :links do%>
-<%=link_to "Escolas",escolas_path%><div class="breadcrumb_divider"></div><a class="current">Detalhes</a>
+  <%=link_to "Escolas",escolas_path%>
+  <div class="breadcrumb_divider"></div>
+  <a class="current">Detalhes</a>
 <%end%>
 <article class="module width_full">
-  <header><h3>Detalhes da Escola: <%= @escola.nome.titleize%><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(@escola),:rel=>'facebox',:rev=>"height:300px;width:500px" if can?(:configuracoes,Escola)%></h3></header>
+  <header>
+    <h3>Detalhes da Escola: <%= @escola.nome.titleize%><%= link_to image_tag('icn_config.png',:title=>'Configurações'), escola_configuracoes_path(@escola),:rel=>'facebox',:rev=>"height:300px;width:500px" if can?(:configuracoes,Escola)%></h3>
+  </header>
   <div class="module_content">
     <div id="tabs1" class="tabset">
       <% if can? :manage,Escola,:id=>current_user.escola_id%>
-      <ul class="tabset_tabs">
-        <li><a href="#resumo">Resumo</a></li>
-        <li><a href="#tab-um">Detalhes</a></li>
-        <li><a href="#tab-dois">Quadro funcional</a></li>
-        <li><a href="#tab-tres">Turmas</a></li>
-        <li><a href="#tab-quatro">Lotações à confirmar</a></li>
-        <li><a href="#tab-cinco">Controle de CH</a></li>
-      </ul>
+        <ul class="tabset_tabs">
+          <li><a href="#resum">Resumo</a></li>
+          <li><a href="#tab-um">Detalhes</a></li>
+          <li><a href="#tab-dois">Quadro funcional</a></li>
+          <li><a href="#tab-tres">Turmas</a></li>
+          <li><a href="#tab-quatro">Lotações à confirmar</a></li>
+          <li><a href="#tab-cinco">Controle de CH</a></li>
+        </ul>
       <%end%>
       <div class="tabset_content_container">
         <div id="resumo" class="tabset_content">
@@ -24,71 +28,59 @@
             <b>Código:</b>
             <%= @escola.codigo %>
           </p>
-
           <p>
             <b>Nome:</b>
             <%= @escola.nome %>
           </p>
-
           <p>
             <b>Diretor:</b>
             <%= detalhes(@escola.diretor) %>
           </p>
-
           <%if !@escola.secretario.nil?%>
-          <p>
-            <b>Secretário:</b>
-            <%= detalhes(@escola.secretario) %>
-          </p>
+            <p>
+              <b>Secretário:</b>
+              <%= detalhes(@escola.secretario) %>
+            </p>
           <%end%>
-
           <%if !@escola.diretor_adjunto.nil?%>
-          <p>
-            <b>Diretor Adjunto:</b>
-            <%= detalhes(@escola.diretor_adjunto) %>
-          </p>
+            <p>
+              <b>Diretor Adjunto:</b>
+              <%= detalhes(@escola.diretor_adjunto) %>
+            </p>
           <%end%>
-
           <p>
             <b>Tipologia:</b>
             <%= @escola.tipologia %>
           </p>
-
           <p>
             <b>Rede:</b>
             <%= detalhes(@escola.esfera) %>
           </p>
-
           <p>
             <b>Zona:</b>
             <%= @escola.zona %>
           </p>
-
           <p>
             <b>Endereço:</b>
             <%= @escola.endereco %>
           </p>
-
           <p>
             <b>Cidade:</b>
             <%= @escola.municipio.nome %>
           </p>
-
           <p>
             <b>Telefone:</b>
             <%= @escola.telefone %>
           </p>
-
           <p>
             <b>Fax:</b>
             <%= @escola.fax %>
           </p>
-
           <p>
             <b>Email:</b>
             <%= @escola.email %>
           </p>
-           <p>
+          <p>
             <b>Funcionários Lotados e Confirmados:</b>
             <%= @funcionarios.count %>
           </p>
@@ -107,21 +99,25 @@
           <%=render :partial=>'lotacao'%>
         </div>
         <div id="tab-five" class="tabset_content" style='overflow-y: scroll; height: 340px;'>
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <center><%= button_to "Clique aqui para gerar o relatório",escola_gerar_controle_ch_path(@escola),:remote=>true,:method=>:get,:class=>'alt_btn'%></center>
         </div>
-
       </div>
     </div>
-
-
-
-
   </div>
   <footer>
     <div class="submit_link">
-    <%if can? :especificar_lotacao,Lotacao%>
-      <%= link_to "Incluir Turma", escola_incluir_turma_path(@escola),:rel=>"facebox",:rev=>"height:100px;width:600px"%>, 
+      <%if can? :especificar_lotacao,Lotacao%>
+        <%= link_to "Incluir Turma", escola_incluir_turma_path(@escola),:rel=>"facebox",:rev=>"height:100px;width:600px"%>, 
       <%= link_to 'Editar Escola', edit_escola_path(@escola),:class=>"alt_btn",:type=>"submit"%> ou
       <% end %>
       <%= link_to 'Voltar', escolas_path,:type=>"submit" %>

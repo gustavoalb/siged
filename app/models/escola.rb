@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 #include Serenity::Generator
 class Escola < ActiveRecord::Base
-  include ScopedSearch::Model
   extend FriendlyId
   friendly_id :nome, :use=> :slugged
   validates_presence_of :codigo,:nome,:message=>" Não pode ficar em branco!"
@@ -15,10 +14,10 @@ class Escola < ActiveRecord::Base
   has_many :comissionados,:conditions=>["ativo = ?",true]
   has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy,:as=>:destino
   has_many :especificacoes,:class_name=>'EspecificarLotacao',:dependent=>:destroy
-  has_one :diretor_adjunto,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA ADJUNTA'],:source=>:funcionario
-  has_one :diretor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'DIRETORIA'],:source=>:funcionario
-  has_one :secretario,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SECRETARIA'],:source=>:funcionario
-  has_one :supervisor,:through=>:comissionados,:conditions=>["comissionados.tipo = ?",'SUPERVISÃO'],:source=>:funcionario
+  has_one :diretor_adjunto
+  has_one :diretor
+  has_one :secretario
+  has_one :supervisor
   belongs_to :tipo_destino
   belongs_to :municipio
   belongs_to :esfera

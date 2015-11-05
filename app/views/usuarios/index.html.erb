@@ -1,50 +1,49 @@
 <%content_for :links do%>
-<a class="current">Usuários</a>
+  <a class="current">Usuários</a>
 <%end%>
-<article class="module width_3_quarter">
-  <header><h3 class="tabs_involved">Usuários do Sistema</h3>
-  <ul class="tabs">
-      <%= form_for @search do |f| %>
-        <li><%= f.text_field :busca,:size=>13 %></li>
-        <li><%= image_submit_tag "icn_busca.png" %>
+<article class="module width_full">
+  <header>
+    <h3 class="tabs_involved">Usuários do Sistema</h3>
+    <ul class="tabs">
+      <%= search_form_for @q,:url=>usuarios_path do |f| %>
+        <%= f.search_field :name_or_username_or_roles_name_or_roles_fullname_cont,:size=>12 %>
+        <li><%= image_submit_tag "icn_busca.png" %></li>
       <% end %>
     </ul>
   </header>
-  
-    
-      <table class="tablesorter" cellspacing="0">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Login</th>
-            <th>Orgão</th>
-            <th>Departamento</th>
-            <th colspan=3>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |usuario| %>
-          <tr>
-            <td width=10%><%= highlight(usuario.name,@busca) %></td>
-            <td width=10%><%= highlight(usuario.username,@busca) %></td>
-            <td width=10%><%= highlight(detalhes(usuario.orgao,true),@busca) %></td>
-            <td width=10%><%= highlight(detalhes(usuario.departamento,true),@busca) %></td>
-            <td><%= link_to 'Detalhes', usuario %></td>
-            <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_usuario_path(usuario)%></td>
-            <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), usuario, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <footer>
-    <div class="submit_link">
-      <%= link_to 'Cadastrar usuario', new_usuario_path,:class=>"alt_btn",:type=>"submit"%> ou
+  <table class="tablesorter" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Login</th>
+        <th>Orgão</th>
+        <th>Departamento</th>
+        <th colspan=3>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |usuario| %>
+        <tr>
+          <td><%= highlight(usuario.name,@busca) %></td>
+          <td width="10%"><%= highlight(usuario.username,@busca) %></td>
+          <td><%= highlight(detalhes(usuario.orgao,true),@busca) %></td>
+          <td><%= highlight(detalhes(usuario.unidade_organizacional),@busca) %></td>
+          <td><%= link_to 'Detalhes', usuario_path(usuario) %></td>
+          <td><%= link_to  image_tag('/images/icn_edit_article.png',:title=>"Editar"), edit_usuario_path(usuario)%></td>
+          <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), usuario_path(usuario), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+<footer>
+  <div class="submit_link">
+    <%= link_to 'Cadastrar usuario', new_usuario_path,:class=>"alt_btn",:type=>"submit"%> ou
       <%= link_to 'Voltar', :back,:type=>"submit" %>
-    </div>
-    <div class="submit_link">
-      <%= will_paginate @users%>
-    </div>
-  </footer>
+  </div>
+  <div class="submit_link">
+    <%= will_paginate @users%>
+  </div>
+</footer>
 </article>

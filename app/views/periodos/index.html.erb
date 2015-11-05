@@ -1,0 +1,42 @@
+<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Listando periodos</h3>
+		</header>
+    
+		
+<table class="tablesorter" cellspacing="0">
+<thead>
+  <tr>
+    <th>Inicio</th>
+    <th>Fim</th>
+    <th>Abertura</th>
+    <th>Encerramento</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @periodos.each do |periodo| %>
+  <tr>
+    <td><%= periodo.inicio %></td>
+    <td><%= periodo.fim %></td>
+    <td><%= periodo.abertura %></td>
+    <td><%= periodo.encerramento %></td>
+    <td><%= periodo.status %></td>
+    <td><%= link_to 'Detalhes', periodo %></td>
+    <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_periodo_path(periodo) %></td>
+    <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), periodo, :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Cadastrar Periodo', new_periodo_path,:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', :back,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

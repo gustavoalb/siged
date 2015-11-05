@@ -1,12 +1,12 @@
 # -*- encoding : utf-8 -*-
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.2.22'
+
 gem "rake", "~> 0.9.2"
 gem 'capistrano'
 gem 'thor'
 gem 'statistics'
-gem "best_in_placeish"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem "odf-report"
@@ -15,21 +15,26 @@ gem 'pg'
 gem 'kaminari'
 gem 'brazilian-rails', '3.1.0'
 #gem 'brI18n'
-gem 'will_paginate','~> 2.3.5'
+gem 'will_paginate'
 gem 'devise'
 gem 'carrierwave'
+gem 'calendar_date_select'
 gem 'carrierwave-postgresql'
+gem 'prototype_legacy_helper', '0.0.0', :git => 'https://github.com/rails/prototype_legacy_helper.git'
+gem 'prototype-rails'
 gem 'mini_magick'
 gem 'chunky_png'
+gem 'cancan'
+gem 'wicked_pdf'
 gem 'liquid'
-gem 'scoped-search', :require=>"scoped_search"
+gem 'ransack'
 gem "wkhtmltopdf", "~> 0.1.2"
 gem 'barby'
 #gem 'rmagick', '2.13.3'
 gem 'railroady'
 #gem 'axlsx'
 #gem 'silent-postgres'
-#gem 'simple_form'
+
 gem 'serenity-odt','0.2.0'
 #gem 'state_machine'
 #gem 'messaging', :git=> 'git://github.com/frodefi/rails-messaging.git'
@@ -52,3 +57,8 @@ gem 'combine_pdf'
 gem 'ajax_pagination'
 gem 'jquery-rails'
 gem "jquery-historyjs"
+
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
+gem 'less'
+gem 'therubyracer'

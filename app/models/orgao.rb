@@ -3,7 +3,6 @@ class Orgao < ActiveRecord::Base
   set_table_name :orgaos
   #default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
 
-  include ScopedSearch::Model
   scope :busca, lambda { |q| where("sigla ilike ? or codigo ilike ? or nome ilike ?" ,"%#{q}%","%#{q}%","%#{q}%") }
   belongs_to :esfera
   belongs_to :entidade

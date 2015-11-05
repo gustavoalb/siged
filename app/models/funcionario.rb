@@ -7,7 +7,6 @@ class Funcionario < ActiveRecord::Base
   validates_presence_of  :cargo_id,:categoria_id,:message=>"Não pode ficar em branco!"
   validates_uniqueness_of :matricula,:message=>"já existente",:on=>:create,:if => Proc.new {|f| not f.matricula.blank?}
   #scoped_search
-  include ScopedSearch::Model
   scope :busca, lambda { |q| where("matricula like ?" ,"%#{q}%") }
   scope :da_pessoa, lambda {|id|where("pessoa_id = ?",id) }
   scope :diretores, lambda { |q| where("diretor = ?" , true) }
@@ -54,10 +53,10 @@ class Funcionario < ActiveRecord::Base
   has_many :especificacoes,:class_name=>"EspecificarLotacao",:conditions=>{:ativo=>true},:dependent => :destroy
   scope :direcao, joins(:comissionados).where("comissionados.ativo=? and comissionados.tipo=?",true,'DIRETORIA')
   after_create :criar_comissionado
-  attr_accessor_with_default(:nome) {pessoa.nome}
-  attr_accessor_with_default(:rsn) {self.regencia_semanal_nominal}
-  attr_accessor_with_default(:rsd) {self.regencia_semanal_disponivel}
-  attr_accessor_with_default(:disciplina) {self.disciplina_nome}
+  attr_accessor(:nome) {pessoa.nome}
+  attr_accessor(:rsn) {self.regencia_semanal_nominal}
+  attr_accessor(:rsd) {self.regencia_semanal_disponivel}
+  attr_accessor(:disciplina) {self.disciplina_nome}
   def aposentadoria
     self.data_nomeacao.months_since(300)
   end

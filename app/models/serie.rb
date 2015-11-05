@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class Serie < ActiveRecord::Base
-include ScopedSearch::Model
   scope :busca, lambda { |q| where("nome like ? or nome like ?" ,"%#{q}%","%#{q}%") }
   has_and_belongs_to_many :matrizes,:class_name=>'Matriz',:join_table => "colapso_matrizes"
   has_many :curriculos
@@ -12,11 +11,10 @@ include ScopedSearch::Model
 
   after_update :atualizar_curriculos
 
-  
+
 
   private
   def atualizar_curriculos
-  	self.matrizes.each(&:editar_curriculo)
+    self.matrizes.each(&:editar_curriculo)
   end
 end
-

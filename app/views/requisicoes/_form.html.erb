@@ -1,0 +1,49 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@requisicao) do |f| %>
+  <% if @requisicao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@requisicao.errors.count, "erro impede","erros impedem") %> este requisicao de ser cadastrado:</h2>
+
+      <ul>
+      <% @requisicao.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :funcionario_id %><br />
+    
+    <%= f.number_field :funcionario_id,:style=>"width:40%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :tipo_requisicao %><br />
+        <%= f.text_field :tipo_requisicao,:style=>"width:92%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :periodo_id %><br />
+    
+    <%= f.number_field :periodo_id,:style=>"width:40%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :status %><br />
+        <%= f.text_field :status,:style=>"width:92%;" %>
+    
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

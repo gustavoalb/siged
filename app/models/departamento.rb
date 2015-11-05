@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Departamento < ActiveRecord::Base
   #default_scope where('entidade_id in (?)',User.usuario_atual.entidade_ids)
-  include ScopedSearch::Model
   belongs_to :orgao
   belongs_to :tipo_destino
   belongs_to :entidade

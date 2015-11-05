@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class Comissionado < ActiveRecord::Base
-  include ScopedSearch::Model
   scope :do_func, lambda {|id|where("funcionario_id = ?",id) }
   scope :exoneracoes,where("ativo = ? and decreto_exoneracao is not null",false)
   scope :ativos,where("ativo = ? and decreto_exoneracao is null",true)
@@ -50,4 +49,3 @@ class Comissionado < ActiveRecord::Base
   end
 
 end
-

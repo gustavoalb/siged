@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151026185311) do
+ActiveRecord::Schema.define(:version => 20151105141351) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -857,6 +858,16 @@ ActiveRecord::Schema.define(:version => 20151026185311) do
   add_index "orgaos", ["poder_id"], :name => "index_orgaos_on_poder_id"
   add_index "orgaos", ["tipo_administracao_id"], :name => "index_orgaos_on_tipo_administracao_id"
 
+  create_table "periodos", :force => true do |t|
+    t.date     "inicio"
+    t.date     "fim"
+    t.datetime "abertura"
+    t.datetime "encerramento"
+    t.string   "status"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "pessoas", :force => true do |t|
     t.string   "nome"
     t.string   "sexo"
@@ -1137,6 +1148,15 @@ ActiveRecord::Schema.define(:version => 20151026185311) do
 
   add_index "referencia_niveis", ["codigo"], :name => "index_referencia_niveis_on_codigo"
   add_index "referencia_niveis", ["nome"], :name => "index_referencia_niveis_on_nome"
+
+  create_table "requisicoes", :force => true do |t|
+    t.integer  "funcionario_id"
+    t.string   "tipo_requisicao"
+    t.integer  "periodo_id"
+    t.string   "status"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

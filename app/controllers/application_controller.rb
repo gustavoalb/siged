@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   def dados_essenciais
     @destinos = TipoDestino.all.collect{|t|[t.nome,t.id]}
     @cargos = Cargo.order(:nome).collect{|c|[c.nome,c.id]}
-    @orgaos = Orgao.order(:nome).collect{|o|[o.nome.upcase,o.id]}
+    @orgaos = Orgao.order(:nome).collect{|o|[o.sigla.upcase,o.id]}
     @niveis_f = Nivel.order(:ordem).collect{|n|[n.nome.upcase,n.id]}
     @municipios = Municipio.order(:nome).collect{|m|[m.nome,m.id]}
     @sitjuridicas = SituacoesJuridica.order(:sigla).collect{|s|[s.nome,s.id]}
@@ -54,4 +54,3 @@ class ApplicationController < ActionController::Base
     @anos_letivos = AnoLetivo.order(:ano).collect{|a|[a.ano,a.id]}
   end
 end
-

@@ -1,0 +1,40 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Inicio:</b>
+  <%= @periodo.inicio %>
+</p>
+
+<p>
+  <b>Fim:</b>
+  <%= @periodo.fim %>
+</p>
+
+<p>
+  <b>Abertura:</b>
+  <%= @periodo.abertura %>
+</p>
+
+<p>
+  <b>Encerramento:</b>
+  <%= @periodo.encerramento %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @periodo.status %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_periodo_path(@periodo),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', periodos_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

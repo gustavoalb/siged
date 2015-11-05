@@ -4,7 +4,6 @@ class Pessoa < ActiveRecord::Base
   friendly_id :nome, :use=> :slugged
 
   #default_scope where('pessoas.entidade_id in (?)',User.usuario_atual.entidade_ids)
-  include ScopedSearch::Model
   validates_uniqueness_of :cpf,:on=>:create
   validates_presence_of :nome,:endereco,:sexo,:cpf,:rg,:numero,:bairro,:uf,:titulo_eleitor,:zona_eleitoral,:secao,:message=>"Não pode ficar em branco!",:on=>:create
   validates_uniqueness_of :nome,:scope => [:entidade_id,:cpf,:rg],:message=>"já cadastrado",:on=>:create

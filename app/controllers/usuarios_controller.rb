@@ -4,11 +4,8 @@ class UsuariosController < ApplicationController
   # GET /users.xml
   load_and_authorize_resource
   def index
-    @search = Usuario.scoped_search(params[:search])
-    if params[:search] and params[:search][:busca]
-      @busca = params[:search][:busca]
-    end
-    @users =  @search.order('name ASC').paginate :page => params[:page], :per_page => 10
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).order('name ASC').paginate :page => params[:page], :per_page => 10
 
     respond_to do |format|
       format.html # index.html.erb

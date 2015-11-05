@@ -1,4 +1,0 @@
-Testing pdftk_forms
-https://github.com/tcocca/active_pdftk
-
-This file should be unpacked from the pdf.

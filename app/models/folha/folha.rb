@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class Folha::Folha < ActiveRecord::Base
-  include ScopedSearch::Model
   belongs_to :competencia
   has_many :financeiros
   belongs_to :fonte_recurso,:class_name=>"Folha::FonteRecurso"
@@ -10,10 +9,9 @@ class Folha::Folha < ActiveRecord::Base
   def total_financeiros
     valor_total = 0.0
     fins = self.financeiros.all
-      fins.each do |f|
-        valor_total+=f.valor
-       end
-       return valor_total
+    fins.each do |f|
+      valor_total+=f.valor
+    end
+    return valor_total
   end
 end
-

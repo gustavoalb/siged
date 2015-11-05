@@ -1,0 +1,52 @@
+<article class="module width_full">
+<header><h3><%=legenda%></h3></header>
+<div class="module_content">
+
+
+<%= form_for(@periodo) do |f| %>
+  <% if @periodo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@periodo.errors.count, "erro impede","erros impedem") %> este periodo de ser cadastrado:</h2>
+
+      <ul>
+      <% @periodo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :inicio %><br />
+        <%= f.calendar_date_select :inicio,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :fim %><br />
+        <%= f.calendar_date_select :fim,:start_year=>1970,:order=>[:day,:month,:year],:style=>"width:40%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :abertura %><br />
+        <%= f.calendar_date_select :abertura,:style=>"width:92%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :encerramento %><br />
+        <%= f.calendar_date_select :encerramento,:style=>"width:92%;" %>
+    
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :status %><br />
+        <%= f.text_field :status,:style=>"width:92%;" %>
+    
+  </fieldset>
+<div class="clear"></div>
+</div>
+        <footer>
+				<div class="submit_link">
+					<%=f.submit "Salvar",:class=>"alt_btn" %> ou <%=link_to 'Cancelar',:back%>
+				</div>
+			</footer>
+<% end %>
+</article>

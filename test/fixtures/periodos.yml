@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  inicio: 2015-11-05
+  fim: 2015-11-05
+  abertura: 2015-11-05 11:13:51
+  encerramento: 2015-11-05 11:13:51
+  status: MyString
+
+two:
+  inicio: 2015-11-05
+  fim: 2015-11-05
+  abertura: 2015-11-05 11:13:51
+  encerramento: 2015-11-05 11:13:51
+  status: MyString

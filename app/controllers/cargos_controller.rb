@@ -3,10 +3,10 @@ class CargosController < ApplicationController
   load_and_authorize_resource
   # GET /cargos
   # GET /cargos.xml
-before_filter :dados_essenciais
+  before_filter :dados_essenciais
   def index
-    @search = Cargo.scoped_search(params[:search])
-    @cargos = @search.order(:nome).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    @q = Cargo.ransack(params[:q])
+    @cargos = @q.result(distinct: true).order('nome ASC').paginate :page => params[:page], :per_page => 10
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,4 +85,3 @@ before_filter :dados_essenciais
     end
   end
 end
-

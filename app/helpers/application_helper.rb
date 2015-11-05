@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
-  include ScopedSearch::Helpers
 
   def disciplina(func)
     if func.disciplina_contratacao

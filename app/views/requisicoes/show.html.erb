@@ -1,0 +1,35 @@
+<article class="module width_full">
+<header><h3>Detalhes de </h3></header>
+<div class="module_content">
+
+
+<p>
+  <b>Funcionario:</b>
+  <%= @requisicao.funcionario_id %>
+</p>
+
+<p>
+  <b>Tipo requisicao:</b>
+  <%= @requisicao.tipo_requisicao %>
+</p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @requisicao.periodo_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @requisicao.status %>
+</p>
+
+
+</div>
+<footer>
+				<div class="submit_link">
+				  <%= link_to 'Editar', edit_requisicao_path(@requisicao),:class=>"alt_btn",:type=>"submit"%> ou
+				  <%= link_to 'Voltar', requisicoes_path,:type=>"submit" %>
+				</div>
+			</footer>
+</article>
+

@@ -12,11 +12,8 @@ class EscolasController < ApplicationController
   # GET /escolas.xml
   before_filter :dados_essenciais#,:funcionarios
   def index
-    @search = Escola.scoped_search(params[:search])
-    if params[:search]
-      @busca = params[:search][:busca]
-    end
-    @escolas = @search.includes(:entidade).order('entidades.nome',"escolas.nome").paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    @q = Escola.ransack(params[:q])
+    @escolas = @q.result(distinct: true).order('nome ASC').paginate :page => params[:page], :per_page => 10
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @escolas }
