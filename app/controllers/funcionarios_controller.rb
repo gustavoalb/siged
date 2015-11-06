@@ -190,7 +190,7 @@ class FuncionariosController < ApplicationController
     @prazo=prazo.to_date.to_s_br
     @processo = @lotacao.processos.last
     @usuario = @lotacao.usuario
-    File.open("/tmp/barcode-#{@funcionario.matricula}-#{@lotacao.id}.png", 'w'){|f| f.write @lotacao.img_codigo }
+    File.open("/tmp/barcode-#{@funcionario.matricula}-#{@lotacao.id}.png", 'wb'){|f| f.write @lotacao.img_codigo }
     carta = ODFReport::Report.new("#{Rails.public_path}/modelos/carta.odt") do |r|
       r.add_field "NOME", @pessoa.nome
       r.add_field "CPF", @pessoa.cpf
