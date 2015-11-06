@@ -17,7 +17,6 @@ class Ability
 
     if user.role? :admin
       can :manage, :all
-
       #elsif !user.roles.none?
       #  can :manage,TipoLista,:privada=>false
       #  cannot :destroy,TipoLista,:privada=>false
@@ -71,6 +70,8 @@ class Ability
       cannot :destroy,Escola
       cannot :destroy,Turma
       can :read,Pessoa
+      #can :read,Requisicao,:lotacao_id=>user.unidade_organizacional_id,:lotacao_type=>user.unidade_organizacional_type
+      can :manage,Requisicao,:lotacao_id=>user.unidade_organizacional_id,:lotacao_type=>user.unidade_organizacional_type
 
     elsif user.role? :enquete
       can :read,Pessoa

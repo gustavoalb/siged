@@ -2,6 +2,18 @@
 # pt-BR translations for Ruby on Rails
 'pt-BR':
   # formatos de data e hora
+  January: "Janeiro"
+  February: "Fevereiro"
+  March: "Março"
+  April: "Abril"
+  May: "Maio"
+  June: "Junho"
+  July: "Julho"
+  August: "Agosto"
+  September: "Setembro"
+  October: "Outubro"
+  November: "Novembro"
+  December: "Dezembro"
   date:
     formats:
       default: "%d/%m/%Y"
@@ -184,6 +196,10 @@
       second: "Segundo"
 
   helpers:
+    links:
+      cancel: "Cancelar"
+    titles:
+      new: "Criar %{model}"
     select:
       prompt: "Por favor selecione"
 

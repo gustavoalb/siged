@@ -1,0 +1,28 @@
+<%= simple_form_for @requisicao, :html => { :class => 'form-horizontal' } do |f| %>
+  <div style='margin-left: 60px;'>
+    <%= f.input :funcionario_id,:as=>:hidden,:input_html=>{:value=>@funcionario.id}%>
+    <%= f.simple_fields_for :pessoa,@requisicao.pessoa do |p|%>
+      <%= p.input :endereco,:label=>"Endereço"%>
+      <%= p.input :numero,:label=>"Nº"%>
+      <%= p.input :bairro,:label=>"Bairro"%>
+      <%= p.input :complemento,:label=>"Complemento"%>
+      <%= p.input :cep,:label=>"CEP"%>
+      <%= p.input :telefone_celular,:label=>"Celular",:input_html=>{:class=>'celular'}%>
+      <%= p.input :telefone_residencial,:label=>"Telefone",:input_html=>{:class=>'telefone'}%>
+      <%= p.input :email,:label=>"E-Mail",:as=>:email%>
+    <%end%>
+    <%= f.simple_fields_for :funcionario,@requisicao.funcionario do |f2|%>
+      <%= f2.input :disciplina_contratacao_id,:label=>"Disciplina de Concurso",:as=>:select,:collection=>@disciplinas,:prompt=>true%>
+      <%if @funcionario.categoria and [Categoria.find_by_nome("Concurso de 2012").id].include?(@funcionario.categoria.id)%>
+        <%= f2.input :municipio_id,:label=>"Município de Concurso",:as=>:select,:collection=>@municipios,:prompt=>true%>
+      <%end%>
+    <%end%>
+    <%= f.input :tipo_requisicao,:label=>"Tipo de Requisição",:as=>:select,:collection=>["Licença Prêmio Especial"],:input_html=>{:default=>"Licença Prêmio Especial"},:prompt=>true%>
+    <%= f.input :periodo_id,:label=>"Período",:as=>:select,:collection=>@periodos,:prompt=>true %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                requisicoes_path(:funcionario=>@funcionario.id), :class => 'btn' %>
+  </div>
+<% end %>

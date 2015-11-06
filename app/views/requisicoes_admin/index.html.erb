@@ -1,0 +1,51 @@
+<%- model_class = Requisicao -%>
+<div class="page-header">
+  <h1>Requisições</h1>
+  <div class="col-lg-2 pull-right">
+    <div class="input-group">
+      <%= search_form_for @q,:url=>requisicoes_admin_index_path do |f| %>
+        <%= f.search_field :funcionario_matricula_or_pessoa_nome_or_pessoa_cpf_cont,:size=>12 %>
+        <%= f.submit "buscar" %>
+      <% end %>
+    </div>
+    <!-- /input-group -->
+  </div>
+  <!-- /.col-lg-6 -->
+</div>
+<table class="table table-hover table-condensed" style="font-size: 12px;">
+  <thead>
+    <tr>
+      <th>Nº</th>
+      <th>Matrícula</th>
+      <th>Nome</th>
+      <th>Cargo</th>
+      <th>Período</th>
+      <th>Status</th>
+      <th>Data</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requisicoes.each do |requisicao| %>
+      <tr class='<%= cycle('','')%>'>
+        <td><%= link_to requisicao.id, requisicoes_admin_path(requisicao) %></td>
+        <td><%= requisicao.funcionario.matricula %></td>
+        <td><%= detalhes(requisicao.funcionario.pessoa) %></td>
+        <td><%= cargo_disciplina(requisicao.funcionario) %></td>
+        <td><%= "#{t requisicao.periodo.inicio.strftime("%B")} - #{t requisicao.periodo.fim.strftime("%B")}" %></td>
+        <td><%= requisicao.status %></td>
+        <td><%= requisicao.created_at.to_s_br %></td>
+        <td>
+          <%= link_to "Editar",
+				edit_requisicoes_admin_path(requisicao), :class => 'btn btn-sm btn-default' %>
+          <%= link_status(requisicao)%>
+          <%= link_to "Cancelar",
+				requisicao_path(requisicao),
+				:method => :delete,
+				:data => { :confirm => "Você tem certeza?"},
+				:class => 'btn btn-sm btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

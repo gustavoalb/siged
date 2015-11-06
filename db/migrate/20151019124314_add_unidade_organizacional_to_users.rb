@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddUnidadeOrganizacionalToUsers < ActiveRecord::Migration
   def self.up
     add_column :users, :unidade_organizacional_type, :string

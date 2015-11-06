@@ -1,0 +1,7 @@
+<%= simple_form_for :funcionario,:url=>gerar_links_requisicoes_path, :remote=>true,:html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :matricula %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+  </div>
+<% end %>
+<div id="links"></div>

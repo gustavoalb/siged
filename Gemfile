@@ -1,10 +1,9 @@
 # -*- encoding : utf-8 -*-
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.22'
+gem 'rails', '3.2.0'
 
 gem "rake", "~> 0.9.2"
-gem 'capistrano'
 gem 'thor'
 gem 'statistics'
 # Bundle edge Rails instead:
@@ -52,13 +51,13 @@ gem 'rails3-jquery-autocomplete'
 gem 'puma', '2.7.1'
 gem 'thin'
 gem 'validates_timeliness'
-
+gem 'nested_form'
 gem 'combine_pdf'
 gem 'ajax_pagination'
 gem 'jquery-rails'
 gem "jquery-historyjs"
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails',:git=>'https://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
 gem 'less-rails'
 gem 'therubyracer'

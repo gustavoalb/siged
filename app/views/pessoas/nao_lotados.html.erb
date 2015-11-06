@@ -1,7 +1,7 @@
 <script type="text/javascript">
   document.observe('dom:loaded', function() {
-  		new UnobtrusiveLinker();
-  	});
+        new UnobtrusiveLinker();
+      });
 </script>
 <%content_for :links do%>
   <a class="current">Pessoas</a>
@@ -89,7 +89,7 @@
                             </tr>
                           </table>
                         </article>
-                        <p class=tabela>Localização atual:  <%=l(funcionario)%></p>
+                        <p class=tabela>Localização atual:  <%=lotacao(funcionario)%></p>
                         <p class=tabela>Localização anterior:  <%=l_ant(funcionario)%></p>
                       <%end%>
                     <%end%>
@@ -111,10 +111,10 @@
           </div>
         </article>
         <!--<article class='module width_quarter'>
-					<p class='overview_day'>Quadro de Avisos</p>
-					<marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
-						<% @noticias.all.each do |n| %>
-						<p style='background: #CCCCCC;'><%="#{n.created_at.to_date.to_s_br} - #{n.texto}"%></p><br/>
-						<% end %>
-					</marquee>
-				</article>-->
+          <p class='overview_day'>Quadro de Avisos</p>
+          <marquee behavior="scroll" direction="up" onmouseover="this.stop()" onmouseout="this.start()">
+            <% @noticias.all.each do |n| %>
+            <p style='background: #CCCCCC;'><%="#{n.created_at.to_date.to_s_br} - #{n.texto}"%></p><br/>
+            <% end %>
+          </marquee>
+        </article>-->

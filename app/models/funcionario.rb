@@ -4,7 +4,8 @@ class Funcionario < ActiveRecord::Base
   friendly_id :matricula, :use=> :slugged
   #default_scope joins(:pessoa).order('pessoas.nome asc')
   #default_scope where('funcionarios.entidade_id in (?)',User.usuario_atual.entidade_ids)
-  validates_presence_of  :cargo_id,:categoria_id,:message=>"Não pode ficar em branco!"
+  validates_presence_of  :cargo_id,:disciplina_contratacao_id,:categoria_id,:message=>"Não pode ficar em branco!"
+  validates_presence_of :municipio_id,:if=>Proc.new{|f|[Categoria.find_by_nome("Concurso de 2012").id,Categoria.find_by_nome("Estado Novo").id].include?(f.categoria.id)}
   validates_uniqueness_of :matricula,:message=>"já existente",:on=>:create,:if => Proc.new {|f| not f.matricula.blank?}
   #scoped_search
   scope :busca, lambda { |q| where("matricula like ?" ,"%#{q}%") }
@@ -33,6 +34,7 @@ class Funcionario < ActiveRecord::Base
   belongs_to :distrito
   belongs_to :processo
   belongs_to :entidade
+  has_many :requisicoes
   has_one :user,:dependent=>:destroy
   belongs_to :fonte_recurso,:class_name=>"Folha::FonteRecurso"
   has_many :listas,:dependent=>:destroy

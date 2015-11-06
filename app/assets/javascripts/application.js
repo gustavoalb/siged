@@ -20,7 +20,6 @@
 //= require autocomplete-rails
 //= require dragdrop
 //= require controls
-//= require rails
 //= require facebox
 //= require tabs
 //= require loading_notice

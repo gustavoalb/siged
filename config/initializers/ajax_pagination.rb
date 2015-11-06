@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 AjaxPagination.config do |config|
   # uncomment to change default loading image file, located in assets/images.
   # config.loading_image = "ajax-loader.gif"

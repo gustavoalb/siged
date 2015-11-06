@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddRubricaIdToGratificacoes < ActiveRecord::Migration
   def self.up
     add_column :gratificacoes, :rubrica_id, :integer

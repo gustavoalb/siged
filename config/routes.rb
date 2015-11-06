@@ -2,10 +2,18 @@
 Siged20::Application.routes.draw do
 
 
+
   resources :periodos
 
 
-  resources :requisicoes
+  resources :requisicoes do
+    get :definir_funcionario,:on=>:collection
+    post :gerar_links,:on=>:collection
+  end
+
+  resources :requisicoes_admin do
+    get :transicionar,:on=>:collection
+  end
 
 
   resources :carencias do

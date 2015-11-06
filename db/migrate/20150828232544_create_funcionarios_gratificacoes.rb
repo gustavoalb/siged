@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFuncionariosGratificacoes < ActiveRecord::Migration
    def self.up
     create_table :funcionarios_gratificacoes, :id => false do |t|

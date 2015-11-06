@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveArquivoAndArquivoCodigoFromPontos < ActiveRecord::Migration
   def self.up
     remove_column :pontos, :arquivo
