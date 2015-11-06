@@ -3,8 +3,9 @@
  *= require facebox
  *= require layout
  *= require tabs
- *= require verticalaccordion
  *= require accordion
  *= require loading_notice
  *= require jquery-ui.min
+ *= require auto_complete
+ *= require verticalaccordion
 */
