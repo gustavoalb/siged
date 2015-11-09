@@ -1,113 +1,87 @@
  <script type="text/javascript">
-
   new MaskedInput('.date', '99/99/9999');
-  new MaskedInput(".telefone", '(99) 9999-9999');
-  new MaskedInput('.celular', '(99) 99999-9999');
-  new MaskedInput('#pessoa_cpf', '999.999.999-99');
-  new MaskedInput('#ssn', '999-99-9999');
-  new MaskedInput('#product', 'a*-999-a999');
-
-  new MaskedInput('#eyescript', '~9.99 ~9.99 999', {
-    completed: function(){
-      alert("You typed the following: " + this.getValue());
-    }
+    new MaskedInput(".telefone", '(99) 9999-9999');
+    new MaskedInput('.celular', '(99) 99999-9999');
+    new MaskedInput('#pessoa_cpf', '999.999.999-99');
+    new MaskedInput('#ssn', '999-99-9999');
+    new MaskedInput('#product', 'a*-999-a999');
+  
+    new MaskedInput('#eyescript', '~9.99 ~9.99 999', {
+      completed: function(){
+        alert("You typed the following: " + this.getValue());
+      }
+    });
+  
+    MaskedInput.definitions['~']='[+-]';
+  
+    new MaskedInput('#eyescript2', '~9.99 ~9.99 999', {
+      completed: function(){
+        alert("You typed the following: " + this.getValue());
+      }
+  
   });
-
-  MaskedInput.definitions['~']='[+-]';
-
-  new MaskedInput('#eyescript2', '~9.99 ~9.99 999', {
-    completed: function(){
-      alert("You typed the following: " + this.getValue());
-    }
- 
-});
- </script>
-
+</script>
 <%= form_for(@pessoa) do |f| %>
-
-<%=hidden_field_tag :edicao_rapida,:value=>true%>
-
-<fieldset style="width:97%; float:left; margin-right: 1%;">
-  <table>
-    <tr>
-      <th><%=f.label :endereço%></th>
-      <th><%=f.label :numero%></th>
-    </tr>
-    <tr>
-      <td align=left><%= f.text_field :endereco,:style=>"width:92%;" %></td>
-
-      <td align=left><%= f.text_field :numero,:style=>"width:20%;" %></td>
-    </tr>
-  </table>
-
-</fieldset>
-
-
-<fieldset style="width:48%; float:left; margin-right: 1%;">
-  <%= f.label :telefone_residencial %><br />
-  <%= f.text_field :telefone_residencial,:style=>"width:92%;",:class=>"telefone" %>
-
-</fieldset>
-
-<fieldset style="width:48%; float:left; margin-right: 1%;">
-  <%= f.label :celular %><br />
-  <%= f.text_field :telefone_celular,:style=>"width:92%;",:class=>"celular" %>
-</fieldset>
-
-
-
-
-<%@pessoa.funcionarios.each_with_index do |funcionario,index|%>
-<fieldset style="width:96%; float:left; margin-right: 1%;background: #FFF; border: 0px solid #fff;">
-  <h3>Funcionário de matrícula <%=funcionario.matricula%></h3>
-<%=f.fields_for :funcionarios,funcionario do |f2|%>
-
-<fieldset style="width:48%; float:left; margin-right: 1%;">
-  <%= f2.label :disciplina_de_contratação %><br />
-  <%= f2.select :disciplina_contratacao_id,@disciplinas,:prompt=>true,:style=>"width:92%;" %>
-</fieldset>
-
-      <%if funcionario.cargo.tipo and (funcionario.cargo.tipo.nome=='Magistério/Docência' or funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and funcionario.categoria and funcionario.categoria.nome=="Estado Novo"%>
-      <fieldset style="width:48%; float:left; margin-right: 1%;">
-        <%= f2.label :municipio_de_opção %><br />
-        <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>
-
-      </fieldset>
-
-      <%=observe_field "pessoa_funcionarios_attributes_#{index}_municipio_id", :url => "/pessoas/distrito",
+  <%=hidden_field_tag :edicao_rapida,:value=>true%>
+  <fieldset style="width:97%; float:left; margin-right: 1%;">
+    <table>
+      <tr>
+        <th><%=f.label :endereço%></th>
+        <th><%=f.label :numero%></th>
+        <th><%=f.label :bairro%></th>
+      </tr>
+      <tr>
+        <td align=left><%= f.text_field :endereco,:style=>"width:92%;" %></td>
+        <td align=left><%= f.text_field :numero,:style=>"width:20%;" %></td>
+        <td align=left><%= f.text_field :bairro,:style=>"width:20%;" %></td>
+      </tr>
+    </table>
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :telefone_residencial %><br />
+    <%= f.text_field :telefone_residencial,:style=>"width:92%;",:class=>"telefone" %>
+  </fieldset>
+  <fieldset style="width:48%; float:left; margin-right: 1%;">
+    <%= f.label :celular %><br />
+    <%= f.text_field :telefone_celular,:style=>"width:92%;",:class=>"celular" %>
+  </fieldset>
+  <%@pessoa.funcionarios.each_with_index do |funcionario,index|%>
+    <fieldset style="width:96%; float:left; margin-right: 1%;background: #FFF; border: 0px solid #fff;">
+      <h3>Funcionário de matrícula <%=funcionario.matricula%></h3>
+      <%=f.fields_for :funcionarios,funcionario do |f2|%>
+        <fieldset style="width:48%; float:left; margin-right: 1%;">
+          <%= f2.label :disciplina_de_contratação %><br />
+          <%= f2.select :disciplina_contratacao_id,@disciplinas,:prompt=>true,:style=>"width:92%;" %>
+        </fieldset>
+        <%if funcionario.cargo.tipo and (funcionario.cargo.tipo.nome=='Magistério/Docência' or funcionario.cargo.tipo.nome=='Magistério/Técnico-pedagógico') and funcionario.categoria and funcionario.categoria.nome=="Estado Novo"%>
+          <fieldset style="width:48%; float:left; margin-right: 1%;">
+            <%= f2.label :municipio_de_opção %><br />
+            <%= f2.select :municipio_id,@municipios,:prompt=>"Selecione o Município" %>
+          </fieldset>
+          <%=observe_field "pessoa_funcionarios_attributes_#{index}_municipio_id", :url => "/pessoas/distrito",
       :frequency => 0.25,
       :update => :dist,
       :with => "municipio"%>
-
-      <div id=dist>
-
-        <%if funcionario.municipio and funcionario.distrito -%>
-        <fieldset style="width:48%; float:left; margin-right: 1%;">
-          <%= label_tag :distrito_de_opção %><br /><br />
-          <%=f2.select :distrito_id,funcionario.municipio.distritos.all.collect{|d|[d.nome,d.id]},:style=>"width:92%;",:disabled=>true%>
-        </fieldset>
+          <div id=dist>
+            <%if funcionario.municipio and funcionario.distrito -%>
+              <fieldset style="width:48%; float:left; margin-right: 1%;">
+                <%= label_tag :distrito_de_opção %><br />
+                <br />
+                <%=f2.select :distrito_id,funcionario.municipio.distritos.all.collect{|d|[d.nome,d.id]},:style=>"width:92%;",:disabled=>true%>
+              </fieldset>
+            <%end%>
+          </div>
         <%end%>
-      </div>
-
       <%end%>
-
-
-<%end%>
-</fieldset>
-<%end%>
-
-
-
-
-
-<div class='submit_link'>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <%=f.submit%>
-</div>
-
+    </fieldset>
+  <%end%>
+  <div class='submit_link'>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <%=f.submit%>
+  </div>
 <%end%>
