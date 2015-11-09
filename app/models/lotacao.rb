@@ -69,6 +69,7 @@ class Lotacao < ActiveRecord::Base
     proc = self.processos.em_aberto.encaminhado.last
     proc.finalizado = true
     proc.data_finalizado = Date.today
+    proc.send(:instance_variable_set, :@readonly, false)
     if proc.save!
       self.finalizada = true
       self.data_confirmacao = Date.today
@@ -85,6 +86,7 @@ class Lotacao < ActiveRecord::Base
     proc = self.processos.last
     proc.finalizado = false
     proc.data_finalizado = nil
+    proc.send(:instance_variable_set, :@readonly, false)
     if proc.save!
       self.finalizada = false
       self.data_confirmacao = nil
