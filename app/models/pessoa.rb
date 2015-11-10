@@ -19,6 +19,7 @@ class Pessoa < ActiveRecord::Base
   has_many :lotacoes,:through=>:funcionarios
   accepts_nested_attributes_for :funcionarios
   belongs_to :entidade
+  belongs_to :cidade
   scope :diretores,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='DIRETORIA' and comissionados.ativo=true)")}
   scope :responsaveis,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='CHEFIA' and comissionados.ativo=true)")}
   scope :secretarios,lambda {joins(:funcionarios).where("funcionarios.id in(select funcionario_id from comissionados where comissionados.tipo='SECRETARIA' and comissionados.ativo=true)")}

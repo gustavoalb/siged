@@ -8,6 +8,7 @@
       <%= p.input :numero,:label=>"Nº"%>
       <%= p.input :bairro,:label=>"Bairro"%>
       <%= p.input :complemento,:label=>"Complemento"%>
+      <%= p.input :cidade_id,:label=>"Cidade",:as=>:select,:collection=>@municipios,:prompt=>true%>
       <%= p.input :cep,:label=>"CEP"%>
       <%= p.input :telefone_celular,:label=>"Celular",:input_html=>{:class=>'celular'}%>
       <%= p.input :telefone_residencial,:label=>"Telefone",:input_html=>{:class=>'telefone'}%>
@@ -19,6 +20,7 @@
         <%= f2.input :municipio_id,:label=>"Município de Concurso",:as=>:select,:collection=>@municipios,:prompt=>true%>
       <%end%>
     <%end%>
+    <%= f.input :ambiente,:label=>"Ambiente",:as=>:select,:collection=>@ambientes,:input_html=>{:default=>"Licença Prêmio Especial"},:prompt=>true%>
     <%= f.input :tipo_requisicao,:label=>"Tipo de Requisição",:as=>:select,:collection=>["Licença Prêmio Especial"],:input_html=>{:default=>"Licença Prêmio Especial"},:prompt=>true%>
     <%= f.input :periodo_id,:label=>"Período",:as=>:select,:collection=>@periodos,:prompt=>true %>
   </div>

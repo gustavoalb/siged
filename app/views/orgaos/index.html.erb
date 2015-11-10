@@ -4,12 +4,12 @@
 <%end%>
 <article class="module width_full">
   <header><h3 class="tabs_involved">Listando Orgao</h3>
-      <ul class="tabs">
-          <%= form_for @search,:url=>orgaos_url do |f| %>
-        <li><%= f.text_field :busca,:size=>13 %></li>
-        <li><%= image_submit_tag "icn_busca.png" %>
+    <ul class="tabs">
+      <%= search_form_for @q,:url=>orgaos_path do |f| %>
+        <%= f.search_field :nome_or_sigla_cont,:size=>12 %>
+        <li><%= image_submit_tag "icn_busca.png" %></li>
       <% end %>
-      </ul>
+    </ul>
   </header>
     
 		

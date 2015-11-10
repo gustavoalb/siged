@@ -35,7 +35,7 @@ gem 'railroady'
 #gem 'silent-postgres'
 
 gem 'serenity-odt','0.2.0'
-#gem 'state_machine'
+gem 'state_machine'
 #gem 'messaging', :git=> 'git://github.com/frodefi/rails-messaging.git'
 #gem 'mailboxer'
 #gem 'prototype_legacy_helper', '0.0.0', :git => 'https://github.com/rails/prototype_legacy_helper.git'
@@ -61,3 +61,4 @@ gem 'twitter-bootstrap-rails',:git=>'https://github.com/seyhunak/twitter-bootstr
 gem 'simple_form'
 gem 'less-rails'
 gem 'therubyracer'
+gem 'simple_enum', '1.6.9'

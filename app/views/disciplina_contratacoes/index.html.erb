@@ -4,12 +4,12 @@
 <%end%>
 <article class="module width_3_quarter">
   <header><h3 class="tabs_involved">Listando Disciplinas de Contratação</h3>
-    <ul class="tabs">
-     <%= form_for @search do |f| %>
-     <li><%= f.text_field :busca,:size=>13 %></li>
-     <li><%= image_submit_tag "icn_busca.png" %>
-       <% end %>
-     </ul>
+   <ul class="tabs">
+      <%= search_form_for @q,:url=>disciplina_contratacoes_path do |f| %>
+        <%= f.search_field :nome_or_codigo_cont,:size=>12 %>
+        <li><%= image_submit_tag "icn_busca.png" %></li>
+      <% end %>
+    </ul>
    </ul>
  </header>
  

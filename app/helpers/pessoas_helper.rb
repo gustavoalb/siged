@@ -1,8 +1,25 @@
 # -*- encoding : utf-8 -*-
 module PessoasHelper
+  def endereco(pessoa)
+    if !pessoa.endereco.blank? and !pessoa.numero.blank? and !pessoa.bairro.blank? and !pessoa.cidade.nil?
+      return "#{pessoa.endereco}, #{pessoa.numero}, #{pessoa.bairro}, #{detalhes(pessoa.cidade)}"
+    elsif !pessoa.endereco.blank? and !pessoa.numero.blank? and !pessoa.bairro.blank? and pessoa.cidade.nil?
+      return "#{pessoa.endereco}, #{pessoa.numero}, #{pessoa.bairro}"
+    end
+  end
 
-
-
+  def telefones(pessoa)
+    if !pessoa.telefone_celular.blank? and !pessoa.telefone_residencial.blank?
+      return "#{pessoa.telefone_celular}, #{pessoa.telefone_residencial}"
+    elsif !pessoa.telefone_celular.blank?
+      return "#{pessoa.telefone_celular}"
+    elsif !pessoa.telefone_residencial.blank?
+      return "#{pessoa.telefone_residencial}"
+    else
+      return "Nenhum telefone cadastrado."  
+    end
+  end
+  
   def local(func)
     texto=""
     if !func.lotacoes.atual.none? and func.status_lotacao=="LOTADO" or func.status_lotacao=="EM TRÂNSITO"

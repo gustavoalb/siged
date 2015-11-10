@@ -8,34 +8,36 @@
       <th>Nº Req.</th>
       <th>Matrícula</th>
       <th>Tipo</th>
-      <th>Período</th>
+      <!--<th>Período</th>-->
       <th>Status</th>
-      <th>Requerido em</th>
+      <th>Data</th>
       <th>Ações</th>
     </tr>
   </thead>
   <tbody>
     <% @requisicoes.each do |requisicao| %>
-      <tr>
-        <td><%= link_to requisicao.id, requisicao_path(requisicao) %></td>
-        <td><%= requisicao.funcionario_id %></td>
-        <td><%= requisicao.tipo_requisicao %></td>
-        <td><%= requisicao.periodo_id %></td>
-        <td><%= requisicao.status %></td>
-        <td><%= requisicao.created_at.to_s_br %></td>
-        <td>
-          <%= link_to "Editar",
-                      edit_requisicao_path(requisicao), :class => 'btn btn-mini' %>
-          <%= link_to "Cancelar",
-                      requisicao_path(requisicao,:funcionario=>@funcionario.id),
-                      :method => :delete,
-                      :data => { :confirm => "Você tem certeza?"},
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
+    <tr>
+      <td><%= link_to requisicao.id, requisicao_path(requisicao) %></td>
+      <td><%= requisicao.funcionario.matricula %></td>
+      <!-- <td><%= requisicao.tipo_requisicao %></td> -->
+      <td><%= periodo(requisicao.periodo) %></td>
+      <td><%= requisicao.status %></td>
+      <td><%= requisicao.created_at.to_s_br %></td>
+      <td>
+        <%= link_to "Editar",
+        edit_requisicao_path(requisicao), :class => 'btn btn-sm btn-default' %>
+        <%= link_to "Imprimir",
+        requisicao_requerimento_path(requisicao), :class => 'btn btn-sm btn-default' %>
+        <%= link_to "Cancelar",
+        requisicao_path(requisicao,:funcionario=>@funcionario.id),
+        :method => :delete,
+        :data => { :confirm => "Você tem certeza?"},
+        :class => 'btn btn-sm btn-danger' %>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 <%= link_to "Nova Requisição",
-            new_requisicao_path(:funcionario=>@funcionario.id),
-            :class => 'btn btn-primary' %>
+new_requisicao_path(:funcionario=>@funcionario.id),
+:class => 'btn btn-primary' %>

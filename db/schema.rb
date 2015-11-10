@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151106061454) do
+ActiveRecord::Schema.define(:version => 20151110132739) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -901,7 +901,6 @@ ActiveRecord::Schema.define(:version => 20151106061454) do
     t.string   "slug"
     t.string   "pai"
     t.string   "mae"
-    t.string   "cidade"
     t.string   "conjunto"
     t.integer  "usuario_id"
     t.boolean  "verificado"
@@ -1158,6 +1157,7 @@ ActiveRecord::Schema.define(:version => 20151106061454) do
     t.datetime "updated_at",      :null => false
     t.string   "lotacao_type"
     t.integer  "lotacao_id"
+    t.string   "ambiente"
   end
 
   create_table "roles", :force => true do |t|

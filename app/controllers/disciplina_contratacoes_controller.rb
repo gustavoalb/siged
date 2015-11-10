@@ -5,8 +5,9 @@ class DisciplinaContratacoesController < ApplicationController
   # GET /descricao_cargos.xml
   before_filter :dados_essenciais
   def index
-    @search = DisciplinaContratacao.scoped_search(params[:search])
-    @disciplina_contratacoes = @search.order(:codigo,:nome).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 10
+    @q = DisciplinaContratacao.ransack(params[:q])
+    @disciplina_contratacoes = @q.result(distinct: true).order('nome ASC').paginate :page => params[:page], :per_page => 10
+
 
     respond_to do |format|
       format.html # index.html.erb
