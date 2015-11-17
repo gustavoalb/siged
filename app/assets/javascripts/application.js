@@ -23,3 +23,11 @@
 //= require paginate
 //= require accordion
 //= require accordion_activator
+
+jQuery(document).ready(function () {
+    jQuery('#loadingmessage').bind("ajaxSend", function() {
+        jQuery(this).show();
+    }).bind("ajaxComplete", function() {
+        jQuery(this).hide();
+    });
+});
