@@ -4,7 +4,6 @@
       <th>Matrícula</th>
       <th>Funcionário</th>
       <th>Cargo</th>
-      <th>Disciplina</th>
       <th title="Regência Semanal Disponível">RSD*</th>
       <th>Horas-aula</th>
       <th></th>
@@ -17,7 +16,6 @@
         <td><%= e.funcionario.matricula %></td>
         <td><%= detalhes(e.funcionario.pessoa) %></td>
         <td><%= cargo_resumido(e.funcionario) %></td>
-        <td><%= detalhes(e.disciplina)%></td>
         <td title='<%=turmas(e.funcionario)%>'><%= cor_rsd(e.funcionario)%></td>
         <td><%= e.hora_semanal%></td>
         <td><%= link_to "Desfazer especificação", pessoa_funcionario_lotacao_apagar_especificacao_path(e.funcionario.pessoa, e.funcionario, e.lotacao, :especificacao_id=>e.id), :confirm=>"Tem certeza?" %></td>
