@@ -1,9 +1,9 @@
-<fieldset style='height: auto;'> 
-<%=compativel(@motivo,true)%> <br/>
-Carência do ambiente: <%=carencia(@ambiente.fator_ambiente(@funcionario)[1])%> <br/>
-Regência Semanal Disponível do Professor: <%=carencia(@funcionario.rsd)%><br/>
+<fieldset style='height: auto;'>
+  <%=compativel(@motivo,true)%> <br/>
+  Carência do ambiente: <%=carencia(@ambiente.fator_ambiente(@funcionario)[1])%> <br/>
+  Regência Semanal Disponível do Professor: <%= cor_rsd(@funcionario)%><br/>
 </fieldset style='height: auto;'>
 <%=hidden_field :especificar_lotacao,:ambiente_id,:value=>@ambiente.id%>
 <fieldset style='height: auto;'>
-<%= submit_tag 'Espeficar Lotação'%>
+  <%= submit_tag 'Espeficar Lotação'%>
 </fieldset>

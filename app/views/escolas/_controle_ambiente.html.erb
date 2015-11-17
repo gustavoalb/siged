@@ -1,0 +1,30 @@
+<table class="tablesorter" cellspacing="0" style='overflow-y: scroll;'>
+  <thead>
+    <tr>
+      <th>Matrícula</th>
+      <th>Funcionário</th>
+      <th>Cargo</th>
+      <th>Disciplina</th>
+      <th title="Regência Semanal Disponível">RSD*</th>
+      <th>Horas-aula</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @especificacoes.each do |e| %>
+      <tr>
+        <td><%= e.funcionario.matricula %></td>
+        <td><%= detalhes(e.funcionario.pessoa) %></td>
+        <td><%= cargo_resumido(e.funcionario) %></td>
+        <td><%= detalhes(e.disciplina)%></td>
+        <td title='<%=turmas(e.funcionario)%>'><%= cor_rsd(e.funcionario)%></td>
+        <td><%= e.hora_semanal%></td>
+        <td><%= link_to "Desfazer especificação", pessoa_funcionario_lotacao_apagar_especificacao_path(e.funcionario.pessoa, e.funcionario, e.lotacao, :especificacao_id=>e.id), :confirm=>"Tem certeza?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class='submit_link'>
+  <%=link_to "Voltar para a lista de ambientes", escola_listar_ambientes_path,:remote=>true%>
+</div>

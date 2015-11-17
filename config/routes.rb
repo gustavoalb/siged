@@ -23,7 +23,9 @@ Siged20::Application.routes.draw do
 
   resources :escolas do
     get :controle_turma
+    get :controle_ambiente
     get :listar_turmas
+    get :listar_ambientes
     get :incluir_turma
     post :salvar_turma
     get :configuracoes

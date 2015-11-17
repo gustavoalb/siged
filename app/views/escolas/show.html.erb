@@ -20,8 +20,9 @@
           <li><a href="#tab-um">Detalhes</a></li>
           <li><a href="#tab-dois">Quadro funcional</a></li>
           <li><a href="#tab-tres">Turmas</a></li>
-          <li><a href="#tab-quatro">Lotações à confirmar</a></li>
-          <li><a href="#tab-cinco">Controle de CH</a></li>
+          <li><a href="#tab-quatro">Ambientes</a></li>
+          <li><a href="#tab-cinco">Lotações à confirmar</a></li>
+          <li><a href="#tab-seis">Controle de CH</a></li>
         </ul>
       <%end%>
       <div class="tabset_content_container">
@@ -99,6 +100,9 @@
         </div>
         <div id="tab-three" class="tabset_content" style='overflow-y: scroll; height: 340px;'>
           <%=render :partial=>'turmas'%>
+        </div>
+        <div id="tab-six" class="tabset_content" style='overflow-y: scroll; height: 340px;'>
+          <%=render :partial=>'ambientes'%>
         </div>
         <div id="tab-four" class="tabset_content" style='overflow-y: scroll; height: 340px;'>
           <%=render :partial=>'lotacao'%>

@@ -57,9 +57,22 @@ class Funcionario < ActiveRecord::Base
   scope :direcao, joins(:comissionados).where("comissionados.ativo=? and comissionados.tipo=?",true,'DIRETORIA')
   after_create :criar_comissionado
   attr_accessor(:nome) {pessoa.nome}
-  attr_accessor(:rsn) {self.regencia_semanal_nominal}
-  attr_accessor(:rsd) {self.regencia_semanal_disponivel}
+  #attr_accessor(:rsn) {self.regencia_semanal_nominal}
+  #attr_accessor(:rsd) {self.regencia_semanal_disponivel}
   attr_accessor(:disciplina) {self.disciplina_nome}
+
+  def rsn
+    return self.regencia_semanal_nominal
+  end
+
+  def rsd
+    return self.regencia_semanal_disponivel
+  end
+
+
+
+
+
   def aposentadoria
     self.data_nomeacao.months_since(300)
   end

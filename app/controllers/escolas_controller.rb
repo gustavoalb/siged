@@ -31,6 +31,7 @@ class EscolasController < ApplicationController
     @outros_cargos = Cargo.where("id not in (?)",@cargos_principais).order(:nome)
     @funcionarios_cargos_principais = @escola.funcionarios.where("cargo_id in (?)",@cargos_principais).group_by{|t|t.cargo}
     @funcionarios_outros = @escola.funcionarios.where("cargo_id in (?)",@outros_cargos)
+    @ambientes = @escola.ambientes
 
     @encaminhados = @escola.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",false,true)
     if !@escola.ambientes.none?
@@ -115,6 +116,16 @@ class EscolasController < ApplicationController
     end
   end
 
+  def controle_ambiente
+    @escola = Escola.find(params[:escola_id])
+    @ambiente = @escola.ambientes.find_by_id(params[:ambiente])
+    @especificacoes = @ambiente.especificacoes
+    render :update do |page|
+      page.visual_effect :highlight,"tab-six"
+      page.replace_html "tab-six", :partial=>"controle_ambiente"
+    end
+  end
+
   def gerar_controle_ch
     @escola = Escola.find(params[:escola_id])
     @matrizes = @escola.matrizes
@@ -183,11 +194,20 @@ class EscolasController < ApplicationController
 
   def listar_turmas
     @escola = Escola.find(params[:escola_id])
-    @ambiente = @escola.ambientes.find_by_nome("Sala de Aula")
     @turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
     render :update do |page|
       page.visual_effect :highlight,"tab-three"
       page.replace_html "tab-three", :partial=>"turmas"
+    end
+  end
+
+  def listar_ambientes
+    @escola = Escola.find(params[:escola_id])
+    @ambientes = @escola.ambientes - @escola.ambientes.where(:nome=>"Sala de Aula")
+    #@turmas = Turma.find(:all,:joins=>[:serie],:conditions=>["ambiente_id= ? and escola_id = ?",@ambiente.id,@escola.id],:order => 'turno,series.nome')
+    render :update do |page|
+      page.visual_effect :highlight,"tab-six"
+      page.replace_html "tab-six", :partial=>"ambientes"
     end
   end
 
