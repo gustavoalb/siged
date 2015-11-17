@@ -10,6 +10,7 @@ class Orgao < ActiveRecord::Base
   belongs_to :poder, :class_name=>"Poder"
   belongs_to :tipo_destino
   has_many :funcionarios,:through=>:lotacoes,:include=>[:pessoa],:conditions=>["lotacaos.ativo = ?",true],:order=>"pessoas.nome asc"
+  has_many :funcionarios_do_orgao,:through=>:departamentos,:source=>:funcionarios
   has_many :lotacoes,:class_name=>"Lotacao",:dependent=>:destroy,:as=>:destino
   has_many :escolas
   has_many :departamentos,:dependent=>:destroy

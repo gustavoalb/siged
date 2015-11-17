@@ -10,6 +10,16 @@ module LotacaosHelper
   end
 end
 
+def municipio_lotacao(lot)
+    if lot and lot.destino_type=="Escola" and lot.destino.municipio
+        return lot.destino.municipio.nome
+    elsif lot and lot.destino_type=="Departamento"
+        return "Macapá"
+    else
+        return "NADA CADASTRADO"
+    end
+end
+
 def municipio(func)
   if func.municipio and func.distrito and func.distrito.tipo.blank?
     return raw("#{func.municipio.nome}/#{func.distrito.nome }")
@@ -103,8 +113,8 @@ end
 
 
 def destino_ponto(lotacao)
-   if lotacao
-       if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
+ if lotacao
+     if lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.departamento.nil? and lotacao.escola.nil?
         return "#{lotacao.departamento.sigla}/#{lotacao.orgao.sigla}"
     elsif lotacao.tipo_lotacao=="ESPECIAL" and !lotacao.escola.nil?
         return "#{lotacao.escola.nome}/#{lotacao.orgao.sigla}"

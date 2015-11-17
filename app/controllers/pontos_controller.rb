@@ -155,7 +155,7 @@ class PontosController < ApplicationController
       @obj_tipo = "Escola"
     end
 
-    @funcionarios = @objeto.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",true,true).paginate :page => params[:page], :order => 'created_at DESC', :per_page => 8
+    @funcionarios = @objeto.funcionarios.joins(:lotacoes).where("lotacaos.finalizada = ? and lotacaos.ativo = ?",true,true).uniq.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 8
     #@cargos_principais = Cargo.where("id in (?)",[Cargo.find_by_nome("PEDAGOGO").id,Cargo.find_by_nome("PROFESSOR").id,Cargo.find_by_nome("ESPECIALISTA DE EDUCACAO").id,Cargo.find_by_nome("AUXILIAR EDUCACIONAL").id,Cargo.find_by_nome("CUIDADOR").id,Cargo.find_by_nome("INTERPRETE").id]).order(:nome)
     #@outros_cargos = Cargo.where("id not in (?)",@cargos_principais).order(:nome)
     #@funcionarios_cargos_principais = @objeto.funcionarios.where("cargo_id in (?)",@cargos_principais).group_by{|t|t.cargo}
