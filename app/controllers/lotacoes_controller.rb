@@ -170,7 +170,7 @@ class LotacoesController < ApplicationController
       @turma = Turma.find params[:turma]
       @serie = @turma.serie
       #@disciplinas = @serie.disciplinas.where("disciplinas.id in (?)",@funcionario.ids_disciplinas).uniq.collect{|d|[d.nome,d.id]}
-      @disciplinas = @serie.disciplinas.find(:all,:order=>'nome asc').uniq
+      @disciplinas = @serie.disciplinas.find(:all,:order=>'nome asc').uniq.collect{|d|[d.nome,d.id]}
       render :partial=>"disciplinas"
     else
       render :nothing=>true

@@ -9,3 +9,7 @@
  *= require auto_complete
  *= require verticalaccordion
 */
+
+#loadingmessage {
+    display:none;
+}
