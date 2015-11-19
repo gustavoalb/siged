@@ -94,7 +94,7 @@ class FuncionariosController < ApplicationController
     if params[:categoria].size>0
       @categoria = Categoria.find(params[:categoria])
       @municipios= Municipio.order(:nome).collect{|m|[m.nome,m.id]}
-      if @categoria.nome=="Estado Novo" or @categoria.nome=="Contrato Administrativo"
+      if @categoria.nome=="Estado Novo" or @categoria.nome=="Contrato Administrativo" or @categoria.nome=="Concurso de 2012"
         render :partial=>"municipio"
       else
         render :partial=>"sem_distritos"
