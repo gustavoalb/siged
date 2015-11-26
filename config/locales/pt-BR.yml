@@ -14,6 +14,10 @@
   October: "Outubro"
   November: "Novembro"
   December: "Dezembro"
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próxima &#8594;"
+    page_gap: ""
   date:
     formats:
       default: "%d/%m/%Y"
@@ -258,8 +262,3 @@
 
       full_messages:
         format: "%{attribute} %{message}"
-
-  will_paginate:
-    previous_label: "&#8592; Anterior"
-    next_label: "Próxima &#8594;"
-    page_gap: "&hellip;"

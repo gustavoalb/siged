@@ -160,10 +160,10 @@ class PessoasController < ApplicationController
 
   def qualificar
     @pessoa = Pessoa.find(params[:pessoa_id])
-    @funcionarios = @pessoa.funcionarios.all
+    @funcionarios = @pessoa.funcionarios.ativos
     @funcionario = @pessoa.funcionarios.first
     @departamento = Departamento.find(params[:departamento])
-    @lotacoes = @pessoa.funcionarios.last.lotacoes.all
+    @lotacoes = @pessoa.lotacoes
     respond_to do |format|
       format.html # show.html.erb
       format.pdf do

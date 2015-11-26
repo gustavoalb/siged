@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151110132739) do
+ActiveRecord::Schema.define(:version => 20151126170345) do
 
   create_table "add_usuario_to_pontos", :force => true do |t|
     t.integer  "usuario_id"
@@ -667,6 +667,7 @@ ActiveRecord::Schema.define(:version => 20151110132739) do
     t.boolean  "interiorizacao",              :default => false
     t.integer  "interiorizacao_valor"
     t.integer  "interiorizacao_rubrica"
+    t.boolean  "ativo",                       :default => true
   end
 
   add_index "funcionarios", ["cargo_id"], :name => "index_funcionarios_on_cargo_id"

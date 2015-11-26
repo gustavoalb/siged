@@ -297,8 +297,10 @@ class FuncionariosController < ApplicationController
       if @funcionario.update_attributes(params[:funcionario])
         format.html { redirect_to(pessoa_funcionario_url(@pessoa,@funcionario), :notice => 'Funcionário atualizado com sucesso.') }
         format.xml  { head :ok }
+        format.json { respond_with_bip(@funcionario) }
       else
         format.html { render :action => "edit" }
+        format.json { respond_with_bip(@funcionario) }
         format.xml  { render :xml => @funcionario.errors, :status => :unprocessable_entity }
       end
     end
@@ -330,7 +332,7 @@ class FuncionariosController < ApplicationController
   end
   private
   def pessoa
-    @pessoa = Pessoa.find(params[:pessoa_id])
+    @pessoa = Pessoa.find_by_slug(params[:pessoa_id])
   end
 
   def dest(lotacao,f)

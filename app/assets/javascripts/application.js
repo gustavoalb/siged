@@ -23,6 +23,8 @@
 //= require paginate
 //= require accordion
 //= require accordion_activator
+//= require best_in_place
+//= require best_in_place.jquery-ui
 
 jQuery(document).ready(function () {
     jQuery('#loadingmessage').bind("ajaxSend", function() {
@@ -30,4 +32,9 @@ jQuery(document).ready(function () {
     }).bind("ajaxComplete", function() {
         jQuery(this).hide();
     });
+});
+
+jQuery(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
 });

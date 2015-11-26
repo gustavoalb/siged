@@ -1,13 +1,13 @@
 <script type="text/javascript">
   // controls character input/counter
-  jQuery('textarea#body').keyup(function() {
-    var charLength = jQuery(this).val().length;
-  // Displays count
-  jQuery('span#charCount').html(charLength + ' of 250 characters used');
-  // Alerts when 250 characters is reached
-  if(jQuery(this).val().length > 230)
-    jQuery('span#charCount').html('<strong>You may only have up to 230 characters.</strong>');
-  });
+        jQuery('textarea#body').keyup(function() {
+          var charLength = jQuery(this).val().length;
+        // Displays count
+        jQuery('span#charCount').html(charLength + ' of 250 characters used');
+        // Alerts when 250 characters is reached
+        if(jQuery(this).val().length > 230)
+          jQuery('span#charCount').html('<strong>You may only have up to 230 characters.</strong>');
+        });
 </script>
 <%content_for :links do%>
   <%=link_to "Pessoas",pessoas_path%>
@@ -23,7 +23,7 @@
   <div class="module_content">
     <div id="tabs1" class="tabset">
       <ul class="tabset_tabs">
-        <%if can? :create,Lotacao%>
+        <%if can? :create,Lotacao and @funcionario.ativo%>
           <li class="active"><a href="#tab-um">Novo Processo de Lotação</a></li>
         <%end%>
         <li><a href="#tab-dois">Lotações em Aberto</a></li>
@@ -31,7 +31,7 @@
         <li><a href="#tab-quatro">Histórico de Processos</a></li>
       </ul>
       <div class="tabset_content_container">
-        <%if can? :create,Lotacao%>
+        <%if can? :create,Lotacao and @funcionario.ativo%>
           <div id="tab-one" class="tabset_content">
             <%= form_for @lotacao,:url=>pessoa_funcionario_lotacoes_url do |f| %>
               <% if @lotacao.errors.any? %>
