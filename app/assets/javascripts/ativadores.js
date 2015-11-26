@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function () {
     jQuery('#loadingmessage').bind("ajaxSend", function() {
         jQuery(this).show();
