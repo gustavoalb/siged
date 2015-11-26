@@ -3,11 +3,12 @@
 <%end%>
 <article class="module width_full">
   <header>
-    <h3 class="tabs_involved">Listando pessoas</h3>
     <ul class="tabs">
       <%= search_form_for @q do |f| %>
-        <%= f.search_field :nome_or_cpf_or_rg_or_funcionarios_matricula_or_lotacoes_codigo_barra_cont,:size=>12 %>
-        <li><%= image_submit_tag "icn_busca.png" %></li>
+        <%= f.search_field :nome_or_cpf_or_rg_or_funcionarios_matricula_or_lotacoes_codigo_barra_cont,:size=>12%>
+        Sem lotação? <%= check_box_tag :sem_lotacao,true,false,{checked: params[:sem_lotacao]} %>
+        Dois vínculos? <%= check_box_tag :mais_de_um_vinculo,true,false,{checked: params[:mais_de_um_vinculo]}%>
+        <%= image_submit_tag "icn_busca.png" %>
       <% end %>
     </ul>
   </header>
@@ -15,7 +16,7 @@
     <div id="pessoas" class="verticalaccordion">
       <p>
         <ul>
-          <% if @pessoas.size>0 -%>
+          <% if @pessoas.any? -%>
             <% @pessoas.each do |pessoa| %>
               <li>
                 <header>
@@ -111,7 +112,7 @@
             <%= link_to 'Voltar', :back,:type=>"submit" %>
           </div>
           <div class="submit_link">
-            <%= will_paginate @pessoas, :loading=>:highlight%>
+            <%= will_paginate @pessoas, :loading=>:highlight,:inner_window=>1,:outer_window=>-1%>
           </div>
         </footer>
       </div>
