@@ -297,10 +297,10 @@ class FuncionariosController < ApplicationController
       if @funcionario.update_attributes(params[:funcionario])
         format.html { redirect_to(pessoa_funcionario_url(@pessoa,@funcionario), :notice => 'Funcionário atualizado com sucesso.') }
         format.xml  { head :ok }
-        format.json { respond_with_bip(@funcionario) }
+        format.json { render json: @funcionario }
       else
         format.html { render :action => "edit" }
-        format.json { respond_with_bip(@funcionario) }
+        format.json { render json: @funcionario }
         format.xml  { render :xml => @funcionario.errors, :status => :unprocessable_entity }
       end
     end
