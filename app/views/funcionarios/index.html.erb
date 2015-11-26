@@ -37,7 +37,15 @@
             <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), pessoa_funcionario_path(@pessoa,funcionario), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
           <%end-%>
           <%if can? :update,Funcionario%>
-            <td><%= best_in_place funcionario, :ativo, :as=>:select,:collection=>[[true,"Ativo"],[false,"Inativo"]],tabindex: "1",:url=>pessoa_funcionario_path(@pessoa,funcionario) %></td>
+            <td>
+              <div id='ativo-<%=funcionario.matricula%>'>
+                <%if funcionario.ativo%>
+                  <%= button_to "Ativo",pessoa_funcionario_desativar_funcionario_path(@pessoa,funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+                <%else !funcionario.ativo%>
+                  <%= button_to "Inativo",pessoa_funcionario_ativar_funcionario_path(@pessoa,funcionario),:remote=>true,:method=>:post,:class=>'alt_btn_dng'%>
+                <%end%>
+              </div>
+            </td>
           <%end%>
           <%if can? :manage,Lotacao %>
             <td><%= link_to  image_tag('/images/icn_categories.png',:title=>"Lotação Funcional"),  pessoa_funcionario_lotacoes_path(@pessoa,funcionario)%></td>

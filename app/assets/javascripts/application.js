@@ -23,6 +23,3 @@
 //= require paginate
 //= require accordion
 //= require accordion_activator
-//= require best_in_place
-//= require best_in_place.jquery-ui
-//= require ativadores

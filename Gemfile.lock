@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/bernat/best_in_place.git
-  revision: f6f108ecaba04d9990ceea03df00ca6006bb9b0f
-  specs:
-    best_in_place (3.0.3)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
-
-GIT
   remote: https://github.com/rails/prototype_legacy_helper.git
   revision: a2cd95c3e3c1a4f7a9566efdab5ce59c886cb05f
   specs:
@@ -265,7 +257,6 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.2.2)
   ajax_pagination
   barby
-  best_in_place!
   brazilian-rails (= 3.1.0)
   calendar_date_select
   cancan

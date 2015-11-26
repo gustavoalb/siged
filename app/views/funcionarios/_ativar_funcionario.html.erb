@@ -1,0 +1,5 @@
+<%if @funcionario.ativo%>
+  <%= button_to "Ativo",pessoa_funcionario_desativar_funcionario_path(@pessoa,@funcionario),:remote=>true,:method=>:post,:class=>'alt_btn'%>
+<%else !@funcionario.ativo%>
+  <%= button_to "Inativo",pessoa_funcionario_ativar_funcionario_path(@pessoa,@funcionario),:remote=>true,:method=>:post,:class=>'alt_btn_dng'%>
+<%end%>

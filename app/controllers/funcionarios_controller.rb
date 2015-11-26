@@ -38,6 +38,26 @@ class FuncionariosController < ApplicationController
     end
   end
 
+  def ativar_funcionario
+    @funcionario = Funcionario.find(params[:funcionario_id])
+    @funcionario.ativo = true
+    if @funcionario.save!(:validate=>false)
+      render :update do |page|
+        page.replace_html "ativo-#{@funcionario.matricula}", :partial=>"ativar_funcionario"
+      end
+    end
+  end
+
+  def desativar_funcionario
+    @funcionario = Funcionario.find(params[:funcionario_id])
+    @funcionario.ativo = false
+    if @funcionario.save!(:validate=>false)
+      render :update do |page|
+        page.replace_html "ativo-#{@funcionario.matricula}", :partial=>"ativar_funcionario"
+      end
+    end
+  end
+
   def cargo
     if params[:disciplina].size>0
       @cargo = Cargo.find(params[:disciplina])

@@ -238,6 +238,8 @@ Siged20::Application.routes.draw do
     post "salvar_lista"
     resources :formacoes
     resources :funcionarios do
+      post :ativar_funcionario
+      post :desativar_funcionario
       post :verificar_funcionario
       post :desverificar_funcionario
       resources :comissionados do
