@@ -53,7 +53,7 @@ class Ponto < ActiveRecord::Base
     r.add_field "CARGO",cargo_disciplina(funcionario)
     r.add_field "LOTACAO",detalhes(self.lotacao.destino)
     r.add_field "USER", self.usuario.name
-    r.add_field "MES", I18n.l(Date.today,:format=>"%B/%Y").upcase
+    r.add_field "MES", I18n.l(self.data,:format=>"%B/%Y").upcase
     r.add_table("DIAS", dias, :header=>true) do |t|
       t.add_column("DIA") { |d| d.day }
       t.add_column("FERIADO") { |d| if d.saturday? then "SÁBADO" elsif d.sunday? then "DOMINGO" elsif d.feriado? then "FERIADO" end }
