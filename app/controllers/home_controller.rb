@@ -15,4 +15,7 @@ class HomeController < ApplicationController
     # @i_especificados = Rails.cache.fetch('i_especificados', :expires_in => 24.hours) {Funcionario.find(:all,:joins=>:especificacoes,:conditions=>["cargo_id = ? and disciplina_contratacao_id is null",Cargo.find_by_nome("PROFESSOR")]).uniq}
     @noticias = Mensagem.noticias.order(:created_at)
   end
+
+  def home
+  end
 end
