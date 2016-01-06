@@ -1,64 +1,59 @@
 <%content_for :links do%>
-<%=link_to "Orgãos",orgaos_path%><div class="breadcrumb_divider"></div><a class="current">Departamentos</a>
-
+  <%=link_to "Orgãos",orgaos_path%>
+  <div class="breadcrumb_divider"></div>
+  <a class="current">Departamentos</a>
 <%end%>
 <article class="module width_full">
-  <header><h3 class="tabs_involved">Listando Setores: <%=@orgao.sigla%></h3>
-      <ul class="tabs">
-          <%= form_for @search,:url=>orgao_departamentos_url(@orgao) do |f| %>
-        <li><%= f.text_field :busca,:size=>13 %></li>
+  <header>
+    <h3 class="tabs_involved">Listando Setores: <%=@orgao.sigla%></h3>
+    <ul class="tabs">
+      <%= search_form_for @q,:url=>orgao_departamentos_url(@orgao) do |f| %>
+        <li><%= f.search_field :nome_or_sigla_cont,:size=>13 %></li>
         <li><%= image_submit_tag "icn_busca.png" %>
-      <% end %>
+        <% end %>
       </ul>
-  </header>
-
-  
-      
-
-
-        <table class='tablesorter' cellspacing="0">
-            <thead>
-              <tr>
-                <th>Denominação</th>
-                <th align=center>Sigla</th>
-                <th align=center>Telefone</th>
-                <th align=center>Vinculação</th>
-                <th align=center>Responsável</th>
-                <%if current_user.role?("gabinete")%>
-                <th>Telefones</th>
-                <%end%>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @departamentos.each do |departamento| %>
-            <tr class='<%= cycle("odd", "even", :name => "row_class") -%>'>
-                <td width=30%><%= departamento.nome %></td>
-                <td width=1% align=center><%= departamento.sigla %></td>
-                <td width=13%><%= departamento.telefone %></td>
-                <td align=center><%= pai(departamento)%></td>
-                <td><%= detalhes(departamento.responsavel) %></td>
-                <%if current_user.role?("gabinete")%>
-                <td><%=telefones(departamento.responsavel.pessoa.nome)%></td>
-                <%end%>
-                <%if can? :manage,Departamento%>
-                <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_orgao_departamento_path(@orgao,departamento) %></td>
-                <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), orgao_departamento_path(@orgao,departamento), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
-                <%end%>
-            </tr>
-            <% end %>
-        </tbody>
+    </header>
+    <table class='tablesorter' cellspacing="0">
+      <thead>
+        <tr>
+          <th>Denominação</th>
+          <th align=center>Sigla</th>
+          <th align=center>Telefone</th>
+          <th align=center>Vinculação</th>
+          <th align=center>Responsável</th>
+          <%if current_user.role?("gabinete")%>
+            <th>Telefones</th>
+          <%end%>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @departamentos.each do |departamento| %>
+          <tr class='<%= cycle("odd", "even", :name => "row_class") -%>'>
+            <td width=30%><%= departamento.nome %></td>
+            <td width=1% align=center><%= departamento.sigla %></td>
+            <td width=13%><%= departamento.telefone %></td>
+            <td align=center><%= pai(departamento)%></td>
+            <td><%= detalhes(departamento.responsavel) %></td>
+            <%if current_user.role?("gabinete")%>
+              <td><%=telefones(departamento.responsavel.pessoa.nome)%></td>
+            <%end%>
+            <%if can? :manage,Departamento%>
+              <td><%= link_to  image_tag('/images/icn_edit.png',:title=>"Editar"), edit_orgao_departamento_path(@orgao,departamento) %></td>
+              <td><%= link_to  image_tag("/images/icn_trash.png",:title=>"Apagar"), orgao_departamento_path(@orgao,departamento), :confirm => 'Tem certeza que deseja Apagar?', :method => :delete %></td>
+            <%end%>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
-
-
-<footer>
-    <div class="submit_link">
-     <%= link_to 'Cadastrar Departamento', new_orgao_departamento_path(@orgao),:class=>"alt_btn",:type=>"submit"%> ou
+    <footer>
+      <div class="submit_link">
+        <%= link_to 'Cadastrar Departamento', new_orgao_departamento_path(@orgao),:class=>"alt_btn",:type=>"submit"%> ou
      <%= link_to 'Voltar', :back,:type=>"submit" %>
- </div>
- <div class="submit_link">
-   <%= will_paginate @departamentos %>
-</div>
-</footer>
-</article>
+      </div>
+      <div class="submit_link">
+        <%= will_paginate @departamentos %>
+      </div>
+    </footer>
+  </article>
