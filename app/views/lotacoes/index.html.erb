@@ -1,13 +1,13 @@
 <script type="text/javascript">
   // controls character input/counter
-            jQuery('textarea#body').keyup(function() {
-              var charLength = jQuery(this).val().length;
-            // Displays count
-            jQuery('span#charCount').html(charLength + ' of 250 characters used');
-            // Alerts when 250 characters is reached
-            if(jQuery(this).val().length > 230)
-              jQuery('span#charCount').html('<strong>You may only have up to 230 characters.</strong>');
-            });
+              jQuery('textarea#body').keyup(function() {
+                var charLength = jQuery(this).val().length;
+              // Displays count
+              jQuery('span#charCount').html(charLength + ' of 250 characters used');
+              // Alerts when 250 characters is reached
+              if(jQuery(this).val().length > 230)
+                jQuery('span#charCount').html('<strong>You may only have up to 230 characters.</strong>');
+              });
 </script>
 <%content_for :links do%>
   <%=link_to "Pessoas",pessoas_path%>
@@ -79,7 +79,7 @@
                   <tr>
                     <td><b><label>Data da Lotação</label> </b></td>
                     <td>
-                      <% if (@funcionario.categoria and @funcionario.categoria.nome.include?("Contrato")) or current_user.role?(:chefia_ucolom%>
+                      <% if (@funcionario.categoria and @funcionario.categoria.nome.include?("Contrato")) or current_user.role?(:chefia_ucolom)%>
                         <%= f.text_field :data_lotacao,:class=>"date",:value=>Date.today%>
                       <% else %>
                         <%= f.text_field :data_lotacao,:class=>"date",:value=>Date.today,:readonly=>true%>
