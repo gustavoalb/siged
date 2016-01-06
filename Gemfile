@@ -31,6 +31,7 @@ gem "wkhtmltopdf", "~> 0.1.2"
 gem 'barby'
 #gem 'rmagick', '2.13.3'
 gem 'railroady'
+gem "secure_headers", require: 'secure_headers'
 #gem 'axlsx'
 #gem 'silent-postgres'
 
