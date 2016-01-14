@@ -231,7 +231,7 @@ class FuncionariosController < ApplicationController
       r.add_image :codigo_barras,  "/tmp/barcode-#{@funcionario.matricula}-#{@lotacao.id}.png"
     end
     arquivo_carta = carta.generate("/tmp/carta-#{@funcionario.matricula}.odt")
-    system "unoconv -f pdf /tmp/carta-#{@funcionario.matricula}.odt"
+    system "unoconv /tmp/carta-#{@funcionario.matricula}.odt"
     f = File.open("/tmp/carta-#{@funcionario.matricula}.pdf",'r')
     send_file(f,:filename=>"Carta de Apresentaçao - #{@pessoa.nome} - #{@funcionario.matricula}.pdf",:content_type=>"application/pdf")
   end
