@@ -248,11 +248,7 @@ class LotacoesController < ApplicationController
     @pessoa = @funcionario.pessoa
     @lotacao = Lotacao.finalizada.find(params[:lotacao_id])
     @lotacao.devolve_funcionario(motivo)
-    if @lotacao.tipo_lotacao=="REGULAR" or @lotacao.tipo_lotacao=="SUMARIA" or !current_user.role?(:lotacao)
-      redirect_to escola_path(@lotacao.destino),:anchor=>"tab-dois", :notice => 'Funcionário Devolvido ao NUPES'
-    elsif @lotacao.tipo_lotacao=="ESPECIAL" or @lotacao.tipo_lotacao=="SUMARIA ESPECIAL" or current_user.role?(:lotacao)
-      redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
-    end
+    redirect_to pessoa_funcionario_lotacoes_path(@pessoa,@funcionario), :notice => 'Funcionário Devolvido ao NUPES'
   end
 
   def salvar_convalidacao
