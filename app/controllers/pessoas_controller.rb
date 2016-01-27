@@ -11,11 +11,11 @@ class PessoasController < ApplicationController
     if params[:q] and params[:q].size>0
       @busca = params[:q][:nome_or_cpf_or_rg_or_funcionarios_matricula_cont]
       if params[:sem_lotacao]=="true" and params[:mais_de_um_vinculo].nil?
-        @pessoas = @q.result.order('nome ASC').sem_lotacao.uniq.paginate :page => params[:page], :per_page => 10
+        @pessoas = @q.result.order('nome ASC').sem_lotacao.paginate :page => params[:page], :per_page => 10
       elsif params[:mais_de_um_vinculo]=="true" and params[:sem_lotacao].nil?
-        @pessoas = @q.result.order('nome ASC').mais_de_um_vinculo.uniq.paginate :page => params[:page], :per_page => 10
+        @pessoas = @q.result.order('nome ASC').mais_de_um_vinculo.paginate :page => params[:page], :per_page => 10
       elsif params[:sem_lotacao]=="true" and params[:mais_de_um_vinculo]=="true"
-        @pessoas = @q.result.order('nome ASC').sem_lotacao_com_mais_de_um_vinculo.uniq.paginate :page => params[:page], :per_page => 10
+        @pessoas = @q.result.order('nome ASC').sem_lotacao_com_mais_de_um_vinculo.paginate :page => params[:page], :per_page => 10
       else
         @pessoas = @q.result(distinct: true).order('nome ASC').paginate :page => params[:page], :per_page => 10
       end
