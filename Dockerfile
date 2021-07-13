@@ -1,4 +1,4 @@
-FROM ruby:1.9.3
+FROM ruby:2.1.1
 
 #ENV BUNDLER_VERSION="2.2.14"
 #ENV DBHOST=10.142.0.12
@@ -9,7 +9,7 @@ RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 #COPY Gemfile.lock /myapp/Gemfile.lock
-RUN gem install bundler -v "~> 1.16"
+RUN gem install bundler
 RUN gem env
 COPY . /myapp
 RUN bundle install -V

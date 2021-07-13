@@ -19,7 +19,7 @@ que ainda está ativo em 2021.
 
 - Ruby 1.9.3
 - Rails 3.2.0
-- PostgreSQL 8.4
+- PostgreSQL 9.4
 - jQuery
 - Bootstrap 2
 

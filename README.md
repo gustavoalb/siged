@@ -5,9 +5,9 @@
 
 This was a system designed with the intent to automate, standardize, measure
 and control the workflow of the State Department of Education of Amapá, Brazil.
-It's objective was to avoid waste and irregularities in the managment of human resources, 
+It's objective was to avoid waste and irregularities in the management of human resources, 
 lessening the need to hire temporary or permanent public teachers/education employees,
-then, save public budget to apply in improving the schools infraestructure, 
+then, save public budget to apply in improving the schools infrastructure, 
 justify the need of opening positions for such employees, improving the quality of the education as result.
 
 It reached it's goal in 2013, saving about 100.000 USD/month from 2011 to 2013, 
@@ -17,7 +17,7 @@ and the resulting data was used to feed an unified Governmental HR System that's
 
 - Ruby 1.9.3
 - Rails 3.2.0
-- PostgreSQL 8.4
+- PostgreSQL 9.4
 - jQuery
 - Bootstrap 2
 
